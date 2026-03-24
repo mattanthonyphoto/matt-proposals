@@ -1,0 +1,1936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Site Audit — Summerhill Fine Homes</title>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1A1A18;
+    --paper: #F6F4F0;
+    --gold: #C9A96E;
+    --gold-dim: rgba(201,169,110,0.12);
+    --gold-border: rgba(201,169,110,0.25);
+    --gold-glow: rgba(201,169,110,0.06);
+    --stone: #8A8579;
+    --white: #FFFFFF;
+    --light: #FAFAF8;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { font-size:16px; -webkit-print-color-adjust:exact; print-color-adjust:exact; scroll-behavior:smooth; }
+  body { background:var(--white); color:var(--ink); font-family:'DM Sans',sans-serif; font-weight:300; line-height:1.75; overflow-x:hidden; }
+
+
+  /* ═══════════════════════════════════════
+     COVER — FULL BLEED CINEMATIC
+     ═══════════════════════════════════════ */
+  .cover {
+    min-height:100vh; background:var(--ink); color:var(--paper);
+    display:flex; flex-direction:column; justify-content:flex-end;
+    padding:0 0 0 0; position:relative; page-break-after:always; overflow:hidden;
+  }
+  .cover-image {
+    position:absolute; top:0; left:0; width:100%; height:100%;
+    background-image:url("https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/312b0797-a43a-4a51-906e-f913c78c7b79/fitzsimmons-whistler-architectural-photography-matt-anthony-.jpg-3.jpg");
+    background-size:cover; background-position:center 25%;
+  }
+  .cover-image::after {
+    content:''; position:absolute; top:0; left:0; width:100%; height:100%;
+    background:linear-gradient(
+      to bottom,
+      rgba(26,26,24,0.3) 0%,
+      rgba(26,26,24,0.1) 30%,
+      rgba(26,26,24,0.4) 60%,
+      rgba(26,26,24,0.92) 85%,
+      rgba(26,26,24,0.98) 100%
+    );
+  }
+  .cover-top {
+    position:absolute; top:0; left:0; right:0; z-index:3;
+    padding:40px 60px; display:flex; justify-content:space-between; align-items:center;
+  }
+  .cover-logo {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.35em; text-transform:uppercase; color:rgba(246,244,240,0.6);
+  }
+  .cover-date {
+    font-family:'Josefin Sans',sans-serif; font-size:0.65rem;
+    letter-spacing:0.2em; color:rgba(246,244,240,0.4);
+  }
+  .cover-content {
+    position:relative; z-index:2; padding:0 60px 80px;
+    max-width:720px;
+  }
+  .cover-eyebrow {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.4em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:20px; display:flex; align-items:center; gap:16px;
+  }
+  .cover-eyebrow::before {
+    content:''; width:32px; height:1px; background:var(--gold);
+  }
+  .cover h1 {
+    font-family:'Cormorant Garamond',serif; font-weight:400;
+    font-size:clamp(3rem,6vw,5rem); line-height:1.05; margin-bottom:20px;
+    letter-spacing:-0.01em;
+  }
+  .cover h1 em {
+    font-style:italic; font-weight:500; color:var(--gold);
+  }
+  .cover-sub {
+    font-size:1rem; color:rgba(246,244,240,0.55); max-width:480px;
+    line-height:1.8; margin-bottom:56px;
+  }
+  .cover-meta-bar {
+    display:flex; gap:48px; padding-top:32px;
+    border-top:1px solid rgba(201,169,110,0.15);
+  }
+  .cover-meta-item {
+    font-size:0.75rem; color:rgba(246,244,240,0.35); line-height:1.8;
+  }
+  .cover-meta-item strong {
+    display:block; color:rgba(246,244,240,0.7); font-weight:400;
+    font-family:'Josefin Sans',sans-serif; font-size:0.6rem;
+    letter-spacing:0.15em; text-transform:uppercase; margin-bottom:2px;
+  }
+
+  /* ═══════════════════════════════════════
+     PHOTO MOSAIC
+     ═══════════════════════════════════════ */
+  .mosaic {
+    display:grid; grid-template-columns:1fr 1fr 1fr 1fr;
+    grid-template-rows:200px 200px; gap:3px; background:var(--ink);
+  }
+  .mosaic img {
+    width:100%; height:100%; object-fit:cover; display:block;
+    filter:brightness(0.92); transition:filter 0.5s ease;
+  }
+  .mosaic img:hover { filter:brightness(1.05); }
+  .mosaic img:nth-child(1) { grid-column:1/3; grid-row:1/3; }
+  .mosaic img:nth-child(2) { grid-column:3/4; grid-row:1/2; }
+  .mosaic img:nth-child(3) { grid-column:4/5; grid-row:1/2; }
+  .mosaic img:nth-child(4) { grid-column:3/5; grid-row:2/3; }
+  .mosaic-caption {
+    background:var(--ink); padding:20px 60px;
+    font-family:'Josefin Sans',sans-serif; font-size:0.55rem;
+    letter-spacing:0.3em; text-transform:uppercase;
+    color:rgba(246,244,240,0.3); text-align:center;
+  }
+
+  /* ═══════════════════════════════════════
+     LAYOUT
+     ═══════════════════════════════════════ */
+  .section { padding:120px 60px; max-width:1000px; margin:0 auto; }
+  .section.wide { max-width:1200px; }
+  .section.full { max-width:100%; }
+  .section.dark { background:var(--ink); color:var(--paper); }
+  .section.cream { background:var(--paper); }
+  .section.light { background:var(--light); }
+
+  .eyebrow {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.6rem;
+    letter-spacing:0.35em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:16px; display:flex; align-items:center; gap:14px;
+  }
+  .eyebrow::before { content:''; width:24px; height:1px; background:var(--gold); }
+
+  h2 {
+    font-family:'Cormorant Garamond',serif; font-weight:400;
+    font-size:2.6rem; line-height:1.12; margin-bottom:32px;
+    letter-spacing:-0.01em;
+  }
+  h2 em { font-style:italic; font-weight:500; }
+  h3 {
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.75rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--stone);
+    margin:56px 0 20px;
+  }
+  p { margin-bottom:20px; font-size:0.95rem; }
+  .lead { font-size:1.05rem; line-height:1.9; color:var(--stone); }
+
+  .divider {
+    width:1px; height:80px; background:var(--gold-dim);
+    margin:0 auto; border:none; display:block;
+  }
+  .spacer { height:80px; }
+
+  /* ═══════════════════════════════════════
+     STATS
+     ═══════════════════════════════════════ */
+  .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; margin:56px 0; background:var(--gold-dim); }
+  .stat { background:var(--white); text-align:center; padding:36px 16px; }
+  .section.cream .stat { background:var(--paper); }
+  .stat-val {
+    font-family:'Cormorant Garamond',serif; font-size:3rem; font-weight:500;
+    color:var(--gold); display:block; line-height:1; margin-bottom:10px;
+  }
+  .stat-lbl {
+    font-family:'Josefin Sans',sans-serif; font-size:0.55rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:var(--stone);
+  }
+
+  /* ═══════════════════════════════════════
+     SERVICES GRID
+     ═══════════════════════════════════════ */
+  .services { display:grid; grid-template-columns:1fr 1fr; gap:1px; margin:56px 0; background:var(--gold-dim); }
+  .svc {
+    background:var(--white); padding:40px 36px; position:relative;
+  }
+  .svc.new { background:var(--light); }
+  .svc-badge {
+    position:absolute; top:20px; right:20px;
+    font-family:'Josefin Sans',sans-serif; font-size:0.5rem;
+    letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--gold); border:1px solid var(--gold-border); padding:4px 12px;
+  }
+  .svc h4 {
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.7rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:20px;
+  }
+  .svc ul { list-style:none; }
+  .svc li {
+    font-size:0.85rem; padding:8px 0 8px 24px; position:relative;
+    color:var(--stone); border-bottom:1px solid rgba(26,26,24,0.04);
+  }
+  .svc li:last-child { border:none; }
+  .svc li::before {
+    content:''; position:absolute; left:0; top:16px;
+    width:8px; height:1px; background:var(--gold);
+  }
+
+  /* ═══════════════════════════════════════
+     PRICING TIERS
+     ═══════════════════════════════════════ */
+  .tiers {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:0;
+    margin:56px 0; position:relative;
+  }
+  .tier {
+    padding:48px 32px 40px; border:1px solid rgba(26,26,24,0.06);
+    background:var(--white); position:relative;
+    transition:transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .tier:hover { transform:translateY(-6px); box-shadow:0 20px 60px rgba(0,0,0,0.08); z-index:1; }
+  .tier + .tier { border-left:none; }
+  .tier.rec {
+    background:var(--ink); color:var(--paper); border-color:var(--gold);
+    transform:scaleY(1.02); z-index:2;
+    box-shadow:0 12px 48px rgba(0,0,0,0.15);
+  }
+  .tier.rec:hover { transform:scaleY(1.02) translateY(-6px); box-shadow:0 24px 64px rgba(0,0,0,0.22); }
+  .tier-badge {
+    position:absolute; top:-1px; left:0; right:0;
+    height:3px; background:var(--gold);
+  }
+  .tier-badge span {
+    position:absolute; top:8px; left:50%; transform:translateX(-50%);
+    font-family:'Josefin Sans',sans-serif; font-size:0.5rem;
+    letter-spacing:0.3em; text-transform:uppercase;
+    color:var(--gold); white-space:nowrap;
+  }
+  .tier-name {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:var(--gold);
+    margin:24px 0 12px;
+  }
+  .tier-price {
+    font-family:'Cormorant Garamond',serif; font-size:3.2rem;
+    font-weight:400; line-height:1; margin-bottom:6px;
+  }
+  .tier:not(.rec) .tier-price { color:var(--ink); }
+  .tier.rec .tier-price { color:var(--paper); }
+  .tier-price span { font-size:1rem; color:var(--stone); font-family:'DM Sans',sans-serif; font-weight:300; }
+  .tier-term {
+    font-size:0.75rem; color:var(--stone); margin-bottom:32px;
+    padding-bottom:24px; border-bottom:1px solid var(--gold-dim);
+  }
+  .tier.rec .tier-term { border-color:rgba(201,169,110,0.2); }
+  .tier ul { list-style:none; }
+  .tier li {
+    font-size:0.8rem; padding:7px 0 7px 22px; position:relative;
+    border-bottom:1px solid rgba(26,26,24,0.03);
+  }
+  .tier.rec li { color:rgba(246,244,240,0.75); border-color:rgba(246,244,240,0.05); }
+  .tier li:last-child { border:none; }
+  .tier li::before {
+    content:''; position:absolute; left:0; top:14px;
+    width:8px; height:1px; background:var(--gold);
+  }
+  .tier li.off { opacity:0.25; }
+  .tier li.off::before { background:var(--stone); }
+  .tier-bottom {
+    margin-top:28px; padding-top:20px; border-top:1px solid var(--gold-dim);
+    font-size:0.7rem; color:var(--stone);
+  }
+  .tier.rec .tier-bottom { border-color:rgba(201,169,110,0.2); }
+  .tier-bottom strong { color:var(--gold); font-weight:500; font-size:0.85rem; }
+
+  /* ═══════════════════════════════════════
+     COMPARISON CALLOUT
+     ═══════════════════════════════════════ */
+  .insight {
+    background:var(--light); padding:48px 56px; margin:56px 0;
+    position:relative;
+  }
+  .insight::before {
+    content:''; position:absolute; top:0; left:0; bottom:0;
+    width:3px; background:var(--gold);
+  }
+  .insight h4 {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:20px;
+  }
+  .insight p { font-size:0.9rem; margin-bottom:10px; }
+  .insight p:last-child { margin-bottom:0; }
+  .insight .tier-breakdown {
+    margin-top:20px; display:flex; flex-direction:column; gap:8px;
+  }
+  .insight .tb {
+    display:flex; align-items:baseline; gap:12px; font-size:0.88rem;
+  }
+  .insight .tb-label {
+    font-weight:500; color:var(--gold); min-width:160px;
+    font-family:'Josefin Sans',sans-serif; font-size:0.7rem;
+    letter-spacing:0.1em; text-transform:uppercase;
+  }
+  .insight .tb-desc { color:var(--stone); }
+
+  /* ═══════════════════════════════════════
+     ROADMAP
+     ═══════════════════════════════════════ */
+  .roadmap { margin:56px 0; }
+  .rm {
+    display:grid; grid-template-columns:200px 1fr; gap:0;
+    border-bottom:1px solid rgba(26,26,24,0.06); min-height:0;
+  }
+  .rm:last-child { border:none; }
+  .rm-left {
+    padding:40px 32px 40px 0; border-right:2px solid var(--gold-dim);
+    position:relative;
+  }
+  .rm-left::after {
+    content:''; position:absolute; right:-5px; top:48px;
+    width:8px; height:8px; border-radius:50%; background:var(--gold);
+  }
+  .rm-month {
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.6rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:4px;
+  }
+  .rm-label {
+    font-family:'Cormorant Garamond',serif; font-size:1.3rem;
+    font-weight:400; font-style:italic; color:var(--ink); line-height:1.3;
+  }
+  .rm-right { padding:40px 0 40px 40px; }
+  .rm-right ul { list-style:none; }
+  .rm-right li {
+    font-size:0.85rem; padding:6px 0 6px 24px; position:relative; color:var(--stone);
+  }
+  .rm-right li::before {
+    content:''; position:absolute; left:0; top:14px;
+    width:8px; height:1px; background:var(--gold);
+  }
+
+  /* ═══════════════════════════════════════
+     TIMELINE (12-month)
+     ═══════════════════════════════════════ */
+  .tl { margin:56px 0; }
+  .tl-item {
+    display:grid; grid-template-columns:160px 1fr;
+    gap:0; padding:32px 0; border-bottom:1px solid rgba(26,26,24,0.06);
+  }
+  .tl-item:last-child { border:none; }
+  .tl-q {
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.6rem;
+    letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); padding-top:4px;
+  }
+  .tl-content h4 {
+    font-family:'Cormorant Garamond',serif; font-weight:500;
+    font-size:1.4rem; margin-bottom:8px; font-style:italic;
+  }
+  .tl-content p { font-size:0.85rem; color:var(--stone); margin-bottom:0; }
+
+  /* ═══════════════════════════════════════
+     BY THE NUMBERS
+     ═══════════════════════════════════════ */
+  .numbers {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    margin:56px 0; background:var(--gold-dim);
+  }
+  .num {
+    background:var(--ink); text-align:center; padding:48px 24px;
+  }
+  .num-val {
+    font-family:'Cormorant Garamond',serif; font-size:3.5rem;
+    font-weight:500; color:var(--gold); display:block; line-height:1; margin-bottom:10px;
+  }
+  .num-lbl {
+    font-family:'Josefin Sans',sans-serif; font-size:0.55rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:rgba(246,244,240,0.4);
+  }
+
+  /* ═══════════════════════════════════════
+     NEXT STEPS
+     ═══════════════════════════════════════ */
+  .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin:56px 0; background:var(--gold-dim); }
+  .step {
+    background:var(--white); padding:40px 32px;
+  }
+  .step-num {
+    font-family:'Cormorant Garamond',serif; font-size:3rem;
+    font-weight:400; color:var(--gold); line-height:1; margin-bottom:16px;
+    display:block;
+  }
+  .step h4 {
+    font-family:'DM Sans',sans-serif; font-weight:500; font-size:0.95rem; margin-bottom:10px;
+  }
+  .step p { font-size:0.82rem; color:var(--stone); margin-bottom:0; }
+
+  /* ═══════════════════════════════════════
+     ADDON
+     ═══════════════════════════════════════ */
+  .addons { max-width:560px; margin:40px 0; }
+  .addon {
+    display:flex; justify-content:space-between; padding:16px 0;
+    border-bottom:1px solid rgba(246,244,240,0.06); font-size:0.88rem;
+    color:rgba(246,244,240,0.5);
+  }
+  .addon span:last-child { color:var(--gold); font-weight:400; }
+
+  /* ═══════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════ */
+  .footer {
+    background:var(--ink); padding:80px 60px; text-align:center;
+    border-top:1px solid rgba(201,169,110,0.1);
+  }
+  .footer-mark {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.7rem;
+    letter-spacing:0.4em; text-transform:uppercase; color:var(--paper); margin-bottom:20px;
+  }
+  .footer-info {
+    font-size:0.8rem; color:var(--stone); line-height:2.2;
+  }
+  .footer-info a { color:var(--gold); text-decoration:none; }
+  .footer-note {
+    margin-top:40px; font-size:0.6rem; letter-spacing:0.15em;
+    text-transform:uppercase; font-family:'Josefin Sans',sans-serif;
+    color:rgba(246,244,240,0.15);
+  }
+
+  /* ═══════════════════════════════════════
+     SCROLL PROGRESS BAR
+     ═══════════════════════════════════════ */
+  .scroll-progress {
+    position:fixed; top:0; left:0; height:2px; width:0%;
+    background:linear-gradient(90deg, var(--gold), rgba(201,169,110,0.4));
+    z-index:9999; transition:width 0.05s linear;
+    box-shadow:0 0 8px rgba(201,169,110,0.3);
+  }
+
+  /* ═══════════════════════════════════════
+     SCROLL REVEAL ANIMATIONS
+     ═══════════════════════════════════════ */
+  .reveal {
+    opacity:0; transform:translateY(32px);
+    transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+  }
+  .reveal.visible {
+    opacity:1; transform:translateY(0);
+  }
+  .reveal-delay-1 { transition-delay:0.1s; }
+  .reveal-delay-2 { transition-delay:0.2s; }
+  .reveal-delay-3 { transition-delay:0.3s; }
+  .reveal-delay-4 { transition-delay:0.4s; }
+  .reveal-delay-5 { transition-delay:0.5s; }
+
+  /* ═══════════════════════════════════════
+     COVER CASCADE
+     ═══════════════════════════════════════ */
+  .cover .cover-eyebrow,
+  .cover h1,
+  .cover .cover-sub,
+  .cover .cover-meta-bar {
+    opacity:0; transform:translateY(24px);
+    animation:coverFade 0.9s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+  .cover .cover-eyebrow { animation-delay:0.3s; }
+  .cover h1 { animation-delay:0.6s; }
+  .cover .cover-sub { animation-delay:0.9s; }
+  .cover .cover-meta-bar { animation-delay:1.2s; }
+  @keyframes coverFade {
+    to { opacity:1; transform:translateY(0); }
+  }
+
+  /* ═══════════════════════════════════════
+     COVER PARALLAX
+     ═══════════════════════════════════════ */
+  .cover-image {
+    will-change:transform;
+    transition:transform 0.1s linear;
+  }
+
+  /* ═══════════════════════════════════════
+     FILM GRAIN OVERLAY
+     ═══════════════════════════════════════ */
+  .grain-section::after {
+    content:''; position:absolute; top:0; left:0; right:0; bottom:0;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    background-size:128px 128px;
+    pointer-events:none; z-index:0; opacity:0.5;
+  }
+  .grain-section { position:relative; }
+  .grain-section > * { position:relative; z-index:1; }
+
+  /* ═══════════════════════════════════════
+     ROADMAP LINE DRAW
+     ═══════════════════════════════════════ */
+  .roadmap { position:relative; }
+  .roadmap-line {
+    position:absolute; left:200px; top:48px; width:2px;
+    height:0; background:var(--gold);
+    transition:height 0.05s linear; z-index:1;
+    box-shadow:0 0 6px rgba(201,169,110,0.3);
+  }
+  .roadmap-line::after {
+    content:''; position:absolute; bottom:-4px; left:-3px;
+    width:8px; height:8px; border-radius:50%;
+    background:var(--gold); box-shadow:0 0 12px rgba(201,169,110,0.5);
+  }
+
+  /* ═══════════════════════════════════════
+     ENHANCED TIER INTERACTIONS
+     ═══════════════════════════════════════ */
+  .tier {
+    transition:transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
+  .tier:hover {
+    box-shadow:0 20px 60px rgba(0,0,0,0.08), 0 0 0 1px var(--gold-border);
+  }
+  .tier.rec:hover {
+    box-shadow:0 24px 64px rgba(0,0,0,0.22), 0 0 40px rgba(201,169,110,0.08);
+  }
+
+  /* ═══════════════════════════════════════
+     MOSAIC ENHANCED
+     ═══════════════════════════════════════ */
+  .mosaic img {
+    transition:filter 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
+  }
+  .mosaic img:hover {
+    filter:brightness(1.05); transform:scale(1.015);
+  }
+
+  /* ═══════════════════════════════════════
+     PHOTO BREAK — PARALLAX BANNERS
+     ═══════════════════════════════════════ */
+  .photo-break {
+    width:100%; height:45vh; min-height:320px; max-height:480px;
+    position:relative; overflow:hidden;
+  }
+  .photo-break img {
+    width:100%; height:120%; object-fit:cover; display:block;
+    position:absolute; top:-10%; left:0;
+    filter:brightness(0.85);
+    transition:filter 0.8s cubic-bezier(0.16,1,0.3,1);
+    will-change:transform;
+  }
+  .photo-break:hover img { filter:brightness(0.95); }
+  .photo-break::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:80px;
+    background:linear-gradient(rgba(26,26,24,0.15), transparent);
+    z-index:1; pointer-events:none;
+  }
+  .photo-break::after {
+    content:''; position:absolute; bottom:0; left:0; right:0; height:120px;
+    background:linear-gradient(transparent, rgba(26,26,24,0.6));
+    z-index:1; pointer-events:none;
+  }
+  .photo-break-caption {
+    position:absolute; bottom:0; left:0; right:0; z-index:2;
+    padding:24px 60px;
+    font-family:'Josefin Sans',sans-serif; font-size:0.5rem;
+    letter-spacing:0.3em; text-transform:uppercase;
+    color:rgba(246,244,240,0.5);
+  }
+
+  /* ═══════════════════════════════════════
+     PHOTO BREAK — CURTAIN REVEAL
+     ═══════════════════════════════════════ */
+  .photo-break {
+    clip-path:inset(0 0 0 0);
+    transition:clip-path 1.2s cubic-bezier(0.16,1,0.3,1);
+  }
+  .photo-break.revealed {
+    clip-path:inset(0 0 0 0);
+  }
+
+  /* ═══════════════════════════════════════
+     PHOTO KEN BURNS
+     ═══════════════════════════════════════ */
+  .photo-break.in-view img {
+    animation:kenBurns 12s ease-in-out infinite alternate;
+  }
+  @keyframes kenBurns {
+    0% { transform:scale(1) translateY(0); }
+    100% { transform:scale(1.06) translateY(-8px); }
+  }
+
+  /* ═══════════════════════════════════════
+     HEADLINE GOLD UNDERLINE
+     ═══════════════════════════════════════ */
+  h2 em {
+    position:relative; display:inline;
+  }
+  h2 em::after {
+    content:''; position:absolute; bottom:2px; left:0;
+    width:0; height:1.5px;
+    background:linear-gradient(90deg, var(--gold), rgba(201,169,110,0.3));
+    transition:width 1s 0.3s cubic-bezier(0.16,1,0.3,1);
+  }
+  h2.underlined em::after {
+    width:100%;
+  }
+
+  /* ═══════════════════════════════════════
+     COVER SCROLL INDICATOR
+     ═══════════════════════════════════════ */
+  .scroll-indicator {
+    position:absolute; bottom:40px; left:50%;
+    transform:translateX(-50%); display:flex; flex-direction:column;
+    align-items:center; gap:8px;
+    opacity:0; animation:coverFade 0.9s 1.8s cubic-bezier(0.16,1,0.3,1) forwards;
+    transition:opacity 0.4s ease;
+  }
+  .scroll-indicator.hidden { opacity:0 !important; }
+  .scroll-indicator-text {
+    font-family:'Josefin Sans',sans-serif; font-size:0.45rem;
+    letter-spacing:0.3em; text-transform:uppercase;
+    color:rgba(246,244,240,0.3);
+  }
+  .scroll-indicator-line {
+    width:1px; height:32px; position:relative; overflow:hidden;
+    background:rgba(246,244,240,0.1);
+  }
+  .scroll-indicator-line::after {
+    content:''; position:absolute; top:-100%; left:0;
+    width:100%; height:100%; background:var(--gold);
+    animation:scrollPulse 2s cubic-bezier(0.16,1,0.3,1) infinite;
+  }
+  @keyframes scrollPulse {
+    0% { top:-100%; }
+    50% { top:100%; }
+    100% { top:100%; }
+  }
+
+  /* ═══════════════════════════════════════
+     TIER 3D TILT
+     ═══════════════════════════════════════ */
+  .tier {
+    transform-style:preserve-3d;
+    perspective:800px;
+  }
+
+  /* ═══════════════════════════════════════
+     STAT COUNTER ANIMATION
+     ═══════════════════════════════════════ */
+  .stat-val, .num-val {
+    transition:opacity 0.4s ease;
+  }
+
+  /* ═══════════════════════════════════════
+     LOADING SCREEN — REFINED
+     ═══════════════════════════════════════ */
+  .loader {
+    position:fixed; top:0; left:0; right:0; bottom:0;
+    background:var(--ink); z-index:99999;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1), visibility 0.8s;
+  }
+  .loader.done {
+    opacity:0; visibility:hidden; pointer-events:none;
+  }
+  .loader-brand {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.6em; text-transform:uppercase; color:var(--paper);
+    opacity:0; animation:loaderIn 0.6s 0.15s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+  .loader-sub {
+    font-family:'Cormorant Garamond',serif; font-style:italic; font-size:0.9rem;
+    color:var(--stone); margin-top:8px;
+    opacity:0; animation:loaderIn 0.6s 0.4s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+  .loader-line {
+    width:80px; height:1px; background:var(--gold-dim); margin-top:24px;
+    position:relative; overflow:hidden; border-radius:1px;
+    opacity:0; animation:loaderIn 0.6s 0.3s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+  .loader-line::after {
+    content:''; position:absolute; top:0; left:-100%; width:100%; height:100%;
+    background:linear-gradient(90deg, transparent, var(--gold), transparent);
+    animation:loaderFill 1s 0.5s cubic-bezier(0.33,1,0.68,1) forwards;
+  }
+  @keyframes loaderIn { to { opacity:1; } }
+  @keyframes loaderFill { to { left:100%; } }
+
+  /* ═══════════════════════════════════════
+     GOLD ACCENT GLOW — PREMIUM DETAILS
+     ═══════════════════════════════════════ */
+  .stat-val, .num-val, .step-num {
+    text-shadow:0 0 40px rgba(201,169,110,0.15);
+  }
+  .tier.rec {
+    border-color:rgba(201,169,110,0.3);
+  }
+  .tier.rec::before {
+    content:''; position:absolute; top:0; left:0; right:0; bottom:0;
+    background:linear-gradient(180deg, rgba(201,169,110,0.03) 0%, transparent 40%);
+    pointer-events:none;
+  }
+  .tier-badge {
+    background:linear-gradient(135deg, var(--gold), rgba(201,169,110,0.8));
+  }
+
+  /* ═══════════════════════════════════════
+     SECTION DIVIDER — GOLD HAIRLINE
+     ═══════════════════════════════════════ */
+  .section + .photo-break,
+  .photo-break + .section {
+    border:none;
+  }
+  .section::after {
+    content:none;
+  }
+
+  /* ═══════════════════════════════════════
+     REFINED TYPOGRAPHY
+     ═══════════════════════════════════════ */
+  h2 {
+    text-wrap:balance;
+  }
+  .lead {
+    text-wrap:pretty;
+  }
+  .cover h1 {
+    text-shadow:0 2px 40px rgba(0,0,0,0.3);
+  }
+  .cover .cover-sub {
+    text-shadow:0 1px 20px rgba(0,0,0,0.2);
+  }
+
+  /* ═══════════════════════════════════════
+     INSIGHT BOX GLOW
+     ═══════════════════════════════════════ */
+  .insight {
+    border:1px solid rgba(201,169,110,0.08);
+    box-shadow:0 8px 32px rgba(0,0,0,0.03);
+  }
+  .insight::before {
+    box-shadow:4px 0 16px rgba(201,169,110,0.08);
+  }
+
+  /* ═══════════════════════════════════════
+     NUMBERS BAR GLOW
+     ═══════════════════════════════════════ */
+  .numbers .num-val {
+    text-shadow:0 0 60px rgba(201,169,110,0.25), 0 0 120px rgba(201,169,110,0.1);
+  }
+
+  /* ═══════════════════════════════════════
+     STEP CARDS HOVER
+     ═══════════════════════════════════════ */
+  .step {
+    transition:background 0.3s ease, box-shadow 0.3s ease;
+  }
+  .step:hover {
+    background:var(--light);
+    box-shadow:0 4px 24px rgba(0,0,0,0.04);
+  }
+
+  /* ═══════════════════════════════════════
+     SERVICE CARDS — REFINED
+     ═══════════════════════════════════════ */
+  .svc-badge {
+    background:linear-gradient(135deg, rgba(201,169,110,0.08), transparent);
+  }
+
+  /* ═══════════════════════════════════════
+     SECTION NAV DOTS
+     ═══════════════════════════════════════ */
+  .section-nav {
+    position:fixed; right:24px; top:50%; transform:translateY(-50%);
+    z-index:9998; display:flex; flex-direction:column; gap:12px;
+    opacity:0; transition:opacity 0.4s ease;
+  }
+  .section-nav.visible { opacity:1; }
+  .section-nav-dot {
+    width:8px; height:8px; border-radius:50%;
+    background:transparent; border:1px solid var(--stone);
+    cursor:pointer; transition:all 0.3s ease;
+    position:relative;
+  }
+  .section-nav-dot:hover {
+    border-color:var(--gold); transform:scale(1.3);
+  }
+  .section-nav-dot.active {
+    background:var(--gold); border-color:var(--gold);
+    box-shadow:0 0 8px rgba(201,169,110,0.4);
+  }
+  .section-nav-dot::before {
+    content:attr(data-label);
+    position:absolute; right:20px; top:50%; transform:translateY(-50%);
+    font-family:'Josefin Sans',sans-serif; font-size:0.5rem;
+    letter-spacing:0.15em; text-transform:uppercase; color:var(--gold);
+    white-space:nowrap; opacity:0; pointer-events:none;
+    transition:opacity 0.3s ease, right 0.3s ease;
+  }
+  .section-nav-dot:hover::before {
+    opacity:1; right:24px;
+  }
+
+  /* ═══════════════════════════════════════
+     ANIMATED EYEBROW LINE
+     ═══════════════════════════════════════ */
+  .eyebrow::before {
+    width:0; transition:width 0.6s 0.2s cubic-bezier(0.16,1,0.3,1);
+  }
+  .eyebrow.visible::before {
+    width:24px;
+  }
+
+  /* ═══════════════════════════════════════
+     TIER SELECTION
+     ═══════════════════════════════════════ */
+  .tier { cursor:pointer; position:relative; }
+  .tier.selected:not(.rec) {
+    box-shadow:0 0 0 2px var(--gold), 0 20px 60px rgba(0,0,0,0.1);
+  }
+  .tier.rec.selected {
+    box-shadow:0 0 0 2px var(--gold), 0 24px 64px rgba(0,0,0,0.22), 0 0 40px rgba(201,169,110,0.12);
+  }
+  .tier-selected-badge {
+    position:absolute; top:12px; right:12px;
+    font-family:'Josefin Sans',sans-serif; font-size:0.45rem;
+    letter-spacing:0.25em; text-transform:uppercase;
+    color:var(--gold); border:1px solid var(--gold);
+    padding:3px 10px; border-radius:2px;
+    opacity:0; transform:translateY(-4px);
+    transition:opacity 0.3s ease, transform 0.3s ease;
+  }
+  .tier.selected .tier-selected-badge {
+    opacity:1; transform:translateY(0);
+  }
+
+  /* ═══════════════════════════════════════
+     SERVICE CARD HOVER
+     ═══════════════════════════════════════ */
+  .svc {
+    transition:all 0.3s cubic-bezier(0.16,1,0.3,1);
+    border-left:3px solid transparent;
+  }
+  .svc:hover {
+    border-left-color:var(--gold);
+    background:var(--light);
+  }
+  .svc.new:hover {
+    background:var(--white);
+  }
+
+  /* ═══════════════════════════════════════
+     COVER CTA BUTTON
+     ═══════════════════════════════════════ */
+  .cover-cta {
+    display:inline-flex; align-items:center; gap:10px;
+    margin-top:32px; padding:12px 28px;
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.6rem;
+    letter-spacing:0.25em; text-transform:uppercase;
+    color:var(--paper); border:1px solid rgba(246,244,240,0.25);
+    text-decoration:none; cursor:pointer;
+    transition:all 0.4s cubic-bezier(0.16,1,0.3,1);
+    opacity:0; animation:coverFade 0.9s 1.5s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+  .cover-cta:hover {
+    border-color:var(--gold); color:var(--gold);
+    padding-right:36px;
+  }
+  .cover-cta-arrow {
+    display:inline-block; transition:transform 0.3s ease;
+    font-size:0.8rem;
+  }
+  .cover-cta:hover .cover-cta-arrow { transform:translateY(3px); }
+
+  @media print {
+    .cover { min-height:100vh; }
+    .section { padding:60px; }
+    .tier.rec { transform:none; box-shadow:none; }
+    .tier:hover { transform:none; box-shadow:none; }
+    .scroll-progress, .section-nav, .loader, .cover-cta, .scroll-indicator { display:none; }
+    .photo-break { height:200px; page-break-inside:avoid; clip-path:none !important; }
+    h2 em::after { width:100% !important; }
+    .reveal { opacity:1 !important; transform:none !important; }
+    .eyebrow::before { width:24px !important; }
+    .grain-section::after { display:none; }
+  }
+  @media (max-width:768px) {
+    .cover-content,.cover-top { padding-left:32px; padding-right:32px; }
+    .section { padding:80px 32px; }
+    .mosaic { grid-template-columns:1fr 1fr; grid-template-rows:200px 200px 200px; }
+    .mosaic img:nth-child(1) { grid-column:1/3; grid-row:1/2; }
+    .mosaic img:nth-child(2) { grid-column:1/2; grid-row:2/3; }
+    .mosaic img:nth-child(3) { grid-column:2/3; grid-row:2/3; }
+    .mosaic img:nth-child(4) { grid-column:1/3; grid-row:3/4; }
+    .stats,.services,.tiers,.steps,.numbers { grid-template-columns:1fr; }
+    .tier + .tier { border-left:1px solid rgba(26,26,24,0.06); border-top:none; }
+    .tier.rec { transform:none; }
+    .rm { grid-template-columns:1fr; }
+    .rm-left { border-right:none; border-bottom:2px solid var(--gold-dim); padding:24px 0; }
+    .rm-left::after { display:none; }
+    .rm-right { padding:24px 0; }
+    .roadmap::before, .roadmap-line { display:none; }
+    .tl-item { grid-template-columns:1fr; }
+    .tl-q { margin-bottom:8px; }
+    .cover-meta-bar { flex-direction:column; gap:16px; }
+    .footer { padding:60px 32px; }
+    .section-nav { display:none; }
+    .svc { border-left:none !important; }
+    .svc:hover { border-left:none !important; }
+    .photo-break { height:200px; min-height:200px; }
+    .photo-break-caption { padding:12px 32px; }
+    .scroll-indicator { display:none; }
+  }
+</style>
+
+  /* ═══════════════════════════════════════
+     AUDIT SCORES — CIRCLE GAUGES
+     ═══════════════════════════════════════ */
+  .scores {
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    margin:56px 0; background:var(--gold-dim);
+  }
+  .score-card {
+    background:var(--white); text-align:center; padding:48px 24px;
+  }
+  .score-circle {
+    width:100px; height:100px; border-radius:50%; margin:0 auto 20px;
+    position:relative; display:flex; align-items:center; justify-content:center;
+  }
+  .score-circle svg { position:absolute; top:0; left:0; transform:rotate(-90deg); }
+  .score-circle-bg { fill:none; stroke:rgba(26,26,24,0.06); stroke-width:6; }
+  .score-circle-fill { fill:none; stroke-width:6; stroke-linecap:round;
+    transition:stroke-dashoffset 1.5s cubic-bezier(0.16,1,0.3,1); }
+  .score-val {
+    font-family:'Cormorant Garamond',serif; font-size:2rem; font-weight:500;
+    line-height:1; position:relative; z-index:1;
+  }
+  .score-label {
+    font-family:'Josefin Sans',sans-serif; font-size:0.55rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:var(--stone);
+  }
+  .score-grade {
+    font-family:'Josefin Sans',sans-serif; font-size:0.5rem; font-weight:600;
+    letter-spacing:0.15em; text-transform:uppercase;
+    padding:3px 10px; border-radius:2px; display:inline-block; margin-top:12px;
+  }
+
+  /* Traffic light colors */
+  .grade-good { background:rgba(76,175,80,0.1); color:#2e7d32; }
+  .grade-ok { background:rgba(255,183,77,0.15); color:#e65100; }
+  .grade-bad { background:rgba(244,67,54,0.1); color:#c62828; }
+  .grade-critical { background:rgba(244,67,54,0.15); color:#b71c1c; }
+
+  .score-circle-fill.good { stroke:#4CAF50; }
+  .score-circle-fill.ok { stroke:#FFB74D; }
+  .score-circle-fill.bad { stroke:#EF5350; }
+  .score-circle-fill.critical { stroke:#C62828; }
+  .score-val.good { color:#2e7d32; }
+  .score-val.ok { color:#e65100; }
+  .score-val.bad { color:#c62828; }
+  .score-val.critical { color:#b71c1c; }
+
+  /* ═══════════════════════════════════════
+     AUDIT FINDINGS — CHECKLIST
+     ═══════════════════════════════════════ */
+  .findings { margin:40px 0; }
+  .finding {
+    display:grid; grid-template-columns:32px 1fr; gap:16px;
+    padding:20px 0; border-bottom:1px solid rgba(26,26,24,0.06);
+    align-items:start;
+  }
+  .finding:last-child { border:none; }
+  .finding-icon {
+    width:24px; height:24px; border-radius:50%; display:flex;
+    align-items:center; justify-content:center; font-size:0.7rem;
+    margin-top:2px;
+  }
+  .finding-icon.pass { background:rgba(76,175,80,0.12); color:#2e7d32; }
+  .finding-icon.warn { background:rgba(255,183,77,0.2); color:#e65100; }
+  .finding-icon.fail { background:rgba(244,67,54,0.12); color:#c62828; }
+  .finding-text { font-size:0.9rem; color:var(--ink); }
+  .finding-text strong { font-weight:500; }
+  .finding-detail { font-size:0.8rem; color:var(--stone); margin-top:4px; }
+
+  /* ═══════════════════════════════════════
+     COMPETITOR TABLE
+     ═══════════════════════════════════════ */
+  .compare-table {
+    width:100%; border-collapse:collapse; margin:40px 0;
+  }
+  .compare-table thead th {
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.6rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--gold);
+    padding:16px 12px; text-align:left;
+    border-bottom:1px solid var(--gold-border);
+  }
+  .compare-table thead th:first-child { min-width:180px; }
+  .compare-table tbody td {
+    font-size:0.85rem; padding:14px 12px;
+    border-bottom:1px solid rgba(26,26,24,0.06);
+    vertical-align:middle;
+  }
+  .compare-table tbody tr:last-child td { border-bottom:none; }
+  .compare-table tbody tr:hover { background:var(--light); }
+  .compare-table .highlight-row { background:rgba(201,169,110,0.04); }
+  .compare-table .highlight-row td:first-child { font-weight:500; color:var(--gold); }
+  .dot {
+    display:inline-block; width:10px; height:10px; border-radius:50%; margin-right:8px;
+  }
+  .dot.green { background:#4CAF50; }
+  .dot.amber { background:#FFB74D; }
+  .dot.red { background:#EF5350; }
+  .dot.grey { background:#D9D5CD; }
+
+  /* ═══════════════════════════════════════
+     SECTION CATEGORY HEADERS
+     ═══════════════════════════════════════ */
+  .audit-category {
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.7rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--gold);
+    margin:56px 0 24px; padding-bottom:12px;
+    border-bottom:1px solid var(--gold-border);
+    display:flex; align-items:center; gap:12px;
+  }
+  .audit-category::before { content:''; width:24px; height:1px; background:var(--gold); }
+
+  /* ═══════════════════════════════════════
+     RESPONSIVE
+     ═══════════════════════════════════════ */
+  @media (max-width:768px) {
+    .scores { grid-template-columns:1fr 1fr; }
+    .compare-table { display:block; overflow-x:auto; }
+  }
+  @media (max-width:480px) {
+    .scores { grid-template-columns:1fr; }
+  }
+
+</head>
+<body>
+
+<!-- LOADING SCREEN -->
+<div class="loader" id="loader">
+  <div class="loader-brand">Matt Anthony Photography</div>
+  <div class="loader-sub" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.9rem;color:rgba(138,133,121,0.7);margin-top:8px;opacity:0;animation:loaderIn 0.6s 0.4s cubic-bezier(0.16,1,0.3,1) forwards;">Site &amp; SEO Audit</div>
+  <div class="loader-line"></div>
+</div>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="section-nav" id="sectionNav"></nav>
+
+<!-- HEADER -->
+<header class="header" style="min-height:60vh;">
+  <div class="header-bg" id="headerBg" style="background-image:url('https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/e07b8aac-c1ec-4293-b956-79b41aa39f33/5322-backhouse-web-1.jpg');background-size:cover;background-position:center 40%;filter:brightness(0.3);"></div>
+  <div class="header-inner" style="position:relative;z-index:1;padding:120px 64px 80px;">
+    <div class="header-eyebrow" style="font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:0.6rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:14px;"><span style="width:24px;height:1px;background:var(--gold);display:inline-block;"></span>Site &amp; SEO Audit</div>
+    <h1 style="font-family:'Cormorant Garamond',serif;font-weight:400;font-size:3.2rem;line-height:1.12;letter-spacing:-0.01em;margin-bottom:24px;color:var(--paper);">Summerhill Fine Homes<br><em>Site &amp; SEO Audit</em></h1>
+    <p style="font-family:'DM Sans',sans-serif;font-weight:300;font-size:0.85rem;color:rgba(246,244,240,0.5);">Prepared by Matt Anthony Photography &middot; March 2026</p>
+  </div>
+  <div class="scroll-indicator" id="scrollIndicator">
+    <div class="scroll-indicator-text">Scroll</div>
+    <div class="scroll-indicator-line"></div>
+  </div>
+</header>
+
+<!-- OVERALL SCORES -->
+<div class="scores" id="scoreCards">
+  
+  <div class="score-card">
+    <div class="score-circle">
+      <svg width="100" height="100" viewBox="0 0 100 100">
+        <circle class="score-circle-bg" cx="50" cy="50" r="44"></circle>
+        <circle class="score-circle-fill bad" cx="50" cy="50" r="44"
+          stroke-dasharray="276.5" stroke-dashoffset="199.07999999999998"
+          data-target="199.07999999999998"></circle>
+      </svg>
+      <span class="score-val bad">28</span>
+    </div>
+    <div class="score-label">Overall SEO</div>
+    <span class="score-grade grade-bad">Poor</span>
+  </div>
+  
+  <div class="score-card">
+    <div class="score-circle">
+      <svg width="100" height="100" viewBox="0 0 100 100">
+        <circle class="score-circle-bg" cx="50" cy="50" r="44"></circle>
+        <circle class="score-circle-fill critical" cx="50" cy="50" r="44"
+          stroke-dasharray="276.5" stroke-dashoffset="235.025"
+          data-target="235.025"></circle>
+      </svg>
+      <span class="score-val critical">15</span>
+    </div>
+    <div class="score-label">Local / GEO</div>
+    <span class="score-grade grade-critical">Critical</span>
+  </div>
+  
+  <div class="score-card">
+    <div class="score-circle">
+      <svg width="100" height="100" viewBox="0 0 100 100">
+        <circle class="score-circle-bg" cx="50" cy="50" r="44"></circle>
+        <circle class="score-circle-fill bad" cx="50" cy="50" r="44"
+          stroke-dasharray="276.5" stroke-dashoffset="179.725"
+          data-target="179.725"></circle>
+      </svg>
+      <span class="score-val bad">35</span>
+    </div>
+    <div class="score-label">Content</div>
+    <span class="score-grade grade-bad">Weak</span>
+  </div>
+  
+  <div class="score-card">
+    <div class="score-circle">
+      <svg width="100" height="100" viewBox="0 0 100 100">
+        <circle class="score-circle-bg" cx="50" cy="50" r="44"></circle>
+        <circle class="score-circle-fill critical" cx="50" cy="50" r="44"
+          stroke-dasharray="276.5" stroke-dashoffset="221.2"
+          data-target="221.2"></circle>
+      </svg>
+      <span class="score-val critical">20</span>
+    </div>
+    <div class="score-label">Visual Assets</div>
+    <span class="score-grade grade-critical">Underused</span>
+  </div>
+  
+</div>
+
+
+
+
+
+<div class="divider"></div>
+<section class="section" data-nav="SEO">
+  <div class="eyebrow">SEO Audit</div>
+  <h2>Search visibility.<br><em>Where you rank today.</em></h2>
+  <p class="lead">I analyzed summerhill.build for technical SEO, on-page optimization, and content strategy. The site has a clean foundation but almost zero search engine optimization in place.</p>
+
+  
+  <div class="audit-category">Technical SEO</div>
+  <div class="findings">
+    
+    <div class="finding">
+      <div class="finding-icon pass">&#10003;</div>
+      <div>
+        <div class="finding-text"><strong>SSL Certificate Active</strong></div>
+        <div class="finding-detail">HTTPS is properly configured. No mixed content issues detected.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-icon pass">&#10003;</div>
+      <div>
+        <div class="finding-text"><strong>Mobile Responsive</strong></div>
+        <div class="finding-detail">The Bricks-built theme adapts well to mobile viewports.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-icon warn">!</div>
+      <div>
+        <div class="finding-text"><strong>Page Speed Needs Attention</strong></div>
+        <div class="finding-detail">Heavy image files without next-gen formats (WebP). No lazy loading detected on project pages. This impacts both user experience and Google ranking.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-icon fail">&#10007;</div>
+      <div>
+        <div class="finding-text"><strong>No XML Sitemap Submitted</strong></div>
+        <div class="finding-detail">No evidence of a sitemap submitted to Google Search Console. Google may not be discovering all project pages.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-icon warn">!</div>
+      <div>
+        <div class="finding-text"><strong>Schema Markup is Basic</strong></div>
+        <div class="finding-detail">Only generic WebPage and Organization schema. No LocalBusiness, Project, or Review schema. Missing structured data that helps Google understand what Summerhill does and where.</div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="audit-category">On-Page SEO</div>
+  <div class="findings">
+    
+    <div class="finding">
+      <div class="finding-icon fail">&#10007;</div>
+      <div>
+        <div class="finding-text"><strong>Meta Descriptions Auto-Generated</strong></div>
+        <div class="finding-detail">No custom meta descriptions on project pages. Google is pulling random text snippets instead of crafted descriptions that sell the click.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-icon fail">&#10007;</div>
+      <div>
+        <div class="finding-text"><strong>No Keyword Strategy Detected</strong></div>
+        <div class="finding-detail">No targeting for high-value terms like "Sunshine Coast custom home builder," "passive house builder BC," or "luxury home builder Gibsons." These terms have search volume and low competition.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-icon warn">!</div>
+      <div>
+        <div class="finding-text"><strong>Thin Project Page Content</strong></div>
+        <div class="finding-detail">The Perch has a narrative description, but most other projects have minimal text. Google needs 300+ words of unique content per page to rank effectively.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-icon fail">&#10007;</div>
+      <div>
+        <div class="finding-text"><strong>No Internal Linking Strategy</strong></div>
+        <div class="finding-detail">Project pages don’t cross-link to services, about, or related projects. Internal links are one of the strongest on-page SEO signals and they’re completely missing.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-icon warn">!</div>
+      <div>
+        <div class="finding-text"><strong>Image Alt Tags Are Generic</strong></div>
+        <div class="finding-detail">Alt text on project images doesn’t include location or architectural keywords. Every image is a missed opportunity to rank in Google Image search.</div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="audit-category">Content & Keywords</div>
+  <div class="findings">
+    
+    <div class="finding">
+      <div class="finding-icon fail">&#10007;</div>
+      <div>
+        <div class="finding-text"><strong>No Blog or Journal</strong></div>
+        <div class="finding-detail">Zero blog posts. No organic content strategy driving search traffic. Every visitor must find summerhill.build directly or through social. A monthly blog post targeting "custom home building Sunshine Coast" would compound over 12 months.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-icon fail">&#10007;</div>
+      <div>
+        <div class="finding-text"><strong>No Service Area Pages</strong></div>
+        <div class="finding-detail">No dedicated pages for Gibsons, Sechelt, Roberts Creek, Pender Harbour, or Halfmoon Bay. Each of these locations is a separate search market where Summerhill could rank.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-icon fail">&#10007;</div>
+      <div>
+        <div class="finding-text"><strong>Zero Thought Leadership Content</strong></div>
+        <div class="finding-detail">Summerhill builds passive houses and uses CLT. There’s no content explaining these methods to prospective clients. "What is a passive house?" and "CLT construction BC" are searchable topics with almost no competition locally.</div>
+      </div>
+    </div>
+    
+  </div>
+  
+
+  
+  <div class="insight">
+    <h4>SEO Bottom Line</h4>
+    <p>summerhill.build is <strong>invisible to Google</strong> for the search terms that matter. A prospect searching "custom home builder Sunshine Coast" will find competitors before they find Summerhill. The fix is achievable: targeted project pages, a monthly blog, local keyword optimization, and proper technical setup. This is a 6-month project that compounds permanently.</p>
+  </div>
+  
+</section>
+
+
+
+
+
+
+
+<div class="photo-break">
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/d0d20567-1be7-4759-8503-9fa1ce83f891/5322-backhouse-web-18.jpg" alt="The Perch exterior dusk panoramic">
+  <div class="photo-break-caption">The Perch &middot; Sunshine Coast, BC &middot; Matt Anthony Photography</div>
+</div>
+
+
+
+
+
+
+<section class="section cream" data-nav="Local SEO">
+  <div class="eyebrow">Local SEO &amp; GEO Audit</div>
+  <h2>Local visibility.<br><em>Can they find you on the map?</em></h2>
+  <p class="lead">Local SEO determines whether Summerhill shows up when someone searches "custom builder near me" on the Sunshine Coast. This is where the biggest gap exists.</p>
+
+  
+  <div class="audit-category">Google Business Profile</div>
+  <div class="findings">
+    
+    <div class="finding">
+      <div class="finding-icon fail">&#10007;</div>
+      <div>
+        <div class="finding-text"><strong>No Google Business Profile Found</strong></div>
+        <div class="finding-detail">Summerhill Fine Homes does not appear to have an active, optimized Google Business Profile. This is the single most important local SEO asset. Without it, you cannot appear in Google Maps results or the Local Pack (the map section at the top of search results).</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-icon fail">&#10007;</div>
+      <div>
+        <div class="finding-text"><strong>Not in Google Maps Local Pack</strong></div>
+        <div class="finding-detail">Searching "custom home builder Sunshine Coast" or "builder Gibsons BC" does not surface Summerhill in the map results. This is where 46% of local search clicks go.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-icon fail">&#10007;</div>
+      <div>
+        <div class="finding-text"><strong>Zero Google Reviews</strong></div>
+        <div class="finding-detail">No Google reviews found. Reviews are the #1 ranking factor for local search. Competitors with 10+ reviews will always outrank a business with none.</div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="audit-category">Local Citations & Directories</div>
+  <div class="findings">
+    
+    <div class="finding">
+      <div class="finding-icon warn">!</div>
+      <div>
+        <div class="finding-text"><strong>Limited Directory Presence</strong></div>
+        <div class="finding-detail">No verified listings found on Houzz, HomeStars, or BuilderTrend. These directories rank well for "builder" searches and provide backlinks that boost your main site.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-icon warn">!</div>
+      <div>
+        <div class="finding-text"><strong>NAP Consistency Unknown</strong></div>
+        <div class="finding-detail">Your business name, address, and phone number (NAP) should be identical across all online listings. Inconsistencies confuse Google and hurt local rankings.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-icon fail">&#10007;</div>
+      <div>
+        <div class="finding-text"><strong>No CHBA or Industry Directory Listing</strong></div>
+        <div class="finding-detail">Not listed in CHBA BC or local builder association directories. These are authoritative backlinks that signal credibility to Google.</div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="audit-category">Service Area Coverage</div>
+  <div class="findings">
+    
+    <div class="finding">
+      <div class="finding-icon fail">&#10007;</div>
+      <div>
+        <div class="finding-text"><strong>No Location-Specific Landing Pages</strong></div>
+        <div class="finding-detail">Summerhill serves Gibsons, Sechelt, Roberts Creek, Halfmoon Bay, Pender Harbour, and potentially Squamish/Whistler. None of these have dedicated pages. Each location page is a chance to rank for "[location] custom builder."</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-icon fail">&#10007;</div>
+      <div>
+        <div class="finding-text"><strong>No Local Content Strategy</strong></div>
+        <div class="finding-detail">No content about Sunshine Coast building conditions, regulations, or architectural context. Articles like "Building a Custom Home on the Sunshine Coast: What to Know" would capture high-intent search traffic.</div>
+      </div>
+    </div>
+    
+  </div>
+  
+
+  
+  <div class="insight">
+    <h4>Local SEO Bottom Line</h4>
+    <p><strong>The Google Business Profile is the highest-priority fix.</strong> It’s free, it takes 30 minutes to set up, and it immediately makes Summerhill visible on Google Maps. Combined with 5-10 Google reviews from past clients, this single action would change your local visibility within 60 days. Everything else builds from there.</p>
+  </div>
+  
+</section>
+
+
+
+
+
+
+
+<div class="photo-break">
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/4bb9a1fe-5bc1-4cf3-a0ea-8053f1a7270c/5322-backhouse-web-3.jpg" alt="The Perch living room interior">
+  <div class="photo-break-caption">The Perch &middot; Interior &middot; Matt Anthony Photography</div>
+</div>
+
+
+
+
+
+
+<div class="divider"></div>
+<section class="section wide" data-nav="Competitors">
+  <div class="eyebrow">Competitive Landscape</div>
+  <h2>How you compare.<br><em>Side by side.</em></h2>
+  <p class="lead">Here’s how Summerhill’s online presence stacks up against builders competing for the same clients on the Sunshine Coast and Sea-to-Sky.</p>
+
+  <table class="compare-table">
+    <thead>
+      <tr>
+        
+        <th>Builder</th>
+        
+        <th>Website</th>
+        
+        <th>Blog/SEO</th>
+        
+        <th>Social</th>
+        
+        <th>Awards</th>
+        
+        <th>Google Reviews</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      
+      <tr class="highlight-row">
+        
+        <td><strong>Summerhill Fine Homes</strong></td>
+        
+        <td><span class='dot amber'></span>Clean, needs depth</td>
+        
+        <td><span class='dot red'></span>No blog</td>
+        
+        <td><span class='dot amber'></span>Sporadic</td>
+        
+        <td><span class='dot red'></span>None</td>
+        
+        <td><span class='dot red'></span>None found</td>
+        
+      </tr>
+      
+      <tr>
+        
+        <td>RDC Fine Homes</td>
+        
+        <td><span class='dot green'></span>Strong portfolio</td>
+        
+        <td><span class='dot amber'></span>Minimal</td>
+        
+        <td><span class='dot green'></span>Active</td>
+        
+        <td><span class='dot green'></span>17 Georgies</td>
+        
+        <td><span class='dot green'></span>5.0 (12)</td>
+        
+      </tr>
+      
+      <tr>
+        
+        <td>Schreyer Construction</td>
+        
+        <td><span class='dot green'></span>Project-rich</td>
+        
+        <td><span class='dot amber'></span>Basic</td>
+        
+        <td><span class='dot green'></span>Consistent</td>
+        
+        <td><span class='dot amber'></span>CHBA member</td>
+        
+        <td><span class='dot green'></span>4.9 (8)</td>
+        
+      </tr>
+      
+      <tr>
+        
+        <td>Blueline Contracting</td>
+        
+        <td><span class='dot amber'></span>Decent</td>
+        
+        <td><span class='dot red'></span>None</td>
+        
+        <td><span class='dot amber'></span>Occasional</td>
+        
+        <td><span class='dot red'></span>None</td>
+        
+        <td><span class='dot amber'></span>4.5 (5)</td>
+        
+      </tr>
+      
+      <tr>
+        
+        <td>CVC Custom Builders</td>
+        
+        <td><span class='dot green'></span>HGTV featured</td>
+        
+        <td><span class='dot green'></span>Press/media</td>
+        
+        <td><span class='dot green'></span>Strong</td>
+        
+        <td><span class='dot green'></span>Multiple</td>
+        
+        <td><span class='dot green'></span>4.8 (15)</td>
+        
+      </tr>
+      
+    </tbody>
+  </table>
+
+  
+  <div class="insight">
+    <h4>The Competitive Gap</h4>
+    <p>Summerhill’s build quality matches or exceeds every builder on this list. But the online presence tells a different story. <strong>RDC and CVC are winning on credentials and visibility, not craftsmanship.</strong> The gap is entirely fixable with consistent content, professional documentation, and a basic awards strategy.</p>
+  </div>
+  
+</section>
+
+
+
+
+
+
+
+<div class="photo-break">
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/75b669fa-89d6-47c2-a4b4-6b45bfa203b1/5322-backhouse-web-6.jpg" alt="The Perch suspended fireplace detail">
+  <div class="photo-break-caption">The Perch &middot; Interior Detail &middot; Matt Anthony Photography</div>
+</div>
+
+
+
+
+
+
+<section class="section light" data-nav="Content">
+  <div class="eyebrow">Content &amp; Visual Assets</div>
+  <h2>What you have.<br><em>What you’re missing.</em></h2>
+  <p class="lead">An audit of Summerhill’s current photography, video, and content assets across all channels.</p>
+
+  
+  <div class="audit-category">Photography</div>
+  <div class="findings">
+    
+    <div class="finding">
+      <div class="finding-icon pass">&#10003;</div>
+      <div>
+        <div class="finding-text"><strong>The Perch Is Fully Documented</strong></div>
+        <div class="finding-detail">26 professional images from our November 2025 shoot. These are portfolio-grade and currently the strongest visual asset on the site.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-icon fail">&#10007;</div>
+      <div>
+        <div class="finding-text"><strong>6+ Projects Have No Professional Photography</strong></div>
+        <div class="finding-detail">Tree House, Liberty House, Twin Peaks, Fern Valley, Farrington Cove, and the Halfmoon Bay Community Hall have no professional architectural photography. Each is a missed marketing asset.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-icon fail">&#10007;</div>
+      <div>
+        <div class="finding-text"><strong>No Build Process Documentation</strong></div>
+        <div class="finding-detail">Summerhill’s CLT and passive house construction is visually compelling. Zero of it has been captured professionally. This content performs exceptionally well on social media and in client presentations.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-icon warn">!</div>
+      <div>
+        <div class="finding-text"><strong>No Drone/Aerial Content</strong></div>
+        <div class="finding-detail">Coastal properties on the Sunshine Coast benefit enormously from aerial photography showing the site in context. No drone content exists for any project.</div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="audit-category">Video</div>
+  <div class="findings">
+    
+    <div class="finding">
+      <div class="finding-icon fail">&#10007;</div>
+      <div>
+        <div class="finding-text"><strong>Zero Project Films</strong></div>
+        <div class="finding-detail">No walkthrough videos, no highlight reels, no documentary content. Video is the highest-engagement content format in 2026 and Summerhill has none.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-icon fail">&#10007;</div>
+      <div>
+        <div class="finding-text"><strong>No Social Reels or Short-Form Video</strong></div>
+        <div class="finding-detail">Instagram Reels and LinkedIn video drive 2-3x the engagement of static posts. Build process timelapse, material reveals, and before/after content are proven formats.</div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="audit-category">Social Media</div>
+  <div class="findings">
+    
+    <div class="finding">
+      <div class="finding-icon warn">!</div>
+      <div>
+        <div class="finding-text"><strong>Instagram Posting Is Sporadic</strong></div>
+        <div class="finding-detail">Posts are infrequent and inconsistent. A 17-person company with active build sites should be generating 3-4 posts per week minimum.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-icon fail">&#10007;</div>
+      <div>
+        <div class="finding-text"><strong>No LinkedIn Presence for the Company</strong></div>
+        <div class="finding-detail">Architects and developers search LinkedIn when vetting builders. No company page or content strategy means Summerhill is invisible to this audience.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-icon fail">&#10007;</div>
+      <div>
+        <div class="finding-text"><strong>Team Content Is Untapped</strong></div>
+        <div class="finding-detail">17+ employees, mentorship programs, community sponsorships, a women’s soccer team. This is trust-building content that humanizes the brand and none of it is being leveraged consistently.</div>
+      </div>
+    </div>
+    
+  </div>
+  
+
+  
+  <div class="insight">
+    <h4>Content Bottom Line</h4>
+    <p>Summerhill has <strong>years of raw material</strong> that hasn’t been turned into marketing assets. The Perch proves what professional documentation looks like. The gap is that it’s the only project that’s been done. Scaling this across the portfolio would give Summerhill a visual library that no Sunshine Coast competitor can match.</p>
+  </div>
+  
+</section>
+
+
+
+
+
+
+
+
+
+
+
+<div class="numbers grain-section">
+  
+  <div class="num"><span class="num-val">6</span><span class="num-lbl">Projects to Document</span></div>
+  
+  <div class="num"><span class="num-val">0</span><span class="num-lbl">Google Reviews Today</span></div>
+  
+  <div class="num"><span class="num-val">$0</span><span class="num-lbl">Current SEO Investment</span></div>
+  
+</div>
+<section class="section" data-nav="Action Plan">
+  <div class="eyebrow">What I’d Fix First</div>
+  <h2>The action plan.<br><em>Priority order.</em></h2>
+  <p class="lead">If Summerhill invested in three things over the next 90 days, here’s where the biggest return would come from.</p>
+
+  <div class="steps">
+    
+    <div class="step">
+      <span class="step-num">1</span>
+      <h4>Google Business Profile</h4>
+      <p>Free. Set up and verify in 30 minutes. Add photos, services, and service areas. Request 5 reviews from recent clients. This alone changes local visibility within 60 days.</p>
+    </div>
+    
+    <div class="step">
+      <span class="step-num">2</span>
+      <h4>Document 2-3 Projects</h4>
+      <p>Professional photography + drone + build content for the strongest completed projects. Creates award-ready images, social content, and proposal assets in one shoot.</p>
+    </div>
+    
+    <div class="step">
+      <span class="step-num">3</span>
+      <h4>Monthly Content Engine</h4>
+      <p>One blog post per month targeting Sunshine Coast search terms. One social reel per month from shoot footage. Consistent posting schedule. This compounds permanently.</p>
+    </div>
+    
+  </div>
+
+  
+  <div class="insight" style="margin-top:40px;">
+    <h4>This Is Where a Creative Partner Comes In</h4>
+    <p>Every gap in this audit is something I handle as part of the Creative Partner retainer. Photography, video, build documentation, social content, SEO blog posts, and award submissions. One relationship, one monthly investment, and every project Summerhill completes starts working for the business the moment it’s done.</p><p style="margin-bottom:0;"><strong>See the full Creative Partner proposal</strong> for pricing, tier options, and a 3-month pilot roadmap.</p>
+  </div>
+  
+</section>
+
+
+
+
+
+
+
+<!-- FOOTER -->
+<div class="footer grain-section">
+  <div class="footer-mark">Matt Anthony Photography</div>
+  <div class="footer-info">
+    <a href="https://mattanthonyphoto.com">mattanthonyphoto.com</a><br>
+    <a href="mailto:info@mattanthonyphoto.com">info@mattanthonyphoto.com</a> &middot; 604.765.9270<br>
+    Squamish, BC
+  </div>
+  <div class="footer-note">This audit is confidential and prepared exclusively for Summerhill Fine Homes.</div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ═══════ LOADING SCREEN ═══════ */
+  var loader = document.getElementById('loader');
+  window.addEventListener('load', function(){
+    setTimeout(function(){ loader.classList.add('done'); }, 1100);
+  });
+
+  /* ═══════ SCROLL PROGRESS BAR ═══════ */
+  var progressBar = document.getElementById('scrollProgress');
+  function updateProgress(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var s = window.scrollY;
+    progressBar.style.width = (h > 0 ? (s / h) * 100 : 0) + '%';
+  }
+
+  /* ═══════ COVER PARALLAX ═══════ */
+  var coverImg = document.querySelector('.cover-image');
+  function updateParallax(){
+    if(window.scrollY < window.innerHeight){
+      coverImg.style.transform = 'scale(1.08) translateY(' + (window.scrollY * 0.3) + 'px)';
+    }
+  }
+
+  /* ═══════ PHOTO BREAK PARALLAX + KEN BURNS ═══════ */
+  var isTouchDevice = 'ontouchstart' in window;
+  var photoBreakEls = document.querySelectorAll('.photo-break');
+  var photoBreakImgs = document.querySelectorAll('.photo-break img');
+  function updatePhotoParallax(){
+    photoBreakEls.forEach(function(pb){
+      var rect = pb.getBoundingClientRect();
+      var inView = rect.bottom > 0 && rect.top < window.innerHeight;
+      if(inView){
+        pb.classList.add('in-view');
+      } else {
+        pb.classList.remove('in-view');
+      }
+    });
+  }
+
+  /* ═══════ SECTION NAV DOTS ═══════ */
+  var sectionNav = document.getElementById('sectionNav');
+  var navSections = document.querySelectorAll('[data-nav]');
+  var navDots = [];
+  navSections.forEach(function(sec){
+    var dot = document.createElement('div');
+    dot.className = 'section-nav-dot';
+    dot.setAttribute('data-label', sec.getAttribute('data-nav'));
+    dot.addEventListener('click', function(){
+      sec.scrollIntoView({ behavior:'smooth', block:'start' });
+    });
+    sectionNav.appendChild(dot);
+    navDots.push({ dot:dot, section:sec });
+  });
+
+  function updateNavDots(){
+    var scrollY = window.scrollY;
+    var winH = window.innerHeight;
+    // Show/hide nav (hide on cover)
+    if(scrollY > winH * 0.5){
+      sectionNav.classList.add('visible');
+    } else {
+      sectionNav.classList.remove('visible');
+    }
+    // Highlight active section
+    var active = null;
+    navDots.forEach(function(item){
+      var rect = item.section.getBoundingClientRect();
+      if(rect.top < winH * 0.5 && rect.bottom > winH * 0.3){
+        active = item;
+      }
+      item.dot.classList.remove('active');
+    });
+    if(active) active.dot.classList.add('active');
+  }
+
+  /* ═══════ SCROLL REVEAL ═══════ */
+  var revealTargets = [];
+  document.querySelectorAll('.section, .numbers, .mosaic').forEach(function(section){
+    section.querySelectorAll('.eyebrow, h2, .lead, .stats, .services, .tiers, .insight, .roadmap, .tl, .numbers, .steps, .addons').forEach(function(el, i){
+      el.classList.add('reveal');
+      if(i > 0 && i < 6) el.classList.add('reveal-delay-' + i);
+      revealTargets.push(el);
+    });
+    section.querySelectorAll('.stat, .svc, .tier, .step, .num, .rm, .tl-item').forEach(function(el, i){
+      el.classList.add('reveal');
+      el.classList.add('reveal-delay-' + Math.min(i + 1, 5));
+      revealTargets.push(el);
+    });
+    Array.prototype.forEach.call(section.children, function(child){
+      if(child.tagName === 'P' && !child.classList.contains('lead') && !child.classList.contains('cover-sub')){
+        child.classList.add('reveal');
+        revealTargets.push(child);
+      }
+    });
+  });
+
+  var revealObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+        animateCounter(entry.target);
+      }
+    });
+  }, { threshold:0.15, rootMargin:'0px 0px -40px 0px' });
+
+  revealTargets.forEach(function(el){ revealObserver.observe(el); });
+
+  /* ═══════ EYEBROW LINE ANIMATION ═══════ */
+  var eyebrows = document.querySelectorAll('.eyebrow');
+  var eyebrowObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        eyebrowObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold:0.5 });
+  eyebrows.forEach(function(eb){ eyebrowObserver.observe(eb); });
+
+  /* ═══════ NUMBER COUNTER ANIMATION ═══════ */
+  function animateCounter(el){
+    var valEl = el.querySelector('.stat-val, .num-val');
+    if(!valEl || valEl.dataset.counted) return;
+    valEl.dataset.counted = 'true';
+    var text = valEl.textContent.trim();
+    var hasPlus = text.indexOf('+') > -1;
+    var num = parseInt(text.replace(/[^0-9]/g,''), 10);
+    if(isNaN(num) || num === 0) return;
+    var duration = 1200;
+    var start = performance.now();
+    function ease(t){ return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2; }
+    function tick(now){
+      var t = Math.min((now - start) / duration, 1);
+      var val = Math.round(ease(t) * num);
+      valEl.textContent = val + (hasPlus ? '+' : '');
+      if(t < 1) requestAnimationFrame(tick);
+    }
+    valEl.textContent = '0' + (hasPlus ? '+' : '');
+    requestAnimationFrame(tick);
+  }
+
+  /* ═══════ PHOTO BREAK CURTAIN REVEAL ═══════ */
+  var photoRevealObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('revealed');
+        photoRevealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold:0.1 });
+  photoBreakEls.forEach(function(pb){ photoRevealObserver.observe(pb); });
+
+  /* ═══════ HEADLINE GOLD UNDERLINE ═══════ */
+  var headlines = document.querySelectorAll('h2');
+  var headlineObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('underlined');
+        headlineObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold:0.5 });
+  headlines.forEach(function(h){ headlineObserver.observe(h); });
+
+  /* ═══════ SCROLL INDICATOR HIDE ═══════ */
+  var scrollIndicator = document.getElementById('scrollIndicator');
+  function updateScrollIndicator(){
+    if(window.scrollY > 100){
+      scrollIndicator.classList.add('hidden');
+    } else {
+      scrollIndicator.classList.remove('hidden');
+    }
+  }
+
+  /* ═══════ TIER SELECTION + 3D TILT ═══════ */
+  var tiers = document.querySelectorAll('.tier[data-tier]');
+  tiers.forEach(function(tier){
+    tier.addEventListener('click', function(){
+      tiers.forEach(function(t){ t.classList.remove('selected'); });
+      tier.classList.add('selected');
+    });
+    if(!isTouchDevice){
+      tier.addEventListener('mousemove', function(e){
+        var rect = tier.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width - 0.5;
+        var y = (e.clientY - rect.top) / rect.height - 0.5;
+        tier.style.transform = tier.classList.contains('rec')
+          ? 'scaleY(1.02) perspective(800px) rotateY(' + (x * 4) + 'deg) rotateX(' + (-y * 4) + 'deg)'
+          : 'perspective(800px) rotateY(' + (x * 4) + 'deg) rotateX(' + (-y * 4) + 'deg)';
+      });
+      tier.addEventListener('mouseleave', function(){
+        tier.style.transform = tier.classList.contains('rec') ? 'scaleY(1.02)' : '';
+      });
+    }
+  });
+
+  /* ═══════ ROADMAP LINE DRAW ═══════ */
+  var roadmapLine = document.getElementById('roadmapLine');
+  var roadmap = document.querySelector('.roadmap');
+  function updateRoadmapLine(){
+    if(!roadmap || !roadmapLine) return;
+    var rect = roadmap.getBoundingClientRect();
+    var roadmapTop = rect.top + window.scrollY;
+    var roadmapHeight = rect.height - 96;
+    var scrollPos = window.scrollY + window.innerHeight * 0.6;
+    var progress = (scrollPos - roadmapTop - 48) / roadmapHeight;
+    progress = Math.max(0, Math.min(1, progress));
+    roadmapLine.style.height = (progress * roadmapHeight) + 'px';
+  }
+
+  /* ═══════ SMOOTH SCROLL FOR CTA ═══════ */
+  document.querySelector('.cover-cta').addEventListener('click', function(e){
+    e.preventDefault();
+    var target = document.querySelector(this.getAttribute('href'));
+    if(target) target.scrollIntoView({ behavior:'smooth', block:'start' });
+  });
+
+  /* ═══════ COMBINED SCROLL HANDLER ═══════ */
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if(!ticking){
+      requestAnimationFrame(function(){
+        updateProgress();
+        updateParallax();
+        updatePhotoParallax();
+        updateScrollIndicator();
+        updateRoadmapLine();
+        updateNavDots();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, {passive:true});
+
+  // Init
+  updateProgress();
+  updateParallax();
+  updatePhotoParallax();
+  updateRoadmapLine();
+  updateNavDots();
+
+})();
+</script>
+
+</body>
+</html>
+</body>
+</html>
