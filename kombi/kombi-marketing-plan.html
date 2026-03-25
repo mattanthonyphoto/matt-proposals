@@ -523,6 +523,50 @@
   .case-study-link:hover { border-color:var(--gold); background:var(--gold-dim); }
 
   /* ═══════════════════════════════════════
+     BROWSER MOCKUP (Website Slider)
+     ═══════════════════════════════════════ */
+  .browser-mockup {
+    max-width:940px; margin:48px auto; border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 30px 80px rgba(26,26,24,0.18), 0 10px 30px rgba(26,26,24,0.1);
+    animation:browserGlow 4s ease-in-out infinite alternate;
+  }
+  @keyframes browserGlow {
+    0%   { box-shadow:0 30px 80px rgba(26,26,24,0.18), 0 10px 30px rgba(26,26,24,0.1); }
+    100% { box-shadow:0 30px 80px rgba(26,26,24,0.18), 0 10px 30px rgba(26,26,24,0.1), 0 0 60px rgba(201,169,110,0.06); }
+  }
+  .browser-bar {
+    background:#2a2a28; padding:14px 18px;
+    display:flex; align-items:center; gap:8px;
+  }
+  .browser-dot {
+    width:11px; height:11px; border-radius:50%;
+  }
+  .browser-dot:nth-child(1) { background:#ff5f57; }
+  .browser-dot:nth-child(2) { background:#ffbd2e; }
+  .browser-dot:nth-child(3) { background:#28c840; }
+  .browser-url {
+    flex:1; background:#1a1a18; border-radius:6px;
+    padding:7px 14px; margin-left:10px;
+    font-size:12px; color:#8a8579;
+    font-family:'DM Sans',-apple-system,sans-serif;
+    letter-spacing:0.02em;
+  }
+  .browser-viewport {
+    height:520px; overflow:hidden; position:relative;
+    background:#1a1a18;
+  }
+  .browser-viewport img {
+    width:100%; display:block;
+    animation:webScroll 20s cubic-bezier(0.45,0,0.55,1) infinite;
+  }
+  @keyframes webScroll {
+    0%,20%   { transform:translateY(0); }
+    45%,55%  { transform:translateY(-1500px); }
+    80%,100% { transform:translateY(0); }
+  }
+
+  /* ═══════════════════════════════════════
      CTA + FOOTER — Unified end block
      ═══════════════════════════════════════ */
   .cta-banner {
@@ -624,6 +668,13 @@
     .case-study-stats { grid-template-columns:1fr 1fr; }
     .case-study-gallery { grid-template-columns:1fr 1fr; }
     .case-study-gallery img { height:140px; }
+    .browser-viewport { height:300px; }
+    .browser-viewport img { animation-name:webScrollMobile; }
+    @keyframes webScrollMobile {
+      0%,20%   { transform:translateY(0); }
+      45%,55%  { transform:translateY(-1000px); }
+      80%,100% { transform:translateY(0); }
+    }
     .cta-banner { padding:100px 32px 80px; }
     .footer-locations { padding:32px 32px; gap:20px; }
     .footer-bar { flex-direction:column; gap:12px; padding:24px 32px; align-items:center; }
@@ -1837,6 +1888,19 @@
     
     <div class="case-study-stat"><span class="num-val">7</span><span class="num-lbl">Location Pages</span></div>
     
+  </div>
+  
+  
+  <div class="browser-mockup">
+    <div class="browser-bar">
+      <span class="browser-dot"></span>
+      <span class="browser-dot"></span>
+      <span class="browser-dot"></span>
+      <span class="browser-url">balmoralconstruction.com</span>
+    </div>
+    <div class="browser-viewport">
+      <img src="https://images.squarespace-cdn.com/content/6824fd48afd1dd40cd73e146/93aadd7d-1feb-4c75-bf1e-25a901aa197f/www.balmoralconstruction.com_+%282%29+%281%29.png?content-type=image%2Fpng" alt="Balmoral Construction website — 42 pages built by Matt Anthony Photography" loading="lazy">
+    </div>
   </div>
   
   
