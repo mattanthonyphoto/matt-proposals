@@ -523,26 +523,39 @@
   .case-study-link:hover { border-color:var(--gold); background:var(--gold-dim); }
 
   /* ═══════════════════════════════════════
-     CTA BANNER
+     CTA BANNER — Split editorial layout
      ═══════════════════════════════════════ */
   .cta-banner {
-    background:var(--ink); color:var(--paper); padding:120px 60px;
-    text-align:center; position:relative; overflow:hidden; max-width:100%;
+    background:var(--ink); color:var(--paper);
+    display:grid; grid-template-columns:1fr 1fr;
+    min-height:80vh; position:relative; overflow:hidden; max-width:100%;
   }
-  .cta-banner .section-inner { max-width:720px; margin:0 auto; position:relative; z-index:2; }
+  .cta-banner-image {
+    position:relative; overflow:hidden;
+  }
+  .cta-banner-image img {
+    width:100%; height:100%; object-fit:cover; display:block;
+    filter:brightness(0.85);
+    transition:filter 0.8s cubic-bezier(0.16,1,0.3,1);
+  }
+  .cta-banner:hover .cta-banner-image img { filter:brightness(0.92); }
   .cta-banner-bg {
     position:absolute; top:0; left:0; width:100%; height:100%;
     background-size:cover; background-position:center;
     opacity:0.35; filter:brightness(0.5);
   }
-  .cta-banner .eyebrow { justify-content:center; }
-  .cta-banner .eyebrow::before { display:none; }
-  .cta-banner h2 { text-align:center; color:var(--paper); }
-  .cta-banner p { color:rgba(246,244,240,0.7); text-align:center; max-width:560px; margin:0 auto 20px; }
+  .cta-banner .section-inner {
+    display:flex; flex-direction:column; justify-content:center;
+    padding:80px 60px; position:relative; z-index:2;
+  }
+  .cta-banner .eyebrow { justify-content:flex-start; }
+  .cta-banner .eyebrow::before { background:var(--gold); }
+  .cta-banner h2 { text-align:left; color:var(--paper); }
+  .cta-banner p { color:rgba(246,244,240,0.7); text-align:left; max-width:480px; margin:0 0 20px; }
   .cta-banner p:last-of-type { margin-bottom:40px; }
   .cta-btn {
     display:inline-flex; align-items:center; gap:12px;
-    padding:16px 40px;
+    padding:16px 40px; width:fit-content;
     font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.65rem;
     letter-spacing:0.3em; text-transform:uppercase;
     color:var(--ink); background:var(--gold);
@@ -558,7 +571,7 @@
   .cta-btn-arrow { font-size:0.9rem; transition:transform 0.3s ease; }
   .cta-btn:hover .cta-btn-arrow { transform:translateX(4px); }
   .cta-details {
-    display:flex; justify-content:center; gap:48px; margin-top:56px;
+    display:flex; flex-direction:column; gap:20px; margin-top:48px;
     padding-top:32px; border-top:1px solid rgba(201,169,110,0.15);
   }
   .cta-detail {
@@ -578,6 +591,21 @@
     background:var(--ink);
   }
   .inline-gallery.three-col { grid-template-columns:1fr 1fr 1fr; }
+  .inline-gallery.single-hero {
+    display:block; position:relative; overflow:hidden;
+    height:55vh; min-height:360px; max-height:560px;
+  }
+  .inline-gallery.single-hero img {
+    width:100%; height:100%; object-fit:cover; display:block;
+    filter:brightness(0.82);
+    transition:filter 0.8s cubic-bezier(0.16,1,0.3,1);
+  }
+  .inline-gallery.single-hero:hover img { filter:brightness(0.9); }
+  .inline-gallery.single-hero .inline-gallery-caption {
+    position:absolute; bottom:0; left:0; right:0; z-index:2;
+    padding:28px 60px;
+    background:linear-gradient(transparent, rgba(26,26,24,0.7));
+  }
   .inline-gallery img {
     width:100%; height:260px; object-fit:cover; display:block;
     filter:brightness(0.88); transition:filter 0.5s ease, transform 0.5s ease;
@@ -594,30 +622,50 @@
     .case-study-stats { grid-template-columns:1fr 1fr; }
     .case-study-gallery { grid-template-columns:1fr 1fr; }
     .case-study-gallery img { height:140px; }
-    .cta-banner { padding:80px 32px; }
-    .cta-details { flex-direction:column; gap:16px; align-items:center; }
+    .cta-banner { grid-template-columns:1fr; min-height:auto; }
+    .cta-banner-image { height:50vh; min-height:280px; }
+    .cta-banner .section-inner { padding:60px 32px; }
+    .cta-details { gap:16px; }
     .inline-gallery { grid-template-columns:1fr; }
     .inline-gallery.three-col { grid-template-columns:1fr; }
     .inline-gallery img { height:200px; }
+    .inline-gallery.single-hero { height:40vh; min-height:240px; }
+    .inline-gallery.single-hero .inline-gallery-caption { padding:20px 32px; }
   }
 
   /* ═══════════════════════════════════════
-     FOOTER
+     FOOTER — Refined editorial sign-off
      ═══════════════════════════════════════ */
   .footer {
-    background:var(--ink); padding:80px 60px; text-align:center;
-    border-top:1px solid rgba(201,169,110,0.1); position:relative;
+    background:var(--ink); padding:100px 60px 60px; text-align:center;
+    position:relative;
+  }
+  .footer::before {
+    content:''; position:absolute; top:0; left:50%; transform:translateX(-50%);
+    width:40px; height:1px; background:var(--gold);
   }
   .footer-mark {
-    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.7rem;
-    letter-spacing:0.4em; text-transform:uppercase; color:var(--paper); margin-bottom:20px;
+    font-family:'Cormorant Garamond',serif; font-weight:400; font-size:1.4rem;
+    font-style:italic; color:var(--paper); margin-bottom:32px;
+    letter-spacing:0.02em;
   }
-  .footer-info { font-size:0.8rem; color:var(--stone); line-height:2.2; }
-  .footer-info a { color:var(--gold); text-decoration:none; }
+  .footer-info {
+    font-family:'DM Sans',sans-serif; font-size:0.75rem; color:rgba(246,244,240,0.4);
+    line-height:2.4; letter-spacing:0.03em;
+  }
+  .footer-info a {
+    color:var(--gold); text-decoration:none;
+    transition:color 0.3s ease;
+  }
+  .footer-info a:hover { color:var(--paper); }
+  .footer-divider {
+    width:1px; height:24px; background:rgba(201,169,110,0.2);
+    margin:32px auto;
+  }
   .footer-note {
-    margin-top:40px; font-size:0.6rem; letter-spacing:0.15em;
+    margin-top:32px; font-size:0.55rem; letter-spacing:0.2em;
     text-transform:uppercase; font-family:'Josefin Sans',sans-serif;
-    color:rgba(246,244,240,0.15);
+    color:rgba(246,244,240,0.12);
   }
 
   /* ═══════════════════════════════════════
@@ -933,10 +981,12 @@
 
 
 
-<div class="photo-break">
-  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/ef4086f4-81fa-468f-99bf-966ce7d83d89/warbler-whistler-architectural-photography-matt-anthony-.jpg-11.jpg" alt="Warbler Residence at twilight — Whistler, BC">
-  <div class="photo-break-caption">Warbler Residence &middot; Whistler, BC &middot; Matt Anthony Photography</div>
-</div>
+
+  
+  
+    
+  
+  
 
 
 
@@ -1019,17 +1069,21 @@
 
 
 
-<div class="photo-break">
-  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/e07b8aac-c1ec-4293-b956-79b41aa39f33/5322-backhouse-web-1.jpg" alt="The Perch — modern coastal home, Sunshine Coast">
-  <div class="photo-break-caption">The Perch &middot; Sunshine Coast, BC &middot; Matt Anthony Photography</div>
-</div>
+
+  
+  
+    
+  
+    
+  
+  
 
 
 
 
 
 
-<div class="inline-gallery">
+<div class="inline-gallery single-hero">
   
   <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/58f835c2-21e3-441c-a6c1-629b91a2afaf/siteline-langley-16.jpg" alt="Fraserview Vista — exterior twilight, Langley" loading="lazy">
   
@@ -1043,10 +1097,6 @@
 
 
 
-<div class="photo-break">
-  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/52135c1c-0414-47aa-ba78-6d225bc11f6b/siteline-langley.jpg" alt="Fraserview Vista luxury residence — Langley, BC">
-  <div class="photo-break-caption">Fraserview Vista &middot; Langley, BC &middot; Matt Anthony Photography</div>
-</div>
 
 
 
@@ -1114,10 +1164,25 @@
 
 
 
+
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+    
+    
 <div class="photo-break">
-  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/47eefcd4-72ce-4641-8ff0-a4ea2e8b9e12/fitzsimmons-whistler-architectural-photography-matt-anthony-.jpg-19.jpg" alt="Fitzsimmons Residence at twilight — Whistler, BC">
-  <div class="photo-break-caption">Fitzsimmons Residence &middot; Whistler, BC &middot; Matt Anthony Photography</div>
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/ef4086f4-81fa-468f-99bf-966ce7d83d89/warbler-whistler-architectural-photography-matt-anthony-.jpg-11.jpg" alt="Warbler Residence at twilight — Whistler, BC">
+  <div class="photo-break-caption">Warbler Residence &middot; Whistler, BC &middot; Matt Anthony Photography</div>
 </div>
+  
 
 
 
@@ -1196,10 +1261,20 @@
 
 
 
-<div class="photo-break">
-  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/0e7a6365-526e-4c0e-8b06-4939d5008849/5322-backhouse-web-4.jpg" alt="The Perch — suspended fireplace interior">
-  <div class="photo-break-caption">The Perch &middot; Sunshine Coast, BC &middot; Matt Anthony Photography</div>
-</div>
+
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
 
 
 
@@ -1260,10 +1335,28 @@
 
 
 
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
 
 
 
-<div class="inline-gallery">
+
+
+
+<div class="inline-gallery single-hero">
   
   <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/2b3d3270-c8c3-4e1a-954a-4aca41b35b71/sandy-hook-sunshine-coast-architectural-photography-matt-anthony-.jpg-13.jpg" alt="Tranquil Retreat — wood ceiling living room" loading="lazy">
   
@@ -1271,6 +1364,8 @@
   <div class="inline-gallery-caption">Matt Anthony Photography</div>
   
 </div>
+
+
 
 
 
@@ -1379,6 +1474,35 @@
 
 
 
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+    
+    
+<div class="photo-break">
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/e07b8aac-c1ec-4293-b956-79b41aa39f33/5322-backhouse-web-1.jpg" alt="The Perch — modern coastal home, Sunshine Coast">
+  <div class="photo-break-caption">The Perch &middot; Sunshine Coast, BC &middot; Matt Anthony Photography</div>
+</div>
+  
+
+
+
 
 
 
@@ -1450,6 +1574,30 @@
 
 
 
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+
+
+
 
 
 
@@ -1497,6 +1645,32 @@
 
 
 
+
+
+
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
 
 
 
@@ -1559,6 +1733,41 @@
 
 
 
+
+
+
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+    
+    
+<div class="photo-break">
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/52135c1c-0414-47aa-ba78-6d225bc11f6b/siteline-langley.jpg" alt="Fraserview Vista luxury residence — Langley, BC">
+  <div class="photo-break-caption">Fraserview Vista &middot; Langley, BC &middot; Matt Anthony Photography</div>
+</div>
+  
 
 
 
@@ -1634,6 +1843,8 @@
 
 
 
+
+
 <div class="numbers grain-section">
   
   <div class="num"><span class="num-val">25</span><span class="num-lbl">Images per Shoot</span></div>
@@ -1643,6 +1854,8 @@
   <div class="num"><span class="num-val">7</span><span class="num-lbl">Channels Fed</span></div>
   
 </div>
+
+
 
 
 
@@ -1762,6 +1975,40 @@
 
 
 
+
+
+
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
 
 
 
@@ -1889,12 +2136,50 @@
 
 
 
+  
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+    
+  
+  
+
+
+
 
 
 
 <div class="cta-banner grain-section" data-nav="Work Together">
   
-  <div class="cta-banner-bg" style="background-image:url('https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/8a674d33-4176-43dd-89c1-a565c1c3df48/5322-backhouse-web-24.jpg');"></div>
+  <div class="cta-banner-image">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/8a674d33-4176-43dd-89c1-a565c1c3df48/5322-backhouse-web-24.jpg" alt="Matt Anthony Photography" loading="lazy">
+  </div>
   
   <div class="section-inner">
     <div class="eyebrow">Let's Talk</div>
@@ -1920,6 +2205,8 @@
     
   </div>
 </div>
+
+
 
 
 
@@ -1975,15 +2262,18 @@
 
 
 
+
+
 <!-- FOOTER -->
 <div class="footer grain-section">
-  <div class="footer-mark">Matt Anthony Photography</div>
+  <div class="footer-mark">Matt Anthony</div>
+  <div class="footer-divider"></div>
   <div class="footer-info">
     <a href="https://mattanthonyphoto.com">mattanthonyphoto.com</a><br>
-    <a href="mailto:info@mattanthonyphoto.com">info@mattanthonyphoto.com</a> &middot; 604.765.9270<br>
-    Squamish, BC
+    <a href="mailto:info@mattanthonyphoto.com">info@mattanthonyphoto.com</a><br>
+    604.765.9270 &middot; Squamish, BC
   </div>
-  <div class="footer-note">Prepared exclusively for Sonoma Design + Build. &copy; Matt Anthony Photography 2026.</div>
+  <div class="footer-note">Prepared exclusively for Sonoma Design + Build. &copy; 2026</div>
 </div>
 
 <script>
