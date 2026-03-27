@@ -1589,17 +1589,7 @@ a {
   transition-delay: 0.24s;
 }
 
-/* ═══════════════════════════════════════
-   PROJECT CARD CURTAIN REVEAL
-   ═══════════════════════════════════════ */
-.project-card.curtain-ready {
-  clip-path: inset(0 0 100% 0);
-  transition: clip-path 1s cubic-bezier(0.16,1,0.3,1);
-}
-
-.project-card.card-revealed {
-  clip-path: inset(0 0 0% 0);
-}
+/* Project card curtain reveal removed — conflicts with .reveal opacity system */
 
 /* ═══════════════════════════════════════
    PRESS BAR
@@ -2750,24 +2740,7 @@ a {
   }
 
 
-  // ─── PROJECT CARD CURTAIN REVEAL ───
-  var projectCards = document.querySelectorAll('.project-card');
-  if ('IntersectionObserver' in window) {
-    var cardObserver = new IntersectionObserver(function(entries) {
-      entries.forEach(function(entry) {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('card-revealed');
-          cardObserver.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.05, rootMargin: '0px 0px -60px 0px' });
-
-    projectCards.forEach(function(card, i) {
-      card.classList.add('curtain-ready');
-      card.style.transitionDelay = (i * 0.12) + 's';
-      cardObserver.observe(card);
-    });
-  }
+  // Project card curtain reveal removed — .reveal system handles card animations
 
 
   // ─── MAGNETIC BUTTON EFFECT ───
