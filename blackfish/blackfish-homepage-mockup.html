@@ -1125,51 +1125,38 @@ a {
 .process-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
 }
 
 .process-card {
   padding: 48px 36px;
-  border-right: 1px solid var(--border-dark);
+  background: #fff;
+  border: 1px solid var(--border-dark);
+  border-top: 3px solid var(--accent);
   position: relative;
-  transition: background 0.4s ease;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
 }
 
 .process-card:last-child {
-  border-right: none;
-}
-
-.process-card::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: 36px;
-  right: 36px;
-  height: 2px;
-  background: var(--accent);
-  transform: scaleX(0);
-  transform-origin: left;
-  transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
-}
-
-.process-card:hover::after {
-  transform: scaleX(1);
+  border-right: 1px solid var(--border-dark);
 }
 
 .process-card:hover {
-  background: rgba(45,90,61,0.04);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.06);
 }
 
 .process-step {
   font-family: 'DM Serif Display', serif;
   font-size: 56px;
-  color: rgba(45,90,61,0.12);
+  color: rgba(45,90,61,0.18);
   line-height: 1;
   margin-bottom: 24px;
   transition: color 0.4s ease;
 }
 
 .process-card:hover .process-step {
-  color: rgba(45,90,61,0.35);
+  color: rgba(45,90,61,0.4);
 }
 
 .process-card h4 {
