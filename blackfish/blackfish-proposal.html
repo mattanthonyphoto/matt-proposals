@@ -718,6 +718,64 @@
   }
 
   /* ═══════════════════════════════════════
+     CASE STUDY
+     ═══════════════════════════════════════ */
+  .case-study-header {
+    position:relative; overflow:hidden; min-height:360px;
+    display:flex; align-items:flex-end; margin-bottom:56px;
+  }
+  .case-study-header img {
+    position:absolute; top:0; left:0; width:100%; height:100%;
+    object-fit:cover; filter:brightness(0.7);
+  }
+  .case-study-header-content {
+    position:relative; z-index:2; padding:40px 48px; width:100%;
+    background:linear-gradient(transparent, rgba(26,26,24,0.85));
+  }
+  .case-study-header-content h4 {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.6rem;
+    letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); margin-bottom:8px;
+  }
+  .case-study-header-content h3 {
+    font-family:'Cormorant Garamond',serif; font-weight:400; font-size:2rem;
+    color:var(--paper); margin:0; letter-spacing:-0.01em; text-transform:none;
+  }
+  .case-study-header-content h3 em { font-style:italic; font-weight:500; color:var(--gold); }
+  .case-study-stats {
+    display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+    background:var(--gold-dim); margin:40px 0;
+  }
+  .case-study-stat {
+    background:var(--ink); text-align:center; padding:32px 16px;
+  }
+  .case-study-stat .num-val {
+    font-family:'Cormorant Garamond',serif; font-size:2.4rem;
+    font-weight:500; color:var(--gold); display:block; line-height:1; margin-bottom:8px;
+  }
+  .case-study-stat .num-lbl {
+    font-family:'Josefin Sans',sans-serif; font-size:0.5rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:rgba(246,244,240,0.4);
+  }
+  .case-study-gallery {
+    display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:3px;
+    margin:40px 0;
+  }
+  .case-study-gallery img {
+    width:100%; height:180px; object-fit:cover; display:block;
+    filter:brightness(0.92); transition:filter 0.4s ease;
+  }
+  .case-study-gallery img:hover { filter:brightness(1.05); }
+  .case-study-link {
+    display:inline-flex; align-items:center; gap:10px;
+    margin-top:24px; padding:12px 28px;
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.6rem;
+    letter-spacing:0.25em; text-transform:uppercase;
+    color:var(--gold); border:1px solid var(--gold-border);
+    text-decoration:none; transition:all 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
+  .case-study-link:hover { border-color:var(--gold); background:var(--gold-dim); }
+
+  /* ═══════════════════════════════════════
      BROWSER MOCKUP
      ═══════════════════════════════════════ */
   .browser-mockup {
@@ -753,6 +811,11 @@
     .cover-content,.cover-top { padding-left:32px; padding-right:32px; }
     .section { padding:80px 32px; }
     .stats,.services,.services.three-col,.tiers,.steps,.numbers { grid-template-columns:1fr; }
+    .case-study-stats { grid-template-columns:1fr 1fr; }
+    .case-study-gallery { grid-template-columns:1fr 1fr; }
+    .case-study-gallery img { height:140px; }
+    .case-study-header { min-height:280px; }
+    .case-study-header-content { padding:24px 32px; }
     .browser-viewport { padding-bottom:75%; }
     .browser-mockup { margin:32px -16px 0; border-radius:4px; }
     .tier + .tier { border-left:1px solid rgba(26,26,24,0.06); border-top:none; }
@@ -1261,66 +1324,65 @@
 </div>
 
 
-<!-- ═══════ 05 — PROOF ═══════ -->
-<div class="section cream" data-nav="Proof">
-  <div class="eyebrow">Proof of Work</div>
-  <h2>I built this for a builder<br><em>just like you.</em></h2>
-  <p class="lead">Balmoral Construction is a luxury custom home builder in the Sea-to-Sky corridor. Over 12 months, I designed their entire digital presence from scratch.</p>
+<!-- ═══════ 05 — CASE STUDY ═══════ -->
+<div class="section" data-nav="Proof">
+  <div class="eyebrow">Case Study</div>
+  <h2>What this looks like<br><em>in practice.</em></h2>
+  <p class="lead">Balmoral Construction is a custom home builder in the Sea-to-Sky corridor. Here's what happened when they invested in professional documentation and a content-driven marketing strategy.</p>
 
-  <div class="services">
-    <div class="svc">
-      <h4>Website</h4>
-      <ul>
-        <li>42-page custom Squarespace site</li>
-        <li>14 dedicated project pages</li>
-        <li>6 geo-targeted location pages</li>
-        <li>Mobile-first, SEO-ready architecture</li>
-      </ul>
-    </div>
-    <div class="svc">
-      <h4>SEO &amp; GEO</h4>
-      <ul>
-        <li>Full technical SEO implementation</li>
-        <li>Schema markup across all pages</li>
-        <li>GEO score: 7.5/10</li>
-        <li>Organic traffic growing month over month</li>
-      </ul>
-    </div>
-    <div class="svc">
-      <h4>Photography</h4>
-      <ul>
-        <li>4 projects shot to full scope</li>
-        <li>Interiors, exteriors, aerials, twilight</li>
-        <li>Award-ready from day one</li>
-        <li>Multi-format delivery across all channels</li>
-      </ul>
-    </div>
-    <div class="svc">
-      <h4>Ongoing</h4>
-      <ul>
-        <li>12+ month retainer relationship</li>
-        <li>Monthly website updates and new pages</li>
-        <li>Social media content from shoots</li>
-        <li>SEO monitoring and optimization</li>
-      </ul>
+  <div class="case-study-header">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/64c6702a-78ea-4fe3-a601-78bce7c197a8/warbler-whistler-architectural-photography-matt-anthony-.jpg-5.jpg" alt="Warbler Residence — built by Balmoral Construction, Whistler">
+    <div class="case-study-header-content">
+      <h4>Balmoral Construction</h4>
+      <h3>From invisible online to<br><em>the builder people find first.</em></h3>
     </div>
   </div>
 
-  <div class="numbers grain-section">
-    <div class="num"><span class="num-val">42</span><span class="num-lbl">Pages Built</span></div>
-    <div class="num"><span class="num-val">14</span><span class="num-lbl">Project Pages</span></div>
-    <div class="num"><span class="num-val">7.5</span><span class="num-lbl">GEO Score</span></div>
+  <p>When we started working together, Balmoral had completed over 50 custom homes across the Sea-to-Sky corridor but had zero online presence to show for it. No project pages, no professional photography, no awards, no content strategy.</p>
+
+  <p>We built a full 42-page website with dedicated project pages, location-specific landing pages, and a blog. Every page is backed by professional architectural photography.</p>
+
+  <p>We then launched a monthly content system: professional photo shoots, social media content, Google Business Profile optimization, and award submissions.</p>
+
+  <p>The result: Balmoral now shows up in Google for every key search term in their market. Their website generates qualified leads. Their Instagram showcases the work. And for the first time, their online presence matches the quality of what they actually build.</p>
+
+  <div class="case-study-stats">
+    <div class="case-study-stat"><span class="num-val">42</span><span class="num-lbl">Website Pages Built</span></div>
+    <div class="case-study-stat"><span class="num-val">14</span><span class="num-lbl">Project Pages</span></div>
+    <div class="case-study-stat"><span class="num-val">300+</span><span class="num-lbl">Professional Images</span></div>
+    <div class="case-study-stat"><span class="num-val">7</span><span class="num-lbl">Location Pages</span></div>
   </div>
 
-  <p style="margin-top:40px; font-size:0.85rem; color:var(--stone);">The Balmoral site has been live for 12 months. Organic traffic is growing month over month. Six location pages are ranking for Sea-to-Sky search terms. The site now serves as the foundation for every proposal, award submission, and client acquisition conversation Marc has.</p>
+  <div class="browser-mockup">
+    <div class="browser-bar">
+      <div class="browser-dots">
+        <span class="browser-dot" style="background:#FF5F57;"></span>
+        <span class="browser-dot" style="background:#FFBD2E;"></span>
+        <span class="browser-dot" style="background:#28CA41;"></span>
+      </div>
+      <div class="browser-url">
+        <span class="browser-lock">&#x1F512;</span>
+        balmoralconstruction.com
+      </div>
+    </div>
+    <div class="browser-viewport">
+      <img src="https://images.squarespace-cdn.com/content/6824fd48afd1dd40cd73e146/93aadd7d-1feb-4c75-bf1e-25a901aa197f/www.balmoralconstruction.com_+%282%29+%281%29.png?content-type=image%2Fpng" alt="Balmoral Construction website — 42 pages built by Matt Anthony Photography" loading="lazy" style="width:100%; display:block;">
+    </div>
+  </div>
+
+  <div class="case-study-gallery">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/40f0f4b4-0146-4139-8682-d3505ba00ba2/warbler-whistler-architectural-photography-matt-anthony-.jpg-36.jpg" alt="Warbler Residence — Balmoral Construction" loading="lazy">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/0a5c4ead-f6f9-413c-aaad-b12b03837e78/fitzsimmons-whistler-architectural-photography-matt-anthony-.jpg.jpg" alt="Fitzsimmons Residence — Balmoral Construction" loading="lazy">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/d4768559-4d0d-4403-a58c-02db15d5b177/fitzsimmons-whistler-architectural-photography-matt-anthony-.jpg-42.jpg" alt="Fitzsimmons interior — Balmoral Construction" loading="lazy">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/98b6bb8c-ede3-4de9-978a-fc8ae91554a6/warbler-whistler-architectural-photography-matt-anthony-.jpg-35.jpg" alt="Warbler exterior — Balmoral Construction" loading="lazy">
+  </div>
+
+  <a class="case-study-link" href="https://www.balmoralconstruction.com" target="_blank">See the Balmoral website <span>&rarr;</span></a>
 
   <div class="insight">
-    <h4>Client Testimonial</h4>
-    <p class="testimonial">"Working with Matt was an absolute pleasure from start to finish. The entire process, from our initial contact to the delivery of stunning photos and the completion of my website, was seamless and professional. He took the time to understand my needs, and the trust we built made every step effortless. The website looks fantastic, and the ongoing maintenance plan gives me peace of mind knowing everything is taken care of."</p>
-    <p class="testimonial-author">Marc Harvey, Owner, Balmoral Construction</p>
-    <p style="margin-top:24px; font-size:0.85rem;"><a href="https://www.balmoralconstruction.com/" target="_blank" style="color:var(--gold); border-bottom:1px solid var(--gold-border); transition:border-color 0.3s;">See the live Balmoral website &rarr;</a></p>
+    <h4>The Takeaway</h4>
+    <p>Balmoral didn't need to change how they build homes. They needed to <strong>show</strong> how they build homes. The photography, the website, the content system — they're all the same investment. And it compounds every month.</p>
   </div>
-
 </div>
 
 
