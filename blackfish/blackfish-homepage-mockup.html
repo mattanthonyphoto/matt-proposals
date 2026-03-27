@@ -421,6 +421,7 @@ a {
   font-weight: 400;
   line-height: 1.15;
   margin-bottom: 24px;
+  overflow: hidden;
 }
 
 .section-title-white {
@@ -1566,6 +1567,41 @@ a {
 }
 
 /* ═══════════════════════════════════════
+   SPLIT LINE REVEAL FOR TITLES
+   ═══════════════════════════════════════ */
+.section-title .line {
+  display: block;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.6s ease, transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+
+.section-title .line.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-title .line:nth-child(2) {
+  transition-delay: 0.12s;
+}
+
+.section-title .line:nth-child(3) {
+  transition-delay: 0.24s;
+}
+
+/* ═══════════════════════════════════════
+   PROJECT CARD CURTAIN REVEAL
+   ═══════════════════════════════════════ */
+.project-card {
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 1s cubic-bezier(0.16,1,0.3,1);
+}
+
+.project-card.card-revealed {
+  clip-path: inset(0 0 0% 0);
+}
+
+/* ═══════════════════════════════════════
    PRESS BAR
    ═══════════════════════════════════════ */
 .press-bar {
@@ -1936,7 +1972,7 @@ a {
   <div class="container">
     <div class="projects-header reveal">
       <div class="eyebrow">Featured Projects</div>
-      <h2 class="section-title section-title-white">Built to Perform</h2>
+      <h2 class="section-title section-title-white"><span class="line">Built to Perform</span></h2>
       <p class="section-subtitle">A selection of custom homes and renovations designed to the highest standard of energy performance and architectural craft.</p>
     </div>
 
@@ -2031,7 +2067,7 @@ a {
     <div class="about-grid">
       <div class="about-text reveal">
         <div class="eyebrow">Our Story</div>
-        <h2 class="section-title section-title-white">Named After the Orca</h2>
+        <h2 class="section-title section-title-white"><span class="line">Named After the Orca</span></h2>
         <div class="about-accent-line"></div>
         <p>In the early 2000s, David Adair spent his days guiding ocean kayak tours through Johnstone Strait, watching orcas move in tight family pods -- communicating constantly, protecting their young, navigating together. When he founded Blackfish Homes in 2005, the name wasn't a brand exercise. It was a statement about how he wanted to build: with the same focus on family, communication, and trust.</p>
         <p>Two decades later, that philosophy hasn't changed. David now chairs the Built Green Canada Board of Directors -- the national organization certifying sustainable building practices across the country. Every Blackfish home is third-party verified for energy performance, material health, and durability. Not because it's trendy. Because it's the right way to build.</p>
@@ -2088,7 +2124,7 @@ a {
   <div class="container">
     <div class="services-header reveal">
       <div class="eyebrow">What We Build</div>
-      <h2 class="section-title section-title-ink">Performance Without Compromise</h2>
+      <h2 class="section-title section-title-ink"><span class="line">Performance Without</span><span class="line">Compromise</span></h2>
       <p class="section-subtitle">Every Blackfish home begins with a conversation about how you want to live -- and ends with a third-party verified home that performs for decades.</p>
     </div>
 
@@ -2125,7 +2161,7 @@ a {
   <div class="container">
     <div class="process-header reveal">
       <div class="eyebrow">How We Build</div>
-      <h2 class="section-title section-title-white">From Vision to Handover</h2>
+      <h2 class="section-title section-title-white"><span class="line">From Vision to</span><span class="line">Handover</span></h2>
     </div>
 
     <div class="process-grid">
@@ -2200,7 +2236,7 @@ a {
   <div class="container">
     <div class="built-green-header reveal">
       <div class="eyebrow">Built Green Certified</div>
-      <h2 class="section-title section-title-ink">Not Just Green-Washed.<br>Third-Party Verified.</h2>
+      <h2 class="section-title section-title-ink"><span class="line">Not Just Green-Washed.</span><span class="line">Third-Party Verified.</span></h2>
       <p class="section-subtitle">Every Blackfish home is certified through Built Green Canada -- the national standard for sustainable residential construction. David Adair doesn't just build to the standard. He chairs the organization's Board of Directors.</p>
     </div>
 
@@ -2236,7 +2272,7 @@ a {
 <section class="section-paper cta" id="contact">
   <div class="container">
     <div class="reveal">
-      <h2 class="section-title section-title-ink">Let's Build Something<br>That Performs Beautifully</h2>
+      <h2 class="section-title section-title-ink"><span class="line">Let's Build Something</span><span class="line">That Performs Beautifully</span></h2>
       <p>Whether you're envisioning a new custom home or transforming your current one, we'd love to hear about your project.</p>
       <a href="mailto:info@blackfishhomes.ca" class="btn-primary-large">Start a Conversation</a>
     </div>
@@ -2256,7 +2292,7 @@ a {
         <p class="footer-brand-desc">Award-winning custom home builder specializing in high-performance, Built Green certified homes on Vancouver's North Shore and beyond.</p>
         <div class="footer-contact-item">
           <div class="footer-contact-label">Phone</div>
-          <div class="footer-contact-value"><a href="tel:6049861286">604.986.1286</a></div>
+          <div class="footer-contact-value"><a href="tel:6049800814">604.980.0814</a></div>
         </div>
         <div class="footer-contact-item">
           <div class="footer-contact-label">Email</div>
@@ -2264,7 +2300,7 @@ a {
         </div>
         <div class="footer-contact-item">
           <div class="footer-contact-label">Office</div>
-          <div class="footer-contact-value">North Vancouver, BC</div>
+          <div class="footer-contact-value">105-1305 Welch Street<br>North Vancouver, BC V7P 1B3</div>
         </div>
         <div class="footer-contact-item">
           <div class="footer-contact-label">Hours</div>
@@ -2307,6 +2343,9 @@ a {
           <li><a href="#">Lions Bay</a></li>
           <li><a href="#">Gabriola Island</a></li>
           <li><a href="#">Mid-Vancouver Island</a></li>
+          <li style="grid-column: 1 / -1; margin-top: 12px;">
+            <span style="font-size: 11px; color: rgba(255,255,255,0.15); font-style: italic;">Also serving the Gulf Islands</span>
+          </li>
         </ul>
       </div>
     </div>
@@ -2384,13 +2423,15 @@ a {
   "@type": "HomeAndConstructionBusiness",
   "name": "Blackfish Homes",
   "url": "https://www.blackfishhomes.ca",
-  "telephone": "+16049861286",
+  "telephone": "+16049800814",
   "email": "info@blackfishhomes.ca",
   "description": "Award-winning custom home builder specializing in high-performance, Built Green Platinum certified homes. Georgie and Ovation award-winning. Serving North Vancouver, West Vancouver, Vancouver and beyond since 2005.",
   "address": {
     "@type": "PostalAddress",
+    "streetAddress": "105-1305 Welch Street",
     "addressLocality": "North Vancouver",
     "addressRegion": "BC",
+    "postalCode": "V7P 1B3",
     "addressCountry": "CA"
   },
   "areaServed": [
@@ -2500,6 +2541,23 @@ a {
   }
 
 
+  // ─── PHOTO BREAK PARALLAX ───
+  var photoBreaks = document.querySelectorAll('.photo-break-img');
+
+  function updatePhotoParallax() {
+    photoBreaks.forEach(function(img) {
+      var parent = img.parentElement;
+      var rect = parent.getBoundingClientRect();
+      var viewH = window.innerHeight;
+      if (rect.bottom > 0 && rect.top < viewH) {
+        var progress = (viewH - rect.top) / (viewH + rect.height);
+        var yOffset = (progress - 0.5) * 60;
+        img.style.transform = 'scale(1.08) translateY(' + yOffset + 'px)';
+      }
+    });
+  }
+
+
   // ─── COMBINED SCROLL HANDLER ───
   window.addEventListener('scroll', function() {
     if (!ticking) {
@@ -2509,6 +2567,7 @@ a {
         updateScrollHint();
         updateHeroParallax();
         updateSectionNav();
+        updatePhotoParallax();
       });
       ticking = true;
     }
@@ -2582,6 +2641,10 @@ a {
 
       if (progress < 1) {
         requestAnimationFrame(step);
+      }
+      if (progress >= 1) {
+        el.style.textShadow = '0 0 40px rgba(196,162,101,0.3), 0 0 80px rgba(196,162,101,0.1)';
+        el.style.transition = 'text-shadow 0.6s ease';
       }
     }
 
@@ -2659,6 +2722,72 @@ a {
       }
     });
   });
+
+
+  // ─── HEADLINE LINE REVEAL ───
+  var lineElements = document.querySelectorAll('.section-title .line');
+  if ('IntersectionObserver' in window) {
+    var lineObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          // Reveal all lines in this title
+          var parent = entry.target.closest('.section-title');
+          if (parent) {
+            parent.querySelectorAll('.line').forEach(function(line) {
+              line.classList.add('revealed');
+            });
+          }
+          lineObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+
+    // Only observe the first line in each title
+    document.querySelectorAll('.section-title').forEach(function(title) {
+      var firstLine = title.querySelector('.line');
+      if (firstLine) lineObserver.observe(firstLine);
+    });
+  }
+
+
+  // ─── PROJECT CARD CURTAIN REVEAL ───
+  var projectCards = document.querySelectorAll('.project-card');
+  if ('IntersectionObserver' in window) {
+    var cardObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('card-revealed');
+          cardObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.05, rootMargin: '0px 0px -60px 0px' });
+
+    projectCards.forEach(function(card, i) {
+      card.style.transitionDelay = (i * 0.12) + 's';
+      cardObserver.observe(card);
+    });
+  }
+
+
+  // ─── MAGNETIC BUTTON EFFECT ───
+  var magneticBtns = document.querySelectorAll('.btn-primary, .btn-primary-large, .nav-cta');
+  var isTouchDevice = 'ontouchstart' in window;
+
+  if (!isTouchDevice) {
+    magneticBtns.forEach(function(btn) {
+      btn.addEventListener('mousemove', function(e) {
+        var rect = btn.getBoundingClientRect();
+        var x = e.clientX - rect.left - rect.width / 2;
+        var y = e.clientY - rect.top - rect.height / 2;
+        btn.style.transform = 'translate(' + (x * 0.15) + 'px, ' + (y * 0.15) + 'px)';
+      });
+      btn.addEventListener('mouseleave', function() {
+        btn.style.transform = '';
+        btn.style.transition = 'transform 0.4s cubic-bezier(0.16,1,0.3,1), background 0.3s ease, color 0.3s ease, border-color 0.3s ease';
+        setTimeout(function() { btn.style.transition = ''; }, 400);
+      });
+    });
+  }
 
 
   // ─── GOLD DIVIDER ANIMATION ───
