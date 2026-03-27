@@ -1110,68 +1110,92 @@ a {
   background: linear-gradient(180deg, var(--ink) 0%, #0e0e0e 100%);
 }
 
+/* Process — horizontal timeline */
 .process-header {
-  margin-bottom: 72px;
+  text-align: center;
+  margin-bottom: 80px;
 }
 
 .process-header .eyebrow {
   color: var(--accent);
+  justify-content: center;
 }
 
 .process-header .eyebrow::before {
   background: var(--accent);
 }
 
-.process-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px;
-}
-
-.process-card {
-  padding: 48px 36px;
-  background: #fff;
-  border: 1px solid var(--border-dark);
-  border-top: 3px solid var(--accent);
+.process-timeline {
   position: relative;
-  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  display: flex;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding-top: 48px;
 }
 
-.process-card:last-child {
-  border-right: 1px solid var(--border-dark);
+/* The connecting line */
+.process-timeline::before {
+  content: '';
+  position: absolute;
+  top: 54px;
+  left: 60px;
+  right: 60px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), rgba(45,90,61,0.2));
 }
 
-.process-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 12px 40px rgba(0,0,0,0.06);
+.process-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  flex: 1;
+  position: relative;
+  padding: 0 16px;
 }
 
-.process-step {
+/* The dot on the timeline */
+.process-dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--accent);
+  position: relative;
+  z-index: 2;
+  margin-bottom: 32px;
+  transition: all 0.4s ease;
+}
+
+.process-item:hover .process-dot {
+  background: var(--accent);
+  box-shadow: 0 0 0 6px rgba(45,90,61,0.12);
+}
+
+.process-num {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 2px;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+
+.process-item h4 {
   font-family: 'DM Serif Display', serif;
-  font-size: 56px;
-  color: rgba(45,90,61,0.18);
-  line-height: 1;
-  margin-bottom: 24px;
-  transition: color 0.4s ease;
-}
-
-.process-card:hover .process-step {
-  color: rgba(45,90,61,0.4);
-}
-
-.process-card h4 {
-  font-family: 'DM Serif Display', serif;
-  font-size: 18px;
+  font-size: 22px;
   font-weight: 400;
   color: var(--ink);
-  margin-bottom: 16px;
+  margin-bottom: 14px;
 }
 
-.process-card p {
+.process-item p {
   font-weight: 300;
-  font-size: 13px;
+  font-size: 14px;
   color: var(--stone);
-  line-height: 1.85;
+  line-height: 1.8;
+  max-width: 220px;
 }
 
 /* ═══════════════════════════════════════
@@ -1780,15 +1804,23 @@ a {
   .services-grid { grid-template-columns: 1fr; }
 
   /* Process */
-  .process-grid {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 0;
+  .process-timeline {
+    flex-direction: column;
+    align-items: flex-start;
+    padding-top: 0;
+    gap: 40px;
   }
-
-  .process-card {
-    border-right: none;
-    border-bottom: 1px solid rgba(255,255,255,0.05);
+  .process-timeline::before {
+    top: 7px; left: 7px; right: auto;
+    width: 2px; height: calc(100% - 14px);
+    background: linear-gradient(180deg, var(--accent), rgba(45,90,61,0.2));
   }
+  .process-item {
+    flex-direction: row; text-align: left;
+    align-items: flex-start; gap: 24px; padding: 0;
+  }
+  .process-dot { margin-bottom: 0; flex-shrink: 0; }
+  .process-item p { max-width: none; }
 
   /* Built Green */
   .built-green-grid { grid-template-columns: 1fr; }
@@ -1831,7 +1863,7 @@ a {
    RESPONSIVE — 480px
    ═══════════════════════════════════════ */
 @media (max-width: 480px) {
-  .process-grid { grid-template-columns: 1fr; }
+  /* process already vertical from 768px */
   .footer-grid { grid-template-columns: 1fr; }
   .footer-links--areas { grid-template-columns: 1fr 1fr; }
 }
@@ -2142,26 +2174,30 @@ a {
       <h2 class="section-title section-title-ink"><span class="line">From Vision to</span><span class="line">Handover</span></h2>
     </div>
 
-    <div class="process-grid">
-      <div class="process-card reveal reveal-delay-1">
-        <div class="process-step">01</div>
+    <div class="process-timeline reveal">
+      <div class="process-item">
+        <div class="process-dot"></div>
+        <div class="process-num">01</div>
         <h4>Discovery</h4>
         <p>We listen first. Understanding your site, goals, lifestyle, and budget before anything gets drawn.</p>
       </div>
-      <div class="process-card reveal reveal-delay-2">
-        <div class="process-step">02</div>
+      <div class="process-item">
+        <div class="process-dot"></div>
+        <div class="process-num">02</div>
         <h4>Design</h4>
-        <p>Working alongside your architect and design team, we refine the plan to balance ambition with buildability and performance.</p>
+        <p>Working alongside your architect and design team, we refine the plan to balance ambition with buildability.</p>
       </div>
-      <div class="process-card reveal reveal-delay-3">
-        <div class="process-step">03</div>
+      <div class="process-item">
+        <div class="process-dot"></div>
+        <div class="process-num">03</div>
         <h4>Construction</h4>
-        <p>Our crew brings the design to life with meticulous attention to detail, open communication, and weekly progress updates.</p>
+        <p>Our crew brings the design to life with meticulous attention to detail and open communication throughout.</p>
       </div>
-      <div class="process-card reveal reveal-delay-4">
-        <div class="process-step">04</div>
+      <div class="process-item">
+        <div class="process-dot"></div>
+        <div class="process-num">04</div>
         <h4>Handover</h4>
-        <p>A thorough walkthrough, full documentation, and everything you need to enjoy and maintain your new home from day one.</p>
+        <p>A thorough walkthrough and everything you need to enjoy your new home from day one.</p>
       </div>
     </div>
   </div>
