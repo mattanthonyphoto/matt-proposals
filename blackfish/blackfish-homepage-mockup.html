@@ -1,0 +1,2684 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blackfish Homes — High Performance Custom Homes | North Shore & Beyond</title>
+<meta name="description" content="Award-winning custom home builder and renovator. Built Green Platinum certified. Georgie and Ovation award-winning. Serving North Vancouver, West Vancouver, Vancouver and beyond since 2005.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════════════
+   BLACKFISH HOMES — Homepage Concept
+   Design: Matt Anthony Photography
+   Built: March 2026
+   ═══════════════════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --void: #080808;
+  --ink: #111111;
+  --charcoal: #1A1A18;
+  --paper: #F5F3EE;
+  --accent: #2D5A3D;
+  --accent-hover: #3A7A52;
+  --accent-glow: rgba(45,90,61,0.12);
+  --gold: #C4A265;
+  --gold-dim: rgba(196,162,101,0.15);
+  --stone: #6B6860;
+  --mist: rgba(255,255,255,0.5);
+  --border-light: rgba(255,255,255,0.06);
+  --border-dark: rgba(0,0,0,0.06);
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  color: var(--stone);
+  background: var(--ink);
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+body.loading {
+  overflow: hidden;
+  height: 100vh;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+/* ═══════════════════════════════════════
+   FILM GRAIN OVERLAY
+   ═══════════════════════════════════════ */
+.grain {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  pointer-events: none;
+  z-index: 9000;
+  opacity: 0.025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+}
+
+/* ═══════════════════════════════════════
+   SCROLL PROGRESS BAR
+   ═══════════════════════════════════════ */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-hover));
+  z-index: 10001;
+  transition: none;
+}
+
+/* ═══════════════════════════════════════
+   LOADER
+   ═══════════════════════════════════════ */
+.loader {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--void);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.loader.done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-brand {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 6px;
+  color: #fff;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: loaderFadeIn 0.6s ease 0.2s forwards;
+}
+
+.loader-line {
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  margin-top: 16px;
+  animation: loaderLineDraw 0.6s ease 0.5s forwards;
+}
+
+@keyframes loaderFadeIn {
+  to { opacity: 1; }
+}
+
+@keyframes loaderLineDraw {
+  to { width: 48px; }
+}
+
+/* ═══════════════════════════════════════
+   NAVIGATION
+   ═══════════════════════════════════════ */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  z-index: 9999;
+  transition: background 0.4s ease, box-shadow 0.4s ease, height 0.3s ease;
+}
+
+.nav.scrolled {
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+  height: 60px;
+}
+
+.nav-logo {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #fff;
+  transition: color 0.4s ease;
+}
+
+.nav.scrolled .nav-logo {
+  color: var(--ink);
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 1px;
+  color: rgba(255,255,255,0.5);
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #fff;
+}
+
+.nav.scrolled .nav-links a {
+  color: var(--stone);
+}
+
+.nav.scrolled .nav-links a:hover {
+  color: var(--ink);
+}
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 24px;
+  background: var(--accent);
+  color: #fff !important;
+  font-weight: 600 !important;
+  font-size: 11px !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  opacity: 1 !important;
+}
+
+.nav-cta:hover {
+  background: var(--accent-hover);
+  color: #fff !important;
+}
+
+.nav.scrolled .nav-cta {
+  color: #fff !important;
+}
+
+/* Hamburger */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  position: relative;
+  z-index: 10002;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 22px;
+  height: 1.5px;
+  background: #fff;
+  transition: all 0.3s ease;
+  position: absolute;
+}
+
+.nav-hamburger span:nth-child(1) { transform: translateY(-6px); }
+.nav-hamburger span:nth-child(2) { transform: translateY(0); }
+.nav-hamburger span:nth-child(3) { transform: translateY(6px); }
+
+.nav.scrolled .nav-hamburger span {
+  background: var(--ink);
+}
+
+.nav-hamburger.open span:nth-child(1) {
+  transform: rotate(45deg);
+  background: #fff;
+}
+.nav-hamburger.open span:nth-child(2) {
+  opacity: 0;
+}
+.nav-hamburger.open span:nth-child(3) {
+  transform: rotate(-45deg);
+  background: #fff;
+}
+
+/* Mobile menu overlay */
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--void);
+  z-index: 10001;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.mobile-menu.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu a {
+  font-family: 'DM Serif Display', serif;
+  font-size: 32px;
+  color: #fff;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-menu a:hover {
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════
+   SECTION NAV DOTS
+   ═══════════════════════════════════════ */
+.section-nav {
+  position: fixed;
+  right: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9998;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.section-nav-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.section-nav-dot.active {
+  background: var(--accent);
+  transform: scale(1.3);
+}
+
+.section-nav-dot::after {
+  content: attr(data-label);
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Inter', sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.section-nav-dot:hover::after {
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════
+   SHARED SECTION STYLES
+   ═══════════════════════════════════════ */
+.section-dark {
+  background: var(--ink);
+  position: relative;
+}
+
+.section-paper {
+  background: var(--paper);
+  position: relative;
+}
+
+.section-void {
+  background: var(--void);
+  position: relative;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--accent);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.eyebrow::before {
+  content: '';
+  display: block;
+  width: 0;
+  height: 1px;
+  background: var(--accent);
+  transition: width 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+
+.visible .eyebrow::before,
+.eyebrow.visible::before {
+  width: 32px;
+}
+
+.section-title {
+  font-family: 'DM Serif Display', serif;
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 24px;
+}
+
+.section-title-white {
+  color: #fff;
+}
+
+.section-title-ink {
+  color: var(--ink);
+}
+
+.section-subtitle {
+  font-weight: 300;
+  font-size: 16px;
+  line-height: 1.85;
+  max-width: 640px;
+}
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+
+/* ═══════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════ */
+.hero {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  min-height: 600px;
+  overflow: hidden;
+  display: flex;
+  align-items: flex-end;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url('https://www.blackfishhomes.ca/v1site_images/slideshow/gallery1/W12th_Cover.jpg') center center / cover no-repeat;
+  transform: scale(1.1);
+  will-change: transform;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    180deg,
+    rgba(0,0,0,0) 0%,
+    rgba(0,0,0,0.02) 30%,
+    rgba(0,0,0,0.35) 60%,
+    rgba(0,0,0,0.85) 100%
+  );
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 680px;
+  padding: 0 48px 12vh;
+}
+
+.hero-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  opacity: 0;
+  transform: translateY(20px);
+  margin-bottom: 20px;
+}
+
+.hero-eyebrow.animate {
+  animation: heroCascade 0.8s cubic-bezier(0.16,1,0.3,1) forwards;
+}
+
+.hero-title {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(40px, 5.5vw, 64px);
+  font-weight: 400;
+  line-height: 1.1;
+  color: #fff;
+  margin-bottom: 20px;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.hero-title.animate {
+  animation: heroCascade 0.8s cubic-bezier(0.16,1,0.3,1) 0.3s forwards;
+}
+
+.hero-subtitle {
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.85;
+  color: rgba(255,255,255,0.6);
+  max-width: 560px;
+  margin-bottom: 36px;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.hero-subtitle.animate {
+  animation: heroCascade 0.8s cubic-bezier(0.16,1,0.3,1) 0.6s forwards;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 16px;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.hero-buttons.animate {
+  animation: heroCascade 0.8s cubic-bezier(0.16,1,0.3,1) 0.9s forwards;
+}
+
+@keyframes heroCascade {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 36px;
+  background: var(--accent);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 15px 36px;
+  background: transparent;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,0.3);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.btn-ghost:hover {
+  border-color: rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.05);
+}
+
+/* Scroll indicator */
+.scroll-hint {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 1;
+  transition: opacity 0.4s ease;
+}
+
+.scroll-hint.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.scroll-hint-text {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 9px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+}
+
+.scroll-hint-line {
+  width: 1px;
+  height: 32px;
+  position: relative;
+  overflow: hidden;
+}
+
+.scroll-hint-line::after {
+  content: '';
+  position: absolute;
+  top: -100%;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: var(--gold);
+  animation: scrollPulse 1.8s ease-in-out infinite;
+}
+
+@keyframes scrollPulse {
+  0% { top: -100%; }
+  50% { top: 0; }
+  100% { top: 100%; }
+}
+
+/* Gold divider after hero */
+.hero-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-dim), var(--gold), var(--gold-dim), transparent);
+  position: relative;
+  z-index: 2;
+}
+
+/* ═══════════════════════════════════════
+   PROJECTS
+   ═══════════════════════════════════════ */
+.projects {
+  padding: 160px 0;
+}
+
+.projects-header {
+  text-align: left;
+  margin-bottom: 72px;
+}
+
+.projects-header .section-title {
+  font-size: clamp(36px, 4vw, 52px);
+}
+
+.projects-header .section-subtitle {
+  color: var(--mist);
+}
+
+/* Asymmetric masonry grid */
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto auto auto;
+  gap: 20px;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  border-radius: 3px;
+}
+
+.project-card-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16,1,0.3,1), filter 0.6s ease;
+}
+
+.project-card:hover .project-card-img {
+  transform: scale(1.06);
+  filter: brightness(0.7);
+}
+
+.project-card-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 40px 28px 28px;
+  background: linear-gradient(180deg, transparent 0%, rgba(0,0,0,0.7) 100%);
+  z-index: 2;
+}
+
+.project-card-location {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+.project-card-name {
+  font-family: 'DM Serif Display', serif;
+  font-size: 24px;
+  color: #fff;
+  margin-bottom: 6px;
+  line-height: 1.2;
+}
+
+.project-card-desc {
+  font-weight: 300;
+  font-size: 12px;
+  color: var(--mist);
+  line-height: 1.6;
+  margin-bottom: 12px;
+}
+
+.project-card-line {
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  transition: width 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+
+.project-card:hover .project-card-line {
+  width: 40px;
+}
+
+/* Card 1: Vale — spans 2 rows, tall */
+.project-card--vale {
+  grid-column: 1;
+  grid-row: 1 / 3;
+  min-height: 560px;
+}
+
+.project-card--vale .project-card-name {
+  font-size: 28px;
+}
+
+/* Card 2: Mathers */
+.project-card--mathers {
+  grid-column: 2;
+  grid-row: 1;
+  min-height: 270px;
+}
+
+/* Card 3: Alpine */
+.project-card--alpine {
+  grid-column: 3;
+  grid-row: 1;
+  min-height: 270px;
+}
+
+/* Card 4: W 12th */
+.project-card--w12th {
+  grid-column: 2;
+  grid-row: 2;
+  min-height: 270px;
+}
+
+/* Card 5: William */
+.project-card--william {
+  grid-column: 3;
+  grid-row: 2;
+  min-height: 270px;
+}
+
+/* Card 6: Andover — wide, spans 2 cols */
+.project-card--andover {
+  grid-column: 2 / 4;
+  grid-row: 3;
+  min-height: 320px;
+}
+
+.project-card--andover .project-card-name {
+  font-size: 26px;
+}
+
+.projects-cta {
+  text-align: center;
+  margin-top: 64px;
+}
+
+.btn-ghost-dark {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 15px 36px;
+  background: transparent;
+  color: rgba(255,255,255,0.5);
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: border-color 0.3s ease, color 0.3s ease;
+}
+
+.btn-ghost-dark:hover {
+  border-color: rgba(255,255,255,0.3);
+  color: #fff;
+}
+
+/* ═══════════════════════════════════════
+   PHOTO BREAK
+   ═══════════════════════════════════════ */
+.photo-break {
+  position: relative;
+  width: 100%;
+  height: 50vh;
+  min-height: 320px;
+  max-height: 500px;
+  overflow: hidden;
+}
+
+.photo-break::before,
+.photo-break::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 120px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.photo-break::before {
+  top: 0;
+  background: linear-gradient(180deg, var(--ink) 0%, transparent 100%);
+}
+
+.photo-break::after {
+  bottom: 0;
+  background: linear-gradient(0deg, var(--ink) 0%, transparent 100%);
+}
+
+.photo-break-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  animation: kenBurns 14s ease-in-out infinite alternate;
+}
+
+@keyframes kenBurns {
+  0% {
+    transform: scale(1) translate(0, 0);
+  }
+  100% {
+    transform: scale(1.05) translate(-0.5%, -0.5%);
+  }
+}
+
+/* Paper-adjacent photo breaks need different gradients */
+.photo-break--to-paper::after {
+  background: linear-gradient(0deg, var(--paper) 0%, transparent 100%);
+}
+
+.photo-break--from-paper::before {
+  background: linear-gradient(180deg, var(--paper) 0%, transparent 100%);
+}
+
+.photo-break--to-dark::after {
+  background: linear-gradient(0deg, var(--ink) 0%, transparent 100%);
+}
+
+.photo-break--from-dark::before {
+  background: linear-gradient(180deg, var(--ink) 0%, transparent 100%);
+}
+
+/* ═══════════════════════════════════════
+   ABOUT
+   ═══════════════════════════════════════ */
+.about {
+  padding: 160px 0;
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 55% 45%;
+  gap: 72px;
+  align-items: center;
+}
+
+.about-text .section-title {
+  font-size: clamp(36px, 4vw, 56px);
+}
+
+.about-accent-line {
+  width: 0;
+  height: 2px;
+  background: var(--accent);
+  margin-bottom: 32px;
+  transition: width 0.8s cubic-bezier(0.16,1,0.3,1) 0.3s;
+}
+
+.visible .about-accent-line {
+  width: 48px;
+}
+
+.about-text p {
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 1.9;
+  color: var(--mist);
+  margin-bottom: 24px;
+}
+
+.about-signature {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-top: 40px;
+}
+
+.about-signature::before {
+  content: '';
+  display: block;
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+
+.about-signature span {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-size: 20px;
+  color: var(--gold);
+}
+
+.about-image {
+  position: relative;
+  overflow: hidden;
+  border-radius: 3px;
+  border: 1px solid var(--border-light);
+}
+
+.about-image img {
+  width: 100%;
+  aspect-ratio: 3 / 4;
+  object-fit: cover;
+  transition: transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+
+.about-image:hover img {
+  transform: scale(1.03);
+}
+
+/* ═══════════════════════════════════════
+   AWARDS BAR
+   ═══════════════════════════════════════ */
+.awards {
+  padding: 80px 0;
+  border-top: 1px solid var(--gold-dim);
+  border-bottom: 1px solid var(--gold-dim);
+}
+
+.awards-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  text-align: center;
+}
+
+.award-item {
+  position: relative;
+  padding: 20px 0;
+}
+
+.award-item:not(:last-child)::after {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 1px;
+  height: 48px;
+  background: rgba(255,255,255,0.08);
+}
+
+.award-number {
+  font-family: 'DM Serif Display', serif;
+  font-size: clamp(48px, 5vw, 72px);
+  color: var(--gold);
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.award-label {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.3);
+}
+
+/* ═══════════════════════════════════════
+   SERVICES
+   ═══════════════════════════════════════ */
+.services {
+  padding: 160px 0;
+}
+
+.services-header {
+  margin-bottom: 72px;
+}
+
+.services-header .section-subtitle {
+  color: var(--stone);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}
+
+.service-card {
+  background: #fff;
+  border: 1px solid var(--border-dark);
+  padding: 48px;
+  position: relative;
+  overflow: hidden;
+  border-left: 3px solid transparent;
+  transition: border-color 0.4s ease, background 0.3s ease, box-shadow 0.4s ease;
+}
+
+.service-card:hover {
+  border-left-color: var(--accent);
+  background: var(--paper);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+}
+
+.service-card-number {
+  position: absolute;
+  top: 24px;
+  right: 28px;
+  font-family: 'DM Serif Display', serif;
+  font-size: 72px;
+  color: rgba(17,17,17,0.04);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.service-card h3 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.service-card p {
+  font-weight: 300;
+  font-size: 14px;
+  color: var(--stone);
+  line-height: 1.85;
+}
+
+/* ═══════════════════════════════════════
+   PROCESS
+   ═══════════════════════════════════════ */
+.process {
+  padding: 160px 0;
+  background: linear-gradient(180deg, var(--ink) 0%, #0e0e0e 100%);
+}
+
+.process-header {
+  margin-bottom: 72px;
+}
+
+.process-header .eyebrow {
+  color: rgba(255,255,255,0.25);
+}
+
+.process-header .eyebrow::before {
+  background: rgba(255,255,255,0.15);
+}
+
+.process-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.process-card {
+  padding: 48px 36px;
+  border-right: 1px solid rgba(255,255,255,0.05);
+  position: relative;
+  transition: background 0.4s ease;
+}
+
+.process-card:last-child {
+  border-right: none;
+}
+
+.process-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 36px;
+  right: 36px;
+  height: 2px;
+  background: var(--accent);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+
+.process-card:hover::after {
+  transform: scaleX(1);
+}
+
+.process-card:hover {
+  background: rgba(255,255,255,0.03);
+}
+
+.process-step {
+  font-family: 'DM Serif Display', serif;
+  font-size: 56px;
+  color: rgba(45,90,61,0.15);
+  line-height: 1;
+  margin-bottom: 24px;
+  transition: color 0.4s ease;
+}
+
+.process-card:hover .process-step {
+  color: rgba(45,90,61,0.5);
+}
+
+.process-card h4 {
+  font-family: 'DM Serif Display', serif;
+  font-size: 18px;
+  font-weight: 400;
+  color: #fff;
+  margin-bottom: 16px;
+}
+
+.process-card p {
+  font-weight: 300;
+  font-size: 13px;
+  color: rgba(255,255,255,0.4);
+  line-height: 1.85;
+}
+
+/* ═══════════════════════════════════════
+   TESTIMONIAL
+   ═══════════════════════════════════════ */
+.testimonial {
+  padding: 160px 0;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-quote-mark {
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'DM Serif Display', serif;
+  font-size: 300px;
+  color: rgba(45,90,61,0.05);
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+}
+
+.testimonial-content {
+  position: relative;
+  z-index: 2;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.testimonial-text {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-size: clamp(22px, 2.5vw, 34px);
+  color: rgba(255,255,255,0.85);
+  line-height: 1.6;
+  margin-bottom: 40px;
+}
+
+.testimonial-divider {
+  width: 40px;
+  height: 1px;
+  background: var(--gold);
+  margin: 0 auto 24px;
+}
+
+.testimonial-author {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 8px;
+}
+
+.testimonial-rating {
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  font-size: 13px;
+  color: var(--stone);
+}
+
+/* ═══════════════════════════════════════
+   BUILT GREEN
+   ═══════════════════════════════════════ */
+.built-green {
+  padding: 160px 0;
+}
+
+.built-green-header {
+  text-align: center;
+  margin-bottom: 72px;
+}
+
+.built-green-header .eyebrow {
+  justify-content: center;
+}
+
+.built-green-header .section-title {
+  font-size: clamp(32px, 3.5vw, 48px);
+  max-width: 640px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.built-green-header .section-subtitle {
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  color: var(--stone);
+}
+
+.built-green-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.bg-card {
+  background: #fff;
+  border: 1px solid var(--border-dark);
+  border-top: 3px solid var(--accent);
+  padding: 48px 36px;
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.bg-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+}
+
+.bg-card h3 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 18px;
+  color: var(--ink);
+  margin-bottom: 16px;
+}
+
+.bg-card p {
+  font-weight: 300;
+  font-size: 14px;
+  color: var(--stone);
+  line-height: 1.85;
+}
+
+/* ═══════════════════════════════════════
+   CTA
+   ═══════════════════════════════════════ */
+.cta {
+  padding: 140px 0;
+  text-align: center;
+}
+
+.cta .section-title {
+  font-size: clamp(32px, 3.5vw, 48px);
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.cta p {
+  font-weight: 300;
+  font-size: 16px;
+  color: var(--stone);
+  line-height: 1.85;
+  max-width: 520px;
+  margin: 0 auto 40px;
+}
+
+.btn-primary-large {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px 48px;
+  background: var(--accent);
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 13px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+.btn-primary-large:hover {
+  background: var(--accent-hover);
+  transform: translateY(-1px);
+}
+
+/* ═══════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════ */
+.footer {
+  background: var(--void);
+  padding: 80px 0 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr 1fr 1fr;
+  gap: 48px;
+  padding-bottom: 64px;
+}
+
+.footer-brand-name {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #fff;
+  margin-bottom: 20px;
+}
+
+.footer-brand-desc {
+  font-weight: 300;
+  font-size: 13px;
+  color: rgba(255,255,255,0.35);
+  line-height: 1.8;
+  margin-bottom: 28px;
+}
+
+.footer-contact-item {
+  margin-bottom: 12px;
+}
+
+.footer-contact-label {
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+  margin-bottom: 2px;
+}
+
+.footer-contact-value {
+  font-weight: 300;
+  font-size: 14px;
+  color: rgba(255,255,255,0.5);
+}
+
+.footer-contact-value a {
+  transition: color 0.3s ease;
+}
+
+.footer-contact-value a:hover {
+  color: var(--accent);
+}
+
+.footer-col-title {
+  font-family: 'Inter', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 24px;
+}
+
+.footer-links {
+  list-style: none;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  font-weight: 300;
+  font-size: 14px;
+  color: rgba(255,255,255,0.35);
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+.footer-links--areas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 16px;
+}
+
+/* Certifications bar */
+.footer-certs {
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 28px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.footer-cert {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 500;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+}
+
+.footer-cert svg {
+  width: 14px;
+  height: 14px;
+  fill: rgba(255,255,255,0.2);
+}
+
+/* Social bar */
+.footer-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 36px 0;
+}
+
+.footer-social-link {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.footer-social-link:hover {
+  border-color: var(--accent);
+  background: var(--accent-glow);
+}
+
+.footer-social-link svg {
+  width: 16px;
+  height: 16px;
+  fill: rgba(255,255,255,0.4);
+  transition: fill 0.3s ease;
+}
+
+.footer-social-link:hover svg {
+  fill: #fff;
+}
+
+/* Footer bottom */
+.footer-bottom {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+.footer-copyright {
+  font-weight: 300;
+  font-size: 12px;
+  color: rgba(255,255,255,0.2);
+}
+
+.footer-legal {
+  display: flex;
+  gap: 24px;
+}
+
+.footer-legal a {
+  font-weight: 300;
+  font-size: 12px;
+  color: rgba(255,255,255,0.15);
+  transition: color 0.3s ease;
+}
+
+.footer-legal a:hover {
+  color: rgba(255,255,255,0.4);
+}
+
+.footer-credit {
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.footer-credit a {
+  color: var(--gold);
+  transition: color 0.3s ease;
+}
+
+.footer-credit a:hover {
+  color: #fff;
+}
+
+/* ═══════════════════════════════════════
+   PRESS BAR
+   ═══════════════════════════════════════ */
+.press-bar {
+  background: var(--paper);
+  padding: 48px 0;
+  border-top: 1px solid var(--border-dark);
+  border-bottom: 1px solid var(--border-dark);
+}
+.press-label {
+  text-align: center;
+  font-family: 'Inter', sans-serif;
+  font-weight: 500; font-size: 10px;
+  letter-spacing: 3px; text-transform: uppercase;
+  color: var(--stone); opacity: 0.5;
+  margin-bottom: 28px;
+}
+.press-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  flex-wrap: wrap;
+}
+.press-item {
+  font-family: 'DM Serif Display', serif;
+  font-size: 18px;
+  color: var(--ink);
+  opacity: 0.25;
+  transition: opacity 0.3s ease;
+}
+.press-item:hover {
+  opacity: 0.6;
+}
+
+/* ═══════════════════════════════════════
+   ABOUT QUOTE
+   ═══════════════════════════════════════ */
+.about-quote {
+  margin: 32px 0;
+  padding: 24px 0 24px 24px;
+  border-left: 2px solid var(--accent);
+}
+.about-quote p {
+  font-family: 'DM Serif Display', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--mist, rgba(255,255,255,0.5));
+  line-height: 1.7;
+  margin-bottom: 12px;
+}
+.about-quote span {
+  font-family: 'Inter', sans-serif;
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ═══════════════════════════════════════
+   ABOUT FILMS
+   ═══════════════════════════════════════ */
+.about-films {
+  margin-top: 24px;
+}
+.about-films p {
+  font-family: 'Inter', sans-serif;
+  font-size: 12px;
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 0.5px;
+}
+.about-films a {
+  color: var(--gold);
+  opacity: 0.5;
+  transition: opacity 0.3s ease;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(196,162,101,0.2);
+}
+.about-films a:hover {
+  opacity: 1;
+}
+
+/* ═══════════════════════════════════════
+   CONCEPT BANNER
+   ═══════════════════════════════════════ */
+.concept-banner {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  z-index: 9997;
+  background: rgba(8,8,8,0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--accent);
+  padding: 16px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: translateY(100%);
+  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+
+.concept-banner.visible {
+  transform: translateY(0);
+}
+
+.concept-banner-text {
+  font-weight: 300;
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+}
+
+.concept-banner-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 24px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+  white-space: nowrap;
+}
+
+.concept-banner-cta:hover {
+  background: var(--accent-hover);
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE — 768px
+   ═══════════════════════════════════════ */
+@media (max-width: 768px) {
+  .section-nav { display: none; }
+
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav { padding: 0 24px; }
+
+  .container { padding: 0 24px; }
+
+  .projects,
+  .about,
+  .services,
+  .process,
+  .testimonial,
+  .built-green,
+  .cta {
+    padding: 100px 0;
+  }
+
+  .awards { padding: 60px 0; }
+
+  /* Hero */
+  .hero-content { padding: 0 24px 10vh; }
+  .hero-buttons { flex-direction: column; max-width: 280px; }
+  .hero-buttons .btn-primary,
+  .hero-buttons .btn-ghost { width: 100%; }
+
+  /* Projects grid — single column */
+  .projects-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .project-card--vale,
+  .project-card--mathers,
+  .project-card--alpine,
+  .project-card--w12th,
+  .project-card--william,
+  .project-card--andover {
+    grid-column: 1;
+    grid-row: auto;
+    min-height: 0;
+    aspect-ratio: 16 / 10;
+  }
+
+  /* About */
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .about-image { order: -1; }
+
+  /* Awards */
+  .awards-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+  }
+
+  .award-item:not(:last-child)::after { display: none; }
+
+  /* Services */
+  .services-grid { grid-template-columns: 1fr; }
+
+  /* Process */
+  .process-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0;
+  }
+
+  .process-card {
+    border-right: none;
+    border-bottom: 1px solid rgba(255,255,255,0.05);
+  }
+
+  /* Built Green */
+  .built-green-grid { grid-template-columns: 1fr; }
+
+  /* Press bar */
+  .press-logos { gap: 24px; }
+  .press-item { font-size: 15px; }
+
+  /* Photo breaks */
+  .photo-break {
+    height: 200px;
+    min-height: 200px;
+    max-height: 200px;
+  }
+
+  /* Footer */
+  .footer-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .footer-legal { justify-content: center; }
+
+  /* Concept banner */
+  .concept-banner {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+    padding: 16px 24px;
+  }
+}
+
+/* ═══════════════════════════════════════
+   RESPONSIVE — 480px
+   ═══════════════════════════════════════ */
+@media (max-width: 480px) {
+  .process-grid { grid-template-columns: 1fr; }
+  .footer-grid { grid-template-columns: 1fr; }
+  .footer-links--areas { grid-template-columns: 1fr 1fr; }
+}
+
+/* ═══════════════════════════════════════
+   PRINT
+   ═══════════════════════════════════════ */
+@media print {
+  .loader,
+  .scroll-progress,
+  .section-nav,
+  .concept-banner,
+  .scroll-hint,
+  .nav,
+  .grain { display: none !important; }
+
+  .reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .eyebrow::before { width: 32px !important; }
+  .about-accent-line { width: 48px !important; }
+
+  .photo-break {
+    height: 200px !important;
+    min-height: 200px !important;
+    page-break-inside: avoid;
+  }
+
+  body { background: #fff; }
+}
+</style>
+</head>
+<body class="loading">
+
+<!-- Film Grain -->
+<div class="grain"></div>
+
+<!-- Scroll Progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Loader -->
+<div class="loader" id="loader">
+  <div class="loader-brand">BLACKFISH HOMES</div>
+  <div class="loader-line"></div>
+</div>
+
+<!-- Navigation -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav-logo">BLACKFISH HOMES</a>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#built-green">Built Green</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+  <div class="nav-hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#projects" class="mobile-menu-link">Projects</a>
+  <a href="#about" class="mobile-menu-link">About</a>
+  <a href="#services" class="mobile-menu-link">Services</a>
+  <a href="#built-green" class="mobile-menu-link">Built Green</a>
+  <a href="mailto:info@blackfishhomes.ca" class="mobile-menu-link">Contact</a>
+</div>
+
+<!-- Section Nav Dots -->
+<div class="section-nav" id="sectionNav">
+  <div class="section-nav-dot active" data-label="Home" data-target="hero"></div>
+  <div class="section-nav-dot" data-label="Projects" data-target="projects"></div>
+  <div class="section-nav-dot" data-label="About" data-target="about"></div>
+  <div class="section-nav-dot" data-label="Services" data-target="services"></div>
+  <div class="section-nav-dot" data-label="Process" data-target="process"></div>
+  <div class="section-nav-dot" data-label="Built Green" data-target="built-green"></div>
+  <div class="section-nav-dot" data-label="Contact" data-target="contact"></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     HERO
+     ═══════════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow" id="heroEyebrow">Award-Winning Performance Builder &middot; Est. 2005</div>
+    <h1 class="hero-title" id="heroTitle">Where Building Science<br>Meets Design Intent</h1>
+    <p class="hero-subtitle" id="heroSubtitle">For over two decades, we've crafted custom homes and renovations that perform as beautifully as they look. Built Green Platinum certified. Georgie and Ovation award-winning. North Shore to Gabriola Island.</p>
+    <div class="hero-buttons" id="heroButtons">
+      <a href="#projects" class="btn-primary">Explore Our Work</a>
+      <a href="mailto:info@blackfishhomes.ca" class="btn-ghost">Start a Conversation</a>
+    </div>
+  </div>
+  <div class="scroll-hint" id="scrollHint">
+    <span class="scroll-hint-text">Scroll</span>
+    <div class="scroll-hint-line"></div>
+  </div>
+</section>
+
+<!-- Gold Divider -->
+<div class="hero-divider"></div>
+
+
+<!-- ═══════════════════════════════════════
+     PROJECTS
+     ═══════════════════════════════════════ -->
+<section class="section-dark projects" id="projects">
+  <div class="container">
+    <div class="projects-header reveal">
+      <div class="eyebrow">Featured Projects</div>
+      <h2 class="section-title section-title-white">Built to Perform</h2>
+      <p class="section-subtitle">A selection of custom homes and renovations designed to the highest standard of energy performance and architectural craft.</p>
+    </div>
+
+    <div class="projects-grid">
+      <!-- Vale — Tall card -->
+      <div class="project-card project-card--vale reveal reveal-delay-1">
+        <img class="project-card-img" src="https://www.blackfishhomes.ca/v1site_images/slideshow/gallery1/Vale.jpg" alt="The Vale Residence" loading="lazy">
+        <div class="project-card-overlay">
+          <div class="project-card-location">North Vancouver, BC</div>
+          <div class="project-card-name">The Vale Residence</div>
+          <div class="project-card-desc">5,800 sq ft &middot; Built Green Platinum &middot; Georgie Award Winner</div>
+          <div class="project-card-line"></div>
+        </div>
+      </div>
+
+      <!-- Mathers -->
+      <div class="project-card project-card--mathers reveal reveal-delay-2">
+        <img class="project-card-img" src="https://www.blackfishhomes.ca/v1site_images/slideshow/gallery1/Mathers.jpg" alt="The Mathers Residence" loading="lazy">
+        <div class="project-card-overlay">
+          <div class="project-card-location">West Vancouver, BC</div>
+          <div class="project-card-name">The Mathers Residence</div>
+          <div class="project-card-desc">Foundation-up renovation &middot; Splyce Design &middot; Ovation Winner</div>
+          <div class="project-card-line"></div>
+        </div>
+      </div>
+
+      <!-- Alpine -->
+      <div class="project-card project-card--alpine reveal reveal-delay-3">
+        <img class="project-card-img" src="https://www.blackfishhomes.ca/v1site_images/slideshow/gallery1/Marine.jpg" alt="The Alpine Residence" loading="lazy">
+        <div class="project-card-overlay">
+          <div class="project-card-location">North Vancouver, BC</div>
+          <div class="project-card-name">The Alpine Residence</div>
+          <div class="project-card-desc">Double Ovation Winner &middot; Excellence in Building Science</div>
+          <div class="project-card-line"></div>
+        </div>
+      </div>
+
+      <!-- W 12th -->
+      <div class="project-card project-card--w12th reveal reveal-delay-2">
+        <img class="project-card-img" src="https://www.blackfishhomes.ca/v1site_images/slideshow/gallery1/W12th_Cover.jpg" alt="The W 12th Residence" loading="lazy">
+        <div class="project-card-overlay">
+          <div class="project-card-location">Vancouver, BC</div>
+          <div class="project-card-name">The W 12th Residence</div>
+          <div class="project-card-desc">Built Green Platinum &middot; New Construction</div>
+          <div class="project-card-line"></div>
+        </div>
+      </div>
+
+      <!-- William -->
+      <div class="project-card project-card--william reveal reveal-delay-3">
+        <img class="project-card-img" src="https://www.blackfishhomes.ca/v1site_images/slideshow/gallery1/William.jpg" alt="The William Residence" loading="lazy">
+        <div class="project-card-overlay">
+          <div class="project-card-location">North Vancouver, BC</div>
+          <div class="project-card-name">The William Residence</div>
+          <div class="project-card-desc">Custom 3-Level Family Home</div>
+          <div class="project-card-line"></div>
+        </div>
+      </div>
+
+      <!-- Andover — Wide card -->
+      <div class="project-card project-card--andover reveal reveal-delay-4">
+        <img class="project-card-img" src="https://www.blackfishhomes.ca/v1site_images/slideshow/gallery1/NewMarket_Classic.jpg" alt="The Andover Residence" loading="lazy">
+        <div class="project-card-overlay">
+          <div class="project-card-location">West Vancouver, BC</div>
+          <div class="project-card-name">The Andover Residence</div>
+          <div class="project-card-desc">British Properties &middot; Currently Under Construction</div>
+          <div class="project-card-line"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="projects-cta reveal">
+      <a href="#" class="btn-ghost-dark">View All Projects &rarr;</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     PHOTO BREAK 1 — Marine
+     ═══════════════════════════════════════ -->
+<div class="photo-break photo-break--from-dark photo-break--to-dark">
+  <img class="photo-break-img" src="https://www.blackfishhomes.ca/v1site_images/slideshow/gallery1/Marine.jpg" alt="" loading="lazy">
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     ABOUT
+     ═══════════════════════════════════════ -->
+<section class="section-dark about" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <div class="eyebrow">Our Story</div>
+        <h2 class="section-title section-title-white">Named After the Orca</h2>
+        <div class="about-accent-line"></div>
+        <p>In the early 2000s, David Adair spent his days guiding ocean kayak tours through Johnstone Strait, watching orcas move in tight family pods -- communicating constantly, protecting their young, navigating together. When he founded Blackfish Homes in 2005, the name wasn't a brand exercise. It was a statement about how he wanted to build: with the same focus on family, communication, and trust.</p>
+        <p>Two decades later, that philosophy hasn't changed. David now chairs the Built Green Canada Board of Directors -- the national organization certifying sustainable building practices across the country. Every Blackfish home is third-party verified for energy performance, material health, and durability. Not because it's trendy. Because it's the right way to build.</p>
+        <div class="about-quote reveal reveal-delay-4">
+          <p>"Blackfish took over a home construction project in trouble and turned it around into a beautiful home. Dave and Stu were honest, reliable, always available and made our experience of building a home great."</p>
+          <span>— Houzz Client Review</span>
+        </div>
+        <div class="about-signature">
+          <span>David Adair</span>
+        </div>
+        <div class="about-films reveal reveal-delay-5">
+          <p>Project films: <a href="https://www.facebook.com/Blackfishhomes.ca/videos/alpine-north-vancouver/565256957249779/" target="_blank">Alpine</a> · <a href="https://www.facebook.com/Blackfishhomes.ca/videos/mathers-reno-west-vancouver/300908190513915/" target="_blank">Mathers</a> · <a href="https://www.facebook.com/Blackfishhomes.ca/videos/marine-drive-west-vancouver/1961210567222976/" target="_blank">Marine Drive</a></p>
+        </div>
+      </div>
+      <div class="about-image reveal reveal-delay-2">
+        <img src="https://www.blackfishhomes.ca/v1site_images/slideshow/gallery1/William.jpg" alt="Blackfish Homes craftsmanship" loading="lazy">
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     AWARDS BAR
+     ═══════════════════════════════════════ -->
+<section class="section-dark awards">
+  <div class="container">
+    <div class="awards-grid">
+      <div class="award-item reveal">
+        <div class="award-number" data-target="20" data-suffix="+">0</div>
+        <div class="award-label">Years Building</div>
+      </div>
+      <div class="award-item reveal reveal-delay-1">
+        <div class="award-number" data-target="5" data-suffix="">0</div>
+        <div class="award-label">Georgie Awards</div>
+      </div>
+      <div class="award-item reveal reveal-delay-2">
+        <div class="award-number" data-target="5" data-suffix="">0</div>
+        <div class="award-label">Ovation Awards</div>
+      </div>
+      <div class="award-item reveal reveal-delay-3">
+        <div class="award-number" data-target="17" data-suffix="">0</div>
+        <div class="award-label">Houzz Awards</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     SERVICES
+     ═══════════════════════════════════════ -->
+<section class="section-paper services" id="services">
+  <div class="container">
+    <div class="services-header reveal">
+      <div class="eyebrow">What We Build</div>
+      <h2 class="section-title section-title-ink">Performance Without Compromise</h2>
+      <p class="section-subtitle">Every Blackfish home begins with a conversation about how you want to live -- and ends with a third-party verified home that performs for decades.</p>
+    </div>
+
+    <div class="services-grid">
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-card-number">01</div>
+        <h3>Custom Homes</h3>
+        <p>Ground-up builds designed to the highest performance standards. Every home is Built Green certified, third-party verified, and tailored to your site, lifestyle, and vision.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-card-number">02</div>
+        <h3>Major Renovations</h3>
+        <p>Foundation-up transformations that honour existing homes while dramatically improving performance. From strategic additions to full gut renovations.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-card-number">03</div>
+        <h3>High-Performance Building</h3>
+        <p>Building science is our foundation. Superior envelope design, advanced ventilation systems, and energy-efficient technology that reduces operating costs and improves air quality.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-4">
+        <div class="service-card-number">04</div>
+        <h3>Project Management</h3>
+        <p>End-to-end coordination of your build team -- architects, designers, engineers, trades. One point of contact. Open communication. No surprises.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     PROCESS
+     ═══════════════════════════════════════ -->
+<section class="section-dark process" id="process">
+  <div class="container">
+    <div class="process-header reveal">
+      <div class="eyebrow">How We Build</div>
+      <h2 class="section-title section-title-white">From Vision to Handover</h2>
+    </div>
+
+    <div class="process-grid">
+      <div class="process-card reveal reveal-delay-1">
+        <div class="process-step">01</div>
+        <h4>Discovery</h4>
+        <p>We listen first. Understanding your site, goals, lifestyle, and budget before anything gets drawn.</p>
+      </div>
+      <div class="process-card reveal reveal-delay-2">
+        <div class="process-step">02</div>
+        <h4>Design</h4>
+        <p>Working alongside your architect and design team, we refine the plan to balance ambition with buildability and performance.</p>
+      </div>
+      <div class="process-card reveal reveal-delay-3">
+        <div class="process-step">03</div>
+        <h4>Construction</h4>
+        <p>Our crew brings the design to life with meticulous attention to detail, open communication, and weekly progress updates.</p>
+      </div>
+      <div class="process-card reveal reveal-delay-4">
+        <div class="process-step">04</div>
+        <h4>Handover</h4>
+        <p>A thorough walkthrough, full documentation, and everything you need to enjoy and maintain your new home from day one.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     PHOTO BREAK 2 — Mathers
+     ═══════════════════════════════════════ -->
+<div class="photo-break photo-break--from-dark photo-break--to-dark">
+  <img class="photo-break-img" src="https://www.blackfishhomes.ca/v1site_images/slideshow/gallery1/Mathers.jpg" alt="" loading="lazy">
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     TESTIMONIAL
+     ═══════════════════════════════════════ -->
+<section class="section-dark testimonial" id="testimonial">
+  <div class="testimonial-quote-mark">&ldquo;</div>
+  <div class="container">
+    <div class="testimonial-content reveal">
+      <p class="testimonial-text">&ldquo;We were new to the process and knew nothing about building a house. We are so pleased we chose Blackfish and really believe we couldn't have found a better builder. They guided us every step of the way without the process becoming overwhelming. Blackfish produce the highest quality work and craftsmanship and were both on-time and on-budget. Nowhere were corners cut and they were always available to answer questions, discuss options and make really great suggestions.&rdquo;</p>
+      <div class="testimonial-divider"></div>
+      <div class="testimonial-author">HOMESTARS CLIENT REVIEW</div>
+      <div class="testimonial-rating">4.75/5 across 43+ reviews</div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════ FEATURED IN ═══════════════════════════════════════ -->
+<div class="press-bar">
+  <div class="container">
+    <p class="press-label">Featured In</p>
+    <div class="press-logos">
+      <span class="press-item">HomeAdore</span>
+      <span class="press-item">Contemporist</span>
+      <span class="press-item">Vancouver Boulevard</span>
+      <span class="press-item">North Shore News</span>
+      <span class="press-item">Built Green Canada</span>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     BUILT GREEN
+     ═══════════════════════════════════════ -->
+<section class="section-paper built-green" id="built-green">
+  <div class="container">
+    <div class="built-green-header reveal">
+      <div class="eyebrow">Built Green Certified</div>
+      <h2 class="section-title section-title-ink">Not Just Green-Washed.<br>Third-Party Verified.</h2>
+      <p class="section-subtitle">Every Blackfish home is certified through Built Green Canada -- the national standard for sustainable residential construction. David Adair doesn't just build to the standard. He chairs the organization's Board of Directors.</p>
+    </div>
+
+    <div class="built-green-grid">
+      <div class="bg-card reveal reveal-delay-1">
+        <h3>Platinum Certification</h3>
+        <p>Our flagship projects achieve Built Green Platinum -- the highest level of certification for energy performance, material health, and indoor air quality.</p>
+      </div>
+      <div class="bg-card reveal reveal-delay-2">
+        <h3>EnerGuide Rated</h3>
+        <p>Our homes are independently tested and rated. The Vale residence scored EnerGuide 86 -- over 30% more efficient than building code requirements.</p>
+      </div>
+      <div class="bg-card reveal reveal-delay-3">
+        <h3>Board-Level Commitment</h3>
+        <p>When the owner of your building company chairs the national green building organization, sustainability isn't a marketing line. It's the foundation of every decision.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     PHOTO BREAK 3 — Vale
+     ═══════════════════════════════════════ -->
+<div class="photo-break photo-break--from-paper photo-break--to-paper">
+  <img class="photo-break-img" src="https://www.blackfishhomes.ca/v1site_images/slideshow/gallery1/Vale.jpg" alt="" loading="lazy">
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     CTA
+     ═══════════════════════════════════════ -->
+<section class="section-paper cta" id="contact">
+  <div class="container">
+    <div class="reveal">
+      <h2 class="section-title section-title-ink">Let's Build Something<br>That Performs Beautifully</h2>
+      <p>Whether you're envisioning a new custom home or transforming your current one, we'd love to hear about your project.</p>
+      <a href="mailto:info@blackfishhomes.ca" class="btn-primary-large">Start a Conversation</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-grid">
+      <!-- Column 1: Brand + Contact -->
+      <div>
+        <div class="footer-brand-name">BLACKFISH HOMES</div>
+        <p class="footer-brand-desc">Award-winning custom home builder specializing in high-performance, Built Green certified homes on Vancouver's North Shore and beyond.</p>
+        <div class="footer-contact-item">
+          <div class="footer-contact-label">Phone</div>
+          <div class="footer-contact-value"><a href="tel:6049861286">604.986.1286</a></div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-label">Email</div>
+          <div class="footer-contact-value"><a href="mailto:info@blackfishhomes.ca">info@blackfishhomes.ca</a></div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-label">Office</div>
+          <div class="footer-contact-value">North Vancouver, BC</div>
+        </div>
+        <div class="footer-contact-item">
+          <div class="footer-contact-label">Hours</div>
+          <div class="footer-contact-value">Mon-Fri 8:00am - 5:00pm</div>
+        </div>
+      </div>
+
+      <!-- Column 2: Company -->
+      <div>
+        <div class="footer-col-title">Company</div>
+        <ul class="footer-links">
+          <li><a href="#">Projects</a></li>
+          <li><a href="#">About</a></li>
+          <li><a href="#">Services</a></li>
+          <li><a href="#">Built Green</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Blog</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Services -->
+      <div>
+        <div class="footer-col-title">Services</div>
+        <ul class="footer-links">
+          <li><a href="#">Custom Homes</a></li>
+          <li><a href="#">Major Renovations</a></li>
+          <li><a href="#">High-Performance Building</a></li>
+          <li><a href="#">Project Management</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Service Areas -->
+      <div>
+        <div class="footer-col-title">Service Areas</div>
+        <ul class="footer-links footer-links--areas">
+          <li><a href="#">North Vancouver</a></li>
+          <li><a href="#">West Vancouver</a></li>
+          <li><a href="#">Vancouver</a></li>
+          <li><a href="#">Burnaby</a></li>
+          <li><a href="#">Lions Bay</a></li>
+          <li><a href="#">Gabriola Island</a></li>
+          <li><a href="#">Mid-Vancouver Island</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Certifications -->
+    <div class="footer-certs">
+      <div class="footer-cert">
+        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        HAVAN Member
+      </div>
+      <div class="footer-cert">
+        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        Built Green Canada
+      </div>
+      <div class="footer-cert">
+        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        BC Housing Licensed
+      </div>
+      <div class="footer-cert">
+        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        CHBA BC Member
+      </div>
+      <div class="footer-cert">
+        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        BBB A+ Rated
+      </div>
+      <div class="footer-cert">
+        <svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+        North Vancouver Chamber
+      </div>
+    </div>
+
+    <!-- Social -->
+    <div class="footer-social">
+      <a href="#" class="footer-social-link" aria-label="Facebook">
+        <svg viewBox="0 0 24 24"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+      </a>
+      <a href="#" class="footer-social-link" aria-label="Instagram">
+        <svg viewBox="0 0 24 24"><path d="M16 4H8a4 4 0 00-4 4v8a4 4 0 004 4h8a4 4 0 004-4V8a4 4 0 00-4-4zm-4 11a3 3 0 110-6 3 3 0 010 6zm4.5-7.5a1 1 0 110-2 1 1 0 010 2z"/></svg>
+      </a>
+      <a href="#" class="footer-social-link" aria-label="LinkedIn">
+        <svg viewBox="0 0 24 24"><path d="M16 8a6 6 0 016 6v7h-4v-7a2 2 0 00-4 0v7h-4v-7a6 6 0 016-6zM2 9h4v12H2zM4 2a2 2 0 110 4 2 2 0 010-4z"/></svg>
+      </a>
+    </div>
+
+    <!-- Footer Bottom -->
+    <div class="footer-bottom">
+      <div class="footer-copyright">&copy; 2026 Blackfish Homes Ltd. All rights reserved.</div>
+      <div class="footer-legal">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+        <a href="#">Sitemap</a>
+      </div>
+      <div class="footer-credit">Website concept by <a href="https://mattanthonyphoto.com" target="_blank" rel="noopener">Matt Anthony Photography</a></div>
+    </div>
+  </div>
+</footer>
+
+
+<!-- ═══════════════════════════════════════
+     CONCEPT BANNER
+     ═══════════════════════════════════════ -->
+<div class="concept-banner" id="conceptBanner">
+  <span class="concept-banner-text">This is a website concept designed for Blackfish Homes by Matt Anthony Photography</span>
+  <a href="https://mattanthonyphoto.com/discovery-call" target="_blank" rel="noopener" class="concept-banner-cta">Book a Discovery Call</a>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     JSON-LD
+     ═══════════════════════════════════════ -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Blackfish Homes",
+  "url": "https://www.blackfishhomes.ca",
+  "telephone": "+16049861286",
+  "email": "info@blackfishhomes.ca",
+  "description": "Award-winning custom home builder specializing in high-performance, Built Green Platinum certified homes. Georgie and Ovation award-winning. Serving North Vancouver, West Vancouver, Vancouver and beyond since 2005.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "North Vancouver",
+    "addressRegion": "BC",
+    "addressCountry": "CA"
+  },
+  "areaServed": [
+    { "@type": "City", "name": "North Vancouver" },
+    { "@type": "City", "name": "West Vancouver" },
+    { "@type": "City", "name": "Vancouver" },
+    { "@type": "City", "name": "Burnaby" },
+    { "@type": "City", "name": "Lions Bay" },
+    { "@type": "City", "name": "Gabriola Island" }
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Building Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Custom Homes", "description": "Ground-up builds designed to the highest performance standards. Built Green certified and third-party verified." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Major Renovations", "description": "Foundation-up transformations that honour existing homes while dramatically improving performance." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "High-Performance Building", "description": "Superior envelope design, advanced ventilation systems, and energy-efficient technology." } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Project Management", "description": "End-to-end coordination of architects, designers, engineers, and trades." } }
+    ]
+  },
+  "foundingDate": "2005",
+  "sameAs": [
+    "https://www.facebook.com/blackfishhomes",
+    "https://www.instagram.com/blackfishhomes",
+    "https://www.linkedin.com/company/blackfish-homes"
+  ]
+}
+</script>
+
+
+<!-- ═══════════════════════════════════════
+     JAVASCRIPT
+     ═══════════════════════════════════════ -->
+<script>
+(function() {
+  'use strict';
+
+  // ─── LOADER ───
+  var loader = document.getElementById('loader');
+  setTimeout(function() {
+    loader.classList.add('done');
+    document.body.classList.remove('loading');
+    // Trigger hero animations
+    setTimeout(function() {
+      document.getElementById('heroEyebrow').classList.add('animate');
+      document.getElementById('heroTitle').classList.add('animate');
+      document.getElementById('heroSubtitle').classList.add('animate');
+      document.getElementById('heroButtons').classList.add('animate');
+    }, 100);
+  }, 1200);
+
+  // Show concept banner after loader
+  setTimeout(function() {
+    document.getElementById('conceptBanner').classList.add('visible');
+  }, 1500);
+
+
+  // ─── SCROLL PROGRESS ───
+  var scrollProgress = document.getElementById('scrollProgress');
+  var ticking = false;
+
+  function updateScrollProgress() {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    var docHeight = document.documentElement.scrollHeight - window.innerHeight;
+    var progress = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+    scrollProgress.style.width = progress + '%';
+    ticking = false;
+  }
+
+
+  // ─── NAV SCROLL ───
+  var nav = document.getElementById('nav');
+  var heroSection = document.getElementById('hero');
+
+  function updateNav() {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > heroSection.offsetHeight * 0.5) {
+      nav.classList.add('scrolled');
+    } else {
+      nav.classList.remove('scrolled');
+    }
+  }
+
+
+  // ─── SCROLL HINT HIDE ───
+  var scrollHint = document.getElementById('scrollHint');
+
+  function updateScrollHint() {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop > 100) {
+      scrollHint.classList.add('hidden');
+    } else {
+      scrollHint.classList.remove('hidden');
+    }
+  }
+
+
+  // ─── HERO PARALLAX ───
+  var heroBg = document.getElementById('heroBg');
+
+  function updateHeroParallax() {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    if (scrollTop < window.innerHeight * 1.5) {
+      var yOffset = scrollTop * 0.3;
+      heroBg.style.transform = 'scale(1.1) translateY(' + yOffset + 'px)';
+    }
+  }
+
+
+  // ─── COMBINED SCROLL HANDLER ───
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      requestAnimationFrame(function() {
+        updateScrollProgress();
+        updateNav();
+        updateScrollHint();
+        updateHeroParallax();
+        updateSectionNav();
+      });
+      ticking = true;
+    }
+  }, { passive: true });
+
+
+  // ─── SCROLL REVEAL (IntersectionObserver) ───
+  var revealElements = document.querySelectorAll('.reveal');
+
+  if ('IntersectionObserver' in window) {
+    var revealObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          revealObserver.unobserve(entry.target);
+        }
+      });
+    }, {
+      threshold: 0.12,
+      rootMargin: '-40px'
+    });
+
+    revealElements.forEach(function(el) {
+      revealObserver.observe(el);
+    });
+  } else {
+    // Fallback: show all
+    revealElements.forEach(function(el) {
+      el.classList.add('visible');
+    });
+  }
+
+
+  // ─── COUNTER ANIMATION ───
+  var counterElements = document.querySelectorAll('.award-number[data-target]');
+  var counterAnimated = new Set();
+
+  if ('IntersectionObserver' in window) {
+    var counterObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting && !counterAnimated.has(entry.target)) {
+          counterAnimated.add(entry.target);
+          animateCounter(entry.target);
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.5 });
+
+    counterElements.forEach(function(el) {
+      counterObserver.observe(el);
+    });
+  }
+
+  function animateCounter(el) {
+    var target = parseInt(el.getAttribute('data-target'), 10);
+    var suffix = el.getAttribute('data-suffix') || '';
+    var duration = 1400;
+    var startTime = null;
+
+    function easeOutCubic(t) {
+      return 1 - Math.pow(1 - t, 3);
+    }
+
+    function step(timestamp) {
+      if (!startTime) startTime = timestamp;
+      var elapsed = timestamp - startTime;
+      var progress = Math.min(elapsed / duration, 1);
+      var easedProgress = easeOutCubic(progress);
+      var current = Math.round(easedProgress * target);
+      el.textContent = current + suffix;
+
+      if (progress < 1) {
+        requestAnimationFrame(step);
+      }
+    }
+
+    requestAnimationFrame(step);
+  }
+
+
+  // ─── SECTION NAV DOTS ───
+  var sectionNavDots = document.querySelectorAll('.section-nav-dot');
+  var trackedSections = [];
+
+  sectionNavDots.forEach(function(dot) {
+    var targetId = dot.getAttribute('data-target');
+    var targetEl = document.getElementById(targetId);
+    if (targetEl) {
+      trackedSections.push({ dot: dot, el: targetEl });
+    }
+
+    dot.addEventListener('click', function() {
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  function updateSectionNav() {
+    var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+    var windowHeight = window.innerHeight;
+    var current = null;
+
+    for (var i = trackedSections.length - 1; i >= 0; i--) {
+      var section = trackedSections[i];
+      var rect = section.el.getBoundingClientRect();
+      if (rect.top <= windowHeight * 0.5) {
+        current = section.dot;
+        break;
+      }
+    }
+
+    sectionNavDots.forEach(function(d) { d.classList.remove('active'); });
+    if (current) current.classList.add('active');
+  }
+
+
+  // ─── HAMBURGER MENU ───
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+
+  // Close mobile menu on link click
+  var mobileLinks = document.querySelectorAll('.mobile-menu-link');
+  mobileLinks.forEach(function(link) {
+    link.addEventListener('click', function() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+
+  // ─── SMOOTH ANCHOR SCROLL ───
+  document.querySelectorAll('a[href^="#"]').forEach(function(anchor) {
+    anchor.addEventListener('click', function(e) {
+      var targetId = this.getAttribute('href');
+      if (targetId === '#') return;
+      var targetEl = document.querySelector(targetId);
+      if (targetEl) {
+        e.preventDefault();
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+
+  // ─── GOLD DIVIDER ANIMATION ───
+  var heroDiv = document.querySelector('.hero-divider');
+  if (heroDiv && 'IntersectionObserver' in window) {
+    heroDiv.style.transform = 'scaleX(0)';
+    heroDiv.style.transition = 'transform 1s cubic-bezier(0.16,1,0.3,1)';
+    var divObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          heroDiv.style.transform = 'scaleX(1)';
+          divObserver.unobserve(heroDiv);
+        }
+      });
+    }, { threshold: 0.1 });
+    divObserver.observe(heroDiv);
+  }
+
+})();
+</script>
+
+</body>
+</html>
