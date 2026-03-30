@@ -1,0 +1,2122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Black Point Architectural Woodwork — Bespoke Millwork | Whistler, BC</title>
+<meta name="description" content="Bespoke millwork and custom cabinetry by trade-certified cabinetmakers in Whistler, BC. 40+ years combined experience. Western Living featured. Serving the Sea to Sky Corridor.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+/* ═══════════════════════════════════════════════════════
+   BLACK POINT ARCHITECTURAL WOODWORK — Homepage Concept
+   Design: Matt Anthony Photography
+   Built: March 2026
+   ═══════════════════════════════════════════════════════ */
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --void: #080808;
+  --ink: #0C0C0B;
+  --charcoal: #1A1A18;
+  --paper: #F6F4F0;
+  --warmgray: #E8E4DF;
+  --gold: #C9A96E;
+  --gold-hover: #D4BC8A;
+  --gold-dim: rgba(201,169,110,0.12);
+  --gold-border: rgba(201,169,110,0.25);
+  --stone: #8A8579;
+  --light-stone: #D9D5CD;
+  --white: #FFFFFF;
+  --dark-accent: #141412;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  color: var(--stone);
+  background: var(--ink);
+  line-height: 1.7;
+  font-size: 17px;
+  overflow-x: hidden;
+}
+
+body.loading {
+  overflow: hidden;
+  height: 100vh;
+}
+
+a { color: inherit; text-decoration: none; }
+img { display: block; max-width: 100%; }
+
+/* ═══════════════════════════════════════
+   FILM GRAIN OVERLAY
+   ═══════════════════════════════════════ */
+.grain {
+  position: fixed;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  pointer-events: none;
+  z-index: 9000;
+  opacity: 0.02;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='1'/%3E%3C/svg%3E");
+}
+
+/* ═══════════════════════════════════════
+   SCROLL PROGRESS BAR
+   ═══════════════════════════════════════ */
+.scroll-progress {
+  position: fixed;
+  top: 0; left: 0;
+  width: 0%; height: 2px;
+  background: linear-gradient(90deg, var(--gold), var(--gold-hover));
+  z-index: 10001;
+  transition: none;
+}
+
+/* ═══════════════════════════════════════
+   LOADER
+   ═══════════════════════════════════════ */
+.loader {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: var(--void);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.6s ease, visibility 0.6s ease;
+}
+
+.loader.done {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+.loader-brand {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 8px;
+  color: #fff;
+  text-transform: uppercase;
+  opacity: 0;
+  animation: loaderFadeIn 0.6s ease 0.2s forwards;
+}
+
+.loader-line {
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  margin-top: 16px;
+  animation: loaderLineDraw 0.6s ease 0.5s forwards;
+}
+
+@keyframes loaderFadeIn { to { opacity: 1; } }
+@keyframes loaderLineDraw { to { width: 48px; } }
+
+/* ═══════════════════════════════════════
+   NAVIGATION
+   ═══════════════════════════════════════ */
+.nav {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 72px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 48px;
+  z-index: 9999;
+  transition: background 0.4s ease, box-shadow 0.4s ease, height 0.3s ease;
+}
+
+.nav.scrolled {
+  background: rgba(255,255,255,0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.05);
+  height: 60px;
+}
+
+.nav-logo {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 5px;
+  text-transform: uppercase;
+  color: #fff;
+  transition: color 0.4s ease;
+}
+
+.nav.scrolled .nav-logo { color: var(--ink); }
+
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.6);
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover { color: #fff; }
+
+.nav.scrolled .nav-links a { color: var(--stone); }
+.nav.scrolled .nav-links a:hover { color: var(--ink); }
+
+.nav-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 24px;
+  background: var(--gold);
+  color: var(--ink) !important;
+  font-weight: 600 !important;
+  font-size: 11px !important;
+  letter-spacing: 1.5px !important;
+  text-transform: uppercase;
+  transition: background 0.3s ease;
+  opacity: 1 !important;
+}
+
+.nav-cta:hover { background: var(--gold-hover); }
+.nav.scrolled .nav-cta { color: var(--ink) !important; }
+
+/* Hamburger */
+.nav-hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 32px; height: 32px;
+  cursor: pointer;
+  position: relative;
+  z-index: 10002;
+}
+
+.nav-hamburger span {
+  display: block;
+  width: 22px; height: 1.5px;
+  background: #fff;
+  transition: all 0.3s ease;
+  position: absolute;
+}
+
+.nav-hamburger span:nth-child(1) { transform: translateY(-6px); }
+.nav-hamburger span:nth-child(2) { transform: translateY(0); }
+.nav-hamburger span:nth-child(3) { transform: translateY(6px); }
+
+.nav.scrolled .nav-hamburger span { background: var(--ink); }
+
+.nav-hamburger.open span:nth-child(1) { transform: rotate(45deg); background: #fff; }
+.nav-hamburger.open span:nth-child(2) { opacity: 0; }
+.nav-hamburger.open span:nth-child(3) { transform: rotate(-45deg); background: #fff; }
+
+/* Mobile menu overlay */
+.mobile-menu {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: var(--void);
+  z-index: 10001;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 32px;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.mobile-menu.open { opacity: 1; visibility: visible; }
+
+.mobile-menu a {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 32px;
+  color: #fff;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+}
+
+.mobile-menu a:hover { opacity: 1; }
+
+.mobile-menu .mobile-cta {
+  margin-top: 16px;
+  padding: 14px 36px;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+/* ═══════════════════════════════════════
+   SECTION NAV DOTS
+   ═══════════════════════════════════════ */
+.section-nav {
+  position: fixed;
+  right: 32px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 9998;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.section-nav-dot {
+  width: 8px; height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.15);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.section-nav-dot.active {
+  background: var(--gold);
+  transform: scale(1.3);
+}
+
+.section-nav-dot::after {
+  content: attr(data-label);
+  position: absolute;
+  right: 20px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.section-nav-dot:hover::after { opacity: 1; }
+
+/* ═══════════════════════════════════════
+   SHARED SECTION STYLES
+   ═══════════════════════════════════════ */
+.section-dark { background: var(--ink); position: relative; }
+.section-charcoal { background: var(--charcoal); position: relative; }
+.section-paper { background: var(--paper); position: relative; }
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.eyebrow {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.eyebrow::before {
+  content: '';
+  display: block;
+  width: 0; height: 1px;
+  background: var(--gold);
+  transition: width 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+
+.visible .eyebrow::before,
+.eyebrow.visible::before {
+  width: 32px;
+}
+
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  line-height: 1.15;
+  margin-bottom: 24px;
+  overflow: hidden;
+}
+
+.section-title em {
+  font-style: italic;
+  color: var(--gold);
+}
+
+.section-title-white { color: #fff; }
+.section-title-ink { color: var(--ink); }
+
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.15;
+  margin-bottom: 24px;
+}
+
+h2 em { font-style: italic; color: var(--gold); }
+
+/* Split line reveal for titles */
+.section-title .line {
+  display: block;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: opacity 0.6s ease, transform 0.8s cubic-bezier(0.16,1,0.3,1);
+}
+
+.section-title .line.revealed {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.section-title .line:nth-child(2) { transition-delay: 0.12s; }
+.section-title .line:nth-child(3) { transition-delay: 0.24s; }
+
+/* Scroll reveal */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px);
+  transition: opacity 0.7s cubic-bezier(0.16,1,0.3,1), transform 0.7s cubic-bezier(0.16,1,0.3,1);
+}
+
+.reveal.visible { opacity: 1; transform: translateY(0); }
+
+.reveal-delay-1 { transition-delay: 0.1s; }
+.reveal-delay-2 { transition-delay: 0.2s; }
+.reveal-delay-3 { transition-delay: 0.3s; }
+.reveal-delay-4 { transition-delay: 0.4s; }
+.reveal-delay-5 { transition-delay: 0.5s; }
+.reveal-delay-6 { transition-delay: 0.6s; }
+
+/* ═══════════════════════════════════════
+   HERO
+   ═══════════════════════════════════════ */
+.hero {
+  position: relative;
+  width: 100%; height: 100vh;
+  min-height: 700px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+}
+
+.hero-bg {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background:
+    radial-gradient(ellipse at 30% 60%, rgba(201,169,110,0.06) 0%, transparent 60%),
+    radial-gradient(ellipse at 70% 30%, rgba(201,169,110,0.04) 0%, transparent 50%),
+    linear-gradient(160deg, #0C0C0B 0%, #1A1A18 40%, #141412 100%);
+  transform: scale(1.1);
+  will-change: transform;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background:
+    radial-gradient(ellipse at 50% 80%, rgba(201,169,110,0.03) 0%, transparent 50%);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  padding: 0 48px;
+  max-width: 800px;
+}
+
+.hero-eyebrow {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+  opacity: 0; transform: translateY(16px);
+}
+
+.hero-eyebrow.animate { animation: heroFadeUp 0.8s 0.3s ease forwards; }
+
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(42px, 6vw, 72px);
+  font-weight: 400;
+  color: var(--white);
+  line-height: 1.1;
+  margin-bottom: 20px;
+  opacity: 0; transform: translateY(20px);
+}
+
+.hero h1.animate { animation: heroFadeUp 0.8s 0.6s ease forwards; }
+
+.hero h1 em {
+  font-style: italic;
+  color: var(--gold);
+  display: block;
+}
+
+.hero-sub {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 17px;
+  font-weight: 300;
+  color: var(--light-stone);
+  max-width: 480px;
+  line-height: 1.7;
+  margin-bottom: 36px;
+  opacity: 0; transform: translateY(16px);
+}
+
+.hero-sub.animate { animation: heroFadeUp 0.8s 0.9s ease forwards; }
+
+.hero-buttons {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  opacity: 0; transform: translateY(16px);
+}
+
+.hero-buttons.animate { animation: heroFadeUp 0.8s 1.2s ease forwards; }
+
+.btn-outline {
+  display: inline-flex;
+  align-items: center;
+  padding: 14px 32px;
+  border: 1px solid var(--gold);
+  color: var(--gold);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: var(--gold);
+  color: var(--ink);
+}
+
+.btn-text {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--light-stone);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  transition: color 0.3s ease, gap 0.3s ease;
+}
+
+.btn-text:hover { color: var(--gold); gap: 12px; }
+
+/* Hero stats bar */
+.hero-stats {
+  position: absolute;
+  bottom: 48px;
+  right: 48px;
+  z-index: 2;
+  display: flex;
+  gap: 40px;
+  opacity: 0;
+  animation: heroFadeUp 0.8s 1.5s ease forwards;
+}
+
+.hero-stat {
+  text-align: right;
+}
+
+.hero-stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 28px;
+  font-weight: 500;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.hero-stat-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 9px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.35);
+  margin-top: 4px;
+}
+
+/* Scroll indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  opacity: 0;
+  animation: heroFadeUp 0.8s 1.8s ease forwards;
+  transition: opacity 0.5s ease;
+}
+
+.scroll-indicator span {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.scroll-line {
+  width: 1px; height: 40px;
+  background: var(--gold);
+  animation: scrollPulse 2s ease-in-out infinite;
+}
+
+@keyframes heroFadeUp { to { opacity: 1; transform: translateY(0); } }
+@keyframes scrollPulse {
+  0%, 100% { opacity: 0.3; transform: scaleY(0.6); }
+  50% { opacity: 1; transform: scaleY(1); }
+}
+
+/* ═══════════════════════════════════════
+   GOLD DIVIDER
+   ═══════════════════════════════════════ */
+.gold-divider {
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold-border), transparent);
+}
+
+/* ═══════════════════════════════════════
+   PROJECTS
+   ═══════════════════════════════════════ */
+.projects { padding: 120px 0; }
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 16px;
+  margin-top: 48px;
+}
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  min-height: 280px;
+}
+
+.project-card-bg {
+  position: absolute;
+  inset: 0;
+  transition: transform 0.6s ease;
+}
+
+.project-card:hover .project-card-bg { transform: scale(1.04); }
+
+/* Placeholder backgrounds */
+.project-card--quarry .project-card-bg {
+  background: linear-gradient(135deg, #2A2520 0%, #3D3328 40%, #2A2520 100%);
+}
+.project-card--fitzsimmons .project-card-bg {
+  background: linear-gradient(135deg, #252220 0%, #3A3025 40%, #252220 100%);
+}
+.project-card--pemberton .project-card-bg {
+  background: linear-gradient(135deg, #1E1C1A 0%, #342C24 40%, #1E1C1A 100%);
+}
+.project-card--panorama .project-card-bg {
+  background: linear-gradient(135deg, #28241E 0%, #3E3428 40%, #28241E 100%);
+}
+.project-card--falcon .project-card-bg {
+  background: linear-gradient(135deg, #221F1C 0%, #383026 40%, #221F1C 100%);
+}
+.project-card--ecologyst .project-card-bg {
+  background: linear-gradient(135deg, #1C1A18 0%, #302820 40%, #1C1A18 100%);
+}
+
+/* Tall card spanning 2 rows */
+.project-card--quarry { grid-row: 1 / 3; }
+/* Wide card spanning 2 columns */
+.project-card--ecologyst { grid-column: 1 / -1; min-height: 320px; }
+
+.project-card-overlay {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  padding: 48px 28px 28px;
+  background: linear-gradient(to top, rgba(12,12,11,0.85) 0%, transparent 100%);
+  transition: background 0.4s ease;
+}
+
+.project-card:hover .project-card-overlay {
+  background: linear-gradient(to top, rgba(12,12,11,0.92) 0%, rgba(12,12,11,0.3) 100%);
+}
+
+.project-card-location {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px;
+  font-weight: 600;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 6px;
+}
+
+.project-card-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24px;
+  font-weight: 400;
+  color: var(--white);
+  margin-bottom: 4px;
+}
+
+.project-card-credit {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 300;
+  color: rgba(255,255,255,0.35);
+  margin-bottom: 12px;
+}
+
+.project-card-line {
+  width: 0; height: 1px;
+  background: var(--gold);
+  transition: width 0.5s cubic-bezier(0.16,1,0.3,1);
+}
+
+.project-card:hover .project-card-line { width: 48px; }
+
+.view-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 48px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  transition: gap 0.3s ease;
+}
+
+.view-all:hover { gap: 14px; }
+.view-all svg { width: 20px; transition: transform 0.3s; }
+.view-all:hover svg { transform: translateX(4px); }
+
+/* ═══════════════════════════════════════
+   PHOTO BREAK
+   ═══════════════════════════════════════ */
+.photo-break {
+  position: relative;
+  height: 50vh;
+  min-height: 360px;
+  overflow: hidden;
+}
+
+.photo-break-bg {
+  position: absolute;
+  inset: 0;
+  transform: scale(1.08);
+  animation: kenBurns 18s ease-in-out infinite alternate;
+}
+
+.photo-break--1 .photo-break-bg {
+  background: linear-gradient(135deg, #1A1714 0%, #2E2620 30%, #3A3028 50%, #2E2620 70%, #1A1714 100%);
+}
+
+.photo-break--2 .photo-break-bg {
+  background: linear-gradient(135deg, #14120F 0%, #28221C 30%, #342C24 50%, #28221C 70%, #14120F 100%);
+}
+
+@keyframes kenBurns {
+  from { transform: scale(1.08); }
+  to { transform: scale(1); }
+}
+
+.photo-break-fade-top {
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 120px;
+  z-index: 1;
+}
+
+.photo-break-fade-bottom {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 120px;
+  z-index: 1;
+}
+
+.photo-break--1 .photo-break-fade-top {
+  background: linear-gradient(to bottom, var(--ink), transparent);
+}
+.photo-break--1 .photo-break-fade-bottom {
+  background: linear-gradient(to top, var(--paper), transparent);
+}
+
+.photo-break--2 .photo-break-fade-top {
+  background: linear-gradient(to bottom, var(--paper), transparent);
+}
+.photo-break--2 .photo-break-fade-bottom {
+  background: linear-gradient(to top, var(--paper), transparent);
+}
+
+/* ═══════════════════════════════════════
+   ABOUT
+   ═══════════════════════════════════════ */
+.about { padding: 120px 0; }
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 1fr;
+  gap: 80px;
+  align-items: center;
+}
+
+.about-text h2 { margin-bottom: 20px; }
+
+.about-gold-line {
+  width: 48px; height: 2px;
+  background: var(--gold);
+  margin-bottom: 24px;
+}
+
+.about-text p {
+  color: var(--stone);
+  font-size: 17px;
+  line-height: 1.8;
+  max-width: 520px;
+}
+
+.about-text p + p { margin-top: 16px; }
+
+.about-quote {
+  margin: 32px 0;
+  padding: 24px 0 24px 24px;
+  border-left: 2px solid var(--gold);
+}
+
+.about-quote p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  color: var(--ink);
+  line-height: 1.5;
+  margin-bottom: 12px;
+  max-width: none;
+}
+
+.about-quote span {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 400;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.about-signature {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--ink);
+  margin-top: 24px;
+}
+
+.about-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.about-image-placeholder {
+  width: 100%;
+  height: 620px;
+  background: linear-gradient(135deg, #D9D5CD 0%, #C9C3B8 40%, #D9D5CD 100%);
+}
+
+/* ═══════════════════════════════════════
+   STATS BAR
+   ═══════════════════════════════════════ */
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 0;
+  padding: 64px 48px;
+  background: var(--dark-accent);
+}
+
+.stat { text-align: center; }
+
+.stat-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(40px, 5vw, 56px);
+  font-weight: 500;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.stat-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--light-stone);
+  margin-top: 8px;
+}
+
+/* ═══════════════════════════════════════
+   SERVICES
+   ═══════════════════════════════════════ */
+.services { padding: 120px 0; }
+
+.services-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 48px;
+}
+
+.service-card {
+  position: relative;
+  padding: 40px;
+  background: var(--white);
+  border: 1px solid var(--warmgray);
+  border-left: 3px solid transparent;
+  transition: border-left-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.service-card:hover {
+  border-left-color: var(--gold);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.06);
+}
+
+.service-num {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 300;
+  letter-spacing: 2px;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.service-card h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 26px;
+  font-weight: 400;
+  color: var(--ink);
+  margin-bottom: 12px;
+}
+
+.service-card p {
+  font-size: 15px;
+  color: var(--stone);
+  line-height: 1.7;
+}
+
+/* ═══════════════════════════════════════
+   PROCESS
+   ═══════════════════════════════════════ */
+.process { padding: 120px 0; }
+
+.process-timeline {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-top: 64px;
+  position: relative;
+}
+
+.process-timeline::before {
+  content: '';
+  position: absolute;
+  top: 16px;
+  left: 10%; right: 10%;
+  height: 1px;
+  background: var(--gold-border);
+}
+
+.process-step {
+  flex: 1;
+  text-align: center;
+  position: relative;
+}
+
+.process-dot {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  background: var(--paper);
+  border: 2px solid var(--gold);
+  margin: 10px auto 20px;
+  position: relative;
+  z-index: 1;
+  transition: background 0.3s ease;
+}
+
+.process-step:hover .process-dot { background: var(--gold); }
+
+.process-step-title {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin-bottom: 8px;
+}
+
+.process-step-desc {
+  font-size: 14px;
+  color: var(--stone);
+  line-height: 1.6;
+  max-width: 160px;
+  margin: 0 auto;
+}
+
+/* ═══════════════════════════════════════
+   TESTIMONIAL
+   ═══════════════════════════════════════ */
+.testimonial {
+  padding: 120px 48px;
+  text-align: center;
+  position: relative;
+}
+
+.testimonial-mark {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 200px;
+  color: var(--gold);
+  opacity: 0.08;
+  line-height: 0.4;
+  position: absolute;
+  top: 80px;
+  left: 50%;
+  transform: translateX(-50%);
+  pointer-events: none;
+}
+
+.testimonial-quote {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(22px, 3vw, 30px);
+  font-style: italic;
+  font-weight: 400;
+  color: var(--ink);
+  max-width: 780px;
+  margin: 0 auto;
+  line-height: 1.5;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-divider {
+  width: 48px; height: 1px;
+  background: var(--gold);
+  margin: 28px auto;
+}
+
+.testimonial-name {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.testimonial-detail {
+  font-size: 14px;
+  color: var(--stone);
+  margin-top: 4px;
+}
+
+/* ═══════════════════════════════════════
+   PRESS BAR
+   ═══════════════════════════════════════ */
+.press-bar {
+  background: var(--paper);
+  padding: 48px 0;
+  border-top: 1px solid rgba(0,0,0,0.06);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+}
+
+.press-label {
+  text-align: center;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--stone);
+  opacity: 0.5;
+  margin-bottom: 28px;
+}
+
+.press-logos {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 64px;
+  flex-wrap: wrap;
+}
+
+.press-item {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-style: italic;
+  color: var(--ink);
+  opacity: 0.2;
+  transition: opacity 0.3s ease;
+}
+
+.press-item:hover { opacity: 0.5; }
+
+/* ═══════════════════════════════════════
+   CTA
+   ═══════════════════════════════════════ */
+.cta {
+  padding: 100px 48px;
+  text-align: center;
+  background: var(--gold);
+}
+
+.cta h2 {
+  font-size: clamp(32px, 4vw, 48px);
+  color: var(--ink);
+  margin-bottom: 24px;
+}
+
+.cta h2 em { color: var(--ink); }
+
+.cta-btn {
+  display: inline-block;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  background: var(--ink);
+  padding: 16px 40px;
+  transition: all 0.3s ease;
+}
+
+.cta-btn:hover {
+  background: var(--void);
+}
+
+.cta-contact {
+  margin-top: 20px;
+  font-size: 14px;
+  color: rgba(12,12,11,0.5);
+}
+
+.cta-contact a {
+  color: rgba(12,12,11,0.5);
+  transition: color 0.3s;
+}
+
+.cta-contact a:hover { color: var(--ink); }
+
+/* ═══════════════════════════════════════
+   FOOTER
+   ═══════════════════════════════════════ */
+footer {
+  background: var(--void);
+  padding: 80px 48px 0;
+  color: var(--stone);
+}
+
+.footer-grid {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 48px;
+}
+
+.footer-logo {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 600;
+  font-size: 12px;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--white);
+  margin-bottom: 16px;
+}
+
+.footer-brand-desc {
+  font-weight: 300;
+  font-size: 14px;
+  color: rgba(255,255,255,0.35);
+  line-height: 1.7;
+  margin-bottom: 20px;
+  max-width: 260px;
+}
+
+.footer-contact-item {
+  margin-bottom: 8px;
+}
+
+.footer-contact-value {
+  font-weight: 300;
+  font-size: 14px;
+  color: rgba(255,255,255,0.4);
+}
+
+.footer-contact-value a { transition: color 0.3s; }
+.footer-contact-value a:hover { color: var(--gold); }
+
+.footer-col h4 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 20px;
+}
+
+.footer-col a {
+  display: block;
+  color: rgba(255,255,255,0.35);
+  font-size: 14px;
+  margin-bottom: 10px;
+  transition: color 0.2s;
+}
+
+.footer-col a:hover { color: var(--white); }
+
+.footer-areas {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 16px;
+}
+
+/* Certifications bar */
+.footer-certs {
+  max-width: 1200px;
+  margin: 48px auto 0;
+  border-top: 1px solid rgba(255,255,255,0.06);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 24px 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 32px;
+}
+
+.footer-cert {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  font-size: 10px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.25);
+}
+
+.footer-cert svg {
+  width: 14px; height: 14px;
+  fill: rgba(255,255,255,0.2);
+}
+
+/* Social icons */
+.footer-social {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  padding: 32px 0;
+}
+
+.footer-social-link {
+  width: 40px; height: 40px;
+  border-radius: 50%;
+  border: 1px solid rgba(255,255,255,0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+.footer-social-link:hover {
+  border-color: var(--gold);
+  background: var(--gold-dim);
+}
+
+.footer-social-link svg {
+  width: 16px; height: 16px;
+  fill: rgba(255,255,255,0.4);
+  transition: fill 0.3s ease;
+}
+
+.footer-social-link:hover svg { fill: #fff; }
+
+/* Footer bottom */
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px 0;
+  border-top: 1px solid rgba(255,255,255,0.04);
+}
+
+.footer-copyright {
+  font-weight: 300;
+  font-size: 12px;
+  color: rgba(255,255,255,0.2);
+}
+
+.footer-credit {
+  font-weight: 300;
+  font-size: 12px;
+}
+
+.footer-credit a {
+  color: var(--gold);
+  transition: color 0.3s ease;
+}
+
+.footer-credit a:hover { color: #fff; }
+
+/* ═══════════════════════════════════════
+   CONCEPT BANNER
+   ═══════════════════════════════════════ */
+.concept-banner {
+  position: fixed;
+  bottom: 0; left: 0;
+  width: 100%;
+  z-index: 9997;
+  background: rgba(8,8,8,0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-top: 1px solid var(--gold);
+  padding: 16px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transform: translateY(100%);
+  transition: transform 0.6s cubic-bezier(0.16,1,0.3,1);
+}
+
+.concept-banner.visible { transform: translateY(0); }
+
+.concept-banner-text {
+  font-weight: 300;
+  font-size: 13px;
+  color: rgba(255,255,255,0.5);
+}
+
+.concept-banner-cta {
+  display: inline-flex;
+  align-items: center;
+  padding: 10px 24px;
+  background: var(--gold);
+  color: var(--ink);
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 600;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: background 0.3s ease;
+  white-space: nowrap;
+}
+
+.concept-banner-cta:hover { background: var(--gold-hover); }
+
+/* ═══════════════════════════════════════
+   RESPONSIVE — 768px
+   ═══════════════════════════════════════ */
+@media (max-width: 768px) {
+  .section-nav { display: none; }
+  .nav-links { display: none; }
+  .nav-hamburger { display: flex; }
+  .nav { padding: 0 24px; }
+  .container { padding: 0 24px; }
+
+  .hero-content { padding: 0 24px; }
+  .hero-stats { display: none; }
+  .hero-buttons { flex-direction: column; align-items: flex-start; }
+
+  .projects,
+  .about,
+  .services,
+  .process,
+  .testimonial { padding: 80px 0; }
+
+  .projects-grid {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  .project-card--quarry { grid-row: auto; }
+  .project-card--ecologyst { grid-column: auto; }
+  .project-card { min-height: 260px; }
+  .project-card-overlay { opacity: 1; }
+  .project-card-line { width: 32px; }
+
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 48px;
+  }
+
+  .about-image { order: -1; }
+  .about-image-placeholder { height: 400px; }
+
+  .stats-bar {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 32px;
+    padding: 48px 24px;
+  }
+
+  .services-grid { grid-template-columns: 1fr; }
+
+  /* Vertical process timeline */
+  .process-timeline {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .process-timeline::before {
+    top: 0; bottom: 0;
+    left: 16px; right: auto;
+    width: 1px; height: auto;
+  }
+
+  .process-step {
+    text-align: left;
+    padding-left: 48px;
+  }
+
+  .process-dot {
+    position: absolute;
+    left: 0;
+    top: 0;
+    margin: 0;
+  }
+
+  .process-step-desc { margin: 0; }
+
+  .photo-break { height: 30vh; min-height: 240px; }
+
+  .testimonial { padding: 80px 24px; }
+
+  .footer-grid { grid-template-columns: 1fr 1fr; gap: 32px; }
+  .footer-bottom { flex-direction: column; gap: 12px; text-align: center; }
+
+  .concept-banner { padding: 14px 24px; flex-direction: column; gap: 12px; text-align: center; }
+}
+
+@media (max-width: 480px) {
+  .footer-grid { grid-template-columns: 1fr; }
+  .stats-bar { grid-template-columns: 1fr 1fr; }
+}
+
+/* ═══════════════════════════════════════
+   PRINT
+   ═══════════════════════════════════════ */
+@media print {
+  .loader, .scroll-progress, .section-nav, .concept-banner, .grain { display: none !important; }
+  .reveal { opacity: 1 !important; transform: none !important; }
+  .section-title .line { opacity: 1 !important; transform: none !important; }
+  .hero-eyebrow, .hero h1, .hero-sub, .hero-buttons, .hero-stats, .scroll-indicator {
+    opacity: 1 !important; transform: none !important; animation: none !important;
+  }
+}
+</style>
+</head>
+<body class="loading">
+
+<!-- Grain Overlay -->
+<div class="grain"></div>
+
+<!-- Scroll Progress -->
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<!-- Loader -->
+<div class="loader" id="loader">
+  <div class="loader-brand">BLACK POINT</div>
+  <div class="loader-line"></div>
+</div>
+
+<!-- Section Nav Dots -->
+<div class="section-nav" id="sectionNav">
+  <div class="section-nav-dot active" data-label="Home" data-target="hero"></div>
+  <div class="section-nav-dot" data-label="Portfolio" data-target="projects"></div>
+  <div class="section-nav-dot" data-label="About" data-target="about"></div>
+  <div class="section-nav-dot" data-label="Services" data-target="services"></div>
+  <div class="section-nav-dot" data-label="Process" data-target="process"></div>
+  <div class="section-nav-dot" data-label="Contact" data-target="contact"></div>
+</div>
+
+<!-- Navigation -->
+<nav class="nav" id="mainNav">
+  <a href="#" class="nav-logo">Black Point</a>
+  <ul class="nav-links">
+    <li><a href="#projects">Portfolio</a></li>
+    <li><a href="#process">Our Process</a></li>
+    <li><a href="#about">The Shop</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#contact" class="nav-cta">Contact</a></li>
+  </ul>
+  <div class="nav-hamburger" id="hamburger">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#projects">Portfolio</a>
+  <a href="#process">Our Process</a>
+  <a href="#about">The Shop</a>
+  <a href="#about">About</a>
+  <a href="#contact" class="mobile-cta">Contact</a>
+</div>
+
+<!-- ═══════════════════════════════════
+     HERO
+     ═══════════════════════════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-bg" id="heroBg"></div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-eyebrow" id="heroEyebrow">Whistler, BC &middot; Est. 2017</div>
+    <h1 id="heroTitle">Bespoke Millwork.<br><em>Collaborative Service.</em></h1>
+    <p class="hero-sub" id="heroSub">Two trade-certified cabinetmakers building custom millwork for the architects, designers, and builders shaping the Sea to Sky Corridor.</p>
+    <div class="hero-buttons" id="heroButtons">
+      <a href="#projects" class="btn-outline">View Our Work</a>
+      <a href="#contact" class="btn-text">Start a Project <span>&rarr;</span></a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="hero-stat">
+      <div class="hero-stat-num">40+</div>
+      <div class="hero-stat-label">Years Combined</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">8</div>
+      <div class="hero-stat-label">Featured Projects</div>
+    </div>
+    <div class="hero-stat">
+      <div class="hero-stat-num">1</div>
+      <div class="hero-stat-label">Western Living Feature</div>
+    </div>
+  </div>
+  <div class="scroll-indicator" id="scrollIndicator">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- Gold Divider -->
+<div class="gold-divider"></div>
+
+<!-- ═══════════════════════════════════
+     PROJECTS
+     ═══════════════════════════════════ -->
+<section class="projects section-dark" id="projects">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow">Featured Work</div>
+      <h2 class="section-title section-title-white" style="font-size: clamp(32px, 4vw, 48px);">
+        <span class="line">Every detail,</span>
+        <span class="line"><em>intentional.</em></span>
+      </h2>
+    </div>
+    <div class="projects-grid">
+      <div class="project-card project-card--quarry reveal reveal-delay-1">
+        <div class="project-card-bg"></div>
+        <div class="project-card-overlay">
+          <div class="project-card-location">Whistler</div>
+          <div class="project-card-name">Quarry Lane</div>
+          <div class="project-card-credit">STARK Architecture / TM Builders</div>
+          <div class="project-card-line"></div>
+        </div>
+      </div>
+      <div class="project-card project-card--fitzsimmons reveal reveal-delay-2">
+        <div class="project-card-bg"></div>
+        <div class="project-card-overlay">
+          <div class="project-card-location">Whistler</div>
+          <div class="project-card-name">Fitzsimmons Road</div>
+          <div class="project-card-credit">LRD Studio / Gavan Construction</div>
+          <div class="project-card-line"></div>
+        </div>
+      </div>
+      <div class="project-card project-card--pemberton reveal reveal-delay-3">
+        <div class="project-card-bg"></div>
+        <div class="project-card-overlay">
+          <div class="project-card-location">Pemberton</div>
+          <div class="project-card-name">Pemberton Meadows</div>
+          <div class="project-card-credit">Su Casa Design</div>
+          <div class="project-card-line"></div>
+        </div>
+      </div>
+      <div class="project-card project-card--panorama reveal reveal-delay-4">
+        <div class="project-card-bg"></div>
+        <div class="project-card-overlay">
+          <div class="project-card-location">Whistler</div>
+          <div class="project-card-name">Panorama Ridge</div>
+          <div class="project-card-credit">Western Living &middot; Home of the Year Finalist 2021</div>
+          <div class="project-card-line"></div>
+        </div>
+      </div>
+      <div class="project-card project-card--falcon reveal reveal-delay-5">
+        <div class="project-card-bg"></div>
+        <div class="project-card-overlay">
+          <div class="project-card-location">Whistler</div>
+          <div class="project-card-name">Falcon Crescent</div>
+          <div class="project-card-credit">Custom Residential</div>
+          <div class="project-card-line"></div>
+        </div>
+      </div>
+      <div class="project-card project-card--ecologyst reveal reveal-delay-6">
+        <div class="project-card-bg"></div>
+        <div class="project-card-overlay">
+          <div class="project-card-location">Whistler</div>
+          <div class="project-card-name">Ecologyst</div>
+          <div class="project-card-credit">Commercial Retail Fit-Out</div>
+          <div class="project-card-line"></div>
+        </div>
+      </div>
+    </div>
+    <a href="#" class="view-all reveal">
+      View All Projects
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+    </a>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     PHOTO BREAK 1
+     ═══════════════════════════════════ -->
+<div class="photo-break photo-break--1">
+  <div class="photo-break-bg"></div>
+  <div class="photo-break-fade-top"></div>
+  <div class="photo-break-fade-bottom"></div>
+</div>
+
+<!-- ═══════════════════════════════════
+     ABOUT
+     ═══════════════════════════════════ -->
+<section class="about section-paper" id="about">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-text reveal">
+        <div class="eyebrow">The Shop</div>
+        <h2 class="section-title section-title-ink" style="font-size: clamp(32px, 4vw, 48px);">
+          <span class="line">Two trade-certified cabinetmakers.</span>
+          <span class="line"><em>40 years combined.</em></span>
+        </h2>
+        <div class="about-gold-line"></div>
+        <p>Black Point was founded in 2017 by Chris McKenzie, an Australian-trained cabinetmaker with over 20 years in the trade. What started as a one-man workshop in Function Junction has grown into one of Whistler's most respected millwork studios.</p>
+        <p>Zane Brian joined in 2020, bringing another 20 years of fine cabinetmaking experience across three countries. He became a full partner in 2023. Together, they bring a shared standard: everything they build, they build to last.</p>
+        <div class="about-quote">
+          <p>"We couldn't be happier with the finished product. The attention to detail was second to none."</p>
+          <span>Ryan Pannell, Whistler Homeowner</span>
+        </div>
+        <div class="about-signature">Chris McKenzie &amp; Zane Brian</div>
+      </div>
+      <div class="about-image reveal reveal-delay-2">
+        <div class="about-image-placeholder"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     STATS BAR
+     ═══════════════════════════════════ -->
+<div class="stats-bar">
+  <div class="stat">
+    <div class="stat-num"><span class="counter" data-target="20">0</span>+</div>
+    <div class="stat-label">Years Each</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num"><span class="counter" data-target="8">0</span></div>
+    <div class="stat-label">Featured Projects</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num"><span class="counter" data-target="1">0</span></div>
+    <div class="stat-label">Western Living Feature</div>
+  </div>
+  <div class="stat">
+    <div class="stat-num"><span class="counter" data-target="3">0</span></div>
+    <div class="stat-label">Countries Trained</div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     SERVICES
+     ═══════════════════════════════════ -->
+<section class="services section-paper" id="services">
+  <div class="container">
+    <div class="reveal">
+      <div class="eyebrow">Expertise</div>
+      <h2 class="section-title section-title-ink" style="font-size: clamp(32px, 4vw, 48px);">
+        <span class="line">From concept to</span>
+        <span class="line"><em>final install.</em></span>
+      </h2>
+    </div>
+    <div class="services-grid">
+      <div class="service-card reveal reveal-delay-1">
+        <div class="service-num">01</div>
+        <h3>Custom Cabinetry</h3>
+        <p>Kitchen, bathroom, and storage cabinetry designed and built to your architect's exact specifications. Every joint, every finish, considered.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-2">
+        <div class="service-num">02</div>
+        <h3>Architectural Millwork</h3>
+        <p>Feature walls, ceiling details, staircase elements, and bespoke timber features that define the character of a space.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-3">
+        <div class="service-num">03</div>
+        <h3>Commercial Fit-Outs</h3>
+        <p>Retail, hospitality, and office millwork built to withstand daily use without compromising design intent. See: Ecologyst, Whistler.</p>
+      </div>
+      <div class="service-card reveal reveal-delay-4">
+        <div class="service-num">04</div>
+        <h3>Built-In Solutions</h3>
+        <p>Window seats, mudrooms, home offices, entertainment units. Functional joinery that becomes part of the architecture.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     PROCESS
+     ═══════════════════════════════════ -->
+<section class="process section-paper" id="process">
+  <div class="container">
+    <div class="reveal" style="text-align: center;">
+      <div class="eyebrow" style="justify-content: center;">Our Process</div>
+      <h2 class="section-title section-title-ink" style="font-size: clamp(32px, 4vw, 48px);">
+        <span class="line">From vision to</span>
+        <span class="line"><em>handover.</em></span>
+      </h2>
+    </div>
+    <div class="process-timeline reveal">
+      <div class="process-step">
+        <div class="process-dot"></div>
+        <div class="process-step-title">Planning</div>
+        <p class="process-step-desc">Review drawings, refine details, and lock in materials with your design team.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-dot"></div>
+        <div class="process-step-title">Sourcing</div>
+        <p class="process-step-desc">Select timber, hardware, and finishes. Every material chosen for the project, not the shelf.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-dot"></div>
+        <div class="process-step-title">Fabricating</div>
+        <p class="process-step-desc">Hand-built in our Function Junction workshop. Precision CNC meets old-school joinery.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-dot"></div>
+        <div class="process-step-title">Installing</div>
+        <p class="process-step-desc">We install everything we build. No subcontractors, no surprises, no shortcuts.</p>
+      </div>
+      <div class="process-step">
+        <div class="process-dot"></div>
+        <div class="process-step-title">Follow Up</div>
+        <p class="process-step-desc">Final walk-through, adjustments, and ongoing support. We stand behind every piece.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     PHOTO BREAK 2
+     ═══════════════════════════════════ -->
+<div class="photo-break photo-break--2">
+  <div class="photo-break-bg"></div>
+  <div class="photo-break-fade-top"></div>
+  <div class="photo-break-fade-bottom"></div>
+</div>
+
+<!-- ═══════════════════════════════════
+     TESTIMONIAL
+     ═══════════════════════════════════ -->
+<section class="testimonial section-paper">
+  <div class="reveal">
+    <div class="testimonial-mark">&ldquo;</div>
+    <blockquote class="testimonial-quote">
+      Black Point understood exactly what we were going for. They took our drawings and turned them into something better than we imagined. True collaborators.
+    </blockquote>
+    <div class="testimonial-divider"></div>
+    <div class="testimonial-name">STARK Architecture</div>
+    <div class="testimonial-detail">Whistler, BC</div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     PRESS BAR
+     ═══════════════════════════════════ -->
+<div class="press-bar">
+  <div class="press-label">Featured In</div>
+  <div class="press-logos reveal">
+    <span class="press-item">Western Living</span>
+    <span class="press-item">West Coast North</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════
+     CTA
+     ═══════════════════════════════════ -->
+<section class="cta" id="contact">
+  <div class="reveal">
+    <h2>Ready to start a project?</h2>
+    <a href="mailto:info@blackpointwoodwork.com" class="cta-btn">Get in Touch</a>
+    <div class="cta-contact">
+      <a href="mailto:info@blackpointwoodwork.com">info@blackpointwoodwork.com</a> &nbsp;&middot;&nbsp; Function Junction, Whistler
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════ -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-logo">Black Point</div>
+      <p class="footer-brand-desc">Bespoke architectural woodwork by two trade-certified cabinetmakers. Serving the Sea to Sky Corridor from our workshop in Function Junction, Whistler.</p>
+      <div class="footer-contact-item">
+        <div class="footer-contact-value"><a href="mailto:info@blackpointwoodwork.com">info@blackpointwoodwork.com</a></div>
+      </div>
+    </div>
+    <div class="footer-col">
+      <h4>Company</h4>
+      <a href="#projects">Portfolio</a>
+      <a href="#process">Our Process</a>
+      <a href="#about">The Shop</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </div>
+    <div class="footer-col">
+      <h4>Services</h4>
+      <a href="#">Custom Cabinetry</a>
+      <a href="#">Architectural Millwork</a>
+      <a href="#">Commercial Fit-Outs</a>
+      <a href="#">Built-In Solutions</a>
+    </div>
+    <div class="footer-col">
+      <h4>Service Areas</h4>
+      <div class="footer-areas">
+        <a href="#">Whistler</a>
+        <a href="#">Pemberton</a>
+        <a href="#">Squamish</a>
+        <a href="#">Sea to Sky Corridor</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- Certifications -->
+  <div class="footer-certs">
+    <div class="footer-cert">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Trade Certified Cabinetmakers
+    </div>
+    <div class="footer-cert">
+      <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      Est. 2017
+    </div>
+  </div>
+
+  <!-- Social -->
+  <div class="footer-social">
+    <a href="#" class="footer-social-link" aria-label="Instagram">
+      <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+    </a>
+    <a href="#" class="footer-social-link" aria-label="Facebook">
+      <svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>
+  </div>
+
+  <!-- Bottom bar -->
+  <div class="footer-bottom">
+    <span class="footer-copyright">&copy; 2026 Black Point Architectural Woodwork. All rights reserved.</span>
+    <span class="footer-credit">Concept design by <a href="https://mattanthonyphoto.com" target="_blank">Matt Anthony Photography</a></span>
+  </div>
+</footer>
+
+<!-- ═══════════════════════════════════
+     CONCEPT BANNER
+     ═══════════════════════════════════ -->
+<div class="concept-banner" id="conceptBanner">
+  <span class="concept-banner-text">This is a concept design by Matt Anthony Photography</span>
+  <a href="https://mattanthonyphoto.com/discovery-call" target="_blank" class="concept-banner-cta">Book a Discovery Call</a>
+</div>
+
+<!-- JSON-LD Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "LocalBusiness",
+  "name": "Black Point Architectural Woodwork",
+  "description": "Bespoke millwork and custom cabinetry by trade-certified cabinetmakers in Whistler, BC.",
+  "url": "https://www.blackpointwoodwork.com",
+  "email": "info@blackpointwoodwork.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressLocality": "Whistler",
+    "addressRegion": "BC",
+    "addressCountry": "CA",
+    "streetAddress": "Function Junction"
+  },
+  "geo": {
+    "@type": "GeoCoordinates",
+    "latitude": 50.0896,
+    "longitude": -122.9468
+  },
+  "foundingDate": "2017",
+  "founder": [
+    { "@type": "Person", "name": "Chris McKenzie" },
+    { "@type": "Person", "name": "Zane Brian" }
+  ],
+  "areaServed": [
+    "Whistler", "Pemberton", "Squamish", "Sea to Sky Corridor"
+  ],
+  "knowsAbout": [
+    "Custom Cabinetry", "Architectural Millwork", "Commercial Fit-Outs", "Built-In Solutions"
+  ],
+  "sameAs": []
+}
+</script>
+
+<script>
+(function() {
+  'use strict';
+
+  // ═══════════════════════════════════
+  // LOADER
+  // ═══════════════════════════════════
+  const loader = document.getElementById('loader');
+  setTimeout(() => {
+    loader.classList.add('done');
+    document.body.classList.remove('loading');
+    // Trigger hero animations
+    document.getElementById('heroEyebrow').classList.add('animate');
+    document.getElementById('heroTitle').classList.add('animate');
+    document.getElementById('heroSub').classList.add('animate');
+    document.getElementById('heroButtons').classList.add('animate');
+  }, 1100);
+
+  // ═══════════════════════════════════
+  // SCROLL PROGRESS BAR
+  // ═══════════════════════════════════
+  const scrollProgress = document.getElementById('scrollProgress');
+  function updateScrollProgress() {
+    const h = document.documentElement;
+    const pct = (h.scrollTop / (h.scrollHeight - h.clientHeight)) * 100;
+    scrollProgress.style.width = pct + '%';
+  }
+
+  // ═══════════════════════════════════
+  // NAV SCROLL STATE
+  // ═══════════════════════════════════
+  const nav = document.getElementById('mainNav');
+  function updateNav() {
+    nav.classList.toggle('scrolled', window.scrollY > 80);
+  }
+
+  // ═══════════════════════════════════
+  // HERO PARALLAX
+  // ═══════════════════════════════════
+  const heroBg = document.getElementById('heroBg');
+  function updateParallax() {
+    if (window.scrollY < window.innerHeight) {
+      const ratio = window.scrollY / window.innerHeight;
+      const scale = 1.1 - (ratio * 0.05);
+      const translateY = ratio * 40;
+      heroBg.style.transform = 'scale(' + scale + ') translateY(' + translateY + 'px)';
+    }
+  }
+
+  // ═══════════════════════════════════
+  // SCROLL INDICATOR HIDE
+  // ═══════════════════════════════════
+  const scrollIndicator = document.getElementById('scrollIndicator');
+  function updateScrollIndicator() {
+    if (window.scrollY > 100 && scrollIndicator) {
+      scrollIndicator.style.opacity = '0';
+    }
+  }
+
+  // ═══════════════════════════════════
+  // CONCEPT BANNER
+  // ═══════════════════════════════════
+  const conceptBanner = document.getElementById('conceptBanner');
+  function updateConceptBanner() {
+    if (window.scrollY > window.innerHeight) {
+      conceptBanner.classList.add('visible');
+    }
+  }
+
+  // Combined scroll handler
+  window.addEventListener('scroll', function() {
+    updateScrollProgress();
+    updateNav();
+    updateParallax();
+    updateScrollIndicator();
+    updateConceptBanner();
+  }, { passive: true });
+
+  // ═══════════════════════════════════
+  // SCROLL REVEAL (IntersectionObserver)
+  // ═══════════════════════════════════
+  const revealObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal, .eyebrow').forEach(function(el) {
+    revealObserver.observe(el);
+  });
+
+  // ═══════════════════════════════════
+  // SPLIT LINE REVEAL
+  // ═══════════════════════════════════
+  const lineObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting) {
+        entry.target.querySelectorAll('.line').forEach(function(line) {
+          line.classList.add('revealed');
+        });
+      }
+    });
+  }, { threshold: 0.2 });
+
+  document.querySelectorAll('.section-title').forEach(function(el) {
+    lineObserver.observe(el);
+  });
+
+  // ═══════════════════════════════════
+  // STATS COUNTER ANIMATION
+  // ═══════════════════════════════════
+  const counterObserver = new IntersectionObserver(function(entries) {
+    entries.forEach(function(entry) {
+      if (entry.isIntersecting && !entry.target.dataset.counted) {
+        entry.target.dataset.counted = 'true';
+        var target = parseInt(entry.target.dataset.target);
+        var duration = 1500;
+        var startTime = performance.now();
+        function animate(now) {
+          var elapsed = now - startTime;
+          var progress = Math.min(elapsed / duration, 1);
+          // Cubic ease out
+          var eased = 1 - Math.pow(1 - progress, 3);
+          entry.target.textContent = Math.round(eased * target);
+          if (progress < 1) requestAnimationFrame(animate);
+        }
+        requestAnimationFrame(animate);
+      }
+    });
+  }, { threshold: 0.5 });
+
+  document.querySelectorAll('.counter').forEach(function(el) {
+    counterObserver.observe(el);
+  });
+
+  // ═══════════════════════════════════
+  // SECTION NAV DOTS
+  // ═══════════════════════════════════
+  var sectionDots = document.querySelectorAll('.section-nav-dot');
+  var sectionTargets = [];
+
+  sectionDots.forEach(function(dot) {
+    var targetId = dot.dataset.target;
+    var targetEl = document.getElementById(targetId);
+    if (targetEl) sectionTargets.push({ dot: dot, el: targetEl });
+
+    dot.addEventListener('click', function() {
+      if (targetEl) {
+        targetEl.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+  });
+
+  function updateSectionNav() {
+    var scrollPos = window.scrollY + window.innerHeight / 3;
+    var activeDot = sectionTargets[0] ? sectionTargets[0].dot : null;
+
+    sectionTargets.forEach(function(item) {
+      if (scrollPos >= item.el.offsetTop) {
+        activeDot = item.dot;
+      }
+    });
+
+    sectionDots.forEach(function(d) { d.classList.remove('active'); });
+    if (activeDot) activeDot.classList.add('active');
+  }
+
+  window.addEventListener('scroll', updateSectionNav, { passive: true });
+
+  // ═══════════════════════════════════
+  // HAMBURGER MENU
+  // ═══════════════════════════════════
+  var hamburger = document.getElementById('hamburger');
+  var mobileMenu = document.getElementById('mobileMenu');
+
+  hamburger.addEventListener('click', function() {
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+  });
+
+  // Close mobile menu on link click
+  mobileMenu.querySelectorAll('a').forEach(function(link) {
+    link.addEventListener('click', function() {
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow = '';
+    });
+  });
+
+})();
+</script>
+
+</body>
+</html>
