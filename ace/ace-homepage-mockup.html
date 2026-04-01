@@ -3,23 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Ace Homes — We aim to provide you with quality materials, high standards</title>
+<title>Ace Homes — Residential builder serving Calgary with quality constructio</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black:wght@400;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root{
-  --primary: #666;
-  --accent: #32373c;
+  --primary: #1B1B1B;
+  --accent: #C9A96E;
   --accent-bg: #F6F4F0;
   --light: #FFFFFF;
-  --dark: #666;
+  --dark: #1A1A18;
   --body-text: #575757;
   --border: rgba(0,0,0,0.06);
-  --font-heading: 'Archivo Black', sans-serif;
-  --font-body: 'Open Sans', sans-serif;
+  --font-heading: 'Cormorant Garamond', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
 }
 
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
@@ -153,8 +153,26 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
 
 /* ── Services ── */
 
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0;margin-top:56px}
+.service-card{padding:clamp(32px,3.5vw,48px);border:1px solid var(--border);border-left:3px solid transparent;margin:-0.5px;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden}
+.service-card:hover{background:var(--accent-bg);border-color:transparent;border-left-color:var(--accent);box-shadow:0 12px 40px rgba(0,0,0,0.04)}
+.service-card h4{font-family:var(--font-heading);font-size:clamp(16px,1.4vw,20px);margin-bottom:12px;transition:color 0.3s}
+.service-card p{font-size:clamp(13px,1vw,14px);color:var(--body-text);line-height:1.75}
+.service-card-num{font-family:var(--font-heading);font-size:clamp(48px,4vw,64px);color:var(--primary);opacity:0.06;position:absolute;top:16px;right:20px;line-height:1}
+
 
 /* ── Process ── */
+
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:56px;background:var(--dark);position:relative}
+.process-card{padding:clamp(32px,3.5vw,48px);border-right:1px solid rgba(255,255,255,0.05);transition:all 0.4s;position:relative}
+.process-card:last-child{border-right:none}
+.process-card::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--accent);transition:width 0.5s cubic-bezier(0.16,1,0.3,1)}
+.process-card:hover::after{width:100%}
+.process-card:hover{background:rgba(255,255,255,0.03)}
+.process-num{font-family:var(--font-heading);font-size:clamp(36px,4vw,56px);color:var(--accent);opacity:0.15;line-height:1;margin-bottom:16px;transition:opacity 0.4s}
+.process-card:hover .process-num{opacity:0.6}
+.process-card h4{font-family:var(--font-heading);font-size:clamp(15px,1.3vw,18px);color:white;margin-bottom:12px}
+.process-card p{font-size:clamp(12px,0.95vw,14px);color:rgba(255,255,255,0.4);line-height:1.75}
 
 
 /* ── Testimonial ── */
@@ -231,8 +249,8 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
   .about-image{order:-1;aspect-ratio:16/10}
   .stats-grid{grid-template-columns:repeat(2,1fr);gap:32px}
   .stat-item::after{display:none}
-  
-  
+  .services-grid{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:1fr 1fr}
   .footer-grid{grid-template-columns:1fr 1fr}
   .footer-brand-col{grid-column:1/3}
   .footer-bottom-top{flex-direction:column;gap:16px;align-items:center}
@@ -242,7 +260,7 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
 }
 @media(max-width:480px){
   .projects-grid{grid-template-columns:1fr}
-  
+  .process-grid{grid-template-columns:1fr}
 }
 
 /* ── Print ── */
@@ -259,8 +277,7 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
 <!-- Loader -->
 <div class="loader" id="loader">
   <div class="loader-brand">
-    <img class="loader-logo" src="data:image/png;base64,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" alt="Ace Homes">
-    
+    <div class="loader-name">Ace Homes</div>
   </div>
   <div class="loader-line"></div>
 </div>
@@ -274,8 +291,8 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
 <!-- Navigation -->
 <nav class="nav" id="nav">
   <a class="nav-brand" href="#">
-    <img class="nav-logo nav-logo-dark" src="data:image/png;base64,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" alt="Ace Homes">
-    <img class="nav-logo nav-logo-light" src="data:image/png;base64,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" alt="Ace Homes">
+    
+    
     <span class="nav-brand-text">Ace Homes</span>
   </a>
   <div class="nav-links">
@@ -289,6 +306,14 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
     
     
     
+    <a href="#services">Services</a>
+    
+    
+    
+    <a href="#process">Process</a>
+    
+    
+    
     <a href="#contact" class="nav-cta">Contact</a>
     
     
@@ -299,9 +324,9 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
 <section class="hero" id="hero" data-nav="Home">
   <div class="hero-image" id="heroImage" style="background-image:url('http://acehomesab.com/wp-content/uploads/2021/11/PNG-300dpi.png')"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Calgary AB</div>
-    <h1>Come Home To Quality</h1>
-    <p class="hero-sub">We aim to provide you with quality materials, high standards, advanced tools and equipment for projects including;</p>
+    <div class="hero-eyebrow">Calgary Residential Builder</div>
+    <h1>Custom Homes<br>Built for Calgary</h1>
+    <p class="hero-sub">Residential builder serving Calgary with quality construction, transparent process, and homes designed for how you actually live.</p>
     <div class="hero-cta-row">
       <a href="#projects" class="hero-cta hero-cta-primary">View Our Work</a>
       <a href="#contact" class="hero-cta hero-cta-secondary">Get in Touch</a>
@@ -319,64 +344,14 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
   <div class="section-inner">
     <div class="eyebrow reveal">Portfolio</div>
     <h2 class="reveal reveal-d1">Our Work</h2>
-    
+    <p class="section-lead reveal reveal-d2">A selection of custom homes and renovations across Calgary.</p>
     <div class="projects-grid">
       
       <div class="project-card reveal reveal-d1">
-        <img src="http://acehomesab.com/wp-content/uploads/2025/04/45-scaled.jpeg" alt="Project 1" loading="lazy">
+        <img src="http://acehomesab.com/wp-content/uploads/2025/04/45-scaled.jpeg" alt="Properties" loading="lazy">
         <div class="project-card-overlay">
-          <div class="project-card-name">Project 1</div>
-          <div class="project-card-location">Calgary AB</div>
-          
-          <div class="project-card-arrow">&rarr;</div>
-        </div>
-      </div>
-      
-      <div class="project-card reveal reveal-d2">
-        <img src="http://acehomesab.com/wp-content/uploads/2024/08/1917_1919-21-AVE-NW.jpg" alt="Project 2" loading="lazy">
-        <div class="project-card-overlay">
-          <div class="project-card-name">Project 2</div>
-          <div class="project-card-location">Calgary AB</div>
-          
-          <div class="project-card-arrow">&rarr;</div>
-        </div>
-      </div>
-      
-      <div class="project-card reveal reveal-d3">
-        <img src="http://acehomesab.com/wp-content/uploads/2025/04/2-scaled.jpg" alt="Project 3" loading="lazy">
-        <div class="project-card-overlay">
-          <div class="project-card-name">Project 3</div>
-          <div class="project-card-location">Calgary AB</div>
-          
-          <div class="project-card-arrow">&rarr;</div>
-        </div>
-      </div>
-      
-      <div class="project-card reveal reveal-d4">
-        <img src="http://acehomesab.com/wp-content/uploads/2025/04/1-scaled.jpg" alt="Project 4" loading="lazy">
-        <div class="project-card-overlay">
-          <div class="project-card-name">Project 4</div>
-          <div class="project-card-location">Calgary AB</div>
-          
-          <div class="project-card-arrow">&rarr;</div>
-        </div>
-      </div>
-      
-      <div class="project-card reveal reveal-d1">
-        <img src="http://acehomesab.com/wp-content/uploads/2025/04/Ace-1-scaled.jpg" alt="Project 5" loading="lazy">
-        <div class="project-card-overlay">
-          <div class="project-card-name">Project 5</div>
-          <div class="project-card-location">Calgary AB</div>
-          
-          <div class="project-card-arrow">&rarr;</div>
-        </div>
-      </div>
-      
-      <div class="project-card reveal reveal-d2">
-        <img src="http://acehomesab.com/wp-content/uploads/2025/04/310-24-dark-240902B_View02a-scaled.jpg" alt="Project 6" loading="lazy">
-        <div class="project-card-overlay">
-          <div class="project-card-name">Project 6</div>
-          <div class="project-card-location">Calgary AB</div>
+          <div class="project-card-name">Properties</div>
+          <div class="project-card-location">Calgary</div>
           
           <div class="project-card-arrow">&rarr;</div>
         </div>
@@ -388,7 +363,7 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
 
 
 
-<div class="photo-break"><img src="http://acehomesab.com/wp-content/uploads/2025/04/2-scaled.jpg" alt="" loading="lazy"></div>
+<div class="photo-break"><img src="http://acehomesab.com/wp-content/uploads/2025/04/2-scaled.jpg" alt="Ace Homes project" loading="lazy"></div>
 
 
 <!-- About -->
@@ -397,15 +372,15 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
   <div class="section-inner">
     <div class="about-split">
       <div class="about-text">
-        <div class="eyebrow reveal">About</div>
-        <h2 class="reveal reveal-d1">About Ace Homes</h2>
+        <div class="eyebrow reveal">Our Story</div>
+        <h2 class="reveal reveal-d1">Building in<br>Calgary</h2>
         <div class="about-accent reveal reveal-d2"></div>
         
-        <p class="reveal reveal-d2">At Ace Homes AB, we specialize in creating high-quality, custom-built homes that reflect your unique vision and lifestyle. Our team is committed to excellence, innovation, and customer satisfaction, ensuring that every project is a testament to superior craftsmanship and sustainable practices. With years of experience and a passion for building dream homes, we bring your ideas to life with meticulous attention to detail and unwavering dedication.</p>
+        <p class="reveal reveal-d2">Ace Homes is a Calgary-based residential builder focused on custom homes and renovations that stand the test of time.</p>
         
-        <p class="reveal reveal-d3">At Ace Homes AB, our expert team comprises highly skilled professionals with years of experience in the construction and design industry. Each member brings a unique set of skills and a dedication to excellence, ensuring that every project is handled with precision and care. From architects and designers to builders and project managers, our team works collaboratively to deliver outstanding results, transforming your vision into a beautifully crafted home. With a commitment to quality, innovation, and customer satisfaction, our team is your trusted partner in creating the home of your dreams.</p>
+        <p class="reveal reveal-d3">We believe great homes start with honest conversations about what you need, what you want, and what's possible within your budget.</p>
         
-        <p class="reveal reveal-d4">All of our success to date is the result of an extremely tight focus, and dedication to the values of our company, and the team that works so hard to accomplish our goals. We hold strict to our values that have helped us assemble such a great team. A team that is here for you.</p>
+        <p class="reveal reveal-d4">Every project is a partnership built on trust, communication, and a shared commitment to quality.</p>
         
       </div>
       
@@ -424,18 +399,18 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
   <div class="stats-grid">
     
     <div class="stat-item reveal reveal-d1">
-      <div class="stat-val" data-count="20">20+</div>
-      <div class="stat-label">Years Experience</div>
+      <div class="stat-val" data-count="38">38</div>
+      <div class="stat-label">Google Reviews</div>
     </div>
     
     <div class="stat-item reveal reveal-d2">
-      <div class="stat-val" data-count="100">100+</div>
-      <div class="stat-label">Homes Built</div>
+      <div class="stat-val" data-count="4.5★">4.5★</div>
+      <div class="stat-label">Google Rating</div>
     </div>
     
     <div class="stat-item reveal reveal-d3">
-      <div class="stat-val" data-count="100">100%</div>
-      <div class="stat-label">Client Satisfaction</div>
+      <div class="stat-val" data-count="5">5</div>
+      <div class="stat-label">Portfolio Pages</div>
     </div>
     
   </div>
@@ -444,27 +419,90 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
 
 <!-- Services -->
 
+<section class="section" id="services" data-nav="Services" style="background:var(--accent-bg)">
+  <div class="section-inner">
+    <div class="eyebrow reveal">What We Do</div>
+    <h2 class="reveal reveal-d1">Our Services</h2>
+    <div class="services-grid">
+      
+      <div class="service-card reveal reveal-d1">
+        <div class="service-card-num">01</div>
+        <h4>Custom Home Builds</h4>
+        <p>New construction homes designed around your family's needs and Calgary's unique climate.</p>
+      </div>
+      
+      <div class="service-card reveal reveal-d2">
+        <div class="service-card-num">02</div>
+        <h4>Renovations</h4>
+        <p>Home upgrades from kitchen and bathroom remodels to complete whole-house renovations.</p>
+      </div>
+      
+      <div class="service-card reveal reveal-d3">
+        <div class="service-card-num">03</div>
+        <h4>Infill Development</h4>
+        <p>Inner-city infill homes that maximize lot potential in established Calgary neighbourhoods.</p>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
 
 <!-- Process -->
 
+<section class="section" id="process" data-nav="Process" style="background:var(--dark);padding-bottom:0">
+  <div class="section-inner">
+    <div class="eyebrow reveal" style="color:rgba(255,255,255,0.25)">Our Process</div>
+    <h2 class="reveal reveal-d1" style="color:white">How We Build</h2>
+    <p class="section-lead reveal reveal-d2" style="color:rgba(255,255,255,0.4)">A transparent, collaborative approach to every project.</p>
+  </div>
+  <div class="process-grid" style="margin-top:clamp(40px,5vw,64px)">
+    
+    <div class="process-card reveal reveal-d1">
+      <div class="process-num">01</div>
+      <h4>Discovery</h4>
+      <p>Understanding your vision, budget, and timeline.</p>
+    </div>
+    
+    <div class="process-card reveal reveal-d2">
+      <div class="process-num">02</div>
+      <h4>Design</h4>
+      <p>Collaborating with architects to create the perfect plan.</p>
+    </div>
+    
+    <div class="process-card reveal reveal-d3">
+      <div class="process-num">03</div>
+      <h4>Build</h4>
+      <p>Quality construction with regular updates and transparent pricing.</p>
+    </div>
+    
+    <div class="process-card reveal reveal-d4">
+      <div class="process-num">04</div>
+      <h4>Handover</h4>
+      <p>Thorough walkthrough and warranty for peace of mind.</p>
+    </div>
+    
+  </div>
+</section>
 
 
-<div class="photo-break"><img src="http://acehomesab.com/wp-content/uploads/2025/04/Ace-1-scaled.jpg" alt="" loading="lazy"></div>
+
+<div class="photo-break"><img src="http://acehomesab.com/wp-content/uploads/2024/08/4-plex-2402-41-ST-SE.jpg" alt="Ace Homes detail" loading="lazy"></div>
 
 
 <!-- Testimonial -->
 
 
 
-<div class="photo-break"><img src="http://acehomesab.com/wp-content/uploads/2025/04/1-scaled.jpg" alt="" loading="lazy"></div>
+<div class="photo-break"><img src="http://acehomesab.com/wp-content/uploads/2025/04/Ace-1-scaled.jpg" alt="Ace Homes craftsmanship" loading="lazy"></div>
 
 
 <!-- CTA Section -->
 <section class="footer-cta-section" id="contact" data-nav="Contact">
   <div class="footer-cta">
-    <h3>Let's Talk About Your Project</h3>
-    <p>We'd love to hear what you're building.</p>
-    <a href="mailto:info@acehomesab.com" class="footer-cta-btn">Get in Touch</a>
+    <h3>Ready to Build Your Dream Home?</h3>
+    <p>Let's talk about your project in Calgary.</p>
+    <a href="mailto:" class="footer-cta-btn">Start a Conversation</a>
   </div>
 </section>
 
@@ -475,33 +513,17 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
 
       <!-- Brand + Contact -->
       <div class="footer-col footer-brand-col">
-        <img class="footer-brand-logo" src="data:image/png;base64,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" alt="Ace Homes">
         
-        <p class="footer-brand-desc" itemprop="description">Ace Homes is a custom home builder serving Calgary AB. Design, construction, and project management for residential builds.</p>
+        <p class="footer-brand-desc" itemprop="description">Ace Homes is a custom home builder serving Calgary, AB. Design, construction, and project management for residential builds.</p>
         <div>
           
           <div class="footer-contact-item">
             <span class="footer-contact-label">Phone</span>
-            <span class="footer-contact-value" itemprop="telephone"><a href="tel:4038889988">(403) 888-9988</a></span>
+            <span class="footer-contact-value" itemprop="telephone"><a href="tel:4038889988">403-888-9988</a></span>
           </div>
           
           
-          <div class="footer-contact-item">
-            <span class="footer-contact-label">Email</span>
-            <span class="footer-contact-value" itemprop="email"><a href="mailto:info@acehomesab.com">info@acehomesab.com</a></span>
-          </div>
           
-          
-          <div class="footer-contact-item" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-            <span class="footer-contact-label">Office</span>
-            <span class="footer-contact-value"><span itemprop="streetAddress">+1(403) 888-9988info@acehomesab.comFacebookInstagramFacebookInstagramHomeAboutPropertiesReviewsContact UsSelect PageLet's Get StartedFirst NameLast NameEmailPhone NumberPreferred contact methodPreferr</span><br><span itemprop="addressLocality">Calgary AB</span></span>
-          </div>
-          
-          
-          <div class="footer-contact-item">
-            <span class="footer-contact-label">Hours</span>
-            <span class="footer-contact-value">Mon–Fri 9am–5pm</span>
-          </div>
           
         </div>
       </div>
@@ -515,12 +537,29 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
           
           <li><a href="#about">About</a></li>
           
+          <li><a href="#services">Services</a></li>
+          
+          <li><a href="#process">Process</a></li>
+          
           <li><a href="#contact">Contact</a></li>
           
         </ul>
       </div>
 
       <!-- Services -->
+      
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul class="footer-links">
+          
+          <li><a href="#services">Custom Home Builds</a></li>
+          
+          <li><a href="#services">Renovations</a></li>
+          
+          <li><a href="#services">Infill Development</a></li>
+          
+        </ul>
+      </div>
       
 
       <!-- Service Areas -->
@@ -529,7 +568,13 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
         <h5>Service Areas</h5>
         <ul class="footer-areas" itemprop="areaServed" itemscope itemtype="https://schema.org/GeoCircle">
           
-          <li><a href="#contact" itemprop="name">Calgary AB</a></li>
+          <li><a href="#contact" itemprop="name">Calgary</a></li>
+          
+          <li><a href="#contact" itemprop="name">Airdrie</a></li>
+          
+          <li><a href="#contact" itemprop="name">Okotoks</a></li>
+          
+          <li><a href="#contact" itemprop="name">Chestermere</a></li>
           
         </ul>
       </div>
@@ -541,6 +586,14 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
     <meta itemprop="url" content="http://acehomesab.com/">
 
     <!-- Certifications / Awards -->
+    
+    <div class="footer-badges">
+      
+      <div class="footer-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/><path d="M9 12l2 2 4-4"/></svg>Licensed & Insured</div>
+      
+      <div class="footer-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/><path d="M9 12l2 2 4-4"/></svg>Serving Calgary</div>
+      
+    </div>
     
 
     <div class="footer-bottom">
@@ -570,25 +623,45 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
   "@type": "HomeAndConstructionBusiness",
   "name": "Ace Homes",
   "url": "http://acehomesab.com/",
-  "email": "info@acehomesab.com",
-  "telephone": "(403) 888-9988",
+  
+  "telephone": "403-888-9988",
   
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "+1(403) 888-9988info@acehomesab.comFacebookInstagramFacebookInstagramHomeAboutPropertiesReviewsContact UsSelect PageLet's Get StartedFirst NameLast NameEmailPhone NumberPreferred contact methodPreferr",
-    "addressLocality": "Calgary AB",
+    
+    "addressLocality": "Calgary, AB",
     "addressCountry": "CA"
   },
   
   
   "areaServed": [
     
-    {"@type": "City", "name": "Calgary AB"}
+    {"@type": "City", "name": "Calgary"},
+    
+    {"@type": "City", "name": "Airdrie"},
+    
+    {"@type": "City", "name": "Okotoks"},
+    
+    {"@type": "City", "name": "Chestermere"}
     
   ],
   
   
-  "description": "Ace Homes is a custom home builder serving Calgary AB. Design, construction, and project management for residential builds."
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Services",
+    "itemListElement": [
+      
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Custom Home Builds"}},
+      
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Renovations"}},
+      
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Infill Development"}}
+      
+    ]
+  },
+  
+  "description": "Ace Homes is a custom home builder serving Calgary, AB. Design, construction, and project management for residential builds."
 }
 </script>
 
