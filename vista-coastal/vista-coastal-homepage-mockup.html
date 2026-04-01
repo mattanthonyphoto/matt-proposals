@@ -3,23 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Vista Coastal Builders — SERVICING METRO VANCOUVER AND SEA TO SKY CORRIDOR</title>
+<title>Vista Coastal Builders — Design-build specialists in Squamish and across the Lower Ma</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root{
-  --primary: #666;
-  --accent: rgba(0,0,0,.05);
+  --primary: #1B1B1B;
+  --accent: #C9A96E;
   --accent-bg: #F6F4F0;
   --light: #FFFFFF;
-  --dark: #666;
+  --dark: #1A1A18;
   --body-text: #575757;
   --border: rgba(0,0,0,0.06);
-  --font-heading: 'Montserrat', sans-serif;
-  --font-body: 'Open Sans', sans-serif;
+  --font-heading: 'Cormorant Garamond', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
 }
 
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
@@ -163,6 +163,17 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
 
 /* ── Process ── */
 
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:56px;background:var(--dark);position:relative}
+.process-card{padding:clamp(32px,3.5vw,48px);border-right:1px solid rgba(255,255,255,0.05);transition:all 0.4s;position:relative}
+.process-card:last-child{border-right:none}
+.process-card::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--accent);transition:width 0.5s cubic-bezier(0.16,1,0.3,1)}
+.process-card:hover::after{width:100%}
+.process-card:hover{background:rgba(255,255,255,0.03)}
+.process-num{font-family:var(--font-heading);font-size:clamp(36px,4vw,56px);color:var(--accent);opacity:0.15;line-height:1;margin-bottom:16px;transition:opacity 0.4s}
+.process-card:hover .process-num{opacity:0.6}
+.process-card h4{font-family:var(--font-heading);font-size:clamp(15px,1.3vw,18px);color:white;margin-bottom:12px}
+.process-card p{font-size:clamp(12px,0.95vw,14px);color:rgba(255,255,255,0.4);line-height:1.75}
+
 
 /* ── Testimonial ── */
 
@@ -239,7 +250,7 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
   .stats-grid{grid-template-columns:repeat(2,1fr);gap:32px}
   .stat-item::after{display:none}
   .services-grid{grid-template-columns:1fr}
-  
+  .process-grid{grid-template-columns:1fr 1fr}
   .footer-grid{grid-template-columns:1fr 1fr}
   .footer-brand-col{grid-column:1/3}
   .footer-bottom-top{flex-direction:column;gap:16px;align-items:center}
@@ -249,7 +260,7 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
 }
 @media(max-width:480px){
   .projects-grid{grid-template-columns:1fr}
-  
+  .process-grid{grid-template-columns:1fr}
 }
 
 /* ── Print ── */
@@ -266,8 +277,7 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
 <!-- Loader -->
 <div class="loader" id="loader">
   <div class="loader-brand">
-    <img class="loader-logo" src="data:image/png;base64,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" alt="Vista Coastal Builders">
-    
+    <div class="loader-name">Vista Coastal Builders</div>
   </div>
   <div class="loader-line"></div>
 </div>
@@ -281,8 +291,8 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
 <!-- Navigation -->
 <nav class="nav" id="nav">
   <a class="nav-brand" href="#">
-    <img class="nav-logo nav-logo-dark" src="data:image/png;base64,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" alt="Vista Coastal Builders">
-    <img class="nav-logo nav-logo-light" src="data:image/png;base64,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" alt="Vista Coastal Builders">
+    
+    
     <span class="nav-brand-text">Vista Coastal Builders</span>
   </a>
   <div class="nav-links">
@@ -300,6 +310,10 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
     
     
     
+    <a href="#process">Process</a>
+    
+    
+    
     <a href="#contact" class="nav-cta">Contact</a>
     
     
@@ -308,11 +322,11 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
 
 <!-- Hero -->
 <section class="hero" id="hero" data-nav="Home">
-  <div class="hero-image" id="heroImage" style="background-image:url('https://vistacoastalbuilders.com/wp-content/uploads/2020/10/1.png')"></div>
+  <div class="hero-image" id="heroImage" style="background-image:url('https://www.facebook.com/tr?id=2500564206795977&ev=PageView&noscript=1')"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Squamish BC</div>
-    <h1>CUSTOM home builder High-end renovations</h1>
-    <p class="hero-sub">SERVICING METRO VANCOUVER AND SEA TO SKY CORRIDOR</p>
+    <div class="hero-eyebrow">Squamish Design-Build Specialists</div>
+    <h1>Custom Homes.<br>High-End Renovations.</h1>
+    <p class="hero-sub">Design-build specialists in Squamish and across the Lower Mainland. From custom homes to complete renovations, built with coastal precision.</p>
     <div class="hero-cta-row">
       <a href="#projects" class="hero-cta hero-cta-primary">View Our Work</a>
       <a href="#contact" class="hero-cta hero-cta-secondary">Get in Touch</a>
@@ -330,64 +344,54 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
   <div class="section-inner">
     <div class="eyebrow reveal">Portfolio</div>
     <h2 class="reveal reveal-d1">Our Work</h2>
-    
+    <p class="section-lead reveal reveal-d2">A selection of custom homes and renovations across Squamish.</p>
     <div class="projects-grid">
       
       <div class="project-card reveal reveal-d1">
-        <img src="https://vistacoastalbuilders.com/wp-content/uploads/2024/02/Photo-2020-09-02-11-51-58-AM-scaled-12222-1-1-1-1.jpg" alt="Project 1" loading="lazy">
+        <img src="https://vistacoastalbuilders.com/wp-content/uploads/2020/10/logo.png" alt="Custom Homes Vancouver" loading="lazy">
         <div class="project-card-overlay">
-          <div class="project-card-name">Project 1</div>
-          <div class="project-card-location">Squamish BC</div>
+          <div class="project-card-name">Custom Homes Vancouver</div>
+          <div class="project-card-location">Squamish</div>
           
           <div class="project-card-arrow">&rarr;</div>
         </div>
       </div>
       
       <div class="project-card reveal reveal-d2">
-        <img src="https://vistacoastalbuilders.com/wp-content/uploads/2025/12/2026-Vancouver-Whistler-Website-Cover.jpg" alt="Build Magazine" loading="lazy">
+        <img src="https://vistacoastalbuilders.com/wp-content/uploads/2020/10/1.png" alt="West Vancouver Custom Home" loading="lazy">
         <div class="project-card-overlay">
-          <div class="project-card-name">Build Magazine</div>
-          <div class="project-card-location">Squamish BC</div>
+          <div class="project-card-name">West Vancouver Custom Home</div>
+          <div class="project-card-location">Squamish</div>
           
           <div class="project-card-arrow">&rarr;</div>
         </div>
       </div>
       
       <div class="project-card reveal reveal-d3">
-        <img src="https://vistacoastalbuilders.com/wp-content/uploads/2023/01/IMG_1301-1-400x284.jpg" alt="Project 3" loading="lazy">
+        <img src="https://vistacoastalbuilders.com/wp-content/uploads/2024/02/Photo-2020-09-02-11-51-58-AM-scaled-12222-1-1-1-1.jpg" alt="Custom Homes in Squamish" loading="lazy">
         <div class="project-card-overlay">
-          <div class="project-card-name">Project 3</div>
-          <div class="project-card-location">Squamish BC</div>
+          <div class="project-card-name">Custom Homes in Squamish</div>
+          <div class="project-card-location">Squamish</div>
           
           <div class="project-card-arrow">&rarr;</div>
         </div>
       </div>
       
       <div class="project-card reveal reveal-d4">
-        <img src="https://vistacoastalbuilders.com/wp-content/uploads/2023/01/Photo-2019-01-07-4-02-29-PM-1-scaled-1-400x284.jpg" alt="Project 4" loading="lazy">
+        <img src="https://vistacoastalbuilders.com/wp-content/uploads/2025/12/2026-Vancouver-Whistler-Website-Cover.jpg" alt="Farrer Cove, Belcarra Build" loading="lazy">
         <div class="project-card-overlay">
-          <div class="project-card-name">Project 4</div>
-          <div class="project-card-location">Squamish BC</div>
+          <div class="project-card-name">Farrer Cove, Belcarra Build</div>
+          <div class="project-card-location">Squamish</div>
           
           <div class="project-card-arrow">&rarr;</div>
         </div>
       </div>
       
       <div class="project-card reveal reveal-d1">
-        <img src="https://vistacoastalbuilders.com/wp-content/uploads/2023/01/Tidepool.Hope-Stairs.Wine_-400x284.jpg" alt="Tidepool, Custom Build Home, Vista Coastal Builder" loading="lazy">
+        <img src="https://vistacoastalbuilders.com/wp-content/uploads/2023/01/IMG_1301-1-400x284.jpg" alt="Silven Springs" loading="lazy">
         <div class="project-card-overlay">
-          <div class="project-card-name">Tidepool, Custom Build Home, Vista Coastal Builder</div>
-          <div class="project-card-location">Squamish BC</div>
-          
-          <div class="project-card-arrow">&rarr;</div>
-        </div>
-      </div>
-      
-      <div class="project-card reveal reveal-d2">
-        <img src="https://vistacoastalbuilders.com/wp-content/uploads/2021/02/IMG_1465-400x284.jpeg" alt="vista-coastal-builders" loading="lazy">
-        <div class="project-card-overlay">
-          <div class="project-card-name">vista-coastal-builders</div>
-          <div class="project-card-location">Squamish BC</div>
+          <div class="project-card-name">Silven Springs</div>
+          <div class="project-card-location">Squamish</div>
           
           <div class="project-card-arrow">&rarr;</div>
         </div>
@@ -399,7 +403,7 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
 
 
 
-<div class="photo-break"><img src="https://vistacoastalbuilders.com/wp-content/uploads/2023/01/IMG_1301-1-400x284.jpg" alt="" loading="lazy"></div>
+<div class="photo-break"><img src="https://vistacoastalbuilders.com/wp-content/uploads/2024/02/Photo-2020-09-02-11-51-58-AM-scaled-12222-1-1-1-1.jpg" alt="Vista Coastal Builders project" loading="lazy"></div>
 
 
 <!-- About -->
@@ -408,20 +412,20 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
   <div class="section-inner">
     <div class="about-split">
       <div class="about-text">
-        <div class="eyebrow reveal">About</div>
-        <h2 class="reveal reveal-d1">About Vista Coastal Builders</h2>
+        <div class="eyebrow reveal">Our Story</div>
+        <h2 class="reveal reveal-d1">Building in<br>Squamish</h2>
         <div class="about-accent reveal reveal-d2"></div>
         
-        <p class="reveal reveal-d2">How we started and why we build fine homes</p>
+        <p class="reveal reveal-d2">Vista Coastal Builders is a design-build firm specializing in custom homes and high-end renovations across the Lower Mainland and Sea-to-Sky corridor.</p>
         
-        <p class="reveal reveal-d3">The story of Vista Coastal Builders began with Brian Pollock. Brian’s story began with building throughout Western Canada since the 1970’s.  Brian worked on a multitude of projects throughout the years, ranging from institutional, commercial and his personal passion, high-end custom homes.</p>
+        <p class="reveal reveal-d3">With our in-house wood fabrication shop, we bring a level of craft and customization that most builders simply can't offer.</p>
         
-        <p class="reveal reveal-d4">In 1995, while working as a Site Supervisor on the Furry Creek Golf & Country Club Clubhouse, Brian developed a relationship with world-renowned architect Brian Hemingway. This marked the beginning of a relationship that has lasted over 30 years and continues to this day.</p>
+        <p class="reveal reveal-d4">Rebranded in 2021, we combine decades of building experience with a fresh approach to modern coastal living.</p>
         
       </div>
       
       <div class="about-image reveal reveal-d2">
-        <img src="https://vistacoastalbuilders.com/wp-content/uploads/2025/12/2026-Vancouver-Whistler-Website-Cover.jpg" alt="Vista Coastal Builders" loading="lazy">
+        <img src="https://vistacoastalbuilders.com/wp-content/uploads/2020/10/1.png" alt="Vista Coastal Builders" loading="lazy">
       </div>
       
     </div>
@@ -435,18 +439,18 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
   <div class="stats-grid">
     
     <div class="stat-item reveal reveal-d1">
-      <div class="stat-val" data-count="20">20+</div>
-      <div class="stat-label">Years Experience</div>
+      <div class="stat-val" data-count="14">14</div>
+      <div class="stat-label">Featured Projects</div>
     </div>
     
     <div class="stat-item reveal reveal-d2">
-      <div class="stat-val" data-count="100">100+</div>
-      <div class="stat-label">Homes Built</div>
+      <div class="stat-val" data-count="5★">5★</div>
+      <div class="stat-label">Google Rating</div>
     </div>
     
     <div class="stat-item reveal reveal-d3">
-      <div class="stat-val" data-count="100">100%</div>
-      <div class="stat-label">Client Satisfaction</div>
+      <div class="stat-val" data-count="1">1</div>
+      <div class="stat-label">In-House Fab Shop</div>
     </div>
     
   </div>
@@ -457,26 +461,32 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
 
 <section class="section" id="services" data-nav="Services" style="background:var(--accent-bg)">
   <div class="section-inner">
-    <div class="eyebrow reveal">Services</div>
-    <h2 class="reveal reveal-d1">What We Do</h2>
+    <div class="eyebrow reveal">What We Do</div>
+    <h2 class="reveal reveal-d1">Our Services</h2>
     <div class="services-grid">
       
       <div class="service-card reveal reveal-d1">
         <div class="service-card-num">01</div>
-        <h4>Wood Fabrication Shop</h4>
-        
+        <h4>Custom Home Builds</h4>
+        <p>Ground-up residential construction tailored to your vision and the coastal landscape.</p>
       </div>
       
       <div class="service-card reveal reveal-d2">
         <div class="service-card-num">02</div>
-        <h4>Construction Management</h4>
-        
+        <h4>High-End Renovations</h4>
+        <p>Complete home transformations with premium materials and meticulous attention to detail.</p>
       </div>
       
       <div class="service-card reveal reveal-d3">
         <div class="service-card-num">03</div>
         <h4>Custom Millwork</h4>
-        
+        <p>In-house wood fabrication shop producing bespoke cabinetry, built-ins, and architectural elements.</p>
+      </div>
+      
+      <div class="service-card reveal reveal-d4">
+        <div class="service-card-num">04</div>
+        <h4>Design-Build</h4>
+        <p>Seamless integration of design and construction under one roof for a streamlined building experience.</p>
       </div>
       
     </div>
@@ -486,24 +496,59 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
 
 <!-- Process -->
 
+<section class="section" id="process" data-nav="Process" style="background:var(--dark);padding-bottom:0">
+  <div class="section-inner">
+    <div class="eyebrow reveal" style="color:rgba(255,255,255,0.25)">Our Process</div>
+    <h2 class="reveal reveal-d1" style="color:white">How We Build</h2>
+    <p class="section-lead reveal reveal-d2" style="color:rgba(255,255,255,0.4)">A transparent, collaborative approach to every project.</p>
+  </div>
+  <div class="process-grid" style="margin-top:clamp(40px,5vw,64px)">
+    
+    <div class="process-card reveal reveal-d1">
+      <div class="process-num">01</div>
+      <h4>Discovery</h4>
+      <p>Understanding your vision, budget, and timeline.</p>
+    </div>
+    
+    <div class="process-card reveal reveal-d2">
+      <div class="process-num">02</div>
+      <h4>Design</h4>
+      <p>Collaborating with architects to create the perfect plan.</p>
+    </div>
+    
+    <div class="process-card reveal reveal-d3">
+      <div class="process-num">03</div>
+      <h4>Build</h4>
+      <p>Quality construction with regular updates and transparent pricing.</p>
+    </div>
+    
+    <div class="process-card reveal reveal-d4">
+      <div class="process-num">04</div>
+      <h4>Handover</h4>
+      <p>Thorough walkthrough and warranty for peace of mind.</p>
+    </div>
+    
+  </div>
+</section>
 
 
-<div class="photo-break"><img src="https://vistacoastalbuilders.com/wp-content/uploads/2023/01/Tidepool.Hope-Stairs.Wine_-400x284.jpg" alt="Tidepool, Custom Build Home, Vista Coastal Builder" loading="lazy"></div>
+
+<div class="photo-break"><img src="https://vistacoastalbuilders.com/wp-content/uploads/2023/01/Tidepool.Hope-Stairs.Wine_-400x284.jpg" alt="Vista Coastal Builders detail" loading="lazy"></div>
 
 
 <!-- Testimonial -->
 
 
 
-<div class="photo-break"><img src="https://vistacoastalbuilders.com/wp-content/uploads/2023/01/Photo-2019-01-07-4-02-29-PM-1-scaled-1-400x284.jpg" alt="" loading="lazy"></div>
+<div class="photo-break"><img src="https://vistacoastalbuilders.com/wp-content/uploads/2023/01/IMG_1301-1-400x284.jpg" alt="Vista Coastal Builders craftsmanship" loading="lazy"></div>
 
 
 <!-- CTA Section -->
 <section class="footer-cta-section" id="contact" data-nav="Contact">
   <div class="footer-cta">
-    <h3>Let's Talk About Your Project</h3>
-    <p>We'd love to hear what you're building.</p>
-    <a href="mailto:info@vistacoastalbuilders.com" class="footer-cta-btn">Get in Touch</a>
+    <h3>Ready to Build Your Dream Home?</h3>
+    <p>Let's talk about your project in Squamish.</p>
+    <a href="mailto:hgould@vistacoastalbuilders.com" class="footer-cta-btn">Start a Conversation</a>
   </div>
 </section>
 
@@ -514,9 +559,8 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
 
       <!-- Brand + Contact -->
       <div class="footer-col footer-brand-col">
-        <img class="footer-brand-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAAA+CAYAAADd23yAAAANV0lEQVR4nO2dB7BeRRXH/weREEE6SpEqzkQRQakKiAgoUoIyYagjyChIk4B1hAkQlGKDAakjEhEILYgKBOko0rukoCCB0FtC80Eg/J3/m3N1udz69e97+5vJ5L292+5999zdPXvOWaCNkNyS5MMkx7WznUgkkoLkAiQnkJzP/3MCyfd3u2+RyMBDcmmSUwPh+0sgjLeQ/Ei3+xiJDCwkNyT5uAvcK8k0lOQWJJ/19OdJfqnbfY1EBgaSC/r/B5Gc54L2AMmPpfKtQPImv66R8chg6mrd6n8k0reQXITk70neTXI1kjuQnENyEsnROWUWJHkcyddJ7kVyOZI3kLyc5FKdv4tIpE8hOYbktGDdJ+EbS3KJiuUXJ7kZyaeDOh4luX77ex+J9Dkkdyb5WiA4yRRTHE/yfSXljeQPSb7tZe4g+aD//CbJ/Tt3N5FIH0FyIZInBwJ3haaQEjqSPw3SJZTL5dSxJMk/BnlPITkqmNomnEdy0c7fZSTSo5Bc3kesRKlyWFqZQnJbki95nmdIbuzpH/D/1yL5b7+ukXS3jHb2JfmG55mWVu5EIiMWbbKTPJHkc9puKMgnBc1dJK8n+WGS3/CtikO1XiT5B596jimoYx2Sj5A8RyNk224qEulH8rSeGdPWRUmexXdzqQviqAp1LNyyTkciIw2Sa5C8j9nIjnSdbvcxEhlYSO5I8uVA6K7Vuo7klCBtiOTe3e5rJDKIa8ZfBoL2Dsmjku0K35bQuvCtIM/ZVaa3kUgkh2Rt51YvNwfC9UKebag0piSfCPLKvG11v7ZQp+8hEulLfF/wKN+GkGH2wiR/U9VLguSHSF7j+ae49cwGJGf5PmQUxkikogAle4aH+3Rzi6r+gi7IX/Zy+7ulTIL2I1du/91EIr1BZe8Fkp8DcBGAFTMuXwVgdzN7qUZ9sog5E8CuGZdVzx5mNhVtYGjojcz00aMXzryepFcpW6WdrPxFeau0lVVPUb4iyvpStf065bLqqJu/G8+5rI9V3pcFyjrio9UhAG4KBPAcAOsBmOG/bw1A2xIblNXnda4J4I5AAGcD2ATAif67PCpkFnd0mS1qqwgfStGDzbpWRQAbFYhOk9XvKn1XufQHoBEBGAry1M1fta9h/qLfW9HHKu9LoRBqvQbgEgC/AiC/wTcB7Gtme5rZ3QAkdBd69pUASEFzUEmduwO4HcDHPelqAJ8xs7+bmYR9ZwCv+yh9uK5rGowW0swfqpn2qtZVVdDT1PnKVylf9cNURDMjUaNU6WtennZ/LLPqzxVCkp8CcBeAHT1pFoCNzUxTyGHM7DUz2wXAwQDeAqA14UkkL0hMzoJtClnSnArgXACJOdrRALYxsxeCOjXlXT8YZb/oo+ywLWq7yHo5WvUHCUeJsjrrjsJl7Taat05b7Rz1h5q4h3bQjjaKRsK5vjYTVwJY10e/92BmJwH4PIAnPOlJAPKy/6rS5MDrQqr0dwDMAbCdmU0ws/kZ9c3wUfZiT1L+F9FCGl3XNEPdtU4jdfcirVjb1f3g1Z2aNkOz/S5UzPh2wVgAU8yMZZWRXFbCCuBaAMcC+F5w+bcADnThetzMHq3SQZI76SNgZpqitpS8L3iZsFT98tdR4jTaRjq/8jUyMrV7JKyiMBpqQKnTrCKoriIrEfA6z6usjZbHdlEsGV8nStGS5n4A48zsYfQIjQhKo3+AqmVa1UbVtuq210jZshdxqMl7aMVzbrSNsvJlbZRqR+tAUuu3e1MCeHPw89oAFJPmaxhwwpGpkZeuF0lrQHuBoTZO8TvV/5YIoW9jHAbgGgCJJvM/APYys00B7OBrTLEYgEvd1rTrwYAb1URWoRV7dlVJhL3RrYF2ajGr1jW6BffQruec/qi28sPatBB6lLQrAPwkqO+fADYys9/pFzP7k7YhANwTFD0UgCKtZW3+RyrSqZGpVRvi7ZgVDHVpdG5W4JN+N7Um9M15aTBDMzPtK+5tZq/mGH1Lk7pPkPy8Nu3N7Dp0iXas8VqxfqjbRp7FT1mbVdsvq6cVI+7omvfQ68+5yjOpNRIqJCHJW0lu7kmrAFjaf9YWxHgz2ylLAIWZvWlm+wL4uk9XhQwC1vD61yV5W1EIjXbQik3psnqrpPcCRVO6KnucRWU7ed+jO9xeR0gZWstw+8e+Fhzj501sVLO+Nb3ccKxRkt9O1T9sGN62G4pE+gWPF6MQhFkMhz1ssn6FOzw3p/4rY2TuyIiG5CdSkbYZHPjSdOTsjEjeYnbq98eqGoZHIgOF4oIGkbaTKeKRfoDL+ODwl4YiZ5PcJVW/mOi+hgenQmGoLVnbRCIDh+VoME8AsF+QLLvN3czs6iDfZ92/MPSknyzNpwy7S0zh5JVxQJA8x/0Hr0z5L0rzKguchAsAfKuo/l7H7WlDhgA8aGZPlpRTEOVNwr9BcG1DNwV8uqC8toheMLPHC/KsJYWZmT1S8XZURoYZywRJUgdOM7PZFctv64b/aW7Pux/fX1a5kKfkcGBm71RoU0Gl9cwU40h2yrdUKdcu0lG0V3XBCqeXtwGQxjMxzg7z6+GfByCMKTPDTdOmZ+Rf2bcwwvrv9vrfY0vqLkwSbFniJMz0+qehD9GwDuB4f1n1/JeXMTuA081sYkE5/W1uNLNVM65dBmCSmV1WUH6Sl59UkEf+nLPM7MQa93OjhDsw3tcaflPfK9YH+bGS8nNlvAHgldSls8zsHzlldPDQswBO8ySpQdd0Tf3YIrNIktrPljvdFAByHlAIzkXMLMvMsvP4GYPhEdc/L7Nq8enp4alyR/i1lUmeT3LYd5DkAal8Z5YFA/bp6THpaSv6FO//u06v8mjlmnIvXVBuVcXhybl2WcYIm84zyb1ZivIoyvr48rt4V5kbSX4hlSat+Y88btDiJeXn+gemTpsKIj03I/1Akn8tKLeiH9WwWCq9t5R/sv8kOaPsj5pRbvOwHMmvkHzRXzqt/Ya96PUHc2XOnjXr397/qH1td5ojhPrQvOozi74XwuDaZJI/6KAQjvLnu0CBIvDJ5GDbXuE9nTGz6wOv98qY2Q0q5y/URPeKT6a7cuLViKghX97zq1dxjUrV/2dtiXRz7t5CNtGHyX9WrB0FQ54cOjcPCFpKSGH3s5J8G6UEca6Z3ddAe0sCeLXgHXnIPXn+plkYgKlm9gy6TEu/CL6GOx9AnsXL/r4elI9g4VohiwERQKETqeYFQiiFiKLYjZJVEQYHKdwKp6POOACvpdb9tYTQ9Q1naG2cl0cffpJaf28PQDOqY312MTFUCvYtGuV8qGdq6+LkjK0Izcu3wQgkZzqqt+OSoqmgr2cyR0o3mtiuB6ej0jGc06bpKL2s/j0//Bs5oU7cWtdnbO9HN3TtGL5WeFHoBfquPCJS2wlShW9qZgr8pM326alpwxV+uGhHoqn1Mj41vxNA7pFxroIfNqAIE12xpef7IHoIV3bovTi7TU28bGZL+L9lfRTUz/MK+mTpmZWWOdqicO1q/+HRs+UbWGpuVmD+dp20gxghpEdCVyZsSHJmorwqKKtjxu9JTrZStHOSF5O8qEK7bR8JfWTRgbK7+hmTx1QoP7cVihk3f5xZcn7m1v6+rueDh/QXY30k1VZRf+GHeeqos5DMU3xT5fZLRdwWT5HU3tLA4xre8N9MN2Qv1RYHEcvv9Zf3XyS1ril1FyD5C5LjSvJMyOjfrJJp8gWpvPf5xzbc2y1q84EG2lxM5XK8fG7OO2jIn983/cMx25dPU93YoffRVzQJT+8jYNrG89kaD34936YImePxaYaNAEjuk6dqjkRGFD6N1NcuOXFpa09fyX3/hFS+K9SsdymSl3t5GXGPSczhgpObriraO4tEBh73+dN0iamzBxNDawX03aPRzU+fHuwWBAoenzLcTrw2+mO6EIm0Eheu15nPNa0KT0/yg66iz0MmXd9pRVuRSM/j2rrTMwRhesp9iT5tbCo8vSz3XcGQVvDcn9GHiySwrbvbSKTHILkaybsyXv7hwztdlZ526tX08ZBGQlG4skdn2IdIXbxVcBippr8hD5H8ZHueQCTSRdxyQBrKkP8ZXgf5lnGVeprhU3crthWe7hsiRc9KGXs7iSF4gqbJChYVifQ/PuIclyEQ8ojItCIoGKU0rVy7pL2P+l5SmpPyTI5IruIn+KaRK9SAhdSKjDiCbYKQC/0k3bKyWaPUULjxTvLTqfWf7PTSo+3OFdeqp2b09dZeiOQdiTSMHG6DYEtSvBxcs3w4SkmhcoSbL0loTvH0yYlQu1FvouBRu7XcpnTIaKC1lWVFDAIV6X/c7u4UjxvTSPlRfrbEVgXTx+nJ9FaCQ/LXVUbbgv3LM3rOIzoS6QXkouSuSllo6qn4HpFIpNW4skauSVU4rSy2TCQSqYEHKro+Q9jmuTIly/LmTu1LdrvvkUjfI02ouyIxz+bT13Da8kjzUplHeCQSKTa+/j7JtzOEa2o6fJ97Y0hLmoV84ka8h30kUtezWWH20sx3x9BcP0CPPZq2QaU7Wi7X2TuJRPoQbb576II0z5HcsmIdG/hBL2meJrlZ++8iEkHP8F97N+gN/K7aVwAAAABJRU5ErkJggg==" alt="Vista Coastal Builders">
         
-        <p class="footer-brand-desc" itemprop="description">Vista Coastal Builders is a custom home builder serving Squamish BC. Design, construction, and project management for residential builds.</p>
+        <p class="footer-brand-desc" itemprop="description">Vista Coastal Builders is a custom home builder serving Squamish, BC. Design, construction, and project management for residential builds.</p>
         <div>
           
           <div class="footer-contact-item">
@@ -527,20 +571,10 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
           
           <div class="footer-contact-item">
             <span class="footer-contact-label">Email</span>
-            <span class="footer-contact-value" itemprop="email"><a href="mailto:info@vistacoastalbuilders.com">info@vistacoastalbuilders.com</a></span>
+            <span class="footer-contact-value" itemprop="email"><a href="mailto:hgould@vistacoastalbuilders.com">hgould@vistacoastalbuilders.com</a></span>
           </div>
           
           
-          <div class="footer-contact-item" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-            <span class="footer-contact-label">Office</span>
-            <span class="footer-contact-value"><span itemprop="streetAddress">AboutOur TeamOur ProcessProjectsIn ProgressWest Vancouver Private ResidenceFarrer Cove, Belcarra BuildCompletedTidepoolSonata UpkeepSilven SpringsMare LuminaGreenwoodDeep Cove RenovationWaterfront Pri</span><br><span itemprop="addressLocality">Squamish BC</span></span>
-          </div>
-          
-          
-          <div class="footer-contact-item">
-            <span class="footer-contact-label">Hours</span>
-            <span class="footer-contact-value">Mon–Fri 9am–5pm</span>
-          </div>
           
         </div>
       </div>
@@ -556,6 +590,8 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
           
           <li><a href="#services">Services</a></li>
           
+          <li><a href="#process">Process</a></li>
+          
           <li><a href="#contact">Contact</a></li>
           
         </ul>
@@ -567,11 +603,13 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
         <h5>Services</h5>
         <ul class="footer-links">
           
-          <li><a href="#services">Wood Fabrication Shop</a></li>
+          <li><a href="#services">Custom Home Builds</a></li>
           
-          <li><a href="#services">Construction Management</a></li>
+          <li><a href="#services">High-End Renovations</a></li>
           
           <li><a href="#services">Custom Millwork</a></li>
+          
+          <li><a href="#services">Design-Build</a></li>
           
         </ul>
       </div>
@@ -583,7 +621,17 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
         <h5>Service Areas</h5>
         <ul class="footer-areas" itemprop="areaServed" itemscope itemtype="https://schema.org/GeoCircle">
           
-          <li><a href="#contact" itemprop="name">Squamish BC</a></li>
+          <li><a href="#contact" itemprop="name">Squamish</a></li>
+          
+          <li><a href="#contact" itemprop="name">North Vancouver</a></li>
+          
+          <li><a href="#contact" itemprop="name">West Vancouver</a></li>
+          
+          <li><a href="#contact" itemprop="name">Belcarra</a></li>
+          
+          <li><a href="#contact" itemprop="name">Deep Cove</a></li>
+          
+          <li><a href="#contact" itemprop="name">Lower Mainland</a></li>
           
         </ul>
       </div>
@@ -595,6 +643,14 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
     <meta itemprop="url" content="https://vistacoastalbuilders.com/">
 
     <!-- Certifications / Awards -->
+    
+    <div class="footer-badges">
+      
+      <div class="footer-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/><path d="M9 12l2 2 4-4"/></svg>Licensed & Insured</div>
+      
+      <div class="footer-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/><path d="M9 12l2 2 4-4"/></svg>Serving Squamish</div>
+      
+    </div>
     
 
     <div class="footer-bottom">
@@ -624,20 +680,30 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
   "@type": "HomeAndConstructionBusiness",
   "name": "Vista Coastal Builders",
   "url": "https://vistacoastalbuilders.com/",
-  "email": "info@vistacoastalbuilders.com",
+  "email": "hgould@vistacoastalbuilders.com",
   "telephone": "604-815-7607",
   
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "AboutOur TeamOur ProcessProjectsIn ProgressWest Vancouver Private ResidenceFarrer Cove, Belcarra BuildCompletedTidepoolSonata UpkeepSilven SpringsMare LuminaGreenwoodDeep Cove RenovationWaterfront Pri",
-    "addressLocality": "Squamish BC",
+    
+    "addressLocality": "Squamish, BC",
     "addressCountry": "CA"
   },
   
   
   "areaServed": [
     
-    {"@type": "City", "name": "Squamish BC"}
+    {"@type": "City", "name": "Squamish"},
+    
+    {"@type": "City", "name": "North Vancouver"},
+    
+    {"@type": "City", "name": "West Vancouver"},
+    
+    {"@type": "City", "name": "Belcarra"},
+    
+    {"@type": "City", "name": "Deep Cove"},
+    
+    {"@type": "City", "name": "Lower Mainland"}
     
   ],
   
@@ -647,16 +713,18 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
     "name": "Services",
     "itemListElement": [
       
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Wood Fabrication Shop"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Custom Home Builds"}},
       
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Construction Management"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "High-End Renovations"}},
       
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Custom Millwork"}}
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Custom Millwork"}},
+      
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Design-Build"}}
       
     ]
   },
   
-  "description": "Vista Coastal Builders is a custom home builder serving Squamish BC. Design, construction, and project management for residential builds."
+  "description": "Vista Coastal Builders is a custom home builder serving Squamish, BC. Design, construction, and project management for residential builds."
 }
 </script>
 
