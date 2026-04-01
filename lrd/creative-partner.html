@@ -1326,22 +1326,61 @@
 
     <div class="step">
       <span class="step-num">1</span>
-      <h4>Review &amp; Confirm</h4>
-      <p>Look this over, flag anything that needs adjusting. I'm flexible on the details.</p>
+      <h4>Select Your Tier</h4>
+      <p>Scroll up and click the tier that fits. It'll be highlighted when you come back down here.</p>
     </div>
 
     <div class="step">
       <span class="step-num">2</span>
-      <h4>First Month</h4>
-      <p>$3,000 deposit to lock in May. SEO work starts immediately: alt text, GBP, schema.</p>
+      <h4>Confirm Below</h4>
+      <p>Choose your commitment length, add any notes, and hit approve. I'll receive it instantly.</p>
     </div>
 
     <div class="step">
       <span class="step-num">3</span>
-      <h4>Q2 Shoot</h4>
-      <p>We pick the first project and schedule the shoot. Social channels go live. The engine starts.</p>
+      <h4>We Start</h4>
+      <p>First month deposit and the SEO work begins immediately. We schedule everything else from there.</p>
     </div>
 
+  </div>
+
+  <!-- APPROVAL FORM -->
+  <div id="approvalForm" style="margin-top:56px;padding:48px;background:var(--light);border:1px solid var(--gold-border);position:relative;">
+    <div style="position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold);"></div>
+
+    <div style="font-family:'Josefin Sans',sans-serif;font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;">Approve This Proposal</div>
+
+    <!-- Selected tier display -->
+    <div style="margin-bottom:28px;">
+      <div style="font-size:0.75rem;color:var(--stone);font-family:'Josefin Sans',sans-serif;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;">Selected Tier</div>
+      <div id="selectedTierDisplay" style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:500;color:var(--ink);line-height:1.2;">
+        <span style="color:var(--stone);font-family:'DM Sans',sans-serif;font-size:0.95rem;font-weight:300;">Scroll up and click a tier to select it</span>
+      </div>
+    </div>
+
+    <!-- Commitment length -->
+    <div style="margin-bottom:28px;">
+      <div style="font-size:0.75rem;color:var(--stone);font-family:'Josefin Sans',sans-serif;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;">Commitment</div>
+      <div style="display:flex;gap:2px;">
+        <button class="commit-btn" data-commit="month-to-month" style="flex:1;padding:14px 20px;background:var(--white);border:1px solid var(--gold-border);font-family:'DM Sans',sans-serif;font-size:0.85rem;color:var(--stone);cursor:pointer;transition:all 0.3s;text-align:center;">Month-to-Month</button>
+        <button class="commit-btn" data-commit="6-month" style="flex:1;padding:14px 20px;background:var(--white);border:1px solid var(--gold-border);font-family:'DM Sans',sans-serif;font-size:0.85rem;color:var(--stone);cursor:pointer;transition:all 0.3s;text-align:center;">6 Months</button>
+        <button class="commit-btn selected" data-commit="12-month" style="flex:1;padding:14px 20px;background:var(--ink);border:1px solid var(--ink);font-family:'DM Sans',sans-serif;font-size:0.85rem;color:var(--paper);cursor:pointer;transition:all 0.3s;text-align:center;">12 Months<br><span style="font-size:0.7rem;opacity:0.6;">+ free website rebuild</span></button>
+      </div>
+    </div>
+
+    <!-- Notes -->
+    <div style="margin-bottom:28px;">
+      <div style="font-size:0.75rem;color:var(--stone);font-family:'Josefin Sans',sans-serif;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;">Notes (optional)</div>
+      <textarea id="approvalNotes" rows="3" placeholder="Any questions, adjustments, or details you'd like to discuss..." style="width:100%;padding:14px 18px;border:1px solid var(--gold-border);background:var(--white);font-family:'DM Sans',sans-serif;font-size:0.88rem;color:var(--ink);resize:vertical;line-height:1.7;outline:none;transition:border-color 0.3s;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--gold-border)'"></textarea>
+    </div>
+
+    <!-- Approve button -->
+    <button id="approveBtn" onclick="submitApproval()" style="display:inline-flex;align-items:center;gap:12px;padding:16px 40px;background:var(--ink);color:var(--paper);border:none;font-family:'Josefin Sans',sans-serif;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);" onmouseover="this.style.background='var(--gold)';this.style.color='var(--ink)'" onmouseout="this.style.background='var(--ink)';this.style.color='var(--paper)'">
+      <span>Approve &amp; Send to Matt</span>
+      <span style="font-size:1rem;">&rarr;</span>
+    </button>
+
+    <p style="margin-top:16px;font-size:0.75rem;color:var(--stone);">This opens your email client with your selections pre-filled. Nothing is binding until we both sign a formal agreement.</p>
   </div>
 
   <p style="margin-top:24px; font-size:0.85rem; color:var(--stone);">This proposal is valid through <strong style="color:var(--ink);">May 31, 2026</strong>.</p>
@@ -1520,11 +1559,17 @@
   }
 
   /* TIER SELECTION + 3D TILT */
+  var tierNames = { seo:'SEO & Visibility — $2,500/mo', social:'SEO + Social — $3,000/mo', full:'Full Creative Partner — $3,500/mo' };
   var tiers = document.querySelectorAll('.tier[data-tier]');
+  var selectedTierDisplay = document.getElementById('selectedTierDisplay');
   tiers.forEach(function(tier){
     tier.addEventListener('click', function(){
       tiers.forEach(function(t){ t.classList.remove('selected'); });
       tier.classList.add('selected');
+      var key = tier.getAttribute('data-tier');
+      if(tierNames[key] && selectedTierDisplay){
+        selectedTierDisplay.innerHTML = tierNames[key];
+      }
     });
     if(!isTouchDevice){
       tier.addEventListener('mousemove', function(e){
@@ -1540,6 +1585,46 @@
       });
     }
   });
+
+  /* COMMITMENT BUTTONS */
+  var selectedCommit = '12-month';
+  var commitBtns = document.querySelectorAll('.commit-btn');
+  commitBtns.forEach(function(btn){
+    btn.addEventListener('click', function(){
+      selectedCommit = btn.getAttribute('data-commit');
+      commitBtns.forEach(function(b){
+        b.style.background = 'var(--white)';
+        b.style.color = 'var(--stone)';
+        b.style.borderColor = 'var(--gold-border)';
+      });
+      btn.style.background = 'var(--ink)';
+      btn.style.color = 'var(--paper)';
+      btn.style.borderColor = 'var(--ink)';
+    });
+  });
+
+  /* APPROVAL SUBMIT */
+  window.submitApproval = function(){
+    var selectedTier = document.querySelector('.tier.selected');
+    var tierKey = selectedTier ? selectedTier.getAttribute('data-tier') : null;
+    var tierLabel = tierKey && tierNames[tierKey] ? tierNames[tierKey] : 'No tier selected';
+    var notes = (document.getElementById('approvalNotes').value || '').trim();
+    var websiteIncluded = selectedCommit === '12-month' ? 'Yes (included with 12-month commitment)' : 'No (separate quote requested)';
+
+    var subject = encodeURIComponent('LRD Studio — Creative Partner Approval');
+    var body = encodeURIComponent(
+      'Hi Matt,\n\n' +
+      'I\'d like to move forward with the Creative Partner retainer.\n\n' +
+      'Selected Tier: ' + tierLabel + '\n' +
+      'Commitment: ' + selectedCommit + '\n' +
+      'Website Rebuild: ' + websiteIncluded + '\n' +
+      (notes ? '\nNotes: ' + notes + '\n' : '') +
+      '\nLooking forward to getting started.\n\n' +
+      'Lauren Ritz\nLRD Studio'
+    );
+
+    window.location.href = 'mailto:info@mattanthonyphoto.com?subject=' + subject + '&body=' + body;
+  };
 
   /* ROADMAP LINE DRAW */
   var roadmapLine = document.getElementById('roadmapLine');
