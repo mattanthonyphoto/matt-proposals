@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Ario Construction | Custom Home Builders — Whistler & Pemberton BC</title>
+<meta name="description" content="Ario Construction builds high-quality, modern, energy-efficient custom homes in Whistler and Pemberton, BC. Certified Passive House builder. 19 years of mountain craftsmanship.">
+<meta property="og:title" content="Ario Construction — Custom Home Builders, Whistler & Pemberton">
+<meta property="og:description" content="High-quality. Modern. Efficient. Custom homes built for mountain living since 2007.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://arioconstruction.com">
+<link rel="canonical" href="https://arioconstruction.com">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@200;300;400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --black:#111;--off:#1a1a1a;--white:#fff;--snow:#FAFAFA;--gray:#F3F3F1;
+  --green:#6B9B37;--green-d:#527A28;--green-l:#8BC34A;--green-bg:rgba(107,155,55,.06);
+  --stone:#888;--dim:#AAA;--text:#444;
+  --hd:'Instrument Serif',Georgia,serif;
+  --bd:'Sora',-apple-system,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
+  --img:https://mattanthonyphoto.github.io/matt-proposals/ario/assets;
+}
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--bd);color:var(--black);background:var(--white);overflow-x:hidden}
+img{max-width:100%;display:block;object-fit:cover}
+a{text-decoration:none;color:inherit}
+
+/* ── Load ── */
+.ld{position:fixed;inset:0;background:var(--white);z-index:9999;display:grid;place-items:center}
+.ld.off{opacity:0;pointer-events:none;transition:opacity .6s var(--ease) .4s}
+.ld-i{display:flex;flex-direction:column;align-items:center;gap:16px;opacity:0;animation:fi .4s .15s forwards}
+.ld-i img{height:28px;opacity:.7}
+.ld-bar{width:40px;height:1.5px;background:var(--green);transform:scaleX(0);animation:gw .5s .3s var(--ease) forwards}
+@keyframes fi{to{opacity:1}}
+@keyframes gw{to{transform:scaleX(1)}}
+
+/* ── Nav ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:22px clamp(20px,5vw,64px);transition:all .5s var(--ease)}
+.nav.s{background:rgba(255,255,255,.94);backdrop-filter:blur(20px);box-shadow:0 1px 0 rgba(0,0,0,.04);padding:14px clamp(20px,5vw,64px)}
+.nav-b{display:flex;align-items:center;gap:10px}
+.nav-b img{height:clamp(22px,2.5vw,30px)}
+.nav-b span{font-family:var(--bd);font-weight:600;font-size:clamp(11px,1vw,13px);letter-spacing:.06em;color:var(--white);transition:color .5s}
+.nav.s .nav-b span{color:var(--black)}
+.nav-r{display:flex;gap:clamp(16px,2.5vw,32px);align-items:center}
+.nav-r a{font-family:var(--bd);font-weight:400;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.45);transition:color .3s}
+.nav.s .nav-r a{color:var(--stone)}
+.nav-r a:hover{color:var(--green)}
+.nav-c{background:var(--green)!important;color:var(--white)!important;padding:9px 24px;border-radius:4px;font-weight:500!important}
+.nav-c:hover{background:var(--green-d)!important}
+
+/* ── Hero ── */
+.hero{position:relative;height:100lvh;min-height:660px;display:flex;align-items:center;overflow:hidden}
+.hero-bg{position:absolute;inset:0;background:url(var(--img)/nestled.jpg) center/cover;transform:scale(1.03);will-change:transform}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(100deg,rgba(17,17,17,.88) 0%,rgba(17,17,17,.6) 40%,rgba(17,17,17,.15) 100%)}
+.hero-c{position:relative;z-index:2;padding:0 clamp(24px,7vw,100px);max-width:700px}
+.hero-tag{font-family:var(--bd);font-weight:400;font-size:9.5px;letter-spacing:.35em;text-transform:uppercase;color:var(--green-l);margin-bottom:20px;opacity:0;animation:up .8s .9s forwards}
+.hero h1{font-family:var(--hd);font-weight:400;font-size:clamp(40px,5.5vw,72px);line-height:1.08;color:var(--white);opacity:0;animation:up .8s 1.1s forwards}
+.hero-p{font-family:var(--bd);font-weight:200;font-size:clamp(13px,1.05vw,15px);color:rgba(255,255,255,.45);max-width:420px;line-height:1.85;margin-top:16px;opacity:0;animation:up .8s 1.3s forwards}
+.hero-btns{display:flex;gap:12px;margin-top:28px;opacity:0;animation:up .8s 1.5s forwards}
+.b{font-family:var(--bd);font-weight:500;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:14px 32px;border-radius:4px;cursor:pointer;transition:all .35s var(--ease)}
+.b-g{background:var(--green);color:var(--white)}.b-g:hover{background:var(--green-d);transform:translateY(-1px)}
+.b-o{border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.5)}.b-o:hover{border-color:var(--green);color:var(--green)}
+@keyframes up{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:none}}
+
+/* ── Reveal ── */
+.rv{opacity:0;transform:translateY(18px);transition:opacity .65s var(--ease),transform .65s var(--ease)}
+.rv.v{opacity:1;transform:none}
+.d1{transition-delay:.08s}.d2{transition-delay:.16s}.d3{transition-delay:.24s}.d4{transition-delay:.32s}
+
+/* ── Pillars ── */
+.pillars{display:grid;grid-template-columns:repeat(3,1fr);border-bottom:1px solid rgba(0,0,0,.04)}
+.pillar{padding:clamp(40px,5vw,64px) clamp(20px,3vw,40px);text-align:center;border-right:1px solid rgba(0,0,0,.04);transition:background .3s}
+.pillar:last-child{border-right:none}
+.pillar:hover{background:var(--green-bg)}
+.pillar-n{font-family:var(--bd);font-weight:600;font-size:clamp(24px,2.5vw,36px);color:var(--green);line-height:1}
+.pillar-l{font-family:var(--bd);font-weight:300;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--stone);margin-top:10px}
+
+/* ── Section ── */
+.sec{padding:clamp(80px,10vw,140px) clamp(24px,7vw,100px)}
+.si{max-width:1200px;margin:0 auto}
+.tag{font-family:var(--bd);font-weight:500;font-size:9.5px;letter-spacing:.3em;text-transform:uppercase;color:var(--green);margin-bottom:14px}
+h2{font-family:var(--hd);font-weight:400;font-size:clamp(28px,3.5vw,48px);line-height:1.1}
+h2 i{font-style:italic;color:var(--green)}
+.sub{font-family:var(--bd);font-weight:300;font-size:clamp(13px,1vw,15px);color:var(--stone);max-width:480px;line-height:1.8;margin-top:12px}
+
+/* ── Projects ── */
+.pj-grid{display:grid;grid-template-columns:1fr 1fr;gap:4px;margin-top:44px}
+.pj{position:relative;overflow:hidden;cursor:pointer;aspect-ratio:4/3}
+.pj.tall{aspect-ratio:auto;grid-row:span 2}
+.pj img{width:100%;height:100%;transition:transform .6s var(--ease)}
+.pj:hover img{transform:scale(1.03)}
+.pj-ov{position:absolute;inset:0;background:linear-gradient(to top,rgba(17,17,17,.75) 0%,transparent 50%);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(16px,2vw,28px);opacity:0;transition:opacity .3s}
+.pj:hover .pj-ov{opacity:1}
+.pj-n{font-family:var(--hd);font-size:clamp(18px,1.6vw,24px);color:var(--white)}
+.pj-m{font-family:var(--bd);font-weight:300;font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--green-l);margin-top:4px}
+
+.pj-row2{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-top:4px}
+.pj-row2 .pj{aspect-ratio:1/1}
+
+/* ── Values ── */
+.vals{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:44px}
+.val{padding:clamp(28px,3vw,44px);border:1px solid rgba(0,0,0,.04);transition:all .3s;position:relative;margin:-.5px}
+.val:hover{background:var(--green-bg);border-color:rgba(107,155,55,.1)}
+.val-ic{font-size:28px;margin-bottom:16px;filter:grayscale(1);transition:filter .3s}
+.val:hover .val-ic{filter:none}
+.val h4{font-family:var(--hd);font-size:clamp(18px,1.4vw,22px);font-weight:400;margin-bottom:10px}
+.val p{font-family:var(--bd);font-weight:300;font-size:clamp(12px,.85vw,13px);color:var(--stone);line-height:1.75}
+
+/* ── About ── */
+.about-g{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,5vw,72px);align-items:center;margin-top:44px}
+.about-img{overflow:hidden;border-radius:6px}
+.about-img img{width:100%;aspect-ratio:4/3;border-radius:6px}
+.about-t p{font-family:var(--bd);font-weight:300;font-size:clamp(13px,.95vw,14.5px);color:var(--text);line-height:1.85;margin-bottom:16px}
+.about-acc{width:36px;height:2px;background:var(--green);margin-bottom:22px;border-radius:1px}
+.about-sig{font-family:var(--hd);font-style:italic;font-size:clamp(15px,1.2vw,18px);color:var(--black);margin-top:14px}
+.about-role{font-family:var(--bd);font-weight:300;font-size:11px;color:var(--stone);margin-top:4px}
+
+/* ── Quote ── */
+.quote{background:var(--snow);padding:clamp(72px,10vw,120px) clamp(24px,7vw,100px);text-align:center;position:relative}
+.quote::before{content:'\201C';position:absolute;top:clamp(16px,2vw,32px);left:50%;transform:translateX(-50%);font-family:Georgia;font-size:clamp(120px,16vw,240px);color:var(--green);opacity:.06;line-height:.55;pointer-events:none}
+.quote blockquote{font-family:var(--hd);font-size:clamp(18px,2vw,26px);line-height:1.6;font-style:italic;color:var(--black);max-width:640px;margin:0 auto 28px;position:relative;z-index:1}
+.quote cite{font-family:var(--bd);font-weight:400;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--green);font-style:normal}
+
+/* ── Process ── */
+.proc{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2vw,28px);margin-top:44px}
+.proc-s{text-align:center;padding:clamp(24px,2.5vw,36px) clamp(12px,1.5vw,20px)}
+.proc-n{font-family:var(--bd);font-weight:200;font-size:clamp(40px,4vw,60px);color:var(--green);opacity:.15;line-height:1}
+.proc-s h4{font-family:var(--hd);font-size:clamp(16px,1.2vw,20px);font-weight:400;margin:16px 0 8px}
+.proc-s p{font-family:var(--bd);font-weight:300;font-size:clamp(11.5px,.8vw,12.5px);color:var(--stone);line-height:1.7}
+
+/* ── CTA ── */
+.cta{background:var(--off);text-align:center;padding:clamp(80px,10vw,140px) clamp(24px,7vw,100px)}
+.cta h3{font-family:var(--hd);font-size:clamp(26px,3vw,40px);font-weight:400;color:var(--white);margin-bottom:10px}
+.cta p{font-family:var(--bd);font-weight:200;font-size:clamp(13px,1vw,15px);color:rgba(255,255,255,.35);margin-bottom:32px}
+.cta .b-g:hover{background:var(--white);color:var(--black)}
+
+/* ── Footer ── */
+.ft{background:var(--black);padding:clamp(48px,6vw,72px) clamp(24px,7vw,100px) 0}
+.ft-i{max-width:1200px;margin:0 auto}
+.ft-g{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:clamp(24px,3vw,48px);padding-bottom:clamp(36px,5vw,60px);border-bottom:1px solid rgba(255,255,255,.04)}
+.ft h5{font-family:var(--hd);font-size:14px;font-weight:400;color:var(--white);margin-bottom:14px}
+.ft-d{font-family:var(--bd);font-weight:300;font-size:12px;color:rgba(255,255,255,.2);line-height:1.7;max-width:260px;margin-bottom:16px}
+.ft-c{display:flex;gap:6px;margin-bottom:9px}
+.ft-cl{font-family:var(--bd);font-weight:500;font-size:8px;letter-spacing:.12em;text-transform:uppercase;color:var(--green);min-width:40px;padding-top:2px}
+.ft-cv{font-size:12px;color:rgba(255,255,255,.22)}
+.ft-cv a{color:rgba(255,255,255,.22);transition:color .3s}.ft-cv a:hover{color:var(--green)}
+.ft-l{list-style:none}.ft-l li{margin-bottom:8px}.ft-l a{font-size:12px;color:rgba(255,255,255,.18);transition:color .3s}.ft-l a:hover{color:var(--green)}
+.ft-b{display:flex;justify-content:space-between;align-items:center;padding:18px 0;max-width:1200px;margin:0 auto}
+.ft-cp{font-size:9px;color:rgba(255,255,255,.07);letter-spacing:.05em}
+.ft-cr{font-size:9px;color:rgba(255,255,255,.07)}.ft-cr a{color:var(--green);opacity:.3;transition:opacity .3s}.ft-cr a:hover{opacity:1}
+
+/* ── Banner ── */
+.bn{position:fixed;bottom:0;left:0;right:0;z-index:100;background:rgba(17,17,17,.94);backdrop-filter:blur(14px);padding:10px 24px;display:flex;align-items:center;justify-content:center;gap:16px;border-top:1.5px solid var(--green);transform:translateY(100%);animation:su .5s 2s var(--ease) forwards}
+.bn span{font-family:var(--bd);font-size:11px;color:rgba(255,255,255,.4)}.bn strong{color:var(--green);font-weight:500}
+.bn a{font-family:var(--bd);font-weight:600;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;background:var(--green);color:var(--white);padding:8px 20px;border-radius:3px;transition:background .3s}
+.bn a:hover{background:var(--white);color:var(--black)}
+@keyframes su{to{transform:translateY(0)}}
+
+/* ── Responsive ── */
+@media(max-width:900px){
+  .nav-r{display:none}
+  .pj-grid{grid-template-columns:1fr}
+  .pj.tall{grid-row:auto;aspect-ratio:16/10}
+  .pj-row2{grid-template-columns:1fr 1fr}
+  .vals{grid-template-columns:1fr}
+  .about-g{grid-template-columns:1fr;gap:24px}
+  .about-img{order:-1}
+  .proc{grid-template-columns:1fr 1fr}
+  .pillars{grid-template-columns:repeat(3,1fr)}
+  .ft-g{grid-template-columns:1fr 1fr}
+  .bn{flex-direction:column;gap:6px;padding:8px 12px}
+}
+@media(max-width:540px){
+  .pj-row2{grid-template-columns:1fr}
+  .proc{grid-template-columns:1fr}
+  .pillars{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div class="ld" id="ld">
+  <div class="ld-i">
+    <img src="https://mattanthonyphoto.github.io/matt-proposals/ario/assets/logo.png" alt="Ario Construction">
+    <div class="ld-bar"></div>
+  </div>
+</div>
+
+<nav class="nav" id="nav">
+  <a class="nav-b" href="#">
+    <img src="https://mattanthonyphoto.github.io/matt-proposals/ario/assets/logo.png" alt="Ario">
+    <span>Ario Construction</span>
+  </a>
+  <div class="nav-r">
+    <a href="#work">Portfolio</a>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#contact" class="nav-c">Get in Touch</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg" id="hbg"></div>
+  <div class="hero-c">
+    <div class="hero-tag">Whistler & Pemberton Custom Builders</div>
+    <h1>With You Every<br>Step of the Way</h1>
+    <p class="hero-p">High-quality, modern, energy-efficient custom homes and commercial builds in the Sea-to-Sky corridor. Certified Passive House builder since 2007.</p>
+    <div class="hero-btns">
+      <a href="#work" class="b b-g">View Portfolio</a>
+      <a href="#contact" class="b b-o">Start Your Project</a>
+    </div>
+  </div>
+</section>
+
+<div class="pillars">
+  <div class="pillar rv"><div class="pillar-n">19</div><div class="pillar-l">Years Building</div></div>
+  <div class="pillar rv d1"><div class="pillar-n">5.0</div><div class="pillar-l">Google Rating</div></div>
+  <div class="pillar rv d2"><div class="pillar-n">A+</div><div class="pillar-l">BBB Rating</div></div>
+</div>
+
+<section class="sec" id="work">
+  <div class="si">
+    <div class="tag rv">Portfolio</div>
+    <h2 class="rv d1">Residential &<br><i>Commercial</i></h2>
+    <p class="sub rv d2">Custom homes, renovations, and commercial builds across Whistler, Pemberton, and the Sea-to-Sky corridor.</p>
+
+    <div class="pj-grid rv d3">
+      <div class="pj tall">
+        <img src="https://mattanthonyphoto.github.io/matt-proposals/ario/assets/nestled.jpg" alt="Nestled in Nature — Whistler custom home by Ario Construction" loading="lazy">
+        <div class="pj-ov"><div class="pj-n">Nestled in Nature</div><div class="pj-m">Whistler, BC &middot; Custom Home</div></div>
+      </div>
+      <div class="pj">
+        <img src="https://mattanthonyphoto.github.io/matt-proposals/ario/assets/whistler-central.jpg" alt="Whistler Central — custom home by Ario Construction" loading="lazy">
+        <div class="pj-ov"><div class="pj-n">Whistler Central</div><div class="pj-m">Whistler, BC &middot; Custom Home</div></div>
+      </div>
+      <div class="pj">
+        <img src="https://mattanthonyphoto.github.io/matt-proposals/ario/assets/emerald.jpg" alt="Emerald Light — Whistler renovation by Ario Construction" loading="lazy">
+        <div class="pj-ov"><div class="pj-n">Emerald Light</div><div class="pj-m">Whistler, BC &middot; Renovation</div></div>
+      </div>
+    </div>
+
+    <div class="pj-row2 rv d4">
+      <div class="pj">
+        <img src="https://mattanthonyphoto.github.io/matt-proposals/ario/assets/cypress.jpg" alt="Cypress Living — custom home in Whistler" loading="lazy">
+        <div class="pj-ov"><div class="pj-n">Cypress Living</div><div class="pj-m">Whistler</div></div>
+      </div>
+      <div class="pj">
+        <img src="https://mattanthonyphoto.github.io/matt-proposals/ario/assets/rainbow.jpg" alt="Rainbow Home — custom home in Whistler" loading="lazy">
+        <div class="pj-ov"><div class="pj-n">Rainbow Home</div><div class="pj-m">Whistler</div></div>
+      </div>
+      <div class="pj">
+        <img src="https://mattanthonyphoto.github.io/matt-proposals/ario/assets/sram.jpg" alt="SRAM Canada Office — commercial build by Ario" loading="lazy">
+        <div class="pj-ov"><div class="pj-n">SRAM Canada</div><div class="pj-m">North Van &middot; Commercial</div></div>
+      </div>
+      <div class="pj">
+        <img src="https://mattanthonyphoto.github.io/matt-proposals/ario/assets/coffee.jpg" alt="Mount Currie Coffee Co — commercial build in Pemberton" loading="lazy">
+        <div class="pj-ov"><div class="pj-n">Mt Currie Coffee Co</div><div class="pj-m">Pemberton &middot; Commercial</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="quote">
+  <div class="rv">
+    <blockquote>Incredible team of experienced and thorough professionals. Very consistent with sticking to budget and time frames. Always looking out for clients' best interests.</blockquote>
+    <cite>Google Review &middot; 5.0 Stars</cite>
+  </div>
+</section>
+
+<section class="sec" id="services" style="background:var(--snow)">
+  <div class="si">
+    <div class="tag rv">What We Do</div>
+    <h2 class="rv d1">High-Quality. Modern.<br><i>Efficient.</i></h2>
+    <div class="vals">
+      <div class="val rv d1">
+        <div class="val-ic">&#9651;</div>
+        <h4>Custom Homes</h4>
+        <p>From modern mountain retreats to family estates, we build homes designed around how you live. Ground-up construction with full project management.</p>
+      </div>
+      <div class="val rv d2">
+        <div class="val-ic">&#9854;</div>
+        <h4>Passive House</h4>
+        <p>Certified Passive House Consultant and Tradesperson. We build energy-efficient homes that dramatically reduce operating costs without sacrificing design.</p>
+      </div>
+      <div class="val rv d3">
+        <div class="val-ic">&#8634;</div>
+        <h4>Renovations</h4>
+        <p>Complete home renovations in Whistler and Pemberton. Modern upgrades to existing homes with the same precision as a new build.</p>
+      </div>
+      <div class="val rv d1">
+        <div class="val-ic">&#9632;</div>
+        <h4>Commercial</h4>
+        <p>Retail, office, and event spaces for brands like SRAM, Giant Bicycles, and Herschel. Mountain-town commercial builds done right.</p>
+      </div>
+      <div class="val rv d2">
+        <div class="val-ic">&#9733;</div>
+        <h4>Energy Consulting</h4>
+        <p>Working with Certified Energy Advisors to model performance before construction begins. Efficient design from day one, not as an afterthought.</p>
+      </div>
+      <div class="val rv d3">
+        <div class="val-ic">&#9998;</div>
+        <h4>Project Management</h4>
+        <p>Single point of contact from concept to keys. Transparent budgets, clear timelines, and proactive communication throughout the build.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="about">
+  <div class="si">
+    <div class="about-g">
+      <div class="about-img rv">
+        <img src="https://mattanthonyphoto.github.io/matt-proposals/ario/assets/exterior.png" alt="Ario Construction custom home exterior in Whistler" loading="lazy">
+      </div>
+      <div class="about-t">
+        <div class="tag rv">About Ario</div>
+        <h2 class="rv d1">Mountain Building<br><i>Since 2007</i></h2>
+        <div class="about-acc rv d2"></div>
+        <p class="rv d3">Founded by Chris Addario in 2007, Ario Construction has spent nearly two decades building custom homes in one of the most demanding environments in British Columbia.</p>
+        <p class="rv d3">As a Certified Passive House Consultant and Tradesperson, Chris brings a rare combination of energy expertise and hands-on construction knowledge to every project. He serves on the CHBA Sea to Sky board and is a former president of the Sea to Sky Home Builders Association.</p>
+        <p class="rv d4">From our workshop on Alpha Lake Road, we build homes and commercial spaces that respect the mountain landscape and perform for the people who live and work in them.</p>
+        <div class="about-sig rv d4">Chris Addario</div>
+        <div class="about-role rv d4">Founder, Certified Passive House Consultant</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="process" style="background:var(--snow)">
+  <div class="si">
+    <div class="tag rv">Our Process</div>
+    <h2 class="rv d1">How We <i>Build</i></h2>
+    <p class="sub rv d2">An integrated approach from first conversation to keys in hand.</p>
+    <div class="proc">
+      <div class="proc-s rv d1"><div class="proc-n">01</div><h4>Consultation</h4><p>We listen. Your vision, your budget, your timeline. No assumptions, no templates.</p></div>
+      <div class="proc-s rv d2"><div class="proc-n">02</div><h4>Design & Planning</h4><p>Collaborating with architects and energy advisors to create plans that work beautifully and perform efficiently.</p></div>
+      <div class="proc-s rv d3"><div class="proc-n">03</div><h4>Construction</h4><p>Hands-on building with clear communication, on-budget execution, and mountain-tested quality control.</p></div>
+      <div class="proc-s rv d4"><div class="proc-n">04</div><h4>Handover</h4><p>A thorough walkthrough, full documentation, and the peace of mind that your home was built to last.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="cta" id="contact">
+  <div class="rv">
+    <h3>Ready to Build in Whistler<br>or Pemberton?</h3>
+    <p>We'd love to hear about your project.</p>
+    <a href="mailto:info@arioconstruction.com" class="b b-g">Start a Conversation</a>
+  </div>
+</section>
+
+<footer class="ft" itemscope itemtype="https://schema.org/HomeAndConstructionBusiness">
+  <div class="ft-i">
+    <div class="ft-g">
+      <div>
+        <h5>Ario Construction</h5>
+        <p class="ft-d" itemprop="description">Certified Passive House builder crafting high-quality, modern, energy-efficient custom homes in Whistler and Pemberton since 2007.</p>
+        <div class="ft-c"><span class="ft-cl">Phone</span><span class="ft-cv" itemprop="telephone"><a href="tel:+16049059299">(604) 905-9299</a></span></div>
+        <div class="ft-c"><span class="ft-cl">Email</span><span class="ft-cv" itemprop="email"><a href="mailto:info@arioconstruction.com">info@arioconstruction.com</a></span></div>
+        <div class="ft-c"><span class="ft-cl">Office</span><span class="ft-cv" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress"><span itemprop="streetAddress">Unit 3, 1220 Alpha Lake Rd</span><br><span itemprop="addressLocality">Whistler</span>, <span itemprop="addressRegion">BC</span> V8E 0H7</span></div>
+      </div>
+      <div><h5>Company</h5><ul class="ft-l"><li><a href="#work">Portfolio</a></li><li><a href="#about">About</a></li><li><a href="#services">Services</a></li><li><a href="#process">Process</a></li><li><a href="#contact">Contact</a></li></ul></div>
+      <div><h5>Services</h5><ul class="ft-l"><li><a href="#services">Custom Homes</a></li><li><a href="#services">Passive House</a></li><li><a href="#services">Renovations</a></li><li><a href="#services">Commercial</a></li><li><a href="#services">Energy Consulting</a></li></ul></div>
+      <div><h5>Service Areas</h5><ul class="ft-l" itemprop="areaServed"><li><a href="#">Whistler</a></li><li><a href="#">Pemberton</a></li><li><a href="#">Squamish</a></li><li><a href="#">Sea-to-Sky Corridor</a></li></ul></div>
+    </div>
+    <meta itemprop="name" content="Ario Construction Inc."><meta itemprop="url" content="https://arioconstruction.com">
+    <div class="ft-b">
+      <div class="ft-cp">&copy; 2026 Ario Construction Inc.</div>
+      <div class="ft-cr">Website concept by <a href="https://mattanthonyphoto.com/discovery-call" target="_blank">Matt Anthony Photography</a></div>
+    </div>
+  </div>
+</footer>
+
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Ario Construction Inc.","url":"https://arioconstruction.com","telephone":"(604) 905-9299","email":"info@arioconstruction.com","foundingDate":"2007","founder":{"@type":"Person","name":"Chris Addario","jobTitle":"Certified Passive House Consultant"},"address":{"@type":"PostalAddress","streetAddress":"Unit 3, 1220 Alpha Lake Rd","addressLocality":"Whistler","addressRegion":"BC","postalCode":"V8E 0H7","addressCountry":"CA"},"areaServed":[{"@type":"City","name":"Whistler"},{"@type":"City","name":"Pemberton"},{"@type":"City","name":"Squamish"}],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Services","itemListElement":[{"@type":"Offer","itemOffered":{"@type":"Service","name":"Custom Home Construction"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Passive House Construction"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Home Renovations"}},{"@type":"Offer","itemOffered":{"@type":"Service","name":"Commercial Construction"}}]},"aggregateRating":{"@type":"AggregateRating","ratingValue":"5.0","reviewCount":"9"},"description":"Certified Passive House builder crafting custom homes in Whistler and Pemberton since 2007."}</script>
+
+<div class="bn"><span>This is a <strong>website concept</strong> designed for Ario Construction by Matt Anthony Photography</span><a href="https://mattanthonyphoto.com/discovery-call" target="_blank">Book a Discovery Call</a></div>
+
+<script>
+(function(){
+  addEventListener('load',function(){document.getElementById('ld').classList.add('off')});
+  setTimeout(function(){document.getElementById('ld').classList.add('off')},1800);
+  var n=document.getElementById('nav'),hbg=document.getElementById('hbg'),t=false;
+  function s(){n.classList.toggle('s',scrollY>60);if(scrollY<innerHeight&&hbg)hbg.style.transform='scale(1.03) translateY('+scrollY*.1+'px)'}
+  addEventListener('scroll',function(){if(!t){requestAnimationFrame(function(){s();t=false});t=true}});
+  if('IntersectionObserver' in window){
+    var o=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.classList.add('v');o.unobserve(en.target)}})},{threshold:.06,rootMargin:'0px 0px -24px 0px'});
+    document.querySelectorAll('.rv,.tag').forEach(function(el){o.observe(el)});
+  }else document.querySelectorAll('.rv,.tag').forEach(function(el){el.classList.add('v')});
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})});
+  s();
+})();
+</script>
+</body>
+</html>
