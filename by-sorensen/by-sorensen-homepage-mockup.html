@@ -3,23 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Homes By Sorensen — Dedicated to creating high-performance homes</title>
+<title>Homes By Sorensen — Calgary's leading Net Zero custom home builder. High-perform</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Archivo+Black:wght@400;700&family=Arial:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root{
-  --primary: #5f6360;
-  --accent: #D3C9C0;
+  --primary: #1B1B1B;
+  --accent: #C9A96E;
   --accent-bg: #F6F4F0;
   --light: #FFFFFF;
-  --dark: #5f6360;
+  --dark: #1A1A18;
   --body-text: #575757;
   --border: rgba(0,0,0,0.06);
-  --font-heading: 'Archivo Black', sans-serif;
-  --font-body: 'Arial', sans-serif;
+  --font-heading: 'Cormorant Garamond', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
 }
 
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
@@ -153,8 +153,26 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
 
 /* ── Services ── */
 
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0;margin-top:56px}
+.service-card{padding:clamp(32px,3.5vw,48px);border:1px solid var(--border);border-left:3px solid transparent;margin:-0.5px;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden}
+.service-card:hover{background:var(--accent-bg);border-color:transparent;border-left-color:var(--accent);box-shadow:0 12px 40px rgba(0,0,0,0.04)}
+.service-card h4{font-family:var(--font-heading);font-size:clamp(16px,1.4vw,20px);margin-bottom:12px;transition:color 0.3s}
+.service-card p{font-size:clamp(13px,1vw,14px);color:var(--body-text);line-height:1.75}
+.service-card-num{font-family:var(--font-heading);font-size:clamp(48px,4vw,64px);color:var(--primary);opacity:0.06;position:absolute;top:16px;right:20px;line-height:1}
+
 
 /* ── Process ── */
+
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:56px;background:var(--dark);position:relative}
+.process-card{padding:clamp(32px,3.5vw,48px);border-right:1px solid rgba(255,255,255,0.05);transition:all 0.4s;position:relative}
+.process-card:last-child{border-right:none}
+.process-card::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--accent);transition:width 0.5s cubic-bezier(0.16,1,0.3,1)}
+.process-card:hover::after{width:100%}
+.process-card:hover{background:rgba(255,255,255,0.03)}
+.process-num{font-family:var(--font-heading);font-size:clamp(36px,4vw,56px);color:var(--accent);opacity:0.15;line-height:1;margin-bottom:16px;transition:opacity 0.4s}
+.process-card:hover .process-num{opacity:0.6}
+.process-card h4{font-family:var(--font-heading);font-size:clamp(15px,1.3vw,18px);color:white;margin-bottom:12px}
+.process-card p{font-size:clamp(12px,0.95vw,14px);color:rgba(255,255,255,0.4);line-height:1.75}
 
 
 /* ── Testimonial ── */
@@ -231,8 +249,8 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
   .about-image{order:-1;aspect-ratio:16/10}
   .stats-grid{grid-template-columns:repeat(2,1fr);gap:32px}
   .stat-item::after{display:none}
-  
-  
+  .services-grid{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:1fr 1fr}
   .footer-grid{grid-template-columns:1fr 1fr}
   .footer-brand-col{grid-column:1/3}
   .footer-bottom-top{flex-direction:column;gap:16px;align-items:center}
@@ -242,7 +260,7 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
 }
 @media(max-width:480px){
   .projects-grid{grid-template-columns:1fr}
-  
+  .process-grid{grid-template-columns:1fr}
 }
 
 /* ── Print ── */
@@ -259,8 +277,7 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
 <!-- Loader -->
 <div class="loader" id="loader">
   <div class="loader-brand">
-    <img class="loader-logo" src="data:image/png;base64,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" alt="Homes By Sorensen">
-    
+    <div class="loader-name">Homes By Sorensen</div>
   </div>
   <div class="loader-line"></div>
 </div>
@@ -274,8 +291,8 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
 <!-- Navigation -->
 <nav class="nav" id="nav">
   <a class="nav-brand" href="#">
-    <img class="nav-logo nav-logo-dark" src="data:image/png;base64,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" alt="Homes By Sorensen">
-    <img class="nav-logo nav-logo-light" src="data:image/png;base64,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" alt="Homes By Sorensen">
+    
+    
     <span class="nav-brand-text">Homes By Sorensen</span>
   </a>
   <div class="nav-links">
@@ -289,6 +306,14 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
     
     
     
+    <a href="#services">Services</a>
+    
+    
+    
+    <a href="#process">Process</a>
+    
+    
+    
     <a href="#contact" class="nav-cta">Contact</a>
     
     
@@ -297,11 +322,11 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
 
 <!-- Hero -->
 <section class="hero" id="hero" data-nav="Home">
-  <div class="hero-image" id="heroImage" style="background-image:url('https://static.wixstatic.com/media/bad934_572f0c1c10bf4cf780ffd42583539895f000.jpg/v1/fill/w_147,h_83,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/bad934_572f0c1c10bf4cf780ffd42583539895f000.jpg')"></div>
+  <div class="hero-image" id="heroImage" style="background-image:url('https://static.wixstatic.com/media/531a85_577096fdcd084f82ac7294f8020d0e03~mv2.png/v1/fill/w_236,h_100,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/logo-250x106%20(1).png')"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Calgary AB</div>
-    <h1>Follow Us</h1>
-    <p class="hero-sub">Dedicated to creating high-performance homes</p>
+    <div class="hero-eyebrow">Net Zero Specialists · Calgary</div>
+    <h1>Net Zero<br>Custom Homes</h1>
+    <p class="hero-sub">Calgary's leading Net Zero custom home builder. High-performance homes that cost less to operate and leave a lighter footprint.</p>
     <div class="hero-cta-row">
       <a href="#projects" class="hero-cta hero-cta-primary">View Our Work</a>
       <a href="#contact" class="hero-cta hero-cta-secondary">Get in Touch</a>
@@ -319,64 +344,54 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
   <div class="section-inner">
     <div class="eyebrow reveal">Portfolio</div>
     <h2 class="reveal reveal-d1">Our Work</h2>
-    
+    <p class="section-lead reveal reveal-d2">A selection of custom homes and renovations across Calgary.</p>
     <div class="projects-grid">
       
       <div class="project-card reveal reveal-d1">
-        <img src="https://static.wixstatic.com/media/531a85_4311413c38094e26af0e09d31d8eb1ec~mv2.jpg/v1/crop/x_287,y_0,w_3426,h_2668/fill/w_1275,h_592,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/HomesBySorenson_2025%20003.jpg" alt="HomesBySorenson_2025 003.jpg" loading="lazy">
+        <img src="https://static.wixstatic.com/media/bad934_572f0c1c10bf4cf780ffd42583539895f000.jpg/v1/fill/w_147,h_83,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/bad934_572f0c1c10bf4cf780ffd42583539895f000.jpg" alt="SIERRA" loading="lazy">
         <div class="project-card-overlay">
-          <div class="project-card-name">HomesBySorenson_2025 003.jpg</div>
-          <div class="project-card-location">Calgary AB</div>
+          <div class="project-card-name">SIERRA</div>
+          <div class="project-card-location">Calgary</div>
           
           <div class="project-card-arrow">&rarr;</div>
         </div>
       </div>
       
       <div class="project-card reveal reveal-d2">
-        <img src="https://static.wixstatic.com/media/a08930_d2c5bd1173004fcd83e1356c22ab2937~mv2.jpg/v1/fill/w_147,h_98,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/a08930_d2c5bd1173004fcd83e1356c22ab2937~mv2.jpg" alt="Hillhurst" loading="lazy">
+        <img src="https://static.wixstatic.com/media/531a85_4311413c38094e26af0e09d31d8eb1ec~mv2.jpg/v1/crop/x_287,y_0,w_3426,h_2668/fill/w_1275,h_592,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/HomesBySorenson_2025%20003.jpg" alt="Net Zero Homes" loading="lazy">
         <div class="project-card-overlay">
-          <div class="project-card-name">Hillhurst</div>
-          <div class="project-card-location">Calgary AB</div>
+          <div class="project-card-name">Net Zero Homes</div>
+          <div class="project-card-location">Calgary</div>
           
           <div class="project-card-arrow">&rarr;</div>
         </div>
       </div>
       
       <div class="project-card reveal reveal-d3">
-        <img src="https://static.wixstatic.com/media/531a85_9d52c653c1bb476c811d5c47725725f4~mv2.jpg/v1/fill/w_147,h_220,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/531a85_9d52c653c1bb476c811d5c47725725f4~mv2.jpg" alt="HomesBySorensen_8AveNW_FINAL 016 webres" loading="lazy">
+        <img src="https://static.wixstatic.com/media/531a85_ee8401d6905f424aac4e000b585ccaca~mv2.png/v1/crop/x_146,y_129,w_147,h_45/fill/w_180,h_55,al_c,lg_1,q_85,enc_avif,quality_auto/logo.png" alt="PROJECT LEO" loading="lazy">
         <div class="project-card-overlay">
-          <div class="project-card-name">HomesBySorensen_8AveNW_FINAL 016 webres</div>
-          <div class="project-card-location">Calgary AB</div>
+          <div class="project-card-name">PROJECT LEO</div>
+          <div class="project-card-location">Calgary</div>
           
           <div class="project-card-arrow">&rarr;</div>
         </div>
       </div>
       
       <div class="project-card reveal reveal-d4">
-        <img src="https://static.wixstatic.com/media/531a85_015cbf7ec6254988ad5fa7a747282457~mv2.jpg/v1/fill/w_147,h_220,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/531a85_015cbf7ec6254988ad5fa7a747282457~mv2.jpg" alt="HomesBySorenson_2025 019" loading="lazy">
+        <img src="https://static.wixstatic.com/media/a08930_d2c5bd1173004fcd83e1356c22ab2937~mv2.jpg/v1/fill/w_147,h_98,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/a08930_d2c5bd1173004fcd83e1356c22ab2937~mv2.jpg" alt="BOWBANK" loading="lazy">
         <div class="project-card-overlay">
-          <div class="project-card-name">HomesBySorenson_2025 019</div>
-          <div class="project-card-location">Calgary AB</div>
+          <div class="project-card-name">BOWBANK</div>
+          <div class="project-card-location">Calgary</div>
           
           <div class="project-card-arrow">&rarr;</div>
         </div>
       </div>
       
       <div class="project-card reveal reveal-d1">
-        <img src="https://static.wixstatic.com/media/a08930_4fa81a840f0f4b38b72df6656ed19944~mv2.jpg/v1/fill/w_147,h_220,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/a08930_4fa81a840f0f4b38b72df6656ed19944~mv2.jpg" alt="Norm" loading="lazy">
+        <img src="https://static.wixstatic.com/media/531a85_9d52c653c1bb476c811d5c47725725f4~mv2.jpg/v1/fill/w_147,h_220,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/531a85_9d52c653c1bb476c811d5c47725725f4~mv2.jpg" alt="ARIK" loading="lazy">
         <div class="project-card-overlay">
-          <div class="project-card-name">Norm</div>
-          <div class="project-card-location">Calgary AB</div>
-          
-          <div class="project-card-arrow">&rarr;</div>
-        </div>
-      </div>
-      
-      <div class="project-card reveal reveal-d2">
-        <img src="https://static.wixstatic.com/media/531a85_9b1f79bbf55e40eda50811b5e0f95a18~mv2.jpg/v1/fill/w_147,h_156,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/531a85_9b1f79bbf55e40eda50811b5e0f95a18~mv2.jpg" alt="garden in backyard of net zero home_edited" loading="lazy">
-        <div class="project-card-overlay">
-          <div class="project-card-name">garden in backyard of net zero home_edited</div>
-          <div class="project-card-location">Calgary AB</div>
+          <div class="project-card-name">ARIK</div>
+          <div class="project-card-location">Calgary</div>
           
           <div class="project-card-arrow">&rarr;</div>
         </div>
@@ -388,7 +403,7 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
 
 
 
-<div class="photo-break"><img src="https://static.wixstatic.com/media/531a85_9d52c653c1bb476c811d5c47725725f4~mv2.jpg/v1/fill/w_147,h_220,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/531a85_9d52c653c1bb476c811d5c47725725f4~mv2.jpg" alt="HomesBySorensen_8AveNW_FINAL 016 webres" loading="lazy"></div>
+<div class="photo-break"><img src="https://static.wixstatic.com/media/531a85_ee8401d6905f424aac4e000b585ccaca~mv2.png/v1/crop/x_146,y_129,w_147,h_45/fill/w_180,h_55,al_c,lg_1,q_85,enc_avif,quality_auto/logo.png" alt="Homes By Sorensen project" loading="lazy"></div>
 
 
 <!-- About -->
@@ -397,20 +412,20 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
   <div class="section-inner">
     <div class="about-split">
       <div class="about-text">
-        <div class="eyebrow reveal">About</div>
-        <h2 class="reveal reveal-d1">About Homes By Sorensen</h2>
+        <div class="eyebrow reveal">Our Story</div>
+        <h2 class="reveal reveal-d1">Building in<br>Calgary</h2>
         <div class="about-accent reveal reveal-d2"></div>
         
-        <p class="reveal reveal-d2">Dedicated to creating high-performance homes</p>
+        <p class="reveal reveal-d2">Homes By Sorensen specializes in Net Zero and high-performance custom homes in Calgary and surrounding areas.</p>
         
-        <p class="reveal reveal-d3">that elevate the way people live</p>
+        <p class="reveal reveal-d3">We believe that building better means building smarter. Our homes are designed to produce as much energy as they consume, without sacrificing design or comfort.</p>
         
-        <p class="reveal reveal-d4">ensures every home is thoughtfully designed</p>
+        <p class="reveal reveal-d4">Every project combines cutting-edge building science with timeless craftsmanship.</p>
         
       </div>
       
       <div class="about-image reveal reveal-d2">
-        <img src="https://static.wixstatic.com/media/a08930_d2c5bd1173004fcd83e1356c22ab2937~mv2.jpg/v1/fill/w_147,h_98,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/a08930_d2c5bd1173004fcd83e1356c22ab2937~mv2.jpg" alt="Homes By Sorensen" loading="lazy">
+        <img src="https://static.wixstatic.com/media/531a85_4311413c38094e26af0e09d31d8eb1ec~mv2.jpg/v1/crop/x_287,y_0,w_3426,h_2668/fill/w_1275,h_592,al_c,q_85,usm_0.66_1.00_0.01,enc_avif,quality_auto/HomesBySorenson_2025%20003.jpg" alt="Homes By Sorensen" loading="lazy">
       </div>
       
     </div>
@@ -424,18 +439,18 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
   <div class="stats-grid">
     
     <div class="stat-item reveal reveal-d1">
-      <div class="stat-val" data-count="20">20+</div>
-      <div class="stat-label">Years Experience</div>
+      <div class="stat-val" data-count="18">18</div>
+      <div class="stat-label">Portfolio Projects</div>
     </div>
     
     <div class="stat-item reveal reveal-d2">
-      <div class="stat-val" data-count="100">100+</div>
-      <div class="stat-label">Homes Built</div>
+      <div class="stat-val" data-count="Net Zero">Net Zero</div>
+      <div class="stat-label">Building Standard</div>
     </div>
     
     <div class="stat-item reveal reveal-d3">
-      <div class="stat-val" data-count="100">100%</div>
-      <div class="stat-label">Client Satisfaction</div>
+      <div class="stat-val" data-count="4.8★">4.8★</div>
+      <div class="stat-label">Google Rating</div>
     </div>
     
   </div>
@@ -444,27 +459,96 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
 
 <!-- Services -->
 
+<section class="section" id="services" data-nav="Services" style="background:var(--accent-bg)">
+  <div class="section-inner">
+    <div class="eyebrow reveal">What We Do</div>
+    <h2 class="reveal reveal-d1">Our Services</h2>
+    <div class="services-grid">
+      
+      <div class="service-card reveal reveal-d1">
+        <div class="service-card-num">01</div>
+        <h4>Net Zero Custom Homes</h4>
+        <p>Energy-neutral homes built with advanced insulation, solar integration, and smart systems.</p>
+      </div>
+      
+      <div class="service-card reveal reveal-d2">
+        <div class="service-card-num">02</div>
+        <h4>High-Performance Builds</h4>
+        <p>Homes engineered for maximum efficiency, comfort, and durability in Alberta's climate.</p>
+      </div>
+      
+      <div class="service-card reveal reveal-d3">
+        <div class="service-card-num">03</div>
+        <h4>Custom Renovations</h4>
+        <p>Energy-focused renovations that dramatically improve comfort and reduce operating costs.</p>
+      </div>
+      
+      <div class="service-card reveal reveal-d4">
+        <div class="service-card-num">04</div>
+        <h4>Energy Consulting</h4>
+        <p>Pre-build energy modeling and design consultation to optimize performance from day one.</p>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
 
 <!-- Process -->
 
+<section class="section" id="process" data-nav="Process" style="background:var(--dark);padding-bottom:0">
+  <div class="section-inner">
+    <div class="eyebrow reveal" style="color:rgba(255,255,255,0.25)">Our Process</div>
+    <h2 class="reveal reveal-d1" style="color:white">How We Build</h2>
+    <p class="section-lead reveal reveal-d2" style="color:rgba(255,255,255,0.4)">A transparent, collaborative approach to every project.</p>
+  </div>
+  <div class="process-grid" style="margin-top:clamp(40px,5vw,64px)">
+    
+    <div class="process-card reveal reveal-d1">
+      <div class="process-num">01</div>
+      <h4>Discovery</h4>
+      <p>Understanding your vision, budget, and timeline.</p>
+    </div>
+    
+    <div class="process-card reveal reveal-d2">
+      <div class="process-num">02</div>
+      <h4>Design</h4>
+      <p>Collaborating with architects to create the perfect plan.</p>
+    </div>
+    
+    <div class="process-card reveal reveal-d3">
+      <div class="process-num">03</div>
+      <h4>Build</h4>
+      <p>Quality construction with regular updates and transparent pricing.</p>
+    </div>
+    
+    <div class="process-card reveal reveal-d4">
+      <div class="process-num">04</div>
+      <h4>Handover</h4>
+      <p>Thorough walkthrough and warranty for peace of mind.</p>
+    </div>
+    
+  </div>
+</section>
 
 
-<div class="photo-break"><img src="https://static.wixstatic.com/media/a08930_4fa81a840f0f4b38b72df6656ed19944~mv2.jpg/v1/fill/w_147,h_220,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/a08930_4fa81a840f0f4b38b72df6656ed19944~mv2.jpg" alt="Norm" loading="lazy"></div>
+
+<div class="photo-break"><img src="https://static.wixstatic.com/media/a08930_4fa81a840f0f4b38b72df6656ed19944~mv2.jpg/v1/fill/w_147,h_220,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/a08930_4fa81a840f0f4b38b72df6656ed19944~mv2.jpg" alt="Homes By Sorensen detail" loading="lazy"></div>
 
 
 <!-- Testimonial -->
 
 
 
-<div class="photo-break"><img src="https://static.wixstatic.com/media/531a85_015cbf7ec6254988ad5fa7a747282457~mv2.jpg/v1/fill/w_147,h_220,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/531a85_015cbf7ec6254988ad5fa7a747282457~mv2.jpg" alt="HomesBySorenson_2025 019" loading="lazy"></div>
+<div class="photo-break"><img src="https://static.wixstatic.com/media/531a85_9d52c653c1bb476c811d5c47725725f4~mv2.jpg/v1/fill/w_147,h_220,al_c,q_80,usm_0.66_1.00_0.01,blur_2,enc_avif,quality_auto/531a85_9d52c653c1bb476c811d5c47725725f4~mv2.jpg" alt="Homes By Sorensen craftsmanship" loading="lazy"></div>
 
 
 <!-- CTA Section -->
 <section class="footer-cta-section" id="contact" data-nav="Contact">
   <div class="footer-cta">
-    <h3>Let's Talk About Your Project</h3>
-    <p>We'd love to hear what you're building.</p>
-    <a href="mailto:info@homesbysorensen.ca" class="footer-cta-btn">Get in Touch</a>
+    <h3>Ready to Build Your Dream Home?</h3>
+    <p>Let's talk about your project in Calgary.</p>
+    <a href="mailto:" class="footer-cta-btn">Start a Conversation</a>
   </div>
 </section>
 
@@ -475,33 +559,12 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
 
       <!-- Brand + Contact -->
       <div class="footer-col footer-brand-col">
-        <img class="footer-brand-logo" src="data:image/png;base64,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" alt="Homes By Sorensen">
         
-        <p class="footer-brand-desc" itemprop="description">Homes By Sorensen is a custom home builder serving Calgary AB. Design, construction, and project management for residential builds.</p>
+        <p class="footer-brand-desc" itemprop="description">Homes By Sorensen is a custom home builder serving Calgary, AB. Design, construction, and project management for residential builds.</p>
         <div>
           
-          <div class="footer-contact-item">
-            <span class="footer-contact-label">Phone</span>
-            <span class="footer-contact-value" itemprop="telephone"><a href="tel:4039667183">(403) 966-7183</a></span>
-          </div>
           
           
-          <div class="footer-contact-item">
-            <span class="footer-contact-label">Email</span>
-            <span class="footer-contact-value" itemprop="email"><a href="mailto:info@homesbysorensen.ca">info@homesbysorensen.ca</a></span>
-          </div>
-          
-          
-          <div class="footer-contact-item" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-            <span class="footer-contact-label">Office</span>
-            <span class="footer-contact-value"><span itemprop="streetAddress">top of pageHomeAbout UsMeet the teamOur CommitmentBuild With UsOur building processInnovative HomesPassive HomesNet Zero HomesHigh Performance HomesOur HomesARIKLOTTEHILLSIDEBOWBANKHILLHURSTPROJECT LE</span><br><span itemprop="addressLocality">Calgary AB</span></span>
-          </div>
-          
-          
-          <div class="footer-contact-item">
-            <span class="footer-contact-label">Hours</span>
-            <span class="footer-contact-value">Mon–Fri 9am–5pm</span>
-          </div>
           
         </div>
       </div>
@@ -515,12 +578,31 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
           
           <li><a href="#about">About</a></li>
           
+          <li><a href="#services">Services</a></li>
+          
+          <li><a href="#process">Process</a></li>
+          
           <li><a href="#contact">Contact</a></li>
           
         </ul>
       </div>
 
       <!-- Services -->
+      
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul class="footer-links">
+          
+          <li><a href="#services">Net Zero Custom Homes</a></li>
+          
+          <li><a href="#services">High-Performance Builds</a></li>
+          
+          <li><a href="#services">Custom Renovations</a></li>
+          
+          <li><a href="#services">Energy Consulting</a></li>
+          
+        </ul>
+      </div>
       
 
       <!-- Service Areas -->
@@ -529,7 +611,15 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
         <h5>Service Areas</h5>
         <ul class="footer-areas" itemprop="areaServed" itemscope itemtype="https://schema.org/GeoCircle">
           
-          <li><a href="#contact" itemprop="name">Calgary AB</a></li>
+          <li><a href="#contact" itemprop="name">Calgary</a></li>
+          
+          <li><a href="#contact" itemprop="name">Airdrie</a></li>
+          
+          <li><a href="#contact" itemprop="name">Okotoks</a></li>
+          
+          <li><a href="#contact" itemprop="name">Cochrane</a></li>
+          
+          <li><a href="#contact" itemprop="name">Rocky View County</a></li>
           
         </ul>
       </div>
@@ -541,6 +631,14 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
     <meta itemprop="url" content="http://homesbysorensen.ca/">
 
     <!-- Certifications / Awards -->
+    
+    <div class="footer-badges">
+      
+      <div class="footer-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/><path d="M9 12l2 2 4-4"/></svg>Licensed & Insured</div>
+      
+      <div class="footer-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/><path d="M9 12l2 2 4-4"/></svg>Serving Calgary</div>
+      
+    </div>
     
 
     <div class="footer-bottom">
@@ -570,25 +668,49 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
   "@type": "HomeAndConstructionBusiness",
   "name": "Homes By Sorensen",
   "url": "http://homesbysorensen.ca/",
-  "email": "info@homesbysorensen.ca",
-  "telephone": "(403) 966-7183",
+  
+  
   
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "top of pageHomeAbout UsMeet the teamOur CommitmentBuild With UsOur building processInnovative HomesPassive HomesNet Zero HomesHigh Performance HomesOur HomesARIKLOTTEHILLSIDEBOWBANKHILLHURSTPROJECT LE",
-    "addressLocality": "Calgary AB",
+    
+    "addressLocality": "Calgary, AB",
     "addressCountry": "CA"
   },
   
   
   "areaServed": [
     
-    {"@type": "City", "name": "Calgary AB"}
+    {"@type": "City", "name": "Calgary"},
+    
+    {"@type": "City", "name": "Airdrie"},
+    
+    {"@type": "City", "name": "Okotoks"},
+    
+    {"@type": "City", "name": "Cochrane"},
+    
+    {"@type": "City", "name": "Rocky View County"}
     
   ],
   
   
-  "description": "Homes By Sorensen is a custom home builder serving Calgary AB. Design, construction, and project management for residential builds."
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Services",
+    "itemListElement": [
+      
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Net Zero Custom Homes"}},
+      
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "High-Performance Builds"}},
+      
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Custom Renovations"}},
+      
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Energy Consulting"}}
+      
+    ]
+  },
+  
+  "description": "Homes By Sorensen is a custom home builder serving Calgary, AB. Design, construction, and project management for residential builds."
 }
 </script>
 
