@@ -4,602 +4,402 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Marcraft Homes | Luxury Custom Home Builder — Port Moody, Anmore & Tri-Cities BC</title>
-<meta name="description" content="Marcraft Homes has built luxury custom homes in Port Moody, Anmore, and the Tri-Cities for over 22 years. 13 Georgie Award nominations. Gold Award-winning craftsmanship.">
-<meta property="og:title" content="Marcraft Homes — Luxury Custom Home Builder">
-<meta property="og:description" content="22 years of award-winning custom homes in Port Moody, Anmore, and the Tri-Cities.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://marcrafthomes.com">
+<meta name="description" content="Marcraft Homes builds luxury custom homes in Port Moody, Anmore, and the Tri-Cities. 22 years. 13 Georgie Award nominations. Gold Award-winning craftsmanship.">
 <link rel="canonical" href="https://marcrafthomes.com">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-
 :root{
-  --ink: #0C0C0C;
-  --paper: #F7F5F2;
-  --warm: #E8E4DF;
-  --gold: #B8975A;
-  --gold-light: #D4B87A;
-  --stone: #7A7568;
-  --light-stone: #A8A196;
-  --white: #FFFFFF;
-  --serif: 'Playfair Display', Georgia, serif;
-  --sans: 'Inter', -apple-system, sans-serif;
-  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --ink:#0B0B0B;--cream:#FAF8F5;--warm:#F0EDE8;--gold:#A8895C;--gold-l:#C4A86C;
+  --stone:#84807A;--mist:#C8C4BE;--white:#FFF;
+  --hd:'DM Serif Display',Georgia,serif;--bd:'Outfit',-apple-system,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);
 }
-
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
-body{font-family:var(--sans);color:var(--ink);background:var(--paper);overflow-x:hidden}
-img{max-width:100%;display:block}
+body{font-family:var(--bd);color:var(--ink);background:var(--cream);overflow-x:hidden}
+img{max-width:100%;display:block;object-fit:cover}
 a{text-decoration:none;color:inherit}
 
-/* ── Loader ── */
-.loader{position:fixed;inset:0;background:var(--ink);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px}
-.loader.done{opacity:0;visibility:hidden;transition:opacity 0.8s var(--ease) 0.6s,visibility 0s 1.4s}
-.loader-text{font-family:var(--serif);font-size:clamp(14px,1.5vw,18px);letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);opacity:0;animation:fadeUp 0.6s 0.2s forwards}
-.loader-line{width:48px;height:1px;background:var(--gold);transform:scaleX(0);animation:grow 0.6s 0.5s var(--ease) forwards}
-@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
-@keyframes grow{to{transform:scaleX(1)}}
+/* base url */
+:root{--img:https://mattanthonyphoto.github.io/matt-proposals/marcraft/assets}
 
-/* ── Scroll Progress ── */
-.progress{position:fixed;top:0;left:0;height:2px;background:var(--gold);width:0;z-index:1001}
+/* === PRELOADER === */
+.pre{position:fixed;inset:0;background:var(--ink);z-index:9999;display:grid;place-items:center}
+.pre.off{opacity:0;pointer-events:none;transition:opacity .7s var(--ease) .5s}
+.pre span{font-family:var(--hd);font-size:clamp(11px,1.2vw,14px);letter-spacing:.45em;text-transform:uppercase;color:var(--gold);opacity:0;animation:fi .5s .2s forwards}
+@keyframes fi{to{opacity:1}}
 
-/* ── Navigation ── */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:28px clamp(24px,5vw,80px);transition:all 0.5s var(--ease)}
-.nav.scrolled{background:rgba(12,12,12,0.95);backdrop-filter:blur(20px);padding:16px clamp(24px,5vw,80px)}
-.nav-brand{font-family:var(--serif);font-size:clamp(13px,1.2vw,16px);font-weight:600;letter-spacing:0.2em;text-transform:uppercase;color:var(--white);transition:color 0.5s}
-.nav-links{display:flex;gap:clamp(20px,3vw,40px);align-items:center}
-.nav-links a{font-family:var(--sans);font-weight:400;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;color:rgba(255,255,255,0.5);transition:color 0.3s}
-.nav-links a:hover{color:var(--gold)}
-.nav-cta{color:var(--ink)!important;background:var(--gold);padding:10px 28px;font-weight:500!important;letter-spacing:0.1em!important;transition:all 0.4s!important}
-.nav-cta:hover{background:var(--white)}
+/* === NAV === */
+.n{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:26px clamp(20px,5vw,72px);transition:all .5s var(--ease)}
+.n.s{background:rgba(11,11,11,.92);backdrop-filter:blur(20px) saturate(1.2);padding:14px clamp(20px,5vw,72px)}
+.n-b{font-family:var(--hd);font-size:clamp(14px,1.3vw,17px);color:var(--white);letter-spacing:.08em}
+.n-l{display:flex;gap:clamp(18px,2.5vw,36px);align-items:center}
+.n-l a{font-family:var(--bd);font-weight:400;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;color:rgba(255,255,255,.4);transition:color .3s}
+.n-l a:hover{color:var(--gold)}
+.n-c{background:var(--gold)!important;color:var(--ink)!important;padding:10px 26px;font-weight:500!important}
+.n-c:hover{background:var(--white)!important}
 
-/* ── Hero ── */
-.hero{position:relative;height:100vh;min-height:700px;overflow:hidden}
-.hero-bg{position:absolute;inset:0;background-size:cover;background-position:center 40%;transform:scale(1.05);will-change:transform}
-.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,12,12,0.2) 0%,rgba(12,12,12,0.1) 30%,rgba(12,12,12,0.4) 60%,rgba(12,12,12,0.92) 100%)}
-.hero-inner{position:relative;z-index:2;height:100%;display:flex;flex-direction:column;justify-content:flex-end;padding:0 clamp(28px,7vw,120px) clamp(80px,12vh,160px);max-width:1400px}
-.hero-badge{display:inline-flex;align-items:center;gap:10px;font-family:var(--sans);font-weight:500;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;opacity:0;animation:fadeUp 1s 1.2s forwards}
-.hero-badge::before{content:'';width:32px;height:1px;background:var(--gold)}
-.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(40px,6vw,86px);line-height:1.05;color:var(--white);letter-spacing:-0.02em;opacity:0;animation:fadeUp 1s 1.4s forwards}
-.hero h1 em{font-style:italic;color:var(--gold-light);font-weight:400}
-.hero-sub{font-family:var(--sans);font-weight:300;font-size:clamp(14px,1.2vw,17px);color:rgba(255,255,255,0.55);max-width:520px;line-height:1.8;margin-top:20px;opacity:0;animation:fadeUp 1s 1.6s forwards}
-.hero-actions{display:flex;gap:16px;margin-top:36px;opacity:0;animation:fadeUp 1s 1.8s forwards}
-.btn{font-family:var(--sans);font-weight:500;font-size:11px;letter-spacing:0.12em;text-transform:uppercase;padding:16px 40px;transition:all 0.4s var(--ease);cursor:pointer}
-.btn-gold{background:var(--gold);color:var(--ink)}
-.btn-gold:hover{background:var(--white);transform:translateY(-2px)}
-.btn-outline{border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.7)}
-.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
-.scroll-cue{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:fadeUp 1s 2.2s forwards}
-.scroll-cue span{font-family:var(--sans);font-size:9px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(255,255,255,0.25)}
-.scroll-cue-line{width:1px;height:32px;background:linear-gradient(to bottom,var(--gold),transparent);animation:pulse 2.5s ease-in-out infinite}
-@keyframes pulse{0%,100%{opacity:0.2;transform:scaleY(0.5)}50%{opacity:1;transform:scaleY(1)}}
+/* === HERO === */
+.h{position:relative;height:100lvh;min-height:680px;display:flex;align-items:flex-end;overflow:hidden}
+.h-img{position:absolute;inset:0;background:url(var(--img)/hero.jpg) center 35%/cover;transform:scale(1.04);will-change:transform}
+.h::after{content:'';position:absolute;inset:0;background:linear-gradient(175deg,rgba(11,11,11,.08) 0%,rgba(11,11,11,.06) 30%,rgba(11,11,11,.55) 65%,rgba(11,11,11,.94) 100%)}
+.h-c{position:relative;z-index:2;padding:0 clamp(24px,7vw,110px) clamp(72px,11vh,140px);width:100%;max-width:1440px}
+.h-e{font-family:var(--bd);font-weight:400;font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:14px;opacity:0;animation:up 1s 1s forwards}
+.h-e::before{content:'';width:28px;height:1px;background:var(--gold)}
+.h-c h1{font-family:var(--hd);font-weight:400;font-size:clamp(42px,6.5vw,92px);line-height:1.02;color:var(--white);letter-spacing:-.015em;margin-top:18px;opacity:0;animation:up 1s 1.2s forwards}
+.h-c h1 i{font-style:italic;color:var(--gold-l)}
+.h-s{font-family:var(--bd);font-weight:200;font-size:clamp(14px,1.15vw,17px);color:rgba(255,255,255,.5);max-width:480px;line-height:1.8;margin-top:18px;opacity:0;animation:up 1s 1.4s forwards}
+.h-a{display:flex;gap:14px;margin-top:34px;opacity:0;animation:up 1s 1.6s forwards}
+.btn{font-family:var(--bd);font-weight:500;font-size:10.5px;letter-spacing:.13em;text-transform:uppercase;padding:15px 38px;cursor:pointer;transition:all .4s var(--ease)}
+.bg{background:var(--gold);color:var(--ink)}.bg:hover{background:var(--white);transform:translateY(-2px)}
+.bo{border:1px solid rgba(255,255,255,.15);color:rgba(255,255,255,.6)}.bo:hover{border-color:var(--gold);color:var(--gold)}
+@keyframes up{from{opacity:0;transform:translateY(22px)}to{opacity:1;transform:translateY(0)}}
 
-/* ── Reveal ── */
-.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.8s var(--ease),transform 0.8s var(--ease)}
-.reveal.vis{opacity:1;transform:translateY(0)}
-.d1{transition-delay:0.1s}.d2{transition-delay:0.2s}.d3{transition-delay:0.3s}.d4{transition-delay:0.4s}.d5{transition-delay:0.5s}
+/* === NUMBERS RIBBON === */
+.nb{background:var(--ink);display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid rgba(168,137,92,.12)}
+.ni{padding:clamp(36px,5vw,64px) 20px;text-align:center;border-right:1px solid rgba(255,255,255,.04)}
+.ni:last-child{border-right:none}
+.nv{font-family:var(--hd);font-size:clamp(32px,4vw,56px);color:var(--gold)}
+.nl{font-family:var(--bd);font-weight:300;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.28);margin-top:10px}
 
-/* ── Section ── */
-.section{padding:clamp(100px,12vw,160px) clamp(28px,7vw,120px)}
-.section-inner{max-width:1300px;margin:0 auto}
-.eyebrow{font-family:var(--sans);font-weight:500;font-size:10px;letter-spacing:0.3em;text-transform:uppercase;color:var(--gold);display:flex;align-items:center;gap:14px;margin-bottom:20px}
-.eyebrow::before{content:'';width:0;height:1px;background:var(--gold);transition:width 0.8s var(--ease)}
-.eyebrow.vis::before{width:32px}
-h2{font-family:var(--serif);font-weight:400;font-size:clamp(32px,4.5vw,60px);line-height:1.1;color:var(--ink);letter-spacing:-0.01em}
-h2 em{font-style:italic;color:var(--gold)}
-.lead{font-family:var(--sans);font-weight:300;font-size:clamp(15px,1.2vw,17px);color:var(--stone);max-width:560px;line-height:1.8;margin-top:16px}
+/* === REVEAL === */
+.r{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.r.v{opacity:1;transform:none}
+.d1{transition-delay:.1s}.d2{transition-delay:.2s}.d3{transition-delay:.3s}.d4{transition-delay:.4s}
 
-/* ── Awards Bar ── */
-.awards-bar{background:var(--ink);padding:clamp(48px,6vw,80px) clamp(28px,7vw,120px);overflow:hidden}
-.awards-inner{max-width:1300px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px;text-align:center}
-.award-item{position:relative}
-.award-item::after{content:'';position:absolute;right:0;top:15%;height:70%;width:1px;background:rgba(255,255,255,0.06)}
-.award-item:last-child::after{display:none}
-.award-val{font-family:var(--serif);font-size:clamp(36px,4.5vw,64px);color:var(--gold);letter-spacing:-0.02em}
-.award-label{font-family:var(--sans);font-weight:400;font-size:10px;letter-spacing:0.18em;text-transform:uppercase;color:rgba(255,255,255,0.35);margin-top:12px}
+/* === SECTIONS === */
+.sc{padding:clamp(88px,11vw,150px) clamp(24px,7vw,110px)}
+.si{max-width:1280px;margin:0 auto}
+.ey{font-family:var(--bd);font-weight:500;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);margin-bottom:18px;display:flex;align-items:center;gap:14px}
+.ey::before{content:'';width:0;height:1px;background:var(--gold);transition:width .7s var(--ease)}
+.ey.v::before{width:28px}
+h2{font-family:var(--hd);font-weight:400;font-size:clamp(30px,4.2vw,56px);line-height:1.08;letter-spacing:-.01em}
+h2 i{font-style:italic;color:var(--gold)}
+.ld{font-family:var(--bd);font-weight:300;font-size:clamp(14px,1.1vw,16px);color:var(--stone);max-width:520px;line-height:1.8;margin-top:14px}
 
-/* ── Projects ── */
-.projects-grid{display:grid;grid-template-columns:1.2fr 1fr;gap:6px;margin-top:56px}
-.projects-grid-right{display:grid;grid-template-rows:1fr 1fr;gap:6px}
-.project-card{position:relative;overflow:hidden;cursor:pointer}
-.project-card img{width:100%;height:100%;object-fit:cover;transition:transform 0.8s var(--ease),filter 0.6s}
-.project-card:hover img{transform:scale(1.04);filter:brightness(0.75)}
-.project-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(12,12,12,0.85) 0%,transparent 50%);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(20px,3vw,40px)}
-.project-name{font-family:var(--serif);font-size:clamp(20px,2.2vw,32px);color:var(--white);line-height:1.15}
-.project-meta{font-family:var(--sans);font-weight:400;font-size:10px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);margin-top:8px}
-.project-tag{display:inline-block;font-family:var(--sans);font-weight:500;font-size:9px;letter-spacing:0.1em;text-transform:uppercase;background:rgba(184,151,90,0.15);color:var(--gold);padding:5px 12px;margin-top:10px;border:1px solid rgba(184,151,90,0.2)}
+/* === PROJECTS MOSAIC === */
+.pm{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:420px 260px;gap:5px;margin-top:48px}
+.pm .pc:first-child{grid-row:1/3}
+.pc{position:relative;overflow:hidden;cursor:pointer}
+.pc img{width:100%;height:100%;transition:transform .7s var(--ease)}
+.pc:hover img{transform:scale(1.035)}
+.po{position:absolute;inset:0;background:linear-gradient(to top,rgba(11,11,11,.82) 0%,transparent 55%);display:flex;flex-direction:column;justify-content:flex-end;padding:clamp(18px,2.5vw,36px)}
+.pn{font-family:var(--hd);font-size:clamp(19px,2vw,30px);color:var(--white)}
+.pm2{font-family:var(--bd);font-weight:400;font-size:9.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);margin-top:6px}
+.pt{display:inline-block;font-family:var(--bd);font-weight:500;font-size:8.5px;letter-spacing:.1em;text-transform:uppercase;background:rgba(168,137,92,.12);color:var(--gold);padding:5px 11px;margin-top:8px;border:1px solid rgba(168,137,92,.18)}
 
-/* ── Second Row ── */
-.projects-row-2{display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;margin-top:6px}
-.project-card-sm{aspect-ratio:4/3}
+/* second row */
+.pr2{display:grid;grid-template-columns:repeat(3,1fr);gap:5px;margin-top:5px}
+.pr2 .pc{aspect-ratio:4/3}
 
-/* ── Photo Break ── */
-.photo-break{position:relative;height:clamp(300px,45vh,500px);overflow:hidden}
-.photo-break img{width:100%;height:100%;object-fit:cover;transform:scale(1.03)}
-.photo-break::before{content:'';position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,var(--paper) 0%,transparent 15%,transparent 85%,var(--paper) 100%);pointer-events:none}
+/* === BREAK === */
+.brk{height:clamp(200px,30vw,380px);overflow:hidden;position:relative}
+.brk img{width:100%;height:100%;transform:scale(1.02)}
+.brk::before,.brk::after{content:'';position:absolute;left:0;right:0;height:60px;z-index:1}
+.brk::before{top:0;background:linear-gradient(var(--cream),transparent)}
+.brk::after{bottom:0;background:linear-gradient(transparent,var(--cream))}
 
-/* ── Story ── */
-.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(48px,6vw,100px);align-items:center;margin-top:56px}
-.story-image{overflow:hidden;aspect-ratio:3/4;position:relative}
-.story-image img{width:100%;height:100%;object-fit:cover;transition:transform 0.8s var(--ease)}
-.story-image:hover img{transform:scale(1.03)}
-.story-text p{font-family:var(--sans);font-weight:300;font-size:clamp(14px,1.05vw,15px);color:var(--stone);line-height:1.85;margin-bottom:20px}
-.story-accent{width:48px;height:2px;background:var(--gold);margin-bottom:28px}
-.story-sig{font-family:var(--serif);font-style:italic;font-size:clamp(16px,1.3vw,20px);color:var(--ink);margin-top:20px}
+/* === STORY === */
+.sg{display:grid;grid-template-columns:5fr 6fr;gap:clamp(40px,6vw,88px);align-items:center;margin-top:48px}
+.si2{overflow:hidden;position:relative}
+.si2 img{width:100%;aspect-ratio:3/4}
+.si2::after{content:'';position:absolute;inset:0;box-shadow:inset 0 0 0 1px rgba(168,137,92,.1)}
+.st p{font-family:var(--bd);font-weight:300;font-size:clamp(13.5px,1vw,15px);color:var(--stone);line-height:1.85;margin-bottom:18px}
+.st .ac{width:44px;height:2px;background:var(--gold);margin-bottom:24px}
+.st .sig{font-family:var(--hd);font-style:italic;font-size:clamp(16px,1.3vw,20px);color:var(--ink);margin-top:16px}
 
-/* ── Process ── */
-.process-track{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:56px;background:var(--ink)}
-.process-step{padding:clamp(28px,3vw,48px);border-right:1px solid rgba(255,255,255,0.04);position:relative;transition:background 0.4s}
-.process-step:last-child{border-right:none}
-.process-step::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--gold);transition:width 0.6s var(--ease)}
-.process-step:hover::after{width:100%}
-.process-step:hover{background:rgba(255,255,255,0.02)}
-.process-num{font-family:var(--serif);font-size:clamp(32px,3.5vw,52px);color:var(--gold);opacity:0.12;line-height:1;margin-bottom:20px;transition:opacity 0.4s}
-.process-step:hover .process-num{opacity:0.5}
-.process-step h4{font-family:var(--serif);font-size:clamp(16px,1.3vw,20px);font-weight:400;color:var(--white);margin-bottom:12px}
-.process-step p{font-family:var(--sans);font-weight:300;font-size:clamp(12px,0.9vw,13px);color:rgba(255,255,255,0.3);line-height:1.75}
+/* === QUOTE === */
+.qt{background:var(--ink);text-align:center;padding:clamp(100px,13vw,180px) clamp(24px,7vw,110px);position:relative;overflow:hidden}
+.qt::after{content:'\201C';position:absolute;top:clamp(20px,3vw,50px);left:50%;transform:translateX(-50%);font-family:Georgia,serif;font-size:clamp(180px,24vw,380px);color:var(--gold);opacity:.035;line-height:.55;pointer-events:none}
+.qt blockquote{font-family:var(--hd);font-weight:400;font-size:clamp(19px,2.3vw,30px);line-height:1.55;font-style:italic;color:rgba(255,255,255,.75);max-width:680px;margin:0 auto 32px;position:relative;z-index:1}
+.qt cite{display:block;font-family:var(--bd);font-weight:500;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--gold);font-style:normal;position:relative;z-index:1}
+.qt cite::before{content:'';display:block;width:28px;height:1px;background:var(--gold);opacity:.35;margin:0 auto 14px}
 
-/* ── Testimonial ── */
-.testimonial{background:var(--ink);text-align:center;padding:clamp(120px,15vw,200px) clamp(28px,7vw,120px);position:relative;overflow:hidden}
-.testimonial::after{content:'\201C';position:absolute;top:clamp(30px,4vw,60px);left:50%;transform:translateX(-50%);font-family:Georgia,serif;font-size:clamp(200px,25vw,400px);color:var(--gold);opacity:0.04;line-height:0.6;pointer-events:none}
-.testimonial blockquote{font-family:var(--serif);font-weight:400;font-size:clamp(20px,2.5vw,32px);line-height:1.55;font-style:italic;color:rgba(255,255,255,0.8);max-width:720px;margin:0 auto 36px;position:relative;z-index:1}
-.testimonial cite{display:block;font-family:var(--sans);font-weight:500;font-size:10px;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);font-style:normal;position:relative;z-index:1}
-.testimonial cite::before{content:'';display:block;width:32px;height:1px;background:var(--gold);opacity:0.4;margin:0 auto 16px}
+/* === SERVICES === */
+.sv{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:48px}
+.svc{padding:clamp(24px,3vw,44px);border:1px solid rgba(11,11,11,.05);border-left:3px solid transparent;margin:-.5px;transition:all .4s var(--ease);position:relative;overflow:hidden}
+.svc:hover{background:var(--white);border-left-color:var(--gold);box-shadow:0 10px 36px rgba(0,0,0,.035)}
+.svc-n{font-family:var(--hd);font-size:clamp(40px,3vw,52px);color:var(--ink);opacity:.03;position:absolute;top:12px;right:16px;line-height:1}
+.svc h4{font-family:var(--hd);font-size:clamp(16px,1.25vw,20px);font-weight:400;margin-bottom:12px}
+.svc p{font-family:var(--bd);font-weight:300;font-size:clamp(12.5px,.9vw,13.5px);color:var(--stone);line-height:1.75}
 
-/* ── Services ── */
-.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:56px}
-.service-card{padding:clamp(28px,3vw,48px);border:1px solid rgba(12,12,12,0.06);border-left:3px solid transparent;transition:all 0.4s var(--ease);position:relative;margin:-0.5px}
-.service-card:hover{background:var(--white);border-left-color:var(--gold);box-shadow:0 12px 40px rgba(0,0,0,0.04)}
-.service-num{font-family:var(--serif);font-size:clamp(40px,3.5vw,56px);color:var(--ink);opacity:0.04;position:absolute;top:16px;right:20px;line-height:1}
-.service-card h4{font-family:var(--serif);font-size:clamp(17px,1.4vw,22px);font-weight:400;margin-bottom:14px}
-.service-card p{font-family:var(--sans);font-weight:300;font-size:clamp(13px,0.95vw,14px);color:var(--stone);line-height:1.75}
+/* === PROCESS === */
+.prg{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:48px;background:var(--ink)}
+.prs{padding:clamp(24px,3vw,44px);border-right:1px solid rgba(255,255,255,.03);position:relative;transition:background .4s}
+.prs:last-child{border:none}
+.prs::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--gold);transition:width .5s var(--ease)}
+.prs:hover::after{width:100%}
+.prs:hover{background:rgba(255,255,255,.015)}
+.prs-n{font-family:var(--hd);font-size:clamp(28px,3vw,48px);color:var(--gold);opacity:.1;line-height:1;margin-bottom:18px;transition:opacity .4s}
+.prs:hover .prs-n{opacity:.45}
+.prs h4{font-family:var(--hd);font-size:clamp(15px,1.2vw,18px);font-weight:400;color:var(--white);margin-bottom:10px}
+.prs p{font-family:var(--bd);font-weight:300;font-size:clamp(11.5px,.85vw,13px);color:rgba(255,255,255,.25);line-height:1.75}
 
-/* ── CTA ── */
-.cta-section{background:var(--warm);text-align:center;padding:clamp(100px,12vw,160px) clamp(28px,7vw,120px)}
-.cta-section h3{font-family:var(--serif);font-size:clamp(28px,3.5vw,48px);font-weight:400;color:var(--ink);margin-bottom:12px}
-.cta-section p{font-family:var(--sans);font-weight:300;font-size:clamp(14px,1.1vw,16px);color:var(--stone);margin-bottom:40px}
-.btn-dark{background:var(--ink);color:var(--white)}
-.btn-dark:hover{background:var(--gold);color:var(--ink);transform:translateY(-2px)}
+/* === CTA === */
+.cta{background:var(--warm);text-align:center;padding:clamp(88px,11vw,150px) clamp(24px,7vw,110px)}
+.cta h3{font-family:var(--hd);font-size:clamp(26px,3.2vw,44px);font-weight:400;margin-bottom:10px}
+.cta p{font-family:var(--bd);font-weight:300;font-size:clamp(13px,1vw,15px);color:var(--stone);margin-bottom:36px}
+.bd{background:var(--ink);color:var(--white)}.bd:hover{background:var(--gold);color:var(--ink);transform:translateY(-2px)}
 
-/* ── Footer ── */
-.footer{background:var(--ink);padding:clamp(60px,8vw,100px) clamp(28px,7vw,120px) 0}
-.footer-inner{max-width:1300px;margin:0 auto}
-.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:clamp(32px,4vw,64px);padding-bottom:clamp(48px,6vw,80px);border-bottom:1px solid rgba(255,255,255,0.06)}
-.footer h5{font-family:var(--serif);font-size:clamp(15px,1.2vw,18px);font-weight:400;color:var(--white);margin-bottom:20px}
-.footer-desc{font-family:var(--sans);font-weight:300;font-size:13px;color:rgba(255,255,255,0.3);line-height:1.7;max-width:300px;margin-bottom:20px}
-.footer-contact-row{display:flex;align-items:flex-start;gap:8px;margin-bottom:12px}
-.footer-label{font-family:var(--sans);font-weight:500;font-size:9px;letter-spacing:0.15em;text-transform:uppercase;color:var(--gold);min-width:50px;padding-top:2px}
-.footer-val{font-size:13px;color:rgba(255,255,255,0.35);line-height:1.5}
-.footer-val a{color:rgba(255,255,255,0.35);transition:color 0.3s}
-.footer-val a:hover{color:var(--gold)}
-.footer-links{list-style:none}
-.footer-links li{margin-bottom:10px}
-.footer-links a{font-size:13px;color:rgba(255,255,255,0.3);transition:color 0.3s}
-.footer-links a:hover{color:var(--gold)}
-.footer-areas{list-style:none;columns:2;column-gap:16px}
-.footer-areas li{margin-bottom:8px}
-.footer-areas a{font-size:12px;color:rgba(255,255,255,0.25);transition:color 0.3s}
-.footer-areas a:hover{color:var(--gold)}
-.footer-badges{display:flex;justify-content:center;gap:clamp(16px,2vw,28px);padding:clamp(28px,4vw,48px) 0;border-bottom:1px solid rgba(255,255,255,0.04);flex-wrap:wrap}
-.footer-badge{font-family:var(--sans);font-weight:500;font-size:9px;letter-spacing:0.08em;text-transform:uppercase;color:rgba(255,255,255,0.35);padding:10px 20px;border:1px solid rgba(255,255,255,0.06);display:flex;align-items:center;gap:8px}
-.footer-badge svg{flex-shrink:0}
-.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding:24px 0;max-width:1300px;margin:0 auto}
-.footer-copy{font-size:10px;color:rgba(255,255,255,0.1);letter-spacing:0.06em}
-.footer-credit{font-size:10px;color:rgba(255,255,255,0.1)}
-.footer-credit a{color:var(--gold);opacity:0.4;transition:opacity 0.3s}
-.footer-credit a:hover{opacity:1}
+/* === FOOTER === */
+.ft{background:var(--ink);padding:clamp(56px,7vw,88px) clamp(24px,7vw,110px) 0}
+.fi{max-width:1280px;margin:0 auto}
+.fg{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:clamp(28px,3.5vw,56px);padding-bottom:clamp(40px,5vw,72px);border-bottom:1px solid rgba(255,255,255,.05)}
+.ft h5{font-family:var(--hd);font-size:clamp(14px,1.1vw,17px);font-weight:400;color:var(--white);margin-bottom:16px}
+.fd{font-family:var(--bd);font-weight:300;font-size:12.5px;color:rgba(255,255,255,.25);line-height:1.7;max-width:280px;margin-bottom:18px}
+.fc{display:flex;gap:8px;align-items:flex-start;margin-bottom:11px}
+.fc-l{font-family:var(--bd);font-weight:500;font-size:8.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--gold);min-width:44px;padding-top:2px}
+.fc-v{font-size:12.5px;color:rgba(255,255,255,.28)}
+.fc-v a{color:rgba(255,255,255,.28);transition:color .3s}.fc-v a:hover{color:var(--gold)}
+.fl{list-style:none}.fl li{margin-bottom:9px}.fl a{font-size:12.5px;color:rgba(255,255,255,.22);transition:color .3s}.fl a:hover{color:var(--gold)}
+.fa{list-style:none;columns:2;column-gap:14px}.fa li{margin-bottom:7px}.fa a{font-size:11.5px;color:rgba(255,255,255,.18);transition:color .3s}.fa a:hover{color:var(--gold)}
+.fb{display:flex;justify-content:center;gap:clamp(12px,1.8vw,24px);padding:clamp(24px,3.5vw,40px) 0;border-bottom:1px solid rgba(255,255,255,.03);flex-wrap:wrap}
+.fb-i{font-family:var(--bd);font-weight:500;font-size:8.5px;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.28);padding:9px 18px;border:1px solid rgba(255,255,255,.05);display:flex;align-items:center;gap:7px}
+.fb-i svg{flex-shrink:0}
+.fx{display:flex;justify-content:space-between;align-items:center;padding:20px 0;max-width:1280px;margin:0 auto}
+.fx-c{font-size:9.5px;color:rgba(255,255,255,.08);letter-spacing:.06em}
+.fx-r{font-size:9.5px;color:rgba(255,255,255,.08)}
+.fx-r a{color:var(--gold);opacity:.35;transition:opacity .3s}.fx-r a:hover{opacity:1}
 
-/* ── Concept Banner ── */
-.concept{position:fixed;bottom:0;left:0;right:0;z-index:100;background:rgba(12,12,12,0.95);backdrop-filter:blur(16px);padding:12px 32px;display:flex;align-items:center;justify-content:center;gap:20px;border-top:1px solid var(--gold);transform:translateY(100%);animation:slideUp 0.6s 2s var(--ease) forwards}
-.concept span{font-family:var(--sans);font-size:12px;color:rgba(255,255,255,0.5)}
-.concept strong{color:var(--gold);font-weight:500}
-.concept a{font-family:var(--sans);font-weight:600;font-size:10px;letter-spacing:0.1em;text-transform:uppercase;background:var(--gold);color:var(--ink);padding:9px 24px;transition:background 0.3s}
-.concept a:hover{background:var(--white)}
-@keyframes slideUp{to{transform:translateY(0)}}
+/* === BANNER === */
+.bnn{position:fixed;bottom:0;left:0;right:0;z-index:100;background:rgba(11,11,11,.94);backdrop-filter:blur(16px);padding:11px 28px;display:flex;align-items:center;justify-content:center;gap:18px;border-top:1px solid var(--gold);transform:translateY(100%);animation:su .5s 2.2s var(--ease) forwards}
+.bnn span{font-family:var(--bd);font-size:11.5px;color:rgba(255,255,255,.45)}
+.bnn strong{color:var(--gold);font-weight:500}
+.bnn a{font-family:var(--bd);font-weight:600;font-size:10px;letter-spacing:.1em;text-transform:uppercase;background:var(--gold);color:var(--ink);padding:8px 22px;transition:background .3s}
+.bnn a:hover{background:var(--white)}
+@keyframes su{to{transform:translateY(0)}}
 
-/* ── Responsive ── */
+/* === RESPONSIVE === */
 @media(max-width:900px){
-  .nav-links{display:none}
-  .projects-grid{grid-template-columns:1fr}
-  .projects-grid-right{grid-template-rows:auto auto}
-  .projects-row-2{grid-template-columns:1fr 1fr}
-  .story-grid{grid-template-columns:1fr;gap:32px}
-  .story-image{order:-1;aspect-ratio:16/10}
-  .awards-inner{grid-template-columns:repeat(2,1fr);gap:24px}
-  .award-item::after{display:none}
-  .process-track{grid-template-columns:1fr 1fr}
-  .services-grid{grid-template-columns:1fr}
-  .footer-grid{grid-template-columns:1fr 1fr}
-  .concept{flex-direction:column;gap:8px;padding:10px 16px}
+  .n-l{display:none}
+  .pm{grid-template-columns:1fr;grid-template-rows:auto}
+  .pm .pc:first-child{grid-row:auto;aspect-ratio:16/9}
+  .pm .pc:not(:first-child){aspect-ratio:16/10}
+  .pr2{grid-template-columns:1fr 1fr}
+  .sg{grid-template-columns:1fr;gap:28px}
+  .si2{order:-1;aspect-ratio:auto}
+  .si2 img{aspect-ratio:16/10}
+  .nb{grid-template-columns:1fr 1fr}
+  .sv{grid-template-columns:1fr}
+  .prg{grid-template-columns:1fr 1fr}
+  .fg{grid-template-columns:1fr 1fr}
+  .bnn{flex-direction:column;gap:7px;padding:9px 14px}
 }
-@media(max-width:600px){
-  .projects-row-2{grid-template-columns:1fr}
-  .process-track{grid-template-columns:1fr}
-  .awards-inner{grid-template-columns:1fr 1fr}
+@media(max-width:540px){
+  .pr2{grid-template-columns:1fr}
+  .prg{grid-template-columns:1fr}
 }
 </style>
 </head>
 <body>
 
-<!-- Loader -->
-<div class="loader" id="loader">
-  <div class="loader-text">Marcraft Homes</div>
-  <div class="loader-line"></div>
-</div>
-
-<div class="progress" id="progress"></div>
-
-<!-- Nav -->
-<nav class="nav" id="nav">
-  <a class="nav-brand" href="#">Marcraft Homes</a>
-  <div class="nav-links">
-    <a href="#projects">Projects</a>
+<div class="pre" id="pre"><span>Marcraft Homes</span></div>
+<nav class="n" id="nav">
+  <a class="n-b" href="#">Marcraft Homes</a>
+  <div class="n-l">
+    <a href="#work">Projects</a>
     <a href="#story">Our Story</a>
-    <a href="#services">Services</a>
-    <a href="#process">Process</a>
-    <a href="#contact" class="nav-cta">Contact Us</a>
+    <a href="#what">Services</a>
+    <a href="#how">Process</a>
+    <a href="#go" class="n-c">Contact Us</a>
   </div>
 </nav>
 
-<!-- Hero -->
-<section class="hero" id="hero">
-  <div class="hero-bg" id="heroBg" style="background-image:url('http://www.marcrafthomes.com/uploads/4/2/2/3/42232407/background-images/160775493.jpg')"></div>
-  <div class="hero-inner">
-    <div class="hero-badge">Gold Georgie Award Winner &middot; Est. 2003</div>
-    <h1>Building Beyond<br><em>Luxury</em></h1>
-    <p class="hero-sub">For over 22 years, the Jauck family has built award-winning custom homes across Port Moody, Anmore, and the Tri-Cities. 13 Georgie Award nominations and counting.</p>
-    <div class="hero-actions">
-      <a href="#projects" class="btn btn-gold">View Our Work</a>
-      <a href="#contact" class="btn btn-outline">Start Your Project</a>
+<section class="h" id="top">
+  <div class="h-img" id="hbg"></div>
+  <div class="h-c">
+    <div class="h-e">Gold Georgie Award Winner &middot; Est. 2003</div>
+    <h1>Building Beyond<br><i>Luxury</i></h1>
+    <p class="h-s">For over 22 years, the Jauck family has built award-winning custom homes across Port Moody, Anmore, and the Tri-Cities.</p>
+    <div class="h-a">
+      <a href="#work" class="btn bg">View Our Work</a>
+      <a href="#go" class="btn bo">Start Your Project</a>
     </div>
   </div>
-  <div class="scroll-cue"><span>Scroll</span><div class="scroll-cue-line"></div></div>
 </section>
 
-<!-- Awards Bar -->
-<div class="awards-bar">
-  <div class="awards-inner">
-    <div class="award-item reveal"><div class="award-val" data-count="22">22</div><div class="award-label">Years Building</div></div>
-    <div class="award-item reveal d1"><div class="award-val" data-count="13">13</div><div class="award-label">Georgie Nominations</div></div>
-    <div class="award-item reveal d2"><div class="award-val">Gold</div><div class="award-label">Builder of the Year</div></div>
-    <div class="award-item reveal d3"><div class="award-val">A+</div><div class="award-label">BBB Rating</div></div>
-  </div>
+<div class="nb">
+  <div class="ni r"><div class="nv">22</div><div class="nl">Years Building</div></div>
+  <div class="ni r d1"><div class="nv">13</div><div class="nl">Georgie Nominations</div></div>
+  <div class="ni r d2"><div class="nv">Gold</div><div class="nl">Builder of the Year</div></div>
+  <div class="ni r d3"><div class="nv">A+</div><div class="nl">BBB Rating</div></div>
 </div>
 
-<!-- Projects -->
-<section class="section" id="projects">
-  <div class="section-inner">
-    <div class="eyebrow reveal">Featured Projects</div>
-    <h2 class="reveal d1">Award-Winning Homes<br>Across the <em>Tri-Cities</em></h2>
-    <p class="lead reveal d2">Every project reflects our commitment to exceptional craftsmanship, thoughtful design, and the highest standard of livability.</p>
+<section class="sc" id="work">
+  <div class="si">
+    <div class="ey r">Featured Projects</div>
+    <h2 class="r d1">Award-Winning Homes<br>Across the <i>Tri-Cities</i></h2>
+    <p class="ld r d2">Every project reflects 22 years of uncompromising craftsmanship and the Jauck family's commitment to building homes that stand apart.</p>
 
-    <div class="projects-grid reveal d3">
-      <div class="project-card">
-        <img src="http://www.marcrafthomes.com/uploads/4/2/2/3/42232407/background-images/1716058554.jpg" alt="TEN80 Uplands — Anmore's first luxury net-zero home" loading="lazy">
-        <div class="project-overlay">
-          <div class="project-name">TEN80 Uplands</div>
-          <div class="project-meta">Anmore, BC &middot; 8,227 sq ft</div>
-          <div class="project-tag">Net-Zero &middot; 2x Georgie Finalist</div>
+    <div class="pm r d3">
+      <div class="pc">
+        <img src="https://mattanthonyphoto.github.io/matt-proposals/marcraft/assets/gallery.jpg" alt="TEN80 Uplands — Anmore's first luxury net-zero home by Marcraft Homes" loading="lazy">
+        <div class="po">
+          <div class="pn">TEN80 Uplands</div>
+          <div class="pm2">Anmore, BC &middot; 8,227 sq ft</div>
+          <div class="pt">Net-Zero &middot; 2x Georgie Finalist</div>
         </div>
       </div>
-      <div class="projects-grid-right">
-        <div class="project-card">
-          <img src="http://www.marcrafthomes.com/uploads/4/2/2/3/42232407/background-images/1328074027.jpg" alt="The Inlet House — Port Moody luxury custom home" loading="lazy">
-          <div class="project-overlay">
-            <div class="project-name">The Inlet House</div>
-            <div class="project-meta">Port Moody, BC</div>
-            <div class="project-tag">3x Georgie Finalist 2023</div>
-          </div>
+      <div class="pc">
+        <img src="https://mattanthonyphoto.github.io/matt-proposals/marcraft/assets/about_bg.jpg" alt="The Inlet House — Port Moody custom home, 3x Georgie finalist" loading="lazy">
+        <div class="po">
+          <div class="pn">The Inlet House</div>
+          <div class="pm2">Port Moody, BC</div>
+          <div class="pt">3x Georgie Finalist 2023</div>
         </div>
-        <div class="project-card">
-          <img src="http://www.marcrafthomes.com/uploads/4/2/2/3/42232407/background-images/371872875.jpg" alt="The Terraces — Gold Georgie Award winning home in Anmore" loading="lazy">
-          <div class="project-overlay">
-            <div class="project-name">The Terraces</div>
-            <div class="project-meta">Ridgewood Estates, Anmore</div>
-            <div class="project-tag">Gold Georgie Winner</div>
-          </div>
+      </div>
+      <div class="pc">
+        <img src="https://mattanthonyphoto.github.io/matt-proposals/marcraft/assets/recognition_bg.jpg" alt="The Terraces — Gold Georgie Award winning home in Ridgewood Estates, Anmore" loading="lazy">
+        <div class="po">
+          <div class="pn">The Terraces</div>
+          <div class="pm2">Ridgewood Estates, Anmore</div>
+          <div class="pt">Gold Georgie Winner</div>
         </div>
       </div>
     </div>
 
-    <div class="projects-row-2 reveal d4">
-      <div class="project-card project-card-sm">
-        <img src="http://www.marcrafthomes.com/uploads/4/2/2/3/42232407/background-images/512812225.jpg" alt="Copper Beech Estates — Burke Mountain luxury homes" loading="lazy">
-        <div class="project-overlay">
-          <div class="project-name">Copper Beech Estates</div>
-          <div class="project-meta">Burke Mountain &middot; 7 Homes &middot; Sold Out</div>
+    <div class="pr2 r d4">
+      <div class="pc">
+        <img src="https://mattanthonyphoto.github.io/matt-proposals/marcraft/assets/commercial_bg.jpg" alt="Copper Beech Estates — Burke Mountain luxury development by Marcraft Homes" loading="lazy">
+        <div class="po">
+          <div class="pn">Copper Beech Estates</div>
+          <div class="pm2">Burke Mountain &middot; 7 Homes &middot; Sold Out</div>
         </div>
       </div>
-      <div class="project-card project-card-sm">
-        <img src="http://www.marcrafthomes.com/uploads/4/2/2/3/42232407/background-images/2058304869.jpg" alt="Anmore Woods — Custom homes on Ravenswood Drive" loading="lazy">
-        <div class="project-overlay">
-          <div class="project-name">Anmore Woods</div>
-          <div class="project-meta">Ravenswood Dr, Anmore</div>
+      <div class="pc">
+        <img src="https://mattanthonyphoto.github.io/matt-proposals/marcraft/assets/renovation_bg.jpg" alt="Anmore Woods — Marcraft Homes newest luxury enclave" loading="lazy">
+        <div class="po">
+          <div class="pn">Anmore Woods</div>
+          <div class="pm2">Ravenswood Dr, Anmore</div>
         </div>
       </div>
-      <div class="project-card project-card-sm">
-        <img src="http://www.marcrafthomes.com/uploads/4/2/2/3/42232407/7182779.jpg?475" alt="Marcraft Homes renovation project in Port Moody" loading="lazy">
-        <div class="project-overlay">
-          <div class="project-name">Renovations</div>
-          <div class="project-meta">Port Moody &middot; Belcarra &middot; Anmore</div>
+      <div class="pc">
+        <img src="https://mattanthonyphoto.github.io/matt-proposals/marcraft/assets/renovation.jpg" alt="Marcraft Homes luxury renovation in Port Moody" loading="lazy">
+        <div class="po">
+          <div class="pn">Renovations</div>
+          <div class="pm2">Port Moody &middot; Belcarra &middot; Anmore</div>
         </div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Photo Break -->
-<div class="photo-break">
-  <img src="http://www.marcrafthomes.com/uploads/4/2/2/3/42232407/background-images/1328074027.jpg" alt="Marcraft Homes luxury interior" loading="lazy">
-</div>
+<div class="brk"><img src="https://mattanthonyphoto.github.io/matt-proposals/marcraft/assets/hero.jpg" alt="Marcraft Homes luxury custom home" loading="lazy"></div>
 
-<!-- Story -->
-<section class="section" id="story">
-  <div class="section-inner">
-    <div class="story-grid">
-      <div class="story-image reveal">
-        <img src="http://www.marcrafthomes.com/uploads/4/2/2/3/42232407/984229.jpg" alt="The Marcraft Homes team" loading="lazy">
+<section class="sc" id="story">
+  <div class="si">
+    <div class="sg">
+      <div class="si2 r">
+        <img src="https://mattanthonyphoto.github.io/matt-proposals/marcraft/assets/team.jpg" alt="Mark, Matt, and Andrea Jauck — Marcraft Homes family team" loading="lazy">
       </div>
-      <div class="story-text">
-        <div class="eyebrow reveal">Our Story</div>
-        <h2 class="reveal d1">A Family <em>Legacy</em><br>in Building</h2>
-        <div class="story-accent reveal d2"></div>
-        <p class="reveal d3">Founded by Mark Jauck in 2003, Marcraft Homes has grown from a single builder's vision into one of the Tri-Cities' most respected luxury home builders. Today, the Jauck family carries that vision forward together.</p>
-        <p class="reveal d4">Matt Jauck, a BCIT Architectural Technology graduate, leads construction management with the precision and technical knowledge that complex builds demand. Andrea Jauck brings the client experience to life through sales, marketing, and her deep understanding of the communities we build in.</p>
-        <p class="reveal d5">From Anmore's first net-zero luxury home to Gold Georgie Award-winning interiors, our work speaks to a simple belief: every home should be as extraordinary as the people who live in it.</p>
-        <div class="story-sig reveal d5">Mark, Matt & Andrea Jauck</div>
+      <div class="st">
+        <div class="ey r">Our Story</div>
+        <h2 class="r d1">A Family<br><i>Legacy</i> in Building</h2>
+        <div class="ac r d2"></div>
+        <p class="r d3">Founded by Mark Jauck in 2003, Marcraft Homes has grown from a single builder's vision into one of the Tri-Cities' most respected luxury home builders.</p>
+        <p class="r d4">Matt Jauck, a BCIT Architectural Technology graduate, leads construction with the precision and technical depth that complex builds demand. Andrea Jauck brings the client experience to life through her deep understanding of the communities we build in.</p>
+        <p class="r d4">From Anmore's first luxury net-zero home to Gold Georgie Award-winning interiors, our work speaks to one belief: every home should be as extraordinary as the people who live in it.</p>
+        <div class="sig r d4">Mark, Matt & Andrea Jauck</div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- Testimonial -->
-<section class="testimonial">
-  <div class="reveal">
+<section class="qt">
+  <div class="r">
     <blockquote>I would like to express my heartfelt thanks for the stunning home you built for me. It turned out better than I ever imagined. Building a home can be an overwhelming undertaking, but Marcraft helped me through every step of the process.</blockquote>
-    <cite>Marcraft Client &middot; Port Moody</cite>
+    <cite>Marcraft Homes Client &middot; Port Moody</cite>
   </div>
 </section>
 
-<!-- Services -->
-<section class="section" id="services" style="background:var(--white)">
-  <div class="section-inner">
-    <div class="eyebrow reveal">What We Build</div>
-    <h2 class="reveal d1">Comprehensive<br><em>Building Services</em></h2>
-
-    <div class="services-grid">
-      <div class="service-card reveal d1">
-        <div class="service-num">01</div>
-        <h4>Custom Homes</h4>
-        <p>Ground-up luxury residences designed around your lifestyle, built with uncompromising attention to detail. From contemporary estates to fir post-and-beam timber homes.</p>
-      </div>
-      <div class="service-card reveal d2">
-        <div class="service-num">02</div>
-        <h4>Net-Zero Builds</h4>
-        <p>Pioneering sustainable luxury with homes like TEN80 Uplands, Anmore's first net-zero residence. Solar integration, Tesla Powerwalls, and rainwater harvesting built into the design.</p>
-      </div>
-      <div class="service-card reveal d3">
-        <div class="service-num">03</div>
-        <h4>Renovations</h4>
-        <p>Complete home transformations across Port Moody, Belcarra, and Anmore. Heritage restorations to modern overhauls, each treated with the same care as a new build.</p>
-      </div>
-      <div class="service-card reveal d1">
-        <div class="service-num">04</div>
-        <h4>Multi-Home Developments</h4>
-        <p>Exclusive small-scale developments like Copper Beech Estates on Burke Mountain — seven luxury homes, sold out. Community-scale vision with custom-home quality.</p>
-      </div>
-      <div class="service-card reveal d2">
-        <div class="service-num">05</div>
-        <h4>Commercial</h4>
-        <p>Commercial construction with the same craftsmanship standards we bring to residential. From tenant improvements to ground-up commercial builds.</p>
-      </div>
-      <div class="service-card reveal d3">
-        <div class="service-num">06</div>
-        <h4>Project Management</h4>
-        <p>Full-service construction management with transparent budgets, regular updates, and a single point of accountability from permits to final walkthrough.</p>
-      </div>
+<section class="sc" id="what" style="background:var(--white)">
+  <div class="si">
+    <div class="ey r">What We Build</div>
+    <h2 class="r d1">Comprehensive<br><i>Building</i> Services</h2>
+    <div class="sv">
+      <div class="svc r d1"><div class="svc-n">01</div><h4>Custom Homes</h4><p>Ground-up luxury residences designed for your lifestyle. Contemporary estates, post-and-beam timber homes, and everything in between.</p></div>
+      <div class="svc r d2"><div class="svc-n">02</div><h4>Net-Zero Builds</h4><p>Pioneering sustainable luxury. TEN80 Uplands, Anmore's first net-zero home, features 42 solar panels, Tesla Powerwalls, and rainwater harvesting.</p></div>
+      <div class="svc r d3"><div class="svc-n">03</div><h4>Renovations</h4><p>Complete home transformations across Port Moody, Belcarra, and Anmore. Heritage restorations to modern overhauls, treated with the same care as a new build.</p></div>
+      <div class="svc r d1"><div class="svc-n">04</div><h4>Multi-Home Estates</h4><p>Exclusive small-scale developments like Copper Beech Estates on Burke Mountain. Seven luxury homes, sold out. Community-scale vision, custom-home quality.</p></div>
+      <div class="svc r d2"><div class="svc-n">05</div><h4>Commercial</h4><p>Commercial construction held to the same craftsmanship standard we bring to our residential work. Tenant improvements to ground-up builds.</p></div>
+      <div class="svc r d3"><div class="svc-n">06</div><h4>Project Management</h4><p>Single-point accountability from permits to final walkthrough. Transparent budgets, weekly updates, and proactive problem-solving.</p></div>
     </div>
   </div>
 </section>
 
-<!-- Process -->
-<section class="section" id="process" style="padding-bottom:0">
-  <div class="section-inner">
-    <div class="eyebrow reveal">Our Process</div>
-    <h2 class="reveal d1">How We <em>Build</em></h2>
-    <p class="lead reveal d2">A proven approach refined over 22 years and hundreds of builds.</p>
+<section class="sc" id="how" style="padding-bottom:0">
+  <div class="si">
+    <div class="ey r">Our Process</div>
+    <h2 class="r d1">How We <i>Build</i></h2>
+    <p class="ld r d2">A proven approach refined over 22 years and hundreds of builds.</p>
   </div>
-  <div class="process-track" style="margin-top:clamp(40px,5vw,64px)">
-    <div class="process-step reveal d1">
-      <div class="process-num">01</div>
-      <h4>Discovery & Vision</h4>
-      <p>We start with your vision. Understanding how you live, what matters to you, and what success looks like for this project.</p>
-    </div>
-    <div class="process-step reveal d2">
-      <div class="process-num">02</div>
-      <h4>Design & Planning</h4>
-      <p>Working with architects and designers to develop plans that balance your ambitions with practical building wisdom.</p>
-    </div>
-    <div class="process-step reveal d3">
-      <div class="process-num">03</div>
-      <h4>Construction</h4>
-      <p>Meticulous execution with weekly updates, proactive problem-solving, and the kind of quality control that wins Georgie Awards.</p>
-    </div>
-    <div class="process-step reveal d4">
-      <div class="process-num">04</div>
-      <h4>Your Home</h4>
-      <p>A comprehensive walkthrough, full warranty, and the confidence that comes from building with a family that stands behind their work.</p>
-    </div>
+  <div class="prg" style="margin-top:clamp(36px,4.5vw,56px)">
+    <div class="prs r d1"><div class="prs-n">01</div><h4>Discovery</h4><p>We start with your vision. How you live, what matters, and what success looks like for this project.</p></div>
+    <div class="prs r d2"><div class="prs-n">02</div><h4>Design</h4><p>Working with architects and designers to develop plans that balance ambition with practical building wisdom.</p></div>
+    <div class="prs r d3"><div class="prs-n">03</div><h4>Construction</h4><p>Meticulous execution with weekly updates, proactive management, and the quality control that wins Georgie Awards.</p></div>
+    <div class="prs r d4"><div class="prs-n">04</div><h4>Your Home</h4><p>A comprehensive walkthrough, full warranty, and the confidence of building with a family that stands behind their work.</p></div>
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-section" id="contact">
-  <div class="reveal">
-    <h3>Ready to Build Something<br>Extraordinary?</h3>
+<section class="cta" id="go">
+  <div class="r">
+    <h3>Ready to Build Something Extraordinary?</h3>
     <p>Let's talk about your vision for a custom home in the Tri-Cities.</p>
-    <a href="mailto:info@marcrafthomes.com" class="btn btn-dark">Start a Conversation</a>
+    <a href="mailto:info@marcrafthomes.com" class="btn bd">Start a Conversation</a>
   </div>
 </section>
 
-<!-- Footer -->
-<footer class="footer" itemscope itemtype="https://schema.org/HomeAndConstructionBusiness">
-  <div class="footer-inner">
-    <div class="footer-grid">
+<footer class="ft" itemscope itemtype="https://schema.org/HomeAndConstructionBusiness">
+  <div class="fi">
+    <div class="fg">
       <div>
         <h5>Marcraft Homes</h5>
-        <p class="footer-desc" itemprop="description">Award-winning luxury custom home builder serving Port Moody, Anmore, and the Tri-Cities since 2003. 13 Georgie Award nominations. Gold Award-winning craftsmanship.</p>
-        <div class="footer-contact-row">
-          <span class="footer-label">Phone</span>
-          <span class="footer-val" itemprop="telephone"><a href="tel:6044612560">(604) 461-2560</a></span>
-        </div>
-        <div class="footer-contact-row">
-          <span class="footer-label">Email</span>
-          <span class="footer-val" itemprop="email"><a href="mailto:info@marcrafthomes.com">info@marcrafthomes.com</a></span>
-        </div>
+        <p class="fd" itemprop="description">Award-winning luxury custom home builder serving Port Moody, Anmore, and the Tri-Cities since 2003. 13 Georgie Award nominations. Gold Award-winning craftsmanship.</p>
+        <div class="fc"><span class="fc-l">Phone</span><span class="fc-v" itemprop="telephone"><a href="tel:6044612560">(604) 461-2560</a></span></div>
+        <div class="fc"><span class="fc-l">Email</span><span class="fc-v" itemprop="email"><a href="mailto:info@marcrafthomes.com">info@marcrafthomes.com</a></span></div>
       </div>
-      <div>
-        <h5>Company</h5>
-        <ul class="footer-links">
-          <li><a href="#projects">Projects</a></li>
-          <li><a href="#story">Our Story</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#process">Process</a></li>
-          <li><a href="#">Recognition</a></li>
-          <li><a href="#contact">Contact</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Services</h5>
-        <ul class="footer-links">
-          <li><a href="#services">Custom Homes</a></li>
-          <li><a href="#services">Net-Zero Builds</a></li>
-          <li><a href="#services">Renovations</a></li>
-          <li><a href="#services">Developments</a></li>
-          <li><a href="#services">Commercial</a></li>
-        </ul>
-      </div>
-      <div>
-        <h5>Service Areas</h5>
-        <ul class="footer-areas" itemprop="areaServed">
-          <li><a href="#">Port Moody</a></li>
-          <li><a href="#">Anmore</a></li>
-          <li><a href="#">Belcarra</a></li>
-          <li><a href="#">Coquitlam</a></li>
-          <li><a href="#">Burke Mountain</a></li>
-          <li><a href="#">Burnaby</a></li>
-          <li><a href="#">North Vancouver</a></li>
-          <li><a href="#">West Vancouver</a></li>
-        </ul>
-      </div>
+      <div><h5>Company</h5><ul class="fl"><li><a href="#work">Projects</a></li><li><a href="#story">Our Story</a></li><li><a href="#what">Services</a></li><li><a href="#how">Process</a></li><li><a href="#">Recognition</a></li><li><a href="#go">Contact</a></li></ul></div>
+      <div><h5>Services</h5><ul class="fl"><li><a href="#what">Custom Homes</a></li><li><a href="#what">Net-Zero Builds</a></li><li><a href="#what">Renovations</a></li><li><a href="#what">Developments</a></li><li><a href="#what">Commercial</a></li></ul></div>
+      <div><h5>Service Areas</h5><ul class="fa" itemprop="areaServed"><li><a href="#">Port Moody</a></li><li><a href="#">Anmore</a></li><li><a href="#">Belcarra</a></li><li><a href="#">Coquitlam</a></li><li><a href="#">Burke Mountain</a></li><li><a href="#">Burnaby</a></li><li><a href="#">North Van</a></li><li><a href="#">West Van</a></li></ul></div>
     </div>
-
-    <meta itemprop="name" content="Marcraft Homes">
-    <meta itemprop="url" content="https://marcrafthomes.com">
-
-    <div class="footer-badges">
-      <div class="footer-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/><path d="M9 12l2 2 4-4"/></svg>13x Georgie Finalist</div>
-      <div class="footer-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/><path d="M9 12l2 2 4-4"/></svg>Gold Georgie Winner</div>
-      <div class="footer-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/><path d="M9 12l2 2 4-4"/></svg>BBB A+ Rating</div>
-      <div class="footer-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/><path d="M9 12l2 2 4-4"/></svg>GVHBA Member</div>
-      <div class="footer-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/><path d="M9 12l2 2 4-4"/></svg>RENOMARK Certified</div>
-      <div class="footer-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/><path d="M9 12l2 2 4-4"/></svg>BC Housing Licensed</div>
+    <meta itemprop="name" content="Marcraft Homes"><meta itemprop="url" content="https://marcrafthomes.com">
+    <div class="fb">
+      <div class="fb-i"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/><path d="M9 12l2 2 4-4"/></svg>13x Georgie Finalist</div>
+      <div class="fb-i"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/><path d="M9 12l2 2 4-4"/></svg>Gold Georgie Winner</div>
+      <div class="fb-i"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/><path d="M9 12l2 2 4-4"/></svg>BBB A+ Rating</div>
+      <div class="fb-i"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/><path d="M9 12l2 2 4-4"/></svg>GVHBA Member</div>
+      <div class="fb-i"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/><path d="M9 12l2 2 4-4"/></svg>RENOMARK Certified</div>
+      <div class="fb-i"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/><path d="M9 12l2 2 4-4"/></svg>BC Housing Licensed</div>
     </div>
-
-    <div class="footer-bottom">
-      <div class="footer-copy">&copy; 2026 Marcraft Homes Ltd. All rights reserved.</div>
-      <div class="footer-credit">Website concept by <a href="https://mattanthonyphoto.com/discovery-call" target="_blank">Matt Anthony Photography</a></div>
+    <div class="fx">
+      <div class="fx-c">&copy; 2026 Marcraft Homes Ltd.</div>
+      <div class="fx-r">Website concept by <a href="https://mattanthonyphoto.com/discovery-call" target="_blank">Matt Anthony Photography</a></div>
     </div>
   </div>
 </footer>
 
-<!-- JSON-LD -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "HomeAndConstructionBusiness",
-  "name": "Marcraft Homes",
-  "url": "https://marcrafthomes.com",
-  "telephone": "(604) 461-2560",
-  "email": "info@marcrafthomes.com",
-  "foundingDate": "2003",
-  "founder": {"@type": "Person", "name": "Mark Jauck"},
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Port Moody",
-    "addressRegion": "BC",
-    "addressCountry": "CA"
-  },
-  "areaServed": [
-    {"@type": "City", "name": "Port Moody"},
-    {"@type": "City", "name": "Anmore"},
-    {"@type": "City", "name": "Coquitlam"},
-    {"@type": "City", "name": "Belcarra"},
-    {"@type": "City", "name": "Burnaby"}
-  ],
-  "hasOfferCatalog": {
-    "@type": "OfferCatalog",
-    "name": "Services",
-    "itemListElement": [
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Custom Home Construction"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Net-Zero Home Building"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Home Renovations"}},
-      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Commercial Construction"}}
-    ]
-  },
-  "award": ["Gold Georgie Award - Builder of the Year", "13x Georgie Award Finalist"],
-  "description": "Award-winning luxury custom home builder serving Port Moody, Anmore, and the Tri-Cities since 2003."
-}
-</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"HomeAndConstructionBusiness","name":"Marcraft Homes","url":"https://marcrafthomes.com","telephone":"(604) 461-2560","email":"info@marcrafthomes.com","foundingDate":"2003","founder":{"@type":"Person","name":"Mark Jauck"},"address":{"@type":"PostalAddress","addressLocality":"Port Moody","addressRegion":"BC","addressCountry":"CA"},"areaServed":[{"@type":"City","name":"Port Moody"},{"@type":"City","name":"Anmore"},{"@type":"City","name":"Coquitlam"},{"@type":"City","name":"Belcarra"},{"@type":"City","name":"Burnaby"}],"award":["Gold Georgie Award - Builder of the Year","13x Georgie Award Finalist"],"description":"Award-winning luxury custom home builder serving Port Moody, Anmore, and the Tri-Cities since 2003."}</script>
 
-<!-- Concept Banner -->
-<div class="concept">
-  <span>This is a <strong>website concept</strong> designed for Marcraft Homes by Matt Anthony Photography</span>
-  <a href="https://mattanthonyphoto.com/discovery-call" target="_blank">Book a Discovery Call</a>
-</div>
+<div class="bnn"><span>This is a <strong>website concept</strong> designed for Marcraft Homes by Matt Anthony Photography</span><a href="https://mattanthonyphoto.com/discovery-call" target="_blank">Book a Discovery Call</a></div>
 
 <script>
 (function(){
-  // Loader
-  window.addEventListener('load',function(){document.getElementById('loader').classList.add('done')});
-  setTimeout(function(){document.getElementById('loader').classList.add('done')},2200);
-
-  // Scroll
-  var prog=document.getElementById('progress'),nav=document.getElementById('nav'),heroBg=document.getElementById('heroBg'),ticking=false;
-  function onScroll(){
-    var h=document.documentElement.scrollHeight-window.innerHeight;
-    prog.style.width=h>0?(scrollY/h*100)+'%':'0%';
-    nav.classList.toggle('scrolled',scrollY>80);
-    if(scrollY<innerHeight&&heroBg)heroBg.style.transform='scale(1.05) translateY('+scrollY*0.15+'px)';
+  addEventListener('load',function(){document.getElementById('pre').classList.add('off')});
+  setTimeout(function(){document.getElementById('pre').classList.add('off')},2e3);
+  var n=document.getElementById('nav'),hbg=document.getElementById('hbg'),t=false;
+  function s(){
+    n.classList.toggle('s',scrollY>70);
+    if(scrollY<innerHeight&&hbg)hbg.style.transform='scale(1.04) translateY('+scrollY*.12+'px)';
   }
-  addEventListener('scroll',function(){if(!ticking){requestAnimationFrame(function(){onScroll();ticking=false});ticking=true}});
-
-  // Reveal
+  addEventListener('scroll',function(){if(!t){requestAnimationFrame(function(){s();t=false});t=true}});
   if('IntersectionObserver' in window){
-    var obs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.classList.add('vis');obs.unobserve(en.target)}})},{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
-    document.querySelectorAll('.reveal,.eyebrow').forEach(function(el){obs.observe(el)});
-  }else document.querySelectorAll('.reveal,.eyebrow').forEach(function(el){el.classList.add('vis')});
-
-  // Counter animation
-  var counters=document.querySelectorAll('[data-count]');
-  if('IntersectionObserver' in window){
-    var cObs=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){
-      var t=parseInt(en.target.getAttribute('data-count'));if(isNaN(t))return;
-      var d=1000,s=performance.now();
-      function ease(x){return x<0.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2}
-      function tick(now){var p=Math.min((now-s)/d,1);en.target.textContent=Math.round(ease(p)*t);if(p<1)requestAnimationFrame(tick)}
-      requestAnimationFrame(tick);cObs.unobserve(en.target);
-    }})},{threshold:0.5});
-    counters.forEach(function(el){cObs.observe(el)});
-  }
-
-  // Smooth scroll
-  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}})});
-
-  onScroll();
+    var o=new IntersectionObserver(function(e){e.forEach(function(en){if(en.isIntersecting){en.target.classList.add('v');o.unobserve(en.target)}})},{threshold:.08,rootMargin:'0px 0px -28px 0px'});
+    document.querySelectorAll('.r,.ey').forEach(function(el){o.observe(el)});
+  }else document.querySelectorAll('.r,.ey').forEach(function(el){el.classList.add('v')});
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){a.addEventListener('click',function(e){var t=document.querySelector(this.getAttribute('href'));if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth'})}})});
+  s();
 })();
 </script>
 </body>
