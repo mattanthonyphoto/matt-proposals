@@ -1148,9 +1148,9 @@
 
 <!-- WEBSITE MOCKUP PREVIEW -->
 <div class="section cream" data-nav="Website">
-  <div class="eyebrow">12-Month Bonus</div>
-  <h2>Commit to the year.<br><em>Get a new website.</em></h2>
-  <p class="lead">Sign a 12-month Creative Partner agreement at any tier and I'll rebuild lrdstudio.ca from the ground up. Full custom Squarespace build, SEO baked into every page, schema markup, proper alt text, service area targeting, and a design that matches the calibre of your work.</p>
+  <div class="eyebrow">Included</div>
+  <h2>A new website.<br><em>Built for what we're doing.</em></h2>
+  <p class="lead">For me to do this work properly, your site needs to be rebuilt from the ground up. So it's included. Full custom Squarespace build with SEO baked into every page, schema markup, proper alt text, service area targeting, and a design that matches the calibre of your work.</p>
 
   <p>I've already started. Before we even sat down for coffee, I built a full homepage concept for LRD Studio. Not a template. A custom design based on your brand, your projects, and the structure your site needs.</p>
 
@@ -1169,7 +1169,7 @@
 
   <div class="insight" style="margin-top:40px;">
     <h4>What's Included in the Rebuild</h4>
-    <p>Full responsive Squarespace build: project grid, services, team bio, testimonial, process timeline, and contact. SEO-optimized structure with schema markup, proper alt text on every image, and service area targeting throughout. <strong>Included at no additional cost with a 12-month commitment.</strong></p>
+    <p>Full responsive Squarespace build: project grid, services, team bio, testimonial, process timeline, and contact. SEO-optimized structure with schema markup, proper alt text on every image, and service area targeting throughout. <strong>Included with the retainer. 6-month minimum commitment.</strong></p>
   </div>
 </div>
 
@@ -1358,14 +1358,10 @@
       </div>
     </div>
 
-    <!-- Commitment length -->
+    <!-- Commitment -->
     <div style="margin-bottom:28px;">
-      <div style="font-size:0.75rem;color:var(--stone);font-family:'Josefin Sans',sans-serif;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;">Commitment</div>
-      <div style="display:flex;gap:2px;">
-        <button class="commit-btn" data-commit="month-to-month" style="flex:1;padding:14px 20px;background:var(--white);border:1px solid var(--gold-border);font-family:'DM Sans',sans-serif;font-size:0.85rem;color:var(--stone);cursor:pointer;transition:all 0.3s;text-align:center;">Month-to-Month</button>
-        <button class="commit-btn" data-commit="6-month" style="flex:1;padding:14px 20px;background:var(--white);border:1px solid var(--gold-border);font-family:'DM Sans',sans-serif;font-size:0.85rem;color:var(--stone);cursor:pointer;transition:all 0.3s;text-align:center;">6 Months</button>
-        <button class="commit-btn selected" data-commit="12-month" style="flex:1;padding:14px 20px;background:var(--ink);border:1px solid var(--ink);font-family:'DM Sans',sans-serif;font-size:0.85rem;color:var(--paper);cursor:pointer;transition:all 0.3s;text-align:center;">12 Months<br><span style="font-size:0.7rem;opacity:0.6;">+ free website rebuild</span></button>
-      </div>
+      <div style="font-size:0.75rem;color:var(--stone);font-family:'Josefin Sans',sans-serif;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;">Commitment</div>
+      <div style="font-size:0.9rem;color:var(--ink);">6-month minimum &mdash; includes full website rebuild</div>
     </div>
 
     <!-- Notes -->
@@ -1586,38 +1582,20 @@
     }
   });
 
-  /* COMMITMENT BUTTONS */
-  var selectedCommit = '12-month';
-  var commitBtns = document.querySelectorAll('.commit-btn');
-  commitBtns.forEach(function(btn){
-    btn.addEventListener('click', function(){
-      selectedCommit = btn.getAttribute('data-commit');
-      commitBtns.forEach(function(b){
-        b.style.background = 'var(--white)';
-        b.style.color = 'var(--stone)';
-        b.style.borderColor = 'var(--gold-border)';
-      });
-      btn.style.background = 'var(--ink)';
-      btn.style.color = 'var(--paper)';
-      btn.style.borderColor = 'var(--ink)';
-    });
-  });
-
   /* APPROVAL SUBMIT */
   window.submitApproval = function(){
     var selectedTier = document.querySelector('.tier.selected');
     var tierKey = selectedTier ? selectedTier.getAttribute('data-tier') : null;
     var tierLabel = tierKey && tierNames[tierKey] ? tierNames[tierKey] : 'No tier selected';
     var notes = (document.getElementById('approvalNotes').value || '').trim();
-    var websiteIncluded = selectedCommit === '12-month' ? 'Yes (included with 12-month commitment)' : 'No (separate quote requested)';
 
     var subject = encodeURIComponent('LRD Studio — Creative Partner Approval');
     var body = encodeURIComponent(
       'Hi Matt,\n\n' +
       'I\'d like to move forward with the Creative Partner retainer.\n\n' +
       'Selected Tier: ' + tierLabel + '\n' +
-      'Commitment: ' + selectedCommit + '\n' +
-      'Website Rebuild: ' + websiteIncluded + '\n' +
+      'Commitment: 6-month minimum\n' +
+      'Website Rebuild: Included\n' +
       (notes ? '\nNotes: ' + notes + '\n' : '') +
       '\nLooking forward to getting started.\n\n' +
       'Lauren Ritz\nLRD Studio'
