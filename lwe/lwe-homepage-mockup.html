@@ -3,23 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>LWE Builders — Custom Home Designers and Builders in Fernie, BC</title>
+<title>LWE Builders — Custom home builders in Fernie, BC. Building mountain homes </title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 
 :root{
-  --primary: #666;
-  --accent: #32373c;
+  --primary: #1B1B1B;
+  --accent: #C9A96E;
   --accent-bg: #F6F4F0;
   --light: #FFFFFF;
-  --dark: #666;
+  --dark: #1A1A18;
   --body-text: #575757;
   --border: rgba(0,0,0,0.06);
-  --font-heading: 'Roboto', sans-serif;
-  --font-body: 'Open Sans', sans-serif;
+  --font-heading: 'Cormorant Garamond', sans-serif;
+  --font-body: 'DM Sans', sans-serif;
 }
 
 html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
@@ -153,8 +153,26 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
 
 /* ── Services ── */
 
+.services-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:0;margin-top:56px}
+.service-card{padding:clamp(32px,3.5vw,48px);border:1px solid var(--border);border-left:3px solid transparent;margin:-0.5px;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);position:relative;overflow:hidden}
+.service-card:hover{background:var(--accent-bg);border-color:transparent;border-left-color:var(--accent);box-shadow:0 12px 40px rgba(0,0,0,0.04)}
+.service-card h4{font-family:var(--font-heading);font-size:clamp(16px,1.4vw,20px);margin-bottom:12px;transition:color 0.3s}
+.service-card p{font-size:clamp(13px,1vw,14px);color:var(--body-text);line-height:1.75}
+.service-card-num{font-family:var(--font-heading);font-size:clamp(48px,4vw,64px);color:var(--primary);opacity:0.06;position:absolute;top:16px;right:20px;line-height:1}
+
 
 /* ── Process ── */
+
+.process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:56px;background:var(--dark);position:relative}
+.process-card{padding:clamp(32px,3.5vw,48px);border-right:1px solid rgba(255,255,255,0.05);transition:all 0.4s;position:relative}
+.process-card:last-child{border-right:none}
+.process-card::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--accent);transition:width 0.5s cubic-bezier(0.16,1,0.3,1)}
+.process-card:hover::after{width:100%}
+.process-card:hover{background:rgba(255,255,255,0.03)}
+.process-num{font-family:var(--font-heading);font-size:clamp(36px,4vw,56px);color:var(--accent);opacity:0.15;line-height:1;margin-bottom:16px;transition:opacity 0.4s}
+.process-card:hover .process-num{opacity:0.6}
+.process-card h4{font-family:var(--font-heading);font-size:clamp(15px,1.3vw,18px);color:white;margin-bottom:12px}
+.process-card p{font-size:clamp(12px,0.95vw,14px);color:rgba(255,255,255,0.4);line-height:1.75}
 
 
 /* ── Testimonial ── */
@@ -231,8 +249,8 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
   .about-image{order:-1;aspect-ratio:16/10}
   .stats-grid{grid-template-columns:repeat(2,1fr);gap:32px}
   .stat-item::after{display:none}
-  
-  
+  .services-grid{grid-template-columns:1fr}
+  .process-grid{grid-template-columns:1fr 1fr}
   .footer-grid{grid-template-columns:1fr 1fr}
   .footer-brand-col{grid-column:1/3}
   .footer-bottom-top{flex-direction:column;gap:16px;align-items:center}
@@ -242,7 +260,7 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
 }
 @media(max-width:480px){
   .projects-grid{grid-template-columns:1fr}
-  
+  .process-grid{grid-template-columns:1fr}
 }
 
 /* ── Print ── */
@@ -288,6 +306,14 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
     
     
     
+    <a href="#services">Services</a>
+    
+    
+    
+    <a href="#process">Process</a>
+    
+    
+    
     <a href="#contact" class="nav-cta">Contact</a>
     
     
@@ -296,11 +322,11 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
 
 <!-- Hero -->
 <section class="hero" id="hero" data-nav="Home">
-  <div class="hero-image" id="heroImage" style="background-image:url('https://lwebuilders.com/wp-content/uploads/2024/11/Cokato2_hero_R4-3_150DPI.jpg')"></div>
+  <div class="hero-image" id="heroImage" style="background-image:url('https://lwebuilders.com/wp-content/uploads/2024/10/LWE_logo_white_200dpi.png')"></div>
   <div class="hero-content">
-    <div class="hero-eyebrow">Fernie BC</div>
-    <h1>Creating extraordinary happy places</h1>
-    <p class="hero-sub">Custom Home Designers and Builders in Fernie, BC</p>
+    <div class="hero-eyebrow">Fernie Custom Builder</div>
+    <h1>Creating Extraordinary<br>Happy Places</h1>
+    <p class="hero-sub">Custom home builders in Fernie, BC. Building mountain homes with care, craft, and a commitment to creating spaces that inspire joy.</p>
     <div class="hero-cta-row">
       <a href="#projects" class="hero-cta hero-cta-primary">View Our Work</a>
       <a href="#contact" class="hero-cta hero-cta-secondary">Get in Touch</a>
@@ -318,54 +344,54 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
   <div class="section-inner">
     <div class="eyebrow reveal">Portfolio</div>
     <h2 class="reveal reveal-d1">Our Work</h2>
-    
+    <p class="section-lead reveal reveal-d2">A selection of custom homes and renovations across Fernie.</p>
     <div class="projects-grid">
       
       <div class="project-card reveal reveal-d1">
-        <img src="https://lwebuilders.com/wp-content/uploads/2024/11/LWE-Currie-201@0.75x.jpg" alt="Currie Creek" loading="lazy">
+        <img src="https://lwebuilders.com/wp-content/uploads/2024/11/Cokato2_hero_R4-3_150DPI.jpg" alt="LWE Builders, Fernie BC" loading="lazy">
         <div class="project-card-overlay">
-          <div class="project-card-name">Currie Creek</div>
-          <div class="project-card-location">Fernie BC</div>
+          <div class="project-card-name">LWE Builders, Fernie BC</div>
+          <div class="project-card-location">Fernie</div>
           
           <div class="project-card-arrow">&rarr;</div>
         </div>
       </div>
       
       <div class="project-card reveal reveal-d2">
-        <img src="https://lwebuilders.com/wp-content/uploads/2024/08/McLeod_R4-3_150DPI-2.jpg" alt="Confluence Meadows" loading="lazy">
+        <img src="https://lwebuilders.com/wp-content/uploads/2024/11/LWE-Currie-201@0.75x.jpg" alt="LWE" loading="lazy">
         <div class="project-card-overlay">
-          <div class="project-card-name">Confluence Meadows</div>
-          <div class="project-card-location">Fernie BC</div>
+          <div class="project-card-name">LWE</div>
+          <div class="project-card-location">Fernie</div>
           
           <div class="project-card-arrow">&rarr;</div>
         </div>
       </div>
       
       <div class="project-card reveal reveal-d3">
-        <img src="https://lwebuilders.com/wp-content/uploads/2024/11/BuiltGreen_RGB_Horzizontal.png" alt="Project 3" loading="lazy">
+        <img src="https://lwebuilders.com/wp-content/uploads/2024/08/McLeod_R4-3_150DPI-2.jpg" alt="LWE" loading="lazy">
         <div class="project-card-overlay">
-          <div class="project-card-name">Project 3</div>
-          <div class="project-card-location">Fernie BC</div>
+          <div class="project-card-name">LWE</div>
+          <div class="project-card-location">Fernie</div>
           
           <div class="project-card-arrow">&rarr;</div>
         </div>
       </div>
       
       <div class="project-card reveal reveal-d4">
-        <img src="https://lwebuilders.com/wp-content/uploads/2024/11/2-5-10-Home-Warranty.png" alt="Project 4" loading="lazy">
+        <img src="https://lwebuilders.com/wp-content/uploads/2020/01/bch-logo.png" alt="LWE" loading="lazy">
         <div class="project-card-overlay">
-          <div class="project-card-name">Project 4</div>
-          <div class="project-card-location">Fernie BC</div>
+          <div class="project-card-name">LWE</div>
+          <div class="project-card-location">Fernie</div>
           
           <div class="project-card-arrow">&rarr;</div>
         </div>
       </div>
       
       <div class="project-card reveal reveal-d1">
-        <img src="https://lwebuilders.com/wp-content/uploads/2020/01/best-of-houzz-2015-design-1.png" alt="Project 5" loading="lazy">
+        <img src="https://lwebuilders.com/wp-content/uploads/2024/11/BuiltGreen_RGB_Horzizontal.png" alt="LWE" loading="lazy">
         <div class="project-card-overlay">
-          <div class="project-card-name">Project 5</div>
-          <div class="project-card-location">Fernie BC</div>
+          <div class="project-card-name">LWE</div>
+          <div class="project-card-location">Fernie</div>
           
           <div class="project-card-arrow">&rarr;</div>
         </div>
@@ -377,7 +403,7 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
 
 
 
-<div class="photo-break"><img src="https://lwebuilders.com/wp-content/uploads/2024/11/BuiltGreen_RGB_Horzizontal.png" alt="" loading="lazy"></div>
+<div class="photo-break"><img src="https://lwebuilders.com/wp-content/uploads/2024/08/McLeod_R4-3_150DPI-2.jpg" alt="LWE Builders project" loading="lazy"></div>
 
 
 <!-- About -->
@@ -386,20 +412,20 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
   <div class="section-inner">
     <div class="about-split">
       <div class="about-text">
-        <div class="eyebrow reveal">About</div>
-        <h2 class="reveal reveal-d1">About LWE Builders</h2>
+        <div class="eyebrow reveal">Our Story</div>
+        <h2 class="reveal reveal-d1">Building in<br>Fernie</h2>
         <div class="about-accent reveal reveal-d2"></div>
         
-        <p class="reveal reveal-d2">Custom Home Designers and Builders in Fernie, BC</p>
+        <p class="reveal reveal-d2">LWE Builders creates custom homes in Fernie and the Elk Valley that are designed for mountain living at its finest.</p>
         
-        <p class="reveal reveal-d3">Where high performance meets exceptional craftsmanship.</p>
+        <p class="reveal reveal-d3">We call them 'happy places' because that's exactly what they are. Homes where families gather, adventures begin, and memories are made.</p>
         
-        <p class="reveal reveal-d4">Where high performance meets exceptional craftsmanship</p>
+        <p class="reveal reveal-d4">With deep roots in the Fernie community, we build with the kind of care that only comes from knowing a place inside and out.</p>
         
       </div>
       
       <div class="about-image reveal reveal-d2">
-        <img src="https://lwebuilders.com/wp-content/uploads/2024/08/McLeod_R4-3_150DPI-2.jpg" alt="LWE Builders" loading="lazy">
+        <img src="https://lwebuilders.com/wp-content/uploads/2024/11/LWE-Currie-201@0.75x.jpg" alt="LWE Builders" loading="lazy">
       </div>
       
     </div>
@@ -413,18 +439,18 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
   <div class="stats-grid">
     
     <div class="stat-item reveal reveal-d1">
-      <div class="stat-val" data-count="20">20+</div>
-      <div class="stat-label">Years Experience</div>
+      <div class="stat-val" data-count="5★">5★</div>
+      <div class="stat-label">Google Rating</div>
     </div>
     
     <div class="stat-item reveal reveal-d2">
-      <div class="stat-val" data-count="100">100+</div>
-      <div class="stat-label">Homes Built</div>
+      <div class="stat-val" data-count="9">9</div>
+      <div class="stat-label">Google Reviews</div>
     </div>
     
     <div class="stat-item reveal reveal-d3">
-      <div class="stat-val" data-count="100">100%</div>
-      <div class="stat-label">Client Satisfaction</div>
+      <div class="stat-val" data-count="30">30</div>
+      <div class="stat-label">Pages of Portfolio</div>
     </div>
     
   </div>
@@ -433,27 +459,90 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
 
 <!-- Services -->
 
+<section class="section" id="services" data-nav="Services" style="background:var(--accent-bg)">
+  <div class="section-inner">
+    <div class="eyebrow reveal">What We Do</div>
+    <h2 class="reveal reveal-d1">Our Services</h2>
+    <div class="services-grid">
+      
+      <div class="service-card reveal reveal-d1">
+        <div class="service-card-num">01</div>
+        <h4>Custom Homes</h4>
+        <p>Mountain homes built from the ground up, designed around your lifestyle and the Fernie landscape.</p>
+      </div>
+      
+      <div class="service-card reveal reveal-d2">
+        <div class="service-card-num">02</div>
+        <h4>Renovations</h4>
+        <p>Transforming existing homes with modern design, improved efficiency, and mountain-ready materials.</p>
+      </div>
+      
+      <div class="service-card reveal reveal-d3">
+        <div class="service-card-num">03</div>
+        <h4>Project Management</h4>
+        <p>Complete construction management with transparent communication and budget control.</p>
+      </div>
+      
+    </div>
+  </div>
+</section>
+
 
 <!-- Process -->
 
+<section class="section" id="process" data-nav="Process" style="background:var(--dark);padding-bottom:0">
+  <div class="section-inner">
+    <div class="eyebrow reveal" style="color:rgba(255,255,255,0.25)">Our Process</div>
+    <h2 class="reveal reveal-d1" style="color:white">How We Build</h2>
+    <p class="section-lead reveal reveal-d2" style="color:rgba(255,255,255,0.4)">A transparent, collaborative approach to every project.</p>
+  </div>
+  <div class="process-grid" style="margin-top:clamp(40px,5vw,64px)">
+    
+    <div class="process-card reveal reveal-d1">
+      <div class="process-num">01</div>
+      <h4>Discovery</h4>
+      <p>Understanding your vision, budget, and timeline.</p>
+    </div>
+    
+    <div class="process-card reveal reveal-d2">
+      <div class="process-num">02</div>
+      <h4>Design</h4>
+      <p>Collaborating with architects to create the perfect plan.</p>
+    </div>
+    
+    <div class="process-card reveal reveal-d3">
+      <div class="process-num">03</div>
+      <h4>Build</h4>
+      <p>Quality construction with regular updates and transparent pricing.</p>
+    </div>
+    
+    <div class="process-card reveal reveal-d4">
+      <div class="process-num">04</div>
+      <h4>Handover</h4>
+      <p>Thorough walkthrough and warranty for peace of mind.</p>
+    </div>
+    
+  </div>
+</section>
 
 
-<div class="photo-break"><img src="https://lwebuilders.com/wp-content/uploads/2020/01/best-of-houzz-2015-design-1.png" alt="" loading="lazy"></div>
+
+<div class="photo-break"><img src="https://lwebuilders.com/wp-content/uploads/2024/11/2-5-10-Home-Warranty.png" alt="LWE Builders detail" loading="lazy"></div>
 
 
 <!-- Testimonial -->
 
 
 
-<div class="photo-break"><img src="https://lwebuilders.com/wp-content/uploads/2024/11/2-5-10-Home-Warranty.png" alt="" loading="lazy"></div>
+<div class="photo-break"><img src="https://lwebuilders.com/wp-content/uploads/2024/11/BuiltGreen_RGB_Horzizontal.png" alt="LWE Builders craftsmanship" loading="lazy"></div>
 
 
 <!-- CTA Section -->
 <section class="footer-cta-section" id="contact" data-nav="Contact">
   <div class="footer-cta">
-    <h3>Let's Talk About Your Project</h3>
-    <p>We'd love to hear what you're building.</p>
-    <a href="mailto:info@lwebuilders.com" class="footer-cta-btn">Get in Touch</a>
+    <h3>Ready to Build Your Dream Home?</h3>
+    <p>Let's talk about your project in Fernie.</p>
+    <a href="mailto:" class="footer-cta-btn">Start a Conversation</a>
   </div>
 </section>
 
@@ -465,7 +554,7 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
       <!-- Brand + Contact -->
       <div class="footer-col footer-brand-col">
         
-        <p class="footer-brand-desc" itemprop="description">LWE Builders is a custom home builder serving Fernie BC. Design, construction, and project management for residential builds.</p>
+        <p class="footer-brand-desc" itemprop="description">LWE Builders is a custom home builder serving Fernie, BC. Design, construction, and project management for residential builds.</p>
         <div>
           
           <div class="footer-contact-item">
@@ -474,22 +563,7 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
           </div>
           
           
-          <div class="footer-contact-item">
-            <span class="footer-contact-label">Email</span>
-            <span class="footer-contact-value" itemprop="email"><a href="mailto:info@lwebuilders.com">info@lwebuilders.com</a></span>
-          </div>
           
-          
-          <div class="footer-contact-item" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-            <span class="footer-contact-label">Office</span>
-            <span class="footer-contact-value"><span itemprop="streetAddress">Our ProjectsOur ServicesOur PeopleContact UsOur ProjectsOur ServicesOur PeopleContact UsCreating extraordinaryhappy placesCustom Home Designers and Builders in Fernie, BCLet's talk!Wherehigh performan</span><br><span itemprop="addressLocality">Fernie BC</span></span>
-          </div>
-          
-          
-          <div class="footer-contact-item">
-            <span class="footer-contact-label">Hours</span>
-            <span class="footer-contact-value">Mon–Fri 9am–5pm</span>
-          </div>
           
         </div>
       </div>
@@ -503,12 +577,29 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
           
           <li><a href="#about">About</a></li>
           
+          <li><a href="#services">Services</a></li>
+          
+          <li><a href="#process">Process</a></li>
+          
           <li><a href="#contact">Contact</a></li>
           
         </ul>
       </div>
 
       <!-- Services -->
+      
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul class="footer-links">
+          
+          <li><a href="#services">Custom Homes</a></li>
+          
+          <li><a href="#services">Renovations</a></li>
+          
+          <li><a href="#services">Project Management</a></li>
+          
+        </ul>
+      </div>
       
 
       <!-- Service Areas -->
@@ -517,7 +608,13 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
         <h5>Service Areas</h5>
         <ul class="footer-areas" itemprop="areaServed" itemscope itemtype="https://schema.org/GeoCircle">
           
-          <li><a href="#contact" itemprop="name">Fernie BC</a></li>
+          <li><a href="#contact" itemprop="name">Fernie</a></li>
+          
+          <li><a href="#contact" itemprop="name">Elk Valley</a></li>
+          
+          <li><a href="#contact" itemprop="name">Sparwood</a></li>
+          
+          <li><a href="#contact" itemprop="name">Cranbrook</a></li>
           
         </ul>
       </div>
@@ -529,6 +626,14 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
     <meta itemprop="url" content="http://www.lwebuilders.com/">
 
     <!-- Certifications / Awards -->
+    
+    <div class="footer-badges">
+      
+      <div class="footer-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/><path d="M9 12l2 2 4-4"/></svg>Licensed & Insured</div>
+      
+      <div class="footer-badge"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--accent)" stroke-width="1.5"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/><path d="M9 12l2 2 4-4"/></svg>Serving Fernie</div>
+      
+    </div>
     
 
     <div class="footer-bottom">
@@ -558,25 +663,45 @@ h2{font-family:var(--font-heading);font-weight:700;font-size:clamp(34px,4.5vw,62
   "@type": "HomeAndConstructionBusiness",
   "name": "LWE Builders",
   "url": "http://www.lwebuilders.com/",
-  "email": "info@lwebuilders.com",
+  
   "telephone": "250-423-3100",
   
   "address": {
     "@type": "PostalAddress",
-    "streetAddress": "Our ProjectsOur ServicesOur PeopleContact UsOur ProjectsOur ServicesOur PeopleContact UsCreating extraordinaryhappy placesCustom Home Designers and Builders in Fernie, BCLet's talk!Wherehigh performan",
-    "addressLocality": "Fernie BC",
+    
+    "addressLocality": "Fernie, BC",
     "addressCountry": "CA"
   },
   
   
   "areaServed": [
     
-    {"@type": "City", "name": "Fernie BC"}
+    {"@type": "City", "name": "Fernie"},
+    
+    {"@type": "City", "name": "Elk Valley"},
+    
+    {"@type": "City", "name": "Sparwood"},
+    
+    {"@type": "City", "name": "Cranbrook"}
     
   ],
   
   
-  "description": "LWE Builders is a custom home builder serving Fernie BC. Design, construction, and project management for residential builds."
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Services",
+    "itemListElement": [
+      
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Custom Homes"}},
+      
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Renovations"}},
+      
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Project Management"}}
+      
+    ]
+  },
+  
+  "description": "LWE Builders is a custom home builder serving Fernie, BC. Design, construction, and project management for residential builds."
 }
 </script>
 
