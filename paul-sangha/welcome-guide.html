@@ -251,12 +251,34 @@
     100% { transform:translateY(100%); opacity:0; }
   }
 
-  /* ═══ SPACER ═══ */
-  /* Between different project themes — visible pause */
-  .theme-break {
-    height:1px; margin:5vh 12vw;
-    background:linear-gradient(90deg, transparent, rgba(201,169,110,0.15), transparent);
+  /* ═══ PROJECT INTERSTITIAL ═══ */
+  .interstitial {
+    height:28vh; min-height:180px;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    position:relative; overflow:hidden;
   }
+  .interstitial-num {
+    font-family:'Cormorant Garamond',serif; font-weight:300;
+    font-size:3.5rem; color:var(--gold); opacity:0; line-height:1;
+    transform:translateY(20px);
+    transition:opacity 0.8s ease, transform 0.8s cubic-bezier(0.16,1,0.3,1);
+  }
+  .interstitial.v .interstitial-num { opacity:0.4; transform:none; }
+  .interstitial-line {
+    width:0; height:1px; margin-top:20px;
+    background:var(--gold); opacity:0.35;
+    box-shadow:0 0 8px rgba(201,169,110,0.2);
+    transition:width 1s 0.3s cubic-bezier(0.16,1,0.3,1);
+  }
+  .interstitial.v .interstitial-line { width:80px; }
+  .interstitial-label {
+    font-family:'Josefin Sans',sans-serif; font-weight:200; font-size:0.4rem;
+    letter-spacing:0.5em; text-transform:uppercase; color:var(--stone);
+    margin-top:16px; opacity:0; transform:translateY(10px);
+    transition:opacity 0.6s 0.6s ease, transform 0.6s 0.6s ease;
+  }
+  .interstitial.v .interstitial-label { opacity:0.5; transform:none; }
+
   /* Hairline within same project */
   .spacer { height:2px; background:var(--ink); }
 
@@ -347,6 +369,12 @@
 <!-- ═══════════════════════════════════════
      THEME 1: TRANQUIL RETREAT
      ═══════════════════════════════════════ -->
+<div class="interstitial">
+  <div class="interstitial-num">01</div>
+  <div class="interstitial-line"></div>
+  <div class="interstitial-label">Tranquil Retreat</div>
+</div>
+
 <div class="editorial">
   <div class="editorial-img r-img">
     <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/5be7e36c-d920-4d5d-9260-da4df4c50415/sandy-hook-sunshine-coast-architectural-photography-matt-anthony-.jpg-16.jpg" alt="Tranquil Retreat — Sunshine Coast" loading="lazy">
@@ -373,7 +401,11 @@
 <!-- ═══════════════════════════════════════
      THEME 2: THE PERCH
      ═══════════════════════════════════════ -->
-<div class="theme-break"></div>
+<div class="interstitial">
+  <div class="interstitial-num">02</div>
+  <div class="interstitial-line"></div>
+  <div class="interstitial-label">The Perch</div>
+</div>
 
 <div class="stacked grain">
   <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/e07b8aac-c1ec-4293-b956-79b41aa39f33/5322-backhouse-web-1.jpg" alt="The Perch — Sunshine Coast" loading="lazy">
@@ -413,6 +445,12 @@
 <!-- ═══════════════════════════════════════
      THEME 3: ALPINE PROJECTS
      ═══════════════════════════════════════ -->
+<div class="interstitial">
+  <div class="interstitial-num">03</div>
+  <div class="interstitial-line"></div>
+  <div class="interstitial-label">Alpine Projects</div>
+</div>
+
 <div class="parallax-img" data-parallax>
   <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/64c6702a-78ea-4fe3-a601-78bce7c197a8/warbler-whistler-architectural-photography-matt-anthony-.jpg-5.jpg" alt="Warbler Residence — Whistler" loading="lazy">
   <span class="caption-sm">Warbler Residence — Whistler</span>
@@ -438,7 +476,11 @@
 <!-- ═══════════════════════════════════════
      THEME 4: BROWNS ROAD
      ═══════════════════════════════════════ -->
-<div class="theme-break"></div>
+<div class="interstitial">
+  <div class="interstitial-num">04</div>
+  <div class="interstitial-line"></div>
+  <div class="interstitial-label">Brown's Road</div>
+</div>
 
 <div class="editorial">
   <div class="editorial-img r-img">
@@ -465,10 +507,6 @@
 <!-- ═══════════════════════════════════════
      SECOND PULLQUOTE — RHYTHM BREAK
      ═══════════════════════════════════════ -->
-<div class="breath">
-  <div class="breath-line r"></div>
-</div>
-
 <div class="pullquote r">
   <div class="pullquote-rule"></div>
   <p>Every project in this portfolio was photographed on location across British Columbia — Sea-to-Sky, Sunshine Coast, Gulf Islands, Okanagan. Transport Canada certified for aerial. Same-week turnaround when deadlines demand it.</p>
@@ -477,6 +515,12 @@
 <!-- ═══════════════════════════════════════
      THEME 5: SALT SPRING CABIN
      ═══════════════════════════════════════ -->
+<div class="interstitial">
+  <div class="interstitial-num">05</div>
+  <div class="interstitial-line"></div>
+  <div class="interstitial-label">Salt Spring Island</div>
+</div>
+
 <div class="stacked grain">
   <img src="https://images.squarespace-cdn.com/content/v1/686d53c540bccb49df1c90bc/39756732-3b67-4977-b540-0834ab916650/window-merchant-saltspring-cabin-web-11.jpg?format=2500w" alt="Salt Spring Island Cabin" loading="lazy">
   <div class="stacked-overlay">
@@ -494,7 +538,11 @@
 <!-- ═══════════════════════════════════════
      THEME 6: PEAK VENTURES
      ═══════════════════════════════════════ -->
-<div class="theme-break"></div>
+<div class="interstitial">
+  <div class="interstitial-num">06</div>
+  <div class="interstitial-line"></div>
+  <div class="interstitial-label">Peak Ventures</div>
+</div>
 
 <div class="editorial reverse">
   <div class="editorial-img r-img">
@@ -520,15 +568,14 @@
 </div>
 
 <!-- ═══════════════════════════════════════
-     BREATHING MOMENT
-     ═══════════════════════════════════════ -->
-<div class="breath">
-  <div class="breath-line r"></div>
-</div>
-
-<!-- ═══════════════════════════════════════
      THEME 7: GAMBIER ISLAND
      ═══════════════════════════════════════ -->
+<div class="interstitial">
+  <div class="interstitial-num">07</div>
+  <div class="interstitial-line"></div>
+  <div class="interstitial-label">Gambier Island</div>
+</div>
+
 <div class="editorial">
   <div class="editorial-img r-img">
     <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/ccfb80fe-3b57-490b-bffb-dfe02f8e174e/linwood-gambier-web-34.jpg" alt="Gambier Island — aerial" loading="lazy">
@@ -594,7 +641,7 @@
   var ro = new IntersectionObserver(function(entries){
     entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('v'); });
   }, {threshold:0.1, rootMargin:'0px 0px -40px 0px'});
-  document.querySelectorAll('.r, .r-img, .eyebrow').forEach(function(el){ ro.observe(el); });
+  document.querySelectorAll('.r, .r-img, .eyebrow, .interstitial').forEach(function(el){ ro.observe(el); });
 
   // Force-play videos when visible
   var vo = new IntersectionObserver(function(entries){
