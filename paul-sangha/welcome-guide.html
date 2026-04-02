@@ -223,7 +223,7 @@
   }
 
   /* ═══ PULLQUOTE ═══ */
-  .pullquote { padding:6vh 8vw; max-width:780px; margin:0 auto; text-align:center; }
+  .pullquote { padding:8vh 8vw; max-width:780px; margin:0 auto; text-align:center; }
   .pullquote p {
     font-family:'Cormorant Garamond',serif; font-style:italic;
     font-size:1.6rem; line-height:1.5; color:var(--stone); font-weight:300;
@@ -232,7 +232,7 @@
 
   /* ═══ BREATHING ═══ */
   .breath {
-    padding:5vh 0; display:flex; justify-content:center;
+    padding:6vh 0; display:flex; justify-content:center;
   }
   .breath-line {
     width:1px; height:80px; background:rgba(201,169,110,0.06);
@@ -252,6 +252,12 @@
   }
 
   /* ═══ SPACER ═══ */
+  /* Between different project themes — visible pause */
+  .theme-break {
+    height:1px; margin:5vh 12vw;
+    background:linear-gradient(90deg, transparent, rgba(201,169,110,0.15), transparent);
+  }
+  /* Hairline within same project */
   .spacer { height:2px; background:var(--ink); }
 
   /* ═══ CTA ═══ */
@@ -367,6 +373,8 @@
 <!-- ═══════════════════════════════════════
      THEME 2: THE PERCH
      ═══════════════════════════════════════ -->
+<div class="theme-break"></div>
+
 <div class="stacked grain">
   <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/e07b8aac-c1ec-4293-b956-79b41aa39f33/5322-backhouse-web-1.jpg" alt="The Perch — Sunshine Coast" loading="lazy">
   <div class="stacked-overlay">
@@ -430,6 +438,8 @@
 <!-- ═══════════════════════════════════════
      THEME 4: BROWNS ROAD
      ═══════════════════════════════════════ -->
+<div class="theme-break"></div>
+
 <div class="editorial">
   <div class="editorial-img r-img">
     <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/35e24e7e-8ae5-47fa-9242-792ad3b6e7b9/browns-road-sunshine-coast-architectural-photographer-matt-anthony-7.jpg" alt="Brown's Road — Roberts Creek" loading="lazy">
@@ -484,6 +494,8 @@
 <!-- ═══════════════════════════════════════
      THEME 6: PEAK VENTURES
      ═══════════════════════════════════════ -->
+<div class="theme-break"></div>
+
 <div class="editorial reverse">
   <div class="editorial-img r-img">
     <img src="https://images.squarespace-cdn.com/content/6824fd48afd1dd40cd73e146/0ab160b7-ec92-4a1d-966a-8fe689ded9e9/peak-ventures-whistler-6.jpg?content-type=image%2Fjpeg" alt="Peak Ventures — Whistler" loading="lazy">
