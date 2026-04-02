@@ -4,492 +4,624 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Matt Anthony Photography — Selected Work</title>
-<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
   :root {
-    --ink: #1A1A18;
+    --ink: #141413;
     --paper: #F6F4F0;
     --gold: #C9A96E;
-    --gold-dim: rgba(201,169,110,0.12);
+    --gold-dim: rgba(201,169,110,0.10);
     --stone: #8A8579;
     --light-stone: #D9D5CD;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
-  html { font-size:16px; scroll-behavior:auto; }
-
-  /* ═══ HORIZONTAL SCROLL BODY ═══ */
+  html { font-size:16px; scroll-behavior:smooth; }
   body {
     background:var(--ink); color:var(--paper);
     font-family:'DM Sans',sans-serif; font-weight:300;
-    overflow-x:hidden; overflow-y:hidden;
-    height:100vh; width:100vw;
-    cursor:grab;
+    line-height:1.75; overflow-x:hidden;
   }
-  body:active { cursor:grabbing; }
+
+  /* ═══ PROGRESS ═══ */
+  .progress {
+    position:fixed; top:0; left:0; height:1px; width:0%;
+    background:var(--gold); z-index:9999;
+    transition:width 0.06s linear;
+  }
 
   /* ═══ LOADER ═══ */
   .loader {
-    position:fixed; top:0; left:0; right:0; bottom:0;
-    background:var(--ink); z-index:99999;
+    position:fixed; inset:0; background:var(--ink); z-index:99999;
     display:flex; flex-direction:column; align-items:center; justify-content:center;
-    transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1), visibility 0.8s;
+    transition:opacity 0.8s ease, visibility 0.8s;
   }
   .loader.done { opacity:0; visibility:hidden; pointer-events:none; }
   .loader-brand {
-    font-family:'Josefin Sans',sans-serif; font-weight:200; font-size:0.65rem;
-    letter-spacing:0.6em; text-transform:uppercase; color:var(--paper);
-    opacity:0; animation:loaderIn 0.6s 0.15s cubic-bezier(0.16,1,0.3,1) forwards;
+    font-family:'Josefin Sans',sans-serif; font-weight:200; font-size:0.6rem;
+    letter-spacing:0.7em; text-transform:uppercase; color:var(--paper);
+    opacity:0; animation:fadeUp 0.6s 0.2s ease forwards;
   }
   .loader-line {
-    width:60px; height:1px; background:rgba(201,169,110,0.15); margin-top:20px;
+    width:48px; height:1px; background:rgba(201,169,110,0.12); margin-top:20px;
     position:relative; overflow:hidden;
-    opacity:0; animation:loaderIn 0.6s 0.3s cubic-bezier(0.16,1,0.3,1) forwards;
+    opacity:0; animation:fadeUp 0.6s 0.35s ease forwards;
   }
   .loader-line::after {
     content:''; position:absolute; top:0; left:-100%; width:100%; height:100%;
-    background:linear-gradient(90deg, transparent, var(--gold), transparent);
-    animation:loaderFill 1s 0.5s cubic-bezier(0.33,1,0.68,1) forwards;
+    background:var(--gold); animation:slide 1s 0.5s ease forwards;
   }
-  @keyframes loaderIn { to { opacity:1; } }
-  @keyframes loaderFill { to { left:100%; } }
+  @keyframes fadeUp { to { opacity:1; } }
+  @keyframes slide { to { left:100%; } }
 
-  /* ═══ PROGRESS BAR ═══ */
-  .progress {
-    position:fixed; bottom:0; left:0; height:1px; width:0%;
-    background:var(--gold); z-index:100;
-    transition:width 0.08s linear;
-  }
+  /* ═══ REVEAL ═══ */
+  .r { opacity:0; transform:translateY(28px); transition:opacity 0.7s ease, transform 0.7s ease; }
+  .r.v { opacity:1; transform:none; }
+  .r-d1 { transition-delay:0.1s; }
+  .r-d2 { transition-delay:0.2s; }
 
-  /* ═══ HORIZONTAL TRACK ═══ */
-  .track {
-    display:flex; align-items:stretch;
-    height:100vh; width:max-content;
-    will-change:transform;
+  /* ═══ TYPOGRAPHY ═══ */
+  .eyebrow {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.48rem;
+    letter-spacing:0.4em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:16px;
   }
-
-  /* ═══ TITLE PANEL ═══ */
-  .panel-title {
-    width:100vw; height:100vh; flex-shrink:0;
-    display:flex; flex-direction:column; justify-content:center;
-    padding:0 12vw;
-    position:relative;
-  }
-  .panel-title::after {
-    content:''; position:absolute; right:0; top:15vh; bottom:15vh;
-    width:1px; background:rgba(201,169,110,0.12);
-  }
-  .title-prepared {
-    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.5rem;
-    letter-spacing:0.45em; text-transform:uppercase; color:var(--gold);
-    margin-bottom:32px; display:flex; align-items:center; gap:16px;
-  }
-  .title-prepared::before { content:''; width:28px; height:1px; background:var(--gold); }
-  .title-h1 {
+  h2 {
     font-family:'Cormorant Garamond',serif; font-weight:300;
-    font-size:5vw; line-height:1.05; letter-spacing:-0.02em; margin-bottom:32px;
+    font-size:3rem; line-height:1.08; letter-spacing:-0.015em;
   }
-  .title-h1 em { font-style:italic; font-weight:400; }
-  .title-sub {
-    font-family:'DM Sans',sans-serif; font-weight:300; font-size:0.85rem;
-    color:var(--stone); max-width:360px; line-height:1.8;
+  h2 em { font-style:italic; font-weight:400; }
+  .body-text {
+    font-size:0.9rem; color:var(--stone); line-height:1.85; max-width:440px;
   }
-  .scroll-hint {
-    position:absolute; bottom:48px; right:12vw;
-    display:flex; align-items:center; gap:12px;
-    font-family:'Josefin Sans',sans-serif; font-size:0.4rem;
-    letter-spacing:0.3em; text-transform:uppercase; color:rgba(246,244,240,0.25);
+  .caption-sm {
+    font-family:'Josefin Sans',sans-serif; font-size:0.38rem;
+    letter-spacing:0.3em; text-transform:uppercase; color:rgba(246,244,240,0.35);
   }
-  .scroll-hint-line {
-    width:48px; height:1px; background:rgba(201,169,110,0.2);
+
+  /* ═══ COVER ═══ */
+  .cover {
+    height:100vh; min-height:600px; position:relative; overflow:hidden;
+    display:flex; align-items:flex-end;
+  }
+  .cover-img {
+    position:absolute; inset:0;
+    background-size:cover; background-position:center 40%;
+    filter:brightness(0.3); transform:scale(1.05);
+    animation:coverZoom 20s ease-in-out infinite alternate;
+  }
+  @keyframes coverZoom { from { transform:scale(1.05); } to { transform:scale(1); } }
+  .cover-content {
+    position:relative; z-index:1; padding:0 8vw 8vh;
+    max-width:720px;
+  }
+  .cover-tag {
+    font-family:'Josefin Sans',sans-serif; font-weight:200; font-size:0.48rem;
+    letter-spacing:0.5em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:24px; display:flex; align-items:center; gap:16px;
+    opacity:0; animation:fadeUp 0.8s 0.5s ease forwards;
+  }
+  .cover-tag::before { content:''; width:28px; height:1px; background:var(--gold); }
+  .cover h1 {
+    font-family:'Cormorant Garamond',serif; font-weight:300;
+    font-size:clamp(2.8rem, 5.5vw, 4.8rem); line-height:1.05; letter-spacing:-0.02em;
+    opacity:0; animation:fadeUp 0.8s 0.8s ease forwards;
+  }
+  .cover h1 em { font-style:italic; font-weight:400; }
+  .cover-sub {
+    margin-top:24px; font-size:0.88rem; color:rgba(246,244,240,0.4);
+    max-width:400px; line-height:1.8;
+    opacity:0; animation:fadeUp 0.8s 1.1s ease forwards;
+  }
+  .cover-scroll {
+    position:absolute; bottom:4vh; left:50%; transform:translateX(-50%);
+    font-family:'Josefin Sans',sans-serif; font-size:0.35rem;
+    letter-spacing:0.4em; text-transform:uppercase; color:rgba(246,244,240,0.15);
+    display:flex; flex-direction:column; align-items:center; gap:10px;
+    opacity:0; animation:fadeUp 0.8s 1.4s ease forwards;
+  }
+  .cover-scroll-line {
+    width:1px; height:36px; background:rgba(201,169,110,0.08);
     position:relative; overflow:hidden;
   }
-  .scroll-hint-line::after {
-    content:''; position:absolute; top:0; left:-100%; width:100%; height:100%;
-    background:var(--gold); animation:hintSlide 2.5s cubic-bezier(0.16,1,0.3,1) infinite;
+  .cover-scroll-line::after {
+    content:''; position:absolute; top:-100%; left:0; width:100%; height:100%;
+    background:var(--gold); opacity:0.5;
+    animation:pulse 2.5s ease infinite;
   }
-  @keyframes hintSlide { 0% { left:-100%; } 50% { left:100%; } 100% { left:100%; } }
+  @keyframes pulse { 0%{top:-100%} 50%{top:100%} 100%{top:100%} }
 
-  /* ═══ IMAGE PANELS ═══ */
-  .panel-image {
-    flex-shrink:0; height:100vh; position:relative; overflow:hidden;
+  /* ═══ FULL BLEED IMAGE ═══ */
+  .full-img {
+    width:100%; position:relative; overflow:hidden;
   }
-  .panel-image img {
-    height:100%; width:100%; object-fit:cover; display:block;
-    filter:brightness(0.92);
-    transition:filter 0.6s ease;
+  .full-img img {
+    width:100%; display:block; filter:brightness(0.9);
+    transition:filter 0.5s ease;
   }
-  .panel-image:hover img { filter:brightness(1); }
-
-  /* Image sizing */
-  .panel-image.hero { width:100vw; }
-  .panel-image.wide { width:85vw; }
-  .panel-image.medium { width:65vw; }
-  .panel-image.narrow { width:50vw; }
-
-  /* Caption overlay */
-  .panel-caption {
-    position:absolute; bottom:0; left:0; right:0;
-    padding:32px 40px;
-    background:linear-gradient(transparent, rgba(26,26,24,0.45));
-    z-index:1;
+  .full-img:hover img { filter:brightness(0.95); }
+  .full-img .caption-sm {
+    position:absolute; bottom:24px; left:8vw; z-index:1;
   }
-  .caption-project {
-    font-family:'Cormorant Garamond',serif; font-size:1.1rem; font-weight:400;
-    color:var(--paper); margin-bottom:4px;
-  }
-  .caption-location {
-    font-family:'Josefin Sans',sans-serif; font-size:0.4rem;
-    letter-spacing:0.3em; text-transform:uppercase; color:rgba(246,244,240,0.45);
+  .full-img::after {
+    content:''; position:absolute; bottom:0; left:0; right:0; height:120px;
+    background:linear-gradient(transparent, rgba(20,20,19,0.4));
+    pointer-events:none;
   }
 
-  /* ═══ SPACER ═══ */
-  .panel-spacer {
-    flex-shrink:0; width:3px; height:100vh;
-    background:var(--ink);
+  /* ═══ ASYMMETRIC GRID — 2 images offset ═══ */
+  .asym {
+    display:grid; grid-template-columns:1.2fr 1fr; gap:3px;
+    align-items:stretch;
+  }
+  .asym.reverse { grid-template-columns:1fr 1.2fr; }
+  .asym-img {
+    overflow:hidden; position:relative;
+  }
+  .asym-img img {
+    width:100%; height:100%; object-fit:cover; display:block;
+    filter:brightness(0.88);
+    transition:filter 0.5s ease, transform 8s ease;
+  }
+  .asym-img:hover img { filter:brightness(0.95); transform:scale(1.02); }
+  .asym-img .caption-sm {
+    position:absolute; bottom:20px; left:24px; z-index:1;
   }
 
-  /* ═══ TEXT INTERLUDE ═══ */
-  .panel-text {
-    flex-shrink:0; width:40vw; min-width:400px; height:100vh;
+  /* ═══ EDITORIAL BLOCK — text beside image ═══ */
+  .editorial {
+    display:grid; grid-template-columns:1fr 1fr; min-height:80vh;
+  }
+  .editorial.reverse { direction:rtl; }
+  .editorial.reverse > * { direction:ltr; }
+  .editorial-img {
+    position:relative; overflow:hidden;
+  }
+  .editorial-img img {
+    width:100%; height:100%; object-fit:cover; display:block;
+    filter:brightness(0.88);
+  }
+  .editorial-text {
     display:flex; flex-direction:column; justify-content:center;
-    padding:0 6vw;
-    position:relative;
+    padding:8vh 6vw;
   }
-  .panel-text::before, .panel-text::after {
-    content:''; position:absolute; top:15vh; bottom:15vh;
-    width:1px; background:rgba(201,169,110,0.08);
+  .editorial-text h2 { margin-bottom:24px; }
+
+  /* ═══ TRIO — 3 images ═══ */
+  .trio {
+    display:grid; grid-template-columns:1fr 1fr 1fr; gap:3px;
   }
-  .panel-text::before { left:0; }
-  .panel-text::after { right:0; }
-  .panel-text .eyebrow {
-    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.45rem;
-    letter-spacing:0.35em; text-transform:uppercase; color:var(--gold);
-    margin-bottom:20px;
+  .trio-img {
+    overflow:hidden; position:relative; aspect-ratio:3/4;
   }
-  .panel-text h2 {
-    font-family:'Cormorant Garamond',serif; font-weight:300;
-    font-size:2.2rem; line-height:1.12; margin-bottom:20px;
+  .trio-img img {
+    width:100%; height:100%; object-fit:cover; display:block;
+    filter:brightness(0.88);
+    transition:filter 0.5s ease;
   }
-  .panel-text h2 em { font-style:italic; font-weight:400; }
-  .panel-text p {
-    font-size:0.88rem; color:var(--stone); line-height:1.85; max-width:320px;
+  .trio-img:hover img { filter:brightness(0.95); }
+  .trio-img .caption-sm {
+    position:absolute; bottom:16px; left:20px; z-index:1;
   }
 
-  /* ═══ CLOSING PANEL ═══ */
-  .panel-close {
-    flex-shrink:0; width:100vw; height:100vh;
-    display:flex; flex-direction:column; align-items:center; justify-content:center;
-    text-align:center; padding:0 12vw;
-    position:relative;
+  /* ═══ STACKED PAIR — tall + text overlay ═══ */
+  .stacked {
+    position:relative; overflow:hidden;
   }
-  .panel-close::before {
-    content:''; position:absolute; left:0; top:15vh; bottom:15vh;
-    width:1px; background:rgba(201,169,110,0.12);
+  .stacked img {
+    width:100%; display:block; filter:brightness(0.82);
   }
-  .close-eyebrow {
-    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.45rem;
-    letter-spacing:0.4em; text-transform:uppercase; color:var(--gold);
-    margin-bottom:28px;
+  .stacked-overlay {
+    position:absolute; bottom:0; left:0; right:0;
+    padding:6vh 8vw;
+    background:linear-gradient(transparent, rgba(20,20,19,0.7) 40%);
   }
-  .close-h2 {
-    font-family:'Cormorant Garamond',serif; font-weight:300;
-    font-size:3.2rem; line-height:1.1; margin-bottom:24px;
+  .stacked-overlay h2 { font-size:2.4rem; margin-bottom:16px; }
+  .stacked-overlay .body-text { color:rgba(246,244,240,0.55); }
+
+  /* ═══ PULLQUOTE ═══ */
+  .pullquote {
+    padding:10vh 8vw;
+    max-width:800px; margin:0 auto;
+    text-align:center;
   }
-  .close-h2 em { font-style:italic; font-weight:400; }
-  .close-sub {
-    font-size:0.88rem; color:var(--stone); max-width:400px; margin-bottom:48px; line-height:1.8;
+  .pullquote p {
+    font-family:'Cormorant Garamond',serif; font-style:italic;
+    font-size:1.5rem; line-height:1.55; color:var(--stone);
+    font-weight:300;
   }
+  .pullquote-rule {
+    width:40px; height:1px; background:var(--gold-dim);
+    margin:0 auto 24px;
+  }
+
+  /* ═══ WIDE PAIR — panoramic 2-up ═══ */
+  .wide-pair {
+    display:grid; grid-template-columns:1fr 1fr; gap:3px;
+  }
+  .wide-pair-img {
+    overflow:hidden; position:relative; aspect-ratio:16/9;
+  }
+  .wide-pair-img img {
+    width:100%; height:100%; object-fit:cover; display:block;
+    filter:brightness(0.88);
+    transition:filter 0.5s ease;
+  }
+  .wide-pair-img:hover img { filter:brightness(0.95); }
+  .wide-pair-img .caption-sm {
+    position:absolute; bottom:16px; left:20px; z-index:1;
+  }
+
+  /* ═══ DIVIDER ═══ */
+  .div-gold {
+    width:1px; height:64px; background:rgba(201,169,110,0.12);
+    margin:0 auto;
+  }
+  .spacer { height:3px; background:var(--ink); }
+
+  /* ═══ CLOSE ═══ */
+  .close-section {
+    padding:14vh 8vw;
+    display:flex; flex-direction:column; align-items:center;
+    text-align:center;
+  }
+  .close-section h2 { font-size:2.8rem; margin-bottom:20px; }
+  .close-section .body-text { text-align:center; margin-bottom:40px; }
   .cta-btn {
-    display:inline-block; font-family:'Josefin Sans',sans-serif;
-    font-weight:400; font-size:0.55rem; letter-spacing:0.35em;
-    text-transform:uppercase; color:var(--ink); background:var(--gold);
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.52rem;
+    letter-spacing:0.35em; text-transform:uppercase;
+    color:var(--ink); background:var(--gold);
     padding:16px 52px; text-decoration:none; border:none;
-    transition:all 0.3s ease; cursor:pointer;
+    transition:all 0.3s ease; cursor:pointer; display:inline-block;
   }
   .cta-btn:hover { background:var(--paper); }
   .close-contact {
     margin-top:56px; padding-top:40px;
-    border-top:1px solid rgba(201,169,110,0.1);
+    border-top:1px solid rgba(201,169,110,0.08);
   }
-  .close-contact-line {
-    font-family:'DM Sans',sans-serif; font-size:0.78rem; font-weight:300;
-    color:var(--stone); margin:3px 0;
+  .close-line {
+    font-size:0.78rem; color:var(--stone); margin:3px 0;
   }
-  .close-contact-line a { color:var(--gold); text-decoration:none; }
+  .close-line a { color:var(--gold); text-decoration:none; }
 
-  /* ═══ COUNTER ═══ */
-  .panel-counter {
-    position:fixed; bottom:32px; right:40px; z-index:100;
+  /* ═══ FOOTER ═══ */
+  footer {
+    padding:32px 8vw; text-align:center;
     font-family:'Josefin Sans',sans-serif; font-size:0.4rem;
-    letter-spacing:0.2em; color:rgba(246,244,240,0.2);
+    letter-spacing:0.25em; text-transform:uppercase; color:rgba(138,133,121,0.4);
   }
 
-  /* ═══ MOBILE — VERTICAL SCROLL ═══ */
+  /* ═══ RESPONSIVE ═══ */
+  @media (max-width:900px) {
+    .editorial { grid-template-columns:1fr; }
+    .editorial.reverse { direction:ltr; }
+    .editorial-img { min-height:50vh; }
+    .trio { grid-template-columns:1fr; }
+    .trio-img { aspect-ratio:4/3; }
+  }
   @media (max-width:768px) {
-    body { overflow-y:auto; overflow-x:hidden; height:auto; cursor:auto; }
-    .track {
-      flex-direction:column; width:100vw; height:auto;
-      transform:none !important;
-    }
-    .panel-title { width:100vw; height:80vh; padding:0 32px; }
-    .title-h1 { font-size:2.4rem; }
-    .panel-title::after { display:none; }
-    .scroll-hint { display:none; }
-    .panel-image { width:100vw !important; height:70vh; }
-    .panel-spacer { width:100vw; height:3px; }
-    .panel-text { width:100vw; min-width:0; height:auto; padding:56px 32px; }
-    .panel-text::before, .panel-text::after { display:none; }
-    .panel-close { width:100vw; height:auto; min-height:80vh; padding:80px 32px; }
-    .panel-close::before { display:none; }
-    .panel-counter { display:none; }
-    .progress { display:none; }
+    h2 { font-size:2.2rem; }
+    .cover-content { padding:0 7vw 10vh; }
+    .editorial-text { padding:10vw 7vw; }
+    .pullquote { padding:8vh 7vw; }
+    .pullquote p { font-size:1.2rem; }
+    .asym, .asym.reverse { grid-template-columns:1fr; }
+    .wide-pair { grid-template-columns:1fr; }
+    .stacked-overlay { padding:5vh 7vw; }
+    .stacked-overlay h2 { font-size:1.8rem; }
+    .close-section { padding:10vh 7vw; }
+  }
+  @media (max-width:480px) {
+    h2 { font-size:1.8rem; }
+    .body-text { font-size:0.85rem; }
   }
 </style>
 </head>
 <body>
+
+<div class="progress" id="progress"></div>
 
 <div class="loader" id="loader">
   <div class="loader-brand">Matt Anthony Photography</div>
   <div class="loader-line"></div>
 </div>
 
-<div class="progress" id="progress"></div>
-<div class="panel-counter" id="counter"></div>
-
-<div class="track" id="track">
-
-  <!-- ═══ TITLE ═══ -->
-  <div class="panel-title">
-    <div class="title-prepared">Prepared for Paul Sangha Creative</div>
-    <h1 class="title-h1">Selected<br><em>Work</em></h1>
-    <div class="title-sub">Architectural photography across British Columbia. Exteriors, aerials, and site context.</div>
-    <div class="scroll-hint">
-      <span>Scroll to explore</span>
-      <div class="scroll-hint-line"></div>
-    </div>
+<!-- ═══════════════════════════════════════
+     COVER
+     ═══════════════════════════════════════ -->
+<section class="cover">
+  <div class="cover-img" style="background-image:url('https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/5be7e36c-d920-4d5d-9260-da4df4c50415/sandy-hook-sunshine-coast-architectural-photography-matt-anthony-.jpg-16.jpg')"></div>
+  <div class="cover-content">
+    <div class="cover-tag">Prepared for Paul Sangha Creative</div>
+    <h1>Selected<br><em>Work</em></h1>
+    <p class="cover-sub">Architectural photography rooted in landscape, material, and the way light shapes our experience of place.</p>
   </div>
-
-  <div class="panel-spacer"></div>
-
-  <!-- ═══ 01 — SANDY HOOK HERO ═══ -->
-  <div class="panel-image hero">
-    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/5be7e36c-d920-4d5d-9260-da4df4c50415/sandy-hook-sunshine-coast-architectural-photography-matt-anthony-.jpg-16.jpg" alt="Tranquil Retreat — Sunshine Coast, BC">
-    <div class="panel-caption">
-      <div class="caption-project">Tranquil Retreat</div>
-      <div class="caption-location">Sandy Hook, Sunshine Coast</div>
-    </div>
+  <div class="cover-scroll">
+    <span>Scroll</span>
+    <div class="cover-scroll-line"></div>
   </div>
+</section>
 
-  <div class="panel-spacer"></div>
+<!-- ═══════════════════════════════════════
+     01 — TRANQUIL RETREAT
+     ═══════════════════════════════════════ -->
+<div class="spacer"></div>
 
-  <!-- ═══ 02 — SANDY HOOK 2 ═══ -->
-  <div class="panel-image wide">
-    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/8dab354d-32d7-4e2a-8a71-7ef3b5d5482c/sandy-hook-sunshine-coast-architectural-photography-matt-anthony-.jpg-15.jpg" alt="Tranquil Retreat exterior — Sunshine Coast, BC">
-    <div class="panel-caption">
-      <div class="caption-project">Tranquil Retreat</div>
-      <div class="caption-location">Sandy Hook, Sunshine Coast</div>
-    </div>
+<div class="editorial">
+  <div class="editorial-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/8dab354d-32d7-4e2a-8a71-7ef3b5d5482c/sandy-hook-sunshine-coast-architectural-photography-matt-anthony-.jpg-15.jpg" alt="Tranquil Retreat — Sunshine Coast" loading="lazy">
   </div>
-
-  <div class="panel-spacer"></div>
-
-  <!-- ═══ 03 — THE PERCH ═══ -->
-  <div class="panel-image hero">
-    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/e07b8aac-c1ec-4293-b956-79b41aa39f33/5322-backhouse-web-1.jpg" alt="The Perch — Sunshine Coast, BC">
-    <div class="panel-caption">
-      <div class="caption-project">The Perch</div>
-      <div class="caption-location">Sunshine Coast, BC</div>
-    </div>
+  <div class="editorial-text">
+    <div class="eyebrow r">Tranquil Retreat — Sandy Hook</div>
+    <h2 class="r">Corrugated Steel<br>Against <em>Tidal Forest</em></h2>
+    <p class="body-text r r-d1">The exterior cladding here is raw corrugated steel, chosen to weather alongside the salt air and cedar canopy that surrounds the site. Over time, the building will darken and patina to match the bark of the old-growth Douglas fir it sits among.</p>
+    <p class="body-text r r-d2">I shot this at the hour when the forest canopy filters the harshest light, leaving only soft, directional warmth that reveals the texture of every material — the grain in the cedar soffits, the rivets in the steel, the moss creeping across the granite retaining wall.</p>
   </div>
-
-  <div class="panel-spacer"></div>
-
-  <!-- ═══ 04 — THE PERCH 2 ═══ -->
-  <div class="panel-image wide">
-    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/23aedb76-4c10-4a31-ba9c-9ebd434a25bc/5322-backhouse-web-2.jpg" alt="The Perch exterior — Sunshine Coast, BC">
-    <div class="panel-caption">
-      <div class="caption-project">The Perch</div>
-      <div class="caption-location">Sunshine Coast, BC</div>
-    </div>
-  </div>
-
-  <div class="panel-spacer"></div>
-
-  <!-- ═══ TEXT INTERLUDE ═══ -->
-  <div class="panel-text">
-    <div class="eyebrow">The Approach</div>
-    <h2>Site, Light,<br><em>Material</em></h2>
-    <p>Documenting how architecture meets its landscape. Every shoot is planned around natural light, season, and the relationship between built form and terrain.</p>
-  </div>
-
-  <div class="panel-spacer"></div>
-
-  <!-- ═══ 05 — THE PERCH AERIAL ═══ -->
-  <div class="panel-image hero">
-    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/8a674d33-4176-43dd-89c1-a565c1c3df48/5322-backhouse-web-24.jpg" alt="The Perch aerial — Sunshine Coast, BC">
-    <div class="panel-caption">
-      <div class="caption-project">The Perch — Aerial</div>
-      <div class="caption-location">Sunshine Coast, BC</div>
-    </div>
-  </div>
-
-  <div class="panel-spacer"></div>
-
-  <!-- ═══ 06 — SITELINES ═══ -->
-  <div class="panel-image wide">
-    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/ebb37653-5489-4beb-a83f-ad40ed118b6c/sitelines-SDA-web--6.jpg" alt="Sitelines Architecture — Langley, BC">
-    <div class="panel-caption">
-      <div class="caption-project">Fraserview Vista</div>
-      <div class="caption-location">Langley, BC</div>
-    </div>
-  </div>
-
-  <div class="panel-spacer"></div>
-
-  <!-- ═══ 07 — BROWNS ROAD ═══ -->
-  <div class="panel-image hero">
-    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/35e24e7e-8ae5-47fa-9242-792ad3b6e7b9/browns-road-sunshine-coast-architectural-photographer-matt-anthony-7.jpg" alt="Brown's Road — Sunshine Coast, BC">
-    <div class="panel-caption">
-      <div class="caption-project">Brown's Road Residence</div>
-      <div class="caption-location">Roberts Creek, Sunshine Coast</div>
-    </div>
-  </div>
-
-  <div class="panel-spacer"></div>
-
-  <!-- ═══ 08 — BROWNS ROAD 2 ═══ -->
-  <div class="panel-image medium">
-    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/2f6d1495-5b03-4c34-8b78-7b3eaa479c17/browns-road-sunshine-coast-architectural-photographer-matt-anthony-10.jpg" alt="Brown's Road exterior — Sunshine Coast, BC">
-    <div class="panel-caption">
-      <div class="caption-project">Brown's Road Residence</div>
-      <div class="caption-location">Roberts Creek, Sunshine Coast</div>
-    </div>
-  </div>
-
-  <div class="panel-spacer"></div>
-
-  <!-- ═══ 09 — WEST 10TH ═══ -->
-  <div class="panel-image wide">
-    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/808387ba-bee1-4c46-a4d3-354d7e1f8372/west-10th-vancouver-web--2.jpg" alt="West 10th Avenue — Vancouver, BC">
-    <div class="panel-caption">
-      <div class="caption-project">West 10th Avenue</div>
-      <div class="caption-location">Vancouver, BC</div>
-    </div>
-  </div>
-
-  <div class="panel-spacer"></div>
-
-  <!-- ═══ CLOSE ═══ -->
-  <div class="panel-close">
-    <div class="close-eyebrow">Next Steps</div>
-    <h2 class="close-h2">Let's Start a<br><em>Conversation</em></h2>
-    <div class="close-sub">I'd love to learn about your upcoming projects and discuss how we might work together.</div>
-    <a href="https://mattanthonyphoto.com/discovery-call" class="cta-btn">Book a Call</a>
-    <div class="close-contact">
-      <p class="close-contact-line"><a href="mailto:info@mattanthonyphoto.com">info@mattanthonyphoto.com</a></p>
-      <p class="close-contact-line">604.765.9270</p>
-      <p class="close-contact-line" style="margin-top:10px;"><a href="https://mattanthonyphoto.com">mattanthonyphoto.com</a></p>
-    </div>
-  </div>
-
 </div>
+
+<div class="spacer"></div>
+
+<div class="full-img">
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/62f2712d-a413-46af-bcd8-d0f17957f8ab/sandy-hook-sunshine-coast-architectural-photography-matt-anthony-.jpg-4.jpg" alt="Tranquil Retreat — site integration with forest" loading="lazy">
+  <span class="caption-sm">Tranquil Retreat — Corrugated steel and cedar meeting the forest floor</span>
+</div>
+
+<!-- ═══════════════════════════════════════
+     02 — THE PERCH
+     ═══════════════════════════════════════ -->
+<div class="spacer"></div>
+
+<div class="stacked">
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/e07b8aac-c1ec-4293-b956-79b41aa39f33/5322-backhouse-web-1.jpg" alt="The Perch — Sunshine Coast" loading="lazy">
+  <div class="stacked-overlay">
+    <div class="eyebrow r">The Perch — Sunshine Coast</div>
+    <h2 class="r">Cantilevered Over<br><em>Granite Shoreline</em></h2>
+    <p class="body-text r r-d1">Charred cedar siding, blackened steel, and floor-to-ceiling glass perched on a granite bluff above the Pacific. The entire structure is designed to disappear into the tree line from the water, and emerge as a dramatic cantilever from the forest side.</p>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<div class="asym">
+  <div class="asym-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/23aedb76-4c10-4a31-ba9c-9ebd434a25bc/5322-backhouse-web-2.jpg" alt="The Perch — exterior at dusk" loading="lazy">
+    <span class="caption-sm">Charred cedar and glass at the blue hour</span>
+  </div>
+  <div class="asym-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/d0d20567-1be7-4759-8503-9fa1ce83f891/5322-backhouse-web-18.jpg" alt="The Perch — coastal landscape context" loading="lazy">
+    <span class="caption-sm">The building recedes into old-growth canopy</span>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<div class="editorial reverse">
+  <div class="editorial-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/8a674d33-4176-43dd-89c1-a565c1c3df48/5322-backhouse-web-24.jpg" alt="The Perch — aerial" loading="lazy">
+  </div>
+  <div class="editorial-text">
+    <div class="eyebrow r">Aerial Perspective</div>
+    <h2 class="r">Revealing the<br><em>Site Relationship</em></h2>
+    <p class="body-text r r-d1">From above, the architectural footprint becomes legible as a landscape intervention. The green roof, the retained tree line, the way the structure follows the contour of the bluff rather than imposing a grid onto it. This is what a drone reveals that no ground-level photograph can.</p>
+    <p class="body-text r r-d2">I'm a Transport Canada certified Advanced Drone Pilot. Every aerial in this portfolio was shot legally and with full site control.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     PULLQUOTE
+     ═══════════════════════════════════════ -->
+<div class="pullquote r">
+  <div class="pullquote-rule"></div>
+  <p>I don't photograph buildings. I photograph the conversation between architecture and its site — the grading, the sight lines, the way a material palette responds to weather and season and time of day.</p>
+</div>
+
+<!-- ═══════════════════════════════════════
+     03 — BROWN'S ROAD
+     ═══════════════════════════════════════ -->
+<div class="full-img">
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/35e24e7e-8ae5-47fa-9242-792ad3b6e7b9/browns-road-sunshine-coast-architectural-photographer-matt-anthony-7.jpg" alt="Brown's Road Residence — Roberts Creek" loading="lazy">
+  <span class="caption-sm">Brown's Road Residence — Roberts Creek, Sunshine Coast</span>
+</div>
+
+<div class="spacer"></div>
+
+<div class="editorial">
+  <div class="editorial-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/2f6d1495-5b03-4c34-8b78-7b3eaa479c17/browns-road-sunshine-coast-architectural-photographer-matt-anthony-10.jpg" alt="Brown's Road — exterior detail" loading="lazy">
+  </div>
+  <div class="editorial-text">
+    <div class="eyebrow r">Brown's Road — Roberts Creek</div>
+    <h2 class="r">Board-Formed<br>Concrete and <em>Rain</em></h2>
+    <p class="body-text r r-d1">This home was designed to be read through its materials. Board-formed concrete walls that carry the grain of the formwork. Standing-seam metal that channels rainwater into planted swales. Timber columns that frame the forest like a series of apertures.</p>
+    <p class="body-text r r-d2">I waited for overcast light to shoot the concrete — direct sun washes out the wood-grain texture that makes board-form compelling. The flat light reveals every ridge and imperfection, which is the whole point of the material choice.</p>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<div class="wide-pair">
+  <div class="wide-pair-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/2acc62f2-1305-4287-981e-6e9b3e6545c6/browns-road-sunshine-coast-architectural-photographer-matt-anthony-2.jpg" alt="Brown's Road — outdoor living" loading="lazy">
+    <span class="caption-sm">Covered outdoor living extending into the tree canopy</span>
+  </div>
+  <div class="wide-pair-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/83bbba67-7393-4e34-8b4b-bac1600c8110/sandy-hook-sunshine-coast-architectural-photography-matt-anthony-.jpg-12.jpg" alt="Tranquil Retreat — exterior at golden hour" loading="lazy">
+    <span class="caption-sm">Golden hour catching the standing-seam roofline</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     04 — WHISTLER & PEMBERTON
+     ═══════════════════════════════════════ -->
+<div class="spacer"></div>
+
+<div class="trio">
+  <div class="trio-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/64c6702a-78ea-4fe3-a601-78bce7c197a8/warbler-whistler-architectural-photography-matt-anthony-.jpg-5.jpg" alt="Warbler Residence — Whistler" loading="lazy">
+    <span class="caption-sm">Warbler Residence — Whistler</span>
+  </div>
+  <div class="trio-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/312b0797-a43a-4a51-906e-f913c78c7b79/fitzsimmons-whistler-architectural-photography-matt-anthony-.jpg-3.jpg" alt="Fitzsimmons Residence — Whistler" loading="lazy">
+    <span class="caption-sm">Fitzsimmons Residence — Whistler</span>
+  </div>
+  <div class="trio-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/ff283fca-be9f-4741-955b-786735c0fd2b/eagle-pemberton-architectural-photography-matt-anthony-.jpg.jpg" alt="Eagle Residence — Pemberton" loading="lazy">
+    <span class="caption-sm">Eagle Residence — Pemberton</span>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<div class="editorial reverse">
+  <div class="editorial-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/8326b868-6819-4578-a6f3-562534e1f013/warbler-whistler-architectural-photography-matt-anthony-.jpg-32.jpg" alt="Warbler Residence — landscape context" loading="lazy">
+  </div>
+  <div class="editorial-text">
+    <div class="eyebrow r">Alpine Projects</div>
+    <h2 class="r">Snow Load,<br>Dark Timber, <em>Stone</em></h2>
+    <p class="body-text r r-d1">Whistler and Pemberton present a specific photographic challenge: deep snow compresses the tonal range, and alpine light shifts dramatically across seasons. I schedule these shoots to capture the tension between warm interior volumes and cold exterior mass.</p>
+    <p class="body-text r r-d2">The Warbler's blackened timber cladding was designed to absorb light and recede into the tree line. I shot it in autumn when the surrounding larch had turned gold, creating a natural contrast that reveals the full silhouette without any artificial drama.</p>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     05 — TWILIGHT SERIES
+     ═══════════════════════════════════════ -->
+<div class="spacer"></div>
+
+<div class="stacked">
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/ef4086f4-81fa-468f-99bf-966ce7d83d89/warbler-whistler-architectural-photography-matt-anthony-.jpg-11.jpg" alt="Warbler Residence at twilight — Whistler" loading="lazy">
+  <div class="stacked-overlay">
+    <div class="eyebrow r">Twilight Series</div>
+    <h2 class="r">The Twenty-Minute <em>Window</em></h2>
+    <p class="body-text r r-d1">Twilight is the moment when interior and exterior light reach equilibrium. The sky holds just enough colour to define the roofline, and the interior warmth becomes visible through the glass. Every twilight shot in this portfolio was captured in a window of roughly twenty minutes. There are no second chances.</p>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<div class="asym reverse">
+  <div class="asym-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/58f835c2-21e3-441c-a6c1-629b91a2afaf/siteline-langley-16.jpg" alt="Fraser Valley Vista — twilight" loading="lazy">
+    <span class="caption-sm">Fraser Valley Vista — Langley</span>
+  </div>
+  <div class="asym-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/5197a486-4398-4327-83f1-8309f06eba46/eagle-pemberton-architectural-photography-matt-anthony-.jpg-30.jpg" alt="Eagle Residence — twilight" loading="lazy">
+    <span class="caption-sm">Eagle Residence — Pemberton</span>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<div class="wide-pair">
+  <div class="wide-pair-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/5d95533f-c99a-42fd-99c1-387d6dd1322e/architectural-interiors-photographer-silverstar-okanagan--36.jpg" alt="Silver Star Residence — twilight" loading="lazy">
+    <span class="caption-sm">Silver Star Residence — Okanagan</span>
+  </div>
+  <div class="wide-pair-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/46c7f7cb-34e9-4cf8-88c0-0a3546b9212d/sunridge-whistle-web--47.jpg" alt="Sunridge — twilight" loading="lazy">
+    <span class="caption-sm">Sunridge — Whistler</span>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     06 — GAMBIER + URBAN
+     ═══════════════════════════════════════ -->
+<div class="spacer"></div>
+
+<div class="editorial">
+  <div class="editorial-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/581535dc-1328-416b-a7ee-c9a0534fa608/linwood-gambier-web.jpg" alt="Gambier Island Residence — aerial" loading="lazy">
+  </div>
+  <div class="editorial-text">
+    <div class="eyebrow r">Gambier Island</div>
+    <h2 class="r">Accessed Only<br>by <em>Water</em></h2>
+    <p class="body-text r r-d1">No road access. Every material, every fixture, every piece of glass was barged to this site. Photographing a project like this means arriving by boat, working with the tides, and understanding that the remoteness of the site is the story.</p>
+    <p class="body-text r r-d2">The aerial reveals what the experience on the ground can't: how the building follows the natural clearing, how the deck wraps the existing rock face, how the forest was preserved rather than cleared.</p>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<div class="asym">
+  <div class="asym-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/f6f66a30-fbaa-4a09-ab89-ce9f0785ed96/linwood-gambier-web-32.jpg" alt="Gambier Island — exterior facade" loading="lazy">
+    <span class="caption-sm">Timber and glass nestled into the forest edge</span>
+  </div>
+  <div class="asym-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/808387ba-bee1-4c46-a4d3-354d7e1f8372/west-10th-vancouver-web--2.jpg" alt="West 10th Avenue — Vancouver" loading="lazy">
+    <span class="caption-sm">West 10th Avenue — Vancouver</span>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<div class="full-img">
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/ebb37653-5489-4beb-a83f-ad40ed118b6c/sitelines-SDA-web--6.jpg" alt="SDA BC & Yukon HQ — Abbotsford" loading="lazy">
+  <span class="caption-sm">Second Dwellings Association HQ — Timber and glass facade, Abbotsford</span>
+</div>
+
+<!-- ═══════════════════════════════════════
+     07 — SUGARLOAF + NET ZERO
+     ═══════════════════════════════════════ -->
+<div class="spacer"></div>
+
+<div class="wide-pair">
+  <div class="wide-pair-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/df676ea0-2bb8-4e89-91a1-55d3ce883c14/surgarloaf-pemberton-architectural-photography-matt-anthony-.jpg-19.jpg" alt="Sugarloaf Residence — Pemberton" loading="lazy">
+    <span class="caption-sm">Sugarloaf Residence — Pemberton</span>
+  </div>
+  <div class="wide-pair-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/eae50d7b-893c-483f-9849-84f06b45e58f/architectural-interiors-photographer-netzero-whistler8.jpg" alt="Net Zero Build — Whistler" loading="lazy">
+    <span class="caption-sm">Net Zero Build — Whistler</span>
+  </div>
+</div>
+
+<div class="spacer"></div>
+
+<!-- ═══════════════════════════════════════
+     FINAL AERIAL
+     ═══════════════════════════════════════ -->
+<div class="full-img">
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/edfcc332-dd10-4900-8bfc-c65e80731f97/5322-backhouse-web-23.jpg" alt="The Perch — aerial showing full site" loading="lazy">
+  <span class="caption-sm">The Perch — Structure, shoreline, and old-growth canopy from 120 metres</span>
+</div>
+
+<!-- ═══════════════════════════════════════
+     CLOSE
+     ═══════════════════════════════════════ -->
+<div class="spacer" style="height:1px; background:rgba(201,169,110,0.06);"></div>
+
+<section class="close-section">
+  <div class="eyebrow r">Next Steps</div>
+  <h2 class="r">Let's Start a<br><em>Conversation</em></h2>
+  <p class="body-text r r-d1" style="text-align:center;">I'd love to learn about your upcoming projects and discuss how we might work together.</p>
+  <a href="https://mattanthonyphoto.com/discovery-call" class="cta-btn r r-d2">Book a Call</a>
+  <div class="close-contact r r-d2">
+    <p class="close-line"><a href="mailto:info@mattanthonyphoto.com">info@mattanthonyphoto.com</a></p>
+    <p class="close-line">604.765.9270</p>
+    <p class="close-line" style="margin-top:8px;"><a href="https://mattanthonyphoto.com">mattanthonyphoto.com</a></p>
+  </div>
+</section>
+
+<footer>
+  <p>Matt Anthony Photography &bull; Squamish, BC &bull; mattanthonyphoto.com</p>
+</footer>
 
 <script>
 (function(){
-  // Loader
   setTimeout(function(){ document.getElementById('loader').classList.add('done'); }, 1100);
 
-  var track = document.getElementById('track');
-  var progress = document.getElementById('progress');
-  var counter = document.getElementById('counter');
-  var isMobile = window.innerWidth <= 768;
-
-  if(isMobile) return; // vertical scroll on mobile
-
-  var scrollPos = 0;
-  var targetPos = 0;
-  var maxScroll = 0;
-  var velocity = 0;
-  var isDragging = false;
-  var dragStart = 0;
-  var dragScrollStart = 0;
-
-  function updateMax(){
-    maxScroll = track.scrollWidth - window.innerWidth;
-  }
-  updateMax();
-  window.addEventListener('resize', function(){
-    isMobile = window.innerWidth <= 768;
-    if(!isMobile) updateMax();
+  // Progress
+  window.addEventListener('scroll', function(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    if(h > 0) document.getElementById('progress').style.width = (window.scrollY / h * 100) + '%';
   });
 
-  // Smooth wheel scroll
-  window.addEventListener('wheel', function(e){
-    if(isMobile) return;
-    e.preventDefault();
-    var delta = e.deltaY || e.deltaX;
-    targetPos = Math.max(0, Math.min(maxScroll, targetPos + delta * 1.2));
-  }, {passive:false});
-
-  // Touch/drag support
-  window.addEventListener('mousedown', function(e){
-    if(isMobile) return;
-    isDragging = true; dragStart = e.clientX; dragScrollStart = targetPos;
-  });
-  window.addEventListener('mousemove', function(e){
-    if(!isDragging || isMobile) return;
-    var diff = dragStart - e.clientX;
-    targetPos = Math.max(0, Math.min(maxScroll, dragScrollStart + diff * 2));
-  });
-  window.addEventListener('mouseup', function(){ isDragging = false; });
-
-  // Touch
-  var touchStart = 0;
-  window.addEventListener('touchstart', function(e){
-    if(isMobile) return;
-    touchStart = e.touches[0].clientX; dragScrollStart = targetPos;
-  }, {passive:true});
-  window.addEventListener('touchmove', function(e){
-    if(isMobile) return;
-    e.preventDefault();
-    var diff = touchStart - e.touches[0].clientX;
-    targetPos = Math.max(0, Math.min(maxScroll, dragScrollStart + diff * 2));
-  }, {passive:false});
-
-  // Keyboard
-  window.addEventListener('keydown', function(e){
-    if(isMobile) return;
-    if(e.key === 'ArrowRight' || e.key === 'ArrowDown') targetPos = Math.min(maxScroll, targetPos + window.innerWidth * 0.6);
-    if(e.key === 'ArrowLeft' || e.key === 'ArrowUp') targetPos = Math.max(0, targetPos - window.innerWidth * 0.6);
-  });
-
-  // Count image panels
-  var images = document.querySelectorAll('.panel-image');
-  var totalImages = images.length;
-
-  // Animation loop
-  function animate(){
-    scrollPos += (targetPos - scrollPos) * 0.09;
-    if(Math.abs(targetPos - scrollPos) < 0.5) scrollPos = targetPos;
-
-    track.style.transform = 'translateX(' + (-scrollPos) + 'px)';
-
-    // Progress
-    var pct = maxScroll > 0 ? (scrollPos / maxScroll * 100) : 0;
-    progress.style.width = pct + '%';
-
-    // Counter
-    var current = 0;
-    images.forEach(function(img, i){
-      var rect = img.getBoundingClientRect();
-      if(rect.left < window.innerWidth * 0.5) current = i + 1;
-    });
-    if(current > 0) counter.textContent = String(current).padStart(2,'0') + ' / ' + String(totalImages).padStart(2,'0');
-    else counter.textContent = '';
-
-    requestAnimationFrame(animate);
-  }
-  requestAnimationFrame(animate);
+  // Reveal
+  var ro = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('v'); });
+  }, {threshold:0.1});
+  document.querySelectorAll('.r').forEach(function(el){ ro.observe(el); });
 })();
 </script>
 </body>
