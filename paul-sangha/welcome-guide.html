@@ -253,31 +253,39 @@
 
   /* ═══ PROJECT INTERSTITIAL ═══ */
   .interstitial {
-    height:28vh; min-height:180px;
+    height:100vh; min-height:500px;
     display:flex; flex-direction:column; align-items:center; justify-content:center;
     position:relative; overflow:hidden;
+    scroll-snap-align:start;
   }
   .interstitial-num {
     font-family:'Cormorant Garamond',serif; font-weight:300;
-    font-size:3.5rem; color:var(--gold); opacity:0; line-height:1;
-    transform:translateY(20px);
-    transition:opacity 0.8s ease, transform 0.8s cubic-bezier(0.16,1,0.3,1);
+    font-size:clamp(4rem, 8vw, 7rem); color:var(--gold); opacity:0; line-height:1;
+    transform:translateY(30px);
+    transition:opacity 1s ease, transform 1s cubic-bezier(0.16,1,0.3,1);
   }
-  .interstitial.v .interstitial-num { opacity:0.4; transform:none; }
+  .interstitial.v .interstitial-num { opacity:0.3; transform:none; }
   .interstitial-line {
-    width:0; height:1px; margin-top:20px;
-    background:var(--gold); opacity:0.35;
-    box-shadow:0 0 8px rgba(201,169,110,0.2);
-    transition:width 1s 0.3s cubic-bezier(0.16,1,0.3,1);
+    width:0; height:1px; margin-top:28px;
+    background:var(--gold); opacity:0.4;
+    box-shadow:0 0 10px rgba(201,169,110,0.25);
+    transition:width 1.2s 0.4s cubic-bezier(0.16,1,0.3,1);
   }
-  .interstitial.v .interstitial-line { width:80px; }
+  .interstitial.v .interstitial-line { width:100px; }
   .interstitial-label {
-    font-family:'Josefin Sans',sans-serif; font-weight:200; font-size:0.4rem;
-    letter-spacing:0.5em; text-transform:uppercase; color:var(--stone);
-    margin-top:16px; opacity:0; transform:translateY(10px);
-    transition:opacity 0.6s 0.6s ease, transform 0.6s 0.6s ease;
+    font-family:'Josefin Sans',sans-serif; font-weight:200; font-size:0.45rem;
+    letter-spacing:0.6em; text-transform:uppercase; color:var(--stone);
+    margin-top:20px; opacity:0; transform:translateY(12px);
+    transition:opacity 0.7s 0.8s ease, transform 0.7s 0.8s ease;
   }
-  .interstitial.v .interstitial-label { opacity:0.5; transform:none; }
+  .interstitial.v .interstitial-label { opacity:0.45; transform:none; }
+  .interstitial-scroll {
+    position:absolute; bottom:6vh;
+    font-family:'Josefin Sans',sans-serif; font-size:0.3rem;
+    letter-spacing:0.4em; text-transform:uppercase; color:rgba(246,244,240,0.12);
+    opacity:0; transition:opacity 0.6s 1.2s ease;
+  }
+  .interstitial.v .interstitial-scroll { opacity:1; }
 
   /* Hairline within same project */
   .spacer { height:2px; background:var(--ink); }
@@ -373,6 +381,7 @@
   <div class="interstitial-num">01</div>
   <div class="interstitial-line"></div>
   <div class="interstitial-label">Tranquil Retreat</div>
+  <div class="interstitial-scroll">Scroll to view</div>
 </div>
 
 <div class="editorial">
@@ -405,6 +414,7 @@
   <div class="interstitial-num">02</div>
   <div class="interstitial-line"></div>
   <div class="interstitial-label">The Perch</div>
+  <div class="interstitial-scroll">Scroll to view</div>
 </div>
 
 <div class="stacked grain">
@@ -449,6 +459,7 @@
   <div class="interstitial-num">03</div>
   <div class="interstitial-line"></div>
   <div class="interstitial-label">Alpine Projects</div>
+  <div class="interstitial-scroll">Scroll to view</div>
 </div>
 
 <div class="parallax-img" data-parallax>
@@ -480,6 +491,7 @@
   <div class="interstitial-num">04</div>
   <div class="interstitial-line"></div>
   <div class="interstitial-label">Brown's Road</div>
+  <div class="interstitial-scroll">Scroll to view</div>
 </div>
 
 <div class="editorial">
@@ -519,6 +531,7 @@
   <div class="interstitial-num">05</div>
   <div class="interstitial-line"></div>
   <div class="interstitial-label">Salt Spring Island</div>
+  <div class="interstitial-scroll">Scroll to view</div>
 </div>
 
 <div class="stacked grain">
@@ -542,6 +555,7 @@
   <div class="interstitial-num">06</div>
   <div class="interstitial-line"></div>
   <div class="interstitial-label">Peak Ventures</div>
+  <div class="interstitial-scroll">Scroll to view</div>
 </div>
 
 <div class="editorial reverse">
@@ -574,6 +588,7 @@
   <div class="interstitial-num">07</div>
   <div class="interstitial-line"></div>
   <div class="interstitial-label">Gambier Island</div>
+  <div class="interstitial-scroll">Scroll to view</div>
 </div>
 
 <div class="editorial">
