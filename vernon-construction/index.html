@@ -38,19 +38,19 @@ a{text-decoration:none;color:inherit}
 @keyframes scaleIn{to{transform:scaleX(1)}}
 
 /* ── Nav ── */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px clamp(24px,5vw,72px);transition:all .5s cubic-bezier(0.16,1,0.3,1);background:linear-gradient(180deg,rgba(28,28,26,.6) 0%,rgba(28,28,26,0) 100%)}
-.nav.scrolled{background:rgba(247,245,240,.95);backdrop-filter:blur(20px) saturate(1.2);padding:14px clamp(24px,5vw,72px);box-shadow:0 1px 0 rgba(0,0,0,.06)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,5vw,72px);height:72px;transition:all .5s cubic-bezier(0.16,1,0.3,1);background:rgba(28,28,26,.85);backdrop-filter:blur(16px) saturate(1.2);border-bottom:1px solid rgba(247,245,240,.06)}
+.nav.scrolled{background:rgba(247,245,240,.97);backdrop-filter:blur(20px) saturate(1.2);height:64px;box-shadow:0 1px 12px rgba(0,0,0,.06);border-bottom:1px solid rgba(0,0,0,.04)}
 .nav-wordmark{display:flex;align-items:center;gap:10px;transition:all .5s}
-.nav-logo{height:clamp(30px,3.2vw,40px);width:auto;filter:brightness(0) invert(1);transition:filter .5s}
+.nav-logo{height:clamp(32px,3.5vw,44px);width:auto;filter:brightness(0) invert(1);transition:filter .5s}
 .nav.scrolled .nav-logo{filter:none}
 .nav-links{display:flex;gap:clamp(20px,2.5vw,36px);align-items:center}
-.nav-links a{font-family:var(--sans);font-weight:400;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(247,245,240,.7);transition:all .3s}
-.nav.scrolled .nav-links a{color:var(--stone)}
+.nav-links a{font-family:var(--sans);font-weight:500;font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(247,245,240,.85);transition:all .3s}
+.nav.scrolled .nav-links a{color:var(--ink);opacity:.5}
 .nav-links a:hover{color:var(--paper)}
-.nav.scrolled .nav-links a:hover{color:var(--ink)}
-.nav-links .nav-cta{color:var(--paper) !important;background:var(--cedar);padding:10px 26px;border:none;font-weight:500;transition:all .3s}
+.nav.scrolled .nav-links a:hover{color:var(--ink);opacity:1}
+.nav-links .nav-cta{color:var(--ink) !important;background:var(--paper);padding:11px 28px;border:none;font-weight:600;letter-spacing:.08em;transition:all .3s;opacity:1 !important}
 .nav.scrolled .nav-cta{background:var(--ink);color:var(--paper) !important}
-.nav-links .nav-cta:hover{background:var(--paper);color:var(--ink) !important}
+.nav-links .nav-cta:hover{background:var(--cedar);color:var(--paper) !important}
 .nav.scrolled .nav-cta:hover{background:var(--cedar);color:var(--paper) !important}
 
 /* ── Hero (Full Bleed) ── */
