@@ -22,10 +22,10 @@
   body { background:var(--white); color:var(--ink); font-family:'DM Sans',sans-serif; font-weight:300; line-height:1.75; overflow-x:hidden; }
 
   /* ═══════════════════════════════════════
-     COVER
+     COVER (compact)
      ═══════════════════════════════════════ */
   .cover {
-    min-height:100vh; background:var(--ink); color:var(--paper);
+    min-height:60vh; background:var(--ink); color:var(--paper);
     display:flex; flex-direction:column; justify-content:flex-end;
     position:relative; overflow:hidden;
   }
@@ -58,7 +58,7 @@
     letter-spacing:0.2em; color:rgba(246,244,240,0.4);
   }
   .cover-content {
-    position:relative; z-index:2; padding:0 60px 80px;
+    position:relative; z-index:2; padding:0 60px 60px;
     max-width:720px;
   }
   .cover-eyebrow {
@@ -71,18 +71,18 @@
   }
   .cover h1 {
     font-family:'Cormorant Garamond',serif; font-weight:400;
-    font-size:clamp(3rem,6vw,4.5rem); line-height:1.05; margin-bottom:20px;
+    font-size:clamp(2.6rem,5vw,4rem); line-height:1.05; margin-bottom:16px;
     letter-spacing:-0.01em;
   }
   .cover h1 em {
     font-style:italic; font-weight:500; color:var(--gold);
   }
   .cover-sub {
-    font-size:1rem; color:rgba(246,244,240,0.55); max-width:480px;
-    line-height:1.8; margin-bottom:56px;
+    font-size:0.95rem; color:rgba(246,244,240,0.5); max-width:480px;
+    line-height:1.8; margin-bottom:32px;
   }
   .cover-meta-bar {
-    display:flex; gap:48px; padding-top:32px;
+    display:flex; gap:48px; padding-top:24px;
     border-top:1px solid rgba(201,169,110,0.15);
   }
   .cover-meta-item {
@@ -132,29 +132,53 @@
   }
 
   /* ═══════════════════════════════════════
+     QUICK GLANCE TABLE
+     ═══════════════════════════════════════ */
+  .quick-glance {
+    margin:40px 0 20px; border-collapse:collapse; width:100%;
+  }
+  .quick-glance th {
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.6rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--stone);
+    text-align:left; padding:12px 16px; border-bottom:2px solid var(--gold-dim);
+  }
+  .quick-glance td {
+    padding:14px 16px; font-size:0.88rem; border-bottom:1px solid rgba(26,26,24,0.06);
+    vertical-align:top;
+  }
+  .quick-glance tr.highlight td {
+    background:var(--ink); color:var(--paper); font-weight:400;
+  }
+  .quick-glance .price-cell {
+    font-family:'Cormorant Garamond',serif; font-size:1.5rem; font-weight:500;
+    color:var(--gold); white-space:nowrap;
+  }
+  .quick-glance tr.highlight .price-cell { color:var(--gold); }
+  .quick-glance .rec-tag {
+    display:inline-block; font-family:'Josefin Sans',sans-serif; font-size:0.45rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--gold);
+    border:1px solid var(--gold-border); padding:2px 8px; margin-left:8px; vertical-align:middle;
+  }
+  .quick-glance .per-project {
+    font-size:0.75rem; color:var(--stone); display:block; margin-top:2px;
+  }
+  .quick-glance tr.highlight .per-project { color:rgba(246,244,240,0.4); }
+  .quick-glance .travel-row td {
+    font-size:0.8rem; color:var(--stone); border-bottom:none; padding-top:20px;
+  }
+  .quick-glance .travel-row .price-cell {
+    font-size:1.1rem;
+  }
+
+  /* ═══════════════════════════════════════
      PHOTO BREAK
      ═══════════════════════════════════════ */
   .photo-break {
-    width:100%; height:45vh; min-height:300px; position:relative; overflow:hidden;
+    width:100%; height:40vh; min-height:260px; position:relative; overflow:hidden;
   }
   .photo-break img {
     width:100%; height:100%; object-fit:cover; display:block;
     transform:scale(1.05);
-  }
-
-  /* ═══════════════════════════════════════
-     STATS
-     ═══════════════════════════════════════ */
-  .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; margin:56px auto; background:var(--gold-dim); max-width:880px; }
-  .stat { background:var(--white); text-align:center; padding:36px 16px; }
-  .section.cream .stat { background:var(--paper); }
-  .stat-val {
-    font-family:'Cormorant Garamond',serif; font-size:3rem; font-weight:500;
-    color:var(--gold); display:block; line-height:1; margin-bottom:10px;
-  }
-  .stat-lbl {
-    font-family:'Josefin Sans',sans-serif; font-size:0.55rem;
-    letter-spacing:0.25em; text-transform:uppercase; color:var(--stone);
   }
 
   /* ═══════════════════════════════════════
@@ -280,6 +304,7 @@
   .dlv {
     background:var(--white); padding:40px 36px; position:relative;
   }
+  .section.cream .dlv { background:var(--paper); }
   .dlv-icon {
     font-family:'Cormorant Garamond',serif; font-size:2.4rem; font-weight:400;
     color:var(--gold); line-height:1; margin-bottom:16px; display:block;
@@ -336,11 +361,10 @@
      RESPONSIVE
      ═══════════════════════════════════════ */
   @media (max-width:768px) {
-    .cover-content { padding:0 32px 60px; }
+    .cover-content { padding:0 32px 48px; }
     .cover-top { padding:24px 32px; }
     .cover-meta-bar { flex-direction:column; gap:16px; }
     .section { padding:60px 32px; }
-    .stats { grid-template-columns:repeat(2,1fr); }
     .tiers { grid-template-columns:1fr; }
     .tier.rec { transform:none; }
     .tier + .tier { border-left:1px solid rgba(26,26,24,0.06); border-top:none; }
@@ -349,9 +373,12 @@
     .numbers { grid-template-columns:1fr; }
     .photo-break { height:200px; min-height:200px; }
     .insight { padding:32px; }
+    .quick-glance { font-size:0.85rem; }
+    .quick-glance th, .quick-glance td { padding:10px 12px; }
+    .quick-glance .price-cell { font-size:1.2rem; }
   }
   @media (max-width:480px) {
-    .cover h1 { font-size:2.4rem; }
+    .cover h1 { font-size:2.2rem; }
     h2 { font-size:2rem; }
   }
 
@@ -370,7 +397,7 @@
 <div class="scroll-progress" id="scrollProgress"></div>
 
 <!-- ═══════════════════════════════════════
-     COVER
+     COVER (compact — gets to pricing fast)
      ═══════════════════════════════════════ -->
 <div class="cover">
   <div class="cover-image"></div>
@@ -381,7 +408,7 @@
   <div class="cover-content">
     <div class="cover-eyebrow">Pricing Guide</div>
     <h1>Architectural Photography <br>for <em>KLAD Surfaces</em></h1>
-    <p class="cover-sub">Premium photography and drone imaging for architectural cladding, capturing your materials as they were designed to be seen — installed, in context, in the light.</p>
+    <p class="cover-sub">Project photography and drone imaging for your completed installs. Your materials, in context, in the light.</p>
     <div class="cover-meta-bar">
       <div class="cover-meta-item">
         <strong>Prepared For</strong>
@@ -400,33 +427,48 @@
 </div>
 
 <!-- ═══════════════════════════════════════
-     INTRO
+     PRICING AT A GLANCE (first thing after cover)
      ═══════════════════════════════════════ -->
-<div class="section">
-  <div class="eyebrow">The Approach</div>
-  <h2>Your materials deserve to be<br>seen <em>in place</em></h2>
-  <p class="lead">Manufacturer product shots show what a panel looks like. Project photography shows what it <em>feels</em> like — on a building, in natural light, at the scale your clients are imagining. That's the gap this work fills.</p>
-  <p>Every shoot is planned around your specific materials and how they interact with the architecture — the texture of concrete under morning light, the patina of weathering steel at golden hour, the warmth of cedar against a mountain backdrop. I use drone imaging on nearly every exterior project to capture elevation, facade rhythm, and context that ground-level photography simply can't.</p>
-  <p>The result is a library of original images you own — for your website, lookbook, social media, and sales conversations. Not manufacturer stock. Your projects. Your installs.</p>
-</div>
+<div class="section" id="pricing">
+  <div class="eyebrow">Pricing</div>
+  <h2>What it <em>costs</em></h2>
+  <p class="lead">Drone is included at every level. All images are fully edited, high-res, and yours to use everywhere.</p>
 
-<!-- ═══════════════════════════════════════
-     NUMBERS BAR
-     ═══════════════════════════════════════ -->
-<div class="section dark full" style="padding:0;">
-  <div class="numbers">
-    <div class="num">
-      <span class="num-val">60+</span>
-      <span class="num-lbl">Projects Photographed</span>
-    </div>
-    <div class="num">
-      <span class="num-val">TC</span>
-      <span class="num-lbl">Certified Drone Pilot</span>
-    </div>
-    <div class="num">
-      <span class="num-val">7–10</span>
-      <span class="num-lbl">Business Day Turnaround</span>
-    </div>
+  <table class="quick-glance">
+    <thead>
+      <tr>
+        <th>Package</th>
+        <th>What You Get</th>
+        <th>Price</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Single Project</td>
+        <td>Half-day shoot, exteriors + drone + details, 25–35 edited images</td>
+        <td class="price-cell">$2,200</td>
+      </tr>
+      <tr class="highlight">
+        <td>Signature Project <span class="rec-tag">Recommended</span></td>
+        <td>Full-day shoot, adds twilight + interiors, 40–55 edited images</td>
+        <td class="price-cell">$3,200</td>
+      </tr>
+      <tr>
+        <td>Multi-Project (3)</td>
+        <td>Three half-day shoots, 75–105 total images, priority scheduling <span class="per-project">$1,800 per project</span></td>
+        <td class="price-cell">$5,400</td>
+      </tr>
+      <tr class="travel-row">
+        <td>Travel (Kelowna)</td>
+        <td>Split across shoots if booked together</td>
+        <td class="price-cell">$400</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="insight" style="margin-top:48px;">
+    <h4>Cost-Share Opportunity</h4>
+    <p>If the builder or architect on a project also wants the images, they license the full set for a fraction of the shoot cost. This is common — it reduces your effective cost and gives everyone professional content from the same session.</p>
   </div>
 </div>
 
@@ -438,121 +480,76 @@
 </div>
 
 <!-- ═══════════════════════════════════════
-     WHAT YOU GET
+     DETAILED TIER BREAKDOWN
      ═══════════════════════════════════════ -->
 <div class="section cream" style="padding-top:100px; padding-bottom:100px;">
   <div class="section-inner">
-    <div class="eyebrow">Deliverables</div>
-    <h2>What every shoot <em>includes</em></h2>
-    <p class="lead">Each project shoot is a complete documentation session — exteriors, material details, and context. Here's what you walk away with.</p>
+    <div class="eyebrow">Package Details</div>
+    <h2>What's included in <em>each tier</em></h2>
 
-    <div class="deliverables">
-      <div class="dlv">
-        <span class="dlv-icon">I</span>
-        <h4>Exterior Photography</h4>
-        <p>Full building exteriors from multiple angles and elevations, capturing your cladding as the dominant visual element in context with the architecture.</p>
+    <div class="tiers">
+      <!-- Single Project -->
+      <div class="tier">
+        <div class="tier-name">Single Project</div>
+        <div class="tier-price">$2,200</div>
+        <div class="tier-term">Per project &middot; 1 location</div>
+        <ul>
+          <li>Half-day shoot (up to 4 hours on site)</li>
+          <li>Exterior photography — multiple angles</li>
+          <li>Drone / aerial coverage</li>
+          <li>Material detail close-ups</li>
+          <li>25–35 edited images</li>
+          <li>High-res + web-optimized delivery</li>
+          <li class="off">Twilight / golden hour session</li>
+          <li class="off">Interior documentation</li>
+        </ul>
+        <div class="tier-bottom">
+          <strong>Best for:</strong> Documenting a single completed install
+        </div>
       </div>
-      <div class="dlv">
-        <span class="dlv-icon">II</span>
-        <h4>Drone / Aerial Imaging</h4>
-        <p>Elevated perspectives that show facade scale, material pattern, roofline integration, and neighbourhood context. Transport Canada certified Advanced Pilot.</p>
-      </div>
-      <div class="dlv">
-        <span class="dlv-icon">III</span>
-        <h4>Material Detail Shots</h4>
-        <p>Close-up texture, grain, patina, and joint details — the images that sell in a meeting or a printed lookbook. Natural light, no compositing.</p>
-      </div>
-      <div class="dlv">
-        <span class="dlv-icon">IV</span>
-        <h4>Edited &amp; Delivered</h4>
-        <p>Full professional edit in Lightroom. High-resolution files delivered via Dropbox within 7–10 business days. Web-optimized versions included.</p>
-      </div>
-    </div>
-  </div>
-</div>
 
-<!-- ═══════════════════════════════════════
-     PRICING TIERS
-     ═══════════════════════════════════════ -->
-<div class="section">
-  <div class="eyebrow">Investment</div>
-  <h2>Project photography <em>packages</em></h2>
-  <p class="lead">Three options depending on the scope of each project and the depth of coverage you need. Drone is included at every level.</p>
-
-  <div class="tiers">
-    <!-- Single Project -->
-    <div class="tier">
-      <div class="tier-name">Single Project</div>
-      <div class="tier-price">$2,200</div>
-      <div class="tier-term">Per project &middot; 1 location</div>
-      <ul>
-        <li>Half-day shoot (up to 4 hours on site)</li>
-        <li>Exterior photography — multiple angles</li>
-        <li>Drone / aerial coverage</li>
-        <li>Material detail close-ups</li>
-        <li>25–35 edited images</li>
-        <li>High-res + web-optimized delivery</li>
-        <li class="off">Twilight / golden hour session</li>
-        <li class="off">Interior documentation</li>
-      </ul>
-      <div class="tier-bottom">
-        <strong>Best for:</strong> Documenting a single completed install
+      <!-- Signature Project — Recommended -->
+      <div class="tier rec">
+        <div class="tier-badge"><span>Recommended</span></div>
+        <div class="tier-name">Signature Project</div>
+        <div class="tier-price">$3,200</div>
+        <div class="tier-term">Per project &middot; 1 location</div>
+        <ul>
+          <li>Full-day shoot (up to 7 hours on site)</li>
+          <li>Exterior photography — comprehensive coverage</li>
+          <li>Drone / aerial at multiple elevations</li>
+          <li>Material detail close-ups</li>
+          <li>Twilight / golden hour session</li>
+          <li>Interior documentation (if applicable)</li>
+          <li>40–55 edited images</li>
+          <li>High-res + web-optimized delivery</li>
+        </ul>
+        <div class="tier-bottom">
+          <strong>Best for:</strong> Flagship projects for your website and lookbook
+        </div>
       </div>
-    </div>
 
-    <!-- Signature Project — Recommended -->
-    <div class="tier rec">
-      <div class="tier-badge"><span>Recommended</span></div>
-      <div class="tier-name">Signature Project</div>
-      <div class="tier-price">$3,200</div>
-      <div class="tier-term">Per project &middot; 1 location</div>
-      <ul>
-        <li>Full-day shoot (up to 7 hours on site)</li>
-        <li>Exterior photography — comprehensive coverage</li>
-        <li>Drone / aerial at multiple elevations</li>
-        <li>Material detail close-ups</li>
-        <li>Twilight / golden hour session</li>
-        <li>Interior documentation (if applicable)</li>
-        <li>40–55 edited images</li>
-        <li>High-res + web-optimized delivery</li>
-      </ul>
-      <div class="tier-bottom">
-        <strong>Best for:</strong> Flagship projects for your website and lookbook
-      </div>
-    </div>
-
-    <!-- Multi-Project -->
-    <div class="tier">
-      <div class="tier-name">Multi-Project</div>
-      <div class="tier-price">$5,400</div>
-      <div class="tier-term">3 projects &middot; $1,800 each</div>
-      <ul>
-        <li>Three half-day shoots across multiple sites</li>
-        <li>Exterior photography at each location</li>
-        <li>Drone / aerial at every project</li>
-        <li>Material detail close-ups</li>
-        <li>25–35 edited images per project</li>
-        <li>75–105 total images delivered</li>
-        <li>Consistent editing style across all projects</li>
-        <li>Priority scheduling</li>
-      </ul>
-      <div class="tier-bottom">
-        <strong>Best for:</strong> Building a library across your product lines
+      <!-- Multi-Project -->
+      <div class="tier">
+        <div class="tier-name">Multi-Project</div>
+        <div class="tier-price">$5,400</div>
+        <div class="tier-term">3 projects &middot; $1,800 each</div>
+        <ul>
+          <li>Three half-day shoots across multiple sites</li>
+          <li>Exterior photography at each location</li>
+          <li>Drone / aerial at every project</li>
+          <li>Material detail close-ups</li>
+          <li>25–35 edited images per project</li>
+          <li>75–105 total images delivered</li>
+          <li>Consistent editing style across all projects</li>
+          <li>Priority scheduling</li>
+        </ul>
+        <div class="tier-bottom">
+          <strong>Best for:</strong> Building a library across your product lines
+        </div>
       </div>
     </div>
   </div>
-
-  <div class="insight">
-    <h4>A Note on Value</h4>
-    <p>These images replace manufacturer stock with original content that shows <em>your</em> installs — a permanent marketing asset. Most clients find that a single project shoot generates 12–18 months of social, website, and sales content.</p>
-  </div>
-</div>
-
-<!-- ═══════════════════════════════════════
-     PHOTO BREAK 2
-     ═══════════════════════════════════════ -->
-<div class="photo-break">
-  <img src="images/warbler-interior.jpg" alt="Warbler interior — material details">
 </div>
 
 <!-- ═══════════════════════════════════════
@@ -586,10 +583,63 @@
         <span>From $500</span>
       </div>
     </div>
+  </div>
+</div>
 
-    <div class="insight" style="background:rgba(246,244,240,0.04); margin-top:56px;">
-      <h4>Cost-Share Opportunity</h4>
-      <p style="color:rgba(246,244,240,0.6);">If the builder or architect on a project also wants the images, they can license the full set for a fraction of the shoot cost. This is common on my projects — it reduces your effective cost and gives everyone professional content from the same session.</p>
+<!-- ═══════════════════════════════════════
+     PHOTO BREAK 2
+     ═══════════════════════════════════════ -->
+<div class="photo-break">
+  <img src="images/warbler-interior.jpg" alt="Warbler interior — material details">
+</div>
+
+<!-- ═══════════════════════════════════════
+     WHAT YOU GET
+     ═══════════════════════════════════════ -->
+<div class="section">
+  <div class="eyebrow">Deliverables</div>
+  <h2>What every shoot <em>includes</em></h2>
+
+  <div class="deliverables">
+    <div class="dlv">
+      <span class="dlv-icon">I</span>
+      <h4>Exterior Photography</h4>
+      <p>Full building exteriors from multiple angles and elevations, capturing your cladding as the dominant visual element in context with the architecture.</p>
+    </div>
+    <div class="dlv">
+      <span class="dlv-icon">II</span>
+      <h4>Drone / Aerial Imaging</h4>
+      <p>Elevated perspectives that show facade scale, material pattern, roofline integration, and neighbourhood context. Transport Canada certified Advanced Pilot.</p>
+    </div>
+    <div class="dlv">
+      <span class="dlv-icon">III</span>
+      <h4>Material Detail Shots</h4>
+      <p>Close-up texture, grain, patina, and joint details — the images that sell in a meeting or a printed lookbook. Natural light, no compositing.</p>
+    </div>
+    <div class="dlv">
+      <span class="dlv-icon">IV</span>
+      <h4>Edited &amp; Delivered</h4>
+      <p>Full professional edit in Lightroom. High-resolution files delivered via Dropbox within 7–10 business days. Web-optimized versions included.</p>
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════════════
+     NUMBERS BAR
+     ═══════════════════════════════════════ -->
+<div class="section dark full" style="padding:0;">
+  <div class="numbers">
+    <div class="num">
+      <span class="num-val">60+</span>
+      <span class="num-lbl">Projects Photographed</span>
+    </div>
+    <div class="num">
+      <span class="num-val">TC</span>
+      <span class="num-lbl">Certified Drone Pilot</span>
+    </div>
+    <div class="num">
+      <span class="num-val">7–10</span>
+      <span class="num-lbl">Business Day Turnaround</span>
     </div>
   </div>
 </div>
@@ -620,15 +670,6 @@
       </div>
     </div>
   </div>
-</div>
-
-<!-- ═══════════════════════════════════════
-     TRAVEL NOTE
-     ═══════════════════════════════════════ -->
-<div class="section">
-  <div class="eyebrow">Logistics</div>
-  <h2>A note on <em>travel</em></h2>
-  <p>I'm based in Squamish, BC and regularly shoot across the Okanagan. For projects in the Kelowna area, a travel fee of <strong>$400</strong> applies to cover vehicle and time. If we schedule multiple projects in the same trip, travel is split across shoots — another reason the Multi-Project package makes sense for building out your library.</p>
 </div>
 
 <!-- ═══════════════════════════════════════
