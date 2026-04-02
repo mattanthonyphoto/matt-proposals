@@ -43,11 +43,17 @@
 
   /* ═══ HEADER BAR ═══ */
   .header-bar {
-    padding:32px 5vw;
+    padding:28px 5vw 24px;
     font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.7rem;
     letter-spacing:0.15em; text-transform:uppercase; color:var(--ink);
+    display:flex; justify-content:space-between; align-items:center;
+    border-bottom:1px solid rgba(0,0,0,0.06);
   }
   .header-bar em { font-style:normal; color:var(--stone); font-weight:200; }
+  .header-prepared {
+    font-family:'Josefin Sans',sans-serif; font-weight:200; font-size:0.4rem;
+    letter-spacing:0.35em; text-transform:uppercase; color:var(--stone);
+  }
 
   /* ═══ SPREAD — text left, image right (Sangha style) ═══ */
   .spread {
@@ -75,17 +81,22 @@
   .spread-img { position:relative; overflow:hidden; }
   .spread-img img {
     width:100%; height:100%; object-fit:cover; display:block;
+    transition:transform 0.6s ease;
   }
+  .spread-img:hover img { transform:scale(1.015); }
 
   /* ═══ ASYMMETRIC PAIR — one large, one small ═══ */
   .asym-pair {
-    display:grid; grid-template-columns:62% 38%; min-height:80vh;
+    display:grid; grid-template-columns:62% 38%; min-height:75vh;
+    gap:4px;
   }
   .asym-pair.reverse { grid-template-columns:38% 62%; }
   .asym-pair-img { position:relative; overflow:hidden; }
   .asym-pair-img img {
     width:100%; height:100%; object-fit:cover; display:block;
+    transition:transform 0.6s ease;
   }
+  .asym-pair-img:hover img { transform:scale(1.015); }
   .asym-pair-img.inset {
     padding:8vh 5vw;
     display:flex; align-items:center;
@@ -106,6 +117,12 @@
   .text-block {
     padding:8vh 5vw;
     max-width:520px;
+    border-top:1px solid rgba(0,0,0,0.06);
+    border-bottom:1px solid rgba(0,0,0,0.06);
+  }
+  .text-block::before {
+    content:''; display:block; width:32px; height:1px;
+    background:var(--gold); opacity:0.5; margin-bottom:24px;
   }
   .text-block p {
     font-family:'Cormorant Garamond',serif; font-style:italic;
@@ -126,8 +143,9 @@
   .cta {
     padding:10vh 5vw;
     border-top:1px solid rgba(0,0,0,0.06);
-    max-width:520px;
+    max-width:100%;
   }
+  .cta-inner { max-width:520px; }
   .cta .spread-label { margin-bottom:14px; }
   .cta h2 {
     font-family:'Cormorant Garamond',serif; font-weight:400;
@@ -181,12 +199,15 @@
 
 <div class="loader" id="loader"><span>Matt Anthony Photography</span></div>
 
-<div class="header-bar">Matt Anthony <em>Photography</em></div>
+<div class="header-bar">
+  <span>Matt Anthony <em>Photography</em></span>
+  <span class="header-prepared">Prepared for Paul Sangha Creative</span>
+</div>
 
 <!-- ═══ 01 TRANQUIL RETREAT ═══ -->
 <div class="spread r">
   <div class="spread-text">
-    <div class="spread-label">Prepared for Paul Sangha Creative</div>
+    <div class="spread-label">Tranquil Retreat — Sandy Hook</div>
     <h2>Corrugated Steel Against <em>Tidal Forest</em></h2>
     <p>Raw corrugated steel, chosen to weather alongside the salt air and cedar canopy that surrounds the site. In five years the facade will have darkened to match the bark of the old-growth Douglas fir it sits among. The material isn't resisting the landscape. It's converging with it.</p>
   </div>
@@ -273,7 +294,7 @@
     <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/2f6d1495-5b03-4c34-8b78-7b3eaa479c17/browns-road-sunshine-coast-architectural-photographer-matt-anthony-10.jpg" alt="Brown's Road — detail" loading="lazy">
   </div>
   <div class="asym-pair-img">
-    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/35e24e7e-8ae5-47fa-9242-792ad3b6e7b9/browns-road-sunshine-coast-architectural-photographer-matt-anthony-7.jpg" alt="Brown's Road — wide" loading="lazy">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/500155bc-8662-4c70-ab44-feae601fa91e/browns-road-sunshine-coast-architectural-photographer-matt-anthony-16.jpg" alt="Brown's Road — wide" loading="lazy">
   </div>
 </div>
 
@@ -343,6 +364,7 @@
 
 <!-- ═══ CREDITS + CTA ═══ -->
 <div class="cta r">
+  <div class="cta-inner">
   <div class="spread-label">Next Steps</div>
   <h2>Let's Start a <em>Conversation</em></h2>
   <p>Your work with foreshore restoration, creek daylighting, and sculptural landscape interventions represents exactly the kind of design thinking that demands photography at this level.</p>
@@ -351,6 +373,7 @@
     <p class="cta-line"><a href="mailto:info@mattanthonyphoto.com">info@mattanthonyphoto.com</a></p>
     <p class="cta-line">604.765.9270</p>
     <p class="cta-line"><a href="https://mattanthonyphoto.com">mattanthonyphoto.com</a></p>
+  </div>
   </div>
 </div>
 
