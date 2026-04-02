@@ -38,20 +38,20 @@ a{text-decoration:none;color:inherit}
 @keyframes scaleIn{to{transform:scaleX(1)}}
 
 /* ── Nav ── */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:28px clamp(24px,5vw,72px);transition:all .5s cubic-bezier(0.16,1,0.3,1)}
-.nav--hero{mix-blend-mode:difference}
-.nav.scrolled{mix-blend-mode:normal;background:rgba(247,245,240,.92);backdrop-filter:blur(20px) saturate(1.2);padding:16px clamp(24px,5vw,72px);box-shadow:0 1px 0 rgba(0,0,0,.04)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:20px clamp(24px,5vw,72px);transition:all .5s cubic-bezier(0.16,1,0.3,1);background:linear-gradient(180deg,rgba(28,28,26,.6) 0%,rgba(28,28,26,0) 100%)}
+.nav.scrolled{background:rgba(247,245,240,.95);backdrop-filter:blur(20px) saturate(1.2);padding:14px clamp(24px,5vw,72px);box-shadow:0 1px 0 rgba(0,0,0,.06)}
 .nav-wordmark{display:flex;align-items:center;gap:10px;transition:all .5s}
-.nav-logo{height:clamp(28px,3vw,38px);width:auto;filter:brightness(0) invert(1);transition:filter .5s}
+.nav-logo{height:clamp(30px,3.2vw,40px);width:auto;filter:brightness(0) invert(1);transition:filter .5s}
 .nav.scrolled .nav-logo{filter:none}
-.nav-links{display:flex;gap:clamp(24px,3vw,40px);align-items:center}
-.nav-links a{font-family:var(--sans);font-weight:400;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);opacity:.5;transition:all .3s}
-.nav.scrolled .nav-links a{color:var(--ink)}
-.nav-links a:hover{opacity:1}
-.nav-links .nav-cta{opacity:1;border:1px solid rgba(247,245,240,.25);padding:10px 24px;transition:all .3s}
-.nav.scrolled .nav-cta{border-color:var(--ink);color:var(--ink) !important}
-.nav-links .nav-cta:hover{background:var(--paper);color:var(--ink)}
-.nav.scrolled .nav-cta:hover{background:var(--ink);color:var(--paper) !important}
+.nav-links{display:flex;gap:clamp(20px,2.5vw,36px);align-items:center}
+.nav-links a{font-family:var(--sans);font-weight:400;font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(247,245,240,.7);transition:all .3s}
+.nav.scrolled .nav-links a{color:var(--stone)}
+.nav-links a:hover{color:var(--paper)}
+.nav.scrolled .nav-links a:hover{color:var(--ink)}
+.nav-links .nav-cta{color:var(--paper) !important;background:var(--cedar);padding:10px 26px;border:none;font-weight:500;transition:all .3s}
+.nav.scrolled .nav-cta{background:var(--ink);color:var(--paper) !important}
+.nav-links .nav-cta:hover{background:var(--paper);color:var(--ink) !important}
+.nav.scrolled .nav-cta:hover{background:var(--cedar);color:var(--paper) !important}
 
 /* ── Hero (Full Bleed) ── */
 .hero{position:relative;height:100vh;min-height:700px;overflow:hidden;display:flex;align-items:flex-end}
@@ -349,7 +349,7 @@ h2 em{font-style:italic;color:var(--ocean)}
 </div>
 
 <!-- Nav -->
-<nav class="nav nav--hero" id="nav">
+<nav class="nav" id="nav">
   <a href="#" class="nav-wordmark"><img class="nav-logo" src="https://images.squarespace-cdn.com/content/v1/54a09633e4b093269b640cc3/1421272667560-RV9B4DB14CI5K19O96Y7/vernon-cons-logo.png?format=500w" alt="Vernon Construction"></a>
   <div class="nav-links">
     <a href="#projects">Work</a>
@@ -845,8 +845,8 @@ h2 em{font-style:italic;color:var(--ocean)}
 
   function onScroll(){
     var y=window.scrollY;
-    if(y>80){nav.classList.add('scrolled');nav.classList.remove('nav--hero')}
-    else{nav.classList.remove('scrolled');nav.classList.add('nav--hero')}
+    if(y>80)nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
 
     /* Parallax full-bleed */
     var bleeds=document.querySelectorAll('.full-bleed:not(.full-bleed--full) img');
