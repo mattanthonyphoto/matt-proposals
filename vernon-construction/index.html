@@ -1,0 +1,934 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vernon Construction — Custom Builders, Sunshine Coast BC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --ink: #1C1C1A;
+  --paper: #F7F5F0;
+  --stone: #96918A;
+  --cedar: #6B5B4A;
+  --fog: #ECEAE4;
+  --ocean: #4A5D6B;
+  --warm: #D4CEC3;
+  --serif: 'Instrument Serif', Georgia, serif;
+  --sans: 'Inter', -apple-system, sans-serif;
+}
+
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+::selection{background:var(--cedar);color:var(--paper)}
+
+/* ── Loader ── */
+.loader{position:fixed;inset:0;background:var(--ink);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:20px}
+.loader.done{animation:loaderOut 1s cubic-bezier(0.76,0,0.24,1) forwards}
+@keyframes loaderOut{0%{clip-path:inset(0)}100%{clip-path:inset(0 0 100% 0)}}
+.loader-logo{height:clamp(36px,4vw,48px);width:auto;filter:brightness(0) invert(1);opacity:0;animation:fadeUp .6s .3s forwards}
+.loader-line{width:48px;height:1px;background:var(--cedar);transform:scaleX(0);animation:scaleIn .8s .5s cubic-bezier(0.16,1,0.3,1) forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(8px)}to{opacity:.6;transform:translateY(0)}}
+@keyframes scaleIn{to{transform:scaleX(1)}}
+
+/* ── Nav ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:28px clamp(24px,5vw,72px);transition:all .5s cubic-bezier(0.16,1,0.3,1)}
+.nav--hero{mix-blend-mode:difference}
+.nav.scrolled{mix-blend-mode:normal;background:rgba(247,245,240,.92);backdrop-filter:blur(20px) saturate(1.2);padding:16px clamp(24px,5vw,72px);box-shadow:0 1px 0 rgba(0,0,0,.04)}
+.nav-wordmark{display:flex;align-items:center;gap:10px;transition:all .5s}
+.nav-logo{height:clamp(28px,3vw,38px);width:auto;filter:brightness(0) invert(1);transition:filter .5s}
+.nav.scrolled .nav-logo{filter:none}
+.nav-links{display:flex;gap:clamp(24px,3vw,40px);align-items:center}
+.nav-links a{font-family:var(--sans);font-weight:400;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);opacity:.5;transition:all .3s}
+.nav.scrolled .nav-links a{color:var(--ink)}
+.nav-links a:hover{opacity:1}
+.nav-links .nav-cta{opacity:1;border:1px solid rgba(247,245,240,.25);padding:10px 24px;transition:all .3s}
+.nav.scrolled .nav-cta{border-color:var(--ink);color:var(--ink) !important}
+.nav-links .nav-cta:hover{background:var(--paper);color:var(--ink)}
+.nav.scrolled .nav-cta:hover{background:var(--ink);color:var(--paper) !important}
+
+/* ── Hero (Full Bleed) ── */
+.hero{position:relative;height:100vh;min-height:700px;overflow:hidden;display:flex;align-items:flex-end}
+.hero-slides{position:absolute;inset:0}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.08);transition:opacity 1.6s cubic-bezier(0.16,1,0.3,1),transform 7s ease-out}
+.hero-slide.active{opacity:1;transform:scale(1)}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,26,.1) 0%,rgba(28,28,26,0) 30%,rgba(28,28,26,.2) 55%,rgba(28,28,26,.82) 80%,rgba(28,28,26,.95) 100%)}
+.hero-content{position:relative;z-index:2;padding:0 clamp(32px,5vw,80px) clamp(72px,10vh,120px);max-width:900px}
+.hero-tag{font-family:var(--sans);font-weight:500;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--cedar);display:flex;align-items:center;gap:12px;margin-bottom:24px;opacity:0;animation:heroUp .8s .6s forwards}
+.hero-tag::before{content:'';width:28px;height:1px;background:var(--cedar)}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(42px,6.5vw,92px);line-height:.95;color:var(--paper);opacity:0;animation:heroUp .8s .8s forwards}
+.hero h1 em{font-style:italic;color:var(--cedar)}
+.hero-sub{font-family:var(--sans);font-weight:300;font-size:clamp(14px,1.15vw,16px);color:rgba(247,245,240,.55);line-height:1.8;max-width:480px;margin-top:24px;opacity:0;animation:heroUp .8s 1s forwards}
+.hero-ctas{display:flex;gap:12px;margin-top:32px;opacity:0;animation:heroUp .8s 1.2s forwards}
+.hero-btn{font-family:var(--sans);font-weight:500;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:16px 36px;transition:all .4s}
+.hero-btn--primary{background:var(--cedar);color:var(--paper)}
+.hero-btn--primary:hover{background:var(--paper);color:var(--ink)}
+.hero-btn--ghost{border:1px solid rgba(247,245,240,.2);color:rgba(247,245,240,.7)}
+.hero-btn--ghost:hover{border-color:var(--cedar);color:var(--cedar)}
+.hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;opacity:0;animation:heroUp .8s 1.8s forwards}
+.hero-scroll span{font-family:var(--sans);font-size:8px;letter-spacing:.25em;text-transform:uppercase;color:rgba(247,245,240,.25)}
+.hero-scroll-line{width:1px;height:36px;background:linear-gradient(to bottom,var(--cedar),transparent);animation:pulse 2.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.2;transform:scaleY(.5)}50%{opacity:1;transform:scaleY(1)}}
+@keyframes heroUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── Press Strip ── */
+.press{background:var(--ink);padding:18px clamp(24px,5vw,72px);display:flex;align-items:center;justify-content:center;gap:clamp(16px,3vw,48px);flex-wrap:wrap}
+.press span{font-family:var(--sans);font-weight:400;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:rgba(247,245,240,.2)}
+.press em{font-family:var(--serif);font-style:italic;font-size:clamp(15px,1.3vw,20px);color:rgba(247,245,240,.45);letter-spacing:.01em}
+.press-dot{width:3px;height:3px;border-radius:50%;background:rgba(247,245,240,.12)}
+
+/* ── Section Utilities ── */
+.section{padding:clamp(100px,14vw,180px) clamp(32px,5vw,80px)}
+.section-inner{max-width:1320px;margin:0 auto}
+.label{font-family:var(--sans);font-weight:500;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--cedar);margin-bottom:16px}
+.section-line{width:40px;height:1px;background:var(--cedar);margin:24px 0 28px}
+h2{font-family:var(--serif);font-weight:400;line-height:1.08;letter-spacing:-.01em}
+h2 em{font-style:italic;color:var(--ocean)}
+
+/* ── Projects (Horizontal Scroll) ── */
+.projects .section-inner{max-width:100%;padding:0 clamp(32px,5vw,80px)}
+.projects h2{font-size:clamp(36px,4.5vw,64px);margin-bottom:clamp(40px,5vw,64px)}
+.projects-track{display:flex;gap:clamp(12px,1.5vw,20px);overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;cursor:grab;padding-bottom:8px}
+.projects-track::-webkit-scrollbar{display:none}
+.projects-track:active{cursor:grabbing}
+.project-slide{flex:0 0 clamp(300px,38vw,520px);scroll-snap-align:start;position:relative;overflow:hidden;aspect-ratio:3/4;background:var(--fog)}
+.project-slide img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(0.16,1,0.3,1)}
+.project-slide:hover img{transform:scale(1.05)}
+.project-info{position:absolute;bottom:0;left:0;right:0;padding:clamp(24px,3vw,40px);background:linear-gradient(to top,rgba(28,28,26,.82) 0%,transparent 100%);transform:translateY(16px);opacity:0;transition:all .5s cubic-bezier(0.16,1,0.3,1)}
+.project-slide:hover .project-info{transform:translateY(0);opacity:1}
+.project-name{font-family:var(--serif);font-size:clamp(20px,2vw,28px);color:var(--paper);line-height:1.1}
+.project-loc{font-family:var(--sans);font-weight:400;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--cedar);margin-top:6px}
+.project-desc{font-family:var(--sans);font-weight:300;font-size:12px;color:rgba(247,245,240,.45);margin-top:6px;line-height:1.6}
+.projects-controls{display:flex;align-items:center;justify-content:space-between;padding:28px clamp(32px,5vw,80px) 0}
+.projects-count{font-family:var(--sans);font-size:11px;color:var(--stone);letter-spacing:.05em}
+.projects-arrows{display:flex;gap:10px}
+.projects-arrows button{width:44px;height:44px;border:1px solid var(--warm);border-radius:50%;background:none;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .3s;color:var(--stone)}
+.projects-arrows button:hover{border-color:var(--cedar);color:var(--cedar);background:var(--fog)}
+.projects-arrows button svg{width:14px;height:14px}
+
+/* ── Full Bleed ── */
+.full-bleed{position:relative;height:clamp(280px,45vh,560px);overflow:hidden}
+.full-bleed--hero{height:clamp(500px,80vh,900px)}
+.full-bleed--full{height:100vh}
+.full-bleed img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.full-bleed::after{content:'';position:absolute;inset:0;background:rgba(28,28,26,.1)}
+.full-bleed .bleed-caption{position:absolute;bottom:clamp(20px,3vw,40px);right:clamp(24px,5vw,72px);font-family:var(--serif);font-style:italic;font-size:clamp(13px,1.1vw,16px);color:rgba(247,245,240,.5);z-index:1}
+
+/* ── About ── */
+.about-grid{display:grid;grid-template-columns:1fr 1.1fr;gap:clamp(48px,7vw,100px);align-items:start}
+.about-text h2{font-size:clamp(32px,3.8vw,56px);margin-bottom:8px}
+.about-text p{font-family:var(--sans);font-weight:300;font-size:clamp(14px,1.05vw,15px);color:var(--stone);line-height:1.9;margin-bottom:18px}
+.about-text p strong{font-weight:500;color:var(--ink)}
+.about-images{display:grid;grid-template-columns:1fr 1fr;gap:10px;position:sticky;top:100px}
+.about-images .img-tall{grid-row:1/3;overflow:hidden}
+.about-images .img-short{overflow:hidden}
+.about-images img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(0.16,1,0.3,1)}
+.about-images div:hover img{transform:scale(1.03)}
+
+/* ── Stats ── */
+.stats{background:var(--ink);padding:clamp(72px,9vw,110px) clamp(32px,5vw,80px)}
+.stats-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(3,1fr);gap:0;text-align:center}
+.stat{padding:clamp(20px,3vw,40px);position:relative}
+.stat::after{content:'';position:absolute;right:0;top:20%;height:60%;width:1px;background:rgba(247,245,240,.06)}
+.stat:last-child::after{display:none}
+.stat-num{font-family:var(--serif);font-size:clamp(44px,5.5vw,72px);color:var(--paper);line-height:1;letter-spacing:-.02em}
+.stat-num span{color:var(--cedar)}
+.stat-desc{font-family:var(--sans);font-weight:400;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(247,245,240,.25);margin-top:14px}
+
+/* ── Services ── */
+.services h2{font-size:clamp(32px,3.8vw,56px);margin-bottom:clamp(40px,5vw,64px)}
+.services-list{border-top:1px solid var(--warm)}
+.service-row{display:grid;grid-template-columns:64px 1fr 1.6fr;gap:clamp(20px,3vw,40px);align-items:baseline;padding:clamp(24px,3vw,36px) 0;border-bottom:1px solid var(--warm);transition:all .4s;cursor:default}
+.service-row:hover{padding-left:12px;background:linear-gradient(90deg,var(--fog) 0%,transparent 50%)}
+.service-num{font-family:var(--serif);font-size:clamp(24px,2vw,32px);color:var(--warm);transition:color .3s}
+.service-row:hover .service-num{color:var(--cedar)}
+.service-title{font-family:var(--serif);font-size:clamp(20px,1.8vw,26px);line-height:1.2}
+.service-desc{font-family:var(--sans);font-weight:300;font-size:clamp(13px,.95vw,14px);color:var(--stone);line-height:1.8}
+
+/* ── Process ── */
+.process{background:var(--fog)}
+.process h2{font-size:clamp(32px,3.8vw,56px);margin-bottom:clamp(48px,6vw,72px)}
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative}
+.timeline::before{content:'';position:absolute;top:5px;left:0;right:0;height:1px;background:var(--warm)}
+.timeline-step{padding:32px clamp(12px,2vw,28px) 0 0;position:relative}
+.timeline-dot{width:10px;height:10px;border-radius:50%;border:2px solid var(--cedar);background:var(--fog);position:absolute;top:0;left:0;z-index:1;transition:all .3s}
+.timeline-step:hover .timeline-dot{background:var(--cedar);transform:scale(1.4)}
+.timeline-step h4{font-family:var(--serif);font-size:clamp(17px,1.5vw,22px);margin-bottom:8px;margin-top:24px}
+.timeline-step p{font-family:var(--sans);font-weight:300;font-size:clamp(12px,.9vw,13px);color:var(--stone);line-height:1.75}
+
+/* ── Testimonial ── */
+.testimonial{text-align:center;position:relative;padding:clamp(120px,16vw,220px) clamp(32px,5vw,80px)}
+.testimonial::before{content:'\201C';font-family:var(--serif);font-size:clamp(180px,22vw,360px);color:var(--fog);position:absolute;top:clamp(20px,4vw,60px);left:50%;transform:translateX(-50%);line-height:.6;pointer-events:none}
+.testimonial blockquote{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(24px,3.2vw,42px);line-height:1.4;color:var(--ink);max-width:760px;margin:0 auto 36px;position:relative;z-index:1}
+.testimonial-line{width:40px;height:1px;background:var(--cedar);margin:0 auto 16px}
+.testimonial cite{font-family:var(--sans);font-style:normal;font-weight:500;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--cedar)}
+.testimonial .cite-role{font-family:var(--sans);font-weight:300;font-size:11px;color:var(--stone);margin-top:4px;display:block;letter-spacing:.04em}
+
+/* ── Journal / Blog ── */
+.journal{background:var(--ink);padding:clamp(100px,14vw,180px) clamp(32px,5vw,80px)}
+.journal .section-inner{max-width:1320px;margin:0 auto}
+.journal .label{color:rgba(247,245,240,.2)}
+.journal h2{font-size:clamp(32px,3.8vw,56px);color:var(--paper);margin-bottom:clamp(48px,6vw,72px)}
+.journal h2 em{color:var(--cedar)}
+.journal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,28px)}
+.journal-card{background:rgba(247,245,240,.03);border:1px solid rgba(247,245,240,.04);transition:all .4s;overflow:hidden}
+.journal-card:hover{background:rgba(247,245,240,.06);border-color:rgba(247,245,240,.08);transform:translateY(-4px)}
+.journal-card-img{aspect-ratio:16/10;overflow:hidden}
+.journal-card-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(0.16,1,0.3,1)}
+.journal-card:hover .journal-card-img img{transform:scale(1.06)}
+.journal-card-body{padding:clamp(20px,2.5vw,32px)}
+.journal-card-tag{font-family:var(--sans);font-weight:500;font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--cedar);margin-bottom:12px}
+.journal-card-title{font-family:var(--serif);font-size:clamp(18px,1.6vw,24px);color:var(--paper);line-height:1.25;margin-bottom:12px;transition:color .3s}
+.journal-card:hover .journal-card-title{color:var(--cedar)}
+.journal-card-excerpt{font-family:var(--sans);font-weight:300;font-size:clamp(12px,.9vw,13px);color:rgba(247,245,240,.35);line-height:1.7}
+.journal-card-read{display:inline-flex;align-items:center;gap:6px;font-family:var(--sans);font-weight:500;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--cedar);margin-top:16px;opacity:.6;transition:opacity .3s}
+.journal-card:hover .journal-card-read{opacity:1}
+
+/* ── CTA ── */
+.cta-section{position:relative;overflow:hidden}
+.cta-bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.cta-bg::after{content:'';position:absolute;inset:0;background:rgba(28,28,26,.8);backdrop-filter:blur(2px)}
+.cta-content{position:relative;z-index:1;text-align:center;padding:clamp(120px,16vw,200px) clamp(32px,5vw,80px)}
+.cta-content h3{font-family:var(--serif);font-weight:400;font-size:clamp(32px,4.5vw,60px);color:var(--paper);line-height:1.08;margin-bottom:16px}
+.cta-content h3 em{font-style:italic;color:var(--cedar)}
+.cta-content p{font-family:var(--sans);font-weight:300;font-size:clamp(14px,1.1vw,16px);color:rgba(247,245,240,.4);margin-bottom:36px}
+.cta-btn{display:inline-block;font-family:var(--sans);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);border:1px solid rgba(247,245,240,.2);padding:18px 48px;transition:all .4s}
+.cta-btn:hover{background:var(--paper);color:var(--ink);border-color:var(--paper)}
+
+/* ── Footer ── */
+.footer{background:var(--ink);border-top:1px solid rgba(247,245,240,.04);padding:clamp(56px,7vw,88px) clamp(32px,5vw,80px) 28px}
+.footer-inner{max-width:1320px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:clamp(28px,4vw,56px);margin-bottom:clamp(56px,7vw,88px)}
+.footer-col h5{font-family:var(--serif);font-size:clamp(15px,1.2vw,17px);color:var(--paper);margin-bottom:16px}
+.footer-brand p{font-family:var(--sans);font-weight:300;font-size:13px;color:rgba(247,245,240,.25);line-height:1.7;max-width:280px;margin-bottom:18px}
+.footer-contact{font-family:var(--sans);font-size:12px;color:rgba(247,245,240,.25);line-height:2.2}
+.footer-contact a{transition:color .3s}
+.footer-contact a:hover{color:var(--cedar)}
+.footer-links{list-style:none}
+.footer-links li{margin-bottom:9px}
+.footer-links a{font-family:var(--sans);font-size:12px;color:rgba(247,245,240,.2);transition:color .3s}
+.footer-links a:hover{color:var(--cedar)}
+.footer-areas{list-style:none;columns:2;column-gap:16px}
+.footer-areas li{margin-bottom:7px}
+.footer-areas a{font-family:var(--sans);font-size:12px;color:rgba(247,245,240,.15);transition:color .3s}
+.footer-areas a:hover{color:var(--cedar)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(247,245,240,.04)}
+.footer-copyright{font-family:var(--sans);font-size:10px;color:rgba(247,245,240,.08);letter-spacing:.04em}
+.footer-credit{font-family:var(--sans);font-size:10px;color:rgba(247,245,240,.08)}
+.footer-credit a{color:var(--cedar);opacity:.35;transition:opacity .3s}
+.footer-credit a:hover{opacity:1}
+
+/* ── Concept Banner ── */
+.concept-banner{position:fixed;bottom:0;left:0;right:0;z-index:200;background:rgba(28,28,26,.96);backdrop-filter:blur(20px);padding:14px 32px;display:flex;align-items:center;justify-content:center;gap:20px;border-top:1px solid var(--cedar);transform:translateY(100%);animation:bannerUp .6s 2.2s cubic-bezier(0.16,1,0.3,1) forwards}
+.concept-banner-text{font-family:var(--sans);font-weight:300;font-size:12px;color:rgba(247,245,240,.45)}
+.concept-banner-text strong{color:var(--cedar);font-weight:500}
+.concept-banner-link{font-family:var(--sans);font-weight:500;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--paper);background:var(--cedar);padding:10px 24px;transition:all .3s}
+.concept-banner-link:hover{background:var(--paper);color:var(--ink)}
+@keyframes bannerUp{to{transform:translateY(0)}}
+
+/* ── Featured Project ── */
+.featured{background:var(--ink);position:relative;overflow:hidden}
+.featured-inner{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;min-height:0}
+.featured-images{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:clamp(48px,6vw,80px);padding-right:0}
+.featured-images .fi-main{grid-column:1/3;overflow:hidden;aspect-ratio:16/10}
+.featured-images .fi-detail{overflow:hidden}
+.featured-images img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(0.16,1,0.3,1)}
+.featured-images div:hover img{transform:scale(1.03)}
+.featured-text{padding:clamp(48px,6vw,80px);display:flex;flex-direction:column;justify-content:center}
+.featured-text .label{color:rgba(247,245,240,.2)}
+.featured-text h2{font-size:clamp(28px,3vw,44px);color:var(--paper);margin-bottom:8px}
+.featured-text h2 em{color:var(--cedar)}
+.featured-meta{display:flex;gap:24px;margin:20px 0 24px;flex-wrap:wrap}
+.featured-meta-item{font-family:var(--sans);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(247,245,240,.25);display:flex;align-items:center;gap:6px}
+.featured-meta-item span{color:var(--cedar);font-weight:500}
+.featured-text p{font-family:var(--sans);font-weight:300;font-size:clamp(13px,1vw,14px);color:rgba(247,245,240,.4);line-height:1.85;margin-bottom:14px}
+.featured-pubs{display:flex;gap:16px;margin-top:20px;flex-wrap:wrap}
+.featured-pub{font-family:var(--serif);font-style:italic;font-size:clamp(13px,1.1vw,16px);color:rgba(247,245,240,.3);padding:8px 16px;border:1px solid rgba(247,245,240,.06);transition:all .3s}
+.featured-pub:hover{border-color:var(--cedar);color:var(--cedar)}
+
+/* ── Founder ── */
+.founder{border-top:1px solid var(--warm);border-bottom:1px solid var(--warm)}
+.founder-inner{max-width:1320px;margin:0 auto;display:grid;grid-template-columns:auto 1fr;gap:clamp(32px,5vw,64px);align-items:center;padding:clamp(48px,6vw,80px) clamp(32px,5vw,80px)}
+.founder-quote{font-family:var(--serif);font-style:italic;font-size:clamp(20px,2.2vw,30px);line-height:1.4;color:var(--ink);max-width:640px}
+.founder-quote em{color:var(--ocean)}
+.founder-attr{margin-top:20px;display:flex;align-items:center;gap:12px}
+.founder-name{font-family:var(--sans);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--cedar)}
+.founder-role{font-family:var(--sans);font-weight:300;font-size:11px;color:var(--stone)}
+.founder-line{width:24px;height:1px;background:var(--cedar)}
+
+/* ── Trust Bar ── */
+.trust{padding:clamp(32px,4vw,48px) clamp(32px,5vw,80px);background:var(--fog)}
+.trust-inner{max-width:1320px;margin:0 auto;display:flex;justify-content:center;gap:clamp(20px,4vw,48px);flex-wrap:wrap;align-items:center}
+.trust-item{display:flex;align-items:center;gap:8px;font-family:var(--sans);font-weight:400;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--stone);opacity:.6;transition:opacity .3s}
+.trust-item:hover{opacity:1}
+.trust-item svg{flex-shrink:0;opacity:.5}
+.trust-sep{width:1px;height:16px;background:var(--warm)}
+
+/* ── Testimonials Grid ── */
+.testimonials{padding:clamp(100px,14vw,180px) clamp(32px,5vw,80px)}
+.testimonials-inner{max-width:1320px;margin:0 auto}
+.testimonials h2{font-size:clamp(32px,3.8vw,56px);text-align:center;margin-bottom:clamp(48px,6vw,72px)}
+.testimonials-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(24px,3vw,40px)}
+.testimonial-card{padding:clamp(32px,4vw,48px);border:1px solid var(--warm);position:relative;transition:all .4s}
+.testimonial-card:hover{border-color:var(--cedar);background:var(--fog)}
+.testimonial-card::before{content:'\201C';font-family:var(--serif);font-size:64px;color:var(--warm);line-height:.6;position:absolute;top:20px;right:24px;pointer-events:none;transition:color .3s}
+.testimonial-card:hover::before{color:var(--cedar)}
+.testimonial-card blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(17px,1.5vw,22px);line-height:1.5;color:var(--ink);margin-bottom:24px;position:relative;z-index:1}
+.testimonial-card-line{width:28px;height:1px;background:var(--cedar);margin-bottom:14px}
+.testimonial-card cite{font-family:var(--sans);font-style:normal;font-weight:500;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--cedar)}
+.testimonial-card .tc-project{font-family:var(--sans);font-weight:300;font-size:10px;color:var(--stone);margin-top:4px;display:block}
+
+/* ── Mobile Nav ── */
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:101}
+.nav-hamburger span{width:20px;height:1.5px;background:var(--paper);transition:all .3s}
+.nav.scrolled .nav-hamburger span{background:var(--ink)}
+.nav-hamburger.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
+.mobile-menu{position:fixed;inset:0;background:var(--ink);z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;transform:translateY(-100%);transition:transform .5s cubic-bezier(0.16,1,0.3,1)}
+.mobile-menu.open{transform:translateY(0)}
+.mobile-menu a{font-family:var(--serif);font-size:clamp(28px,5vw,40px);color:var(--paper);opacity:.6;transition:all .3s}
+.mobile-menu a:hover{opacity:1;color:var(--cedar)}
+
+/* ── Reveal ── */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(0.16,1,0.3,1),transform .7s cubic-bezier(0.16,1,0.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}.reveal-d4{transition-delay:.4s}
+
+/* ── Responsive ── */
+@media(max-width:900px){
+  .nav-links{display:none}
+  .nav-hamburger{display:flex}
+  .featured-inner{grid-template-columns:1fr}
+  .featured-images{padding:clamp(32px,4vw,48px)}
+  .testimonials-grid{grid-template-columns:1fr}
+  .founder-inner{grid-template-columns:1fr}
+  .about-grid{grid-template-columns:1fr;gap:40px}
+  .about-images{position:static;grid-template-columns:1fr 1fr}
+  .about-images .img-tall{grid-row:auto}
+  .stats-grid{grid-template-columns:1fr}
+  .stat::after{display:none}
+  .stat{padding:20px 0;border-bottom:1px solid rgba(247,245,240,.04)}
+  .stat:last-child{border:none}
+  .service-row{grid-template-columns:48px 1fr;gap:12px}
+  .service-desc{grid-column:1/3;padding-left:60px}
+  .timeline{grid-template-columns:1fr 1fr;gap:28px;row-gap:40px}
+  .timeline::before{display:none}
+  .timeline-dot{position:static;margin-bottom:12px}
+  .timeline-step{padding-top:0}
+  .timeline-step h4{margin-top:0}
+  .journal-grid{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .footer-brand{grid-column:1/3}
+  .footer-bottom{flex-direction:column;gap:6px;text-align:center}
+  .concept-banner{flex-direction:column;gap:8px;padding:12px 16px}
+  .projects-controls{padding:20px 32px 0}
+}
+@media(max-width:480px){
+  .timeline{grid-template-columns:1fr}
+  .service-desc{padding-left:0;grid-column:1/3}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-brand{grid-column:auto}
+  .press{flex-direction:column;gap:10px}
+  .press-dot{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- Loader -->
+<div class="loader" id="loader">
+  <img class="loader-logo" src="https://images.squarespace-cdn.com/content/v1/54a09633e4b093269b640cc3/1421272667560-RV9B4DB14CI5K19O96Y7/vernon-cons-logo.png?format=500w" alt="Vernon Construction">
+  <div class="loader-line"></div>
+</div>
+
+<!-- Nav -->
+<nav class="nav nav--hero" id="nav">
+  <a href="#" class="nav-wordmark"><img class="nav-logo" src="https://images.squarespace-cdn.com/content/v1/54a09633e4b093269b640cc3/1421272667560-RV9B4DB14CI5K19O96Y7/vernon-cons-logo.png?format=500w" alt="Vernon Construction"></a>
+  <div class="nav-links">
+    <a href="#projects">Work</a>
+    <a href="#about">Approach</a>
+    <a href="#services">Services</a>
+    <a href="#journal">Journal</a>
+    <a href="#contact" class="nav-cta">Inquire</a>
+  </div>
+  <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#projects" class="mobile-link">Work</a>
+  <a href="#about" class="mobile-link">Approach</a>
+  <a href="#services" class="mobile-link">Services</a>
+  <a href="#journal" class="mobile-link">Journal</a>
+  <a href="#contact" class="mobile-link">Inquire</a>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-slides" id="heroSlides">
+    <div class="hero-slide active" style="background-image:url('https://images.squarespace-cdn.com/content/v1/54a09633e4b093269b640cc3/1646170059253-7OME3MK5XSDY0HQXOR6D/FDV_HalfmoonBay_1554b_compressed.jpg?format=2500w')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.squarespace-cdn.com/content/v1/54a09633e4b093269b640cc3/1722835465956-RQA043N8YOWNATTLUQ5W/6935_SSC_Hwy_web_large-31.jpg?format=2500w')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.squarespace-cdn.com/content/v1/54a09633e4b093269b640cc3/1690231867050-HRPF37LIIAX6OCZW3AB0/KRJ.Photos.Vernon.Secret.Cove-11.jpg?format=2500w')"></div>
+    <div class="hero-slide" style="background-image:url('https://images.squarespace-cdn.com/content/v1/54a09633e4b093269b640cc3/1646170064815-V4P3K4435YH71PGOWVZN/FDV_HalfmoonBay_0040_compressed.jpg?format=2500w')"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-tag">Custom Builders · Sunshine Coast, BC</div>
+    <h1>Intricate craft,<br><em>intentional</em> design</h1>
+    <p class="hero-sub">Forty minutes from Vancouver, a world away. We build homes that honour the Sunshine Coast landscape — with full cost-plus transparency and the kind of craft that earns international publication.</p>
+    <div class="hero-ctas">
+      <a href="#projects" class="hero-btn hero-btn--primary">View Our Work</a>
+      <a href="#contact" class="hero-btn hero-btn--ghost">Start a Conversation</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- Press -->
+<div class="press">
+  <span>As featured in</span>
+  <div class="press-dot"></div>
+  <em>Elle Decoration UK</em>
+  <div class="press-dot"></div>
+  <em>Dwell</em>
+  <div class="press-dot"></div>
+  <em>House & Home</em>
+  <div class="press-dot"></div>
+  <em>NUVO Magazine</em>
+</div>
+
+<!-- Projects -->
+<section class="section projects" id="projects">
+  <div class="section-inner">
+    <div class="label reveal">Selected Projects</div>
+    <h2 class="reveal reveal-d1">Homes shaped by<br><em>coast & craft</em></h2>
+  </div>
+  <div class="projects-track" id="projectsTrack">
+    <div class="project-slide">
+      <img src="https://images.squarespace-cdn.com/content/v1/54a09633e4b093269b640cc3/1646170055130-760VKE0SCI2907W2C9U1/FDV_HalfmoonBay_0205_compressed.jpg?format=2500w" alt="Halfmoon Bay Cabin" loading="lazy">
+      <div class="project-info">
+        <div class="project-name">Halfmoon Bay Cabin</div>
+        <div class="project-loc">Halfmoon Bay</div>
+        <div class="project-desc">Japanese ryokan-inspired retreat — featured in Elle Decoration UK, Dwell, and House & Home</div>
+      </div>
+    </div>
+    <div class="project-slide">
+      <img src="https://images.squarespace-cdn.com/content/v1/54a09633e4b093269b640cc3/1722835465956-RQA043N8YOWNATTLUQ5W/6935_SSC_Hwy_web_large-31.jpg?format=2500w" alt="Golden Beach House" loading="lazy">
+      <div class="project-info">
+        <div class="project-name">Golden Beach House</div>
+        <div class="project-loc">Sunshine Coast</div>
+        <div class="project-desc">Contemporary ocean-front residence with panoramic views and sustainable materials</div>
+      </div>
+    </div>
+    <div class="project-slide">
+      <img src="https://images.squarespace-cdn.com/content/v1/54a09633e4b093269b640cc3/1690231867050-HRPF37LIIAX6OCZW3AB0/KRJ.Photos.Vernon.Secret.Cove-11.jpg?format=2500w" alt="Wood Bay Cabin" loading="lazy">
+      <div class="project-info">
+        <div class="project-name">Wood Bay Cabin</div>
+        <div class="project-loc">Secret Cove</div>
+        <div class="project-desc">High-performance home overlooking Georgia Strait with smart home integration</div>
+      </div>
+    </div>
+    <div class="project-slide">
+      <img src="https://images.squarespace-cdn.com/content/v1/54a09633e4b093269b640cc3/1611176895766-86OXTRJZC2QD6MD5MC7J/3787BeachAve-181002-049.jpg?format=2500w" alt="Sandy's Castle" loading="lazy">
+      <div class="project-info">
+        <div class="project-name">Sandy's Castle</div>
+        <div class="project-loc">Roberts Creek</div>
+        <div class="project-desc">Multi-generational shoreline renovation with natural light and ocean views</div>
+      </div>
+    </div>
+    <div class="project-slide">
+      <img src="https://images.squarespace-cdn.com/content/v1/54a09633e4b093269b640cc3/1722835446974-U7KE6BOIQT458WYLDHVC/6935_SSC_Hwy_web_large-39.jpg?format=2500w" alt="Golden Beach House Interior" loading="lazy">
+      <div class="project-info">
+        <div class="project-name">Golden Beach House</div>
+        <div class="project-loc">Interior</div>
+        <div class="project-desc">Open-plan living with floor-to-ceiling glazing and a natural material palette</div>
+      </div>
+    </div>
+    <div class="project-slide">
+      <img src="https://images.squarespace-cdn.com/content/v1/54a09633e4b093269b640cc3/1646170068186-E377PVBHK041Z3UGMOM4/FDV_HalfmoonBay_0743_compressed.jpg?format=2500w" alt="Halfmoon Bay Kitchen" loading="lazy">
+      <div class="project-info">
+        <div class="project-name">Halfmoon Bay Cabin</div>
+        <div class="project-loc">Interior</div>
+        <div class="project-desc">Lye-processed cedar interiors and custom millwork inspired by Japanese joinery</div>
+      </div>
+    </div>
+  </div>
+  <div class="projects-controls">
+    <span class="projects-count">6 projects</span>
+    <div class="projects-arrows">
+      <button id="prevBtn" aria-label="Previous"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M19 12H5M12 19l-7-7 7-7"/></svg></button>
+      <button id="nextBtn" aria-label="Next"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></button>
+    </div>
+  </div>
+</section>
+
+<!-- Full Bleed 1 -->
+<div class="full-bleed full-bleed--full">
+  <img src="https://images.squarespace-cdn.com/content/v1/54a09633e4b093269b640cc3/1646170064815-V4P3K4435YH71PGOWVZN/FDV_HalfmoonBay_0040_compressed.jpg?format=2500w" alt="Halfmoon Bay Cabin" loading="lazy" style="object-position:center bottom">
+  <span class="bleed-caption">Halfmoon Bay — Elle Decoration UK, June 2021</span>
+</div>
+
+<!-- Featured Project -->
+<section class="featured" id="featured">
+  <div class="featured-inner">
+    <div class="featured-images">
+      <div class="fi-main reveal">
+        <img src="https://images.squarespace-cdn.com/content/v1/54a09633e4b093269b640cc3/1646170055130-760VKE0SCI2907W2C9U1/FDV_HalfmoonBay_0205_compressed.jpg?format=2500w" alt="Halfmoon Bay Cabin exterior" loading="lazy">
+      </div>
+      <div class="fi-detail reveal reveal-d1">
+        <img src="https://images.squarespace-cdn.com/content/v1/54a09633e4b093269b640cc3/1646170068186-E377PVBHK041Z3UGMOM4/FDV_HalfmoonBay_0743_compressed.jpg?format=2500w" alt="Halfmoon Bay interior" loading="lazy">
+      </div>
+      <div class="fi-detail reveal reveal-d2">
+        <img src="https://images.squarespace-cdn.com/content/v1/54a09633e4b093269b640cc3/1646173495350-BZVVRTBMPL5RXEKSN7YA/FDV_HalfmoonBay_0814_compressed.jpg?format=2500w" alt="Halfmoon Bay detail" loading="lazy">
+      </div>
+    </div>
+    <div class="featured-text">
+      <div class="label reveal">Featured Project</div>
+      <h2 class="reveal reveal-d1">Halfmoon Bay <em>Cabin</em></h2>
+      <div class="featured-meta reveal reveal-d2">
+        <div class="featured-meta-item"><span>Architect</span> Frits de Vries</div>
+        <div class="featured-meta-item"><span>Size</span> 1,450 sq ft</div>
+        <div class="featured-meta-item"><span>Location</span> Halfmoon Bay</div>
+      </div>
+      <p class="reveal reveal-d2">A Japanese ryokan-inspired retreat on a one-acre waterfront lot. Designed by Patrick Warren of Frits de Vries Architects as a personal sanctuary — where 1970s American coastal architecture meets the restraint of a Kyushu inn.</p>
+      <p class="reveal reveal-d3">Clad in black Western Red Cedar with Sansin SDF Onyx finish, the cabin recedes into the forest canopy. Inside, lye-processed cedar creates a luminous contrast — dark without, light within. At 1,450 square feet, it proves that craft and intention matter more than scale.</p>
+      <div class="featured-pubs reveal reveal-d4">
+        <span class="featured-pub">Elle Decoration UK</span>
+        <span class="featured-pub">Dwell</span>
+        <span class="featured-pub">House & Home</span>
+        <span class="featured-pub">NUVO</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- About -->
+<section class="section" id="about">
+  <div class="section-inner">
+    <div class="about-grid">
+      <div class="about-text">
+        <div class="label reveal">The Approach</div>
+        <h2 class="reveal reveal-d1">One builder.<br>One <em>vision.</em></h2>
+        <div class="section-line reveal reveal-d2"></div>
+        <p class="reveal reveal-d2"><strong>Kurt Vernon</strong> acts as project manager, contract administrator, superintendent, and field engineer on every build. One point of contact from first evaluation to final walkthrough — no layers, no handoffs.</p>
+        <p class="reveal reveal-d3">Vernon Construction operates on a <strong>cost-plus model</strong> — full transparency on every dollar, no hidden markups, no surprises. Open books, itemized invoices, and the freedom to make material decisions with complete price visibility.</p>
+        <p class="reveal reveal-d4">Working alongside a trusted network of architects, designers, and skilled trades across the Sunshine Coast, we build homes that respond to their site, their owners, and the way light moves through the day.</p>
+      </div>
+      <div class="about-images">
+        <div class="img-tall reveal reveal-d1">
+          <img src="https://images.squarespace-cdn.com/content/v1/54a09633e4b093269b640cc3/1690231874078-YIHI7IQLE9H8WNB4PMR6/KRJ.Photos.Vernon.Secret.Cove-14.jpg?format=2500w" alt="Wood Bay Cabin" loading="lazy">
+        </div>
+        <div class="img-short reveal reveal-d2">
+          <img src="https://images.squarespace-cdn.com/content/v1/54a09633e4b093269b640cc3/1646173641484-X0D8ZKRR1G8JSNA29UUR/FDV_HalfmoonBay_1064_compressed.jpg?format=2500w" alt="Halfmoon Bay detail" loading="lazy">
+        </div>
+        <div class="img-short reveal reveal-d3">
+          <img src="https://images.squarespace-cdn.com/content/v1/54a09633e4b093269b640cc3/1722835500601-UDTNMZRFKJSPDE0CLLMS/6935_SSC_Hwy_web_large-12.jpg?format=2500w" alt="Golden Beach House" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Founder -->
+<div class="founder">
+  <div class="founder-inner">
+    <div>
+      <div class="founder-quote reveal">"Every home we build is a response to its site, its owners, and the way <em>light moves through the day.</em> I stay involved in every detail because that's what craft demands."</div>
+      <div class="founder-attr reveal reveal-d1">
+        <div class="founder-line"></div>
+        <div>
+          <div class="founder-name">Kurt Vernon</div>
+          <div class="founder-role">Founder & Builder</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Stats -->
+<div class="stats">
+  <div class="stats-grid">
+    <div class="stat reveal">
+      <div class="stat-num">10<span>+</span></div>
+      <div class="stat-desc">Years on the Coast</div>
+    </div>
+    <div class="stat reveal reveal-d1">
+      <div class="stat-num">4</div>
+      <div class="stat-desc">International Publications</div>
+    </div>
+    <div class="stat reveal reveal-d2">
+      <div class="stat-num">100<span>%</span></div>
+      <div class="stat-desc">Cost-Plus Transparency</div>
+    </div>
+  </div>
+</div>
+
+<!-- Trust Bar -->
+<div class="trust">
+  <div class="trust-inner">
+    <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/><path d="M9 12l2 2 4-4"/></svg>2-5-10 Home Warranty</div>
+    <div class="trust-sep"></div>
+    <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L3 7v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V7l-9-5z"/><path d="M9 12l2 2 4-4"/></svg>WCB Insured</div>
+    <div class="trust-sep"></div>
+    <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><path d="M8 12l2.5 2.5L16 9"/></svg>Built Green & LEED</div>
+    <div class="trust-sep"></div>
+    <div class="trust-item"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>Real Cedar Pro</div>
+  </div>
+</div>
+
+<!-- Services -->
+<section class="section services" id="services">
+  <div class="section-inner">
+    <div class="label reveal">What We Do</div>
+    <h2 class="reveal reveal-d1">Services</h2>
+    <div class="services-list">
+      <div class="service-row reveal reveal-d1">
+        <div class="service-num">01</div>
+        <div class="service-title">Custom Homes</div>
+        <div class="service-desc">Ground-up builds designed for the Sunshine Coast landscape — from contemporary ocean-front to West Coast post-and-beam. Timber frame, conventional, or hybrid construction tailored to your site and vision.</div>
+      </div>
+      <div class="service-row reveal reveal-d2">
+        <div class="service-num">02</div>
+        <div class="service-title">Renovations</div>
+        <div class="service-desc">Transformative renovations that preserve character while elevating function, performance, and design. From single-room refinements to full structural reimaginings.</div>
+      </div>
+      <div class="service-row reveal reveal-d3">
+        <div class="service-num">03</div>
+        <div class="service-title">Construction Management</div>
+        <div class="service-desc">Full project oversight from pre-construction planning through completion. Site prep, foundation, framing, exterior systems, interior finishing — one point of contact, continuous communication.</div>
+      </div>
+      <div class="service-row reveal reveal-d4">
+        <div class="service-num">04</div>
+        <div class="service-title">Healthy Home Building</div>
+        <div class="service-desc">Low-VOC materials, whole-home water filtration, HRV ventilation systems, and non-toxic insulation. Building performance that prioritizes the health of the people who live inside.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Full Bleed 2 -->
+<div class="full-bleed">
+  <img src="https://images.squarespace-cdn.com/content/v1/54a09633e4b093269b640cc3/1690231874078-YIHI7IQLE9H8WNB4PMR6/KRJ.Photos.Vernon.Secret.Cove-14.jpg?format=2500w" alt="Wood Bay Cabin" loading="lazy">
+  <span class="bleed-caption">Wood Bay — Secret Cove</span>
+</div>
+
+<!-- Process -->
+<section class="section process" id="process">
+  <div class="section-inner">
+    <div class="label reveal">How We Build</div>
+    <h2 class="reveal reveal-d1">From first conversation<br>to <em>final walkthrough</em></h2>
+    <div class="timeline">
+      <div class="timeline-step reveal reveal-d1">
+        <div class="timeline-dot"></div>
+        <h4>Evaluation</h4>
+        <p>Assessing design readiness, site conditions, and permit requirements. If you need an architect, we connect you with the right one.</p>
+      </div>
+      <div class="timeline-step reveal reveal-d2">
+        <div class="timeline-dot"></div>
+        <h4>Estimating</h4>
+        <p>Detailed cost breakdowns, realistic timelines, and transparent budgets. No guessing, no inflated contingencies.</p>
+      </div>
+      <div class="timeline-step reveal reveal-d3">
+        <div class="timeline-dot"></div>
+        <h4>Pre-Construction</h4>
+        <p>Comprehensive planning — materials, labour, trade coordination, and sequencing — before the first shovel hits ground.</p>
+      </div>
+      <div class="timeline-step reveal reveal-d4">
+        <div class="timeline-dot"></div>
+        <h4>Build & Completion</h4>
+        <p>Quality execution with open communication and cost-plus transparency. Thorough inspection and walkthrough at handover.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Testimonials -->
+<section class="testimonials">
+  <div class="testimonials-inner">
+    <div class="label reveal" style="text-align:center">What Clients Say</div>
+    <h2 class="reveal reveal-d1" style="font-size:clamp(32px,3.8vw,56px)">Built on <em>trust</em></h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card reveal reveal-d1">
+        <blockquote>Think of you often as we live in your wonderful craftsmanship every day.</blockquote>
+        <div class="testimonial-card-line"></div>
+        <cite>Ashley & Scott</cite>
+        <span class="tc-project">Custom Home — Sunshine Coast</span>
+      </div>
+      <div class="testimonial-card reveal reveal-d2">
+        <blockquote>Thanks for the great job on the windows while I was away. It's that kind of reliability that makes all the difference.</blockquote>
+        <div class="testimonial-card-line"></div>
+        <cite>D.F.</cite>
+        <span class="tc-project">Renovation — Sunshine Coast</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Full Bleed 3 -->
+<div class="full-bleed full-bleed--full">
+  <img src="https://images.squarespace-cdn.com/content/v1/54a09633e4b093269b640cc3/1722835500601-UDTNMZRFKJSPDE0CLLMS/6935_SSC_Hwy_web_large-12.jpg?format=2500w" alt="Golden Beach House" loading="lazy" style="object-position:center bottom">
+  <span class="bleed-caption">Golden Beach House — Sunshine Coast</span>
+</div>
+
+<!-- Journal / Blog -->
+<section class="journal" id="journal">
+  <div class="section-inner">
+    <div class="label reveal">Journal</div>
+    <h2 class="reveal reveal-d1">From the <em>field</em></h2>
+    <div class="journal-grid">
+
+      <a href="#" class="journal-card reveal reveal-d1">
+        <div class="journal-card-img">
+          <img src="https://images.squarespace-cdn.com/content/v1/54a09633e4b093269b640cc3/1646170055130-760VKE0SCI2907W2C9U1/FDV_HalfmoonBay_0205_compressed.jpg?format=1500w" alt="Halfmoon Bay Cabin" loading="lazy">
+        </div>
+        <div class="journal-card-body">
+          <div class="journal-card-tag">Project Story</div>
+          <div class="journal-card-title">From Halfmoon Bay to Elle Decoration: Building a Home That Earned International Recognition</div>
+          <div class="journal-card-excerpt">The story behind our Japanese ryokan-inspired cabin — from design intent with Frits de Vries Architects to the pages of Elle Decoration UK, Dwell, and House & Home.</div>
+          <span class="journal-card-read">Read more &rarr;</span>
+        </div>
+      </a>
+
+      <a href="#" class="journal-card reveal reveal-d2">
+        <div class="journal-card-img">
+          <img src="https://images.squarespace-cdn.com/content/v1/54a09633e4b093269b640cc3/1722835482898-X3MXN3SYGTI3NWKIALCA/6935_SSC_Hwy_web_large-21.jpg?format=1500w" alt="Golden Beach House construction" loading="lazy">
+        </div>
+        <div class="journal-card-body">
+          <div class="journal-card-tag">Building Guide</div>
+          <div class="journal-card-title">What Does It Actually Cost to Build a Custom Home on the Sunshine Coast in 2026?</div>
+          <div class="journal-card-excerpt">A transparent breakdown of per-square-foot costs, from shell to high-end finishes. How ferry logistics, trades availability, and the Step Code affect your budget.</div>
+          <span class="journal-card-read">Read more &rarr;</span>
+        </div>
+      </a>
+
+      <a href="#" class="journal-card reveal reveal-d3">
+        <div class="journal-card-img">
+          <img src="https://images.squarespace-cdn.com/content/v1/54a09633e4b093269b640cc3/1690231899509-5NZ6U0KEFTPE3MHO2159/KRJ.Photos.Vernon.Secret.Cove-3.jpg?format=1500w" alt="Wood Bay construction detail" loading="lazy">
+        </div>
+        <div class="journal-card-body">
+          <div class="journal-card-tag">Transparency</div>
+          <div class="journal-card-title">Cost-Plus vs. Fixed Price: Why We Build with Open Books</div>
+          <div class="journal-card-excerpt">How fixed-price builders pad estimates by 15–25% to cover risk, and why cost-plus aligns builder and client incentives from day one.</div>
+          <span class="journal-card-read">Read more &rarr;</span>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-bg" style="background-image:url('https://images.squarespace-cdn.com/content/v1/54a09633e4b093269b640cc3/1646173495350-BZVVRTBMPL5RXEKSN7YA/FDV_HalfmoonBay_0814_compressed.jpg?format=2500w')"></div>
+  <div class="cta-content">
+    <h3 class="reveal">Ready to build on<br>the <em>Sunshine Coast?</em></h3>
+    <p class="reveal reveal-d1">Tell us about your project.</p>
+    <a href="https://www.vernonconstruction.ca/hire-us" class="cta-btn reveal reveal-d2" target="_blank">Start a Conversation</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer" itemscope itemtype="https://schema.org/HomeAndConstructionBusiness">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <img src="https://images.squarespace-cdn.com/content/v1/54a09633e4b093269b640cc3/1421272667560-RV9B4DB14CI5K19O96Y7/vernon-cons-logo.png?format=500w" alt="Vernon Construction" style="height:32px;width:auto;opacity:.5;margin-bottom:8px">
+        <p itemprop="description">Custom home builders on the Sunshine Coast, BC. Specializing in intricate construction with a flair for design.</p>
+        <div class="footer-contact">
+          <div><a href="tel:6047417290" itemprop="telephone">604-741-7290</a></div>
+          <div>Mon–Fri, 8AM–5PM</div>
+          <div>Sunshine Coast, British Columbia</div>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Company</h5>
+        <ul class="footer-links">
+          <li><a href="#projects">Projects</a></li>
+          <li><a href="#about">Approach</a></li>
+          <li><a href="#services">Services</a></li>
+          <li><a href="#journal">Journal</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul class="footer-links">
+          <li><a href="#services">Custom Homes</a></li>
+          <li><a href="#services">Renovations</a></li>
+          <li><a href="#services">Construction Management</a></li>
+          <li><a href="#services">Healthy Home Building</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Service Areas</h5>
+        <ul class="footer-areas" itemprop="areaServed">
+          <li><a href="#contact">Gibsons</a></li>
+          <li><a href="#contact">Sechelt</a></li>
+          <li><a href="#contact">Roberts Creek</a></li>
+          <li><a href="#contact">Halfmoon Bay</a></li>
+          <li><a href="#contact">Pender Harbour</a></li>
+          <li><a href="#contact">Sunshine Coast</a></li>
+        </ul>
+      </div>
+    </div>
+    <meta itemprop="name" content="Vernon Construction">
+    <meta itemprop="url" content="https://www.vernonconstruction.ca">
+    <div class="footer-bottom">
+      <div class="footer-copyright">&copy; 2026 Vernon Construction</div>
+      <div class="footer-credit">Website concept by <a href="https://mattanthonyphoto.com" target="_blank">Matt Anthony Photography</a></div>
+    </div>
+  </div>
+</footer>
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HomeAndConstructionBusiness",
+  "name": "Vernon Construction",
+  "url": "https://www.vernonconstruction.ca",
+  "telephone": "604-741-7290",
+  "address": {"@type": "PostalAddress", "addressLocality": "Sunshine Coast", "addressRegion": "BC", "addressCountry": "CA"},
+  "areaServed": [
+    {"@type": "City", "name": "Gibsons"},
+    {"@type": "City", "name": "Sechelt"},
+    {"@type": "City", "name": "Roberts Creek"},
+    {"@type": "City", "name": "Halfmoon Bay"},
+    {"@type": "City", "name": "Pender Harbour"}
+  ],
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Services",
+    "itemListElement": [
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Custom Homes"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Renovations"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Construction Management"}},
+      {"@type": "Offer", "itemOffered": {"@type": "Service", "name": "Healthy Home Building"}}
+    ]
+  }
+}
+</script>
+
+<!-- Concept Banner -->
+<div class="concept-banner">
+  <span class="concept-banner-text">This is a <strong>website concept</strong> designed for Vernon Construction by Matt Anthony Photography</span>
+  <a href="https://mattanthonyphoto.com/discovery-call" class="concept-banner-link" target="_blank">Book a Discovery Call</a>
+</div>
+
+<script>
+(function(){
+  /* Loader */
+  window.addEventListener('load',function(){document.getElementById('loader').classList.add('done')});
+  setTimeout(function(){document.getElementById('loader').classList.add('done')},2200);
+
+  /* Nav scroll */
+  var nav=document.getElementById('nav');
+  var heroSlides=document.querySelectorAll('.hero-slide');
+  var heroH=document.querySelector('.hero').offsetHeight;
+  var currentSlide=0;
+  var slideCount=heroSlides.length;
+  var ticking=false;
+
+  /* Hero slideshow */
+  setInterval(function(){
+    heroSlides[currentSlide].classList.remove('active');
+    currentSlide=(currentSlide+1)%slideCount;
+    heroSlides[currentSlide].classList.add('active');
+  },5000);
+
+  function onScroll(){
+    var y=window.scrollY;
+    if(y>80){nav.classList.add('scrolled');nav.classList.remove('nav--hero')}
+    else{nav.classList.remove('scrolled');nav.classList.add('nav--hero')}
+
+    /* Parallax full-bleed */
+    var bleeds=document.querySelectorAll('.full-bleed:not(.full-bleed--full) img');
+    bleeds.forEach(function(img){
+      var rect=img.parentElement.getBoundingClientRect();
+      if(rect.bottom>0&&rect.top<window.innerHeight){
+        var p=(window.innerHeight-rect.top)/(window.innerHeight+rect.height);
+        img.style.transform='translateY('+(p*-30)+'px) scale(1.06)';
+      }
+    });
+  }
+
+  window.addEventListener('scroll',function(){
+    if(!ticking){requestAnimationFrame(function(){onScroll();ticking=false});ticking=true}
+  });
+
+  /* Reveal */
+  if('IntersectionObserver' in window){
+    var obs=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target)}})},{threshold:0.1,rootMargin:'0px 0px -30px 0px'});
+    document.querySelectorAll('.reveal').forEach(function(el){obs.observe(el)});
+  }else{
+    document.querySelectorAll('.reveal').forEach(function(el){el.classList.add('visible')});
+  }
+
+  /* Projects scroll */
+  var track=document.getElementById('projectsTrack');
+  var prev=document.getElementById('prevBtn');
+  var next=document.getElementById('nextBtn');
+  function getSlideW(){return track.querySelector('.project-slide').offsetWidth}
+  next.addEventListener('click',function(){track.scrollBy({left:getSlideW()+20,behavior:'smooth'})});
+  prev.addEventListener('click',function(){track.scrollBy({left:-(getSlideW()+20),behavior:'smooth'})});
+
+  /* Drag */
+  var isDown=false,startX,scrollLeft;
+  track.addEventListener('mousedown',function(e){isDown=true;startX=e.pageX-track.offsetLeft;scrollLeft=track.scrollLeft});
+  track.addEventListener('mouseleave',function(){isDown=false});
+  track.addEventListener('mouseup',function(){isDown=false});
+  track.addEventListener('mousemove',function(e){if(!isDown)return;e.preventDefault();track.scrollLeft=scrollLeft-(e.pageX-track.offsetLeft-startX)});
+
+  /* Mobile menu */
+  var hamburger=document.getElementById('hamburger');
+  var mobileMenu=document.getElementById('mobileMenu');
+  hamburger.addEventListener('click',function(){
+    hamburger.classList.toggle('open');
+    mobileMenu.classList.toggle('open');
+    document.body.style.overflow=mobileMenu.classList.contains('open')?'hidden':'';
+  });
+  document.querySelectorAll('.mobile-link').forEach(function(a){
+    a.addEventListener('click',function(){
+      hamburger.classList.remove('open');
+      mobileMenu.classList.remove('open');
+      document.body.style.overflow='';
+    });
+  });
+
+  /* Smooth anchor */
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click',function(e){
+      var t=document.querySelector(this.getAttribute('href'));
+      if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}
+    });
+  });
+
+  /* Counter animation */
+  var statNums=document.querySelectorAll('.stat-num');
+  if('IntersectionObserver' in window){
+    var cObs=new IntersectionObserver(function(entries){entries.forEach(function(e){
+      if(!e.isIntersecting)return;
+      var el=e.target;var text=el.textContent.trim();
+      var num=parseInt(text);if(isNaN(num))return;
+      var suffix=text.replace(/[0-9]/g,'');
+      var dur=1000,start=performance.now();
+      function ease(t){return t<.5?4*t*t*t:1-Math.pow(-2*t+2,3)/2}
+      function tick(now){var t=Math.min((now-start)/dur,1);el.innerHTML=Math.round(ease(t)*num)+'<span>'+suffix+'</span>';if(t<1)requestAnimationFrame(tick)}
+      requestAnimationFrame(tick);
+      cObs.unobserve(el);
+    })},{threshold:.5});
+    statNums.forEach(function(el){cObs.observe(el)});
+  }
+
+  onScroll();
+})();
+</script>
+</body>
+</html>
