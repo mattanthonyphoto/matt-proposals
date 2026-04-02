@@ -18,7 +18,7 @@
   * { margin:0; padding:0; box-sizing:border-box; }
   html { font-size:16px; scroll-behavior:smooth; }
   body {
-    background:var(--paper); color:var(--ink);
+    background:var(--ink); color:var(--paper);
     font-family:'DM Sans',sans-serif; font-weight:300;
     line-height:1.75; overflow-x:hidden;
   }
@@ -239,34 +239,28 @@
   /* ═══ PULLQUOTE ═══ */
   .pullquote {
     padding:10vh 8vw; max-width:780px; margin:0 auto; text-align:center;
-    background:var(--paper); color:var(--ink);
   }
-  .pullquote.on-dark { background:var(--ink); color:var(--paper); }
+  .pullquote.on-cream { background:var(--paper); color:var(--ink); }
   .pullquote p {
     font-family:'Cormorant Garamond',serif; font-style:italic;
-    font-size:1.6rem; line-height:1.5; font-weight:300;
+    font-size:1.6rem; line-height:1.5; font-weight:300; color:var(--stone);
   }
-  .pullquote .body-text { color:var(--dark-stone); }
-  .pullquote.on-dark p { color:var(--stone); }
+  .pullquote.on-cream p { color:var(--dark-stone); }
   .pullquote-rule { width:48px; height:1px; background:var(--gold); opacity:0.5; margin:0 auto 28px; }
 
   /* ═══ PROJECT HEADER ═══ */
   .project-header {
     padding:6vh 8vw 4vh;
-    background:var(--paper);
+    background:var(--ink);
     display:flex; align-items:baseline; gap:20px;
   }
-  .project-header.on-dark { background:var(--ink); }
   .project-num {
     font-family:'Cormorant Garamond',serif; font-weight:300;
     font-size:1.8rem; color:var(--gold); opacity:0.4; line-height:1;
   }
   .project-divider {
     flex:1; height:1px;
-    background:linear-gradient(90deg, rgba(201,169,110,0.25), transparent 60%);
-  }
-  .project-header.on-dark .project-divider {
-    background:linear-gradient(90deg, rgba(201,169,110,0.15), transparent 60%);
+    background:linear-gradient(90deg, rgba(201,169,110,0.2), transparent 60%);
   }
 
   /* ═══ CTA ═══ */
@@ -298,7 +292,7 @@
 
   /* ═══ FOOTER ═══ */
   footer {
-    padding:32px 8vw; text-align:center; background:var(--ink);
+    padding:32px 8vw; text-align:center;
     font-family:'Josefin Sans',sans-serif; font-size:0.4rem;
     letter-spacing:0.25em; text-transform:uppercase; color:rgba(138,133,121,0.3);
   }
@@ -491,7 +485,7 @@
 <!-- ═══════════════════════════════════════
      PULLQUOTE 2
      ═══════════════════════════════════════ -->
-<div class="pullquote r">
+<div class="pullquote on-cream r">
   <div class="pullquote-rule"></div>
   <p class="r">Every project in this portfolio was photographed on location across British Columbia — Sea-to-Sky, Sunshine Coast, Gulf Islands, Okanagan. Transport Canada certified for aerial. Same-week turnaround when deadlines demand it.</p>
 </div>
@@ -552,12 +546,12 @@
 <!-- ═══════════════════════════════════════
      07 — GAMBIER ISLAND
      ═══════════════════════════════════════ -->
-<div class="project-header on-dark r" style="background:var(--ink);">
+<div class="project-header r">
   <div class="project-num">07</div>
   <div class="project-divider"></div>
 </div>
 
-<div class="editorial" style="background:var(--ink);">
+<div class="editorial">
   <div class="editorial-img r-img">
     <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/ccfb80fe-3b57-490b-bffb-dfe02f8e174e/linwood-gambier-web-34.jpg" alt="Gambier Island — aerial" loading="lazy">
   </div>
