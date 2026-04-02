@@ -223,7 +223,7 @@
   }
 
   /* ═══ PULLQUOTE ═══ */
-  .pullquote { padding:12vh 8vw; max-width:780px; margin:0 auto; text-align:center; }
+  .pullquote { padding:6vh 8vw; max-width:780px; margin:0 auto; text-align:center; }
   .pullquote p {
     font-family:'Cormorant Garamond',serif; font-style:italic;
     font-size:1.6rem; line-height:1.5; color:var(--stone); font-weight:300;
@@ -232,7 +232,7 @@
 
   /* ═══ BREATHING ═══ */
   .breath {
-    padding:10vh 0; display:flex; justify-content:center;
+    padding:5vh 0; display:flex; justify-content:center;
   }
   .breath-line {
     width:1px; height:80px; background:rgba(201,169,110,0.06);
@@ -252,7 +252,7 @@
   }
 
   /* ═══ SPACER ═══ */
-  .spacer { height:3px; background:var(--ink); }
+  .spacer { height:2px; background:var(--ink); }
 
   /* ═══ CTA ═══ */
   .close-section {
@@ -398,8 +398,8 @@
 <div class="spacer"></div>
 
 <div class="video-section grain">
-  <video autoplay muted loop playsinline>
-    <source src="https://mattanthonyphoto.github.io/matt-proposals/paul-sangha/video/the-perch-twilight.mp4" type="video/mp4">
+  <video autoplay muted loop playsinline preload="auto" poster="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/23aedb76-4c10-4a31-ba9c-9ebd434a25bc/5322-backhouse-web-2.jpg">
+    <source src="https://mattanthonyphoto.github.io/matt-proposals/paul-sangha/video/the-perch-twilight.mp4?v=2" type="video/mp4">
   </video>
   <span class="caption-sm">The Perch — Twilight</span>
 </div>
@@ -569,8 +569,8 @@
 <div class="spacer"></div>
 
 <div class="video-section grain">
-  <video autoplay muted loop playsinline>
-    <source src="https://mattanthonyphoto.github.io/matt-proposals/paul-sangha/video/linwood-gambier.mp4" type="video/mp4">
+  <video autoplay muted loop playsinline preload="auto" poster="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/d80fa4cc-21d0-4281-900c-e6906eea5fae/linwood-gambier-web-36.jpg">
+    <source src="https://mattanthonyphoto.github.io/matt-proposals/paul-sangha/video/linwood-gambier.mp4?v=2" type="video/mp4">
   </video>
   <span class="caption-sm">Gambier Island Residence</span>
 </div>
@@ -615,6 +615,16 @@
     entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('v'); });
   }, {threshold:0.1, rootMargin:'0px 0px -40px 0px'});
   document.querySelectorAll('.r, .r-img, .eyebrow').forEach(function(el){ ro.observe(el); });
+
+  // Force-play videos when visible
+  var vo = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      var v = e.target;
+      if(e.isIntersecting){ v.play().catch(function(){}); }
+      else { v.pause(); }
+    });
+  }, {threshold:0.2});
+  document.querySelectorAll('video').forEach(function(v){ vo.observe(v); });
 
   // Parallax
   var parallaxEls = document.querySelectorAll('[data-parallax] img');
