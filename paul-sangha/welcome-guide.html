@@ -23,6 +23,13 @@
     line-height:1.8; overflow-x:hidden;
   }
 
+  /* ═══ PROGRESS ═══ */
+  .progress {
+    position:fixed; top:0; left:0; height:2px; width:0%;
+    background:var(--gold); opacity:0.4; z-index:9999;
+    transition:width 0.06s linear;
+  }
+
   /* ═══ LOADER ═══ */
   .loader {
     position:fixed; inset:0; background:var(--white); z-index:99999;
@@ -41,23 +48,51 @@
   .r { opacity:0; transform:translateY(16px); transition:opacity 0.7s ease, transform 0.7s ease; }
   .r.v { opacity:1; transform:none; }
 
-  /* ═══ HEADER BAR ═══ */
+  /* ═══ HEADER BAR (sticky) ═══ */
   .header-bar {
-    padding:28px 5vw 24px;
-    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.7rem;
+    position:sticky; top:0; z-index:100;
+    padding:20px 5vw;
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
     letter-spacing:0.15em; text-transform:uppercase; color:var(--ink);
     display:flex; justify-content:space-between; align-items:center;
-    border-bottom:1px solid rgba(0,0,0,0.06);
+    background:rgba(255,255,255,0.92); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(0,0,0,0.05);
   }
   .header-bar em { font-style:normal; color:var(--stone); font-weight:200; }
   .header-prepared {
-    font-family:'Josefin Sans',sans-serif; font-weight:200; font-size:0.4rem;
+    font-family:'Josefin Sans',sans-serif; font-weight:200; font-size:0.38rem;
     letter-spacing:0.35em; text-transform:uppercase; color:var(--stone);
   }
 
-  /* ═══ SPREAD — text left, image right (Sangha style) ═══ */
+  /* ═══ HERO OPENER ═══ */
+  .hero {
+    height:92vh; min-height:500px; position:relative; overflow:hidden;
+    display:flex; align-items:flex-end;
+  }
+  .hero img {
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+    filter:brightness(0.85);
+  }
+  .hero-overlay {
+    position:relative; z-index:1; padding:6vh 5vw;
+    width:100%;
+    background:linear-gradient(transparent 0%, rgba(26,26,24,0.55) 100%);
+  }
+  .hero h1 {
+    font-family:'Cormorant Garamond',serif; font-weight:300; color:var(--white);
+    font-size:clamp(2.4rem, 4.5vw, 3.8rem); line-height:1.08;
+    opacity:0; animation:fadeIn 0.8s 0.4s ease forwards;
+  }
+  .hero h1 em { font-style:italic; font-weight:400; }
+  .hero-sub {
+    margin-top:12px; font-size:0.82rem; color:rgba(246,244,240,0.55);
+    max-width:400px;
+    opacity:0; animation:fadeIn 0.8s 0.7s ease forwards;
+  }
+
+  /* ═══ SPREAD ═══ */
   .spread {
-    display:grid; grid-template-columns:38% 62%; min-height:85vh;
+    display:grid; grid-template-columns:38% 62%; min-height:82vh;
     border-top:1px solid rgba(0,0,0,0.06);
   }
   .spread.reverse { grid-template-columns:62% 38%; }
@@ -85,7 +120,7 @@
   }
   .spread-img:hover img { transform:scale(1.015); }
 
-  /* ═══ ASYMMETRIC PAIR — one large, one small ═══ */
+  /* ═══ ASYMMETRIC PAIR ═══ */
   .asym-pair {
     display:grid; grid-template-columns:62% 38%; min-height:75vh;
     gap:4px;
@@ -113,68 +148,66 @@
   .video-full { width:100%; }
   .video-full video { width:100%; display:block; }
 
-  /* ═══ TEXT BLOCK ═══ */
+  /* ═══ TEXT BLOCK (centered pullquote) ═══ */
   .text-block {
-    padding:8vh 5vw;
-    max-width:520px;
+    padding:10vh 5vw;
+    display:flex; flex-direction:column; align-items:center;
+    text-align:center;
     border-top:1px solid rgba(0,0,0,0.06);
     border-bottom:1px solid rgba(0,0,0,0.06);
   }
   .text-block::before {
     content:''; display:block; width:32px; height:1px;
-    background:var(--gold); opacity:0.5; margin-bottom:24px;
+    background:var(--gold); opacity:0.5; margin-bottom:28px;
   }
   .text-block p {
     font-family:'Cormorant Garamond',serif; font-style:italic;
-    font-size:1.4rem; line-height:1.55; color:var(--stone);
+    font-size:1.5rem; line-height:1.55; color:var(--stone);
+    max-width:580px;
   }
 
-  /* ═══ CREDITS ═══ */
-  .credits {
-    padding:6vh 5vw;
-    border-top:1px solid rgba(0,0,0,0.06);
-  }
-  .credits p {
-    font-size:0.78rem; color:var(--stone); line-height:1.7;
-  }
-  .credits a { color:var(--gold); text-decoration:none; }
-
-  /* ═══ CTA ═══ */
+  /* ═══ CTA (dark section with bg image) ═══ */
   .cta {
-    padding:10vh 5vw;
-    border-top:1px solid rgba(0,0,0,0.06);
-    max-width:100%;
+    position:relative; overflow:hidden;
+    padding:14vh 5vw; color:var(--white);
   }
-  .cta-inner { max-width:520px; }
-  .cta .spread-label { margin-bottom:14px; }
+  .cta-bg {
+    position:absolute; inset:0;
+    background-image:url('https://images.squarespace-cdn.com/content/6824fd48afd1dd40cd73e146/4b9ec40a-fd39-4c41-b5bc-cc5f96976830/peak-ventures-whistler-9.jpg?content-type=image%2Fjpeg');
+    background-size:cover; background-position:center;
+    filter:brightness(0.2);
+  }
+  .cta-inner { position:relative; z-index:1; max-width:520px; }
+  .cta .spread-label { color:var(--gold); margin-bottom:14px; }
   .cta h2 {
     font-family:'Cormorant Garamond',serif; font-weight:400;
-    font-size:2rem; line-height:1.15; margin-bottom:16px;
+    font-size:2.2rem; line-height:1.15; margin-bottom:16px; color:var(--white);
   }
   .cta h2 em { font-style:italic; }
   .cta p {
-    font-size:0.85rem; color:var(--text); line-height:1.9; margin-bottom:28px;
+    font-size:0.85rem; color:rgba(246,244,240,0.55); line-height:1.9; margin-bottom:32px;
   }
   .cta-btn {
     font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.48rem;
     letter-spacing:0.3em; text-transform:uppercase;
-    color:var(--white); background:var(--ink);
-    padding:15px 44px; text-decoration:none; display:inline-block;
+    color:var(--ink); background:var(--gold);
+    padding:16px 48px; text-decoration:none; display:inline-block;
     transition:background 0.3s ease;
   }
-  .cta-btn:hover { background:var(--gold); }
+  .cta-btn:hover { background:var(--white); }
   .cta-contact {
-    margin-top:40px; padding-top:28px;
-    border-top:1px solid rgba(0,0,0,0.06);
+    margin-top:48px; padding-top:32px;
+    border-top:1px solid rgba(201,169,110,0.15);
   }
-  .cta-line { font-size:0.78rem; color:var(--stone); margin:2px 0; }
-  .cta-line a { color:var(--ink); text-decoration:none; }
+  .cta-line { font-size:0.78rem; color:rgba(246,244,240,0.4); margin:2px 0; }
+  .cta-line a { color:var(--gold); text-decoration:none; }
 
   /* ═══ FOOTER ═══ */
   footer {
     padding:24px 5vw;
     font-family:'Josefin Sans',sans-serif; font-size:0.35rem;
     letter-spacing:0.2em; text-transform:uppercase; color:var(--light-stone);
+    background:var(--ink);
   }
 
   /* ═══ RESPONSIVE ═══ */
@@ -186,25 +219,39 @@
     .asym-pair.reverse { grid-template-columns:1fr; }
     .asym-pair-img { min-height:50vh; }
     .asym-pair-img.inset { min-height:auto; padding:4vh 5vw; }
+    .header-prepared { display:none; }
   }
   @media (max-width:768px) {
+    .hero { height:70vh; }
     .spread-text { padding:6vh 5vw; }
     .spread-text h2 { font-size:1.8rem; }
-    .text-block { padding:6vh 5vw; }
-    .text-block p { font-size:1.15rem; }
+    .text-block { padding:7vh 5vw; }
+    .text-block p { font-size:1.2rem; }
+    .cta { padding:10vh 5vw; }
   }
 </style>
 </head>
 <body>
 
+<div class="progress" id="progress"></div>
 <div class="loader" id="loader"><span>Matt Anthony Photography</span></div>
 
+<!-- STICKY HEADER -->
 <div class="header-bar">
   <span>Matt Anthony <em>Photography</em></span>
   <span class="header-prepared">Prepared for Paul Sangha Creative</span>
 </div>
 
-<!-- ═══ 01 TRANQUIL RETREAT ═══ -->
+<!-- HERO OPENER -->
+<div class="hero">
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/83bbba67-7393-4e34-8b4b-bac1600c8110/sandy-hook-sunshine-coast-architectural-photography-matt-anthony-.jpg-12.jpg" alt="Selected Work">
+  <div class="hero-overlay">
+    <h1>Selected <em>Work</em></h1>
+    <p class="hero-sub">Seven projects across coastal, alpine, and island British Columbia.</p>
+  </div>
+</div>
+
+<!-- 01 TRANQUIL RETREAT -->
 <div class="spread r">
   <div class="spread-text">
     <div class="spread-label">Tranquil Retreat — Sandy Hook</div>
@@ -225,7 +272,7 @@
   </div>
 </div>
 
-<!-- ═══ 02 THE PERCH ═══ -->
+<!-- 02 THE PERCH -->
 <div class="spread r">
   <div class="spread-text">
     <div class="spread-label">The Perch — Sunshine Coast</div>
@@ -248,16 +295,16 @@
 
 <div class="video-full r">
   <video autoplay muted loop playsinline preload="auto">
-    <source src="https://mattanthonyphoto.github.io/matt-proposals/paul-sangha/video/the-perch-twilight.mp4?v=5" type="video/mp4">
+    <source src="https://mattanthonyphoto.github.io/matt-proposals/paul-sangha/video/the-perch-twilight.mp4?v=6" type="video/mp4">
   </video>
 </div>
 
-<!-- ═══ TEXT BREAK ═══ -->
+<!-- PULLQUOTE -->
 <div class="text-block r">
   <p>A building is one decision. Its relationship to the land is a thousand. That's what I photograph.</p>
 </div>
 
-<!-- ═══ 03 ALPINE ═══ -->
+<!-- 03 ALPINE -->
 <div class="full-image r">
   <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/64c6702a-78ea-4fe3-a601-78bce7c197a8/warbler-whistler-architectural-photography-matt-anthony-.jpg-5.jpg" alt="Warbler Residence" loading="lazy">
 </div>
@@ -277,7 +324,7 @@
   <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/c938566f-ee96-40da-aec4-d51ac9fa7e09/warbler-whistler-architectural-photography-matt-anthony-.jpg-13.jpg" alt="Warbler — interior" loading="lazy">
 </div>
 
-<!-- ═══ 04 BROWNS ROAD ═══ -->
+<!-- 04 BROWNS ROAD -->
 <div class="spread r">
   <div class="spread-text">
     <div class="spread-label">Brown's Road — Roberts Creek</div>
@@ -298,7 +345,7 @@
   </div>
 </div>
 
-<!-- ═══ 05 SALT SPRING ═══ -->
+<!-- 05 SALT SPRING -->
 <div class="spread reverse r">
   <div class="spread-img">
     <img src="https://images.squarespace-cdn.com/content/v1/686d53c540bccb49df1c90bc/39756732-3b67-4977-b540-0834ab916650/window-merchant-saltspring-cabin-web-11.jpg?format=2500w" alt="Salt Spring Cabin" loading="lazy">
@@ -314,7 +361,7 @@
   <img src="https://images.squarespace-cdn.com/content/6824fd48afd1dd40cd73e146/a2f153bb-03b7-47f1-9a60-2cac9c4dc962/window-merchant-saltspring-cabin-web-2.jpg?content-type=image%2Fjpeg" alt="Salt Spring Cabin — exterior" loading="lazy">
 </div>
 
-<!-- ═══ 06 PEAK VENTURES ═══ -->
+<!-- 06 PEAK VENTURES -->
 <div class="spread r">
   <div class="spread-text">
     <div class="spread-label">Peak Ventures — Whistler</div>
@@ -335,7 +382,7 @@
   </div>
 </div>
 
-<!-- ═══ 07 GAMBIER ═══ -->
+<!-- 07 GAMBIER -->
 <div class="spread reverse r">
   <div class="spread-img">
     <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/ccfb80fe-3b57-490b-bffb-dfe02f8e174e/linwood-gambier-web-34.jpg" alt="Gambier Island" loading="lazy">
@@ -358,34 +405,45 @@
 
 <div class="video-full r">
   <video autoplay muted loop playsinline preload="auto">
-    <source src="https://mattanthonyphoto.github.io/matt-proposals/paul-sangha/video/linwood-gambier.mp4?v=5" type="video/mp4">
+    <source src="https://mattanthonyphoto.github.io/matt-proposals/paul-sangha/video/linwood-gambier.mp4?v=6" type="video/mp4">
   </video>
 </div>
 
-<!-- ═══ CREDITS + CTA ═══ -->
-<div class="cta r">
+<!-- CTA -->
+<section class="cta r">
+  <div class="cta-bg"></div>
   <div class="cta-inner">
-  <div class="spread-label">Next Steps</div>
-  <h2>Let's Start a <em>Conversation</em></h2>
-  <p>Your work with foreshore restoration, creek daylighting, and sculptural landscape interventions represents exactly the kind of design thinking that demands photography at this level.</p>
-  <a class="cta-btn" href="https://mattanthonyphoto.com/discovery-call">Book a Call</a>
-  <div class="cta-contact">
-    <p class="cta-line"><a href="mailto:info@mattanthonyphoto.com">info@mattanthonyphoto.com</a></p>
-    <p class="cta-line">604.765.9270</p>
-    <p class="cta-line"><a href="https://mattanthonyphoto.com">mattanthonyphoto.com</a></p>
+    <div class="spread-label">Next Steps</div>
+    <h2>Let's Start a <em>Conversation</em></h2>
+    <p>Your work with foreshore restoration, creek daylighting, and sculptural landscape interventions represents exactly the kind of design thinking that demands photography at this level.</p>
+    <a class="cta-btn" href="https://mattanthonyphoto.com/discovery-call">Book a Call</a>
+    <div class="cta-contact">
+      <p class="cta-line"><a href="mailto:info@mattanthonyphoto.com">info@mattanthonyphoto.com</a></p>
+      <p class="cta-line">604.765.9270</p>
+      <p class="cta-line"><a href="https://mattanthonyphoto.com">mattanthonyphoto.com</a></p>
+    </div>
   </div>
-  </div>
-</div>
+</section>
 
 <footer>Matt Anthony Photography &bull; Squamish, British Columbia</footer>
 
 <script>
 (function(){
   setTimeout(function(){ document.getElementById('loader').classList.add('done'); }, 600);
+
+  // Progress bar
+  window.addEventListener('scroll', function(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    if(h > 0) document.getElementById('progress').style.width = (window.scrollY / h * 100) + '%';
+  });
+
+  // Reveal
   var ro = new IntersectionObserver(function(entries){
     entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('v'); });
   }, {threshold:0.05});
   document.querySelectorAll('.r').forEach(function(el){ ro.observe(el); });
+
+  // Videos
   var vo = new IntersectionObserver(function(entries){
     entries.forEach(function(e){
       if(e.isIntersecting) e.target.play().catch(function(){});
