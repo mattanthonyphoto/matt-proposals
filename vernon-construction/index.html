@@ -54,23 +54,23 @@ a{text-decoration:none;color:inherit}
 .nav.scrolled .nav-cta:hover{background:var(--cedar);color:var(--paper) !important}
 
 /* ── Hero (Full Bleed) ── */
-.hero{position:relative;height:100vh;min-height:700px;overflow:hidden;display:flex;align-items:flex-end}
+.hero{position:relative;height:calc(100vh - 72px);margin-top:72px;min-height:600px;overflow:hidden;display:flex;align-items:flex-end}
 .hero-slides{position:absolute;inset:0}
 .hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.08);transition:opacity 1.6s cubic-bezier(0.16,1,0.3,1),transform 7s ease-out}
 .hero-slide.active{opacity:1;transform:scale(1)}
-.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,26,.1) 0%,rgba(28,28,26,0) 30%,rgba(28,28,26,.2) 55%,rgba(28,28,26,.82) 80%,rgba(28,28,26,.95) 100%)}
-.hero-content{position:relative;z-index:2;padding:0 clamp(32px,5vw,80px) clamp(72px,10vh,120px);max-width:900px}
-.hero-tag{font-family:var(--sans);font-weight:500;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--cedar);display:flex;align-items:center;gap:12px;margin-bottom:24px;opacity:0;animation:heroUp .8s .6s forwards}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(180deg,rgba(28,28,26,0) 0%,rgba(28,28,26,.05) 30%,rgba(28,28,26,.35) 50%,rgba(28,28,26,.88) 75%,rgba(28,28,26,.97) 100%)}
+.hero-content{position:relative;z-index:2;padding:0 clamp(32px,5vw,80px) clamp(56px,8vh,100px);max-width:900px}
+.hero-tag{font-family:var(--sans);font-weight:600;font-size:11px;letter-spacing:.3em;text-transform:uppercase;color:var(--cedar);display:flex;align-items:center;gap:12px;margin-bottom:24px;opacity:0;animation:heroUp .8s .6s forwards}
 .hero-tag::before{content:'';width:28px;height:1px;background:var(--cedar)}
-.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(42px,6.5vw,92px);line-height:.95;color:var(--paper);opacity:0;animation:heroUp .8s .8s forwards}
+.hero h1{font-family:var(--serif);font-weight:400;font-size:clamp(44px,6.5vw,92px);line-height:.95;color:white;opacity:0;animation:heroUp .8s .8s forwards;text-shadow:0 2px 40px rgba(0,0,0,.3)}
 .hero h1 em{font-style:italic;color:var(--cedar)}
-.hero-sub{font-family:var(--sans);font-weight:300;font-size:clamp(14px,1.15vw,16px);color:rgba(247,245,240,.55);line-height:1.8;max-width:480px;margin-top:24px;opacity:0;animation:heroUp .8s 1s forwards}
+.hero-sub{font-family:var(--sans);font-weight:400;font-size:clamp(14px,1.15vw,16px);color:rgba(255,255,255,.8);line-height:1.8;max-width:480px;margin-top:24px;opacity:0;animation:heroUp .8s 1s forwards}
 .hero-ctas{display:flex;gap:12px;margin-top:32px;opacity:0;animation:heroUp .8s 1.2s forwards}
-.hero-btn{font-family:var(--sans);font-weight:500;font-size:10px;letter-spacing:.12em;text-transform:uppercase;padding:16px 36px;transition:all .4s}
-.hero-btn--primary{background:var(--cedar);color:var(--paper)}
-.hero-btn--primary:hover{background:var(--paper);color:var(--ink)}
-.hero-btn--ghost{border:1px solid rgba(247,245,240,.2);color:rgba(247,245,240,.7)}
-.hero-btn--ghost:hover{border-color:var(--cedar);color:var(--cedar)}
+.hero-btn{font-family:var(--sans);font-weight:600;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:16px 36px;transition:all .4s}
+.hero-btn--primary{background:var(--paper);color:var(--ink)}
+.hero-btn--primary:hover{background:var(--cedar);color:var(--paper)}
+.hero-btn--ghost{border:1px solid rgba(255,255,255,.35);color:white}
+.hero-btn--ghost:hover{border-color:var(--cedar);color:var(--cedar);background:rgba(28,28,26,.4)}
 .hero-scroll{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:6px;opacity:0;animation:heroUp .8s 1.8s forwards}
 .hero-scroll span{font-family:var(--sans);font-size:8px;letter-spacing:.25em;text-transform:uppercase;color:rgba(247,245,240,.25)}
 .hero-scroll-line{width:1px;height:36px;background:linear-gradient(to bottom,var(--cedar),transparent);animation:pulse 2.5s ease-in-out infinite}
