@@ -257,19 +257,27 @@
   /* ═══ CTA ═══ */
   .close-section {
     padding:16vh 8vw; display:flex; flex-direction:column; align-items:center; text-align:center;
-    position:relative; border-top:1px solid rgba(201,169,110,0.12);
+    position:relative; overflow:hidden;
   }
-  .close-section h2 { font-size:2.8rem; margin-bottom:20px; }
-  .close-section .body-text { text-align:center; margin-bottom:40px; max-width:480px; }
+  .close-bg {
+    position:absolute; inset:0;
+    background-image:url('https://images.squarespace-cdn.com/content/6824fd48afd1dd40cd73e146/4b9ec40a-fd39-4c41-b5bc-cc5f96976830/peak-ventures-whistler-9.jpg?content-type=image%2Fjpeg');
+    background-size:cover; background-position:center;
+    filter:brightness(0.18); transform:scale(1.05);
+    animation:coverZoom 25s ease-in-out infinite alternate;
+  }
+  .close-section h2 { font-size:2.8rem; margin-bottom:20px; position:relative; z-index:3; }
+  .close-section .body-text { text-align:center; margin-bottom:40px; max-width:480px; position:relative; z-index:3; }
   .cta-btn {
     font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.52rem;
     letter-spacing:0.35em; text-transform:uppercase;
     color:var(--ink); background:var(--gold);
     padding:18px 56px; text-decoration:none; border:none;
     transition:all 0.4s cubic-bezier(0.16,1,0.3,1); cursor:pointer; display:inline-block;
+    position:relative; z-index:3;
   }
   .cta-btn:hover { background:var(--paper); transform:translateY(-2px); box-shadow:0 8px 24px rgba(201,169,110,0.15); }
-  .close-contact { margin-top:64px; padding-top:48px; border-top:1px solid rgba(201,169,110,0.08); }
+  .close-contact { margin-top:64px; padding-top:48px; border-top:1px solid rgba(201,169,110,0.1); position:relative; z-index:3; }
   .close-line { font-size:0.78rem; color:var(--stone); margin:3px 0; }
   .close-line a { color:var(--gold); text-decoration:none; transition:color 0.3s ease; }
   .close-line a:hover { color:var(--paper); }
@@ -575,7 +583,8 @@
 </div>
 
 <section class="close-section grain">
-  <div class="eyebrow r">Next Steps</div>
+  <div class="close-bg"></div>
+  <div class="eyebrow r" style="position:relative; z-index:3;">Next Steps</div>
   <h2 class="r">Let's Start a<br><em>Conversation</em></h2>
   <p class="body-text r r-d1" style="text-align:center;">Your work with foreshore restoration, creek daylighting, and sculptural landscape interventions represents exactly the kind of design thinking that demands photography at this level. I'd welcome the chance to discuss your upcoming projects.</p>
   <a href="https://mattanthonyphoto.com/discovery-call" class="cta-btn r r-d2">Book a Call</a>
