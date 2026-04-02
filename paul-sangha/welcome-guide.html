@@ -57,7 +57,9 @@
     display:flex; justify-content:space-between; align-items:center;
     background:rgba(255,255,255,0.92); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
     border-bottom:1px solid rgba(0,0,0,0.05);
+    transition:opacity 0.3s ease, transform 0.3s ease;
   }
+  .header-bar.hidden { opacity:0; transform:translateY(-100%); pointer-events:none; }
   .header-bar em { font-style:normal; color:var(--stone); font-weight:200; }
   .header-prepared {
     font-family:'Josefin Sans',sans-serif; font-weight:200; font-size:0.38rem;
@@ -71,12 +73,12 @@
   }
   .hero img {
     position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
-    filter:brightness(0.85);
+    filter:brightness(0.55);
   }
   .hero-overlay {
-    position:relative; z-index:1; padding:6vh 5vw;
+    position:relative; z-index:1; padding:8vh 5vw;
     width:100%;
-    background:linear-gradient(transparent 0%, rgba(26,26,24,0.55) 100%);
+    background:linear-gradient(transparent 0%, rgba(26,26,24,0.4) 100%);
   }
   .hero h1 {
     font-family:'Cormorant Garamond',serif; font-weight:300; color:var(--white);
@@ -89,6 +91,25 @@
     max-width:400px;
     opacity:0; animation:fadeIn 0.8s 0.7s ease forwards;
   }
+  .hero-scroll {
+    position:absolute; bottom:4vh; right:5vw; z-index:2;
+    display:flex; flex-direction:column; align-items:center; gap:8px;
+    opacity:0; animation:fadeIn 0.8s 1s ease forwards;
+  }
+  .hero-scroll span {
+    font-family:'Josefin Sans',sans-serif; font-size:0.3rem;
+    letter-spacing:0.4em; text-transform:uppercase; color:rgba(255,255,255,0.3);
+  }
+  .hero-scroll-line {
+    width:1px; height:32px; background:rgba(255,255,255,0.1);
+    position:relative; overflow:hidden;
+  }
+  .hero-scroll-line::after {
+    content:''; position:absolute; top:-100%; left:0; width:100%; height:100%;
+    background:var(--gold); opacity:0.6;
+    animation:scrollPulse 2.2s ease infinite;
+  }
+  @keyframes scrollPulse { 0%{top:-100%} 50%{top:100%} 100%{top:100%} }
 
   /* ═══ SPREAD ═══ */
   .spread {
@@ -138,6 +159,7 @@
   }
   .asym-pair-img.inset img {
     width:100%; height:auto; object-fit:contain;
+    box-shadow:0 4px 24px rgba(0,0,0,0.08);
   }
 
   /* ═══ FULL IMAGE ═══ */
@@ -248,6 +270,10 @@
   <div class="hero-overlay">
     <h1>Selected <em>Work</em></h1>
     <p class="hero-sub">Seven projects across coastal, alpine, and island British Columbia.</p>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
   </div>
 </div>
 
@@ -431,11 +457,16 @@
 (function(){
   setTimeout(function(){ document.getElementById('loader').classList.add('done'); }, 600);
 
-  // Progress bar
+  // Progress bar + header visibility
+  var header = document.querySelector('.header-bar');
+  var heroH = document.querySelector('.hero').offsetHeight;
   window.addEventListener('scroll', function(){
     var h = document.documentElement.scrollHeight - window.innerHeight;
     if(h > 0) document.getElementById('progress').style.width = (window.scrollY / h * 100) + '%';
+    if(window.scrollY < heroH * 0.8) header.classList.add('hidden');
+    else header.classList.remove('hidden');
   });
+  header.classList.add('hidden');
 
   // Reveal
   var ro = new IntersectionObserver(function(entries){
