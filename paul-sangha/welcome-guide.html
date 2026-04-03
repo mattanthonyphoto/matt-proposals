@@ -59,7 +59,12 @@
     border-bottom:1px solid rgba(0,0,0,0.05);
     transition:opacity 0.3s ease, transform 0.3s ease;
   }
-  .header-bar.hidden { opacity:0; transform:translateY(-100%); pointer-events:none; }
+  .header-bar.over-hero {
+    background:transparent; backdrop-filter:none; -webkit-backdrop-filter:none;
+    border-bottom-color:transparent; color:var(--white);
+  }
+  .header-bar.over-hero em { color:rgba(255,255,255,0.5); }
+  .header-bar.over-hero .header-prepared { color:rgba(255,255,255,0.4); }
   .header-bar em { font-style:normal; color:var(--stone); font-weight:200; }
   .header-prepared {
     font-family:'Josefin Sans',sans-serif; font-weight:200; font-size:0.38rem;
@@ -463,10 +468,10 @@
   window.addEventListener('scroll', function(){
     var h = document.documentElement.scrollHeight - window.innerHeight;
     if(h > 0) document.getElementById('progress').style.width = (window.scrollY / h * 100) + '%';
-    if(window.scrollY < heroH * 0.8) header.classList.add('hidden');
-    else header.classList.remove('hidden');
+    if(window.scrollY < heroH * 0.8) header.classList.add('over-hero');
+    else header.classList.remove('over-hero');
   });
-  header.classList.add('hidden');
+  header.classList.add('over-hero');
 
   // Reveal
   var ro = new IntersectionObserver(function(entries){
