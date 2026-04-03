@@ -161,11 +161,11 @@
   }
 
   /* ═══ FULL IMAGE ═══ */
-  .full-image { width:100%; }
+  .full-image { width:100%; line-height:0; }
   .full-image img { width:100%; display:block; }
 
   /* ═══ VIDEO ═══ */
-  .video-full { width:100%; }
+  .video-full { width:100%; line-height:0; }
   .video-full video { width:100%; display:block; }
 
   /* ═══ TEXT BLOCK (centered pullquote) ═══ */
@@ -234,20 +234,40 @@
   @media (max-width:900px) {
     .spread { grid-template-columns:1fr; min-height:auto; }
     .spread.reverse { grid-template-columns:1fr; }
-    .spread-img { min-height:50vh; }
-    .asym-pair { grid-template-columns:1fr; min-height:auto; }
+    .spread-img { min-height:45vh; }
+    .asym-pair { grid-template-columns:1fr; min-height:auto; gap:2px; }
     .asym-pair.reverse { grid-template-columns:1fr; }
-    .asym-pair-img { min-height:50vh; }
+    .asym-pair-img { min-height:40vh; }
     .asym-pair-img.inset { min-height:auto; padding:4vh 5vw; }
     .header-prepared { display:none; }
   }
   @media (max-width:768px) {
-    .hero { height:70vh; }
-    .spread-text { padding:6vh 5vw; }
+    .header-bar { padding:16px 5vw; font-size:0.58rem; }
+    .hero { height:65vh; }
+    .hero h1 { font-size:2.2rem; }
+    .hero-sub { font-size:0.78rem; }
+    .hero-scroll { display:none; }
+    .spread-text { padding:5vh 5vw; }
     .spread-text h2 { font-size:1.8rem; }
-    .text-block { padding:7vh 5vw; }
-    .text-block p { font-size:1.2rem; }
-    .cta { padding:10vh 5vw; }
+    .spread-text p { font-size:0.82rem; }
+    .spread-img { min-height:40vh; }
+    .asym-pair-img { min-height:35vh; }
+    .asym-pair-img.inset { padding:3vh 5vw; }
+    .text-block { padding:6vh 5vw; }
+    .text-block p { font-size:1.15rem; }
+    .cta { padding:8vh 5vw; }
+    .cta h2 { font-size:1.8rem; }
+    .progress { display:none; }
+  }
+  @media (max-width:480px) {
+    .hero { height:55vh; }
+    .hero h1 { font-size:1.8rem; }
+    .spread-text { padding:4vh 5vw; }
+    .spread-text h2 { font-size:1.5rem; }
+    .spread-label { font-size:0.38rem; }
+    .asym-pair-img { min-height:28vh; }
+    .cta { padding:6vh 5vw; }
+    .cta h2 { font-size:1.5rem; }
   }
 </style>
 </head>
