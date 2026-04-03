@@ -113,6 +113,7 @@
   .spread {
     display:grid; grid-template-columns:38% 62%; min-height:82vh;
     border-top:1px solid rgba(0,0,0,0.06);
+    margin-top:3px;
   }
   .spread.reverse { grid-template-columns:62% 38%; }
   .spread-text {
@@ -132,40 +133,40 @@
   .spread-text p {
     font-size:0.85rem; color:var(--text); line-height:1.9; max-width:380px;
   }
-  .spread-img { position:relative; overflow:hidden; }
+  .spread-img {
+    position:relative; overflow:hidden;
+    padding:5vh 4vw; display:flex; align-items:center;
+  }
   .spread-img img {
-    width:100%; height:100%; object-fit:cover; display:block;
+    width:100%; height:auto; object-fit:contain; display:block;
+    box-shadow:0 4px 24px rgba(0,0,0,0.08);
     transition:transform 0.6s ease;
   }
   .spread-img:hover img { transform:scale(1.015); }
 
   /* ═══ ASYMMETRIC PAIR ═══ */
   .asym-pair {
-    display:grid; grid-template-columns:62% 38%; min-height:75vh;
-    gap:4px;
+    display:grid; grid-template-columns:62% 38%; min-height:auto;
+    gap:4px; margin:3px 0;
   }
   .asym-pair.reverse { grid-template-columns:38% 62%; }
-  .asym-pair-img { position:relative; overflow:hidden; }
+  .asym-pair-img {
+    position:relative; overflow:hidden;
+    padding:5vh 4vw; display:flex; align-items:center;
+  }
   .asym-pair-img img {
-    width:100%; height:100%; object-fit:cover; display:block;
+    width:100%; height:auto; object-fit:contain; display:block;
+    box-shadow:0 4px 24px rgba(0,0,0,0.08);
     transition:transform 0.6s ease;
   }
   .asym-pair-img:hover img { transform:scale(1.015); }
-  .asym-pair-img.inset {
-    padding:8vh 5vw;
-    display:flex; align-items:center;
-  }
-  .asym-pair-img.inset img {
-    width:100%; height:auto; object-fit:contain;
-    box-shadow:0 4px 24px rgba(0,0,0,0.08);
-  }
 
   /* ═══ FULL IMAGE ═══ */
-  .full-image { width:100%; line-height:0; }
+  .full-image { width:100%; line-height:0; margin:3px 0; }
   .full-image img { width:100%; display:block; }
 
   /* ═══ VIDEO ═══ */
-  .video-full { width:100%; line-height:0; }
+  .video-full { width:100%; line-height:0; margin:3px 0; }
   .video-full video { width:100%; display:block; }
 
   /* ═══ TEXT BLOCK (centered pullquote) ═══ */
@@ -234,11 +235,10 @@
   @media (max-width:900px) {
     .spread { grid-template-columns:1fr; min-height:auto; }
     .spread.reverse { grid-template-columns:1fr; }
-    .spread-img { min-height:45vh; }
+    .spread-img { min-height:auto; padding:3vh 4vw; }
     .asym-pair { grid-template-columns:1fr; min-height:auto; gap:2px; }
     .asym-pair.reverse { grid-template-columns:1fr; }
-    .asym-pair-img { min-height:40vh; }
-    .asym-pair-img.inset { min-height:auto; padding:4vh 5vw; }
+    .asym-pair-img { min-height:auto; padding:3vh 4vw; }
     .header-prepared { display:none; }
   }
   @media (max-width:768px) {
@@ -250,8 +250,8 @@
     .spread-text { padding:5vh 5vw; }
     .spread-text h2 { font-size:1.8rem; }
     .spread-text p { font-size:0.82rem; }
-    .spread-img { min-height:40vh; }
-    .asym-pair-img { min-height:35vh; }
+    .spread-img { padding:3vh 4vw; }
+    .asym-pair-img { padding:3vh 4vw; }
     .asym-pair-img.inset { padding:3vh 5vw; }
     .text-block { padding:6vh 5vw; }
     .text-block p { font-size:1.15rem; }
@@ -307,7 +307,7 @@
 </div>
 
 <div class="asym-pair reverse r">
-  <div class="asym-pair-img inset">
+  <div class="asym-pair-img">
     <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/f86248ae-4248-45d3-b495-6ed48851bcfa/sandy-hook-sunshine-coast-architectural-photography-matt-anthony-.jpg-14.jpg" alt="Tranquil Retreat — detail" loading="lazy">
   </div>
   <div class="asym-pair-img">
@@ -331,7 +331,7 @@
   <div class="asym-pair-img">
     <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/23aedb76-4c10-4a31-ba9c-9ebd434a25bc/5322-backhouse-web-2.jpg" alt="The Perch — dusk" loading="lazy">
   </div>
-  <div class="asym-pair-img inset">
+  <div class="asym-pair-img">
     <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/8a674d33-4176-43dd-89c1-a565c1c3df48/5322-backhouse-web-24.jpg" alt="The Perch — aerial" loading="lazy">
   </div>
 </div>
@@ -380,7 +380,7 @@
 </div>
 
 <div class="asym-pair reverse r">
-  <div class="asym-pair-img inset">
+  <div class="asym-pair-img">
     <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/2f6d1495-5b03-4c34-8b78-7b3eaa479c17/browns-road-sunshine-coast-architectural-photographer-matt-anthony-10.jpg" alt="Brown's Road — detail" loading="lazy">
   </div>
   <div class="asym-pair-img">
@@ -420,7 +420,7 @@
   <div class="asym-pair-img">
     <img src="https://images.squarespace-cdn.com/content/6824fd48afd1dd40cd73e146/7199e20e-015a-4f85-8473-9d3d74f49e88/peak-ventures-whistler-16.jpg?content-type=image%2Fjpeg" alt="Peak Ventures — detail" loading="lazy">
   </div>
-  <div class="asym-pair-img inset">
+  <div class="asym-pair-img">
     <img src="https://images.squarespace-cdn.com/content/6824fd48afd1dd40cd73e146/9735ee44-cdd3-463c-91e7-057ce01c798e/peak-ventures-whistler-14.jpg?content-type=image%2Fjpeg" alt="Peak Ventures — site" loading="lazy">
   </div>
 </div>
@@ -441,7 +441,7 @@
   <div class="asym-pair-img">
     <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/01893150-5d74-4b4b-8592-3d5613bb42c9/linwood-gambier-web-10.jpg" alt="Gambier — interior" loading="lazy">
   </div>
-  <div class="asym-pair-img inset">
+  <div class="asym-pair-img">
     <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/892c72af-cc8d-41d2-be9c-0892af249603/linwood-gambier-web-40.jpg" alt="Gambier — aerial" loading="lazy">
   </div>
 </div>
