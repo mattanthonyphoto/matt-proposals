@@ -16,7 +16,7 @@
     --text: #4A4843;
   }
   * { margin:0; padding:0; box-sizing:border-box; }
-  html { font-size:16px; }
+  html { font-size:16px; scroll-behavior:smooth; }
   body {
     background:var(--white); color:var(--ink);
     font-family:'DM Sans',sans-serif; font-weight:300;
@@ -59,6 +59,7 @@
     border-bottom:1px solid rgba(0,0,0,0.05);
   }
   .header-bar em { font-style:normal; color:var(--stone); font-weight:200; }
+  .header-bar a:hover { background:var(--gold); }
   .header-prepared {
     font-family:'Josefin Sans',sans-serif; font-weight:200; font-size:0.38rem;
     letter-spacing:0.35em; text-transform:uppercase; color:var(--stone);
@@ -340,6 +341,7 @@
 <div class="header-bar">
   <span>Matt Anthony <em>Photography</em></span>
   <span class="header-prepared">Prepared for STARK Architecture</span>
+  <a href="#pricing" style="font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.4rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--white); background:var(--ink); padding:8px 20px; text-decoration:none; transition:background 0.3s ease;">View Pricing</a>
 </div>
 
 <!-- HERO OPENER -->
@@ -432,7 +434,7 @@
 </div>
 
 <!-- SERVICES & PRICING -->
-<div class="info-section r">
+<div class="info-section r" id="pricing">
   <div class="info-inner" style="max-width:100%;">
     <div class="spread-label">Services &amp; Pricing</div>
     <h2>Project <em>Photography</em></h2>
