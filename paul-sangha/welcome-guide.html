@@ -265,11 +265,6 @@
 <div class="progress" id="progress"></div>
 <div class="loader" id="loader"><span>Matt Anthony Photography</span></div>
 
-<!-- STICKY HEADER -->
-<div class="header-bar">
-  <span>Matt Anthony <em>Photography</em></span>
-  <span class="header-prepared">Prepared for Paul Sangha Creative</span>
-</div>
 
 <!-- HERO OPENER -->
 <div class="hero">
@@ -464,16 +459,11 @@
 (function(){
   setTimeout(function(){ document.getElementById('loader').classList.add('done'); }, 600);
 
-  // Progress bar + header visibility
-  var header = document.querySelector('.header-bar');
-  var heroH = document.querySelector('.hero').offsetHeight;
+  // Progress bar
   window.addEventListener('scroll', function(){
     var h = document.documentElement.scrollHeight - window.innerHeight;
     if(h > 0) document.getElementById('progress').style.width = (window.scrollY / h * 100) + '%';
-    if(window.scrollY < heroH * 0.8) header.classList.add('over-hero');
-    else header.classList.remove('over-hero');
   });
-  header.classList.add('over-hero');
 
   // Reveal
   var ro = new IntersectionObserver(function(entries){
