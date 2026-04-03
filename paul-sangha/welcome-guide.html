@@ -57,16 +57,7 @@
     display:flex; justify-content:space-between; align-items:center;
     background:rgba(255,255,255,0.92); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
     border-bottom:1px solid rgba(0,0,0,0.05);
-    transition:opacity 0.3s ease, transform 0.3s ease;
   }
-  .header-bar.over-hero {
-    background:linear-gradient(rgba(26,26,24,0.4), transparent);
-    backdrop-filter:none; -webkit-backdrop-filter:none;
-    border-bottom-color:transparent; color:var(--white);
-    padding-bottom:32px;
-  }
-  .header-bar.over-hero em { color:rgba(255,255,255,0.5); }
-  .header-bar.over-hero .header-prepared { color:rgba(255,255,255,0.4); }
   .header-bar em { font-style:normal; color:var(--stone); font-weight:200; }
   .header-prepared {
     font-family:'Josefin Sans',sans-serif; font-weight:200; font-size:0.38rem;
@@ -265,6 +256,10 @@
 <div class="progress" id="progress"></div>
 <div class="loader" id="loader"><span>Matt Anthony Photography</span></div>
 
+<div class="header-bar">
+  <span>Matt Anthony <em>Photography</em></span>
+  <span class="header-prepared">Prepared for Paul Sangha Creative</span>
+</div>
 
 <!-- HERO OPENER -->
 <div class="hero">
