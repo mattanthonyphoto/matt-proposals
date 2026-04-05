@@ -41,6 +41,10 @@
   .sw-page-hero { display:flex; align-items:flex-end; }
   .sw-page-hero > img { position:absolute; inset:0; width:100%; height:100%; object-fit:cover; filter:brightness(0.4) saturate(0.9); }
   .sw-page-hero .sw-hero-c { position:relative; z-index:1; padding:10vh 40px; }
+  .sw-arrow { position:absolute; bottom:32px; left:50%; transform:translateX(-50%); z-index:2; display:flex; flex-direction:column; align-items:center; gap:8px; cursor:pointer; opacity:0; animation:swI 1s 2.6s cubic-bezier(0.16,1,0.3,1) forwards; }
+  .sw-arrow span { font-family:'Josefin Sans',sans-serif; font-weight:200; font-size:0.3rem; letter-spacing:0.4em; text-transform:uppercase; color:rgba(246,244,240,0.3); }
+  .sw-arrow-icon { width:20px; height:20px; border-right:1px solid rgba(246,244,240,0.25); border-bottom:1px solid rgba(246,244,240,0.25); transform:rotate(-45deg); animation:swArrowPulse 2s ease infinite; }
+  @keyframes swArrowPulse { 0%,100%{opacity:0.3;transform:rotate(-45deg) translate(0,0)} 50%{opacity:0.6;transform:rotate(-45deg) translate(3px,3px)} }
   .sw-page-hero h1 { font-family:'Cormorant Garamond',Georgia,serif; font-weight:300; color:#F6F4F0; font-size:clamp(2.6rem,5vw,4.2rem); line-height:1.05; letter-spacing:-0.02em; opacity:0; transform:translateY(20px); animation:swHeroIn 1.6s 1.8s cubic-bezier(0.16,1,0.3,1) forwards; }
   .sw-page-hero h1 em { font-style:italic; font-weight:400; }
   @keyframes swHeroIn { to { opacity:1; transform:translateY(0); } }
@@ -87,35 +91,24 @@
   .sw-page-q p { font-family:'Cormorant Garamond',Georgia,serif; font-style:italic; font-size:1.6rem; line-height:1.6; color:var(--sw-stone); max-width:560px; text-align:center; letter-spacing:0.01em; }
 
   /* closing page */
-  .sw-page-close { display:flex; align-items:center; justify-content:center; flex-direction:column; background:var(--sw-ink); color:#F6F4F0; }
-  .sw-close-name { font-family:'Cormorant Garamond',Georgia,serif; font-weight:300; font-size:clamp(1.6rem,2.5vw,2.2rem); color:#F6F4F0; letter-spacing:0.02em; margin-bottom:6px; }
-  .sw-close-sub { font-family:'Cormorant Garamond',Georgia,serif; font-style:italic; font-weight:300; font-size:clamp(0.9rem,1.3vw,1.1rem); color:var(--sw-stone); margin-bottom:40px; }
-  .sw-close-contact { display:flex; align-items:center; gap:10px; margin-bottom:12px; }
-  .sw-close-label { font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.38rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--sw-gold); white-space:nowrap; }
-  .sw-close-dot { width:3px; height:3px; border-radius:50%; background:rgba(201,169,110,0.4); flex-shrink:0; }
-  .sw-close-val { font-family:'DM Sans',sans-serif; font-weight:300; font-size:0.78rem; color:rgba(246,244,240,0.7); }
-  .sw-close-val a { color:rgba(246,244,240,0.7); text-decoration:none; transition:color 0.3s ease; }
+  .sw-page-close { display:flex; align-items:center; justify-content:center; flex-direction:column; background:var(--sw-ink); color:#F6F4F0; text-align:center; }
+  .sw-close-name { font-family:'Cormorant Garamond',Georgia,serif; font-weight:300; font-size:clamp(1.8rem,3vw,2.6rem); color:#F6F4F0; letter-spacing:0.02em; margin-bottom:8px; }
+  .sw-close-sub { font-family:'Cormorant Garamond',Georgia,serif; font-style:italic; font-weight:300; font-size:clamp(0.9rem,1.3vw,1.1rem); color:var(--sw-stone); margin-bottom:48px; }
+  .sw-close-line { width:40px; height:1px; background:var(--sw-gold); opacity:0.3; margin:0 auto 48px; }
+  .sw-close-val { font-family:'DM Sans',sans-serif; font-weight:300; font-size:0.85rem; color:rgba(246,244,240,0.5); margin-bottom:6px; }
+  .sw-close-val a { color:rgba(246,244,240,0.5); text-decoration:none; transition:color 0.4s ease; }
   .sw-close-val a:hover { color:var(--sw-gold); }
-  .sw-close-line { width:60px; height:1px; background:rgba(201,169,110,0.15); margin:36px 0; }
-  .sw-close-areas { display:flex; gap:20px; flex-wrap:wrap; justify-content:center; margin-bottom:32px; }
-  .sw-close-areas a { font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.34rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(246,244,240,0.3); text-decoration:none; transition:color 0.3s ease; }
-  .sw-close-areas a:hover { color:var(--sw-gold); }
-  .sw-close-social { display:flex; gap:18px; margin-bottom:36px; }
-  .sw-close-social a { font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.36rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(246,244,240,0.35); text-decoration:none; transition:color 0.3s ease; }
-  .sw-close-social a:hover { color:var(--sw-gold); }
-  .sw-close-nav { display:flex; gap:24px; flex-wrap:wrap; justify-content:center; }
-  .sw-close-nav a { font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.32rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(246,244,240,0.2); text-decoration:none; transition:color 0.3s ease; }
-  .sw-close-nav a:hover { color:var(--sw-gold); }
-  .sw-close-copy { font-family:'Josefin Sans',sans-serif; font-size:0.28rem; letter-spacing:0.15em; color:rgba(246,244,240,0.12); margin-top:40px; }
+  .sw-close-site { margin-top:32px; }
+  .sw-close-site a { font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.38rem; letter-spacing:0.3em; text-transform:uppercase; color:rgba(201,169,110,0.4); text-decoration:none; border-bottom:1px solid rgba(201,169,110,0.15); padding-bottom:4px; transition:all 0.4s ease; }
+  .sw-close-site a:hover { color:var(--sw-gold); border-color:var(--sw-gold); }
 
   /* cinematic page entrance */
   .sw-page .sw-txt, .sw-page .sw-img, .sw-page .sw-pi,
   .sw-page-single > img, .sw-page-ch .sw-ch-lab, .sw-page-ch h2,
   .sw-page-q::before, .sw-page-q p,
   .sw-page-close .sw-close-name, .sw-page-close .sw-close-sub,
-  .sw-page-close .sw-close-contact, .sw-page-close .sw-close-line,
-  .sw-page-close .sw-close-areas, .sw-page-close .sw-close-social,
-  .sw-page-close .sw-close-nav {
+  .sw-page-close .sw-close-line, .sw-page-close .sw-close-val,
+  .sw-page-close .sw-close-site {
     opacity:0; transform:translateY(12px);
     transition:opacity 0.9s cubic-bezier(0.16,1,0.3,1), transform 0.9s cubic-bezier(0.16,1,0.3,1);
   }
@@ -123,17 +116,16 @@
   .sw-page.in > img, .sw-page.in .sw-ch-lab, .sw-page.in h2,
   .sw-page.in::before, .sw-page.in p,
   .sw-page.in .sw-close-name, .sw-page.in .sw-close-sub,
-  .sw-page.in .sw-close-contact, .sw-page.in .sw-close-line,
-  .sw-page.in .sw-close-areas, .sw-page.in .sw-close-social,
-  .sw-page.in .sw-close-nav {
+  .sw-page.in .sw-close-line, .sw-page.in .sw-close-val,
+  .sw-page.in .sw-close-site {
     opacity:1; transform:translateY(0);
   }
   .sw-page.in .sw-close-sub { transition-delay:0.1s; }
-  .sw-page.in .sw-close-contact { transition-delay:0.15s; }
-  .sw-page.in .sw-close-line { transition-delay:0.25s; }
-  .sw-page.in .sw-close-areas { transition-delay:0.3s; }
-  .sw-page.in .sw-close-social { transition-delay:0.35s; }
-  .sw-page.in .sw-close-nav { transition-delay:0.4s; }
+  .sw-page.in .sw-close-line { transition-delay:0.2s; }
+  .sw-page.in .sw-close-val { transition-delay:0.3s; }
+  .sw-page.in .sw-close-val:nth-child(5) { transition-delay:0.35s; }
+  .sw-page.in .sw-close-val:nth-child(6) { transition-delay:0.4s; }
+  .sw-page.in .sw-close-site { transition-delay:0.5s; }
   /* stagger children */
   .sw-page.in .sw-img, .sw-page.in .sw-pi:nth-child(2) { transition-delay:0.15s; }
   .sw-page.in .sw-pi:nth-child(1) { transition-delay:0.05s; }
@@ -186,6 +178,7 @@
 <div class="sw-page sw-page-hero">
   <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/e07b8aac-c1ec-4293-b956-79b41aa39f33/5322-backhouse-web-1.jpg" alt="The Perch">
   <div class="sw-hero-c"><h1>Selected <em>Work</em></h1></div>
+  <div class="sw-arrow" id="swArrow"><span>Explore</span><div class="sw-arrow-icon"></div></div>
 </div>
 
 <!-- SHORELINE -->
@@ -236,23 +229,6 @@
 <div class="sw-page sw-page-pair">
   <div class="sw-pi"><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/8dab354d-32d7-4e2a-8a71-7ef3b5d5482c/sandy-hook-sunshine-coast-architectural-photography-matt-anthony-.jpg-15.jpg" alt="Tranquil Retreat forest" loading="lazy"></div>
   <div class="sw-pi"><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/5be7e36c-d920-4d5d-9260-da4df4c50415/sandy-hook-sunshine-coast-architectural-photography-matt-anthony-.jpg-16.jpg" alt="Tranquil Retreat detail" loading="lazy"></div>
-</div>
-
-<!-- GAMBIER — spread -->
-<div class="sw-page sw-page-sp">
-  <div class="sw-txt">
-    <div class="sw-lbl">Gambier Island Residence</div>
-    <h2>Accessed Only <em>by Water</em></h2>
-    <p>The structure follows the natural clearing rather than imposing one.</p>
-    <div class="sw-cr">Designer: Linwood Homes &nbsp;|&nbsp; Builder: Black Thumb Contracting</div>
-  </div>
-  <div class="sw-img"><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/ccfb80fe-3b57-490b-bffb-dfe02f8e174e/linwood-gambier-web-34.jpg" alt="Gambier clearing" loading="lazy"></div>
-</div>
-
-<!-- GAMBIER — pair -->
-<div class="sw-page sw-page-pair">
-  <div class="sw-pi"><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/e13eccd9-ffa9-4d25-84ec-e6b54a06605b/linwood-gambier-web-26.jpg" alt="Gambier through trees" loading="lazy"></div>
-  <div class="sw-pi"><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/01893150-5d74-4b4b-8592-3d5613bb42c9/linwood-gambier-web-10.jpg" alt="Gambier interior" loading="lazy"></div>
 </div>
 
 <!-- PULLQUOTE -->
@@ -413,12 +389,37 @@
   <div class="sw-pi"><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/500155bc-8662-4c70-ab44-feae601fa91e/browns-road-sunshine-coast-architectural-photographer-matt-anthony-16.jpg" alt="Brown's Residence wide" loading="lazy"></div>
 </div>
 
+<!-- GAMBIER — spread -->
+<div class="sw-page sw-page-sp">
+  <div class="sw-txt">
+    <div class="sw-lbl">Gambier Island Residence</div>
+    <h2>Accessed Only <em>by Water</em></h2>
+    <p>The structure follows the natural clearing rather than imposing one.</p>
+    <div class="sw-cr">Designer: Linwood Homes &nbsp;|&nbsp; Builder: Black Thumb Contracting</div>
+  </div>
+  <div class="sw-img"><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/ccfb80fe-3b57-490b-bffb-dfe02f8e174e/linwood-gambier-web-34.jpg" alt="Gambier clearing" loading="lazy"></div>
+</div>
+
+<!-- GAMBIER — pair -->
+<div class="sw-page sw-page-pair">
+  <div class="sw-pi"><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/e13eccd9-ffa9-4d25-84ec-e6b54a06605b/linwood-gambier-web-26.jpg" alt="Gambier through trees" loading="lazy"></div>
+  <div class="sw-pi"><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/01893150-5d74-4b4b-8592-3d5613bb42c9/linwood-gambier-web-10.jpg" alt="Gambier interior" loading="lazy"></div>
+</div>
+
+<!-- GAMBIER — video -->
+<div class="sw-page sw-page-vid">
+  <video autoplay muted loop playsinline poster="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/d80fa4cc-21d0-4281-900c-e6906eea5fae/linwood-gambier-web-36.jpg" data-src="https://mattanthonyphoto.github.io/matt-proposals/stark/video/linwood-gambier.mp4"><source src="https://mattanthonyphoto.github.io/matt-proposals/stark/video/linwood-gambier.mp4" type="video/mp4"></video>
+</div>
+
 <!-- CLOSING -->
 <div class="sw-page sw-page-close">
   <div class="sw-close-name">Matt Anthony</div>
   <div class="sw-close-sub">Architectural Photography</div>
   <div class="sw-close-line"></div>
   <div class="sw-close-val"><a href="mailto:info@mattanthonyphoto.com">info@mattanthonyphoto.com</a></div>
+  <div class="sw-close-val">604.765.9270</div>
+  <div class="sw-close-val">Squamish, British Columbia</div>
+  <div class="sw-close-site"><a href="https://mattanthonyphoto.com">mattanthonyphoto.com</a></div>
 </div>
 
 </div><!-- /sw-track -->
@@ -448,6 +449,10 @@
     });
   },{threshold:0.4,root:track});
   pages.forEach(function(p){pageObs.observe(p)});
+
+  // Arrow click — advance one page
+  var arrow=document.getElementById('swArrow');
+  if(arrow)arrow.addEventListener('click',function(){track.scrollBy({left:window.innerWidth,behavior:'smooth'})});
 
   // Header — hide on hero and bleed pages
   var hdr=document.querySelector('.sw-hdr');
@@ -492,13 +497,13 @@
       e.preventDefault();
       scrolling=true;
       track.scrollBy({left:pageWidth,behavior:'smooth'});
-      setTimeout(function(){scrolling=false},1400);
+      setTimeout(function(){scrolling=false},1000);
     }
     if(e.key==='ArrowLeft'){
       e.preventDefault();
       scrolling=true;
       track.scrollBy({left:-pageWidth,behavior:'smooth'});
-      setTimeout(function(){scrolling=false},1400);
+      setTimeout(function(){scrolling=false},1000);
     }
   });
 
@@ -509,7 +514,7 @@
     if(wheelLock)return;
     wheelLock=true;
     track.scrollBy({left:e.deltaY>0?window.innerWidth:-window.innerWidth,behavior:'smooth'});
-    setTimeout(function(){wheelLock=false},1400);
+    setTimeout(function(){wheelLock=false},1000);
   },{passive:false});
 
   // Videos — play when visible
