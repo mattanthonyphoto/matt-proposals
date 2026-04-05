@@ -179,55 +179,60 @@
     .sw-hdr a { font-size:0.32rem; padding:8px 16px; }
     .sw-hdr.hide { opacity:1; pointer-events:auto; }
 
-    /* hero */
+    /* hero — full screen */
     .sw-page-hero { height:100vh !important; min-height:100vh !important; }
-    .sw-page-hero .sw-hero-c { padding:0 20px 8vh; }
+    .sw-page-hero .sw-hero-c { padding:0 20px 10vh; }
     .sw-page-hero h1 { font-size:2.2rem; }
 
-    /* chapter */
-    .sw-page-ch { min-height:0 !important; padding:80px 20px 40px; }
+    /* chapter — generous breathing room */
+    .sw-page-ch { min-height:0 !important; padding:72px 20px 32px; margin-top:48px; }
+    .sw-page-ch::before { margin-bottom:20px; }
     .sw-page-ch h2 { font-size:1.6rem; }
 
-    /* spread — stack: text then image, edge to edge */
-    .sw-page-sp, .sw-page-sp.rv { display:block !important; min-height:0 !important; }
-    .sw-page-sp .sw-txt { padding:48px 20px 24px; }
-    .sw-page-sp .sw-img { padding:0 !important; }
+    /* spread — text then image */
+    .sw-page-sp, .sw-page-sp.rv { display:block !important; min-height:0 !important; margin-top:40px; border-top:none !important; }
+    .sw-page-sp:first-of-type { margin-top:0; }
+    .sw-page-sp .sw-txt { padding:0 20px 20px; }
+    .sw-page-sp .sw-img { padding:0 !important; margin-bottom:0; }
     .sw-page-sp .sw-img img { width:100% !important; max-width:none !important; max-height:none !important; box-shadow:none !important; }
     .sw-page-sp .sw-img img.sw-port { width:100% !important; max-width:none !important; max-height:none !important; }
-    .sw-page-sp .sw-txt h2 { font-size:1.5rem; }
+    .sw-page-sp .sw-txt h2 { font-size:1.5rem; margin-bottom:12px; }
     .sw-page-sp .sw-txt p { font-size:0.82rem; max-width:100%; }
+    .sw-page-sp .sw-lbl { margin-bottom:10px; }
+    .sw-page-sp .sw-cr { margin-top:14px; }
 
-    /* pair — ONE image per row, full width */
-    .sw-page-pair { display:block !important; min-height:0 !important; padding:0 !important; }
-    .sw-page-pair .sw-pi { display:block !important; width:100% !important; height:auto !important; flex:none !important; padding:0 !important; margin-bottom:4px; }
+    /* pair — stacked, small gap, no margin (tight to its spread) */
+    .sw-page-pair { display:block !important; min-height:0 !important; padding:0 !important; margin-top:3px; }
+    .sw-page-pair .sw-pi { display:block !important; width:100% !important; height:auto !important; flex:none !important; padding:0 !important; margin-bottom:3px; }
+    .sw-page-pair .sw-pi:last-child { margin-bottom:0; }
     .sw-page-pair .sw-pi img { width:100% !important; max-width:none !important; max-height:none !important; box-shadow:none !important; }
     .sw-page-pair .sw-pi img.sw-port { width:100% !important; max-width:none !important; max-height:none !important; }
 
-    /* single — full width */
-    .sw-page-single { display:block !important; padding:0 !important; min-height:0 !important; }
+    /* single — tight to its project */
+    .sw-page-single { display:block !important; padding:0 !important; min-height:0 !important; margin-top:3px; }
     .sw-page-single img { width:100% !important; max-width:none !important; max-height:none !important; box-shadow:none !important; }
 
-    /* bleed */
-    .sw-page-bleed { min-height:0 !important; }
-    .sw-page-bleed img { height:auto !important; }
+    /* bleed — full width */
+    .sw-page-bleed { min-height:0 !important; margin-top:40px; }
+    .sw-page-bleed img { height:auto !important; width:100% !important; }
 
-    /* video */
-    .sw-page-vid { min-height:0 !important; }
+    /* video — full width */
+    .sw-page-vid { min-height:0 !important; margin-top:3px; }
     .sw-page-vid video { width:100% !important; height:auto !important; }
 
-    /* pullquote */
-    .sw-page-q { min-height:0 !important; padding:60px 24px; }
-    .sw-page-q p { font-size:1.15rem; }
+    /* pullquote — generous vertical space */
+    .sw-page-q { min-height:0 !important; padding:56px 28px; margin-top:48px; }
+    .sw-page-q p { font-size:1.1rem; line-height:1.65; }
 
-    /* closing */
-    .sw-page-close { min-height:0 !important; padding:80px 20px; }
+    /* closing — centered, dark */
+    .sw-page-close { min-height:0 !important; padding:72px 20px; margin-top:48px; }
     .sw-close-name { font-size:1.6rem; }
   }
 
   @media(max-width:480px) {
     .sw-page-hero h1 { font-size:1.8rem; }
-    .sw-page-ch h2 { font-size:1.4rem; }
-    .sw-page-sp .sw-txt h2 { font-size:1.3rem; }
+    .sw-page-ch h2 { font-size:1.35rem; }
+    .sw-page-sp .sw-txt h2 { font-size:1.25rem; }
     .sw-page-sp .sw-lbl { font-size:0.42rem; }
     .sw-page-sp .sw-cr { font-size:0.3rem; }
     .sw-page-q p { font-size:1rem; }
