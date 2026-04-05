@@ -194,11 +194,11 @@
     .sw-page-sp .sw-txt h2 { font-size:1.5rem; }
     .sw-page-sp .sw-txt p { font-size:0.8rem; max-width:100%; }
 
-    /* pair — stack vertically, images full width */
-    .sw-page-pair { flex-direction:column; padding:0; gap:4px; min-height:auto; }
-    .sw-page-pair .sw-pi { height:auto; padding:0; }
-    .sw-page-pair .sw-pi img { width:100%; max-width:100%; max-height:none; box-shadow:none; }
-    .sw-page-pair .sw-pi img.sw-port { width:100%; max-width:100%; max-height:none; }
+    /* pair — single column, one image per row */
+    .sw-page-pair { display:flex !important; flex-direction:column !important; padding:0; gap:4px; min-height:auto; align-items:stretch; }
+    .sw-page-pair .sw-pi { flex:none !important; width:100% !important; height:auto !important; padding:0; min-width:0; }
+    .sw-page-pair .sw-pi img { width:100% !important; max-width:100% !important; max-height:none !important; box-shadow:none; }
+    .sw-page-pair .sw-pi img.sw-port { width:100% !important; max-width:100% !important; max-height:none !important; }
 
     /* single — full width */
     .sw-page-single { padding:0; min-height:auto; }
