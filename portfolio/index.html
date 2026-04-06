@@ -168,19 +168,13 @@
   .sw-counter { position:fixed; bottom:20px; right:40px; z-index:100; font-family:'Josefin Sans',sans-serif; font-weight:200; font-size:0.34rem; letter-spacing:0.3em; color:var(--sw-light-stone); transition:opacity 0.8s ease; }
   .sw-counter.dim { opacity:0; }
 
-  /* ═══ MOBILE — vertical slideshow ═══ */
+  /* ═══ MOBILE ═══ */
   @media(max-width:900px) {
-    html, body { overflow:hidden !important; height:100% !important; margin:0 !important; }
-    .sw-track { flex-direction:column !important; height:auto !important; overflow:hidden !important; width:100%; position:relative; }
-    .sw-page { flex:none !important; width:100% !important; height:var(--vh,100vh) !important; display:flex !important; flex-direction:column !important; justify-content:center !important; align-items:center !important; overflow:hidden !important; position:absolute !important; top:0; left:0; opacity:0; transition:opacity 0.6s ease; pointer-events:none; }
-    .sw-page.mob-active { opacity:1; pointer-events:auto; position:relative !important; }
-
-    /* scroll hint arrow */
-    .sw-mob-arrow { position:fixed; bottom:24px; left:50%; transform:translateX(-50%); z-index:200; display:flex; flex-direction:column; align-items:center; gap:6px; }
-    .sw-mob-arrow span { font-family:'Josefin Sans',sans-serif; font-weight:200; font-size:0.3rem; letter-spacing:0.4em; text-transform:uppercase; color:var(--sw-light-stone); }
-    .sw-mob-arrow-ln { width:1px; height:24px; background:var(--sw-light-stone); opacity:0.4; position:relative; overflow:hidden; }
-    .sw-mob-arrow-ln::after { content:''; position:absolute; top:-100%; left:0; width:100%; height:100%; background:var(--sw-gold); animation:swMobPulse 2s ease infinite; }
-    @keyframes swMobPulse { 0%{top:-100%} 50%{top:100%} 100%{top:100%} }
+    html { scroll-snap-type:y mandatory; }
+    body { margin:0; }
+    .sw-track { display:block !important; height:auto !important; overflow:visible !important; }
+    .sw-page { display:flex !important; flex-direction:column !important; justify-content:center !important; align-items:center !important; width:100% !important; height:100svh !important; overflow:hidden !important; scroll-snap-align:start !important; scroll-snap-stop:always !important; }
+    .sw-mob-arrow { display:none; }
 
     /* hide desktop nav */
     .sw-click-zone, .sw-nav-arrow, .sw-counter { display:none !important; }
@@ -199,32 +193,31 @@
     .sw-page-ch { padding:0 24px; }
     .sw-page-ch h2 { font-size:1.6rem; }
 
-    /* spread — project label + title + image + caption */
-    .sw-page-sp, .sw-page-sp.rv { display:flex !important; flex-direction:column !important; justify-content:center !important; align-items:center !important; padding:60px 20px 20px !important; }
+    /* spread */
+    .sw-page-sp, .sw-page-sp.rv { padding:60px 20px 20px !important; }
     .sw-page-sp .sw-txt { padding:0 0 14px; width:100%; flex:none; text-align:center; }
-    .sw-page-sp .sw-txt p { display:none; }
-    .sw-page-sp .sw-txt .sw-cr { display:none; }
+    .sw-page-sp .sw-txt p, .sw-page-sp .sw-txt .sw-cr { display:none; }
     .sw-page-sp .sw-img { padding:0 !important; flex:none; width:100%; display:flex !important; flex-direction:column; align-items:center; }
-    .sw-page-sp .sw-img img { width:100% !important; max-width:none !important; max-height:62vh !important; object-fit:contain !important; box-shadow:none !important; }
-    .sw-page-sp .sw-img img.sw-port { width:auto !important; max-width:100% !important; max-height:62vh !important; }
+    .sw-page-sp .sw-img img { width:100% !important; max-height:60svh !important; object-fit:contain !important; box-shadow:none !important; }
+    .sw-page-sp .sw-img img.sw-port { width:auto !important; max-width:100% !important; max-height:60svh !important; }
     .sw-page-sp .sw-txt h2 { font-size:1.15rem; margin-bottom:0; }
     .sw-page-sp .sw-lbl { margin-bottom:6px; font-size:0.44rem; }
 
-    /* pair — each image+caption is one full-screen snap */
-    .sw-page-pair { height:auto !important; min-height:0 !important; padding:0 !important; display:contents !important; }
-    .sw-page-pair .sw-pi { display:flex !important; flex-direction:column !important; width:100% !important; height:var(--vh,100vh) !important; flex:none !important; padding:60px 20px 20px !important; justify-content:center !important; align-items:center !important; background:#fff; overflow:hidden !important; }
-    .sw-page-pair .sw-pi img { width:100% !important; max-width:none !important; max-height:60vh !important; object-fit:contain !important; box-shadow:none !important; }
-    .sw-page-pair .sw-pi img.sw-port { width:auto !important; max-width:100% !important; max-height:60vh !important; }
+    /* pair — each image is its own snap section */
+    .sw-page-pair { display:contents !important; }
+    .sw-page-pair .sw-pi { display:flex !important; flex-direction:column !important; width:100% !important; height:100svh !important; flex:none !important; padding:60px 20px 20px !important; justify-content:center !important; align-items:center !important; scroll-snap-align:start !important; scroll-snap-stop:always !important; overflow:hidden !important; }
+    .sw-page-pair .sw-pi img { width:100% !important; max-height:60svh !important; object-fit:contain !important; box-shadow:none !important; }
+    .sw-page-pair .sw-pi img.sw-port { width:auto !important; max-width:100% !important; max-height:60svh !important; }
 
-    /* mobile project label inside pair images */
+    /* mobile project labels */
     .sw-pi-label { display:block !important; font-family:'Josefin Sans',sans-serif; font-weight:200; font-size:0.42rem; letter-spacing:0.35em; text-transform:uppercase; color:var(--sw-gold); margin-bottom:12px; text-align:center; flex:none; }
 
-    /* photo captions — below each image */
-    .sw-fc { display:block !important; padding:16px 20px 0; font-family:'DM Sans',sans-serif; font-weight:300; font-size:0.72rem; color:var(--sw-stone); line-height:1.6; text-align:center; max-width:320px; margin:0 auto; letter-spacing:0.01em; flex:none; }
+    /* captions */
+    .sw-fc { display:block !important; padding:14px 20px 0; font-family:'DM Sans',sans-serif; font-weight:300; font-size:0.72rem; color:var(--sw-stone); line-height:1.6; text-align:center; max-width:320px; margin:0 auto; flex:none; }
 
-    /* single — image+caption centered */
-    .sw-page-single { padding:60px 20px 20px !important; flex-direction:column !important; }
-    .sw-page-single img { width:100% !important; max-width:none !important; max-height:68vh !important; object-fit:contain !important; box-shadow:none !important; }
+    /* single */
+    .sw-page-single { padding:60px 20px 20px !important; }
+    .sw-page-single img { width:100% !important; max-height:60svh !important; object-fit:contain !important; box-shadow:none !important; }
 
     /* bleed */
     .sw-page-bleed img { width:100% !important; height:100% !important; object-fit:cover !important; }
@@ -234,18 +227,27 @@
 
     /* pullquote */
     .sw-page-q { padding:0 28px; }
-    .sw-page-q p { font-size:1.1rem; line-height:1.65; }
+    .sw-page-q p { font-size:1.1rem; }
 
     /* closing */
     .sw-page-close { padding:0 20px; }
     .sw-close-name { font-size:1.6rem; }
+
+    /* hide desktop-only */
+    .sw-click-zone, .sw-nav-arrow, .sw-counter { display:none !important; }
+    .sw-hdr { padding:14px 20px; font-size:0.5rem; }
+    .sw-hdr a { font-size:0.32rem; padding:8px 16px; }
+    .sw-hdr.hide { opacity:1; pointer-events:auto; }
+    .sw-page-hero .sw-hero-c { padding:0 20px 10vh; }
+    .sw-page-hero h1 { font-size:2.2rem; }
+    .sw-page-ch { padding:0 24px; }
+    .sw-page-ch h2 { font-size:1.6rem; }
   }
 
   @media(max-width:480px) {
     .sw-page-hero h1 { font-size:1.8rem; }
     .sw-page-ch h2 { font-size:1.35rem; }
     .sw-page-sp .sw-txt h2 { font-size:1.1rem; }
-    .sw-page-sp .sw-lbl { font-size:0.4rem; }
     .sw-page-q p { font-size:1rem; }
   }
 </style>
@@ -542,68 +544,6 @@
 
   var isMobile=window.innerWidth<=900;
   var pw=window.innerWidth;
-
-  // Mobile — JS-controlled slideshow
-  if(isMobile){
-    // Set --vh
-    function setVH(){document.documentElement.style.setProperty('--vh',window.innerHeight+'px')}
-    setVH();
-    window.addEventListener('resize',setVH);
-    window.addEventListener('orientationchange',function(){setTimeout(setVH,100)});
-
-    // Collect all slides: .sw-page elements + individual .sw-pi elements
-    var slides=[];
-    track.querySelectorAll('.sw-page, .sw-pi').forEach(function(el){
-      // Skip .sw-page-pair containers (their children .sw-pi are the actual slides)
-      if(el.classList.contains('sw-page-pair'))return;
-      // Skip .sw-pi that are inside a .sw-page that is NOT a pair (spreads have .sw-img not .sw-pi)
-      if(el.classList.contains('sw-pi')){slides.push(el);return;}
-      slides.push(el);
-    });
-
-    var currentSlide=0;
-    var transitioning=false;
-    var mobArrow=document.getElementById('swMobArrow');
-
-    function showSlide(idx){
-      if(idx<0||idx>=slides.length)return;
-      transitioning=true;
-      slides.forEach(function(s,i){
-        s.classList.toggle('mob-active',i===idx);
-      });
-      currentSlide=idx;
-      // Hide arrow on last slide
-      if(mobArrow){mobArrow.style.display=idx>=slides.length-1?'none':'flex'}
-      setTimeout(function(){transitioning=false},700);
-    }
-
-    // Show first slide
-    showSlide(0);
-
-    // Touch swipe detection
-    var touchStartY=0,touchStartX=0;
-    document.addEventListener('touchstart',function(e){
-      touchStartY=e.touches[0].clientY;
-      touchStartX=e.touches[0].clientX;
-    },{passive:true});
-
-    document.addEventListener('touchend',function(e){
-      if(transitioning)return;
-      var dy=touchStartY-e.changedTouches[0].clientY;
-      var dx=touchStartX-e.changedTouches[0].clientX;
-      // Only respond to vertical swipes (not horizontal)
-      if(Math.abs(dy)<40||Math.abs(dx)>Math.abs(dy))return;
-      if(dy>0){showSlide(currentSlide+1)} // swipe up = next
-      else{showSlide(currentSlide-1)} // swipe down = prev
-    },{passive:true});
-
-    // Also handle keyboard on mobile (for testing)
-    document.addEventListener('keydown',function(e){
-      if(transitioning)return;
-      if(e.key==='ArrowDown'||e.key===' '){e.preventDefault();showSlide(currentSlide+1)}
-      if(e.key==='ArrowUp'){e.preventDefault();showSlide(currentSlide-1)}
-    });
-  }
 
   // Click zones — desktop only
   if(!isMobile){
