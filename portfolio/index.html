@@ -72,6 +72,13 @@
   .sw-s-pair .sw-pi { display:flex; align-items:center; justify-content:center; padding:5vh 4vw; overflow:hidden; }
   .sw-s-pair .sw-pi img { max-width:100%; max-height:calc(100vh - 10vh); object-fit:contain; box-shadow:0 2px 16px rgba(0,0,0,0.05); }
 
+  /* trio — three images side by side */
+  .sw-s-trio { display:grid; grid-template-columns:1fr 1fr 1fr; gap:4px; }
+  .sw-s-trio .sw-pi { display:flex; align-items:center; justify-content:center; padding:5vh 2vw; overflow:hidden; }
+  .sw-s-trio .sw-pi img { max-width:100%; max-height:calc(100vh - 10vh); object-fit:contain; box-shadow:0 2px 16px rgba(0,0,0,0.05); }
+  .sw-s-trio .sw-pi img { transition:transform 1s cubic-bezier(0.16,1,0.3,1); }
+  .sw-s-trio .sw-pi:hover img { transform:scale(1.015); }
+
   /* single image */
   .sw-s-single { display:flex; align-items:center; justify-content:center; padding:5vh 8vw; }
   .sw-s-single img { max-width:100%; max-height:calc(100vh - 10vh); object-fit:contain; box-shadow:0 2px 16px rgba(0,0,0,0.05); }
@@ -125,6 +132,11 @@
     .sw-s-pair, .sw-s-pair.rv { display:flex; flex-direction:column; padding:20px; gap:8px; justify-content:center; }
     .sw-s-pair .sw-pi { padding:0; }
     .sw-s-pair .sw-pi img { max-height:44vh; width:100%; box-shadow:none; }
+
+    /* trio */
+    .sw-s-trio { display:flex; flex-direction:column; padding:20px; gap:8px; justify-content:center; }
+    .sw-s-trio .sw-pi { padding:0; }
+    .sw-s-trio .sw-pi img { max-height:28vh; width:100%; box-shadow:none; }
 
     /* single */
     .sw-s-single { padding:20px; }
@@ -278,15 +290,11 @@
   </div>
 </div>
 
-<!-- FITZSIMMONS — pair -->
-<div class="sw-s sw-s-pair">
+<!-- FITZSIMMONS — trio -->
+<div class="sw-s sw-s-trio">
   <div class="sw-pi"><span class="sw-pi-label">Fitzsimmons Residence</span><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/ab8c0b1a-742e-4485-9d50-a19c698594bf/fitzsimmons-whistler-architectural-photography-matt-anthony-.jpg-4.jpg" alt="Fitzsimmons living" loading="lazy"><span class="sw-fc">Vertical metal cladding detail. Tree shadows projected onto the standing seam ribs. This is about the light, not the building.</span></div>
+  <div class="sw-pi"><span class="sw-pi-label">Fitzsimmons Residence</span><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/3a787b26-fc44-44e8-8637-a9c7d178ffe1/fitzsimmons-whistler-architectural-photography-matt-anthony-.jpg-10.jpg" alt="Fitzsimmons staircase detail" loading="lazy"><span class="sw-fc">Floating oak treads behind a vertical slat screen. Light raking through at an angle, the black handrail the only interruption.</span></div>
   <div class="sw-pi"><span class="sw-pi-label">Fitzsimmons Residence</span><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/3483950e-abb8-4248-a445-b00c83b5d7f1/fitzsimmons-whistler-architectural-photography-matt-anthony-.jpg-16.jpg" alt="Fitzsimmons staircase" loading="lazy"><span class="sw-fc">Primary bedroom and office divided by a vertical slat wall. Winter river through the window. Two rooms sharing one view.</span></div>
-</div>
-
-<!-- FITZSIMMONS — staircase detail -->
-<div class="sw-s sw-s-single">
-  <span class="sw-pi-label">Fitzsimmons Residence</span><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/3a787b26-fc44-44e8-8637-a9c7d178ffe1/fitzsimmons-whistler-architectural-photography-matt-anthony-.jpg-10.jpg" alt="Fitzsimmons staircase detail" loading="lazy"><span class="sw-fc">Floating oak treads behind a vertical slat screen. Light raking through at an angle, the black handrail the only interruption.</span>
 </div>
 
 <!-- SUGARLOAF — spread -->
