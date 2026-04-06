@@ -108,8 +108,19 @@
   .sw-s-close .sw-close-site a:hover { color:var(--sw-gold); border-color:var(--sw-gold); }
 
   /* hover on images */
-  .sw-s-sp .sw-img img, .sw-s-pair .sw-pi img, .sw-s-single img { transition:transform 1s cubic-bezier(0.16,1,0.3,1); }
-  .sw-s-sp .sw-img:hover img, .sw-s-pair .sw-pi:hover img, .sw-s-single:hover img { transform:scale(1.015); }
+  .sw-s-sp .sw-img img, .sw-s-pair .sw-pi img, .sw-s-single img, .sw-s-trio .sw-pi img { transition:transform 1s cubic-bezier(0.16,1,0.3,1); cursor:pointer; }
+  .sw-s-sp .sw-img:hover img, .sw-s-pair .sw-pi:hover img, .sw-s-single:hover img, .sw-s-trio .sw-pi:hover img { transform:scale(1.015); }
+
+  /* lightbox */
+  .sw-lb { position:fixed; inset:0; z-index:99998; background:rgba(26,26,24,0.95); display:flex; align-items:center; justify-content:center; opacity:0; visibility:hidden; transition:opacity 0.4s ease, visibility 0.4s; cursor:pointer; }
+  .sw-lb.open { opacity:1; visibility:visible; }
+  .sw-lb img { max-width:92vw; max-height:92vh; object-fit:contain; transform:scale(0.95); transition:transform 0.4s cubic-bezier(0.16,1,0.3,1); }
+  .sw-lb.open img { transform:scale(1); }
+  .sw-lb-close { position:absolute; top:24px; right:28px; width:28px; height:28px; cursor:pointer; opacity:0.5; transition:opacity 0.3s; }
+  .sw-lb-close:hover { opacity:1; }
+  .sw-lb-close::before, .sw-lb-close::after { content:''; position:absolute; top:50%; left:0; width:100%; height:1px; background:#F6F4F0; }
+  .sw-lb-close::before { transform:rotate(45deg); }
+  .sw-lb-close::after { transform:rotate(-45deg); }
 
   /* ═══ MOBILE ═══ */
   @media(max-width:900px) {
@@ -430,6 +441,8 @@
   <div class="sw-close-site"><a href="https://mattanthonyphoto.com">mattanthonyphoto.com</a></div>
 </div>
 
+<div class="sw-lb" id="swLb"><div class="sw-lb-close" id="swLbClose"></div><img id="swLbImg"></div>
+
 </div>
 
 <script>
@@ -461,5 +474,23 @@
     });
   },{threshold:0.3});
   document.querySelectorAll('video').forEach(function(v){vo.observe(v)});
+
+  // Lightbox
+  var lb=document.getElementById('swLb');
+  var lbImg=document.getElementById('swLbImg');
+  var lbClose=document.getElementById('swLbClose');
+
+  document.querySelectorAll('.sw-s-sp .sw-img img, .sw-s-pair .sw-pi img, .sw-s-trio .sw-pi img, .sw-s-single img, .sw-s-bleed img').forEach(function(img){
+    img.addEventListener('click',function(e){
+      e.stopPropagation();
+      lbImg.src=img.src;
+      lb.classList.add('open');
+    });
+  });
+
+  function closeLb(){lb.classList.remove('open')}
+  lb.addEventListener('click',closeLb);
+  lbClose.addEventListener('click',closeLb);
+  document.addEventListener('keydown',function(e){if(e.key==='Escape')closeLb()});
 })();
 </script>
