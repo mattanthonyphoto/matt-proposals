@@ -63,24 +63,24 @@
   .sw-s-sp .sw-txt h2 em { font-style:italic; font-weight:400; }
   .sw-s-sp .sw-txt p { font-size:0.82rem; color:var(--sw-stone); line-height:1.9; max-width:360px; }
   .sw-s-sp .sw-cr { margin-top:28px; font-family:'Josefin Sans',sans-serif; font-size:0.32rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--sw-light-stone); line-height:2.4; }
-  .sw-s-sp .sw-img { display:flex; align-items:center; justify-content:center; padding:5vh 4vw; }
+  .sw-s-sp .sw-img { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:5vh 4vw; }
   .sw-s-sp .sw-img img { max-width:100%; max-height:calc(100vh - 10vh); object-fit:contain; box-shadow:0 2px 16px rgba(0,0,0,0.05); }
 
   /* pair — two images side by side */
   .sw-s-pair { display:grid; grid-template-columns:62% 38%; gap:4px; }
   .sw-s-pair.rv { grid-template-columns:38% 62%; }
-  .sw-s-pair .sw-pi { display:flex; align-items:center; justify-content:center; padding:5vh 4vw; overflow:hidden; }
+  .sw-s-pair .sw-pi { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:5vh 4vw; overflow:hidden; }
   .sw-s-pair .sw-pi img { max-width:100%; max-height:calc(100vh - 10vh); object-fit:contain; box-shadow:0 2px 16px rgba(0,0,0,0.05); }
 
   /* trio — three images side by side */
   .sw-s-trio { display:grid; grid-template-columns:1fr 1fr 1fr; gap:4px; }
-  .sw-s-trio .sw-pi { display:flex; align-items:center; justify-content:center; padding:5vh 2vw; overflow:hidden; }
+  .sw-s-trio .sw-pi { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:5vh 2vw; overflow:hidden; }
   .sw-s-trio .sw-pi img { max-width:100%; max-height:calc(100vh - 10vh); object-fit:contain; box-shadow:0 2px 16px rgba(0,0,0,0.05); }
   .sw-s-trio .sw-pi img { transition:transform 1s cubic-bezier(0.16,1,0.3,1); }
   .sw-s-trio .sw-pi:hover img { transform:scale(1.015); }
 
   /* single image */
-  .sw-s-single { display:flex; align-items:center; justify-content:center; padding:5vh 8vw; }
+  .sw-s-single { display:flex; flex-direction:column; align-items:center; justify-content:center; padding:5vh 8vw; }
   .sw-s-single img { max-width:100%; max-height:calc(100vh - 10vh); object-fit:contain; box-shadow:0 2px 16px rgba(0,0,0,0.05); }
 
   /* bleed */
