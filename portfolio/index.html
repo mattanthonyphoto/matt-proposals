@@ -118,6 +118,15 @@
   .sw-s-q p { font-family:'Cormorant Garamond',Georgia,serif; font-style:italic; font-size:clamp(1.2rem,1.8vw,1.6rem); line-height:1.6; color:var(--sw-stone); max-width:560px; text-align:center; }
 
   /* closing */
+  /* CTA */
+  .sw-s-cta { display:flex; align-items:center; justify-content:center; flex-direction:column; text-align:center; padding:0 5vw; }
+  .sw-s-cta h2 { font-family:'Cormorant Garamond',Georgia,serif; font-weight:300; font-size:clamp(1.6rem,2.5vw,2.2rem); line-height:1.18; margin-bottom:16px; letter-spacing:-0.01em; }
+  .sw-s-cta h2 em { font-style:italic; font-weight:400; }
+  .sw-s-cta p { font-size:0.85rem; color:var(--sw-stone); line-height:1.85; max-width:420px; margin:0 auto 32px; }
+  .sw-s-cta .sw-cta-btn { font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.42rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--sw-ink); background:var(--sw-gold); padding:16px 48px; display:inline-block; transition:all 0.4s ease; text-decoration:none; }
+  .sw-s-cta .sw-cta-btn:hover { background:var(--sw-ink); color:var(--sw-gold); }
+
+  /* closing/footer */
   .sw-s-close { display:flex; align-items:center; justify-content:center; flex-direction:column; background:var(--sw-ink); color:#F6F4F0; text-align:center; }
   .sw-s-close .sw-close-name { font-family:'Cormorant Garamond',Georgia,serif; font-weight:300; font-size:clamp(1.8rem,3vw,2.6rem); color:#F6F4F0; margin-bottom:8px; }
   .sw-s-close .sw-close-sub { font-family:'Cormorant Garamond',Georgia,serif; font-style:italic; font-weight:300; font-size:clamp(0.9rem,1.3vw,1.1rem); color:var(--sw-stone); margin-bottom:48px; }
@@ -192,6 +201,9 @@
     .sw-s-q p { font-size:1.05rem; }
 
     /* closing */
+    .sw-s-cta { padding:0 24px; }
+    .sw-s-cta h2 { font-size:1.4rem; }
+    .sw-s-cta p { font-size:0.82rem; }
     .sw-s-close { padding:0 20px; }
     .sw-s-close .sw-close-name { font-size:1.5rem; }
 
@@ -452,7 +464,15 @@
   <video autoplay muted loop playsinline poster="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/d80fa4cc-21d0-4281-900c-e6906eea5fae/linwood-gambier-web-36.jpg" data-src="https://mattanthonyphoto.github.io/matt-proposals/stark/video/linwood-gambier.mp4"><source src="https://mattanthonyphoto.github.io/matt-proposals/stark/video/linwood-gambier.mp4" type="video/mp4"></video>
 </div>
 
-<!-- CLOSING -->
+<!-- CTA -->
+<div class="sw-s sw-s-cta">
+  <div class="sw-s-ch-lab">Get in Touch</div>
+  <h2>Have a Project <em>Coming Up?</em></h2>
+  <p>Based in Squamish, working across British Columbia. If you have a project worth documenting, I'd like to hear about it.</p>
+  <a href="https://mattanthonyphoto.com/discovery-call" class="sw-cta-btn">Book a Discovery Call</a>
+</div>
+
+<!-- FOOTER -->
 <div class="sw-s sw-s-close">
   <div class="sw-close-name">Matt Anthony</div>
   <div class="sw-close-sub">Architectural Photography</div>
