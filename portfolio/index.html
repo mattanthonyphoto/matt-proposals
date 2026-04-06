@@ -18,6 +18,7 @@
   .sw img { display:block; }
   .sw a { color:inherit; text-decoration:none; }
   .sw-fc { display:none; }
+  .sw-pi-label { display:none; }
 
   /* loader */
   .sw-load { position:fixed; inset:0; background:var(--sw-ink); z-index:99999; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:14px; transition:opacity 1.2s cubic-bezier(0.16,1,0.3,1), visibility 1.2s; }
@@ -169,8 +170,8 @@
   /* ═══ MOBILE — vertical slideshow ═══ */
   @media(max-width:900px) {
     html, body { overflow:hidden !important; height:100% !important; }
-    .sw-track { flex-direction:column !important; height:100vh !important; overflow-x:hidden !important; overflow-y:scroll !important; scroll-snap-type:y mandatory; -webkit-overflow-scrolling:touch; }
-    .sw-page { flex:none !important; width:100% !important; height:100vh !important; min-height:100vh !important; scroll-snap-align:start; display:flex !important; flex-direction:column !important; justify-content:center !important; align-items:center !important; overflow:hidden !important; }
+    .sw-track { flex-direction:column !important; height:100dvh !important; overflow-x:hidden !important; overflow-y:scroll !important; scroll-snap-type:y mandatory; -webkit-overflow-scrolling:touch; }
+    .sw-page { flex:none !important; width:100% !important; height:100dvh !important; min-height:100dvh !important; scroll-snap-align:start; display:flex !important; flex-direction:column !important; justify-content:center !important; align-items:center !important; overflow:hidden !important; }
 
     /* hide desktop nav */
     .sw-click-zone, .sw-nav-arrow, .sw-counter { display:none !important; }
@@ -190,7 +191,7 @@
     .sw-page-ch h2 { font-size:1.6rem; }
 
     /* spread — one snap: project label + title + image + caption */
-    .sw-page-sp, .sw-page-sp.rv { display:flex !important; flex-direction:column !important; justify-content:center !important; align-items:center !important; padding:60px 20px 20px !important; height:100vh !important; min-height:100vh !important; }
+    .sw-page-sp, .sw-page-sp.rv { display:flex !important; flex-direction:column !important; justify-content:center !important; align-items:center !important; padding:60px 20px 20px !important; height:100dvh !important; min-height:100dvh !important; }
     .sw-page-sp .sw-txt { padding:0 0 14px; width:100%; flex:none; text-align:center; }
     .sw-page-sp .sw-txt p { display:none; }
     .sw-page-sp .sw-txt .sw-cr { display:none; }
@@ -202,9 +203,12 @@
 
     /* pair — each image+caption is one full-screen snap */
     .sw-page-pair { height:auto !important; min-height:0 !important; padding:0 !important; display:block !important; }
-    .sw-page-pair .sw-pi { display:flex !important; flex-direction:column !important; width:100% !important; height:100vh !important; min-height:100vh !important; flex:none !important; padding:60px 20px 20px !important; justify-content:center !important; align-items:center !important; scroll-snap-align:start; background:#fff; }
-    .sw-page-pair .sw-pi img { width:100% !important; max-width:none !important; max-height:68vh !important; object-fit:contain !important; box-shadow:none !important; }
-    .sw-page-pair .sw-pi img.sw-port { width:auto !important; max-width:100% !important; max-height:68vh !important; }
+    .sw-page-pair .sw-pi { display:flex !important; flex-direction:column !important; width:100% !important; height:100dvh !important; min-height:100dvh !important; flex:none !important; padding:60px 20px 20px !important; justify-content:center !important; align-items:center !important; scroll-snap-align:start; background:#fff; overflow:hidden !important; }
+    .sw-page-pair .sw-pi img { width:100% !important; max-width:none !important; max-height:60vh !important; object-fit:contain !important; box-shadow:none !important; }
+    .sw-page-pair .sw-pi img.sw-port { width:auto !important; max-width:100% !important; max-height:60vh !important; }
+
+    /* mobile project label inside pair images */
+    .sw-pi-label { display:block !important; font-family:'Josefin Sans',sans-serif; font-weight:200; font-size:0.42rem; letter-spacing:0.35em; text-transform:uppercase; color:var(--sw-gold); margin-bottom:12px; text-align:center; flex:none; }
 
     /* photo captions — below each image */
     .sw-fc { display:block !important; padding:16px 20px 0; font-family:'DM Sans',sans-serif; font-weight:300; font-size:0.72rem; color:var(--sw-stone); line-height:1.6; text-align:center; max-width:320px; margin:0 auto; letter-spacing:0.01em; flex:none; }
@@ -272,13 +276,13 @@
 
 <!-- THE PERCH — pair -->
 <div class="sw-page sw-page-pair">
-  <div class="sw-pi"><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/34ff99ae-5592-488a-bfd6-ff7b4744ea8d/5322-backhouse-web-15.jpg" alt="The Perch fireplace" loading="lazy"><span class="sw-fc">The corridor draws your eye straight through to the deck. Polished concrete, floor-to-ceiling glass, ocean on the left.</span></div>
-  <div class="sw-pi"><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/9d699cdf-a6ac-442f-b234-97b0aba24035/5322-backhouse-web-5.jpg" alt="The Perch kitchen" loading="lazy"><span class="sw-fc">Suspended fireplace, overcast sky, Douglas firs framed by the glazing. The room is quiet enough to hear the water below.</span></div>
+  <div class="sw-pi"><span class="sw-pi-label">The Perch</span><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/34ff99ae-5592-488a-bfd6-ff7b4744ea8d/5322-backhouse-web-15.jpg" alt="The Perch fireplace" loading="lazy"><span class="sw-fc">The corridor draws your eye straight through to the deck. Polished concrete, floor-to-ceiling glass, ocean on the left.</span></div>
+  <div class="sw-pi"><span class="sw-pi-label">The Perch</span><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/9d699cdf-a6ac-442f-b234-97b0aba24035/5322-backhouse-web-5.jpg" alt="The Perch kitchen" loading="lazy"><span class="sw-fc">Suspended fireplace, overcast sky, Douglas firs framed by the glazing. The room is quiet enough to hear the water below.</span></div>
 </div>
 
 <!-- THE PERCH — aerial -->
 <div class="sw-page sw-page-single">
-  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/8a674d33-4176-43dd-89c1-a565c1c3df48/5322-backhouse-web-24.jpg" alt="The Perch aerial" loading="lazy"><span class="sw-fc">Twilight. The interior warmth glowing against the forest. Fire pit lit on the granite below. This is why you stay for blue hour.</span>
+  <span class="sw-pi-label">The Perch</span><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/8a674d33-4176-43dd-89c1-a565c1c3df48/5322-backhouse-web-24.jpg" alt="The Perch aerial" loading="lazy"><span class="sw-fc">Twilight. The interior warmth glowing against the forest. Fire pit lit on the granite below. This is why you stay for blue hour.</span>
 </div>
 
 <!-- THE PERCH — video -->
@@ -299,8 +303,8 @@
 
 <!-- TRANQUIL RETREAT — pair -->
 <div class="sw-page sw-page-pair">
-  <div class="sw-pi"><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/8dab354d-32d7-4e2a-8a71-7ef3b5d5482c/sandy-hook-sunshine-coast-architectural-photography-matt-anthony-.jpg-15.jpg" alt="Tranquil Retreat forest" loading="lazy"><span class="sw-fc">The outdoor living space. Late afternoon light filtering through the canopy, corrugated steel meeting cedar and glass at the corner.</span></div>
-  <div class="sw-pi"><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/5be7e36c-d920-4d5d-9260-da4df4c50415/sandy-hook-sunshine-coast-architectural-photography-matt-anthony-.jpg-16.jpg" alt="Tranquil Retreat detail" loading="lazy"><span class="sw-fc">Courtyard. Board-formed concrete retaining wall holding back the rock face. A Japanese maple catching the last warm light of the day.</span></div>
+  <div class="sw-pi"><span class="sw-pi-label">Tranquil Retreat</span><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/8dab354d-32d7-4e2a-8a71-7ef3b5d5482c/sandy-hook-sunshine-coast-architectural-photography-matt-anthony-.jpg-15.jpg" alt="Tranquil Retreat forest" loading="lazy"><span class="sw-fc">The outdoor living space. Late afternoon light filtering through the canopy, corrugated steel meeting cedar and glass at the corner.</span></div>
+  <div class="sw-pi"><span class="sw-pi-label">Tranquil Retreat</span><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/5be7e36c-d920-4d5d-9260-da4df4c50415/sandy-hook-sunshine-coast-architectural-photography-matt-anthony-.jpg-16.jpg" alt="Tranquil Retreat detail" loading="lazy"><span class="sw-fc">Courtyard. Board-formed concrete retaining wall holding back the rock face. A Japanese maple catching the last warm light of the day.</span></div>
 </div>
 
 <!-- NET ZERO — spread -->
@@ -316,8 +320,8 @@
 
 <!-- NET ZERO — pair -->
 <div class="sw-page sw-page-pair">
-  <div class="sw-pi"><img src="https://images.squarespace-cdn.com/content/6824fd48afd1dd40cd73e146/7199e20e-015a-4f85-8473-9d3d74f49e88/peak-ventures-whistler-16.jpg?content-type=image%2Fjpeg" alt="Net Zero interior" loading="lazy"><span class="sw-fc">The rear elevation through the garden. Stone columns, cedar soffits, and a covered outdoor dining area framed by the forest.</span></div>
-  <div class="sw-pi"><img src="https://images.squarespace-cdn.com/content/6824fd48afd1dd40cd73e146/9735ee44-cdd3-463c-91e7-057ce01c798e/peak-ventures-whistler-14.jpg?content-type=image%2Fjpeg" alt="Net Zero site" loading="lazy"><span class="sw-fc">Aerial. Solar array on the flat roof, the garden clearing carved into the tree canopy. Performance visible from above.</span></div>
+  <div class="sw-pi"><span class="sw-pi-label">Net Zero Build</span><img src="https://images.squarespace-cdn.com/content/6824fd48afd1dd40cd73e146/7199e20e-015a-4f85-8473-9d3d74f49e88/peak-ventures-whistler-16.jpg?content-type=image%2Fjpeg" alt="Net Zero interior" loading="lazy"><span class="sw-fc">The rear elevation through the garden. Stone columns, cedar soffits, and a covered outdoor dining area framed by the forest.</span></div>
+  <div class="sw-pi"><span class="sw-pi-label">Net Zero Build</span><img src="https://images.squarespace-cdn.com/content/6824fd48afd1dd40cd73e146/9735ee44-cdd3-463c-91e7-057ce01c798e/peak-ventures-whistler-14.jpg?content-type=image%2Fjpeg" alt="Net Zero site" loading="lazy"><span class="sw-fc">Aerial. Solar array on the flat roof, the garden clearing carved into the tree canopy. Performance visible from above.</span></div>
 </div>
 
 <!-- PULLQUOTE -->
@@ -333,7 +337,7 @@
 
 <!-- WARBLER — bleed -->
 <div class="sw-page sw-page-bleed">
-  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/64c6702a-78ea-4fe3-a601-78bce7c197a8/warbler-whistler-architectural-photography-matt-anthony-.jpg-5.jpg" alt="Warbler blackened timber" loading="lazy"><span class="sw-fc">The covered walkway in winter. Cedar soffit, concrete path cut through the snow, mountains framed by the overhang. Clean horizontal lines.</span>
+  <span class="sw-pi-label">Warbler Residence</span><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/64c6702a-78ea-4fe3-a601-78bce7c197a8/warbler-whistler-architectural-photography-matt-anthony-.jpg-5.jpg" alt="Warbler blackened timber" loading="lazy"><span class="sw-fc">The covered walkway in winter. Cedar soffit, concrete path cut through the snow, mountains framed by the overhang. Clean horizontal lines.</span>
 </div>
 
 <!-- WARBLER — spread -->
@@ -349,8 +353,8 @@
 
 <!-- WARBLER — pair -->
 <div class="sw-page sw-page-pair">
-  <div class="sw-pi"><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/02772fb5-a65d-4ec6-82e1-4774876c7693/warbler-whistler-architectural-photography-matt-anthony-.jpg-20.jpg" alt="Warbler interior" loading="lazy"><span class="sw-fc">Floor-to-ceiling glass, a telescope on the balcony. The snow-covered mountains fill the frame. The interior is deliberately spare.</span></div>
-  <div class="sw-pi"><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/c938566f-ee96-40da-aec4-d51ac9fa7e09/warbler-whistler-architectural-photography-matt-anthony-.jpg-13.jpg" alt="Warbler millwork" loading="lazy"><span class="sw-fc">Charred timber cladding in close-up. Window light raking across the grain, casting tree shadows onto the surface. Material as texture.</span></div>
+  <div class="sw-pi"><span class="sw-pi-label">Warbler Residence</span><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/02772fb5-a65d-4ec6-82e1-4774876c7693/warbler-whistler-architectural-photography-matt-anthony-.jpg-20.jpg" alt="Warbler interior" loading="lazy"><span class="sw-fc">Floor-to-ceiling glass, a telescope on the balcony. The snow-covered mountains fill the frame. The interior is deliberately spare.</span></div>
+  <div class="sw-pi"><span class="sw-pi-label">Warbler Residence</span><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/c938566f-ee96-40da-aec4-d51ac9fa7e09/warbler-whistler-architectural-photography-matt-anthony-.jpg-13.jpg" alt="Warbler millwork" loading="lazy"><span class="sw-fc">Charred timber cladding in close-up. Window light raking across the grain, casting tree shadows onto the surface. Material as texture.</span></div>
 </div>
 
 <!-- FITZSIMMONS — spread -->
@@ -366,8 +370,8 @@
 
 <!-- FITZSIMMONS — pair -->
 <div class="sw-page sw-page-pair">
-  <div class="sw-pi"><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/ab8c0b1a-742e-4485-9d50-a19c698594bf/fitzsimmons-whistler-architectural-photography-matt-anthony-.jpg-4.jpg" alt="Fitzsimmons living" loading="lazy"><span class="sw-fc">Vertical metal cladding detail. Tree shadows projected onto the standing seam ribs. This is about the light, not the building.</span></div>
-  <div class="sw-pi"><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/3483950e-abb8-4248-a445-b00c83b5d7f1/fitzsimmons-whistler-architectural-photography-matt-anthony-.jpg-16.jpg" alt="Fitzsimmons staircase" loading="lazy"><span class="sw-fc">Primary bedroom and office divided by a vertical slat wall. Winter river through the window. Two rooms sharing one view.</span></div>
+  <div class="sw-pi"><span class="sw-pi-label">Fitzsimmons Residence</span><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/ab8c0b1a-742e-4485-9d50-a19c698594bf/fitzsimmons-whistler-architectural-photography-matt-anthony-.jpg-4.jpg" alt="Fitzsimmons living" loading="lazy"><span class="sw-fc">Vertical metal cladding detail. Tree shadows projected onto the standing seam ribs. This is about the light, not the building.</span></div>
+  <div class="sw-pi"><span class="sw-pi-label">Fitzsimmons Residence</span><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/3483950e-abb8-4248-a445-b00c83b5d7f1/fitzsimmons-whistler-architectural-photography-matt-anthony-.jpg-16.jpg" alt="Fitzsimmons staircase" loading="lazy"><span class="sw-fc">Primary bedroom and office divided by a vertical slat wall. Winter river through the window. Two rooms sharing one view.</span></div>
 </div>
 
 <!-- SUGARLOAF — spread -->
@@ -383,8 +387,8 @@
 
 <!-- SUGARLOAF — pair -->
 <div class="sw-page sw-page-pair">
-  <div class="sw-pi"><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/aaf09b1e-0c8f-4362-bb6b-d1078581c875/surgarloaf-pemberton-architectural-photography-matt-anthony-.jpg-2.jpg" alt="Sugarloaf interior" loading="lazy"><span class="sw-fc">Dark stone island, white oak cabinetry, and a painting that holds its own against the mountain views. The kitchen as gallery.</span></div>
-  <div class="sw-pi"><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/edac2720-7248-47f1-be25-3a5ffaa91a3d/surgarloaf-pemberton-architectural-photography-matt-anthony-.jpg-10.jpg" alt="Sugarloaf staircase" loading="lazy"><span class="sw-fc">The hallway as gallery. Art on the right wall, glazing on the left, and a dog that refused to leave the frame.</span></div>
+  <div class="sw-pi"><span class="sw-pi-label">Sugarloaf Residence</span><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/aaf09b1e-0c8f-4362-bb6b-d1078581c875/surgarloaf-pemberton-architectural-photography-matt-anthony-.jpg-2.jpg" alt="Sugarloaf interior" loading="lazy"><span class="sw-fc">Dark stone island, white oak cabinetry, and a painting that holds its own against the mountain views. The kitchen as gallery.</span></div>
+  <div class="sw-pi"><span class="sw-pi-label">Sugarloaf Residence</span><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/edac2720-7248-47f1-be25-3a5ffaa91a3d/surgarloaf-pemberton-architectural-photography-matt-anthony-.jpg-10.jpg" alt="Sugarloaf staircase" loading="lazy"><span class="sw-fc">The hallway as gallery. Art on the right wall, glazing on the left, and a dog that refused to leave the frame.</span></div>
 </div>
 
 <!-- INTERIORS -->
@@ -406,8 +410,8 @@
 
 <!-- BALSAM WAY — pair -->
 <div class="sw-page sw-page-pair">
-  <div class="sw-pi"><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/8baad882-d517-4bdd-98fd-09ad2530273d/LRD-2500px-7.jpg" alt="Balsam Way timber" loading="lazy"><span class="sw-fc">Teal zellige tile against blonde oak. Black pendants, dark stone range hood. Colour and material working together without competing.</span></div>
-  <div class="sw-pi"><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/93a486f5-3280-4e92-b5fe-34729e29a5f7/LRD-2500px-20.jpg" alt="Balsam Way kitchen" loading="lazy"><span class="sw-fc">Walk-in closet with a skylight. Natural light falling straight down the center of the oak millwork. Every shelf considered.</span></div>
+  <div class="sw-pi"><span class="sw-pi-label">Balsam Way</span><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/8baad882-d517-4bdd-98fd-09ad2530273d/LRD-2500px-7.jpg" alt="Balsam Way timber" loading="lazy"><span class="sw-fc">Teal zellige tile against blonde oak. Black pendants, dark stone range hood. Colour and material working together without competing.</span></div>
+  <div class="sw-pi"><span class="sw-pi-label">Balsam Way</span><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/93a486f5-3280-4e92-b5fe-34729e29a5f7/LRD-2500px-20.jpg" alt="Balsam Way kitchen" loading="lazy"><span class="sw-fc">Walk-in closet with a skylight. Natural light falling straight down the center of the oak millwork. Every shelf considered.</span></div>
 </div>
 
 <!-- FRASER VALLEY — spread -->
@@ -423,8 +427,8 @@
 
 <!-- FRASER VALLEY — pair -->
 <div class="sw-page sw-page-pair">
-  <div class="sw-pi"><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/66509d6f-8b6e-45c4-af89-cf2632982163/siteline-langley-5.jpg" alt="Fraser Valley Vista interior" loading="lazy"><span class="sw-fc">Double-height entry. Marble floor with inset diamond pattern, wainscoting to the ceiling. Sunlight through the transom painting the wall.</span></div>
-  <div class="sw-pi"><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/df5a6618-ad13-4096-b694-2f6414af5fc9/siteline-langley-22.jpg" alt="Fraser Valley Vista detail" loading="lazy"><span class="sw-fc">Dark teal panelling, faceted vessel sink, warm walnut vanity. The afternoon sun catching the brass hardware and the edge of every drawer.</span></div>
+  <div class="sw-pi"><span class="sw-pi-label">Fraser Valley Vista</span><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/66509d6f-8b6e-45c4-af89-cf2632982163/siteline-langley-5.jpg" alt="Fraser Valley Vista interior" loading="lazy"><span class="sw-fc">Double-height entry. Marble floor with inset diamond pattern, wainscoting to the ceiling. Sunlight through the transom painting the wall.</span></div>
+  <div class="sw-pi"><span class="sw-pi-label">Fraser Valley Vista</span><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/df5a6618-ad13-4096-b694-2f6414af5fc9/siteline-langley-22.jpg" alt="Fraser Valley Vista detail" loading="lazy"><span class="sw-fc">Dark teal panelling, faceted vessel sink, warm walnut vanity. The afternoon sun catching the brass hardware and the edge of every drawer.</span></div>
 </div>
 
 <!-- SDA HQ — spread -->
@@ -440,8 +444,8 @@
 
 <!-- SDA HQ — pair -->
 <div class="sw-page sw-page-pair">
-  <div class="sw-pi"><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/66ae3f4a-163c-42df-a14d-9e463d1c339f/sitelines-SDA-web--23.jpg" alt="SDA HQ corridor" loading="lazy"><span class="sw-fc">Exterior cladding panel detail. Cloud reflections on the metal surface. Minimal, almost abstract — the building as light study.</span></div>
-  <div class="sw-pi"><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/6c3ffde5-c26e-4796-8551-cfd303e2b0d8/sitelines-SDA-web--11.jpg" alt="SDA HQ beam" loading="lazy"><span class="sw-fc">Mass timber column, exposed ceiling structure, cedar slat wall. A figure in motion blur walking through the corridor. Scale and warmth.</span></div>
+  <div class="sw-pi"><span class="sw-pi-label">SDA Headquarters</span><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/66ae3f4a-163c-42df-a14d-9e463d1c339f/sitelines-SDA-web--23.jpg" alt="SDA HQ corridor" loading="lazy"><span class="sw-fc">Exterior cladding panel detail. Cloud reflections on the metal surface. Minimal, almost abstract — the building as light study.</span></div>
+  <div class="sw-pi"><span class="sw-pi-label">SDA Headquarters</span><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/6c3ffde5-c26e-4796-8551-cfd303e2b0d8/sitelines-SDA-web--11.jpg" alt="SDA HQ beam" loading="lazy"><span class="sw-fc">Mass timber column, exposed ceiling structure, cedar slat wall. A figure in motion blur walking through the corridor. Scale and warmth.</span></div>
 </div>
 
 <!-- BROWN'S — spread -->
@@ -457,8 +461,8 @@
 
 <!-- BROWN'S — pair -->
 <div class="sw-page sw-page-pair">
-  <div class="sw-pi"><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/2f6d1495-5b03-4c34-8b78-7b3eaa479c17/browns-road-sunshine-coast-architectural-photographer-matt-anthony-10.jpg" alt="Brown's Residence detail" loading="lazy"><span class="sw-fc">The covered walkway. Thin steel columns, board-formed concrete wall, cedar soffit. Native plantings pushing into the edges. Designed to age.</span></div>
-  <div class="sw-pi"><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/500155bc-8662-4c70-ab44-feae601fa91e/browns-road-sunshine-coast-architectural-photographer-matt-anthony-16.jpg" alt="Brown's Residence wide" loading="lazy"><span class="sw-fc">Dusk. The glass box glowing above the shoreline, steel framing silhouetted against a pink sky. The ocean and the architecture on equal terms.</span></div>
+  <div class="sw-pi"><span class="sw-pi-label">Brown's Residence</span><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/2f6d1495-5b03-4c34-8b78-7b3eaa479c17/browns-road-sunshine-coast-architectural-photographer-matt-anthony-10.jpg" alt="Brown's Residence detail" loading="lazy"><span class="sw-fc">The covered walkway. Thin steel columns, board-formed concrete wall, cedar soffit. Native plantings pushing into the edges. Designed to age.</span></div>
+  <div class="sw-pi"><span class="sw-pi-label">Brown's Residence</span><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/500155bc-8662-4c70-ab44-feae601fa91e/browns-road-sunshine-coast-architectural-photographer-matt-anthony-16.jpg" alt="Brown's Residence wide" loading="lazy"><span class="sw-fc">Dusk. The glass box glowing above the shoreline, steel framing silhouetted against a pink sky. The ocean and the architecture on equal terms.</span></div>
 </div>
 
 <!-- GAMBIER — spread -->
@@ -474,8 +478,8 @@
 
 <!-- GAMBIER — pair -->
 <div class="sw-page sw-page-pair">
-  <div class="sw-pi"><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/e13eccd9-ffa9-4d25-84ec-e6b54a06605b/linwood-gambier-web-26.jpg" alt="Gambier through trees" loading="lazy"><span class="sw-fc">The approach through old-growth cedar and salal. The roofline appearing between the trunks. You hear the ocean before you see the house.</span></div>
-  <div class="sw-pi"><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/01893150-5d74-4b4b-8592-3d5613bb42c9/linwood-gambier-web-10.jpg" alt="Gambier interior" loading="lazy"><span class="sw-fc">Tongue-and-groove cedar ceiling, walnut dining table, forest through every window. A dog and its owner in the kitchen. Life on an island.</span></div>
+  <div class="sw-pi"><span class="sw-pi-label">Gambier Island</span><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/e13eccd9-ffa9-4d25-84ec-e6b54a06605b/linwood-gambier-web-26.jpg" alt="Gambier through trees" loading="lazy"><span class="sw-fc">The approach through old-growth cedar and salal. The roofline appearing between the trunks. You hear the ocean before you see the house.</span></div>
+  <div class="sw-pi"><span class="sw-pi-label">Gambier Island</span><img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/01893150-5d74-4b4b-8592-3d5613bb42c9/linwood-gambier-web-10.jpg" alt="Gambier interior" loading="lazy"><span class="sw-fc">Tongue-and-groove cedar ceiling, walnut dining table, forest through every window. A dog and its owner in the kitchen. Life on an island.</span></div>
 </div>
 
 <!-- GAMBIER — video -->
