@@ -169,9 +169,10 @@
 
   /* ═══ MOBILE — vertical slideshow ═══ */
   @media(max-width:900px) {
-    html, body { overflow:hidden !important; height:100% !important; }
-    .sw-track { flex-direction:column !important; height:100dvh !important; overflow-x:hidden !important; overflow-y:scroll !important; scroll-snap-type:y mandatory; -webkit-overflow-scrolling:touch; }
-    .sw-page { flex:none !important; width:100% !important; height:100dvh !important; min-height:100dvh !important; scroll-snap-align:start; display:flex !important; flex-direction:column !important; justify-content:center !important; align-items:center !important; overflow:hidden !important; }
+    html { scroll-snap-type:y mandatory !important; overflow-y:scroll !important; -webkit-overflow-scrolling:touch; }
+    body { overflow-y:visible !important; }
+    .sw-track { flex-direction:column !important; height:auto !important; overflow:visible !important; scroll-snap-type:none !important; width:100%; }
+    .sw-page { flex:0 0 auto !important; width:100% !important; height:100vh !important; height:100svh !important; height:var(--vh,100vh) !important; scroll-snap-align:start !important; scroll-snap-stop:always !important; display:flex !important; flex-direction:column !important; justify-content:center !important; align-items:center !important; overflow:hidden !important; margin:0; }
 
     /* hide desktop nav */
     .sw-click-zone, .sw-nav-arrow, .sw-counter { display:none !important; }
@@ -191,7 +192,7 @@
     .sw-page-ch h2 { font-size:1.6rem; }
 
     /* spread — one snap: project label + title + image + caption */
-    .sw-page-sp, .sw-page-sp.rv { display:flex !important; flex-direction:column !important; justify-content:center !important; align-items:center !important; padding:60px 20px 20px !important; height:100dvh !important; min-height:100dvh !important; }
+    .sw-page-sp, .sw-page-sp.rv { display:flex !important; flex-direction:column !important; justify-content:center !important; align-items:center !important; padding:60px 20px 20px !important; height:100vh !important; height:100svh !important; height:var(--vh,100vh) !important; }
     .sw-page-sp .sw-txt { padding:0 0 14px; width:100%; flex:none; text-align:center; }
     .sw-page-sp .sw-txt p { display:none; }
     .sw-page-sp .sw-txt .sw-cr { display:none; }
@@ -203,7 +204,7 @@
 
     /* pair — each image+caption is one full-screen snap */
     .sw-page-pair { height:auto !important; min-height:0 !important; padding:0 !important; display:block !important; }
-    .sw-page-pair .sw-pi { display:flex !important; flex-direction:column !important; width:100% !important; height:100dvh !important; min-height:100dvh !important; flex:none !important; padding:60px 20px 20px !important; justify-content:center !important; align-items:center !important; scroll-snap-align:start; background:#fff; overflow:hidden !important; }
+    .sw-page-pair .sw-pi { display:flex !important; flex-direction:column !important; width:100% !important; height:100vh !important; height:100svh !important; height:var(--vh,100vh) !important; flex:none !important; padding:60px 20px 20px !important; justify-content:center !important; align-items:center !important; scroll-snap-align:start !important; scroll-snap-stop:always !important; background:#fff; overflow:hidden !important; }
     .sw-page-pair .sw-pi img { width:100% !important; max-width:none !important; max-height:60vh !important; object-fit:contain !important; box-shadow:none !important; }
     .sw-page-pair .sw-pi img.sw-port { width:auto !important; max-width:100% !important; max-height:60vh !important; }
 
@@ -532,15 +533,35 @@
   var isMobile=window.innerWidth<=900;
   var pw=window.innerWidth;
 
-  // Mobile — fade in images when they scroll into view
+  // Mobile — set --vh for reliable viewport height
   if(isMobile){
-    var imgObs=new IntersectionObserver(function(entries){
-      entries.forEach(function(en){
-        if(en.isIntersecting){en.target.classList.add('sw-vis')}
-        else{en.target.classList.remove('sw-vis')}
-      });
-    },{threshold:0.2,root:track});
-    track.querySelectorAll('.sw-page-sp .sw-img img, .sw-page-pair .sw-pi img, .sw-page-single img').forEach(function(img){imgObs.observe(img)});
+    function setVH(){document.documentElement.style.setProperty('--vh',window.innerHeight+'px')}
+    setVH();
+    window.addEventListener('resize',setVH);
+    window.addEventListener('orientationchange',function(){setTimeout(setVH,100)});
+
+    // JS snap fallback for WebViews where CSS snap fails
+    var isWebView=/FBAN|FBAV|Instagram|LinkedIn|Messenger/i.test(navigator.userAgent);
+    if(isWebView){
+      document.documentElement.style.scrollSnapType='none';
+      var snapping=false,snapTimer;
+      function getClosest(){
+        var closest=null,minDist=Infinity;
+        document.querySelectorAll('.sw-page,.sw-page-pair .sw-pi').forEach(function(s){
+          var d=Math.abs(s.getBoundingClientRect().top);
+          if(d<minDist){minDist=d;closest=s}
+        });
+        return closest;
+      }
+      window.addEventListener('scroll',function(){
+        if(snapping)return;
+        clearTimeout(snapTimer);
+        snapTimer=setTimeout(function(){
+          var s=getClosest();
+          if(s){snapping=true;window.scrollTo({top:window.scrollY+s.getBoundingClientRect().top,behavior:'smooth'});setTimeout(function(){snapping=false},600)}
+        },150);
+      },{passive:true});
+    }
   }
 
   // Click zones — desktop only
