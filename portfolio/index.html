@@ -169,8 +169,8 @@
   /* ═══ MOBILE — vertical slideshow ═══ */
   @media(max-width:900px) {
     html, body { overflow:hidden !important; height:100% !important; }
-    .sw-track { flex-direction:column !important; height:100vh !important; overflow-x:hidden !important; overflow-y:scroll !important; scroll-snap-type:y mandatory !important; scroll-snap-stop:always !important; -webkit-overflow-scrolling:touch; }
-    .sw-page { flex:none !important; width:100% !important; height:100vh !important; min-height:100vh !important; scroll-snap-align:start !important; scroll-snap-stop:always !important; display:flex !important; flex-direction:column !important; justify-content:center !important; align-items:center !important; }
+    .sw-track { flex-direction:column !important; height:100vh !important; overflow-x:hidden !important; overflow-y:scroll !important; scroll-snap-type:y mandatory; -webkit-overflow-scrolling:touch; }
+    .sw-page { flex:none !important; width:100% !important; height:100vh !important; min-height:100vh !important; scroll-snap-align:start; display:flex !important; flex-direction:column !important; justify-content:center !important; align-items:center !important; overflow:hidden !important; }
 
     /* hide desktop nav */
     .sw-click-zone, .sw-nav-arrow, .sw-counter { display:none !important; }
@@ -189,34 +189,34 @@
     .sw-page-ch { padding:0 24px; }
     .sw-page-ch h2 { font-size:1.6rem; }
 
-    /* spread — one snap: image + caption centered, text intro is its own snap */
-    .sw-page-sp, .sw-page-sp.rv { height:auto !important; min-height:0 !important; display:block !important; padding:0 !important; }
-    .sw-page-sp .sw-txt { height:100vh; min-height:100vh; display:flex; flex-direction:column; justify-content:center; padding:0 28px; scroll-snap-align:start; scroll-snap-stop:always; }
-    .sw-page-sp .sw-img { height:100vh; min-height:100vh; display:flex !important; flex-direction:column; align-items:center; justify-content:center; padding:16px !important; scroll-snap-align:start; scroll-snap-stop:always; background:#fff; }
-    .sw-page-sp .sw-img img { width:100% !important; max-width:none !important; max-height:70vh !important; object-fit:contain !important; box-shadow:none !important; }
-    .sw-page-sp .sw-img img.sw-port { width:auto !important; max-width:100% !important; max-height:70vh !important; }
-    .sw-page-sp .sw-txt h2 { font-size:1.4rem; margin-bottom:10px; }
-    .sw-page-sp .sw-txt p { font-size:0.82rem; max-width:100%; line-height:1.8; }
-    .sw-page-sp .sw-lbl { margin-bottom:10px; font-size:0.44rem; }
-    .sw-page-sp .sw-cr { margin-top:14px; font-size:0.32rem; }
+    /* spread — title + image + caption all on one screen */
+    .sw-page-sp, .sw-page-sp.rv { display:flex !important; flex-direction:column !important; justify-content:center !important; align-items:center !important; padding:16px 20px !important; height:100vh !important; min-height:100vh !important; }
+    .sw-page-sp .sw-txt { padding:0 0 12px; width:100%; flex:none; }
+    .sw-page-sp .sw-txt p { display:none; }
+    .sw-page-sp .sw-txt .sw-cr { display:none; }
+    .sw-page-sp .sw-img { padding:0 !important; flex:none; width:100%; display:flex !important; justify-content:center; }
+    .sw-page-sp .sw-img img { width:100% !important; max-width:none !important; max-height:60vh !important; object-fit:contain !important; box-shadow:none !important; }
+    .sw-page-sp .sw-img img.sw-port { width:auto !important; max-width:100% !important; max-height:60vh !important; }
+    .sw-page-sp .sw-txt h2 { font-size:1.2rem; margin-bottom:4px; }
+    .sw-page-sp .sw-lbl { margin-bottom:6px; font-size:0.42rem; }
 
     /* pair — each image+caption is one full-screen snap */
     .sw-page-pair { height:auto !important; min-height:0 !important; padding:0 !important; display:block !important; }
-    .sw-page-pair .sw-pi { display:flex !important; flex-direction:column !important; width:100% !important; height:100vh !important; min-height:100vh !important; flex:none !important; padding:16px !important; justify-content:center !important; align-items:center !important; scroll-snap-align:start !important; scroll-snap-stop:always !important; background:#fff; }
+    .sw-page-pair .sw-pi { display:flex !important; flex-direction:column !important; width:100% !important; height:100vh !important; min-height:100vh !important; flex:none !important; padding:16px !important; justify-content:center !important; align-items:center !important; scroll-snap-align:start; background:#fff; }
     .sw-page-pair .sw-pi img { width:100% !important; max-width:none !important; max-height:70vh !important; object-fit:contain !important; box-shadow:none !important; }
     .sw-page-pair .sw-pi img.sw-port { width:auto !important; max-width:100% !important; max-height:70vh !important; }
 
-    /* photo captions — below each image, mobile only */
-    .sw-fc { display:block !important; padding:16px 24px 0; font-family:'DM Sans',sans-serif; font-weight:300; font-size:0.72rem; color:var(--sw-stone); line-height:1.65; text-align:center; max-width:340px; margin:0 auto; letter-spacing:0.01em; }
+    /* photo captions — below each image */
+    .sw-fc { display:block !important; padding:14px 20px 0; font-family:'DM Sans',sans-serif; font-weight:300; font-size:0.72rem; color:var(--sw-stone); line-height:1.6; text-align:center; max-width:320px; margin:0 auto; letter-spacing:0.01em; flex:none; }
 
-    /* single — image+caption centered in one screen */
+    /* single — image+caption centered */
     .sw-page-single { padding:16px !important; flex-direction:column !important; }
     .sw-page-single img { width:100% !important; max-width:none !important; max-height:70vh !important; object-fit:contain !important; box-shadow:none !important; }
 
-    /* bleed — fill viewport */
+    /* bleed */
     .sw-page-bleed img { width:100% !important; height:100% !important; object-fit:cover !important; }
 
-    /* video — fill viewport */
+    /* video */
     .sw-page-vid video { width:100% !important; height:100% !important; object-fit:cover !important; }
 
     /* pullquote */
@@ -231,9 +231,8 @@
   @media(max-width:480px) {
     .sw-page-hero h1 { font-size:1.8rem; }
     .sw-page-ch h2 { font-size:1.35rem; }
-    .sw-page-sp .sw-txt h2 { font-size:1.25rem; }
-    .sw-page-sp .sw-lbl { font-size:0.42rem; }
-    .sw-page-sp .sw-cr { font-size:0.3rem; }
+    .sw-page-sp .sw-txt h2 { font-size:1.1rem; }
+    .sw-page-sp .sw-lbl { font-size:0.4rem; }
     .sw-page-q p { font-size:1rem; }
   }
 </style>
