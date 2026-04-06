@@ -128,16 +128,15 @@
     .sw-s-sp .sw-txt h2 { font-size:1.3rem; margin-bottom:6px; }
     .sw-s-sp .sw-lbl { font-size:0.48rem; margin-bottom:10px; }
 
-    /* pairs — two images stacked, no labels (spread already introduced project) */
-    .sw-s-pair, .sw-s-pair.rv { display:flex; flex-direction:column; padding:16px; gap:6px; justify-content:center; align-items:center; }
-    .sw-s-pair .sw-pi { padding:0; width:100%; display:flex; flex-direction:column; align-items:center; }
-    .sw-s-pair .sw-pi img { max-height:36vh; width:100%; object-fit:contain; box-shadow:none; }
+    /* pairs — each image gets its own full-screen slide */
+    .sw-s-pair, .sw-s-pair.rv { display:contents !important; }
+    .sw-s-pair .sw-pi { display:flex !important; flex-direction:column; align-items:center; justify-content:center; width:100%; height:100vh; padding:20px; scroll-snap-align:start; scroll-snap-stop:always; }
+    .sw-s-pair .sw-pi img { max-height:75vh; width:100%; object-fit:contain; box-shadow:none; }
 
-    /* trio — show two on mobile, hide third */
-    .sw-s-trio { display:flex; flex-direction:column; padding:16px; gap:6px; justify-content:center; align-items:center; }
-    .sw-s-trio .sw-pi { padding:0; width:100%; display:flex; flex-direction:column; align-items:center; }
-    .sw-s-trio .sw-pi:nth-child(3) { display:none; }
-    .sw-s-trio .sw-pi img { max-height:36vh; width:100%; object-fit:contain; box-shadow:none; }
+    /* trio — each image gets its own slide */
+    .sw-s-trio { display:contents !important; }
+    .sw-s-trio .sw-pi { display:flex !important; flex-direction:column; align-items:center; justify-content:center; width:100%; height:100vh; padding:20px; scroll-snap-align:start; scroll-snap-stop:always; }
+    .sw-s-trio .sw-pi img { max-height:75vh; width:100%; object-fit:contain; box-shadow:none; }
 
     /* single — image + caption */
     .sw-s-single { padding:56px 16px 16px; flex-direction:column; }
