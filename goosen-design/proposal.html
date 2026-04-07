@@ -204,16 +204,15 @@
      PRICING TIERS
      ═══════════════════════════════════════ */
   .tiers {
-    display:grid; grid-template-columns:repeat(3,1fr); gap:0;
-    margin:56px 0; position:relative;
+    display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
+    margin:80px 0; position:relative;
   }
   .tier {
-    padding:48px 32px 40px; border:1px solid rgba(26,26,24,0.06);
+    padding:64px 42px 56px; border:1px solid rgba(26,26,24,0.06);
     background:var(--white); position:relative;
     transition:transform 0.3s ease, box-shadow 0.3s ease;
   }
   .tier:hover { transform:translateY(-6px); box-shadow:0 20px 60px rgba(0,0,0,0.08); z-index:1; }
-  .tier + .tier { border-left:none; }
   .tier.rec {
     background:var(--ink); color:var(--paper); border-color:var(--gold);
     transform:scaleY(1.02); z-index:2;
@@ -225,7 +224,7 @@
     height:3px; background:var(--gold);
   }
   .tier-badge span {
-    position:absolute; top:8px; left:50%; transform:translateX(-50%);
+    position:absolute; top:10px; left:50%; transform:translateX(-50%);
     font-family:'Josefin Sans',sans-serif; font-size:0.5rem;
     letter-spacing:0.3em; text-transform:uppercase;
     color:var(--gold); white-space:nowrap;
@@ -233,45 +232,46 @@
   .tier-name {
     font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
     letter-spacing:0.25em; text-transform:uppercase; color:var(--gold);
-    margin:24px 0 12px;
+    margin:32px 0 18px;
   }
   .tier-price {
-    font-family:'Cormorant Garamond',serif; font-size:3.2rem;
-    font-weight:400; line-height:1; margin-bottom:6px;
+    font-family:'Cormorant Garamond',serif; font-size:3.4rem;
+    font-weight:400; line-height:1; margin-bottom:10px;
   }
   .tier:not(.rec) .tier-price { color:var(--ink); }
   .tier.rec .tier-price { color:var(--paper); }
   .tier-price span { font-size:1rem; color:var(--stone); font-family:'DM Sans',sans-serif; font-weight:300; }
   .tier-term {
-    font-size:0.75rem; color:var(--stone); margin-bottom:32px;
-    padding-bottom:24px; border-bottom:1px solid var(--gold-dim);
+    font-size:0.75rem; color:var(--stone); margin-bottom:40px;
+    padding-bottom:32px; border-bottom:1px solid var(--gold-dim);
   }
   .tier.rec .tier-term { border-color:rgba(201,169,110,0.2); }
-  .tier ul { list-style:none; }
+  .tier ul { list-style:none; padding:0; margin:0; }
   .tier li {
-    font-size:0.8rem; padding:7px 0 7px 22px; position:relative;
-    border-bottom:1px solid rgba(26,26,24,0.03);
+    font-size:0.82rem; padding:12px 0 12px 26px; position:relative;
+    line-height:1.5;
+    border-bottom:1px solid rgba(26,26,24,0.04);
   }
-  .tier.rec li { color:rgba(246,244,240,0.75); border-color:rgba(246,244,240,0.05); }
+  .tier.rec li { color:rgba(246,244,240,0.78); border-color:rgba(246,244,240,0.06); }
   .tier li:last-child { border:none; }
   .tier li::before {
-    content:''; position:absolute; left:0; top:14px;
-    width:8px; height:1px; background:var(--gold);
+    content:''; position:absolute; left:0; top:20px;
+    width:10px; height:1px; background:var(--gold);
   }
-  .tier li.off { opacity:0.25; }
+  .tier li.off { opacity:0.28; }
   .tier li.off::before { background:var(--stone); }
   .tier-bottom {
-    margin-top:28px; padding-top:20px; border-top:1px solid var(--gold-dim);
-    font-size:0.7rem; color:var(--stone);
+    margin-top:40px; padding-top:28px; border-top:1px solid var(--gold-dim);
+    font-size:0.72rem; color:var(--stone);
   }
   .tier.rec .tier-bottom { border-color:rgba(201,169,110,0.2); }
-  .tier-bottom strong { color:var(--gold); font-weight:500; font-size:0.85rem; }
+  .tier-bottom strong { color:var(--gold); font-weight:500; font-size:0.9rem; }
 
   /* ═══════════════════════════════════════
      COMPARISON CALLOUT
      ═══════════════════════════════════════ */
   .insight {
-    background:var(--light); padding:48px 56px; margin:56px 0;
+    background:var(--light); padding:60px 64px; margin:80px 0;
     position:relative;
   }
   .insight::before {
@@ -280,22 +280,24 @@
   }
   .insight h4 {
     font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
-    letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:20px;
+    letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:24px;
   }
-  .insight p { font-size:0.9rem; margin-bottom:10px; }
+  .insight p { font-size:0.92rem; margin-bottom:14px; line-height:1.7; }
   .insight p:last-child { margin-bottom:0; }
   .insight .tier-breakdown {
-    margin-top:20px; display:flex; flex-direction:column; gap:8px;
+    margin-top:32px; display:flex; flex-direction:column; gap:18px;
   }
   .insight .tb {
-    display:flex; align-items:baseline; gap:12px; font-size:0.88rem;
+    display:flex; align-items:baseline; gap:16px; font-size:0.9rem;
+    padding-bottom:18px; border-bottom:1px solid rgba(26,26,24,0.06);
   }
+  .insight .tb:last-child { border-bottom:none; padding-bottom:0; }
   .insight .tb-label {
-    font-weight:500; color:var(--gold); min-width:160px;
+    font-weight:500; color:var(--gold); min-width:180px;
     font-family:'Josefin Sans',sans-serif; font-size:0.7rem;
     letter-spacing:0.1em; text-transform:uppercase;
   }
-  .insight .tb-desc { color:var(--stone); }
+  .insight .tb-desc { color:var(--stone); line-height:1.6; }
 
   /* ═══════════════════════════════════════
      ROADMAP
