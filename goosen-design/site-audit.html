@@ -1,0 +1,899 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Site &amp; SEO Audit — Goosen Design</title>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg: #1A1A18;
+  --bg-card: #222220;
+  --bg-surface: #2A2A27;
+  --bg-hover: #333330;
+  --text: #F6F4F0;
+  --text-dim: #B8B2A8;
+  --text-muted: #8A8579;
+  --accent: #C9A96E;
+  --accent-dim: rgba(201,169,110,0.12);
+  --accent-glow: rgba(201,169,110,0.06);
+  --border: rgba(201,169,110,0.08);
+  --border-accent: rgba(201,169,110,0.25);
+  --green: #5B9A6F;
+  --green-bg: rgba(91,154,111,0.12);
+  --green-text: #7BC08E;
+  --amber: #D4A843;
+  --amber-bg: rgba(212,168,67,0.12);
+  --amber-text: #E4C06A;
+  --red: #C45B5B;
+  --red-bg: rgba(196,91,91,0.1);
+  --red-text: #E07A7A;
+  --critical: #A63D3D;
+  --critical-bg: rgba(166,61,61,0.12);
+  --critical-text: #D46A6A;
+}
+* { margin:0; padding:0; box-sizing:border-box; }
+html { font-size:16px; scroll-behavior:smooth; }
+body {
+  background:var(--bg); color:var(--text);
+  font-family:'DM Sans',sans-serif; font-weight:300;
+  line-height:1.75; overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* PROGRESS BAR */
+.progress { position:fixed; top:0; left:0; height:2px; width:0%; background:var(--accent); z-index:9999; transition:width 0.05s linear; }
+
+/* HEADER */
+.header {
+  position:relative; overflow:hidden; min-height:70vh;
+  display:flex; flex-direction:column; justify-content:flex-end;
+}
+.header-bg {
+  position:absolute; top:0; left:0; width:100%; height:100%;
+  background-size:cover; background-position:center;
+  filter:brightness(0.3) saturate(0.6);
+}
+.header-bg::after {
+  content:''; position:absolute; top:0; left:0; width:100%; height:100%;
+  background:linear-gradient(180deg, rgba(26,26,24,0.2) 0%, rgba(26,26,24,0.95) 100%);
+}
+.header-inner {
+  position:relative; z-index:1; padding:80px 64px 64px; max-width:900px;
+}
+.header-badge {
+  display:inline-flex; align-items:center; gap:8px;
+  font-family:'Josefin Sans',sans-serif; font-size:0.6rem; font-weight:400;
+  letter-spacing:0.2em; text-transform:uppercase;
+  color:var(--accent); background:var(--accent-dim);
+  padding:6px 14px; border-radius:2px; margin-bottom:24px;
+  border:1px solid var(--border-accent);
+}
+.header-badge::before {
+  content:''; width:6px; height:6px; border-radius:50%;
+  background:var(--accent); animation:pulse 2s infinite;
+}
+@keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+.header h1 {
+  font-family:'Cormorant Garamond',serif; font-weight:400;
+  font-size:clamp(2.4rem,5vw,3.4rem); line-height:1.1;
+  letter-spacing:-0.01em; margin-bottom:16px;
+}
+.header h1 em { font-style:italic; font-weight:500; color:var(--accent); }
+.header-meta {
+  display:flex; gap:32px; margin-top:24px; padding-top:24px;
+  border-top:1px solid rgba(201,169,110,0.15);
+}
+.header-meta-item { font-size:0.8rem; color:var(--text-muted); }
+.header-meta-item strong {
+  display:block; font-family:'Josefin Sans',sans-serif; font-size:0.55rem;
+  font-weight:400; letter-spacing:0.15em;
+  text-transform:uppercase; color:var(--text-dim); margin-bottom:2px;
+}
+
+/* SCORE CARDS */
+.scores {
+  display:grid; grid-template-columns:repeat(4,1fr); gap:1px;
+  background:var(--border); margin:0;
+}
+.score-card {
+  background:var(--bg-card); text-align:center; padding:48px 24px;
+  position:relative; overflow:hidden;
+}
+.score-card::after {
+  content:''; position:absolute; bottom:0; left:20%; right:20%; height:3px;
+  border-radius:2px;
+}
+.score-card.good::after { background:var(--green); }
+.score-card.ok::after { background:var(--amber); }
+.score-card.bad::after { background:var(--red); }
+.score-card.critical::after { background:var(--critical); }
+.score-ring {
+  width:100px; height:100px; margin:0 auto 20px; position:relative;
+  display:flex; align-items:center; justify-content:center;
+}
+.score-ring svg { position:absolute; top:0; left:0; transform:rotate(-90deg); }
+.score-ring-bg { fill:none; stroke:var(--bg-surface); stroke-width:5; }
+.score-ring-fill { fill:none; stroke-width:5; stroke-linecap:round;
+  stroke-dasharray:276.5; transition:stroke-dashoffset 2s cubic-bezier(0.16,1,0.3,1); }
+.score-ring-fill.good { stroke:var(--green); }
+.score-ring-fill.ok { stroke:var(--amber); }
+.score-ring-fill.bad { stroke:var(--red); }
+.score-ring-fill.critical { stroke:var(--critical); }
+.score-number {
+  font-family:'Cormorant Garamond',serif; font-size:2.2rem; font-weight:500;
+  position:relative; z-index:1;
+}
+.score-number.good { color:var(--green-text); }
+.score-number.ok { color:var(--amber-text); }
+.score-number.bad { color:var(--red-text); }
+.score-number.critical { color:var(--critical-text); }
+.score-label {
+  font-family:'Josefin Sans',sans-serif; font-size:0.55rem; font-weight:400;
+  letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted); margin-bottom:8px;
+}
+.score-grade {
+  font-family:'Josefin Sans',sans-serif; font-size:0.5rem; font-weight:400;
+  letter-spacing:0.1em; text-transform:uppercase;
+  padding:4px 12px; border-radius:2px; display:inline-block;
+}
+.score-grade.good { background:var(--green-bg); color:var(--green-text); }
+.score-grade.ok { background:var(--amber-bg); color:var(--amber-text); }
+.score-grade.bad { background:var(--red-bg); color:var(--red-text); }
+.score-grade.critical { background:var(--critical-bg); color:var(--critical-text); }
+
+/* SECTIONS */
+.section { max-width:860px; margin:0 auto; padding:80px 64px; }
+.section.wide { max-width:1000px; }
+.section.surface { background:var(--bg-surface); max-width:100%; }
+.section.surface .section-inner { max-width:860px; margin:0 auto; }
+.eyebrow {
+  font-family:'Josefin Sans',sans-serif; font-size:0.6rem; font-weight:300;
+  letter-spacing:0.35em; text-transform:uppercase;
+  color:var(--accent); margin-bottom:16px; display:flex; align-items:center; gap:14px;
+}
+.eyebrow::before { content:''; width:24px; height:1px; background:var(--accent); }
+h2 {
+  font-family:'Cormorant Garamond',serif; font-weight:400;
+  font-size:2.4rem; line-height:1.12; letter-spacing:-0.01em; margin-bottom:28px;
+}
+h2 em { font-style:italic; font-weight:500; color:var(--accent); }
+.lead { font-size:1rem; color:var(--text-dim); line-height:1.85; margin-bottom:32px; }
+
+/* CATEGORY HEADERS */
+.category {
+  font-family:'Josefin Sans',sans-serif; font-size:0.6rem; font-weight:400;
+  letter-spacing:0.2em; text-transform:uppercase;
+  color:var(--accent); margin:48px 0 20px; padding-bottom:12px;
+  border-bottom:1px solid var(--border-accent); display:flex; align-items:center; gap:12px;
+}
+.category::before { content:''; width:16px; height:1px; background:var(--accent); }
+
+/* FINDINGS */
+.findings { display:flex; flex-direction:column; gap:2px; }
+.finding {
+  display:grid; grid-template-columns:36px 1fr; gap:16px; padding:16px 20px;
+  background:var(--bg-card); border-radius:6px; align-items:start;
+  border:1px solid var(--border); transition:border-color 0.2s;
+}
+.finding:hover { border-color:var(--border-accent); }
+.finding-status {
+  width:28px; height:28px; border-radius:6px; display:flex;
+  align-items:center; justify-content:center; font-size:0.75rem;
+  font-weight:700; margin-top:1px;
+}
+.finding-status.pass { background:var(--green-bg); color:var(--green-text); }
+.finding-status.warn { background:var(--amber-bg); color:var(--amber-text); }
+.finding-status.fail { background:var(--red-bg); color:var(--red-text); }
+.finding-title { font-weight:500; font-size:0.9rem; margin-bottom:4px; }
+.finding-detail { font-size:0.82rem; color:var(--text-dim); line-height:1.75; }
+
+/* CALLOUT */
+.callout {
+  background:var(--bg-card); border:1px solid var(--border-accent); border-radius:8px;
+  padding:32px; margin:40px 0; position:relative; overflow:hidden;
+}
+.callout::before {
+  content:''; position:absolute; top:0; left:0; width:3px; height:100%;
+  background:var(--accent); border-radius:2px;
+}
+.callout h4 {
+  font-family:'Josefin Sans',sans-serif; font-size:0.6rem; font-weight:400;
+  letter-spacing:0.2em; text-transform:uppercase;
+  color:var(--accent); margin-bottom:16px;
+}
+.callout p { font-size:0.9rem; color:var(--text-dim); margin-bottom:12px; }
+.callout p:last-child { margin-bottom:0; }
+.callout strong { color:var(--text); font-weight:600; }
+
+/* COMPETITOR TABLE */
+.compare-table { width:100%; border-collapse:separate; border-spacing:0; margin:32px 0; border-radius:8px; overflow:hidden; border:1px solid var(--border); }
+.compare-table thead th {
+  font-family:'Josefin Sans',sans-serif; font-size:0.55rem; font-weight:400;
+  letter-spacing:0.15em; text-transform:uppercase;
+  color:var(--accent); padding:14px 16px; text-align:left;
+  background:var(--bg-surface); border-bottom:1px solid var(--border-accent);
+}
+.compare-table tbody td {
+  font-size:0.82rem; padding:14px 16px; border-bottom:1px solid var(--border);
+  vertical-align:middle; background:var(--bg-card);
+}
+.compare-table tbody tr:last-child td { border-bottom:none; }
+.compare-table tbody tr:hover td { background:var(--bg-hover); }
+.compare-table .you-row td { background:var(--accent-dim); }
+.compare-table .you-row td:first-child { color:var(--accent); font-weight:600; }
+.dot { display:inline-block; width:8px; height:8px; border-radius:50%; margin-right:8px; }
+.dot.green { background:var(--green); }
+.dot.amber { background:var(--amber); }
+.dot.red { background:var(--red); }
+.dot.grey { background:var(--text-muted); }
+
+/* STATS BAR */
+.stats-bar {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+  background:var(--border); margin:0;
+}
+.stat-block { background:var(--bg-card); text-align:center; padding:48px 24px; }
+.stat-value {
+  font-family:'Cormorant Garamond',serif; font-size:3.2rem; font-weight:500;
+  color:var(--accent); display:block; line-height:1; margin-bottom:10px;
+  text-shadow:0 0 40px rgba(201,169,110,0.15);
+}
+.stat-label {
+  font-family:'Josefin Sans',sans-serif; font-size:0.55rem; font-weight:400;
+  letter-spacing:0.2em; text-transform:uppercase; color:var(--text-muted);
+}
+
+/* ACTION STEPS */
+.steps { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; background:var(--border); margin:40px 0; border-radius:8px; overflow:hidden; }
+.step { background:var(--bg-card); padding:36px 28px; transition:background 0.2s; }
+.step:hover { background:var(--bg-hover); }
+.step-num {
+  font-family:'Cormorant Garamond',serif; font-size:2.4rem; font-weight:500;
+  color:var(--accent); display:block; margin-bottom:16px;
+}
+.step h4 { font-size:0.95rem; font-weight:500; margin-bottom:10px; }
+.step p { font-size:0.82rem; color:var(--text-dim); margin:0; line-height:1.6; }
+
+/* PHOTO BREAK */
+.photo-break {
+  width:100%; height:35vh; min-height:240px; max-height:380px;
+  position:relative; overflow:hidden;
+}
+.photo-break img {
+  width:100%; height:120%; object-fit:cover; display:block;
+  position:absolute; top:-10%; left:0; filter:brightness(0.6) saturate(0.7);
+}
+.photo-break-caption {
+  position:absolute; bottom:0; left:0; right:0; z-index:2; padding:16px 64px;
+  font-size:0.6rem; font-weight:500; letter-spacing:0.2em; text-transform:uppercase;
+  color:rgba(226,232,240,0.3);
+}
+
+/* DIVIDER */
+.divider { width:1px; height:60px; background:var(--border); margin:0 auto; }
+
+/* FOOTER */
+.footer {
+  background:var(--bg-card); padding:64px; text-align:center;
+  border-top:1px solid var(--border);
+}
+.footer-brand {
+  font-family:'Josefin Sans',sans-serif; font-size:0.7rem; font-weight:300;
+  letter-spacing:0.4em; text-transform:uppercase;
+  color:var(--text); margin-bottom:16px;
+}
+.footer-info { font-size:0.8rem; color:var(--text-muted); line-height:2.2; }
+.footer-info a { color:var(--accent); text-decoration:none; }
+.footer-note {
+  margin-top:32px; font-family:'Josefin Sans',sans-serif; font-size:0.5rem;
+  font-weight:300; letter-spacing:0.15em;
+  text-transform:uppercase; color:var(--text-muted); opacity:0.4;
+}
+
+/* RESPONSIVE */
+@media (max-width:768px) {
+  .header-inner { padding:60px 28px 48px; }
+  .section { padding:56px 28px; }
+  .scores { grid-template-columns:1fr 1fr; }
+  .steps { grid-template-columns:1fr; }
+  .stats-bar { grid-template-columns:1fr; }
+  .compare-table { display:block; overflow-x:auto; }
+  .header-meta { flex-direction:column; gap:12px; }
+  .photo-break { height:180px; min-height:180px; }
+  .photo-break-caption { padding:12px 28px; }
+}
+@media (max-width:480px) {
+  .scores { grid-template-columns:1fr; }
+  h2 { font-size:1.7rem; }
+}
+@media print {
+  .progress { display:none; }
+  body { background:#fff; color:#1a1a1a; }
+  .score-card, .finding, .callout, .step, .stat-block, .compare-table td { background:#fff; border:1px solid #ddd; }
+}
+</style>
+</head>
+<body>
+
+<div class="progress" id="progressBar"></div>
+
+<!-- HEADER -->
+<header class="header">
+  <div class="header-bg" style="background-image:url('https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/9f3611d8-a842-42d6-b65b-cd25ba6920cd/sunridge-whistle-web--32.jpg');background-position:center 40%;"></div>
+  <div class="header-inner">
+    <div class="header-badge">Live Audit Report</div>
+    <h1>Goosen Design<br><em>Site &amp; Visibility Audit</em></h1>
+    <div class="header-meta">
+      <div class="header-meta-item"><strong>Prepared for</strong>Goosen Design</div>
+      <div class="header-meta-item"><strong>Prepared by</strong>Matt Anthony Photography</div>
+      <div class="header-meta-item"><strong>Date</strong>April 2026</div>
+    </div>
+  </div>
+</header>
+
+<!-- SCORE CARDS -->
+<div class="scores">
+  
+  <div class="score-card bad">
+    <div class="score-ring">
+      <svg width="100" height="100" viewBox="0 0 100 100">
+        <circle class="score-ring-bg" cx="50" cy="50" r="44"></circle>
+        <circle class="score-ring-fill bad" cx="50" cy="50" r="44"
+          stroke-dasharray="276.5" stroke-dashoffset="276.5"
+          data-target="171.43"></circle>
+      </svg>
+      <span class="score-number bad" data-count="38">0</span>
+    </div>
+    <div class="score-label">Overall SEO</div>
+    <span class="score-grade bad">F</span>
+  </div>
+  
+  <div class="score-card bad">
+    <div class="score-ring">
+      <svg width="100" height="100" viewBox="0 0 100 100">
+        <circle class="score-ring-bg" cx="50" cy="50" r="44"></circle>
+        <circle class="score-ring-fill bad" cx="50" cy="50" r="44"
+          stroke-dasharray="276.5" stroke-dashoffset="276.5"
+          data-target="215.67000000000002"></circle>
+      </svg>
+      <span class="score-number bad" data-count="22">0</span>
+    </div>
+    <div class="score-label">Local / GEO</div>
+    <span class="score-grade bad">F</span>
+  </div>
+  
+  <div class="score-card bad">
+    <div class="score-ring">
+      <svg width="100" height="100" viewBox="0 0 100 100">
+        <circle class="score-ring-bg" cx="50" cy="50" r="44"></circle>
+        <circle class="score-ring-fill bad" cx="50" cy="50" r="44"
+          stroke-dasharray="276.5" stroke-dashoffset="276.5"
+          data-target="163.135"></circle>
+      </svg>
+      <span class="score-number bad" data-count="41">0</span>
+    </div>
+    <div class="score-label">Content</div>
+    <span class="score-grade bad">F</span>
+  </div>
+  
+  <div class="score-card bad">
+    <div class="score-ring">
+      <svg width="100" height="100" viewBox="0 0 100 100">
+        <circle class="score-ring-bg" cx="50" cy="50" r="44"></circle>
+        <circle class="score-ring-fill bad" cx="50" cy="50" r="44"
+          stroke-dasharray="276.5" stroke-dashoffset="276.5"
+          data-target="143.78"></circle>
+      </svg>
+      <span class="score-number bad" data-count="48">0</span>
+    </div>
+    <div class="score-label">Visual Assets</div>
+    <span class="score-grade bad">D</span>
+  </div>
+  
+</div>
+
+<!-- SECTIONS -->
+
+
+
+<div class="divider"></div>
+<section class="section">
+  <div class="eyebrow">SEO &amp; Site Audit</div>
+  <h2>A luxury studio.<br><em>A starter-kit website.</em></h2>
+  <p class="lead">I crawled goosendesign.com and pulled the sitemap, source, social handles, and press footprint. The studio's project list is genuinely impressive. The website that represents it is not.</p>
+  
+  <div class="category">What's Working</div>
+  <div class="findings">
+    
+    <div class="finding">
+      <div class="finding-status pass">&#10003;</div>
+      <div>
+        <div class="finding-title">Public Showroom</div>
+        <div class="finding-detail">Camerich, Ethnicraft, and Keilhauer in Lower Gibsons. Most interior designers don't have this. It's a content asset that isn't being used.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-status pass">&#10003;</div>
+      <div>
+        <div class="finding-title">Real Press Coverage</div>
+        <div class="finding-detail">Coast Reporter feature on Mad Hen, Beachcomber Coffee, Coastline Health, Blue Heron Inn. Sprudge mention on Beachcomber. You can earn coverage.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-status pass">&#10003;</div>
+      <div>
+        <div class="finding-title">Marquee Project List</div>
+        <div class="finding-detail">Mad Hen, Blue Heron Inn, Coastline Health, Calgary Guardian Towers penthouse for Hon Developments, restaurants for Chef Dale MacKay and Chef Darren MacLean.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-status pass">&#10003;</div>
+      <div>
+        <div class="finding-title">Permit-Drawing Qualified</div>
+        <div class="finding-detail">Full-service capability beyond decoration. A real differentiator vs Sunshine Coast competitors.</div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="category">What Needs Fixing</div>
+  <div class="findings">
+    
+    <div class="finding">
+      <div class="finding-status fail">&#10007;</div>
+      <div>
+        <div class="finding-title">Two Project Pages Still Named "Project Title 6" and "Renovation Project"</div>
+        <div class="finding-detail">Wix template placeholders that were never renamed. Anyone clicking the portfolio sees them. This is the single most credibility-damaging item on the site.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-status fail">&#10007;</div>
+      <div>
+        <div class="finding-title">Major Projects Missing From Portfolio</div>
+        <div class="finding-detail"><strong>Blue Heron Inn, Coastline Health, the Calgary penthouse, and the Dale MacKay restaurants are all absent from the website.</strong> The biggest projects in the studio's history aren't represented online at all.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-status fail">&#10007;</div>
+      <div>
+        <div class="finding-title">Zero Photographer / Architect / Builder Credits</div>
+        <div class="finding-detail">Not a single project page credits anyone. No photographer, no architect, no builder, no client. This kills referral SEO and signals that visual assets are not being managed professionally.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-status fail">&#10007;</div>
+      <div>
+        <div class="finding-title">No Project Narratives</div>
+        <div class="finding-detail">Every project page is image-only. No design brief, no problem-solution story, no materials list, no specs, no client outcomes. Visitors leave without understanding what Goosen actually delivers.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-status fail">&#10007;</div>
+      <div>
+        <div class="finding-title">Project Pages Have No Meta Descriptions</div>
+        <div class="finding-detail">Empty &lt;meta description&gt; on every project URL sampled. Search engines have nothing to display in results. Easy fix, never done.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-status warn">!</div>
+      <div>
+        <div class="finding-title">Wix JavaScript Rendering</div>
+        <div class="finding-detail">Site is rendered client-side via Wix Thunderbolt. Google handles it, but slowly. Mobile load is sluggish on LTE due to uncropped 24MP source images.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-status warn">!</div>
+      <div>
+        <div class="finding-title">No Schema Markup</div>
+        <div class="finding-detail">Zero structured data. No LocalBusiness, no InteriorDesigner, no Organization, no BreadcrumbList. Google can't classify what the site is.</div>
+      </div>
+    </div>
+    
+  </div>
+  
+  
+  <div class="callout">
+    <h4>SEO Bottom Line</h4>
+    <p>The site isn't slightly underperforming. It's <strong>actively undermining</strong> a luxury positioning. Two placeholder project names, missing flagship work, zero credits, and no narrative. The fix isn't patching Wix. The fix is rebuilding around the projects that should have been on the homepage all along.</p>
+  </div>
+  
+</section>
+
+
+
+
+
+<div class="photo-break">
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/0b4f9f4d-01c4-4da3-ae8e-1131391d280f/sunridge-whistle-web--39.jpg" alt="Editorial interior photography example">
+  <div class="photo-break-caption">Editorial Interior &middot; Matt Anthony Photography</div>
+</div>
+
+
+
+
+
+<section class="section surface">
+  <div class="section-inner">
+    <div class="eyebrow">Local SEO &amp; Discovery</div>
+    <h2>609 followers.<br><em>17 connections.</em></h2>
+    <p class="lead">Where can a homeowner or restaurateur on the Sunshine Coast actually find Goosen Design? Almost nowhere.</p>
+    
+    <div class="category">Social Channels</div>
+    <div class="findings">
+      
+      <div class="finding">
+        <div class="finding-status fail">&#10007;</div>
+        <div>
+          <div class="finding-title">Instagram @goosendesign — 609 Followers, 23 Posts</div>
+          <div class="finding-detail">For a 10-year-old studio marketing itself as luxury, this is invisible. The follow:follower ratio (1:1.9) suggests follow-back grinding, not organic earned reach. Posting cadence is roughly 2 posts per year. Account is functionally dead.</div>
+        </div>
+      </div>
+      
+      <div class="finding">
+        <div class="finding-status fail">&#10007;</div>
+        <div>
+          <div class="finding-title">LinkedIn Company Page — 17 Followers</div>
+          <div class="finding-detail">One employee listed (Benjamin). Most recent post March 2026. For a studio doing commercial work in Calgary and Vancouver, LinkedIn invisibility is leaving money on the table.</div>
+        </div>
+      </div>
+      
+      <div class="finding">
+        <div class="finding-status fail">&#10007;</div>
+        <div>
+          <div class="finding-title">Facebook Page — Effectively Dead</div>
+          <div class="finding-detail">Page exists at facebook.com/110832615338217 but returns 404 / logged-out errors. Not surfacing in search. Unmaintained.</div>
+        </div>
+      </div>
+      
+      <div class="finding">
+        <div class="finding-status fail">&#10007;</div>
+        <div>
+          <div class="finding-title">No Pinterest Presence</div>
+          <div class="finding-detail">Surprising and damaging. Pinterest is the #1 discovery platform for residential interior design. Every Sunshine Coast competitor has at least a basic Pinterest footprint.</div>
+        </div>
+      </div>
+      
+      <div class="finding">
+        <div class="finding-status fail">&#10007;</div>
+        <div>
+          <div class="finding-title">No Houzz Profile</div>
+          <div class="finding-detail">Sunshine Coast interior design competitors (Landon Dix, Durston Design, Sunshine Coast Home Design, Carena Dean) all maintain Houzz profiles. Goosen has none. Significant lead-gen gap.</div>
+        </div>
+      </div>
+      
+    </div>
+    
+    <div class="category">Reviews &amp; Reputation</div>
+    <div class="findings">
+      
+      <div class="finding">
+        <div class="finding-status fail">&#10007;</div>
+        <div>
+          <div class="finding-title">Zero Public Reviews Anywhere</div>
+          <div class="finding-detail">No reviews surfaced on Google, Houzz, Facebook, or any directory. For a studio claiming "international award-winning" status, this is a credibility hole the moment a buyer Googles you.</div>
+        </div>
+      </div>
+      
+      <div class="finding">
+        <div class="finding-status warn">!</div>
+        <div>
+          <div class="finding-title">"International Award-Winning" Claim Unverified</div>
+          <div class="finding-detail">The About page asserts international award-winning status. I checked ARIDO, Western Living Designers of the Year, Robert Allen, IIDA, and other major databases. No verifiable record. The claim appears self-attributed.</div>
+        </div>
+      </div>
+      
+    </div>
+    
+    
+    <div class="callout">
+      <h4>Local SEO Bottom Line</h4>
+      <p>This isn't a marketing problem. It's a <strong>content problem</strong>. You don't post because you don't have shoots to post. You don't get reviews because you don't have a system to ask. You don't get featured because you don't have submission-grade imagery to submit. Every gap traces back to the same root cause.</p>
+    </div>
+    
+  </div>
+</section>
+
+
+
+
+
+<div class="photo-break">
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/7ae7f632-ffd4-4990-abae-430431c42a83/sunridge-whistle-web--28.jpg" alt="Material and light interior detail">
+  <div class="photo-break-caption">Material &amp; Light &middot; Matt Anthony Photography</div>
+</div>
+
+
+
+
+
+<div class="divider"></div>
+<section class="section wide">
+  <div class="eyebrow">Competitive Landscape</div>
+  <h2>How you compare.<br><em>On the Coast.</em></h2>
+  <p class="lead">Goosen Design has the deepest project list in this set. The digital footprint says otherwise.</p>
+  <table class="compare-table">
+    <thead><tr><th>Studio</th><th>Website</th><th>Instagram</th><th>Houzz</th><th>Press / Awards</th></tr></thead>
+    <tbody>
+      
+      <tr class="you-row">
+        <td><strong>Goosen Design</strong><br><span style='font-size:0.7rem;color:var(--text-muted);'>Lower Gibsons</span></td><td><span class='dot red'></span>Wix, placeholders</td><td><span class='dot red'></span>609 followers</td><td><span class='dot red'></span>Not listed</td><td><span class='dot amber'></span>Coast Reporter only</td>
+      </tr>
+      
+      <tr>
+        <td>Articulated Studio<br><span style='font-size:0.7rem;color:var(--text-muted);'>Gibsons / Vancouver</span></td><td><span class='dot green'></span>Polished</td><td><span class='dot amber'></span>Active</td><td><span class='dot green'></span>Listed</td><td><span class='dot amber'></span>Some</td>
+      </tr>
+      
+      <tr>
+        <td>Landon Dix Design<br><span style='font-size:0.7rem;color:var(--text-muted);'>Sechelt</span></td><td><span class='dot green'></span>Good</td><td><span class='dot amber'></span>Active</td><td><span class='dot green'></span>Listed</td><td><span class='dot red'></span>None</td>
+      </tr>
+      
+      <tr>
+        <td>Durston Design<br><span style='font-size:0.7rem;color:var(--text-muted);'>Halfmoon Bay</span></td><td><span class='dot green'></span>Good</td><td><span class='dot amber'></span>Active</td><td><span class='dot green'></span>Listed</td><td><span class='dot red'></span>None</td>
+      </tr>
+      
+      <tr>
+        <td>Carena Dean Collaborative<br><span style='font-size:0.7rem;color:var(--text-muted);'>Gibsons</span></td><td><span class='dot green'></span>Good</td><td><span class='dot amber'></span>Active</td><td><span class='dot green'></span>Listed</td><td><span class='dot red'></span>None</td>
+      </tr>
+      
+    </tbody>
+  </table>
+  
+  <div class="callout">
+    <h4>The Competitive Gap</h4>
+    <p>Goosen has the strongest project portfolio in this set — Calgary penthouse, Mad Hen, the Dale MacKay restaurants. But every other Sunshine Coast designer is on Houzz, posts on Instagram, and has a polished website. Goosen is <strong>punching well below its actual project caliber</strong>. The work is luxury. The presentation is amateur.</p>
+  </div>
+  
+</section>
+
+
+
+
+
+
+
+
+<section class="section">
+  <div class="eyebrow">Content &amp; Visual Assets</div>
+  <h2>16 portfolio entries.<br><em>4 missing flagships.</em></h2>
+  <p class="lead">Project-by-project audit of the portfolio.</p>
+  
+  <div class="category">What's Strong</div>
+  <div class="findings">
+    
+    <div class="finding">
+      <div class="finding-status pass">&#10003;</div>
+      <div>
+        <div class="finding-title">Mad Hen, Beachcomber, Beachcomber Grab and Go</div>
+        <div class="finding-detail">Source images are full-frame DSLR resolution (5760×3840). Someone with a real camera, not a phone. But framing, lighting, and styling read as "designer's own camera," not commissioned editorial.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-status pass">&#10003;</div>
+      <div>
+        <div class="finding-title">Newdale Residence</div>
+        <div class="finding-detail">30 images on the page. Most coverage of any project. Feels like a content dump rather than an edit, but the raw material exists.</div>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="category">What's Missing or Broken</div>
+  <div class="findings">
+    
+    <div class="finding">
+      <div class="finding-status fail">&#10007;</div>
+      <div>
+        <div class="finding-title">Blue Heron Inn (Sechelt) — Not on Site</div>
+        <div class="finding-detail">Currently being renovated. Featured in the Coast Reporter article. The biggest active Sunshine Coast project in the studio. <strong>Zero documentation online.</strong></div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-status fail">&#10007;</div>
+      <div>
+        <div class="finding-title">Coastline Health Interior — Not on Site</div>
+        <div class="finding-detail">Healthcare/wellness interior is a publishable niche (Gray Magazine, Azure healthcare features). Featured in the Coast Reporter article. Missing from the portfolio.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-status fail">&#10007;</div>
+      <div>
+        <div class="finding-title">Calgary Guardian Towers Penthouse — Not on Site</div>
+        <div class="finding-detail">11,000 square feet. Hon Developments. The single most publishable asset in the studio's entire history. <strong>Does not appear once on the website, Instagram, or LinkedIn.</strong></div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-status fail">&#10007;</div>
+      <div>
+        <div class="finding-title">Dale MacKay / Darren MacLean Restaurants — Not on Site</div>
+        <div class="finding-detail">Top Chef Canada winner Dale MacKay. Restaurant features run on the chef's name, not just the designer's. Built-in publication wedge — completely unused.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-status fail">&#10007;</div>
+      <div>
+        <div class="finding-title">Two "Project Title 6" Placeholder Pages</div>
+        <div class="finding-detail">Literal Wix template names never renamed. Visible in the live portfolio.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-status fail">&#10007;</div>
+      <div>
+        <div class="finding-title">Ocean Front Home — Only 5 Images</div>
+        <div class="finding-detail">Whistler Condo Renovation and Modern Farmhouse have 11 images each. Coverage is wildly inconsistent across the portfolio.</div>
+      </div>
+    </div>
+    
+    <div class="finding">
+      <div class="finding-status warn">!</div>
+      <div>
+        <div class="finding-title">Blog Dormant ~14 Months</div>
+        <div class="finding-detail">Last sitemap update February 2025. 10 articles total. Content engine has stalled.</div>
+      </div>
+    </div>
+    
+  </div>
+  
+  
+  <div class="callout">
+    <h4>Content Bottom Line</h4>
+    <p>The four projects that should anchor the homepage — Blue Heron Inn, Coastline Health, the Calgary penthouse, and the Dale MacKay restaurants — <strong>aren't on the site at all</strong>. The portfolio shows the second-tier work and hides the first-tier work. Fix that single sentence and the entire perception of the studio changes overnight.</p>
+  </div>
+  
+</section>
+
+
+
+
+
+
+
+
+<div class="stats-bar">
+  
+  <div class="stat-block"><span class="stat-value">4</span><span class="stat-label">Flagship Projects Missing</span></div>
+  
+  <div class="stat-block"><span class="stat-value">609</span><span class="stat-label">IG Followers</span></div>
+  
+  <div class="stat-block"><span class="stat-value">0</span><span class="stat-label">Houzz Reviews</span></div>
+  
+</div>
+<section class="section">
+  <div class="eyebrow">What I'd Fix First</div>
+  <h2>The action plan.<br><em>Priority order.</em></h2>
+  <p class="lead">Three moves that would change the trajectory of how Goosen Design is perceived online.</p>
+  <div class="steps">
+    
+    <div class="step">
+      <span class="step-num">1</span>
+      <h4>Document the Calgary Penthouse + Re-shoot Mad Hen</h4>
+      <p>11,000 sq ft penthouse for Hon Developments is the highest-leverage unphotographed asset on the BC coast. One trip, one editorial set, one Western Living Calgary submission. The Mad Hen re-shoot becomes the publication wedge for Eater Vancouver and BC Restaurant News.</p>
+    </div>
+    
+    <div class="step">
+      <span class="step-num">2</span>
+      <h4>Capture Blue Heron Inn + Coastline Health</h4>
+      <p>Boutique hotel renovation and healthcare/wellness interior. Both are publishable in Gray Magazine and Azure. Right now neither exists on the website. Document them properly and the portfolio finally matches the project list.</p>
+    </div>
+    
+    <div class="step">
+      <span class="step-num">3</span>
+      <h4>Activate the Content Engine</h4>
+      <p>Quarterly photography retainer feeds Instagram, Pinterest, the dormant blog, LinkedIn, and submission packages to Western Living, Gray, Azure, and the Robert Allen Design Awards. The marketing problem solves itself once the content supply is fixed.</p>
+    </div>
+    
+  </div>
+  
+  <div class="callout">
+    <h4>This Is Where a Creative Partner Comes In</h4>
+    <p>Every gap in this audit traces back to the same root: no reliable visual content supply. Every shoot gets handled by someone different (or by Ethan with his own camera), nothing gets credited, nothing gets prepped for publications, and the social channels starve.</p><p style='margin-bottom:0;'><strong>See the full Creative Partner proposal</strong> for tier options, the 90-day plan, and pricing.</p>
+  </div>
+  
+</section>
+
+
+
+
+
+
+<!-- FOOTER -->
+<div class="footer">
+  <div class="footer-brand">Matt Anthony Photography</div>
+  <div class="footer-info">
+    <a href="https://mattanthonyphoto.com">mattanthonyphoto.com</a><br>
+    <a href="mailto:info@mattanthonyphoto.com">info@mattanthonyphoto.com</a> &middot; 604.765.9270<br>
+    Squamish, BC
+  </div>
+  <div class="footer-note">This audit is confidential and prepared exclusively for Goosen Design.</div>
+</div>
+
+<script>
+(function(){
+'use strict';
+
+/* PROGRESS BAR */
+var bar = document.getElementById('progressBar');
+function updateProgress(){
+  var h = document.documentElement.scrollHeight - window.innerHeight;
+  bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+}
+
+/* SCORE RING + COUNTER ANIMATION */
+var rings = document.querySelectorAll('.score-ring-fill');
+var numbers = document.querySelectorAll('.score-number[data-count]');
+var animated = false;
+
+function animateScores(){
+  if(animated) return;
+  var cards = document.querySelector('.scores');
+  if(!cards) return;
+  var rect = cards.getBoundingClientRect();
+  if(rect.top < window.innerHeight * 0.8){
+    animated = true;
+    rings.forEach(function(ring){
+      var target = parseFloat(ring.getAttribute('data-target'));
+      ring.style.strokeDashoffset = target;
+    });
+    numbers.forEach(function(num){
+      var target = parseInt(num.getAttribute('data-count'));
+      var duration = 1500;
+      var start = performance.now();
+      function tick(now){
+        var t = Math.min((now - start) / duration, 1);
+        var ease = 1 - Math.pow(1 - t, 3);
+        num.textContent = Math.round(target * ease);
+        if(t < 1) requestAnimationFrame(tick);
+      }
+      requestAnimationFrame(tick);
+    });
+  }
+}
+
+/* FINDING REVEAL */
+var findings = document.querySelectorAll('.finding, .callout, .step');
+findings.forEach(function(el){ el.style.opacity='0'; el.style.transform='translateY(12px)'; el.style.transition='opacity 0.5s ease, transform 0.5s ease'; });
+var revealObserver = new IntersectionObserver(function(entries){
+  entries.forEach(function(entry){
+    if(entry.isIntersecting){
+      entry.target.style.opacity='1';
+      entry.target.style.transform='translateY(0)';
+      revealObserver.unobserve(entry.target);
+    }
+  });
+}, {threshold:0.1, rootMargin:'0px 0px -20px 0px'});
+findings.forEach(function(el){ revealObserver.observe(el); });
+
+/* SCROLL HANDLER */
+var ticking = false;
+window.addEventListener('scroll', function(){
+  if(!ticking){
+    requestAnimationFrame(function(){
+      updateProgress();
+      animateScores();
+      ticking = false;
+    });
+    ticking = true;
+  }
+},{passive:true});
+
+updateProgress();
+animateScores();
+})();
+</script>
+</body>
+</html>
