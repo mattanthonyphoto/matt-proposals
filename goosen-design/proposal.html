@@ -1,383 +1,1852 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Matt Anthony Photography — Engagement Proposal · Goosen Design</title>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Creative Partner — Goosen Design</title>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root {
-  --ink: #1A1A18;
-  --paper: #F6F4F0;
-  --white: #FFFFFF;
-  --gold: #C9A96E;
-  --gold-dim: rgba(201,169,110,0.12);
-  --gold-border: rgba(201,169,110,0.30);
-  --muted: #6B6B68;
-  --rule: rgba(26,26,24,0.12);
-}
-* { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
-body {
-  background: var(--paper);
-  color: var(--ink);
-  font-family: 'DM Sans', -apple-system, system-ui, sans-serif;
-  font-weight: 300;
-  line-height: 1.75;
-  font-size: 16px;
-}
-.container {
-  max-width: 820px;
-  margin: 0 auto;
-  padding: 80px 56px 120px;
-}
-.eyebrow {
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.65rem;
-  font-weight: 300;
-  letter-spacing: 0.4em;
-  text-transform: uppercase;
-  color: var(--gold);
-  display: flex;
-  align-items: center;
-  gap: 14px;
-  margin-bottom: 32px;
-}
-.eyebrow::before {
-  content: '';
-  width: 32px;
-  height: 1px;
-  background: var(--gold);
-}
-h1 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-weight: 400;
-  font-size: 3.6rem;
-  line-height: 1.05;
-  letter-spacing: -0.01em;
-  margin: 0 0 24px;
-  color: var(--ink);
-}
-h1 em { font-style: italic; color: var(--gold); font-weight: 500; }
-h2 {
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-weight: 400;
-  font-size: 2.2rem;
-  line-height: 1.15;
-  margin: 72px 0 22px;
-  padding-top: 28px;
-  border-top: 1px solid var(--rule);
-  color: var(--ink);
-}
-h3 {
-  font-family: 'Josefin Sans', sans-serif;
-  font-weight: 400;
-  font-size: 0.85rem;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--ink);
-  margin: 40px 0 14px;
-}
-h4 {
-  font-family: 'DM Sans', sans-serif;
-  font-weight: 500;
-  font-size: 1rem;
-  margin: 24px 0 8px;
-  color: var(--ink);
-}
-p { margin: 0 0 18px; }
-strong { color: var(--ink); font-weight: 500; }
-em { color: var(--ink); }
-ul, ol { padding-left: 22px; margin: 0 0 22px; }
-li { margin-bottom: 8px; }
-a { color: var(--ink); border-bottom: 1px solid var(--gold); text-decoration: none; }
-a:hover { color: var(--gold); }
-blockquote {
-  border-left: 2px solid var(--gold);
-  padding: 6px 24px;
-  margin: 28px 0;
-  font-family: 'Cormorant Garamond', Georgia, serif;
-  font-style: italic;
-  font-size: 1.35rem;
-  line-height: 1.4;
-  color: var(--ink);
-}
-code {
-  background: rgba(26,26,24,0.06);
-  padding: 2px 6px;
-  border-radius: 3px;
-  font-family: 'JetBrains Mono', ui-monospace, monospace;
-  font-size: 0.85em;
-}
-hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
-table {
-  border-collapse: collapse;
-  width: 100%;
-  margin: 24px 0;
-  font-size: 0.92rem;
-}
-th, td {
-  border-bottom: 1px solid var(--rule);
-  padding: 12px 14px;
-  text-align: left;
-  vertical-align: top;
-}
-th {
-  background: var(--ink);
-  color: var(--paper);
-  font-family: 'Josefin Sans', sans-serif;
-  font-weight: 400;
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  border-bottom: none;
-}
-tr:nth-child(even) td { background: rgba(26,26,24,0.025); }
-.footer {
-  margin-top: 96px;
-  padding-top: 32px;
-  border-top: 1px solid var(--rule);
-  font-family: 'Josefin Sans', sans-serif;
-  font-size: 0.65rem;
-  letter-spacing: 0.25em;
-  text-transform: uppercase;
-  color: var(--muted);
-  display: flex;
-  justify-content: space-between;
-}
-@media (max-width: 720px) {
-  .container { padding: 48px 24px 80px; }
-  h1 { font-size: 2.4rem; }
-  h2 { font-size: 1.6rem; }
-  table { font-size: 0.82rem; }
-  th, td { padding: 8px 10px; }
-}
+  :root {
+    --ink: #1A1A18;
+    --paper: #F6F4F0;
+    --gold: #C9A96E;
+    --gold-dim: rgba(201,169,110,0.12);
+    --gold-border: rgba(201,169,110,0.25);
+    --gold-glow: rgba(201,169,110,0.06);
+    --stone: #8A8579;
+    --white: #FFFFFF;
+    --light: #FAFAF8;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { font-size:16px; -webkit-print-color-adjust:exact; print-color-adjust:exact; scroll-behavior:smooth; }
+  body { background:var(--white); color:var(--ink); font-family:'DM Sans',sans-serif; font-weight:300; line-height:1.75; overflow-x:hidden; }
+
+
+  /* ═══════════════════════════════════════
+     COVER — FULL BLEED CINEMATIC
+     ═══════════════════════════════════════ */
+  .cover {
+    min-height:100vh; background:var(--ink); color:var(--paper);
+    display:flex; flex-direction:column; justify-content:flex-end;
+    padding:0 0 0 0; position:relative; page-break-after:always; overflow:hidden;
+  }
+  .cover-image {
+    position:absolute; top:0; left:0; width:100%; height:100%;
+    background-image:url("https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/312b0797-a43a-4a51-906e-f913c78c7b79/fitzsimmons-whistler-architectural-photography-matt-anthony-.jpg-3.jpg");
+    background-size:cover; background-position:center 25%;
+  }
+  .cover-image::after {
+    content:''; position:absolute; top:0; left:0; width:100%; height:100%;
+    background:linear-gradient(
+      to bottom,
+      rgba(26,26,24,0.45) 0%,
+      rgba(26,26,24,0.35) 30%,
+      rgba(26,26,24,0.6) 55%,
+      rgba(26,26,24,0.94) 80%,
+      rgba(26,26,24,0.99) 100%
+    );
+  }
+  .cover-top {
+    position:absolute; top:0; left:0; right:0; z-index:3;
+    padding:40px 60px; display:flex; justify-content:space-between; align-items:center;
+  }
+  .cover-logo {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.35em; text-transform:uppercase; color:rgba(246,244,240,0.6);
+  }
+  .cover-date {
+    font-family:'Josefin Sans',sans-serif; font-size:0.65rem;
+    letter-spacing:0.2em; color:rgba(246,244,240,0.4);
+  }
+  .cover-content {
+    position:relative; z-index:2; padding:0 60px 80px;
+    max-width:720px;
+  }
+  .cover-eyebrow {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.4em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:20px; display:flex; align-items:center; gap:16px;
+  }
+  .cover-eyebrow::before {
+    content:''; width:32px; height:1px; background:var(--gold);
+  }
+  .cover h1 {
+    font-family:'Cormorant Garamond',serif; font-weight:400;
+    font-size:clamp(3rem,6vw,5rem); line-height:1.05; margin-bottom:20px;
+    letter-spacing:-0.01em;
+  }
+  .cover h1 em {
+    font-style:italic; font-weight:500; color:var(--gold);
+  }
+  .cover-sub {
+    font-size:1rem; color:rgba(246,244,240,0.75); max-width:480px;
+    line-height:1.8; margin-bottom:56px;
+  }
+  .cover-meta-bar {
+    display:flex; gap:48px; padding-top:32px;
+    border-top:1px solid rgba(201,169,110,0.15);
+  }
+  .cover-meta-item {
+    font-size:0.75rem; color:rgba(246,244,240,0.35); line-height:1.8;
+  }
+  .cover-meta-item strong {
+    display:block; color:rgba(246,244,240,0.7); font-weight:400;
+    font-family:'Josefin Sans',sans-serif; font-size:0.6rem;
+    letter-spacing:0.15em; text-transform:uppercase; margin-bottom:2px;
+  }
+
+  /* ═══════════════════════════════════════
+     PHOTO MOSAIC
+     ═══════════════════════════════════════ */
+  .mosaic {
+    display:grid; grid-template-columns:1fr 1fr 1fr 1fr;
+    grid-template-rows:200px 200px; gap:3px; background:var(--ink);
+  }
+  .mosaic img {
+    width:100%; height:100%; object-fit:cover; display:block;
+    filter:brightness(0.92); transition:filter 0.5s ease;
+  }
+  .mosaic img:hover { filter:brightness(1.05); }
+  .mosaic img:nth-child(1) { grid-column:1/3; grid-row:1/3; }
+  .mosaic img:nth-child(2) { grid-column:3/4; grid-row:1/2; }
+  .mosaic img:nth-child(3) { grid-column:4/5; grid-row:1/2; }
+  .mosaic img:nth-child(4) { grid-column:3/5; grid-row:2/3; }
+  .mosaic-caption {
+    background:var(--ink); padding:20px 60px;
+    font-family:'Josefin Sans',sans-serif; font-size:0.55rem;
+    letter-spacing:0.3em; text-transform:uppercase;
+    color:rgba(246,244,240,0.3); text-align:center;
+  }
+
+  /* ═══════════════════════════════════════
+     LAYOUT
+     ═══════════════════════════════════════ */
+  .section { padding:120px 60px; max-width:1000px; margin:0 auto; }
+  .section.wide { max-width:1200px; }
+  .section.full { max-width:100%; }
+  .section.dark { background:var(--ink); color:var(--paper); }
+  .section.cream { background:var(--paper); }
+  .section.light { background:var(--light); }
+
+  .eyebrow {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.6rem;
+    letter-spacing:0.35em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:16px; display:flex; align-items:center; gap:14px;
+  }
+  .eyebrow::before { content:''; width:24px; height:1px; background:var(--gold); }
+
+  h2 {
+    font-family:'Cormorant Garamond',serif; font-weight:400;
+    font-size:2.6rem; line-height:1.12; margin-bottom:32px;
+    letter-spacing:-0.01em;
+  }
+  h2 em { font-style:italic; font-weight:500; }
+  h3 {
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.75rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--stone);
+    margin:56px 0 20px;
+  }
+  p { margin-bottom:20px; font-size:0.95rem; }
+  .lead { font-size:1.05rem; line-height:1.9; color:var(--stone); }
+
+  .divider {
+    width:1px; height:80px; background:var(--gold-dim);
+    margin:0 auto; border:none; display:block;
+  }
+  .spacer { height:80px; }
+
+  /* ═══════════════════════════════════════
+     STATS
+     ═══════════════════════════════════════ */
+  .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; margin:56px 0; background:var(--gold-dim); }
+  .stat { background:var(--white); text-align:center; padding:36px 16px; }
+  .section.cream .stat { background:var(--paper); }
+  .stat-val {
+    font-family:'Cormorant Garamond',serif; font-size:3rem; font-weight:500;
+    color:var(--gold); display:block; line-height:1; margin-bottom:10px;
+  }
+  .stat-lbl {
+    font-family:'Josefin Sans',sans-serif; font-size:0.55rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:var(--stone);
+  }
+
+  /* ═══════════════════════════════════════
+     SERVICES GRID
+     ═══════════════════════════════════════ */
+  .services { display:grid; grid-template-columns:1fr 1fr; gap:1px; margin:56px 0; background:var(--gold-dim); }
+  .svc {
+    background:var(--white); padding:40px 36px; position:relative;
+  }
+  .svc.new { background:var(--light); }
+  .svc-badge {
+    position:absolute; top:20px; right:20px;
+    font-family:'Josefin Sans',sans-serif; font-size:0.5rem;
+    letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--gold); border:1px solid var(--gold-border); padding:4px 12px;
+  }
+  .svc h4 {
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.7rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:20px;
+  }
+  .svc ul { list-style:none; }
+  .svc li {
+    font-size:0.85rem; padding:8px 0 8px 24px; position:relative;
+    color:var(--stone); border-bottom:1px solid rgba(26,26,24,0.04);
+  }
+  .svc li:last-child { border:none; }
+  .svc li::before {
+    content:''; position:absolute; left:0; top:16px;
+    width:8px; height:1px; background:var(--gold);
+  }
+
+  /* ═══════════════════════════════════════
+     PRICING TIERS
+     ═══════════════════════════════════════ */
+  .tiers {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:0;
+    margin:56px 0; position:relative;
+  }
+  .tier {
+    padding:48px 32px 40px; border:1px solid rgba(26,26,24,0.06);
+    background:var(--white); position:relative;
+    transition:transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .tier:hover { transform:translateY(-6px); box-shadow:0 20px 60px rgba(0,0,0,0.08); z-index:1; }
+  .tier + .tier { border-left:none; }
+  .tier.rec {
+    background:var(--ink); color:var(--paper); border-color:var(--gold);
+    transform:scaleY(1.02); z-index:2;
+    box-shadow:0 12px 48px rgba(0,0,0,0.15);
+  }
+  .tier.rec:hover { transform:scaleY(1.02) translateY(-6px); box-shadow:0 24px 64px rgba(0,0,0,0.22); }
+  .tier-badge {
+    position:absolute; top:-1px; left:0; right:0;
+    height:3px; background:var(--gold);
+  }
+  .tier-badge span {
+    position:absolute; top:8px; left:50%; transform:translateX(-50%);
+    font-family:'Josefin Sans',sans-serif; font-size:0.5rem;
+    letter-spacing:0.3em; text-transform:uppercase;
+    color:var(--gold); white-space:nowrap;
+  }
+  .tier-name {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:var(--gold);
+    margin:24px 0 12px;
+  }
+  .tier-price {
+    font-family:'Cormorant Garamond',serif; font-size:3.2rem;
+    font-weight:400; line-height:1; margin-bottom:6px;
+  }
+  .tier:not(.rec) .tier-price { color:var(--ink); }
+  .tier.rec .tier-price { color:var(--paper); }
+  .tier-price span { font-size:1rem; color:var(--stone); font-family:'DM Sans',sans-serif; font-weight:300; }
+  .tier-term {
+    font-size:0.75rem; color:var(--stone); margin-bottom:32px;
+    padding-bottom:24px; border-bottom:1px solid var(--gold-dim);
+  }
+  .tier.rec .tier-term { border-color:rgba(201,169,110,0.2); }
+  .tier ul { list-style:none; }
+  .tier li {
+    font-size:0.8rem; padding:7px 0 7px 22px; position:relative;
+    border-bottom:1px solid rgba(26,26,24,0.03);
+  }
+  .tier.rec li { color:rgba(246,244,240,0.75); border-color:rgba(246,244,240,0.05); }
+  .tier li:last-child { border:none; }
+  .tier li::before {
+    content:''; position:absolute; left:0; top:14px;
+    width:8px; height:1px; background:var(--gold);
+  }
+  .tier li.off { opacity:0.25; }
+  .tier li.off::before { background:var(--stone); }
+  .tier-bottom {
+    margin-top:28px; padding-top:20px; border-top:1px solid var(--gold-dim);
+    font-size:0.7rem; color:var(--stone);
+  }
+  .tier.rec .tier-bottom { border-color:rgba(201,169,110,0.2); }
+  .tier-bottom strong { color:var(--gold); font-weight:500; font-size:0.85rem; }
+
+  /* ═══════════════════════════════════════
+     COMPARISON CALLOUT
+     ═══════════════════════════════════════ */
+  .insight {
+    background:var(--light); padding:48px 56px; margin:56px 0;
+    position:relative;
+  }
+  .insight::before {
+    content:''; position:absolute; top:0; left:0; bottom:0;
+    width:3px; background:var(--gold);
+  }
+  .insight h4 {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:20px;
+  }
+  .insight p { font-size:0.9rem; margin-bottom:10px; }
+  .insight p:last-child { margin-bottom:0; }
+  .insight .tier-breakdown {
+    margin-top:20px; display:flex; flex-direction:column; gap:8px;
+  }
+  .insight .tb {
+    display:flex; align-items:baseline; gap:12px; font-size:0.88rem;
+  }
+  .insight .tb-label {
+    font-weight:500; color:var(--gold); min-width:160px;
+    font-family:'Josefin Sans',sans-serif; font-size:0.7rem;
+    letter-spacing:0.1em; text-transform:uppercase;
+  }
+  .insight .tb-desc { color:var(--stone); }
+
+  /* ═══════════════════════════════════════
+     ROADMAP
+     ═══════════════════════════════════════ */
+  .roadmap { margin:56px 0; }
+  .rm {
+    display:grid; grid-template-columns:200px 1fr; gap:0;
+    border-bottom:1px solid rgba(26,26,24,0.06); min-height:0;
+  }
+  .rm:last-child { border:none; }
+  .rm-left {
+    padding:40px 32px 40px 0; border-right:2px solid var(--gold-dim);
+    position:relative;
+  }
+  .rm-left::after {
+    content:''; position:absolute; right:-5px; top:48px;
+    width:8px; height:8px; border-radius:50%; background:var(--gold);
+  }
+  .rm-month {
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.6rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:4px;
+  }
+  .rm-label {
+    font-family:'Cormorant Garamond',serif; font-size:1.3rem;
+    font-weight:400; font-style:italic; color:var(--ink); line-height:1.3;
+  }
+  .rm-right { padding:40px 0 40px 40px; }
+  .rm-right ul { list-style:none; }
+  .rm-right li {
+    font-size:0.85rem; padding:6px 0 6px 24px; position:relative; color:var(--stone);
+  }
+  .rm-right li::before {
+    content:''; position:absolute; left:0; top:14px;
+    width:8px; height:1px; background:var(--gold);
+  }
+
+  /* ═══════════════════════════════════════
+     TIMELINE (12-month)
+     ═══════════════════════════════════════ */
+  .tl { margin:56px 0; }
+  .tl-item {
+    display:grid; grid-template-columns:160px 1fr;
+    gap:0; padding:32px 0; border-bottom:1px solid rgba(26,26,24,0.06);
+  }
+  .tl-item:last-child { border:none; }
+  .tl-q {
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.6rem;
+    letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); padding-top:4px;
+  }
+  .tl-content h4 {
+    font-family:'Cormorant Garamond',serif; font-weight:500;
+    font-size:1.4rem; margin-bottom:8px; font-style:italic;
+  }
+  .tl-content p { font-size:0.85rem; color:var(--stone); margin-bottom:0; }
+
+  /* ═══════════════════════════════════════
+     BY THE NUMBERS
+     ═══════════════════════════════════════ */
+  .numbers {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    margin:56px 0; background:var(--gold-dim);
+  }
+  .num {
+    background:var(--ink); text-align:center; padding:48px 24px;
+  }
+  .num-val {
+    font-family:'Cormorant Garamond',serif; font-size:3.5rem;
+    font-weight:500; color:var(--gold); display:block; line-height:1; margin-bottom:10px;
+  }
+  .num-lbl {
+    font-family:'Josefin Sans',sans-serif; font-size:0.55rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:rgba(246,244,240,0.4);
+  }
+
+  /* ═══════════════════════════════════════
+     NEXT STEPS
+     ═══════════════════════════════════════ */
+  .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin:56px 0; background:var(--gold-dim); }
+  .step {
+    background:var(--white); padding:40px 32px;
+  }
+  .step-num {
+    font-family:'Cormorant Garamond',serif; font-size:3rem;
+    font-weight:400; color:var(--gold); line-height:1; margin-bottom:16px;
+    display:block;
+  }
+  .step h4 {
+    font-family:'DM Sans',sans-serif; font-weight:500; font-size:0.95rem; margin-bottom:10px;
+  }
+  .step p { font-size:0.82rem; color:var(--stone); margin-bottom:0; }
+
+  /* ═══════════════════════════════════════
+     ADDON
+     ═══════════════════════════════════════ */
+  .addons { max-width:560px; margin:40px 0; }
+  .addon {
+    display:flex; justify-content:space-between; padding:16px 0;
+    border-bottom:1px solid rgba(246,244,240,0.06); font-size:0.88rem;
+    color:rgba(246,244,240,0.5);
+  }
+  .addon span:last-child { color:var(--gold); font-weight:400; }
+
+  /* ═══════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════ */
+  .footer {
+    background:var(--ink); padding:80px 60px; text-align:center;
+    border-top:1px solid rgba(201,169,110,0.1);
+  }
+  .footer-mark {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.7rem;
+    letter-spacing:0.4em; text-transform:uppercase; color:var(--paper); margin-bottom:20px;
+  }
+  .footer-info {
+    font-size:0.8rem; color:var(--stone); line-height:2.2;
+  }
+  .footer-info a { color:var(--gold); text-decoration:none; }
+  .footer-note {
+    margin-top:40px; font-size:0.6rem; letter-spacing:0.15em;
+    text-transform:uppercase; font-family:'Josefin Sans',sans-serif;
+    color:rgba(246,244,240,0.15);
+  }
+
+  /* ═══════════════════════════════════════
+     SCROLL PROGRESS BAR
+     ═══════════════════════════════════════ */
+  .scroll-progress {
+    position:fixed; top:0; left:0; height:2px; width:0%;
+    background:linear-gradient(90deg, var(--gold), rgba(201,169,110,0.4));
+    z-index:9999; transition:width 0.05s linear;
+    box-shadow:0 0 8px rgba(201,169,110,0.3);
+  }
+
+  /* ═══════════════════════════════════════
+     SCROLL REVEAL ANIMATIONS
+     ═══════════════════════════════════════ */
+  .reveal {
+    opacity:0; transform:translateY(32px);
+    transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+  }
+  .reveal.visible {
+    opacity:1; transform:translateY(0);
+  }
+  .reveal-delay-1 { transition-delay:0.1s; }
+  .reveal-delay-2 { transition-delay:0.2s; }
+  .reveal-delay-3 { transition-delay:0.3s; }
+  .reveal-delay-4 { transition-delay:0.4s; }
+  .reveal-delay-5 { transition-delay:0.5s; }
+
+  /* ═══════════════════════════════════════
+     COVER CASCADE
+     ═══════════════════════════════════════ */
+  .cover .cover-eyebrow,
+  .cover h1,
+  .cover .cover-sub,
+  .cover .cover-meta-bar {
+    opacity:0; transform:translateY(24px);
+    animation:coverFade 0.9s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+  .cover .cover-eyebrow { animation-delay:0.3s; }
+  .cover h1 { animation-delay:0.6s; }
+  .cover .cover-sub { animation-delay:0.9s; }
+  .cover .cover-meta-bar { animation-delay:1.2s; }
+  @keyframes coverFade {
+    to { opacity:1; transform:translateY(0); }
+  }
+
+  /* ═══════════════════════════════════════
+     COVER PARALLAX
+     ═══════════════════════════════════════ */
+  .cover-image {
+    will-change:transform;
+    transition:transform 0.1s linear;
+  }
+
+  /* ═══════════════════════════════════════
+     FILM GRAIN OVERLAY
+     ═══════════════════════════════════════ */
+  .grain-section::after {
+    content:''; position:absolute; top:0; left:0; right:0; bottom:0;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    background-size:128px 128px;
+    pointer-events:none; z-index:0; opacity:0.5;
+  }
+  .grain-section { position:relative; }
+  .grain-section > * { position:relative; z-index:1; }
+
+  /* ═══════════════════════════════════════
+     ROADMAP LINE DRAW
+     ═══════════════════════════════════════ */
+  .roadmap { position:relative; }
+  .roadmap-line {
+    position:absolute; left:200px; top:48px; width:2px;
+    height:0; background:var(--gold);
+    transition:height 0.05s linear; z-index:1;
+    box-shadow:0 0 6px rgba(201,169,110,0.3);
+  }
+  .roadmap-line::after {
+    content:''; position:absolute; bottom:-4px; left:-3px;
+    width:8px; height:8px; border-radius:50%;
+    background:var(--gold); box-shadow:0 0 12px rgba(201,169,110,0.5);
+  }
+
+  /* ═══════════════════════════════════════
+     ENHANCED TIER INTERACTIONS
+     ═══════════════════════════════════════ */
+  .tier {
+    transition:transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
+  .tier:hover {
+    box-shadow:0 20px 60px rgba(0,0,0,0.08), 0 0 0 1px var(--gold-border);
+  }
+  .tier.rec:hover {
+    box-shadow:0 24px 64px rgba(0,0,0,0.22), 0 0 40px rgba(201,169,110,0.08);
+  }
+
+  /* ═══════════════════════════════════════
+     MOSAIC ENHANCED
+     ═══════════════════════════════════════ */
+  .mosaic img {
+    transition:filter 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
+  }
+  .mosaic img:hover {
+    filter:brightness(1.05); transform:scale(1.015);
+  }
+
+  /* ═══════════════════════════════════════
+     PHOTO BREAK — PARALLAX BANNERS
+     ═══════════════════════════════════════ */
+  .photo-break {
+    width:100%; height:45vh; min-height:320px; max-height:480px;
+    position:relative; overflow:hidden;
+  }
+  .photo-break img {
+    width:100%; height:120%; object-fit:cover; display:block;
+    position:absolute; top:-10%; left:0;
+    filter:brightness(0.85);
+    transition:filter 0.8s cubic-bezier(0.16,1,0.3,1);
+    will-change:transform;
+  }
+  .photo-break:hover img { filter:brightness(0.95); }
+  .photo-break::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:80px;
+    background:linear-gradient(rgba(26,26,24,0.15), transparent);
+    z-index:1; pointer-events:none;
+  }
+  .photo-break::after {
+    content:''; position:absolute; bottom:0; left:0; right:0; height:120px;
+    background:linear-gradient(transparent, rgba(26,26,24,0.6));
+    z-index:1; pointer-events:none;
+  }
+  .photo-break-caption {
+    position:absolute; bottom:0; left:0; right:0; z-index:2;
+    padding:24px 60px;
+    font-family:'Josefin Sans',sans-serif; font-size:0.5rem;
+    letter-spacing:0.3em; text-transform:uppercase;
+    color:rgba(246,244,240,0.5);
+  }
+
+  /* ═══════════════════════════════════════
+     PHOTO BREAK — CURTAIN REVEAL
+     ═══════════════════════════════════════ */
+  .photo-break {
+    clip-path:inset(0 0 0 0);
+    transition:clip-path 1.2s cubic-bezier(0.16,1,0.3,1);
+  }
+  .photo-break.revealed {
+    clip-path:inset(0 0 0 0);
+  }
+
+  /* ═══════════════════════════════════════
+     PHOTO KEN BURNS
+     ═══════════════════════════════════════ */
+  .photo-break.in-view img {
+    animation:kenBurns 12s ease-in-out infinite alternate;
+  }
+  @keyframes kenBurns {
+    0% { transform:scale(1) translateY(0); }
+    100% { transform:scale(1.06) translateY(-8px); }
+  }
+
+  /* ═══════════════════════════════════════
+     HEADLINE GOLD UNDERLINE
+     ═══════════════════════════════════════ */
+  h2 em {
+    position:relative; display:inline;
+  }
+  h2 em::after {
+    content:''; position:absolute; bottom:2px; left:0;
+    width:0; height:1.5px;
+    background:linear-gradient(90deg, var(--gold), rgba(201,169,110,0.3));
+    transition:width 1s 0.3s cubic-bezier(0.16,1,0.3,1);
+  }
+  h2.underlined em::after {
+    width:100%;
+  }
+
+  /* ═══════════════════════════════════════
+     COVER SCROLL INDICATOR
+     ═══════════════════════════════════════ */
+  .scroll-indicator {
+    position:absolute; bottom:40px; left:50%;
+    transform:translateX(-50%); display:flex; flex-direction:column;
+    align-items:center; gap:8px;
+    opacity:0; animation:coverFade 0.9s 1.8s cubic-bezier(0.16,1,0.3,1) forwards;
+    transition:opacity 0.4s ease;
+  }
+  .scroll-indicator.hidden { opacity:0 !important; }
+  .scroll-indicator-text {
+    font-family:'Josefin Sans',sans-serif; font-size:0.45rem;
+    letter-spacing:0.3em; text-transform:uppercase;
+    color:rgba(246,244,240,0.3);
+  }
+  .scroll-indicator-line {
+    width:1px; height:32px; position:relative; overflow:hidden;
+    background:rgba(246,244,240,0.1);
+  }
+  .scroll-indicator-line::after {
+    content:''; position:absolute; top:-100%; left:0;
+    width:100%; height:100%; background:var(--gold);
+    animation:scrollPulse 2s cubic-bezier(0.16,1,0.3,1) infinite;
+  }
+  @keyframes scrollPulse {
+    0% { top:-100%; }
+    50% { top:100%; }
+    100% { top:100%; }
+  }
+
+  /* ═══════════════════════════════════════
+     TIER 3D TILT
+     ═══════════════════════════════════════ */
+  .tier {
+    transform-style:preserve-3d;
+    perspective:800px;
+  }
+
+  /* ═══════════════════════════════════════
+     STAT COUNTER ANIMATION
+     ═══════════════════════════════════════ */
+  .stat-val, .num-val {
+    transition:opacity 0.4s ease;
+  }
+
+  /* ═══════════════════════════════════════
+     LOADING SCREEN — REFINED
+     ═══════════════════════════════════════ */
+  .loader {
+    position:fixed; top:0; left:0; right:0; bottom:0;
+    background:var(--ink); z-index:99999;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1), visibility 0.8s;
+  }
+  .loader.done {
+    opacity:0; visibility:hidden; pointer-events:none;
+  }
+  .loader-brand {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.6em; text-transform:uppercase; color:var(--paper);
+    opacity:0; animation:loaderIn 0.6s 0.15s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+  .loader-sub {
+    font-family:'Cormorant Garamond',serif; font-style:italic; font-size:0.9rem;
+    color:var(--stone); margin-top:8px;
+    opacity:0; animation:loaderIn 0.6s 0.4s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+  .loader-line {
+    width:80px; height:1px; background:var(--gold-dim); margin-top:24px;
+    position:relative; overflow:hidden; border-radius:1px;
+    opacity:0; animation:loaderIn 0.6s 0.3s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+  .loader-line::after {
+    content:''; position:absolute; top:0; left:-100%; width:100%; height:100%;
+    background:linear-gradient(90deg, transparent, var(--gold), transparent);
+    animation:loaderFill 1s 0.5s cubic-bezier(0.33,1,0.68,1) forwards;
+  }
+  @keyframes loaderIn { to { opacity:1; } }
+  @keyframes loaderFill { to { left:100%; } }
+
+  /* ═══════════════════════════════════════
+     GOLD ACCENT GLOW — PREMIUM DETAILS
+     ═══════════════════════════════════════ */
+  .stat-val, .num-val, .step-num {
+    text-shadow:0 0 40px rgba(201,169,110,0.15);
+  }
+  .tier.rec {
+    border-color:rgba(201,169,110,0.3);
+  }
+  .tier.rec::before {
+    content:''; position:absolute; top:0; left:0; right:0; bottom:0;
+    background:linear-gradient(180deg, rgba(201,169,110,0.03) 0%, transparent 40%);
+    pointer-events:none;
+  }
+  .tier-badge {
+    background:linear-gradient(135deg, var(--gold), rgba(201,169,110,0.8));
+  }
+
+  /* ═══════════════════════════════════════
+     SECTION DIVIDER — GOLD HAIRLINE
+     ═══════════════════════════════════════ */
+  .section + .photo-break,
+  .photo-break + .section {
+    border:none;
+  }
+  .section::after {
+    content:none;
+  }
+
+  /* ═══════════════════════════════════════
+     REFINED TYPOGRAPHY
+     ═══════════════════════════════════════ */
+  h2 {
+    text-wrap:balance;
+  }
+  .lead {
+    text-wrap:pretty;
+  }
+  .cover h1 {
+    text-shadow:0 2px 40px rgba(0,0,0,0.5), 0 4px 80px rgba(0,0,0,0.3);
+  }
+  .cover .cover-sub {
+    text-shadow:0 1px 20px rgba(0,0,0,0.4), 0 2px 40px rgba(0,0,0,0.2);
+  }
+
+  /* ═══════════════════════════════════════
+     INSIGHT BOX GLOW
+     ═══════════════════════════════════════ */
+  .insight {
+    border:1px solid rgba(201,169,110,0.08);
+    box-shadow:0 8px 32px rgba(0,0,0,0.03);
+  }
+  .insight::before {
+    box-shadow:4px 0 16px rgba(201,169,110,0.08);
+  }
+
+  /* ═══════════════════════════════════════
+     NUMBERS BAR GLOW
+     ═══════════════════════════════════════ */
+  .numbers .num-val {
+    text-shadow:0 0 60px rgba(201,169,110,0.25), 0 0 120px rgba(201,169,110,0.1);
+  }
+
+  /* ═══════════════════════════════════════
+     STEP CARDS HOVER
+     ═══════════════════════════════════════ */
+  .step {
+    transition:background 0.3s ease, box-shadow 0.3s ease;
+  }
+  .step:hover {
+    background:var(--light);
+    box-shadow:0 4px 24px rgba(0,0,0,0.04);
+  }
+
+  /* ═══════════════════════════════════════
+     SERVICE CARDS — REFINED
+     ═══════════════════════════════════════ */
+  .svc-badge {
+    background:linear-gradient(135deg, rgba(201,169,110,0.08), transparent);
+  }
+
+  /* ═══════════════════════════════════════
+     SECTION NAV DOTS
+     ═══════════════════════════════════════ */
+  .section-nav {
+    position:fixed; right:24px; top:50%; transform:translateY(-50%);
+    z-index:9998; display:flex; flex-direction:column; gap:12px;
+    opacity:0; transition:opacity 0.4s ease;
+  }
+  .section-nav.visible { opacity:1; }
+  .section-nav-dot {
+    width:8px; height:8px; border-radius:50%;
+    background:transparent; border:1px solid var(--stone);
+    cursor:pointer; transition:all 0.3s ease;
+    position:relative;
+  }
+  .section-nav-dot:hover {
+    border-color:var(--gold); transform:scale(1.3);
+  }
+  .section-nav-dot.active {
+    background:var(--gold); border-color:var(--gold);
+    box-shadow:0 0 8px rgba(201,169,110,0.4);
+  }
+  .section-nav-dot::before {
+    content:attr(data-label);
+    position:absolute; right:20px; top:50%; transform:translateY(-50%);
+    font-family:'Josefin Sans',sans-serif; font-size:0.5rem;
+    letter-spacing:0.15em; text-transform:uppercase; color:var(--gold);
+    white-space:nowrap; opacity:0; pointer-events:none;
+    transition:opacity 0.3s ease, right 0.3s ease;
+  }
+  .section-nav-dot:hover::before {
+    opacity:1; right:24px;
+  }
+
+  /* ═══════════════════════════════════════
+     ANIMATED EYEBROW LINE
+     ═══════════════════════════════════════ */
+  .eyebrow::before {
+    width:0; transition:width 0.6s 0.2s cubic-bezier(0.16,1,0.3,1);
+  }
+  .eyebrow.visible::before {
+    width:24px;
+  }
+
+  /* ═══════════════════════════════════════
+     TIER SELECTION
+     ═══════════════════════════════════════ */
+  .tier { cursor:pointer; position:relative; }
+  .tier.selected:not(.rec) {
+    box-shadow:0 0 0 2px var(--gold), 0 20px 60px rgba(0,0,0,0.1);
+  }
+  .tier.rec.selected {
+    box-shadow:0 0 0 2px var(--gold), 0 24px 64px rgba(0,0,0,0.22), 0 0 40px rgba(201,169,110,0.12);
+  }
+  .tier-selected-badge {
+    position:absolute; top:12px; right:12px;
+    font-family:'Josefin Sans',sans-serif; font-size:0.45rem;
+    letter-spacing:0.25em; text-transform:uppercase;
+    color:var(--gold); border:1px solid var(--gold);
+    padding:3px 10px; border-radius:2px;
+    opacity:0; transform:translateY(-4px);
+    transition:opacity 0.3s ease, transform 0.3s ease;
+  }
+  .tier.selected .tier-selected-badge {
+    opacity:1; transform:translateY(0);
+  }
+
+  /* ═══════════════════════════════════════
+     SERVICE CARD HOVER
+     ═══════════════════════════════════════ */
+  .svc {
+    transition:all 0.3s cubic-bezier(0.16,1,0.3,1);
+    border-left:3px solid transparent;
+  }
+  .svc:hover {
+    border-left-color:var(--gold);
+    background:var(--light);
+  }
+  .svc.new:hover {
+    background:var(--white);
+  }
+
+  /* ═══════════════════════════════════════
+     COVER CTA BUTTON
+     ═══════════════════════════════════════ */
+  .cover-cta {
+    display:inline-flex; align-items:center; gap:10px;
+    margin-top:32px; padding:12px 28px;
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.6rem;
+    letter-spacing:0.25em; text-transform:uppercase;
+    color:var(--paper); border:1px solid rgba(246,244,240,0.25);
+    text-decoration:none; cursor:pointer;
+    transition:all 0.4s cubic-bezier(0.16,1,0.3,1);
+    opacity:0; animation:coverFade 0.9s 1.5s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+  .cover-cta:hover {
+    border-color:var(--gold); color:var(--gold);
+    padding-right:36px;
+  }
+  .cover-cta-arrow {
+    display:inline-block; transition:transform 0.3s ease;
+    font-size:0.8rem;
+  }
+  .cover-cta:hover .cover-cta-arrow { transform:translateY(3px); }
+
+  @media print {
+    .cover { min-height:100vh; }
+    .section { padding:60px; }
+    .tier.rec { transform:none; box-shadow:none; }
+    .tier:hover { transform:none; box-shadow:none; }
+    .scroll-progress, .section-nav, .loader, .cover-cta, .scroll-indicator { display:none; }
+    .photo-break { height:200px; page-break-inside:avoid; clip-path:none !important; }
+    h2 em::after { width:100% !important; }
+    .reveal { opacity:1 !important; transform:none !important; }
+    .eyebrow::before { width:24px !important; }
+    .grain-section::after { display:none; }
+  }
+  @media (max-width:768px) {
+    .cover-content,.cover-top { padding-left:32px; padding-right:32px; }
+    .section { padding:80px 32px; }
+    .mosaic { grid-template-columns:1fr 1fr; grid-template-rows:200px 200px 200px; }
+    .mosaic img:nth-child(1) { grid-column:1/3; grid-row:1/2; }
+    .mosaic img:nth-child(2) { grid-column:1/2; grid-row:2/3; }
+    .mosaic img:nth-child(3) { grid-column:2/3; grid-row:2/3; }
+    .mosaic img:nth-child(4) { grid-column:1/3; grid-row:3/4; }
+    .stats,.services,.tiers,.steps,.numbers { grid-template-columns:1fr; }
+    .tier + .tier { border-left:1px solid rgba(26,26,24,0.06); border-top:none; }
+    .tier.rec { transform:none; }
+    .rm { grid-template-columns:1fr; }
+    .rm-left { border-right:none; border-bottom:2px solid var(--gold-dim); padding:24px 0; }
+    .rm-left::after { display:none; }
+    .rm-right { padding:24px 0; }
+    .roadmap::before, .roadmap-line { display:none; }
+    .tl-item { grid-template-columns:1fr; }
+    .tl-q { margin-bottom:8px; }
+    .cover-meta-bar { flex-direction:column; gap:16px; }
+    .footer { padding:60px 32px; }
+    .section-nav { display:none; }
+    .svc { border-left:none !important; }
+    .svc:hover { border-left:none !important; }
+    .photo-break { height:200px; min-height:200px; }
+    .photo-break-caption { padding:12px 32px; }
+    .scroll-indicator { display:none; }
+  }
 </style>
+
 </head>
 <body>
-<div class="container">
-  <div class="eyebrow">Engagement Proposal · Goosen Design</div>
-  <h1>Proposal — Goosen Design × Matt Anthony Photography</h1>
-<p><em>Prepared April 6, 2026 — for Ethan Goosen &amp; Benjamin Ryder</em></p>
-<hr />
-<h2>The Situation, Honestly</h2>
-<p>You've spent ten years building a portfolio that should be in <em>Western Living</em>, <em>Gray</em>, <em>AZURE</em>, and <em>Eater Vancouver</em>. Your project list — Mad Hen, Blue Heron Inn, Coastline Health, Beachcomber Coffee, the Calgary Guardian Towers penthouse for Hon Developments, restaurants for Dale MacKay and Darren MacLean — is the project list of a studio that's earned its luxury positioning.</p>
-<p>But here's what someone discovering you online finds:</p>
-<ul>
-<li>A Wix site where two of the project pages are still named "Project Title 6" and "Renovation Project"</li>
-<li>16 portfolio entries — but <strong>Blue Heron Inn, Coastline Health, the Calgary penthouse, and the Dale MacKay restaurants are nowhere on it</strong></li>
-<li>609 Instagram followers, 23 posts, ~2 posts per year</li>
-<li>17 LinkedIn followers</li>
-<li>Zero presence on Pinterest or Houzz</li>
-<li>A blog that hasn't been touched in 14 months</li>
-<li>Zero photographer credits, zero architect credits, zero builder credits, zero published-in mentions</li>
-<li>Zero verifiable awards behind the "international award-winning" claim on your About page</li>
-</ul>
-<p><strong>This isn't a marketing problem. It's a content problem.</strong> You don't post because you don't have shoots to post. You don't get featured because you don't have submission-grade imagery to submit. You don't show your best projects because they were never properly photographed in the first place.</p>
-<p>That's a fixable problem, and it's the one I solve.</p>
-<hr />
-<h2>What I Do</h2>
-<p>I'm Matt Anthony — architectural and interiors photographer based in Squamish. I shoot for designers, architects, and builders across BC, with a particular focus on <strong>editorial-grade work that gets published, wins awards, and feeds a content engine year-round</strong>.</p>
-<p>My core difference: I don't shoot rooms. I shoot the <em>design intent</em> — the site, the light, the materials, the moments that carry the decisions you spent six months making. The photography that lives in publications, not real estate listings.</p>
-<p>I work with designers in two ways: <strong>per-project shoots</strong>, and a <strong>Creative Partner retainer</strong> (the model I built with Balmoral Construction, where I act as their dedicated visual partner across every project).</p>
-<p>For Goosen Design specifically, the retainer is the right shape — you don't have one project to fix, you have a body of work to rebuild and a content engine to start.</p>
-<hr />
-<h2>The Recommended Engagement: Creative Partner — Editorial Tier</h2>
-<p>A 12-month retainer that solves the content problem at the root.</p>
-<h3>What's included monthly</h3>
-<p><strong>1. One full editorial shoot per month</strong> (~6 hours on-site, half-day for smaller scopes)
-- Could be a new project, a re-shoot of an existing one, a furniture vignette in your showroom, or a chef-collab restaurant capture
-- 25–40 fully edited hero + detail images per shoot, delivered within 7 days
-- Both wide editorial sets <em>and</em> social-cropped verticals
-- Full commercial license to you for portfolio, web, social, and submissions</p>
-<p><strong>2. Submission-ready packages 4× per year</strong>
-- I prep submission-grade image sets for the publications and awards that match your work
-- <em>Western Living</em> Designers of the Year, <em>Gray Magazine</em>, <em>AZURE</em>, <em>Dwell</em>, <em>Eater Vancouver</em>, <em>BC Restaurant News</em>, the Robert Allen Design Awards, ARIDO
-- You hit "send" on the entry; I handle the imagery side of every submission</p>
-<p><strong>3. Quarterly content drop</strong>
-- 30+ social-ready assets per quarter (feed, reels stills, story templates, Pinterest-formatted)
-- Captions / alt text starter packs
-- Designed to fuel @goosendesign and @goosendesignshop without you having to think about it</p>
-<p><strong>4. One showroom / brand shoot per quarter</strong>
-- Rotating product features, in-context lifestyle, "designer at work" editorial portraits
-- Builds the content layer your blog and LinkedIn need to come back to life</p>
-<p><strong>5. Priority scheduling</strong>
-- You get first call on my calendar — booking 2-3 weeks out, not 3 months
-- Last-minute reshoots and detail shots when a project needs them</p>
-<h3>Investment</h3>
-<p><strong>$2,500 / month</strong> — billed monthly, 12-month term</p>
-<p><strong>That's $30,000/year for an unlimited content engine</strong>, vs the $4,000–$6,000 a one-off magazine-grade restaurant or residential shoot would cost à la carte. You're paying for <em>predictability and partnership</em>, not transactions.</p>
-<hr />
-<h2>The First 90 Days (What Actually Happens)</h2>
-<p>To make this concrete — here's what we'd do first if we sign by the end of next week:</p>
-<h3>Month 1 — The Calgary Penthouse + Mad Hen Re-shoot</h3>
-<ul>
-<li><strong>Calgary trip:</strong> I fly to Calgary, shoot the Hon Developments Guardian Towers penthouse over two days, deliver a full editorial set ready for <em>Western Living Calgary</em> submission (2026 deadline closes mid-summer)</li>
-<li><strong>Mad Hen re-shoot in Gibsons:</strong> Half-day editorial capture of the diner — wall of stars styling, food + space integration, BTS reel content. Submission-ready for <em>Eater Vancouver</em> and <em>BC Restaurant News</em></li>
-</ul>
-<h3>Month 2 — Blue Heron Inn (Sechelt)</h3>
-<ul>
-<li>Editorial documentation of the in-progress reno <em>and</em> a proper "wrap" shoot once the build is far enough along</li>
-<li>This becomes a hospitality case study you can pitch to <em>Gray Magazine</em> and <em>AZURE</em> (boutique hotel features)</li>
-<li>Lead asset for your homepage and Instagram relaunch</li>
-</ul>
-<h3>Month 3 — Coastline Health + Showroom Editorial</h3>
-<ul>
-<li>Healthcare/wellness interior is a niche category that gets featured in <em>Gray Magazine</em>'s annual healthcare issue and in <em>Azure</em> — you currently have nothing</li>
-<li>Showroom editorial day to fuel the holiday content push</li>
-</ul>
-<p><strong>By the end of 90 days you have:</strong>
-- 3 flagship projects properly documented for the first time
-- ~100 fresh editorial-grade assets
-- 3 active publication submissions in flight
-- Enough Instagram content to post 3× per week for the next 4 months
-- A relaunch story you can build the rest of the year around</p>
-<hr />
-<h2>Why This Works for Goosen Specifically</h2>
-<p><strong>1. You already earn press.</strong> The Coast Reporter feature, the Sprudge mention on Beachcomber — you can land coverage. You're just starving the next round of imagery.</p>
-<p><strong>2. You have hospitality projects with chef brands attached.</strong> Dale MacKay and Darren MacLean are nationally recognized — restaurant features run on the <em>chef's</em> fame, not just the designer's. You have a built-in publication wedge most designers don't.</p>
-<p><strong>3. The Sunshine Coast is geographically a non-issue for me.</strong> Squamish-to-Gibsons is a day. You're not paying travel premiums.</p>
-<p><strong>4. You have a showroom.</strong> Most interior designers don't. That's a content engine no one else on the Coast has — and right now you're under-using it.</p>
-<p><strong>5. The Calgary penthouse is the highest-leverage unphotographed asset on the BC coast.</strong> 11,000 sq ft, luxury developer client, zero published imagery. One trip, one editorial set, one Western Living Calgary submission, and the case study pays for itself and unlocks the next three Hon Developments projects.</p>
-<hr />
-<h2>What I'd Need From You</h2>
-<ul>
-<li>A first-look list of which 12 projects we prioritize across the year (I'll come ready with my own ranking based on what I've seen)</li>
-<li>Coordination with clients/operators for shoot access (I can liaise directly if you'd rather)</li>
-<li>Sign-off on submission targets quarterly (you decide which publications to chase; I handle the prep)</li>
-<li>A call every 6 weeks (30 min) to plan the next shoot and review what's landing</li>
-</ul>
-<p>That's it. No content meetings, no asset chases, no managing me.</p>
-<hr />
-<h2>Optional Add-Ons (Not Required)</h2>
-<p>If you want to go further, these are available as project add-ons rather than baked into the retainer:</p>
-<table>
-<thead>
-<tr>
-<th>Add-on</th>
-<th>What</th>
-<th>Investment</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Project copywriting</strong></td>
-<td>300–500 word case studies for the website portfolio pages — story, materials, design intent</td>
-<td>$400–$600/project</td>
-</tr>
-<tr>
-<td><strong>Video / motion</strong></td>
-<td>One short film per quarter (60-90s for IG/web) covering a flagship project</td>
-<td>$1,500–$2,500/project</td>
-</tr>
-<tr>
-<td><strong>Website refresh</strong></td>
-<td>Migration off Wix to a portfolio-led platform built around the new imagery</td>
-<td>Quoted separately</td>
-</tr>
-</tbody>
-</table>
-<p>We don't need to decide on these now. The retainer alone delivers the core value.</p>
-<hr />
-<h2>Why a Retainer vs. Per-Project</h2>
-<p>You <em>could</em> hire me per project. Most of your competitors do. Here's why a retainer is better for a studio at your stage:</p>
-<table>
-<thead>
-<tr>
-<th></th>
-<th>Per-project</th>
-<th>Creative Partner Retainer</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>Per-shoot cost</td>
-<td>$3,500–$5,500</td>
-<td>~$2,500 (effective)</td>
-</tr>
-<tr>
-<td>Booking lead time</td>
-<td>4–8 weeks</td>
-<td>1–2 weeks (priority)</td>
-</tr>
-<tr>
-<td>Submission prep</td>
-<td>DIY or extra fee</td>
-<td>Included</td>
-</tr>
-<tr>
-<td>Content for IG/blog/Pinterest</td>
-<td>DIY</td>
-<td>Included</td>
-</tr>
-<tr>
-<td>Annual planning</td>
-<td>None</td>
-<td>Built in</td>
-</tr>
-<tr>
-<td>Predictable cost</td>
-<td>No</td>
-<td>Yes</td>
-</tr>
-<tr>
-<td>Annual cost (12 shoots)</td>
-<td>$42K–$66K</td>
-<td>$30K</td>
-</tr>
-</tbody>
-</table>
-<p>The retainer is <strong>cheaper per shoot, faster to book, and includes the content layer that turns shoots into press.</strong> It's the right vehicle for a studio that needs to relaunch its digital presence, not just patch one hole.</p>
-<hr />
-<h2>Pricing Recap</h2>
-<table>
-<thead>
-<tr>
-<th>Option</th>
-<th>Investment</th>
-<th>Best for</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td><strong>Per-project shoot</strong></td>
-<td>$3,500–$5,500 each</td>
-<td>One-off documentation</td>
-</tr>
-<tr>
-<td><strong>Creative Partner — Content tier</strong></td>
-<td>$1,500/mo</td>
-<td>Building a content engine, no submissions</td>
-</tr>
-<tr>
-<td><strong>Creative Partner — Editorial tier</strong> ⭐ recommended</td>
-<td>$2,500/mo</td>
-<td>Studios ready to publish + submit</td>
-</tr>
-<tr>
-<td><strong>Creative Partner — Creative tier</strong></td>
-<td>$3,500/mo</td>
-<td>Studios with active multi-market expansion</td>
-</tr>
-</tbody>
-</table>
-<hr />
-<h2>Next Steps</h2>
-<ol>
-<li>Walk through this proposal together — 20 min call later this week</li>
-<li>Pick the first three projects we'd shoot (I have recommendations)</li>
-<li>Sign a 12-month engagement letter</li>
-<li>Calgary trip booked within 4 weeks of signing</li>
-</ol>
-<p>I'd like to be on a plane to Calgary by early May.</p>
-<p>— <strong>Matt Anthony</strong>
-604-765-9270 · info@mattanthonyphoto.com · mattanthonyphoto.com</p>
-<hr />
-<p><em>This proposal was prepared specifically for Goosen Design after a detailed audit of your website, social presence, press coverage, and project portfolio. It is not a template.</em></p>
-  <div class="footer">
-    <span>Matt Anthony Photography</span>
-    <span>mattanthonyphoto.com</span>
+
+<!-- LOADING SCREEN -->
+<div class="loader" id="loader">
+  <div class="loader-brand">Matt Anthony Photography</div>
+  <div class="loader-sub" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.9rem;color:rgba(138,133,121,0.7);margin-top:8px;opacity:0;animation:loaderIn 0.6s 0.4s cubic-bezier(0.16,1,0.3,1) forwards;">Creative Partner</div>
+  <div class="loader-line"></div>
+</div>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="section-nav" id="sectionNav"></nav>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-image" id="coverImg" style="background-image:url('https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/9f3611d8-a842-42d6-b65b-cd25ba6920cd/sunridge-whistle-web--32.jpg');background-position:center 35%;"></div>
+  <div class="cover-top">
+    <div class="cover-logo">Matt Anthony Photography</div>
+    <div class="cover-date">April 2026</div>
+  </div>
+  <div class="cover-content">
+    <div class="cover-eyebrow">Goosen Design</div>
+    <h1>Your best work<br>deserves to be<br><em>seen.</em></h1>
+    <p class="cover-sub">Mad Hen, Blue Heron Inn, Coastline Health, the Calgary penthouse. The projects that belong on your homepage aren't on your site at all. Let's fix that.</p>
+    <div class="cover-meta-bar">
+      <div class="cover-meta-item"><strong>Prepared for</strong>Ethan Goosen, Founder</div>
+      <div class="cover-meta-item"><strong>Prepared by</strong>Matt Anthony</div>
+      <div class="cover-meta-item"><strong>Valid through</strong>May 15, 2026</div>
+    </div>
+    
+    <a class="cover-cta" href="#tiers"><span>View Options</span><span class="cover-cta-arrow">&darr;</span></a>
+    
+  </div>
+  <div class="scroll-indicator" id="scrollIndicator">
+    <div class="scroll-indicator-text">Scroll</div>
+    <div class="scroll-indicator-line"></div>
   </div>
 </div>
+
+
+
+
+
+
+<div class="section cream" data-nav="Story">
+  <div class="eyebrow">Where You Are</div>
+  <h2>The portfolio is luxury.<br><em>The presentation isn't.</em></h2>
+  <p class="lead">Ethan, I dug into Goosen Design before our call — the website, sitemap, all four social channels, your press footprint, and the project list referenced in Coast Reporter. Here's the honest read.</p>
+  
+  <p>Your project list is the project list of a Western Living Designer of the Year nominee. Mad Hen. Blue Heron Inn. Coastline Health. Beachcomber Coffee. The Calgary Guardian Towers penthouse for Hon Developments. Restaurants for Chef Dale MacKay and Chef Darren MacLean. Twenty years of design experience and a public showroom in Lower Gibsons.</p>
+  
+  <p>But the website tells a different story. Two project pages are still named "Project Title 6" and "Renovation Project" because the Wix template defaults were never renamed. Four of your most publishable projects — Blue Heron Inn, Coastline Health, the Calgary penthouse, and the Dale MacKay restaurants — aren't in the portfolio at all. Instagram has 609 followers and posts roughly twice a year. LinkedIn has 17 followers. There's no Houzz profile. There's no Pinterest. There are no photographer credits, no architect credits, no project narratives, and no published-in mentions anywhere on the site.</p>
+  
+  <p>This isn't a marketing problem. It's a content problem. You don't post because you don't have shoots. You don't get featured because you don't have submission-grade imagery. The fix is putting a creative partner behind Goosen who captures every project to editorial standard, prepares it for publication, and feeds the channels you don't have time to feed yourself.</p>
+  
+  
+  <div class="stats">
+    
+    <div class="stat"><span class="stat-val">16</span><span class="stat-lbl">Portfolio Projects</span></div>
+    
+    <div class="stat"><span class="stat-val">4</span><span class="stat-lbl">Flagships Missing</span></div>
+    
+    <div class="stat"><span class="stat-val">609</span><span class="stat-lbl">IG Followers</span></div>
+    
+    <div class="stat"><span class="stat-val">0</span><span class="stat-lbl">Verified Awards</span></div>
+    
+  </div>
+  
+</div>
+
+
+
+
+
+
+
+<div class="photo-break">
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/d524d107-05c4-42a3-9357-4303ef3840ad/LRD-2500px-19.jpg" alt="Editorial interior — material and light">
+  <div class="photo-break-caption">Editorial Interior &middot; Matt Anthony Photography</div>
+</div>
+
+
+
+
+
+
+<div class="section" data-nav="Audit">
+  <div class="eyebrow">The Audit</div>
+  <h2>What the data says.<br><em>Verified, not estimated.</em></h2>
+  <p class="lead">Highlights from the full digital audit. The complete report is available as a separate document.</p>
+  
+  
+  <div class="services" style="margin:40px 0;">
+    
+    <div class="svc">
+      <h4>What's Strong</h4>
+      <ul>
+        
+        <li><strong>Real press coverage.</strong> Coast Reporter feature on Mad Hen, Beachcomber Coffee, Coastline Health, Blue Heron Inn. Sprudge mention on Beachcomber. You earn coverage when you have material to share.</li>
+        
+        <li><strong>Marquee project list.</strong> Mad Hen, Blue Heron Inn, Calgary penthouse for Hon Developments, restaurants for Top Chef Canada winner Dale MacKay and Chef Darren MacLean. The work is publishable.</li>
+        
+        <li><strong>Public showroom in Lower Gibsons.</strong> Camerich, Ethnicraft, Keilhauer. A content asset that no other Sunshine Coast designer has, currently underused.</li>
+        
+        <li><strong>Permit-drawing qualified.</strong> Full-service capability beyond decoration. Real differentiator vs the Coast competition.</li>
+        
+      </ul>
+    </div>
+    
+    <div class="svc">
+      <h4>The Specific Gaps</h4>
+      <ul>
+        
+        <li><strong>Two portfolio pages still named "Project Title 6" and "Renovation Project".</strong> Wix template placeholders that were never renamed. Single most credibility-damaging item on the site.</li>
+        
+        <li><strong>Blue Heron Inn, Coastline Health, the Calgary penthouse, and the Dale MacKay restaurants are not on the site.</strong> The biggest projects in the studio's history are absent from the portfolio entirely.</li>
+        
+        <li><strong>Zero photographer, architect, builder, or client credits anywhere.</strong> Kills referral SEO, signals visual assets aren't being managed.</li>
+        
+        <li><strong>Instagram @goosendesign — 609 followers, 23 posts, ~2 posts/year.</strong> LinkedIn — 17 followers. Facebook — dead. No Pinterest. No Houzz profile. No reviews anywhere.</li>
+        
+        <li><strong>"International award-winning" claim unverifiable.</strong> No record in ARIDO, Western Living DOTY, Robert Allen, or any major database.</li>
+        
+      </ul>
+    </div>
+    
+  </div>
+  
+  
+  <div class="insight">
+    <h4>The Bottom Line</h4>
+    <p>Goosen has the project list of a top-tier studio and the digital footprint of a one-year-old practice. The four flagship projects that should be the homepage aren't on the website at all. <strong>Fix the content supply</strong> and every other gap closes on its own.</p>
+  </div>
+  
+</div>
+
+
+
+
+
+
+
+<div class="photo-break">
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/7ae7f632-ffd4-4990-abae-430431c42a83/sunridge-whistle-web--28.jpg" alt="Sunridge interior stone and timber">
+  <div class="photo-break-caption">Sunridge &middot; Whistler, BC &middot; Matt Anthony Photography</div>
+</div>
+
+
+
+
+
+
+<div class="section" data-nav="Services">
+  <div class="eyebrow">What This Adds</div>
+  <h2>Your content partner.<br><em>Editorial-grade.</em></h2>
+  <p>Photography that captures design intent — site, light, materials, the moments you spent six months deciding. Submission-ready packages for every shoot. Quarterly content drops that fuel Instagram, Pinterest, and the dormant blog. A reactivated awards pipeline.</p>
+  <div class="services">
+    
+    <div class="svc">
+      
+      <h4>Editorial Photography</h4>
+      <ul>
+        
+        <li>1 full-day shoot per month</li>
+        
+        <li>25 to 40 edited images per session</li>
+        
+        <li>Wide editorial sets + social-cropped verticals</li>
+        
+        <li>Material and detail close-ups that tell the design story</li>
+        
+        <li>Multi-format delivery: web, social, print, award-ready</li>
+        
+        <li>Full commercial licensing</li>
+        
+      </ul>
+    </div>
+    
+    <div class="svc new">
+      <div class="svc-badge">New</div>
+      <h4>Awards &amp; Publications</h4>
+      <ul>
+        
+        <li>Submission-ready packages 4× per year</li>
+        
+        <li>Western Living Designers of the Year</li>
+        
+        <li>Gray Magazine, AZURE, Dwell, House &amp; Home</li>
+        
+        <li>Eater Vancouver, BC Restaurant News for hospitality</li>
+        
+        <li>Robert Allen Design Awards, ARIDO, IDIBC</li>
+        
+      </ul>
+    </div>
+    
+    <div class="svc new">
+      <div class="svc-badge">New</div>
+      <h4>Content Engine</h4>
+      <ul>
+        
+        <li>30+ social-ready assets per quarter</li>
+        
+        <li>Feed posts, Reels stills, Pinterest formats</li>
+        
+        <li>Caption + alt text starter packs</li>
+        
+        <li>Showroom editorial day each quarter</li>
+        
+        <li>Designed to fuel all channels without you thinking about it</li>
+        
+      </ul>
+    </div>
+    
+    <div class="svc new">
+      <div class="svc-badge">New</div>
+      <h4>Strategy &amp; Priority Access</h4>
+      <ul>
+        
+        <li>Quarterly planning call (30 min)</li>
+        
+        <li>First call on Matt's calendar — 1 to 2 weeks lead time</li>
+        
+        <li>Last-minute reshoots and detail captures</li>
+        
+        <li>Annual content + awards roadmap</li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+<div class="photo-break">
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/0b4f9f4d-01c4-4da3-ae8e-1131391d280f/sunridge-whistle-web--39.jpg" alt="Sunridge interior detail">
+  <div class="photo-break-caption">Sunridge &middot; Whistler, BC &middot; Matt Anthony Photography</div>
+</div>
+
+
+
+
+
+
+<div class="section wide" id="tiers" data-nav="Pricing">
+  <div class="eyebrow">Choose Your Tier</div>
+  <h2>Three tiers. Same partner.<br><em>Your call.</em></h2>
+  <p>Every tier delivers editorial-grade design photography with full licensing. The difference is how much submission work, content management, and awards strategy sits on top.</p>
+  <div class="tiers">
+    
+    <div class="tier" data-tier="foundation">
+      <div class="tier-selected-badge">Selected</div>
+      
+      <div class="tier-name">Foundation</div>
+      <div class="tier-price">$2,000 <span>/ mo</span></div>
+      <div class="tier-term">3-month pilot &middot; $6,000 total</div>
+      <ul>
+        
+        <li>1 full-day shoot / month</li>
+        
+        <li>25 to 40 edited images per session</li>
+        
+        <li>Material and detail close-ups</li>
+        
+        <li>Multi-format delivery (web, social, print)</li>
+        
+        <li>Full image licensing</li>
+        
+        <li class="off">Quarterly content drop (30+ assets)</li>
+        
+        <li class="off">Showroom editorial day each quarter</li>
+        
+        <li class="off">Submission-ready packages 4× / year</li>
+        
+        <li class="off">Awards + publications strategy</li>
+        
+        <li class="off">Priority scheduling (1 to 2 weeks)</li>
+        
+      </ul>
+      <div class="tier-bottom">Annual investment<br><strong>$24,000</strong></div>
+    </div>
+    
+    <div class="tier rec" data-tier="growth">
+      <div class="tier-selected-badge">Selected</div>
+      <div class="tier-badge"><span>Recommended</span></div>
+      <div class="tier-name">Editorial</div>
+      <div class="tier-price">$2,500 <span>/ mo</span></div>
+      <div class="tier-term">3-month pilot &middot; $7,500 total</div>
+      <ul>
+        
+        <li>1 full-day shoot / month</li>
+        
+        <li>25 to 40 edited images per session</li>
+        
+        <li>Material and detail close-ups</li>
+        
+        <li>Multi-format delivery (web, social, print)</li>
+        
+        <li>Full image licensing</li>
+        
+        <li>Quarterly content drop (30+ assets)</li>
+        
+        <li>Showroom editorial day each quarter</li>
+        
+        <li>Submission-ready packages 4× / year</li>
+        
+        <li class="off">Awards + publications strategy</li>
+        
+        <li>Priority scheduling (1 to 2 weeks)</li>
+        
+      </ul>
+      <div class="tier-bottom">Annual investment<br><strong>$30,000</strong></div>
+    </div>
+    
+    <div class="tier" data-tier="full">
+      <div class="tier-selected-badge">Selected</div>
+      
+      <div class="tier-name">Full Creative Partner</div>
+      <div class="tier-price">$3,500 <span>/ mo</span></div>
+      <div class="tier-term">3-month pilot &middot; $10,500 total</div>
+      <ul>
+        
+        <li>1 full-day shoot / month</li>
+        
+        <li>30 to 50 edited images per session</li>
+        
+        <li>Material and detail close-ups</li>
+        
+        <li>Multi-format delivery (web, social, print)</li>
+        
+        <li>Full image licensing</li>
+        
+        <li>Quarterly content drop (30+ assets)</li>
+        
+        <li>Showroom editorial day each quarter</li>
+        
+        <li>Submission-ready packages 4× / year</li>
+        
+        <li>Active awards + publications outreach</li>
+        
+        <li>Year-end documentary film (2 to 3 minutes)</li>
+        
+      </ul>
+      <div class="tier-bottom">Annual investment<br><strong>$42,000</strong></div>
+    </div>
+    
+  </div>
+  
+  <div class="insight">
+    <h4>How to Think About This</h4>
+    <p>One full-day editorial shoot at à la carte rates is <strong>$3,500 to $5,500</strong>. Here's what a monthly retainer delivers:</p>
+    
+    <div class="tier-breakdown">
+      
+      <div class="tb"><span class="tb-label">Foundation $2,000</span><span class="tb-desc">One editorial shoot every month with full licensing. Pure content creation at less than the cost of a single one-off session.</span></div>
+      
+      <div class="tb"><span class="tb-label">Editorial $2,500 ⭐</span><span class="tb-desc">Everything above plus quarterly content drops, showroom days, and submission-ready packages 4× per year. The content engine starts compounding.</span></div>
+      
+      <div class="tb"><span class="tb-label">Full Creative Partner $3,500</span><span class="tb-desc">Active publications outreach to Western Living, Gray, Azure, Eater Vancouver. Year-end documentary film. The full editorial program.</span></div>
+      
+    </div>
+    
+    
+    <p style="margin-top:24px;">Every shoot is captured to publication and awards-submission spec from day one. When entry season opens, the imagery is already ready.</p>
+<div style="margin-top:24px;padding:24px 28px;background:var(--light);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;">
+<h4 style="font-family:'Josefin Sans',sans-serif;font-weight:400;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin:0 0 12px;">Add-On: Website Migration off Wix</h4>
+<p style="font-size:0.88rem;color:var(--stone);margin:0 0 12px;">The current Wix site has two placeholder project names, no schema, and no project narratives. A custom Squarespace rebuild would showcase the full project list properly with real case studies, photographer/architect credits, and SEO baked in from the ground up.</p>
+<ul style="list-style:none;padding:0;margin:0;">
+<li style="font-size:0.85rem;padding:5px 0 5px 20px;position:relative;color:var(--stone);"><span style="position:absolute;left:0;top:12px;width:8px;height:1px;background:var(--gold);"></span>Full custom Squarespace rebuild (16+ project pages)</li>
+<li style="font-size:0.85rem;padding:5px 0 5px 20px;position:relative;color:var(--stone);"><span style="position:absolute;left:0;top:12px;width:8px;height:1px;background:var(--gold);"></span>Real project narratives with full credit blocks</li>
+<li style="font-size:0.85rem;padding:5px 0 5px 20px;position:relative;color:var(--stone);"><span style="position:absolute;left:0;top:12px;width:8px;height:1px;background:var(--gold);"></span>InteriorDesigner + LocalBusiness schema markup</li>
+<li style="font-size:0.85rem;padding:5px 0 5px 20px;position:relative;color:var(--stone);"><span style="position:absolute;left:0;top:12px;width:8px;height:1px;background:var(--gold);"></span>Showroom landing page + retail integration</li>
+<li style="font-size:0.85rem;padding:5px 0 5px 20px;position:relative;color:var(--stone);"><span style="position:absolute;left:0;top:12px;width:8px;height:1px;background:var(--gold);"></span>Houzz, Pinterest, and Google Business Profile setup</li>
+</ul>
+<p style="font-size:0.88rem;color:var(--ink);margin:16px 0 0;font-weight:400;"><strong>$15,000 one-time</strong> bundled with any retainer tier, or <strong>$1,000/mo</strong> added to monthly billing over 12 months.</p>
+</div>
+    
+  </div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="section light" data-nav="Roadmap">
+  <div class="eyebrow">3-Month Pilot Roadmap</div>
+  <h2>What gets done.<br><em>Month by month.</em></h2>
+  <p>The pilot runs May through July. Three projects documented to editorial standard. The four flagship projects that aren't on your website finally get captured.</p>
+  <div class="roadmap">
+    <div class="roadmap-line" id="roadmapLine"></div>
+    
+    <div class="rm">
+      <div class="rm-left">
+        <div class="rm-month">May 2026</div>
+        <div class="rm-label">Calgary Penthouse +<br>Mad Hen Re-shoot</div>
+      </div>
+      <div class="rm-right">
+        <ul>
+          
+          <li>Two-day Calgary trip — Hon Developments Guardian Towers penthouse</li>
+          
+          <li>Full editorial set: 11,000 sq ft, exterior context, interiors, details</li>
+          
+          <li>Western Living Calgary submission package prepped</li>
+          
+          <li>Half-day Mad Hen re-shoot in Gibsons</li>
+          
+          <li>Wall of stars styling, food + space integration, BTS Reel content</li>
+          
+          <li>Submission-ready for Eater Vancouver and BC Restaurant News</li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="rm">
+      <div class="rm-left">
+        <div class="rm-month">June 2026</div>
+        <div class="rm-label">Blue Heron Inn<br>Sechelt</div>
+      </div>
+      <div class="rm-right">
+        <ul>
+          
+          <li>Editorial documentation of the in-progress renovation</li>
+          
+          <li>Returned wrap shoot once the build is far enough along</li>
+          
+          <li>Boutique hotel case study suitable for Gray Magazine and Azure</li>
+          
+          <li>Lead asset for the homepage relaunch</li>
+          
+          <li>Strategy call: review Month 1, plan summer push</li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="rm">
+      <div class="rm-left">
+        <div class="rm-month">July 2026</div>
+        <div class="rm-label">Coastline Health +<br>Showroom Editorial</div>
+      </div>
+      <div class="rm-right">
+        <ul>
+          
+          <li>Coastline Health interior — healthcare/wellness niche</li>
+          
+          <li>Full editorial set, suitable for Gray Magazine annual healthcare issue</li>
+          
+          <li>Showroom editorial day in Lower Gibsons</li>
+          
+          <li>Camerich + Ethnicraft + Keilhauer in-context</li>
+          
+          <li>Pilot review and 12-month continuation decision</li>
+          
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="stats">
+    
+    <div class="stat"><span class="stat-val">4</span><span class="stat-lbl">Flagship Projects</span></div>
+    
+    <div class="stat"><span class="stat-val">120+</span><span class="stat-lbl">Editorial Images</span></div>
+    
+    <div class="stat"><span class="stat-val">3</span><span class="stat-lbl">Publication Submissions</span></div>
+    
+    <div class="stat"><span class="stat-val">90</span><span class="stat-lbl">Days to Prove It</span></div>
+    
+  </div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="section" data-nav="Vision">
+  <div class="eyebrow">The 12-Month Vision</div>
+  <h2>What a full year<br><em>looks like.</em></h2>
+  <p>Goosen Design's project list is already publication-grade. A full year of editorial photography, submission prep, and content turns it into the most visible interior design studio on the Sunshine Coast.</p>
+  <div class="tl">
+    
+    <div class="tl-item">
+      <div class="tl-q">Q2 2026</div>
+      <div class="tl-content">
+        <h4>Prove the Model</h4>
+        <p>Calgary penthouse, Mad Hen re-shoot, Blue Heron Inn, Coastline Health. The four missing flagships finally on the website. First publication submissions in flight.</p>
+      </div>
+    </div>
+    
+    <div class="tl-item">
+      <div class="tl-q">Q3 2026</div>
+      <div class="tl-content">
+        <h4>Compound</h4>
+        <p>Peak summer light. New residential projects on the Coast. Showroom editorial. Active social posting weekly. Pinterest reactivated. First Gray Magazine pitch.</p>
+      </div>
+    </div>
+    
+    <div class="tl-item">
+      <div class="tl-q">Q4 2026</div>
+      <div class="tl-content">
+        <h4>Leverage</h4>
+        <p>Fall/winter restaurant work. Robert Allen Design Awards entries prepped. Western Living submission window opens. Awards pipeline active for the first time in years.</p>
+      </div>
+    </div>
+    
+    <div class="tl-item">
+      <div class="tl-q">Q1 2027</div>
+      <div class="tl-content">
+        <h4>Separate</h4>
+        <p>12+ shoots banked. 400+ editorial assets. Verified award entries (or wins). Goosen Design online finally matches Goosen Design in person.</p>
+      </div>
+    </div>
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="numbers grain-section">
+  
+  <div class="num"><span class="num-val">12+</span><span class="num-lbl">Editorial Shoots</span></div>
+  
+  <div class="num"><span class="num-val">400+</span><span class="num-lbl">Submission-Ready Images</span></div>
+  
+  <div class="num"><span class="num-val">12</span><span class="num-lbl">Publication / Award Entries</span></div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="section cream" data-nav="Awards">
+  <div class="eyebrow">Awards &amp; Publications</div>
+  <h2>Zero verified credentials.<br><em>Time to fix that.</em></h2>
+  <p class="lead">Ethan, your About page claims international award-winning status, but I couldn't find a record in any major database I checked. ARIDO, Western Living Designers of the Year, Robert Allen, IIDA — nothing. That's not an attack, it's an opportunity. The portfolio absolutely qualifies for entry. The work just hasn't been submitted with submission-spec imagery.</p>
+  
+  <p>The studios that win consistently are the ones that submit consistently. Ashley de Boer in Squamish racked up 5+ nominations for 2025 alone. Beyond Beige in Vancouver has a wall of IDIBC wins. The difference isn't talent — it's having a partner who captures every shoot to submission spec from day one and manages the entry pipeline.</p>
+  
+  
+  <div class="numbers grain-section" style="margin:56px 0;">
+    
+    <div class="num"><span class="num-val">0</span><span class="num-lbl">Goosen Verified Awards</span></div>
+    
+    <div class="num"><span class="num-val">5+</span><span class="num-lbl">Ashley de Boer 2025 Nominations</span></div>
+    
+    <div class="num"><span class="num-val">16</span><span class="num-lbl">Goosen Projects Ready to Submit</span></div>
+    
+  </div>
+  
+  
+  <h3>What I Handle</h3><p>Every shoot is photographed to award-submission spec from day one. 300 DPI JPEG, color-calibrated, anonymized as required. I prepare entry materials, identify the right categories, and manage the submission process. You focus on designing.</p>
+  
+  
+  <div class="services" style="margin:40px 0;">
+    
+    <div class="svc">
+      <h4>Award Submissions</h4>
+      <ul>
+        
+        <li>Robert Allen Design Awards</li>
+        
+        <li>Western Living Designers of the Year</li>
+        
+        <li>ARIDO Awards of Excellence</li>
+        
+        <li>IDIBC Awards</li>
+        
+        <li>AZ Awards (commercial / hospitality)</li>
+        
+      </ul>
+    </div>
+    
+    <div class="svc">
+      <h4>Publication Pitches</h4>
+      <ul>
+        
+        <li>Western Living &middot; Western Living Calgary</li>
+        
+        <li>Gray Magazine &middot; AZURE</li>
+        
+        <li>Dwell &middot; House &amp; Home</li>
+        
+        <li>Eater Vancouver, BC Restaurant News</li>
+        
+        <li>Sprudge for hospitality</li>
+        
+      </ul>
+    </div>
+    
+  </div>
+  
+  
+  <div class="insight">
+    <h4>16 Projects, 12+ Potential Submissions</h4>
+    <p>The Calgary penthouse alone could be entered into Robert Allen, Western Living Calgary, and ARIDO. The Mad Hen could be pitched to Eater, BC Restaurant News, and Gray. <strong>The work is publishable. The imagery just isn't ready.</strong> A retainer fixes that permanently.</p>
+  </div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="section" data-nav="Next Steps">
+  <div class="eyebrow">Next Steps</div>
+  <h2>We just met.<br><em>Let's start with one shoot.</em></h2>
+  
+  <p>Ethan, the easiest way to know if this works is to do it once. Pick the project that means the most — I'd argue the Calgary penthouse — and let me document it properly. Within three weeks of the shoot you'll have an editorial set, submission packages prepped, and a Western Living Calgary pitch ready to go.</p>
+  
+  <p>If the pilot delivers, we lock in the 12-month retainer. If it doesn't, you walk away with the Calgary penthouse documented for the first time, submission-grade imagery, and content for the next six months of social. There's no downside.</p>
+  
+  
+  <div class="steps">
+    
+    <div class="step">
+      <span class="step-num">1</span>
+      <h4>Pick Your Tier</h4>
+      <p>Foundation, Editorial, or Full Creative Partner. Or just commit to the 3-month pilot at the Editorial tier.</p>
+    </div>
+    
+    <div class="step">
+      <span class="step-num">2</span>
+      <h4>Deposit + Calgary Trip</h4>
+      <p>50% of the pilot total locks in May. Calgary trip booked within 4 weeks of signing.</p>
+    </div>
+    
+    <div class="step">
+      <span class="step-num">3</span>
+      <h4>First Shoot</h4>
+      <p>Calgary penthouse documented. Western Living Calgary submission prepped. Momentum starts.</p>
+    </div>
+    
+  </div>
+  
+  
+  <p style="margin-top:24px; font-size:0.85rem; color:var(--stone);">This proposal is valid through <strong style="color:var(--ink);">May 15, 2026</strong>. After that, May availability cannot be guaranteed.</p>
+  
+</div>
+
+
+
+
+
+
+
+<!-- FOOTER -->
+<div class="footer grain-section">
+  <div class="footer-mark">Matt Anthony Photography</div>
+  <div class="footer-info">
+    <a href="https://mattanthonyphoto.com">mattanthonyphoto.com</a><br>
+    <a href="mailto:info@mattanthonyphoto.com">info@mattanthonyphoto.com</a> &middot; 604.765.9270<br>
+    Squamish, BC
+  </div>
+  <div class="footer-note">This proposal is confidential and prepared exclusively for Goosen Design Inc..</div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ═══════ LOADING SCREEN ═══════ */
+  var loader = document.getElementById('loader');
+  window.addEventListener('load', function(){
+    setTimeout(function(){ loader.classList.add('done'); }, 1100);
+  });
+
+  /* ═══════ SCROLL PROGRESS BAR ═══════ */
+  var progressBar = document.getElementById('scrollProgress');
+  function updateProgress(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var s = window.scrollY;
+    progressBar.style.width = (h > 0 ? (s / h) * 100 : 0) + '%';
+  }
+
+  /* ═══════ COVER PARALLAX ═══════ */
+  var coverImg = document.querySelector('.cover-image');
+  function updateParallax(){
+    if(window.scrollY < window.innerHeight){
+      coverImg.style.transform = 'scale(1.08) translateY(' + (window.scrollY * 0.3) + 'px)';
+    }
+  }
+
+  /* ═══════ PHOTO BREAK PARALLAX + KEN BURNS ═══════ */
+  var isTouchDevice = 'ontouchstart' in window;
+  var photoBreakEls = document.querySelectorAll('.photo-break');
+  var photoBreakImgs = document.querySelectorAll('.photo-break img');
+  function updatePhotoParallax(){
+    photoBreakEls.forEach(function(pb){
+      var rect = pb.getBoundingClientRect();
+      var inView = rect.bottom > 0 && rect.top < window.innerHeight;
+      if(inView){
+        pb.classList.add('in-view');
+      } else {
+        pb.classList.remove('in-view');
+      }
+    });
+  }
+
+  /* ═══════ SECTION NAV DOTS ═══════ */
+  var sectionNav = document.getElementById('sectionNav');
+  var navSections = document.querySelectorAll('[data-nav]');
+  var navDots = [];
+  navSections.forEach(function(sec){
+    var dot = document.createElement('div');
+    dot.className = 'section-nav-dot';
+    dot.setAttribute('data-label', sec.getAttribute('data-nav'));
+    dot.addEventListener('click', function(){
+      sec.scrollIntoView({ behavior:'smooth', block:'start' });
+    });
+    sectionNav.appendChild(dot);
+    navDots.push({ dot:dot, section:sec });
+  });
+
+  function updateNavDots(){
+    var scrollY = window.scrollY;
+    var winH = window.innerHeight;
+    // Show/hide nav (hide on cover)
+    if(scrollY > winH * 0.5){
+      sectionNav.classList.add('visible');
+    } else {
+      sectionNav.classList.remove('visible');
+    }
+    // Highlight active section
+    var active = null;
+    navDots.forEach(function(item){
+      var rect = item.section.getBoundingClientRect();
+      if(rect.top < winH * 0.5 && rect.bottom > winH * 0.3){
+        active = item;
+      }
+      item.dot.classList.remove('active');
+    });
+    if(active) active.dot.classList.add('active');
+  }
+
+  /* ═══════ SCROLL REVEAL ═══════ */
+  var revealTargets = [];
+  document.querySelectorAll('.section, .numbers, .mosaic').forEach(function(section){
+    section.querySelectorAll('.eyebrow, h2, .lead, .stats, .services, .tiers, .insight, .roadmap, .tl, .numbers, .steps, .addons').forEach(function(el, i){
+      el.classList.add('reveal');
+      if(i > 0 && i < 6) el.classList.add('reveal-delay-' + i);
+      revealTargets.push(el);
+    });
+    section.querySelectorAll('.stat, .svc, .tier, .step, .num, .rm, .tl-item').forEach(function(el, i){
+      el.classList.add('reveal');
+      el.classList.add('reveal-delay-' + Math.min(i + 1, 5));
+      revealTargets.push(el);
+    });
+    Array.prototype.forEach.call(section.children, function(child){
+      if(child.tagName === 'P' && !child.classList.contains('lead') && !child.classList.contains('cover-sub')){
+        child.classList.add('reveal');
+        revealTargets.push(child);
+      }
+    });
+  });
+
+  var revealObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+        animateCounter(entry.target);
+      }
+    });
+  }, { threshold:0.15, rootMargin:'0px 0px -40px 0px' });
+
+  revealTargets.forEach(function(el){ revealObserver.observe(el); });
+
+  /* ═══════ EYEBROW LINE ANIMATION ═══════ */
+  var eyebrows = document.querySelectorAll('.eyebrow');
+  var eyebrowObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        eyebrowObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold:0.5 });
+  eyebrows.forEach(function(eb){ eyebrowObserver.observe(eb); });
+
+  /* ═══════ NUMBER COUNTER ANIMATION ═══════ */
+  function animateCounter(el){
+    var valEl = el.querySelector('.stat-val, .num-val');
+    if(!valEl || valEl.dataset.counted) return;
+    valEl.dataset.counted = 'true';
+    var text = valEl.textContent.trim();
+    var hasPlus = text.indexOf('+') > -1;
+    var num = parseInt(text.replace(/[^0-9]/g,''), 10);
+    if(isNaN(num) || num === 0) return;
+    var duration = 1200;
+    var start = performance.now();
+    function ease(t){ return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2; }
+    function tick(now){
+      var t = Math.min((now - start) / duration, 1);
+      var val = Math.round(ease(t) * num);
+      valEl.textContent = val + (hasPlus ? '+' : '');
+      if(t < 1) requestAnimationFrame(tick);
+    }
+    valEl.textContent = '0' + (hasPlus ? '+' : '');
+    requestAnimationFrame(tick);
+  }
+
+  /* ═══════ PHOTO BREAK CURTAIN REVEAL ═══════ */
+  var photoRevealObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('revealed');
+        photoRevealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold:0.1 });
+  photoBreakEls.forEach(function(pb){ photoRevealObserver.observe(pb); });
+
+  /* ═══════ HEADLINE GOLD UNDERLINE ═══════ */
+  var headlines = document.querySelectorAll('h2');
+  var headlineObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('underlined');
+        headlineObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold:0.5 });
+  headlines.forEach(function(h){ headlineObserver.observe(h); });
+
+  /* ═══════ SCROLL INDICATOR HIDE ═══════ */
+  var scrollIndicator = document.getElementById('scrollIndicator');
+  function updateScrollIndicator(){
+    if(window.scrollY > 100){
+      scrollIndicator.classList.add('hidden');
+    } else {
+      scrollIndicator.classList.remove('hidden');
+    }
+  }
+
+  /* ═══════ TIER SELECTION + 3D TILT ═══════ */
+  var tiers = document.querySelectorAll('.tier[data-tier]');
+  tiers.forEach(function(tier){
+    tier.addEventListener('click', function(){
+      tiers.forEach(function(t){ t.classList.remove('selected'); });
+      tier.classList.add('selected');
+    });
+    if(!isTouchDevice){
+      tier.addEventListener('mousemove', function(e){
+        var rect = tier.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width - 0.5;
+        var y = (e.clientY - rect.top) / rect.height - 0.5;
+        tier.style.transform = tier.classList.contains('rec')
+          ? 'scaleY(1.02) perspective(800px) rotateY(' + (x * 4) + 'deg) rotateX(' + (-y * 4) + 'deg)'
+          : 'perspective(800px) rotateY(' + (x * 4) + 'deg) rotateX(' + (-y * 4) + 'deg)';
+      });
+      tier.addEventListener('mouseleave', function(){
+        tier.style.transform = tier.classList.contains('rec') ? 'scaleY(1.02)' : '';
+      });
+    }
+  });
+
+  /* ═══════ ROADMAP LINE DRAW ═══════ */
+  var roadmapLine = document.getElementById('roadmapLine');
+  var roadmap = document.querySelector('.roadmap');
+  function updateRoadmapLine(){
+    if(!roadmap || !roadmapLine) return;
+    var rect = roadmap.getBoundingClientRect();
+    var roadmapTop = rect.top + window.scrollY;
+    var roadmapHeight = rect.height - 96;
+    var scrollPos = window.scrollY + window.innerHeight * 0.6;
+    var progress = (scrollPos - roadmapTop - 48) / roadmapHeight;
+    progress = Math.max(0, Math.min(1, progress));
+    roadmapLine.style.height = (progress * roadmapHeight) + 'px';
+  }
+
+  /* ═══════ SMOOTH SCROLL FOR CTA ═══════ */
+  document.querySelector('.cover-cta').addEventListener('click', function(e){
+    e.preventDefault();
+    var target = document.querySelector(this.getAttribute('href'));
+    if(target) target.scrollIntoView({ behavior:'smooth', block:'start' });
+  });
+
+  /* ═══════ COMBINED SCROLL HANDLER ═══════ */
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if(!ticking){
+      requestAnimationFrame(function(){
+        updateProgress();
+        updateParallax();
+        updatePhotoParallax();
+        updateScrollIndicator();
+        updateRoadmapLine();
+        updateNavDots();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, {passive:true});
+
+  // Init
+  updateProgress();
+  updateParallax();
+  updatePhotoParallax();
+  updateRoadmapLine();
+  updateNavDots();
+
+})();
+</script>
+
 </body>
 </html>
