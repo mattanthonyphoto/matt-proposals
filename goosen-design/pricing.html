@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Goosen Design — Creative Partner Pricing</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1A1A18;
+  --paper: #F6F4F0;
+  --white: #FFFFFF;
+  --gold: #C9A96E;
+  --gold-dim: rgba(201,169,110,0.10);
+  --gold-border: rgba(201,169,110,0.35);
+  --stone: #8A8579;
+  --light-stone: #D9D5CD;
+  --rule: rgba(26,26,24,0.10);
+}
+@page { size: Letter; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--paper); }
+body {
+  font-family: 'DM Sans', -apple-system, system-ui, sans-serif;
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1.5;
+  font-size: 10.5pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.page {
+  width: 8.5in;
+  min-height: 11in;
+  padding: 0.65in 0.7in 0.85in;
+  margin: 0 auto;
+  background: var(--paper);
+  position: relative;
+}
+.eyebrow {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 8.5pt;
+  font-weight: 300;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 18px;
+}
+.eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: var(--gold);
+}
+h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  font-size: 30pt;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 0 0 8px;
+  color: var(--ink);
+}
+h1 em { font-style: italic; color: var(--gold); font-weight: 500; }
+.subtitle {
+  font-size: 10pt;
+  color: var(--stone);
+  line-height: 1.5;
+  margin: 0 0 28px;
+  max-width: 6.5in;
+}
+.divider {
+  height: 1px;
+  background: var(--rule);
+  margin: 22px 0 26px;
+}
+.section-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 7.5pt;
+  font-weight: 400;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 14px;
+}
+
+/* The headline math comparison */
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin: 0 0 24px;
+}
+.option {
+  border: 1px solid var(--rule);
+  background: var(--white);
+  padding: 22px 24px;
+  position: relative;
+}
+.option.recommended {
+  border: 1px solid var(--gold);
+  background: var(--gold-dim);
+}
+.option-tag {
+  position: absolute;
+  top: -8px;
+  left: 14px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 6.5pt;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+}
+.option.recommended .option-tag {
+  background: var(--gold);
+  color: var(--ink);
+}
+.option-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 17pt;
+  font-weight: 400;
+  margin: 10px 0 4px;
+  color: var(--ink);
+}
+.option-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 24pt;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0 0 4px;
+  line-height: 1;
+}
+.option-price small {
+  font-size: 10pt;
+  font-weight: 400;
+  color: var(--stone);
+}
+.option-term {
+  font-size: 8.5pt;
+  color: var(--stone);
+  margin: 0 0 16px;
+}
+.option ul {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+}
+.option li {
+  font-size: 9pt;
+  padding: 6px 0 6px 16px;
+  position: relative;
+  color: var(--ink);
+  line-height: 1.45;
+}
+.option li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 14px;
+  width: 8px;
+  height: 1px;
+  background: var(--gold);
+}
+.option-total {
+  font-size: 8pt;
+  margin-top: 16px;
+  padding-top: 14px;
+  border-top: 1px solid var(--rule);
+  color: var(--stone);
+  font-family: 'Josefin Sans', sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.option-total strong {
+  color: var(--ink);
+  font-weight: 500;
+  font-size: 11pt;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* Tiers strip — showing all 3 options for completeness */
+.tiers {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 18px;
+  margin: 0 0 24px;
+}
+.tier {
+  border: 1px solid var(--rule);
+  background: var(--white);
+  padding: 20px 20px;
+}
+.tier.recommended {
+  border: 1px solid var(--gold);
+  background: var(--gold-dim);
+}
+.tier-name {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 7pt;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 8px;
+}
+.tier-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 21pt;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0 0 4px;
+  line-height: 1;
+}
+.tier-price small {
+  font-size: 9pt;
+  font-weight: 400;
+  color: var(--stone);
+}
+.tier-yr {
+  font-size: 8pt;
+  color: var(--stone);
+  margin: 0 0 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+.tier-includes {
+  font-size: 8.5pt;
+  color: var(--ink);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* Why this works box */
+.why-box {
+  background: var(--white);
+  border-left: 3px solid var(--gold);
+  padding: 20px 26px;
+  margin: 0 0 18px;
+}
+.why-box .label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 7pt;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 12px;
+}
+.why-box p {
+  font-size: 9pt;
+  color: var(--ink);
+  margin: 0 0 10px;
+  line-height: 1.6;
+}
+.why-box p:last-child { margin-bottom: 0; }
+.why-box .value-callout {
+  display: inline-block;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 7.5pt;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--gold);
+  border: 1px solid var(--gold);
+  padding: 4px 10px;
+  margin: 8px 0 0;
+}
+
+/* Footer */
+.footer {
+  position: absolute;
+  bottom: 0.55in;
+  left: 0.7in;
+  right: 0.7in;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 7pt;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+.footer .name {
+  color: var(--ink);
+  font-weight: 400;
+}
+.footer .right { text-align: right; }
+
+/* The pull-stat */
+.pull {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13pt;
+  color: var(--ink);
+  margin: 22px 0 28px;
+  padding: 6px 0 6px 18px;
+  border-left: 2px solid var(--gold);
+  line-height: 1.45;
+  max-width: 6.5in;
+}
+.pull strong { font-style: normal; color: var(--gold); font-weight: 500; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="eyebrow">Goosen Design &middot; Creative Partner</div>
+  <h1>Your best work<br>deserves to be <em>seen.</em></h1>
+  <div class="subtitle">Mad Hen, Blue Heron Inn, Coastline Health, the Calgary penthouse. The projects that should anchor your homepage aren't on your site at all. One partner, one monthly investment, one number on the page.</div>
+
+  <div class="divider"></div>
+
+  <div class="section-label">Three tiers — pick the problem you want solved</div>
+
+  <div class="tiers">
+    <div class="tier">
+      <div class="tier-name">Foundation</div>
+      <div class="tier-price">$2,500<small> / mo</small></div>
+      <div class="tier-yr">$30,000 / year &middot; 12 mo</div>
+      <div class="tier-includes"><strong>&ldquo;Keep us findable.&rdquo;</strong> Wix site management. 1 SEO blog post per month. Quarterly SEO audit. Google Business Profile setup. Houzz + Pinterest profile activation.</div>
+    </div>
+    <div class="tier recommended">
+      <div class="tier-name">Content Engine</div>
+      <div class="tier-price">$3,000<small> / mo</small></div>
+      <div class="tier-yr">$36,000 / year &middot; 12 mo</div>
+      <div class="tier-includes"><strong>&ldquo;Keep us active.&rdquo;</strong> Foundation + social media (3 posts/week across IG, LinkedIn, Pinterest) + 1 project feature blog post per month + showroom content.</div>
+    </div>
+    <div class="tier">
+      <div class="tier-name">Full Creative Partner</div>
+      <div class="tier-price">$3,500<small> / mo</small></div>
+      <div class="tier-yr">$42,000 / year &middot; 12 mo</div>
+      <div class="tier-includes"><strong>&ldquo;Be our complete creative arm.&rdquo;</strong> Content Engine + 4 quarterly portfolio shoot days + <strong>Wix to Squarespace migration ($10,000 value, included)</strong> + year-end documentary film.</div>
+    </div>
+  </div>
+
+  <div class="pull">Each tier solves a different problem. Foundation is for studios who already have photography sorted. Content Engine is for studios who need ongoing visibility. <strong>Full Creative Partner is the complete program — photography, website, content, all of it under one number.</strong></div>
+
+  <div class="section-label">What the Full tier delivers in Year 1</div>
+
+  <div class="compare">
+    <div class="option recommended">
+      <div class="option-tag">Recommended</div>
+      <div class="option-name">Full Creative Partner</div>
+      <div class="option-price">$3,500<small> / mo</small></div>
+      <div class="option-term">12-month term &middot; $42,000 Year 1</div>
+      <ul>
+        <li>Calgary Guardian Towers penthouse documented (Month 1)</li>
+        <li>4 quarterly portfolio shoot days &middot; ~$10,000 value</li>
+        <li><strong>Wix to Squarespace migration &middot; $10,000 value</strong></li>
+        <li>3 social posts/week, 12 SEO blog posts, 12 project features/year</li>
+        <li>Submission packages: Western Living, Gray, AZURE, Eater</li>
+        <li>Showroom editorial each quarter</li>
+        <li>Year-end documentary film (2 to 3 min)</li>
+      </ul>
+      <div class="option-total">Year 1 Total &middot; <strong>$42,000</strong></div>
+    </div>
+
+    <div class="option">
+      <div class="option-tag">Add-Ons</div>
+      <div class="option-name">Member Rates</div>
+      <div class="option-price">À la carte<small></small></div>
+      <div class="option-term">When the quarterly cadence isn't enough</div>
+      <ul>
+        <li><strong>Portfolio shoot day</strong> &middot; $2,000 <em>(vs $4,500 retail)</em></li>
+        <li><strong>Job site shoot — half day</strong> &middot; $750</li>
+        <li><strong>Job site shoot — full day</strong> &middot; $1,500</li>
+        <li><strong>Drone aerials per shoot</strong> &middot; $400</li>
+        <li><strong>Architectural film 60–90 sec</strong> &middot; $3,000 <em>(vs $4,500 retail)</em></li>
+        <li>Booked through priority calendar (1 to 2 weeks lead time)</li>
+      </ul>
+      <div class="option-total">All tiers &middot; <strong>Member rates</strong></div>
+    </div>
+  </div>
+
+  <div class="why-box">
+    <div class="label">Why the Full tier is the math everyone picks</div>
+    <p>You have the project list of a Western Living Designer of the Year nominee — Mad Hen, Blue Heron Inn, the Calgary penthouse, Dale MacKay restaurants — and the digital footprint of a one-year-old studio. The work is luxury. The presentation isn't. This program fixes both at the same time.</p>
+    <p>The jump from Content Engine to Full Creative Partner is <strong>$500/mo more</strong> ($6,000/year). What you get for that: <strong>4 quarterly portfolio shoot days</strong> (~$10,000 standalone value) + <strong>a full Wix to Squarespace migration</strong> (a $10,000 standalone project) + the year-end documentary film. That's roughly <strong>$20,000+ of standalone value bundled into the tier</strong> for $6,000 of incremental cost — which only works because we're partnered for 12 months and the math amortizes.</p>
+    <span class="value-callout">Standalone website migration &middot; $10,000 &middot; Included in Full tier</span>
+  </div>
+
+  <div class="footer">
+    <div>
+      <div class="name">Matt Anthony Photography</div>
+      <div>April 2026 &middot; Valid through May 15, 2026</div>
+    </div>
+    <div class="right">
+      <div>mattanthonyphoto.com</div>
+      <div>604.765.9270 &middot; info@mattanthonyphoto.com</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
