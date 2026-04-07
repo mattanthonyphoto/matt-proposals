@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matt Anthony Photography — Digital Audit · GD Nielsen Homes</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1A1A18;
+  --paper: #F6F4F0;
+  --white: #FFFFFF;
+  --gold: #C9A96E;
+  --gold-dim: rgba(201,169,110,0.12);
+  --gold-border: rgba(201,169,110,0.30);
+  --muted: #6B6B68;
+  --rule: rgba(26,26,24,0.12);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'DM Sans', -apple-system, system-ui, sans-serif;
+  font-weight: 300;
+  line-height: 1.75;
+  font-size: 16px;
+}
+.container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 80px 56px 120px;
+}
+.eyebrow {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 300;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+.eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  font-size: 3.6rem;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 0 0 24px;
+  color: var(--ink);
+}
+h1 em { font-style: italic; color: var(--gold); font-weight: 500; }
+h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  font-size: 2.2rem;
+  line-height: 1.15;
+  margin: 72px 0 22px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+  color: var(--ink);
+}
+h3 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 40px 0 14px;
+}
+h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  margin: 24px 0 8px;
+  color: var(--ink);
+}
+p { margin: 0 0 18px; }
+strong { color: var(--ink); font-weight: 500; }
+em { color: var(--ink); }
+ul, ol { padding-left: 22px; margin: 0 0 22px; }
+li { margin-bottom: 8px; }
+a { color: var(--ink); border-bottom: 1px solid var(--gold); text-decoration: none; }
+a:hover { color: var(--gold); }
+blockquote {
+  border-left: 2px solid var(--gold);
+  padding: 6px 24px;
+  margin: 28px 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 1.35rem;
+  line-height: 1.4;
+  color: var(--ink);
+}
+code {
+  background: rgba(26,26,24,0.06);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.85em;
+}
+hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 24px 0;
+  font-size: 0.92rem;
+}
+th, td {
+  border-bottom: 1px solid var(--rule);
+  padding: 12px 14px;
+  text-align: left;
+  vertical-align: top;
+}
+th {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-bottom: none;
+}
+tr:nth-child(even) td { background: rgba(26,26,24,0.025); }
+.footer {
+  margin-top: 96px;
+  padding-top: 32px;
+  border-top: 1px solid var(--rule);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 720px) {
+  .container { padding: 48px 24px 80px; }
+  h1 { font-size: 2.4rem; }
+  h2 { font-size: 1.6rem; }
+  table { font-size: 0.82rem; }
+  th, td { padding: 8px 10px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="eyebrow">Digital Audit · GD Nielsen Homes</div>
+  <h1>GD Nielsen Homes — Digital Audit</h1>
+<p><em>Prepared for the discovery call, April 7, 2026</em></p>
+<h2>1. Snapshot</h2>
+<p>GD Nielsen Homes is a 40-year-old luxury custom builder ($1.5M–$10M jobs) in North Vancouver, with a deep portfolio of 26 West Van waterfront and view homes — but a thin, dated, Squarespace marketing layer that dramatically undersells the work. They have real award credentials (Georgie wins, Avid Custom Builder, BBB A+), but their website tells almost no project stories, their Instagram is dormant, they have <strong>zero Houzz reviews and only 4 Google reviews</strong>, and on the photography front they have a clear interior-coverage gap that is leaving Georgie- and publication-grade projects invisible. Significant low-hanging fruit for both a photography retainer and a website rebuild.</p>
+<h2>2. Website Audit — Deep Dive</h2>
+<p><strong>Platform:</strong> Squarespace (template ID <code>5c5a519771c10ba3470d8101</code>, the "Brine" family). Site ID <code>627d12ecf0ba952af9f14cfb</code>. The site was last meaningfully refreshed around March 2023 based on the logo asset timestamp in og:image (<code>1678917520351</code> = Mar 15, 2023).</p>
+<h3>Structure / Sitemap</h3>
+<p>Pulled from <code>gdnielsen.com/sitemap.xml</code>:</p>
+<ul>
+<li><code>/home</code></li>
+<li><code>/story</code> (about, called "Story")</li>
+<li><code>/projects</code> (portfolio index)</li>
+<li><code>/projects/[26 individual project pages]</code></li>
+<li><code>/process</code></li>
+<li><code>/awards</code></li>
+<li><code>/careers</code></li>
+<li><code>/contact</code></li>
+<li><code>/home-3</code> <em>(orphan/test page — should be deleted)</em></li>
+<li><strong>Mandarin mirror:</strong> <code>/home-cn</code>, <code>/story-cn</code>, <code>/contact-cn</code>, <code>/process-cn</code>, <code>/awards-cn</code> — only 5 of 8 pages translated, no Chinese projects index, <strong>no hreflang tags</strong>. Half-built international play targeting Mainland Chinese buyers — currently more SEO harm than good.</li>
+</ul>
+<p><strong>Critical absences:</strong>
+- No Blog / Journal / News
+- No Team page (Greg, DK, Diane, Derrick — all four people on tomorrow's call are invisible to prospects)
+- No Services page breaking down custom build vs renovation vs additions
+- No Press / Publications page
+- No dedicated Testimonials page
+- No FAQ
+- No project filtering (budget / location / style)</p>
+<h3>Photography on the site</h3>
+<p>Coverage is <strong>wildly inconsistent across the 26 projects</strong>.</p>
+<table>
+<thead>
+<tr>
+<th>Tier</th>
+<th>Projects</th>
+<th>Quality</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Strong</strong> (full set, magazine-ready)</td>
+<td>Marine Manor, Ocean Front Estate, Kerrisdale Zen, West Van Sanctuary, Sentinel</td>
+<td>Pro-grade exteriors, naturally lit interiors</td>
+</tr>
+<tr>
+<td><strong>Weak</strong> (one hero exterior, no interior)</td>
+<td>Casa at the Cove, Cammeray Heights, Forested Family Estate, Dramatic Shingle Style, Spectacular Stone Chimney, Rockwood, Peaceful Serenity</td>
+<td>Single shot only</td>
+</tr>
+</tbody>
+</table>
+<p><strong>~40-50% of the portfolio is showcased with one exterior photo only — including their Georgie-winning Forested Family Estate.</strong></p>
+<ul>
+<li><strong>Exteriors:</strong> Decent → Strong on the projects that have any coverage</li>
+<li><strong>Interiors:</strong> Strong on ~5 projects, <strong>completely missing on roughly 10</strong>. Single biggest visual gap on the site.</li>
+<li><strong>Photographer credits:</strong> <strong>Zero on any project page reviewed.</strong></li>
+</ul>
+<h3>Content / Project Page Depth</h3>
+<p>Second-biggest gap.</p>
+<ul>
+<li><strong>Casa at the Cove</strong> — only page with a real multi-section narrative (stone/cedar facade, downtown views, wine cellar, smart home)</li>
+<li><strong>Howe Sound Haven</strong> — short paragraph (ocean views, master bath)</li>
+<li><strong>Vista Estate</strong> — brief description (cedar/stone, amenities)</li>
+<li><strong>Every other project page</strong> — only "Location | West Vancouver" as descriptive text. <strong>No square footage anywhere on the site. No completion year. No site or program description.</strong></li>
+</ul>
+<p><strong>Design credits sporadic:</strong>
+- Cammeray Heights → Craig Chevalier Custom Home Designs + Oy Christopher Design
+- Casa at the Cove → Craig Chevalier Designs + Living Radius
+- Howe Sound Haven → Alex Voth Design + Oy Christopher Design
+- Kerrisdale Zen → Kallweit Graham Architecture
+- Vista Estate → Rommel Design + Oy Christopher
+- Lions Gate Vista → Oy Christopher
+- <strong>The other 19 projects list no architect or designer at all</strong> — massive missed referral and SEO opportunity.</p>
+<p><strong>Award call-outs also inconsistent.</strong> Cammeray Heights, Kerrisdale Zen, Lions Gate Vista, and Vista Estate name specific Georgie/Ovation status. The other 22 projects (including Forested Family Estate, which won the Georgie for Best Single Family Kitchen over $100K) don't.</p>
+<h3>SEO</h3>
+<ul>
+<li>Page <code>&lt;title&gt;</code> is just <code>"GD Nielsen Homes "</code> (with a trailing space, no keyword) — <strong>terrible</strong></li>
+<li><strong>No <code>&lt;meta name="description"&gt;</code> tag</strong> found on the homepage. Squarespace is auto-generating a fallback. Fixable own-goal.</li>
+<li><strong>No JSON-LD / schema.org structured data</strong> at all. No LocalBusiness, no Organization, no BreadcrumbList. Leaving Google rich-result eligibility on the table.</li>
+<li>Open Graph image is the company logo on white — not a hero project — so every social share looks weak.</li>
+<li>Sitemap is healthy (89KB, lists all pages).</li>
+<li>Mandarin pages exist with no hreflang annotations.</li>
+<li>The duplicate <code>/home-3</code> page is an indexable orphan.</li>
+</ul>
+<h3>Technical</h3>
+<ul>
+<li>Squarespace = solid performance baseline, mobile responsive by default</li>
+<li>Image loading acceptable (homepage 128KB HTML)</li>
+<li>No obvious broken links in sitemap crawl</li>
+<li>Alt text on most project images likely empty (Squarespace default; would need page-level confirmation)</li>
+</ul>
+<h2>3. Project Portfolio Analysis</h2>
+<table>
+<thead>
+<tr>
+<th>Metric</th>
+<th>Finding</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Total projects</td>
+<td>26 (sitemap), site copy says "28"</td>
+</tr>
+<tr>
+<td>Projects with full interior+exterior set</td>
+<td>~5 (Marine Manor, Ocean Front, Kerrisdale Zen, West Van Sanctuary, Sentinel)</td>
+</tr>
+<tr>
+<td>Projects with only a hero exterior shot</td>
+<td>~10</td>
+</tr>
+<tr>
+<td>Projects with written narrative</td>
+<td>3 (Casa at the Cove, Howe Sound Haven, Vista Estate)</td>
+</tr>
+<tr>
+<td>Projects with architect/designer credit</td>
+<td>6 of 26</td>
+</tr>
+<tr>
+<td>Projects with photographer credit</td>
+<td><strong>0 of 26</strong></td>
+</tr>
+<tr>
+<td>Projects with square footage</td>
+<td><strong>0 of 26</strong></td>
+</tr>
+<tr>
+<td>Projects with completion year</td>
+<td><strong>0 of 26</strong></td>
+</tr>
+<tr>
+<td>Projects with award call-outs on the page</td>
+<td>4 of 26</td>
+</tr>
+<tr>
+<td>Award-winning projects with no interior photos shown</td>
+<td>At least 2 (Forested Family, Cammeray)</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Critical insight:</strong> GD Nielsen has likely shot many of these homes professionally already (Marine Manor, Kerrisdale Zen, etc. are clearly pro work), but those photos either weren't kept, weren't licensed for portfolio use, or the relationship with the photographer ended. <strong>This is exactly the situation a Creative Partner retainer is designed to fix.</strong></p>
+<h2>4. Social Media Presence</h2>
+<p><strong>Instagram — @gdnielsenhomes</strong>
+- Linked from site footer
+- Last detectable Reel: <strong>March 27, 2023</strong> — account roughly dormant for ~3 years
+- Live follower count blocked by IG anti-scraping; expect &lt;1,000
+- For comparison: <strong>Hasler Homes (their #1 North Van competitor) has 9,572 followers and 1,766 posts</strong>
+- No photographer credits in any cached caption</p>
+<p><strong>Facebook</strong>
+- Two pages exist: <code>/gdnielsenhomesvancouver/</code> (~731 followers) and a legacy <code>/GD-Nielsen-Homes-Ltd-156316014432414/</code>
+- They should consolidate. Duplicate-page situation alone tells you nobody is actively managing social.</p>
+<p><strong>LinkedIn — linkedin.com/company/gd-nielsen-homes-ld</strong>
+- <strong>171 followers</strong>
+- 5 employees listed (11–50 size band in schema)
+- Founded 1986 confirmed
+- <strong>No posts / no recent activity visible</strong>
+- Bio: "One of BC's top high end residential construction firms"</p>
+<p><strong>Houzz — gd-nielsen-homes-pfvwus-pf~1227814895</strong>
+- 26 projects uploaded
+- <strong>Zero reviews. Zero star rating. "You could be the first review."</strong>
+- <strong>Zero Best of Houzz badges</strong>
+- 2 followers
+- 5 ideabook saves
+- Listed job range CAD $1.5M–$10M
+- <strong>The single most embarrassing data point in the audit.</strong> A 40-year-old luxury builder doing $10M projects with zero Houzz reviews is a credibility hole any sophisticated client researching them will notice.</p>
+<p><strong>Google reviews</strong> — Birdeye aggregator shows 5★ but only <strong>4 reviews</strong>. For 40 years and ~1 home a year minimum, an enormous testimonial gap.</p>
+<p><strong>YouTube / Pinterest</strong> — No visible presence. Zero.</p>
+<p><strong>BBB</strong> — A+ rating, file opened 1992, <strong>NOT BBB Accredited</strong> (the awards page on their own site claims "BBB Accredited Business" — factually wrong, worth flagging tactfully).</p>
+<h2>5. Press, Awards, Recognition</h2>
+<p><strong>Confirmed wins / finalist mentions:</strong></p>
+<ul>
+<li><strong>Georgie Award — Best Single Family Kitchen over $100,000</strong> for Forested Family Estate</li>
+<li>Georgie — Customer Choice Award, Custom Builder</li>
+<li>Georgie — Best Small Volume Home Builder in BC</li>
+<li>Georgie — Best House over $2M</li>
+<li>Georgie — Best Outdoor Living Space</li>
+<li>Georgie Finalist 2016 — Cammeray Heights ($1.5–$3M, Outdoor Living)</li>
+<li>Georgie Finalist 2012 — Vista Estate ($1.5–$3M)</li>
+<li>Ovation Winner 2015 — Kerrisdale Zen ($1.5–$3M)</li>
+<li>Ovation Finalist 2016 — Cammeray Heights</li>
+<li>Ovation 2019 — Lions Gate Vista (Best Outdoor Living Space)</li>
+<li>Ovation — Best Custom Home $1.5–$3M</li>
+<li>Ovation — Best Outdoor Living Space</li>
+<li><strong>Avid Custom Builder Award</strong> — Best Customer Experience Among Custom Builders in Canada, 100% recommendation rate</li>
+<li><strong>CHBA Best Home Builder in BC, 2005</strong></li>
+<li>BBB A+ (not accredited despite their site claiming so)</li>
+</ul>
+<p><strong>Critical gap:</strong> Their awards page <strong>lists no years</strong> for most awards. A buyer can't tell whether these are 2007 or 2024 wins. They also have <strong>no Press / Publications section</strong> at all. Searches for "GD Nielsen Homes" + Western Living / Vancouver Magazine / BC Home returned no results — even if features exist, they aren't surfacing in search and aren't on the site.</p>
+<h2>6. Competitive Position vs. Top NV/WV Builders</h2>
+<table>
+<thead>
+<tr>
+<th>Rank</th>
+<th>Builder</th>
+<th>Marketing tier</th>
+<th>Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td><strong>Hasler Homes</strong></td>
+<td>Elite</td>
+<td><strong>2026 Georgie Custom Home Builder of the Year</strong>, 9.5K IG, 1,766 posts, finalist in 8 Georgie + 7 HAVAN categories. Two leagues ahead.</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Marble Construction</td>
+<td>Strong</td>
+<td>2x CHBA Best Single Family Detached in Canada (2016, 2017), strong IG, polished site</td>
+</tr>
+<tr>
+<td>3</td>
+<td>VictorEric Design + Build</td>
+<td>Strong</td>
+<td>Strong digital, design-build model</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Bradner Homes</td>
+<td>Mid</td>
+<td>250+ homes since 1992, mid-tier marketing</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>GD Nielsen</strong></td>
+<td>Mid (underperforming)</td>
+<td>Built work belongs in top 3; marketing puts them in bottom half</td>
+</tr>
+<tr>
+<td>6</td>
+<td>Goldcon Construction</td>
+<td>Mid</td>
+<td>25+ years, NV/WV</td>
+</tr>
+<tr>
+<td>7</td>
+<td>Upward Construction</td>
+<td>Niche</td>
+<td>Award-recognized, modern niche</td>
+</tr>
+<tr>
+<td>8</td>
+<td>Bolder Homes</td>
+<td>Niche</td>
+<td>Award-recognized, laneway + custom</td>
+</tr>
+</tbody>
+</table>
+<p><strong>GD Nielsen's relative position:</strong> Their <em>built work</em> belongs in the top 3 by tenure, awards, and project scale. Their <em>marketing presence</em> puts them in the bottom half — well behind Hasler, Marble, and VictorEric. <strong>The gap between deserved reputation and digital reputation is the biggest in the entire competitive set.</strong></p>
+<h2>7. Website Rebuild — What's Needed</h2>
+<p>A new gdnielsen.com should add:</p>
+<ol>
+<li><strong>Real project pages</strong> with narrative (300–500 words), site/program/material story, square footage, year, location, full credit block (architect, interior designer, landscape, photographer), and award flags</li>
+<li><strong>Filterable portfolio</strong> — by location (West Van / North Van / Vancouver / Whistler), style (modern, traditional, French, shingle, waterfront), budget tier</li>
+<li><strong>Team page</strong> with bios for Greg, DK, Diane, Derrick, plus key superintendents</li>
+<li><strong>Press / Publications page</strong> to capture features going forward</li>
+<li><strong>Testimonials page</strong> with real client stories pulled from the Avid 100% recommendation data and the existing Rick &amp; Shemin / Barb &amp; Jeff quotes on the Story page</li>
+<li><strong>Process page rebuild</strong> — current 4-step copy is generic; should include build timeline, what to expect month by month, photos of actual sites</li>
+<li><strong>Lead capture upgrades</strong> — consultation booking link, "request a portfolio PDF" magnet, qualifier fields (budget, lot status, timeline)</li>
+<li><strong>SEO foundation</strong> — proper titles/meta descriptions, LocalBusiness + Organization + BreadcrumbList schema, alt text on every image, hreflang for the Mandarin pages OR removal, deletion of /home-3 orphan</li>
+<li><strong>Award years and dating</strong> — every award labeled with year and project</li>
+<li><strong>Architect/designer SEO co-mentions</strong> — naming Craig Chevalier, Kallweit Graham, Alex Voth, Oy Christopher, Living Radius, Rommel on relevant project pages turns those pages into referral magnets and inbound link bait</li>
+<li><strong>Open Graph hero images</strong> per page, not the logo</li>
+<li><strong>Either kill or finish the Mandarin section</strong></li>
+</ol>
+<h2>8. Top 7 Gaps a Photographer + Website Partner Could Fix (Priority Order)</h2>
+<ol>
+<li><strong>~10 award-caliber projects have no interior coverage on the site.</strong> Including their Georgie kitchen winner. The #1 issue and the most natural pitch: re-shoot interiors on 6–10 priority projects (or shoot 2026 builds in full) so the portfolio finally matches the work.</li>
+<li><strong>Zero photographer credits anywhere</strong> — symptom of an unstable photography supply chain. A retainer relationship fixes this permanently.</li>
+<li><strong>No project narratives</strong> — every project page reads like a real estate listing without the listing. Copywriting bundle or paired writer.</li>
+<li><strong>Houzz has zero reviews and zero "Best of Houzz" badges</strong> for a 40-year builder. Reputational malpractice. Fixable via a structured review-request campaign tied to new project deliveries.</li>
+<li><strong>Instagram dormant since ~March 2023</strong> while chief competitor posts daily and just won Georgie Builder of the Year. A quarterly photography retainer naturally fuels a content engine.</li>
+<li><strong>No team page / bios</strong> — invisible humans behind a luxury purchase decision.</li>
+<li><strong>SEO basics</strong> — missing meta descriptions, missing schema, generic titles, duplicate /home-3 page, half-built Chinese mirror with no hreflang. All quick wins.</li>
+</ol>
+<h2>9. Top 4 Hooks for the Sales Conversation</h2>
+<p><strong>Hook 1 — The Georgie kitchen they don't show</strong></p>
+<blockquote>
+<p>"You've got at least one Georgie-winning project showing only a single exterior photo on your own website."</p>
+</blockquote>
+<p>Forested Family Estate, Best Single Family Kitchen over $100K — and there is no kitchen photo on the project page. Single most quantifiable gap. Perfect way to shift the conversation from "we need photos" to "you have already-built award winners that are completely invisible online."</p>
+<p><strong>Hook 2 — The competitive frame</strong></p>
+<blockquote>
+<p>"Hasler Homes just won 2026 Georgie Custom Home Builder of the Year with 9,500 Instagram followers and 1,700 posts. You're at well under 1,000 IG followers and your last reel was March 2023."</p>
+</blockquote>
+<p>Makes urgency real without trashing them — they're being outmarketed, not outbuilt.</p>
+<p><strong>Hook 3 — The reputation gap</strong></p>
+<blockquote>
+<p>"You've got a 40-year reputation, an Avid 100% recommendation score, and zero Houzz reviews and only 4 Google reviews surfacing publicly."</p>
+</blockquote>
+<p>A photographer + website partner can build the asset library and the content engine that finally captures the social proof their reputation has earned.</p>
+<p><strong>Hook 4 — The referral flywheel</strong></p>
+<blockquote>
+<p>"You already work with great architects and designers — Craig Chevalier, Kallweit Graham, Alex Voth, Oy Christopher, Living Radius, Rommel — and only 6 of your 26 project pages credit them."</p>
+</blockquote>
+<p>Crediting them is free referral marketing. Photographing the next round of joint projects is the relationship lubricant that turns "they built our house" into "we recommend them to every client." The Creative Partner story in one line.</p>
+<h2>10. Estimated Engagement Value</h2>
+<p><strong>The strongest combined photo + website opportunity in the current pipeline.</strong> They've already raised both topics on the call invite, the budget is clearly there ($1.5M–$10M jobs per Houzz), and the marketing gap is the largest of any luxury NV builder.</p>
+<p><strong>Realistic deal-size scenarios:</strong></p>
+<table>
+<thead>
+<tr>
+<th>Scenario</th>
+<th>Structure</th>
+<th>Year 1 Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Floor</strong> (photo only, transactional)</td>
+<td>4–6 archive re-shoots @ $3,500–$5,000</td>
+<td><strong>$15K–$30K</strong></td>
+</tr>
+<tr>
+<td><strong>Mid case</strong> (Creative Partner retainer)</td>
+<td>$2,500–$3,500/mo for monthly shoots + content</td>
+<td><strong>$30K–$42K recurring</strong></td>
+</tr>
+<tr>
+<td><strong>High case</strong> (retainer + website rebuild)</td>
+<td>Mid case + one-time $15K–$25K rebuild</td>
+<td><strong>$45K–$67K Year 1</strong>, then $30K–$42K recurring</td>
+</tr>
+<tr>
+<td><strong>Stretch</strong> (add Houzz/Google review engine + press outreach)</td>
+<td>High case + $500–$1K/mo lift</td>
+<td><strong>$70K+ Year 1</strong></td>
+</tr>
+</tbody>
+</table>
+<p><strong>Recommendation for tomorrow:</strong> Anchor the retainer ($2.5K–$3.5K/mo) as the centerpiece because it solves the supply-chain problem (no more orphaned project shoots) and bundle the website rebuild as a one-time Q2/Q3 project. <strong>Don't lead with website rebuild alone — they need the photography asset library <em>first</em></strong> or any new website launches with the same broken portfolio.</p>
+<hr />
+<h2>Sources</h2>
+<ul>
+<li><a href="https://www.gdnielsen.com/">GD Nielsen Homes — Home</a></li>
+<li><a href="https://www.gdnielsen.com/projects">GD Nielsen Homes — Projects</a></li>
+<li><a href="https://www.gdnielsen.com/story">GD Nielsen Homes — Story</a></li>
+<li><a href="https://www.gdnielsen.com/process">GD Nielsen Homes — Process</a></li>
+<li><a href="https://www.gdnielsen.com/awards">GD Nielsen Homes — Awards</a></li>
+<li><a href="https://www.gdnielsen.com/sitemap.xml">GD Nielsen Homes — Sitemap</a></li>
+<li><a href="https://www.houzz.com/professionals/general-contractors/gd-nielsen-homes-pfvwus-pf~1227814895">GD Nielsen on Houzz</a></li>
+<li><a href="https://ca.linkedin.com/company/gd-nielsen-homes-ld">GD Nielsen on LinkedIn</a></li>
+<li><a href="https://www.instagram.com/gdnielsenhomes/">GD Nielsen on Instagram</a></li>
+<li><a href="https://www.facebook.com/gdnielsenhomesvancouver/">GD Nielsen on Facebook</a></li>
+<li><a href="https://www.bbb.org/ca/bc/north-vancouver/profile/residential-general-contractor/gd-nielsen-homes-0037-114525">GD Nielsen on BBB</a></li>
+<li><a href="https://reviews.birdeye.com/gd-nielsen-homes-vancouver-custom-home-builder-171062477129699">GD Nielsen on Birdeye (Google reviews)</a></li>
+<li><a href="https://gdnielsen.wordpress.com/">GD Nielsen legacy WordPress site</a></li>
+<li><a href="https://www.rew.ca/guide/articles/best-in-building-the-georgie-awards-1.1342435">Best in Building: The Georgie Awards (REW)</a></li>
+<li><a href="https://georgieawards.ca/winners-and-finalists/hasler-homes-ltd-hasler-homes-ltd-2026-custom-home-builder-of-the-year/">Hasler Homes — 2026 Georgie Custom Home Builder of the Year</a></li>
+<li><a href="https://www.instagram.com/haslerhomesltd/">Hasler Homes Instagram</a></li>
+<li><a href="https://marblebc.ca/">Marble Construction</a></li>
+<li><a href="https://www.bradnerhomes.com/">Bradner Homes</a></li>
+<li><a href="https://www.houzz.com/professionals/home-builders/north-vancouver-bc-ca-probr0-bo~t_11823~r_6090785">Houzz — Best 15 New &amp; Custom Home Builders in North Vancouver</a></li>
+<li><a href="https://members.havan.ca/directory/Details/g-d-nielsen-homes-1980808">HAVAN member directory — GD Nielsen</a></li>
+</ul>
+  <div class="footer">
+    <span>Matt Anthony Photography</span>
+    <span>mattanthonyphoto.com</span>
+  </div>
+</div>
+</body>
+</html>
