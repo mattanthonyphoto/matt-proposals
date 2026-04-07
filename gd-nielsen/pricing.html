@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GD Nielsen Homes — Creative Partner Pricing</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1A1A18;
+  --paper: #F6F4F0;
+  --white: #FFFFFF;
+  --gold: #C9A96E;
+  --gold-dim: rgba(201,169,110,0.10);
+  --gold-border: rgba(201,169,110,0.35);
+  --stone: #8A8579;
+  --light-stone: #D9D5CD;
+  --rule: rgba(26,26,24,0.10);
+}
+@page { size: Letter; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--paper); }
+body {
+  font-family: 'DM Sans', -apple-system, system-ui, sans-serif;
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1.5;
+  font-size: 10.5pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.page {
+  width: 8.5in;
+  min-height: 11in;
+  padding: 0.55in 0.6in;
+  margin: 0 auto;
+  background: var(--paper);
+  position: relative;
+}
+.eyebrow {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 8.5pt;
+  font-weight: 300;
+  letter-spacing: 0.32em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.eyebrow::before {
+  content: '';
+  width: 28px;
+  height: 1px;
+  background: var(--gold);
+}
+h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  font-size: 30pt;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  margin: 0 0 4px;
+  color: var(--ink);
+}
+h1 em { font-style: italic; color: var(--gold); font-weight: 500; }
+.subtitle {
+  font-size: 10pt;
+  color: var(--stone);
+  margin: 0 0 20px;
+  max-width: 6.5in;
+}
+.divider {
+  height: 1px;
+  background: var(--rule);
+  margin: 14px 0 18px;
+}
+.section-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 7.5pt;
+  font-weight: 400;
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 0 0 8px;
+}
+
+/* The headline math comparison */
+.compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin: 0 0 16px;
+}
+.option {
+  border: 1px solid var(--rule);
+  background: var(--white);
+  padding: 16px 18px;
+  position: relative;
+}
+.option.recommended {
+  border: 1px solid var(--gold);
+  background: var(--gold-dim);
+}
+.option-tag {
+  position: absolute;
+  top: -8px;
+  left: 14px;
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 6.5pt;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+}
+.option.recommended .option-tag {
+  background: var(--gold);
+  color: var(--ink);
+}
+.option-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 16pt;
+  font-weight: 400;
+  margin: 6px 0 2px;
+  color: var(--ink);
+}
+.option-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22pt;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0 0 2px;
+  line-height: 1;
+}
+.option-price small {
+  font-size: 10pt;
+  font-weight: 400;
+  color: var(--stone);
+}
+.option-term {
+  font-size: 8.5pt;
+  color: var(--stone);
+  margin: 0 0 10px;
+}
+.option ul {
+  list-style: none;
+  padding: 0;
+  margin: 8px 0 0;
+}
+.option li {
+  font-size: 9pt;
+  padding: 3px 0 3px 14px;
+  position: relative;
+  color: var(--ink);
+}
+.option li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 11px;
+  width: 6px;
+  height: 1px;
+  background: var(--gold);
+}
+.option-total {
+  font-size: 8pt;
+  margin-top: 10px;
+  padding-top: 8px;
+  border-top: 1px solid var(--rule);
+  color: var(--stone);
+  font-family: 'Josefin Sans', sans-serif;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.option-total strong {
+  color: var(--ink);
+  font-weight: 500;
+  font-size: 11pt;
+  font-family: 'DM Sans', sans-serif;
+  letter-spacing: 0;
+  text-transform: none;
+}
+
+/* Tiers strip — showing all 3 options for completeness */
+.tiers {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 10px;
+  margin: 0 0 14px;
+}
+.tier {
+  border: 1px solid var(--rule);
+  background: var(--white);
+  padding: 12px 14px;
+}
+.tier.recommended {
+  border: 1px solid var(--gold);
+  background: var(--gold-dim);
+}
+.tier-name {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 7pt;
+  font-weight: 400;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 4px;
+}
+.tier-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 19pt;
+  font-weight: 500;
+  color: var(--ink);
+  margin: 0 0 1px;
+  line-height: 1;
+}
+.tier-price small {
+  font-size: 9pt;
+  font-weight: 400;
+  color: var(--stone);
+}
+.tier-yr {
+  font-size: 8pt;
+  color: var(--stone);
+  margin: 0 0 6px;
+}
+.tier-includes {
+  font-size: 8pt;
+  color: var(--ink);
+  line-height: 1.45;
+  margin: 0;
+}
+
+/* Why this works box */
+.why-box {
+  background: var(--white);
+  border-left: 3px solid var(--gold);
+  padding: 12px 16px;
+  margin: 0 0 14px;
+}
+.why-box .label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 7pt;
+  font-weight: 400;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin: 0 0 6px;
+}
+.why-box p {
+  font-size: 9pt;
+  color: var(--ink);
+  margin: 0 0 6px;
+  line-height: 1.55;
+}
+.why-box p:last-child { margin-bottom: 0; }
+
+/* Footer */
+.footer {
+  position: absolute;
+  bottom: 0.5in;
+  left: 0.6in;
+  right: 0.6in;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 7pt;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+.footer .name {
+  color: var(--ink);
+  font-weight: 400;
+}
+.footer .right { text-align: right; }
+
+/* The pull-stat */
+.pull {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13pt;
+  color: var(--ink);
+  margin: 0 0 14px;
+  padding: 0 0 0 14px;
+  border-left: 2px solid var(--gold);
+  line-height: 1.4;
+  max-width: 6.5in;
+}
+.pull strong { font-style: normal; color: var(--gold); font-weight: 500; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="eyebrow">GD Nielsen Homes &middot; Creative Partner</div>
+  <h1>40 years of work.<br>One website that <em>finally shows it.</em></h1>
+  <div class="subtitle">Photography. Website rebuild. Reviews. Awards. One partner, one monthly investment, one number on the page.</div>
+
+  <div class="divider"></div>
+
+  <div class="section-label">Two ways to take the website</div>
+
+  <div class="compare">
+    <div class="option recommended">
+      <div class="option-tag">Recommended</div>
+      <div class="option-name">Bundled</div>
+      <div class="option-price">$3,500<small> / mo</small></div>
+      <div class="option-term">24-month commitment &middot; website included</div>
+      <ul>
+        <li>2 full shoot days / month</li>
+        <li>80 edited images / month</li>
+        <li>Custom Squarespace rebuild (26 project pages, team, press, schema)</li>
+        <li>Houzz + Google review engine (target 27+ in Year 1)</li>
+        <li>Architect / designer co-marketing</li>
+        <li>Awards submissions (Georgie, Ovation, HAVAN)</li>
+        <li>Active publication outreach</li>
+        <li>Year-end builder documentary film</li>
+      </ul>
+      <div class="option-total">24-Month Total &middot; <strong>$84,000</strong></div>
+    </div>
+
+    <div class="option">
+      <div class="option-tag">Alternate</div>
+      <div class="option-name">Separate</div>
+      <div class="option-price">$3,000<small> / mo</small></div>
+      <div class="option-term">12-month retainer + $25,000 one-time website</div>
+      <ul>
+        <li>1 to 2 full shoot days / month</li>
+        <li>60 edited images / month</li>
+        <li>Standalone $25K Squarespace rebuild (50% on signing)</li>
+        <li>Houzz + Google review engine</li>
+        <li>Architect / designer co-marketing</li>
+        <li>Awards submissions</li>
+        <li>Submission packages 4× per year</li>
+        <li>No documentary film</li>
+      </ul>
+      <div class="option-total">Year 1 Total &middot; <strong>$61,000</strong></div>
+    </div>
+  </div>
+
+  <div class="pull">The bundled path costs <strong>$23,000 less in Year 1</strong> and locks in 24 months of integrated marketing. The separate path keeps photography and website on different timelines and risks launching a new site with the same broken portfolio.</div>
+
+  <div class="section-label">Or start smaller — 3-tier menu</div>
+
+  <div class="tiers">
+    <div class="tier">
+      <div class="tier-name">Foundation</div>
+      <div class="tier-price">$2,500<small> / mo</small></div>
+      <div class="tier-yr">$30,000 / year</div>
+      <div class="tier-includes">1 shoot day per month. 40 images. Photography only — no review engine, no website, no submissions. Pure content creation, the starter relationship.</div>
+    </div>
+    <div class="tier">
+      <div class="tier-name">Growth</div>
+      <div class="tier-price">$3,000<small> / mo</small></div>
+      <div class="tier-yr">$36,000 / year</div>
+      <div class="tier-includes">Foundation + review engine, architect co-marketing, submission packages 4× / year. Closes the reputation gap without the website rebuild.</div>
+    </div>
+    <div class="tier recommended">
+      <div class="tier-name">Full Creative Partner</div>
+      <div class="tier-price">$3,500<small> / mo</small></div>
+      <div class="tier-yr">$42,000 / year &middot; 24 mo term</div>
+      <div class="tier-includes">Everything in Growth + 2 shoot days per month + custom website rebuild + active publication outreach + year-end builder documentary film. The complete program.</div>
+    </div>
+  </div>
+
+  <div class="why-box">
+    <div class="label">Why the bundle works</div>
+    <p>A standalone luxury builder website rebuild typically runs $22,500 to $30,000. Bundling it into the Full tier on a 24-month commitment effectively gives you the rebuild at no marginal cost — and gives me the runway to deliver it without front-loading the cash. One inbound lead from a $5M custom build pays for the entire engagement many times over.</p>
+    <p>The 24-month commitment includes a 60-day pause provision and a fair early-termination clause that prorates the website value if you ever need to step out early. You're not locked in — you're partnered.</p>
+  </div>
+
+  <div class="footer">
+    <div>
+      <div class="name">Matt Anthony Photography</div>
+      <div>April 2026 &middot; Valid through May 15, 2026</div>
+    </div>
+    <div class="right">
+      <div>mattanthonyphoto.com</div>
+      <div>604.765.9270 &middot; info@mattanthonyphoto.com</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
