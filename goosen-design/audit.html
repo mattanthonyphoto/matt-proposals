@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Matt Anthony Photography — Digital Audit · Goosen Design</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1A1A18;
+  --paper: #F6F4F0;
+  --white: #FFFFFF;
+  --gold: #C9A96E;
+  --gold-dim: rgba(201,169,110,0.12);
+  --gold-border: rgba(201,169,110,0.30);
+  --muted: #6B6B68;
+  --rule: rgba(26,26,24,0.12);
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'DM Sans', -apple-system, system-ui, sans-serif;
+  font-weight: 300;
+  line-height: 1.75;
+  font-size: 16px;
+}
+.container {
+  max-width: 820px;
+  margin: 0 auto;
+  padding: 80px 56px 120px;
+}
+.eyebrow {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.65rem;
+  font-weight: 300;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  color: var(--gold);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 32px;
+}
+.eyebrow::before {
+  content: '';
+  width: 32px;
+  height: 1px;
+  background: var(--gold);
+}
+h1 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  font-size: 3.6rem;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  margin: 0 0 24px;
+  color: var(--ink);
+}
+h1 em { font-style: italic; color: var(--gold); font-weight: 500; }
+h2 {
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-weight: 400;
+  font-size: 2.2rem;
+  line-height: 1.15;
+  margin: 72px 0 22px;
+  padding-top: 28px;
+  border-top: 1px solid var(--rule);
+  color: var(--ink);
+}
+h3 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  font-size: 0.85rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 40px 0 14px;
+}
+h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-size: 1rem;
+  margin: 24px 0 8px;
+  color: var(--ink);
+}
+p { margin: 0 0 18px; }
+strong { color: var(--ink); font-weight: 500; }
+em { color: var(--ink); }
+ul, ol { padding-left: 22px; margin: 0 0 22px; }
+li { margin-bottom: 8px; }
+a { color: var(--ink); border-bottom: 1px solid var(--gold); text-decoration: none; }
+a:hover { color: var(--gold); }
+blockquote {
+  border-left: 2px solid var(--gold);
+  padding: 6px 24px;
+  margin: 28px 0;
+  font-family: 'Cormorant Garamond', Georgia, serif;
+  font-style: italic;
+  font-size: 1.35rem;
+  line-height: 1.4;
+  color: var(--ink);
+}
+code {
+  background: rgba(26,26,24,0.06);
+  padding: 2px 6px;
+  border-radius: 3px;
+  font-family: 'JetBrains Mono', ui-monospace, monospace;
+  font-size: 0.85em;
+}
+hr { border: none; border-top: 1px solid var(--rule); margin: 48px 0; }
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 24px 0;
+  font-size: 0.92rem;
+}
+th, td {
+  border-bottom: 1px solid var(--rule);
+  padding: 12px 14px;
+  text-align: left;
+  vertical-align: top;
+}
+th {
+  background: var(--ink);
+  color: var(--paper);
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  border-bottom: none;
+}
+tr:nth-child(even) td { background: rgba(26,26,24,0.025); }
+.footer {
+  margin-top: 96px;
+  padding-top: 32px;
+  border-top: 1px solid var(--rule);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 0.65rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--muted);
+  display: flex;
+  justify-content: space-between;
+}
+@media (max-width: 720px) {
+  .container { padding: 48px 24px 80px; }
+  h1 { font-size: 2.4rem; }
+  h2 { font-size: 1.6rem; }
+  table { font-size: 0.82rem; }
+  th, td { padding: 8px 10px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+  <div class="eyebrow">Digital Audit · Goosen Design</div>
+  <h1>Goosen Design — Digital Audit</h1>
+<p><em>Prepared for the discovery call, April 7, 2026</em></p>
+<h2>1. Snapshot</h2>
+<p>Goosen Design is a small (2–10 person) full-service interior design studio in Lower Gibsons, BC, founded 2016 by Cape Town–born designer Ethan Goosen with partner Benjamin Ryder. They operate a public showroom (Camerich, Ethnicraft, Keilhauer) at Unit 12 – 292 Gower Point Rd and run residential, commercial, and hospitality work across the Sunshine Coast, Vancouver, and Calgary. Despite a strong project list (Mad Hen, Blue Heron Inn, Coastline Health, Calgary Guardian Towers penthouse, restaurants for Chef Dale MacKay), their digital footprint is thin, inconsistent, and badly under-photographed for a studio that calls itself "luxury."</p>
+<h2>2. Website Audit (goosendesign.com)</h2>
+<p><strong>Platform:</strong> Wix. Site is JavaScript-rendered, which already hurts SEO crawlability.</p>
+<p><strong>Sitemap (full inventory pulled from <code>/sitemap.xml</code>):</strong></p>
+<p>Main pages — Home, About, Service (singular), Portfolio, eGPortfolio (duplicate?), Blog, FAQ, Contact-4, Four Hands Sale (a furniture promo landing page).</p>
+<p><strong>Portfolio projects (16 total):</strong>
+- The Mad Hen
+- Beachcomber Coffee
+- Beachcomber Grab and Go
+- Micro Creamery
+- Hoskins
+- Delta Road
+- Lower Lonsdale Residence
+- Modern Farmhouse
+- Newdale Residence
+- North Vancouver Exterior Addition
+- Ocean Front Home
+- Park View Residence
+- <strong>Project Title 6</strong> <em>(literal Wix placeholder — never renamed)</em>
+- <strong>Renovation Project</strong> <em>(also a placeholder name)</em>
+- Whistler Condo Renovation
+- Wolfe Street Residence</p>
+<p><strong>Blog posts (10 total, last sitemap update Feb 17 2025 — dormant for ~14 months):</strong>
+- Bold elegance meets light in every detail
+- Furniture space planning
+- Home office design — where style meets functionality
+- Interior design trends — follow or forget them
+- Revamp your space — why you need an interior designer for your floor plans
+- Whistler condo transformed into a serene ski sanctuary
+- Why hiring an interior designer for your kitchen remodel is a game-changer
+- Why most interior designers ignore small renovations and why we don't
+- Why you should hire an interior designer before your architect
+- Why you should hire an interior designer first for your home renovation</p>
+<h3>Photography quality</h3>
+<p>Mixed, leaning weak-to-decent. Source images on the Mad Hen page are full-frame DSLR resolution (5760×3840, 5663×3775, 5049×3544), but the framing, lighting, and styling read as "designer's own camera" rather than commissioned editorial. Other projects collapse to 5 images (Ocean Front Home), 11 (Whistler Condo, Modern Farmhouse), and one outlier — Newdale Residence — has 30 images, which feels like a content dump rather than a curated edit.</p>
+<p><strong>Critically, several major projects from the Coast Reporter feature are missing from the portfolio entirely:</strong>
+- Blue Heron Inn (Sechelt)
+- Coastline Health
+- Calgary Guardian Towers penthouse
+- Chef Dale MacKay / Chef Darren MacLean restaurants</p>
+<p>Two project pages still have the Wix default names "Project Title 6" and "Renovation Project."</p>
+<h3>Project page structure</h3>
+<p>Image-only galleries. <strong>No written narratives. No design briefs. No problem-and-solution case studies. No specs. Zero photographer credits anywhere. Zero builder credits. Zero architect credits. No press logos. No testimonials. No video.</strong></p>
+<h3>SEO basics</h3>
+<ul>
+<li>Homepage title: "Goosen Design | luxury interior design"</li>
+<li>Homepage meta description: <em>"Step into the world of Goosen Design, where luxury interior design meets practical functionality. Specializing in retail interior design, furniture procurement, and precise construction and building permit drawings, we elevate spaces with elegance and efficiency. Transform your environment with our expert design solutions today!"</em> — generic, keyword-stuffed, not luxury voice.</li>
+<li>About page meta is a 60-word run-on starting "Meet Ethan Goosen, the visionary behind…" — written for SEO, not humans.</li>
+<li><strong>Project pages have no meta descriptions at all</strong> (empty <code>description</code> field on every project sampled).</li>
+<li>No schema markup. No Open Graph image variation. Entire site rendered client-side via Wix Thunderbolt — Google handles it but slowly.</li>
+</ul>
+<h3>Mobile / load</h3>
+<p>Wix sites of this image weight (24MP source files, no LQIP cropping at the page level) are sluggish on mobile LTE. Subjective: load is slow.</p>
+<h3>Obvious gaps a photographer fills</h3>
+<p>Missing case studies, missing flagship projects (Blue Heron Inn, Coastline Health, Calgary penthouse), no captions or credits, no editorial narrative, placeholder project names, dormant blog.</p>
+<h2>3. Social Media Presence</h2>
+<table>
+<thead>
+<tr>
+<th>Platform</th>
+<th>Handle</th>
+<th>Stats</th>
+<th>Status</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Instagram (main)</td>
+<td>@goosendesign</td>
+<td><strong>609 followers, 326 following, 23 posts</strong></td>
+<td>Effectively dormant (~2 posts/year)</td>
+</tr>
+<tr>
+<td>Instagram (showroom)</td>
+<td>@goosendesignshop</td>
+<td>Smaller, low activity</td>
+<td>Splits already-tiny audience</td>
+</tr>
+<tr>
+<td>LinkedIn (company)</td>
+<td>linkedin.com/company/goosen-design</td>
+<td><strong>17 followers</strong>, 1 employee listed (Benjamin)</td>
+<td>Last post March 2026</td>
+</tr>
+<tr>
+<td>LinkedIn (Ethan)</td>
+<td>linkedin.com/in/ethanluc</td>
+<td>Active but anti-bot blocked scraping</td>
+<td>Unknown</td>
+</tr>
+<tr>
+<td>Facebook</td>
+<td>facebook.com/110832615338217</td>
+<td>Page exists but returns 404</td>
+<td>Effectively dead</td>
+</tr>
+<tr>
+<td>Pinterest</td>
+<td>None</td>
+<td>—</td>
+<td><strong>No presence — surprising</strong> for interior design</td>
+</tr>
+<tr>
+<td>Houzz</td>
+<td>None</td>
+<td>—</td>
+<td><strong>No presence — major gap</strong> vs all competitors</td>
+</tr>
+</tbody>
+</table>
+<p>For a 10-year-old studio that markets itself as luxury, <strong>609 IG followers is essentially invisible</strong>. Following-to-follower ratio (1:1.9) suggests they've been follow-back grinding, not earning organic reach. ~2 posts/year means the account is functionally dead.</p>
+<p><strong>Reviews / testimonials:</strong> None found anywhere on the open web.</p>
+<h2>4. Press &amp; Awards</h2>
+<ul>
+<li><strong>Coast Reporter feature</strong> — <em>"From farmhouse to diner: Warm and inspirational interiors are the hallmark of Gibsons' Goosen Designs"</em> — covers Mad Hen, Beachcomber Coffee, Coastline Health, the Gibsons reno, and the Blue Heron Inn. Direct quote: <em>"I do a lot of detail work on the clients."</em> Listening-first philosophy.</li>
+<li><strong>Sprudge</strong> — Mentioned as the designer on the Beachcomber Coffee build-out in Gibsons. Useful third-party credit.</li>
+<li><strong>Western Living, Vancouver Magazine, AZURE, Dwell, Gray, House &amp; Home</strong> — <strong>No mentions found.</strong> They have not been published in any major Canadian shelter or design title.</li>
+<li><strong>Awards</strong> — Their own copy claims "international award-winning" but <strong>no record found</strong> in ARIDO Awards, Western Living Designers of the Year, Robert Allen, IIDA, or any verifiable program. The claim appears self-attributed. Worth probing gently on the call.</li>
+</ul>
+<h2>5. Competitive Position (Sunshine Coast)</h2>
+<p>Other interior design studios in the same micro-market:
+- <strong>Articulated Studio</strong> (Gibsons) — multi-region, polished website
+- <strong>Landon Dix Design Studio</strong> (Sechelt) — full-service, on Houzz
+- <strong>Durston Design</strong> (Halfmoon Bay) — small-scale, on Houzz
+- <strong>Carena Dean Design Collaborative</strong> (Gibsons) — residential new build / reno
+- <strong>Melissa Hardwick Design</strong> (Sechelt)
+- <strong>Sunshine Coast Home Design</strong> (Halfmoon Bay) — also on Houzz</p>
+<p><strong>Goosen's edge over this group:</strong> 20-year resume, Calgary/Vancouver commercial portfolio, marquee restaurant clients (Dale MacKay, Darren MacLean), and a public showroom.</p>
+<p><strong>Their disadvantage:</strong> Every competitor has either a Houzz profile or a more polished, photo-led web presence. Goosen is punching well below their actual project caliber online.</p>
+<h2>6. Top 5 Gaps a Photographer Could Fix</h2>
+<ol>
+<li><strong>Blue Heron Inn (Sechelt) — entirely missing from the portfolio.</strong> Arguably their biggest current Sunshine Coast project, with no photo evidence beyond Ethan's phone. A proper editorial shoot here is the trojan horse.</li>
+<li><strong>The Mad Hen needs a re-shoot.</strong> It's their only hospitality project online, source images are full-frame DSLR but un-styled and un-lit. Re-shoot it properly and it becomes a press-ready set for Western Living, Eater Vancouver, and BC Restaurant News.</li>
+<li><strong>Coastline Health interior — also missing from portfolio.</strong> Healthcare/wellness interiors are a publishable niche (Gray Magazine, Azure healthcare features). Zero current documentation.</li>
+<li><strong>Calgary Guardian Towers penthouse for Hon Developments.</strong> 11,000 sq ft luxury penthouse is the single most publishable asset in their entire history and it does not appear once on their website, Instagram, or LinkedIn. Western Living and Western Living Calgary both run penthouse features annually.</li>
+<li><strong>The two "Project Title 6" / "Renovation Project" placeholder pages</strong> plus the dormant blog point to a studio that doesn't have the time or content engine to handle their own marketing — which is the wedge for a Creative Partner retainer, not just a one-off shoot.</li>
+</ol>
+<h2>7. Top 3 Hooks for the Discovery Call</h2>
+<p><strong>Hook 1 — The reputation gap</strong></p>
+<blockquote>
+<p>"You have the projects of a Western Living Designer of the Year nominee and the digital footprint of a one-year-old studio."</p>
+</blockquote>
+<p>Lead with the gap: Mad Hen, Blue Heron Inn, Coastline Health, Calgary penthouse, and Dale MacKay restaurants are all features waiting to happen, and not one of them is documented to a publishable standard. Mention the Coast Reporter feature and the Sprudge Beachcomber piece — they've already shown they can earn press, they just don't have the imagery to feed it forward.</p>
+<p><strong>Hook 2 — The content engine problem</strong></p>
+<blockquote>
+<p>"609 Instagram followers and 17 on LinkedIn isn't a marketing problem — it's a content problem."</p>
+</blockquote>
+<p>They're posting twice a year because they don't have shoots to post. Frame the Creative Partner retainer (Balmoral model) as a quarterly shoot calendar that produces enough imagery to feed Instagram, Pinterest, the dormant blog, and submission packages to Western Living, Gray, Azure, and the Georgies — without them having to think about it.</p>
+<p><strong>Hook 3 — The most valuable unphotographed asset</strong></p>
+<blockquote>
+<p>"Your Calgary penthouse is the single most valuable unphotographed asset on the Sunshine Coast."</p>
+</blockquote>
+<p>Use the Hon Developments / Guardian Towers penthouse as a specific opener — 11,000 sq ft, luxury developer client, zero published imagery. One trip, one editorial set, one Western Living Calgary submission. Case study that pays for itself and unlocks the next three Hon projects.</p>
+<p><strong>Bonus angle:</strong> Their "international award-winning" claim doesn't show up in any awards database. Probe gently — <em>"What awards have you been entered for in the last few years?"</em> — and let the answer reveal whether they need a partner who can prep submission-grade photography.</p>
+<hr />
+<h2>Sources</h2>
+<ul>
+<li><a href="https://www.goosendesign.com/">Goosen Design website</a></li>
+<li><a href="https://www.goosendesign.com/sitemap.xml">Goosen Design sitemap</a></li>
+<li><a href="https://www.coastreporter.net/in-the-community/from-farmhouse-to-diner-warm-and-inspirational-interiors-are-the-hallmark-of-gibsons-goosen-designs-7942874">Coast Reporter feature</a></li>
+<li><a href="https://ca.linkedin.com/company/goosen-design">Goosen Design on LinkedIn</a></li>
+<li><a href="https://www.linkedin.com/in/ethanluc/">Ethan Goosen LinkedIn</a></li>
+<li><a href="https://www.instagram.com/goosendesign/">Instagram @goosendesign</a></li>
+<li><a href="https://www.instagram.com/goosendesignshop/">Instagram @goosendesignshop</a></li>
+<li><a href="https://sprudge.com/build-outs-of-summer-beachcomber-coffee-in-gibsons-bc-133604.html">Sprudge Beachcomber feature</a></li>
+<li><a href="https://www.instagram.com/madhen_gibsons/">The Mad Hen Instagram</a></li>
+<li><a href="https://www.articulated.studio/interior-design-gibsons-powell-river-sechelt-bc-sunshine-coast">Articulated Studio (competitor)</a></li>
+<li><a href="https://www.houzz.com/professionals/interior-designer/sunshine-coast-bc-ca-probr0-bo~t_11785~r_6696634">Houzz Sunshine Coast designers</a></li>
+</ul>
+  <div class="footer">
+    <span>Matt Anthony Photography</span>
+    <span>mattanthonyphoto.com</span>
+  </div>
+</div>
+</body>
+</html>
