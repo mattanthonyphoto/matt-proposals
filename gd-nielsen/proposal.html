@@ -1288,51 +1288,82 @@
     
     
     <p style="margin-top:24px;">The Full Creative Partner tier includes the website rebuild at no marginal cost — bundled into the 12-month term. One inbound lead from a $5M custom build pays for the entire engagement many times over.</p>
-<div style="margin-top:24px;padding:28px 32px;background:var(--light);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;">
-<h4 style="font-family:'Josefin Sans',sans-serif;font-weight:400;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin:0 0 14px;">À La Carte &middot; Standalone Pricing</h4>
-<p style="font-size:0.88rem;color:var(--stone);margin:0 0 16px;">If you'd rather pick and choose individual services instead of bundling them, here's what each piece costs on its own. The Full Creative Partner bundle is built around 12 months of these services delivered together by a single partner.</p>
-<table style="width:100%; border-collapse:collapse; font-size:0.85rem;">
-<tr><td style="padding:9px 0; border-bottom:1px solid rgba(26,26,24,0.06); color:var(--ink);"><strong>Custom Squarespace website rebuild</strong> <span style="color:var(--stone); font-size:0.78rem;">26+ pages, schema, SEO, lead capture</span></td><td style="padding:9px 0; border-bottom:1px solid rgba(26,26,24,0.06); text-align:right; color:var(--ink); font-weight:500;">$12,000 one-time</td></tr>
-<tr><td style="padding:9px 0; border-bottom:1px solid rgba(26,26,24,0.06); color:var(--ink);"><strong>Photography per project</strong> <span style="color:var(--stone); font-size:0.78rem;">Full day, 30 to 50 edited images, drone included</span></td><td style="padding:9px 0; border-bottom:1px solid rgba(26,26,24,0.06); text-align:right; color:var(--ink); font-weight:500;">$3,500 / project</td></tr>
-<tr><td style="padding:9px 0; border-bottom:1px solid rgba(26,26,24,0.06); color:var(--ink);"><strong>Social media management</strong> <span style="color:var(--stone); font-size:0.78rem;">3 posts/week, content calendar, captions, IG strategy</span></td><td style="padding:9px 0; border-bottom:1px solid rgba(26,26,24,0.06); text-align:right; color:var(--ink); font-weight:500;">$1,200 / month</td></tr>
-<tr><td style="padding:9px 0; border-bottom:1px solid rgba(26,26,24,0.06); color:var(--ink);"><strong>SEO blog content</strong> <span style="color:var(--stone); font-size:0.78rem;">1 SEO blog post/month + 1 project feature blog post/month</span></td><td style="padding:9px 0; border-bottom:1px solid rgba(26,26,24,0.06); text-align:right; color:var(--ink); font-weight:500;">$800 / month</td></tr>
-<tr><td style="padding:9px 0; color:var(--ink);"><strong>Website management + hosting</strong> <span style="color:var(--stone); font-size:0.78rem;">Updates, security, GBP, review engine, technical SEO</span></td><td style="padding:9px 0; text-align:right; color:var(--ink); font-weight:500;">$400 / month</td></tr>
-</table>
-<div style="margin-top:18px; padding-top:16px; border-top:2px solid var(--ink); display:flex; justify-content:space-between; font-size:0.92rem;">
-<div><strong style="color:var(--ink);">À la carte total · Year 1</strong> <span style="color:var(--stone); font-size:0.78rem;">(website + 4 shoots + social + blog + management)</span></div>
-<div style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:500; color:var(--ink);">$54,000</div>
+
+<style>
+.alc-block{margin-top:24px;padding:28px 32px;background:var(--light);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;}
+.alc-block.dark{background:var(--ink);color:var(--paper);}
+.alc-block.dark .alc-name,.alc-block.dark .alc-desc,.alc-block.dark .alc-price,.alc-block.dark .alc-intro{color:rgba(246,244,240,0.85);}
+.alc-block.dark .alc-row{border-color:rgba(246,244,240,0.10);}
+.alc-block.dark .alc-summary{border-color:rgba(201,169,110,0.30);}
+.alc-h4{font-family:'Josefin Sans',sans-serif;font-weight:400;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin:0 0 14px;}
+.alc-intro{font-size:0.9rem;color:var(--stone);margin:0 0 18px;line-height:1.65;}
+.alc-rows{margin:0;padding:0;list-style:none;}
+.alc-row{padding:14px 0;border-bottom:1px solid rgba(26,26,24,0.08);}
+.alc-row:last-child{border-bottom:none;}
+.alc-name{display:block;font-size:0.95rem;font-weight:500;color:var(--ink);margin-bottom:4px;}
+.alc-desc{display:block;font-size:0.8rem;color:var(--stone);line-height:1.5;margin-bottom:6px;}
+.alc-price{display:block;font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:500;color:var(--ink);}
+.alc-summary{margin-top:20px;padding-top:18px;border-top:2px solid var(--ink);}
+.alc-sum-row{padding:6px 0;}
+.alc-sum-label{display:block;font-size:0.88rem;font-weight:500;color:var(--ink);margin-bottom:2px;}
+.alc-sum-meta{display:block;font-size:0.75rem;color:var(--stone);margin-bottom:6px;}
+.alc-sum-value{display:block;font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:500;color:var(--ink);}
+.alc-sum-row.gold .alc-sum-label,.alc-sum-row.gold .alc-sum-value{color:var(--gold);}
+.alc-foot{margin:16px 0 0;font-size:0.85rem;color:var(--ink);line-height:1.6;}
+.alc-block.dark .alc-foot{color:rgba(246,244,240,0.88);}
+@media (min-width:680px){
+.alc-row{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:start;padding:11px 0;}
+.alc-name{margin-bottom:2px;}
+.alc-desc{margin-bottom:0;}
+.alc-price{align-self:center;text-align:right;white-space:nowrap;}
+.alc-summary-grid{display:grid;grid-template-columns:1fr auto;gap:24px;align-items:baseline;}
+.alc-sum-value{text-align:right;}
+.alc-sum-row{padding:8px 0;}
+}
+</style>
+
+<div class="alc-block">
+<h4 class="alc-h4">À La Carte &middot; Standalone Pricing</h4>
+<p class="alc-intro">If you'd rather pick and choose individual services instead of bundling them, here's what each piece costs on its own. The Full Creative Partner bundle is built around 12 months of these services delivered together by a single partner.</p>
+<ul class="alc-rows">
+<li class="alc-row"><div><span class="alc-name">Custom Squarespace website rebuild</span><span class="alc-desc">26+ pages, schema, SEO, lead capture</span></div><span class="alc-price">$12,000 one-time</span></li>
+<li class="alc-row"><div><span class="alc-name">Photography per project</span><span class="alc-desc">Full day, 30 to 50 edited images, drone included</span></div><span class="alc-price">$3,500 / project</span></li>
+<li class="alc-row"><div><span class="alc-name">Social media management</span><span class="alc-desc">3 posts/week, content calendar, captions, IG strategy</span></div><span class="alc-price">$1,200 / month</span></li>
+<li class="alc-row"><div><span class="alc-name">SEO blog content</span><span class="alc-desc">1 SEO blog post + 1 project feature blog post per month</span></div><span class="alc-price">$800 / month</span></li>
+<li class="alc-row"><div><span class="alc-name">Website management + hosting</span><span class="alc-desc">Updates, security, GBP, review engine, technical SEO</span></div><span class="alc-price">$400 / month</span></li>
+</ul>
+<div class="alc-summary">
+<div class="alc-sum-row"><div class="alc-summary-grid"><div><span class="alc-sum-label">À la carte total &middot; Year 1</span><span class="alc-sum-meta">website + 4 shoots + social + blog + management</span></div><span class="alc-sum-value">$54,000</span></div></div>
+<div class="alc-sum-row gold"><div class="alc-summary-grid"><div><span class="alc-sum-label">Full Creative Partner &middot; Year 1</span><span class="alc-sum-meta">everything above, bundled</span></div><span class="alc-sum-value">$42,000</span></div></div>
 </div>
-<div style="margin-top:10px; display:flex; justify-content:space-between; font-size:0.92rem;">
-<div><strong style="color:var(--gold);">Full Creative Partner · Year 1</strong> <span style="color:var(--stone); font-size:0.78rem;">(everything above, bundled)</span></div>
-<div style="font-family:'Cormorant Garamond',serif; font-size:1.4rem; font-weight:500; color:var(--gold);">$42,000</div>
+<p class="alc-foot"><strong>Bundled savings:</strong> $12,000 in Year 1, plus a single point of contact, integrated content strategy, and the year-end documentary film + build documentation book that aren't sold à la carte.</p>
 </div>
-<p style="margin:14px 0 0; font-size:0.85rem; color:var(--ink);"><strong>Bundled savings:</strong> $12,000 in Year 1, plus a single point of contact, integrated content strategy, and the year-end documentary film + build documentation book that aren't sold à la carte.</p>
+
+<div class="alc-block dark">
+<h4 class="alc-h4">Year 1 Photo Library Refresh &middot; Optional Add-On</h4>
+<p class="alc-intro" style="color:rgba(246,244,240,0.85);">You mentioned wanting to reshoot current projects, access past projects with client permission, document active builds, and have help curating the existing photo library. The Full Creative Partner tier includes 4 quarterly shoots, but the scope you described is bigger than that. This optional Year 1 sprint covers it.</p>
+<ul class="alc-rows">
+<li class="alc-row"><div><span class="alc-name" style="color:var(--paper);">Full audit of existing project library</span><span class="alc-desc" style="color:rgba(246,244,240,0.7);">keep, retire, reshoot</span></div></li>
+<li class="alc-row"><div><span class="alc-name" style="color:var(--paper);">Coordination with past clients for site access</span></div></li>
+<li class="alc-row"><div><span class="alc-name" style="color:var(--paper);">4 additional reshoot days</span><span class="alc-desc" style="color:rgba(246,244,240,0.7);">beyond the 4 quarterly Full tier shoots (8 total Year 1)</span></div></li>
+<li class="alc-row"><div><span class="alc-name" style="color:var(--paper);">Curation, cropping, and re-editing of existing images</span></div></li>
+<li class="alc-row"><div><span class="alc-name" style="color:var(--paper);">All assets migrated and integrated into the rebuilt website</span></div></li>
+</ul>
+<div class="alc-summary" style="border-top:1px solid rgba(201,169,110,0.30);">
+<div class="alc-sum-row gold"><div class="alc-summary-grid"><div><span class="alc-sum-label">Year 1 Photo Library Refresh</span><span class="alc-sum-meta" style="color:rgba(246,244,240,0.6);">à la carte equivalent $10,000</span></div><span class="alc-sum-value">$7,500 one-time</span></div></div>
 </div>
-<div style="margin-top:24px;padding:28px 32px;background:var(--ink);color:var(--paper);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;">
-<h4 style="font-family:'Josefin Sans',sans-serif;font-weight:400;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin:0 0 14px;">Year 1 Photo Library Refresh &middot; Optional Add-On</h4>
-<p style="font-size:0.88rem;color:rgba(246,244,240,0.78);margin:0 0 14px;">You mentioned wanting to reshoot current projects, access past projects with client permission, document active builds, and have help curating the existing photo library. The Full Creative Partner tier includes 4 quarterly shoots, but the scope you described is bigger than that. This optional Year 1 sprint covers it.</p>
-<table style="width:100%; border-collapse:collapse; font-size:0.85rem;">
-<tr><td style="padding:7px 0; border-bottom:1px solid rgba(246,244,240,0.10); color:var(--paper);">&middot; &nbsp;Full audit of existing project library (keep, retire, reshoot)</td></tr>
-<tr><td style="padding:7px 0; border-bottom:1px solid rgba(246,244,240,0.10); color:var(--paper);">&middot; &nbsp;Coordination with past clients for site access</td></tr>
-<tr><td style="padding:7px 0; border-bottom:1px solid rgba(246,244,240,0.10); color:var(--paper);">&middot; &nbsp;<strong>4 additional reshoot days</strong> beyond the 4 quarterly Full tier shoots (8 total Year 1)</td></tr>
-<tr><td style="padding:7px 0; border-bottom:1px solid rgba(246,244,240,0.10); color:var(--paper);">&middot; &nbsp;Curation, cropping, and re-editing of existing usable images</td></tr>
-<tr><td style="padding:7px 0; color:var(--paper);">&middot; &nbsp;All assets migrated and integrated into the rebuilt website</td></tr>
-</table>
-<div style="margin-top:18px; padding-top:16px; border-top:1px solid rgba(201,169,110,0.30); display:flex; justify-content:space-between; align-items:baseline;">
-<div style="font-size:0.82rem;color:rgba(246,244,240,0.7);">À la carte equivalent: $10,000 (4 extra shoots + audit time)</div>
-<div style="font-family:'Cormorant Garamond',serif; font-size:1.6rem; font-weight:500; color:var(--gold);">$7,500 one-time</div>
+<p class="alc-foot">Best paired with the Full Creative Partner tier. <strong style="color:var(--gold);">Total Year 1 with add-on: $49,500.</strong></p>
 </div>
-<p style="margin:14px 0 0; font-size:0.82rem;color:rgba(246,244,240,0.78);">Best paired with the Full Creative Partner tier. Total Year 1 with add-on: <strong style="color:var(--gold);">$49,500</strong>.</p>
-</div>
-<div style="margin-top:24px;padding:24px 28px;background:var(--light);border-left:3px solid var(--gold);border-radius:0 6px 6px 0;">
-<h4 style="font-family:'Josefin Sans',sans-serif;font-weight:400;font-size:0.65rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin:0 0 12px;">Add-On Menu</h4>
-<p style="font-size:0.88rem;color:var(--stone);margin:0 0 12px;">When the quarterly cadence isn't enough, additional services book through your priority calendar at retainer rates — 1 to 2 weeks lead time.</p>
-<ul style="list-style:none;padding:0;margin:0;">
-<li style="font-size:0.85rem;padding:5px 0 5px 20px;position:relative;color:var(--stone);"><span style="position:absolute;left:0;top:12px;width:8px;height:1px;background:var(--gold);"></span><strong style="color:var(--ink);">Additional portfolio shoot day</strong> &middot; $2,000 (vs $4,500+ retail)</li>
-<li style="font-size:0.85rem;padding:5px 0 5px 20px;position:relative;color:var(--stone);"><span style="position:absolute;left:0;top:12px;width:8px;height:1px;background:var(--gold);"></span><strong style="color:var(--ink);">Job site / process shoot — half day</strong> &middot; $750</li>
-<li style="font-size:0.85rem;padding:5px 0 5px 20px;position:relative;color:var(--stone);"><span style="position:absolute;left:0;top:12px;width:8px;height:1px;background:var(--gold);"></span><strong style="color:var(--ink);">Job site / process shoot — full day</strong> &middot; $1,500</li>
-<li style="font-size:0.85rem;padding:5px 0 5px 20px;position:relative;color:var(--stone);"><span style="position:absolute;left:0;top:12px;width:8px;height:1px;background:var(--gold);"></span><strong style="color:var(--ink);">Drone aerials per shoot</strong> &middot; $400 <em style="color:var(--stone); font-size:0.78rem;">(included in Full tier shoots)</em></li>
-<li style="font-size:0.85rem;padding:5px 0 5px 20px;position:relative;color:var(--stone);"><span style="position:absolute;left:0;top:12px;width:8px;height:1px;background:var(--gold);"></span><strong style="color:var(--ink);">Architectural film 60 to 90 sec</strong> &middot; $3,000 (vs $4,500 retail)</li>
+
+<div class="alc-block">
+<h4 class="alc-h4">Add-On Menu</h4>
+<p class="alc-intro">When the quarterly cadence isn't enough, additional services book through your priority calendar at retainer rates — 1 to 2 weeks lead time.</p>
+<ul class="alc-rows">
+<li class="alc-row"><div><span class="alc-name">Additional portfolio shoot day</span><span class="alc-desc">vs $4,500+ retail</span></div><span class="alc-price">$2,000</span></li>
+<li class="alc-row"><div><span class="alc-name">Job site / process shoot — half day</span></div><span class="alc-price">$750</span></li>
+<li class="alc-row"><div><span class="alc-name">Job site / process shoot — full day</span></div><span class="alc-price">$1,500</span></li>
+<li class="alc-row"><div><span class="alc-name">Drone aerials per shoot</span><span class="alc-desc">included in Full tier shoots</span></div><span class="alc-price">$400</span></li>
+<li class="alc-row"><div><span class="alc-name">Architectural film 60 to 90 sec</span><span class="alc-desc">vs $4,500 retail</span></div><span class="alc-price">$3,000</span></li>
 </ul>
 </div>
     
@@ -1351,31 +1382,31 @@
 
 
 <div class="section light" data-nav="Roadmap">
-  <div class="eyebrow">Quarterly Roadmap</div>
-  <h2>What gets done.<br><em>Quarter by quarter.</em></h2>
-  <p>Four portfolio shoots across Year 1, plus 2 bonus job site days for active builds, plus the website rebuild running in parallel from Q3 onward. Add-on shoots layered in when the calendar demands them.</p>
+  <div class="eyebrow">Fast Launch Roadmap</div>
+  <h2>Site live in 2 to 3 weeks.<br><em>Content engine from day one.</em></h2>
+  <p>DK, you mentioned wanting to get the new site up and running right away. The roadmap below reflects that — website rebuild kicks off the day we sign, launches inside 3 weeks, and the first photo shoot lands in the same window. From month one, the full content engine is active.</p>
   <div class="roadmap">
     <div class="roadmap-line" id="roadmapLine"></div>
     
     <div class="rm">
       <div class="rm-left">
-        <div class="rm-month">Q2 2026</div>
-        <div class="rm-label">Forested Family<br>Kitchen Re-shoot</div>
+        <div class="rm-month">Weeks 1 to 3</div>
+        <div class="rm-label">Website Build +<br>Forested Family Shoot</div>
       </div>
       <div class="rm-right">
         <ul>
           
-          <li>Onboarding call — walk through all 26 projects together</li>
+          <li>Week 1: kickoff call + content audit + IA workshop (Greg + DK)</li>
           
-          <li><strong>Quarter 1 portfolio shoot: Forested Family Estate kitchen re-shoot — Day 1 priority</strong></li>
+          <li>Week 1-2: design direction + wireframes + Squarespace build begins</li>
           
-          <li>Bonus job site day on the next active 2026 build</li>
+          <li>Week 2: <strong>Forested Family Estate kitchen reshoot — Day 1 priority</strong></li>
           
-          <li>First Houzz review request batch (8 recent clients)</li>
+          <li>Week 3: <strong>New site launches</strong> with first 5 projects migrated</li>
           
-          <li><em>Add-on suggested:</em> Cammeray Heights interior re-shoot ($2,500)</li>
+          <li>First Houzz review request batch sent to recent clients</li>
           
-          <li>Instagram comes back from the dead — first scheduled posts</li>
+          <li>Instagram reactivated with first scheduled content</li>
           
         </ul>
       </div>
@@ -1383,21 +1414,23 @@
     
     <div class="rm">
       <div class="rm-left">
-        <div class="rm-month">Q3 2026</div>
-        <div class="rm-label">Website Kickoff +<br>Casa at the Cove</div>
+        <div class="rm-month">Months 2 to 4</div>
+        <div class="rm-label">Photo Library +<br>Active Build Documentation</div>
       </div>
       <div class="rm-right">
         <ul>
           
-          <li>Quarter 2 portfolio shoot: Casa at the Cove + Forested Family exterior</li>
+          <li>Quarter 1 + Quarter 2 portfolio shoot days delivered</li>
           
-          <li>Website rebuild discovery + IA workshop (Greg + DK)</li>
+          <li>Past project audit and reshoot priority list (with optional Year 1 Photo Library Refresh add-on)</li>
           
-          <li>Design direction + first wireframes</li>
+          <li>Active job site documentation on 2 to 3 builds in progress</li>
           
-          <li>Architect / designer co-marketing launches (Craig Chevalier, Kallweit Graham, Alex Voth)</li>
+          <li>Architect / designer co-marketing launches (Craig Chevalier, Kallweit Graham, Alex Voth, Oy Christopher, Living Radius, Rommel)</li>
           
-          <li>Houzz review count climbing — target 6+ live by quarter-end</li>
+          <li>First project feature blog posts publish</li>
+          
+          <li>Houzz review count climbing — target 6+ live</li>
           
         </ul>
       </div>
@@ -1405,21 +1438,23 @@
     
     <div class="rm">
       <div class="rm-left">
-        <div class="rm-month">Q4 2026</div>
-        <div class="rm-label">Spectacular Stone +<br>Site Launch</div>
+        <div class="rm-month">Months 5 to 12</div>
+        <div class="rm-label">Awards, Press,<br>Compound</div>
       </div>
       <div class="rm-right">
         <ul>
           
-          <li>Quarter 3 portfolio shoot: Spectacular Stone Chimney + Rockwood interiors</li>
+          <li>Quarter 3 + Quarter 4 portfolio shoots delivered</li>
           
-          <li><strong>Website rebuild launches</strong> with the new project library</li>
+          <li>Submission packages prepared for 2026 Georgie Awards (entries open August)</li>
           
-          <li>Bonus job site day for an active build wrap</li>
+          <li>Active publication outreach to Western Living, BC Home &amp; Garden, Vancouver Magazine</li>
           
-          <li>Quarterly submission package: 2026 Georgie Awards entries finalized</li>
+          <li>12+ Houzz reviews live, 15+ Google reviews</li>
           
-          <li>12+ Houzz reviews live, 8+ Google reviews</li>
+          <li>Year-end builder documentary film delivered</li>
+          
+          <li>Build documentation book hand-finished and gifted to first homeowner</li>
           
         </ul>
       </div>
@@ -1429,13 +1464,13 @@
   
   <div class="stats">
     
-    <div class="stat"><span class="stat-val">4</span><span class="stat-lbl">Quarterly Shoots</span></div>
+    <div class="stat"><span class="stat-val">2-3</span><span class="stat-lbl">Weeks to Site Launch</span></div>
     
-    <div class="stat"><span class="stat-val">2</span><span class="stat-lbl">Bonus Job Site Days</span></div>
+    <div class="stat"><span class="stat-val">4+</span><span class="stat-lbl">Portfolio Shoots Year 1</span></div>
     
-    <div class="stat"><span class="stat-val">1</span><span class="stat-lbl">Website Rebuilt</span></div>
+    <div class="stat"><span class="stat-val">1</span><span class="stat-lbl">Documentary Film</span></div>
     
-    <div class="stat"><span class="stat-val">12+</span><span class="stat-lbl">Houzz / Google Reviews</span></div>
+    <div class="stat"><span class="stat-val">27+</span><span class="stat-lbl">Verified Reviews Year 1</span></div>
     
   </div>
   
@@ -1452,40 +1487,40 @@
 
 
 <div class="section" data-nav="Vision">
-  <div class="eyebrow">The 24-Month Vision</div>
-  <h2>What two years<br><em>of the program looks like.</em></h2>
-  <p>Photography is the asset library. Website is the storefront. Reviews and awards are the proof. Two years of the program closes the gap between GD Nielsen's real reputation and its digital one — permanently.</p>
+  <div class="eyebrow">The 12-Month Vision</div>
+  <h2>What a full year<br><em>of the program looks like.</em></h2>
+  <p>Photography is the asset library. Website is the storefront. Reviews and awards are the proof. Twelve months of the program closes the gap between GD Nielsen's real reputation and its digital one.</p>
   <div class="tl">
     
     <div class="tl-item">
       <div class="tl-q">Q2 2026</div>
       <div class="tl-content">
-        <h4>Prove the Model</h4>
-        <p>Forested Family kitchen re-shoot. 6+ projects re-photographed. Website rebuild scoped and design direction approved. First Houzz reviews live. Instagram active again.</p>
+        <h4>Launch</h4>
+        <p>New site live within 3 weeks of signing. Forested Family Estate kitchen documented. First Houzz reviews requested. Instagram reactivated with scheduled content.</p>
       </div>
     </div>
     
     <div class="tl-item">
       <div class="tl-q">Q3 2026</div>
       <div class="tl-content">
-        <h4>Launch</h4>
-        <p>New website launches. Real project pages with full credit blocks. 2026 Georgie Awards entries submitted with submission-grade imagery for the first time. Architect co-marketing in full swing.</p>
+        <h4>Compound</h4>
+        <p>Photo library refresh active. 4 to 6 projects reshoot through summer light. Active build documentation running. Architect co-marketing kicks in. Georgie 2026 submissions prepared.</p>
       </div>
     </div>
     
     <div class="tl-item">
       <div class="tl-q">Q4 2026</div>
       <div class="tl-content">
-        <h4>Compound</h4>
-        <p>12+ Houzz reviews live. 15+ Google reviews. Active publications outreach to Western Living and BC Home &amp; Garden. Awards results announced — finalist or winner positioning.</p>
+        <h4>Leverage</h4>
+        <p>Publication outreach to Western Living, BC Home &amp; Garden, Vancouver Magazine. Houzz / Google review counts climbing past 12+ each. Awards results announced. Year-end documentary film in production.</p>
       </div>
     </div>
     
     <div class="tl-item">
-      <div class="tl-q">2027</div>
+      <div class="tl-q">Q1 2027</div>
       <div class="tl-content">
         <h4>Separate</h4>
-        <p>Year 2 of the program. Builder documentary film delivered. Press features landing. GD Nielsen's online reputation finally matches the 40 years of work behind it. Hasler Homes is no longer the only luxury NV builder with a presence.</p>
+        <p>Documentary film delivered. Build documentation book hand-finished. GD Nielsen's online presence finally matches 40 years of built work. The marketing layer compounds month over month.</p>
       </div>
     </div>
     
