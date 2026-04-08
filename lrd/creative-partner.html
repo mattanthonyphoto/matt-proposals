@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Creative Partner — LRD Studio</title>
+<title>Creative Partner — Custom Package — LRD Studio</title>
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -204,16 +204,15 @@
      PRICING TIERS
      ═══════════════════════════════════════ */
   .tiers {
-    display:grid; grid-template-columns:repeat(3,1fr); gap:0;
-    margin:56px 0; position:relative;
+    display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
+    margin:80px 0; position:relative;
   }
   .tier {
-    padding:48px 32px 40px; border:1px solid rgba(26,26,24,0.06);
+    padding:64px 42px 56px; border:1px solid rgba(26,26,24,0.06);
     background:var(--white); position:relative;
     transition:transform 0.3s ease, box-shadow 0.3s ease;
   }
   .tier:hover { transform:translateY(-6px); box-shadow:0 20px 60px rgba(0,0,0,0.08); z-index:1; }
-  .tier + .tier { border-left:none; }
   .tier.rec {
     background:var(--ink); color:var(--paper); border-color:var(--gold);
     transform:scaleY(1.02); z-index:2;
@@ -225,7 +224,7 @@
     height:3px; background:var(--gold);
   }
   .tier-badge span {
-    position:absolute; top:8px; left:50%; transform:translateX(-50%);
+    position:absolute; top:10px; left:50%; transform:translateX(-50%);
     font-family:'Josefin Sans',sans-serif; font-size:0.5rem;
     letter-spacing:0.3em; text-transform:uppercase;
     color:var(--gold); white-space:nowrap;
@@ -233,45 +232,46 @@
   .tier-name {
     font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
     letter-spacing:0.25em; text-transform:uppercase; color:var(--gold);
-    margin:24px 0 12px;
+    margin:32px 0 18px;
   }
   .tier-price {
-    font-family:'Cormorant Garamond',serif; font-size:3.2rem;
-    font-weight:400; line-height:1; margin-bottom:6px;
+    font-family:'Cormorant Garamond',serif; font-size:3.4rem;
+    font-weight:400; line-height:1; margin-bottom:10px;
   }
   .tier:not(.rec) .tier-price { color:var(--ink); }
   .tier.rec .tier-price { color:var(--paper); }
   .tier-price span { font-size:1rem; color:var(--stone); font-family:'DM Sans',sans-serif; font-weight:300; }
   .tier-term {
-    font-size:0.75rem; color:var(--stone); margin-bottom:32px;
-    padding-bottom:24px; border-bottom:1px solid var(--gold-dim);
+    font-size:0.75rem; color:var(--stone); margin-bottom:40px;
+    padding-bottom:32px; border-bottom:1px solid var(--gold-dim);
   }
   .tier.rec .tier-term { border-color:rgba(201,169,110,0.2); }
-  .tier ul { list-style:none; }
+  .tier ul { list-style:none; padding:0; margin:0; }
   .tier li {
-    font-size:0.8rem; padding:7px 0 7px 22px; position:relative;
-    border-bottom:1px solid rgba(26,26,24,0.03);
+    font-size:0.82rem; padding:12px 0 12px 26px; position:relative;
+    line-height:1.5;
+    border-bottom:1px solid rgba(26,26,24,0.04);
   }
-  .tier.rec li { color:rgba(246,244,240,0.75); border-color:rgba(246,244,240,0.05); }
+  .tier.rec li { color:rgba(246,244,240,0.78); border-color:rgba(246,244,240,0.06); }
   .tier li:last-child { border:none; }
   .tier li::before {
-    content:''; position:absolute; left:0; top:14px;
-    width:8px; height:1px; background:var(--gold);
+    content:''; position:absolute; left:0; top:20px;
+    width:10px; height:1px; background:var(--gold);
   }
-  .tier li.off { opacity:0.25; }
+  .tier li.off { opacity:0.28; }
   .tier li.off::before { background:var(--stone); }
   .tier-bottom {
-    margin-top:28px; padding-top:20px; border-top:1px solid var(--gold-dim);
-    font-size:0.7rem; color:var(--stone);
+    margin-top:40px; padding-top:28px; border-top:1px solid var(--gold-dim);
+    font-size:0.72rem; color:var(--stone);
   }
   .tier.rec .tier-bottom { border-color:rgba(201,169,110,0.2); }
-  .tier-bottom strong { color:var(--gold); font-weight:500; font-size:0.85rem; }
+  .tier-bottom strong { color:var(--gold); font-weight:500; font-size:0.9rem; }
 
   /* ═══════════════════════════════════════
      COMPARISON CALLOUT
      ═══════════════════════════════════════ */
   .insight {
-    background:var(--light); padding:48px 56px; margin:56px 0;
+    background:var(--light); padding:60px 64px; margin:80px 0;
     position:relative;
   }
   .insight::before {
@@ -280,22 +280,24 @@
   }
   .insight h4 {
     font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
-    letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:20px;
+    letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:24px;
   }
-  .insight p { font-size:0.9rem; margin-bottom:10px; }
+  .insight p { font-size:0.92rem; margin-bottom:14px; line-height:1.7; }
   .insight p:last-child { margin-bottom:0; }
   .insight .tier-breakdown {
-    margin-top:20px; display:flex; flex-direction:column; gap:8px;
+    margin-top:32px; display:flex; flex-direction:column; gap:18px;
   }
   .insight .tb {
-    display:flex; align-items:baseline; gap:12px; font-size:0.88rem;
+    display:flex; align-items:baseline; gap:16px; font-size:0.9rem;
+    padding-bottom:18px; border-bottom:1px solid rgba(26,26,24,0.06);
   }
+  .insight .tb:last-child { border-bottom:none; padding-bottom:0; }
   .insight .tb-label {
-    font-weight:500; color:var(--gold); min-width:160px;
+    font-weight:500; color:var(--gold); min-width:180px;
     font-family:'Josefin Sans',sans-serif; font-size:0.7rem;
     letter-spacing:0.1em; text-transform:uppercase;
   }
-  .insight .tb-desc { color:var(--stone); }
+  .insight .tb-desc { color:var(--stone); line-height:1.6; }
 
   /* ═══════════════════════════════════════
      ROADMAP
@@ -907,7 +909,7 @@
 <!-- LOADING SCREEN -->
 <div class="loader" id="loader">
   <div class="loader-brand">Matt Anthony Photography</div>
-  <div class="loader-sub" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.9rem;color:rgba(138,133,121,0.7);margin-top:8px;opacity:0;animation:loaderIn 0.6s 0.4s cubic-bezier(0.16,1,0.3,1) forwards;">Creative Partner</div>
+  <div class="loader-sub" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.9rem;color:rgba(138,133,121,0.7);margin-top:8px;opacity:0;animation:loaderIn 0.6s 0.4s cubic-bezier(0.16,1,0.3,1) forwards;">Creative Partner — Custom Package</div>
   <div class="loader-line"></div>
 </div>
 
@@ -919,18 +921,20 @@
   <div class="cover-image" id="coverImg" style="background-image:url('https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/ae3d0f01-858f-44ca-aafb-bf477ddf9039/LRD-2500px-1.jpg');background-position:center 35%;"></div>
   <div class="cover-top">
     <div class="cover-logo">Matt Anthony Photography</div>
-    <div class="cover-date">April 2026</div>
+    <div class="cover-date">April 8, 2026</div>
   </div>
   <div class="cover-content">
-    <div class="cover-eyebrow">Creative Partner</div>
-    <h1>Your marketing<br>team.<br><em>Embedded.</em></h1>
-    <p class="cover-sub">SEO, social media, quarterly shoots, magazine submissions, and blog content across both our platforms. One partner. One retainer.</p>
+    <div class="cover-eyebrow">LRD Studio</div>
+    <h1>Your designs<br>deserve to be<br><em>discovered.</em></h1>
+    <p class="cover-sub">Customized for LRD Studio after our April 7 review. Full Creative Partner — built around video, publications, and the rhythm your team actually works in.</p>
     <div class="cover-meta-bar">
       <div class="cover-meta-item"><strong>Prepared for</strong>Lauren Ritz, Founder</div>
       <div class="cover-meta-item"><strong>Prepared by</strong>Matt Anthony</div>
-      <div class="cover-meta-item"><strong>Valid through</strong>May 31, 2026</div>
+      <div class="cover-meta-item"><strong>Valid through</strong>April 30, 2026</div>
     </div>
-    <a class="cover-cta" href="#tiers"><span>View the Retainer</span><span class="cover-cta-arrow">&darr;</span></a>
+    
+    <a class="cover-cta" href="#tiers"><span>View Options</span><span class="cover-cta-arrow">&darr;</span></a>
+    
   </div>
   <div class="scroll-indicator" id="scrollIndicator">
     <div class="scroll-indicator-text">Scroll</div>
@@ -939,477 +943,674 @@
 </div>
 
 
-<!-- THE PARTNERSHIP -->
-<div class="section cream" data-nav="Partnership">
-  <div class="eyebrow">Where We Stand</div>
-  <h2>We've already built the trust.<br><em>This is the next step.</em></h2>
-  <p class="lead">Lauren, we've done two sessions together and the images speak for themselves. You know how I work, I know your aesthetic, and after our coffee this week the direction is clear: I become part of your marketing team.</p>
 
-  <p>This isn't a cold pitch. This is a proposal to formalize what's already working and expand it into SEO, social media, magazine submissions, and a quarterly shoot rhythm that keeps your portfolio growing and your visibility compounding.</p>
 
-  <p>Your site audit showed a content score of 84/100 and strong visual assets, but 699 images invisible to Google, no local search presence, and an awards pipeline that just produced a Western Living win. The design quality was never the question. The visibility is. This retainer fixes that.</p>
 
+
+<div class="section cream" data-nav="Story">
+  <div class="eyebrow">Where You Are</div>
+  <h2>The portfolio is beautiful.<br><em>Google can’t see it.</em></h2>
+  <p class="lead">Lauren, I ran a full technical audit on lrdstudio.ca before our coffee this week. Your site scored 84/100 on content and 85/100 on visual assets. 20 project pages, professional photography from our sessions, and a clear design voice. It’s a strong foundation.</p>
+  
+  <p>But there’s a problem hiding behind that portfolio: 699 of your 761 images have no alt text. That means 91.8% of LRD’s photography is invisible to Google Image search. When a homeowner in Whistler searches “modern kitchen interior design” or “log home renovation interiors,” Google shows image results. LRD can’t appear in any of them.</p>
+  
+  <p>You were a 2022 Western Living Designer of the Year finalist. That’s a real credential. But since then, there’s been no video content, no new award submissions, and 699 images Google can’t see. Ashley de Boer in Squamish just racked up Georgie, HAVAN, and NKBA nominations for 2025. The design quality isn’t the gap. The ongoing visibility is.</p>
+  
+  <p>This proposal puts a creative partner behind LRD who already knows your aesthetic, captures every project with intent, builds the discoverability layer your portfolio is missing, and keeps the awards pipeline active.</p>
+  
+  
   <div class="stats">
-    <div class="stat"><span class="stat-val">2</span><span class="stat-lbl">Sessions Together</span></div>
-    <div class="stat"><span class="stat-val">20</span><span class="stat-lbl">Projects in Your Portfolio</span></div>
+    
+    <div class="stat"><span class="stat-val">84</span><span class="stat-lbl">Content Score</span></div>
+    
     <div class="stat"><span class="stat-val">699</span><span class="stat-lbl">Images Invisible to Google</span></div>
-    <div class="stat"><span class="stat-val">1</span><span class="stat-lbl">WL Design 25 Winner</span></div>
+    
+    <div class="stat"><span class="stat-val">0</span><span class="stat-lbl">Video Assets</span></div>
+    
+    <div class="stat"><span class="stat-val">1</span><span class="stat-lbl">WL DOTY Finalist</span></div>
+    
   </div>
+  
 </div>
 
 
-<!-- PHOTO BREAK -->
+
+
+
+
+
 <div class="photo-break">
   <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/9f3611d8-a842-42d6-b65b-cd25ba6920cd/sunridge-whistle-web--32.jpg" alt="Sunridge interior dining room">
   <div class="photo-break-caption">Sunridge &middot; Whistler, BC &middot; Matt Anthony Photography</div>
 </div>
 
 
-<!-- WHAT'S INCLUDED -->
-<div class="section" data-nav="Services">
-  <div class="eyebrow">The Retainer</div>
-  <h2>Everything your marketing needs.<br><em>One monthly investment.</em></h2>
-  <p>Four pillars that work together: fix the discoverability gaps, keep your social channels active, document every project to award spec, and get that work into magazines. Each one feeds the others.</p>
-  <div class="services">
 
+
+
+
+<div class="section" data-nav="Audit">
+  <div class="eyebrow">The Audit</div>
+  <h2>What the data says.<br><em>Verified, not estimated.</em></h2>
+  <p class="lead">I crawled 30 pages on lrdstudio.ca. Here’s the real picture.</p>
+  
+  
+  <div class="services" style="margin:40px 0;">
+    
     <div class="svc">
-      <h4>SEO &amp; Local Visibility</h4>
+      <h4>What’s Strong</h4>
       <ul>
-        <li>Fix 699 image alt tags across your portfolio (month one)</li>
-        <li>Google Business Profile setup + optimization</li>
-        <li>InteriorDesigner + LocalBusiness schema markup</li>
-        <li>Service area pages: Whistler, Squamish, Pemberton, Vancouver</li>
-        <li>Keyword research that expands over time</li>
-        <li>1 SEO blog post per month targeting high-intent local search</li>
-        <li>Ongoing technical SEO maintenance</li>
+        
+        <li><strong>SEO scores 77/100.</strong> Valid SSL, 91ms response, 36-URL sitemap, good meta title including Whistler and Squamish locations.</li>
+        
+        <li><strong>Content scores 84/100.</strong> 20 project pages with an average of 34.8 images each. 464-word homepage. Strong design philosophy articulation.</li>
+        
+        <li><strong>Professional photography.</strong> Images from our Sunridge and other sessions. Design-intent photography that shows material choices, light, and spatial composition.</li>
+        
+        <li><strong>Houzz listing active.</strong> Important directory presence for interior designers.</li>
+        
+        <li><strong>Western Living DOTY finalist (2022).</strong> Real credential. Also featured in Build Magazine. IDIBC registered with board seat. The foundation for awards is already proven.</li>
+        
       </ul>
     </div>
-
+    
     <div class="svc">
-      <h4>Social Media Management</h4>
+      <h4>The Specific Gaps</h4>
       <ul>
-        <li>Content calendar planning and execution</li>
-        <li>3x/week posting across Instagram + Pinterest</li>
-        <li>Design-intent captions and hashtag strategy</li>
-        <li>Shared Dropbox folder: drop files, I turn them into posts</li>
-        <li>Story content from shoot footage and your daily captures</li>
-        <li>Community engagement and growth</li>
+        
+        <li><strong>699 of 761 images missing alt text (91.8%).</strong> This is the single biggest issue. Every image without alt text is invisible to Google Image search, which is how homeowners discover interior designers. One-time fix with permanent impact.</li>
+        
+        <li><strong>No Google Business Profile.</strong> Can’t appear on Google Maps or in the Local Pack for “interior designer Squamish” or “interior design Whistler.”</li>
+        
+        <li><strong>No video content.</strong> Zero atmospheric walkthroughs, zero material reveals, zero design process content. For interior design, video showing how light moves through a space is the most compelling content format.</li>
+        
+        <li><strong>Awards momentum has stalled since 2022.</strong> The Western Living finalist credential proved the work qualifies. But no new submissions since then. Ashley de Boer has 5+ nominations for 2025 alone. The pipeline needs to be reactivated.</li>
+        
+        <li><strong>No blog or design journal.</strong> No content targeting “interior design Whistler” or thought leadership around materials, trends, or design process.</li>
+        
       </ul>
     </div>
-
-    <div class="svc">
-      <h4>Quarterly Portfolio Shoots</h4>
-      <ul>
-        <li>4 full-day shoots per year, scheduled flexibly</li>
-        <li>20 to 25 edited images per session</li>
-        <li>60-second atmospheric walkthrough video</li>
-        <li>Material and detail close-ups</li>
-        <li>Multi-format delivery: web, social, print, award-ready</li>
-        <li>Full licensing for all channels</li>
-        <li>Shoots scheduled when projects are ready, not on a fixed calendar</li>
-      </ul>
-    </div>
-
-    <div class="svc">
-      <h4>Magazine &amp; Publication Support</h4>
-      <ul>
-        <li>Every shoot photographed to submission spec</li>
-        <li>IDIBC, Georgie, HAVAN, NKBA award entries</li>
-        <li>Publication pitches: Western Living, Dwell, ArchDaily</li>
-        <li>Submission materials and narratives prepared</li>
-        <li>Editor relationship management</li>
-        <li>Award calendar tracked and managed</li>
-      </ul>
-    </div>
-
+    
   </div>
+  
+  
+  <div class="insight">
+    <h4>The Bottom Line</h4>
+    <p>LRD’s portfolio is <strong>genuinely beautiful</strong> and the Western Living credential proves the work is award-calibre. The issues are <strong>discoverability</strong> (699 images Google can’t see, no local presence on Maps) and <strong>momentum</strong> (no new submissions since 2022, no video content). A creative partner fixes both while keeping the content pipeline flowing.</p>
+  </div>
+  
 </div>
 
 
-<!-- PHOTO BREAK -->
+
+
+
+
+
 <div class="photo-break">
   <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/d524d107-05c4-42a3-9357-4303ef3840ad/LRD-2500px-19.jpg" alt="LRD Studio project interior">
   <div class="photo-break-caption">LRD Studio &middot; Matt Anthony Photography</div>
 </div>
 
 
-<!-- BLOG POST MULTIPLIER -->
-<div class="section light" data-nav="Blog">
-  <div class="eyebrow">Content Multiplier</div>
-  <h2>Every shoot becomes<br><em>two blog posts.</em></h2>
-  <p class="lead">Every portfolio shoot we do together generates a featured blog post on both mattanthonyphoto.com and lrdstudio.ca. Your project gets documented, SEO-optimized, and published across two audiences.</p>
 
-  <p>My audience is architects, builders, and design professionals across BC. Your audience is homeowners looking for an interior designer. Each blog post reaches both, with keyword-rich alt text, project narratives, and links back to your portfolio.</p>
 
-  <p>Over a year, that's 8 pieces of evergreen content (4 on each site) driving organic traffic from both directions. Add site visit shoots and the count grows. This is how visibility compounds.</p>
 
-  <div class="insight">
-    <h4>The Compounding Effect</h4>
-    <p>Each blog post targets local search terms like <strong>"interior design Whistler"</strong> or <strong>"modern kitchen renovation Squamish."</strong> After four quarters, LRD has a library of SEO-optimized content that competitors aren't creating. Combined with the alt text fix and Google Business Profile, this is how you become the most visible interior design studio in the Sea-to-Sky.</p>
+
+<div class="section" data-nav="Services">
+  <div class="eyebrow">What This Adds — Customized For LRD</div>
+  <h2>Built around your team.<br><em>Video-forward. Publication-led.</em></h2>
+  <p>Customized after our April 7 review. Heavier on video, leaner on awards (Western Living + IDIBC Shine only), publication outreach replaces application-heavy programs, and team marketing shoots are built into the plan. Pinterest stays in as a passive SEO engine — your content compounds, you don't create twice.</p>
+  <div class="services">
+    
+    <div class="svc">
+      
+      <h4>Design Photography</h4>
+      <ul>
+        
+        <li>1 full-day shoot per month</li>
+        
+        <li>25 to 30 edited images per session</li>
+        
+        <li>Material and detail close-ups that tell the design story</li>
+        
+        <li>Multi-format delivery: web, social, print, publication-ready</li>
+        
+        <li>Full perpetual commercial license</li>
+        
+        <li>Every image delivered with keyword-rich SEO alt text</li>
+        
+        <li>Shoots roll forward within the contract year if a project slips</li>
+        
+      </ul>
+    </div>
+    
+    <div class="svc new">
+      <div class="svc-badge">New</div>
+      <h4>Video — 50/50 Mix</h4>
+      <ul>
+        
+        <li>Short-form video weighted equally with stills (50/50)</li>
+        
+        <li>60-second atmospheric walkthrough per project</li>
+        
+        <li>Material reveal and detail reels for Instagram</li>
+        
+        <li>Monthly social reel cut from shoot footage</li>
+        
+        <li>Year-end LRD studio film (2 to 3 minutes)</li>
+        
+        <li>Format: vertical for IG/Reels, horizontal for site hero</li>
+        
+      </ul>
+    </div>
+    
+    <div class="svc new">
+      <div class="svc-badge">New</div>
+      <h4>Social + IG Outreach</h4>
+      <ul>
+        
+        <li>Full Instagram management — 50/50 photo and short-form video</li>
+        
+        <li>Active IG outreach: comment funnel + targeted DMs to homeowners, builders, architects in LRD's geography</li>
+        
+        <li>Story content from each shoot</li>
+        
+        <li>Pinterest as a passive SEO engine — pins pulled from existing content, not a separate creation track</li>
+        
+        <li>All posts scheduled through your private LRD client portal for approval before they go live</li>
+        
+      </ul>
+    </div>
+    
+    <div class="svc new">
+      <div class="svc-badge">New</div>
+      <h4>Publications + Web</h4>
+      <ul>
+        
+        <li>Publication outreach replaces application-heavy awards work</li>
+        
+        <li>Targets: Western Living editorial, Azure, Dwell, NUVO, Western Interiors, House &amp; Home</li>
+        
+        <li>Pitched 4 to 6 publications per quarter</li>
+        
+        <li>Award submissions: Western Living Designers of the Year + IDIBC Shine only</li>
+        
+        <li>1 SEO-anchor blog post per month (kept lean — video does the heavy lifting)</li>
+        
+        <li>Squarespace site fully editable on your end at all times — Matt handles structural and SEO work, you keep the keys</li>
+        
+      </ul>
+    </div>
+    
+    <div class="svc new">
+      <div class="svc-badge">New</div>
+      <h4>Team + Studio Marketing</h4>
+      <ul>
+        
+        <li>Quarterly half-day team marketing shoot (headshots, studio lifestyle, behind-the-scenes)</li>
+        
+        <li>Used for About page, LinkedIn, press kits, and editorial submissions</li>
+        
+        <li>Captured during a regular monthly visit — no extra travel cost</li>
+        
+        <li>Strategic brand photography that supports recruiting and PR</li>
+        
+      </ul>
+    </div>
+    
+    <div class="svc">
+      
+      <h4>Discoverability</h4>
+      <ul>
+        
+        <li>Alt text optimization across existing 699 images (month one)</li>
+        
+        <li>Schema markup (InteriorDesigner + LocalBusiness)</li>
+        
+        <li>Google Business Profile setup + optimization</li>
+        
+        <li>Monthly strategy call and content calendar</li>
+        
+      </ul>
+    </div>
+    
   </div>
 </div>
 
 
-<!-- PHOTO BREAK -->
+
+
+
+
+
 <div class="photo-break">
-  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/8baad882-d517-4bdd-98fd-09ad2530273d/LRD-2500px-7.jpg" alt="Balsam Way interior design by LRD Studio">
-  <div class="photo-break-caption">Balsam Way &middot; LRD Studio &middot; Matt Anthony Photography</div>
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/7ae7f632-ffd4-4990-abae-430431c42a83/sunridge-whistle-web--28.jpg" alt="Sunridge interior stone and timber">
+  <div class="photo-break-caption">Sunridge &middot; Whistler, BC &middot; Matt Anthony Photography</div>
 </div>
 
 
-<!-- PRICING -->
-<div class="section wide" id="tiers" data-nav="Investment">
-  <div class="eyebrow">Investment</div>
-  <h2>Three levels. Each one builds<br><em>on the last.</em></h2>
-  <p>Start with SEO to fix the visibility gaps. Add social to stay in front of your audience. Go full Creative Partner to document every project and keep the awards pipeline active. Each tier includes everything below it.</p>
+
+
+
+
+<div class="section wide" id="tiers" data-nav="Pricing">
+  <div class="eyebrow">Your Customized Package</div>
+  <h2>One package.<br><em>Built around your team.</em></h2>
+  <p>After our April 7 review, we've collapsed the three-tier option into one custom Creative Partner package built around what LRD actually needs: more video, publication outreach instead of award applications, IG outreach, and team marketing shoots. Same Full Creative Partner price.</p>
   <div class="tiers">
-
-    <div class="tier" data-tier="seo">
-      <div class="tier-selected-badge">Selected</div>
-      <div class="tier-name">SEO &amp; Visibility</div>
-      <div class="tier-price">$2,500 <span>/ mo</span></div>
-      <div class="tier-term">Ongoing &middot; starts when you're ready</div>
-      <ul>
-        <li>Fix 699 image alt tags (month one)</li>
-        <li>Google Business Profile setup + optimization</li>
-        <li>InteriorDesigner + LocalBusiness schema</li>
-        <li>Service area pages built out</li>
-        <li>Keyword research that expands over time</li>
-        <li>1 SEO blog post per month</li>
-        <li>Monthly strategy call</li>
-        <li class="off">Social media management</li>
-        <li class="off">Quarterly portfolio shoots</li>
-        <li class="off">Magazine submissions</li>
-      </ul>
-      <div class="tier-bottom">Annual investment<br><strong>$30,000</strong></div>
-    </div>
-
-    <div class="tier" data-tier="social">
-      <div class="tier-selected-badge">Selected</div>
-      <div class="tier-name">SEO + Social</div>
-      <div class="tier-price">$3,000 <span>/ mo</span></div>
-      <div class="tier-term">Ongoing &middot; starts when you're ready</div>
-      <ul>
-        <li>Everything in SEO &amp; Visibility</li>
-        <li>3x/week posting (Instagram + Pinterest)</li>
-        <li>Content calendar and strategy</li>
-        <li>Shared Dropbox: drop files, I make posts</li>
-        <li>Story content and design-intent captions</li>
-        <li>Community engagement and growth</li>
-        <li class="off">Quarterly portfolio shoots</li>
-        <li class="off">Magazine submissions</li>
-      </ul>
-      <div class="tier-bottom">Annual investment<br><strong>$36,000</strong></div>
-    </div>
-
+    
     <div class="tier rec" data-tier="full">
       <div class="tier-selected-badge">Selected</div>
       <div class="tier-badge"><span>Recommended</span></div>
-      <div class="tier-name">Full Creative Partner</div>
+      <div class="tier-name">Full Creative Partner — LRD Custom</div>
       <div class="tier-price">$3,500 <span>/ mo</span></div>
-      <div class="tier-term">Ongoing &middot; starts when you're ready</div>
+      <div class="tier-term">3-month pilot &middot; $10,500 total &middot; rolls into 12-month upon proof</div>
       <ul>
-        <li>Everything in SEO + Social</li>
-        <li>4 portfolio shoots per year, scheduled flexibly</li>
-        <li>20 to 25 edited images per shoot</li>
-        <li>60-second atmospheric video per shoot</li>
-        <li>Featured blog post on both sites per shoot</li>
-        <li>Magazine &amp; publication submissions</li>
-        <li>Award entry prep and management</li>
-        <li>Full image licensing</li>
+        
+        <li>1 full-day project shoot / month</li>
+        
+        <li>25 to 30 edited images with SEO alt text</li>
+        
+        <li>50/50 photo and short-form video mix</li>
+        
+        <li>60-second atmospheric video per project</li>
+        
+        <li>Monthly social reel from shoot footage</li>
+        
+        <li>Full Instagram management (photo + video)</li>
+        
+        <li>Active IG outreach (comment funnel + targeted DMs)</li>
+        
+        <li>Pinterest pinning from existing content (passive SEO)</li>
+        
+        <li>Publication outreach: Western Living, Azure, Dwell, NUVO, House &amp; Home (4 to 6 pitches / quarter)</li>
+        
+        <li>Award submissions: Western Living DOTY + IDIBC Shine only</li>
+        
+        <li>1 SEO-anchor blog post / month</li>
+        
+        <li>Quarterly team marketing shoot (half-day)</li>
+        
+        <li>Squarespace site management — Lauren retains full edit access</li>
+        
+        <li>Alt text fix on existing 699 images (month one)</li>
+        
+        <li>Google Business Profile + schema markup setup</li>
+        
+        <li>Monthly strategy call</li>
+        
+        <li>Year-end LRD studio film (2 to 3 minutes)</li>
+        
+        <li>Shoot rollover within contract year if a project slips</li>
+        
+        <li>Private LRD client portal — approve every post before publish</li>
+        
       </ul>
-      <div class="tier-bottom">Annual investment<br><strong>$42,000</strong></div>
+      <div class="tier-bottom">12-month investment (post-pilot)<br><strong>$42,000</strong></div>
     </div>
-
+    
   </div>
-
-  <div style="margin-top:48px;">
-    <div class="eyebrow">Add-On Shoots</div>
-    <div style="display:flex;flex-direction:column;gap:2px;margin-top:20px;">
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 24px;background:var(--light);border-left:3px solid var(--gold);">
-        <span style="font-size:0.9rem;color:var(--ink);">Site Visit Shoot <span style="color:var(--stone);font-size:0.82rem;">&mdash; in-progress project documentation, 15-20 images</span></span>
-        <span style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--gold);">$1,000</span>
-      </div>
-      <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 24px;background:var(--light);border-left:3px solid var(--gold);">
-        <span style="font-size:0.9rem;color:var(--ink);">Portfolio Shoot <span style="color:var(--stone);font-size:0.82rem;">&mdash; completed project, 20-25 images</span></span>
-        <span style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--gold);">$1,500</span>
-      </div>
-    </div>
-  </div>
-
+  
   <div class="insight">
-    <h4>The Math</h4>
-    <p>You paid <strong>$3,150 for two standalone sessions</strong> last year. At $3,500/month as a Full Creative Partner, you get 4 portfolio shoots, year-round social media, full SEO and local visibility, magazine submissions, and a blog post on both our sites every quarter. That's more content in one month than most designers produce in a year.</p>
-    <p>Add site visits at $1,000 each to document active projects between quarterly shoots, and you have a continuous content engine feeding every channel.</p>
+    <h4>How to Think About This</h4>
+    <p>$3,500/mo, all-in. What it replaces if Lauren hired separately:</p>
+    
+    <div class="tier-breakdown">
+      
+      <div class="tb"><span class="tb-label">Photographer (1 day/mo)</span><span class="tb-desc">Equivalent à la carte cost: $2,200/mo for project photography alone.</span></div>
+      
+      <div class="tb"><span class="tb-label">Videographer (50/50 mix)</span><span class="tb-desc">Equivalent à la carte: $1,200 to $1,800/mo for project video and reels.</span></div>
+      
+      <div class="tb"><span class="tb-label">Social media manager + IG outreach</span><span class="tb-desc">Equivalent: $1,200 to $1,800/mo for content scheduling and active outreach.</span></div>
+      
+      <div class="tb"><span class="tb-label">Publicist for editorial pitching</span><span class="tb-desc">Equivalent: $1,500 to $2,500/mo for 4 to 6 publication pitches per quarter.</span></div>
+      
+      <div class="tb"><span class="tb-label">SEO + Squarespace maintenance</span><span class="tb-desc">Equivalent: $500 to $900/mo for ongoing site optimization and blog content.</span></div>
+      
+    </div>
+    
+    
+    <p style="margin-top:24px;">Replacing all of these à la carte would run <strong>$6,600 to $9,200/mo</strong>. Bundled into one Creative Partner relationship: <strong>$3,500/mo</strong>. The savings come from one person who already knows your aesthetic, your projects, and your team.</p>
+    
   </div>
-
+  
 </div>
 
 
-<!-- WEBSITE MOCKUP PREVIEW -->
-<div class="section cream" data-nav="Website">
-  <div class="eyebrow">Included</div>
-  <h2>A new website.<br><em>Built for what we're doing.</em></h2>
-  <p class="lead">For me to do this work properly, your site needs to be rebuilt from the ground up. So it's included. Full custom Squarespace build with SEO baked into every page, schema markup, proper alt text, service area targeting, and a design that matches the calibre of your work.</p>
-
-  <p>I've already started. Before we even sat down for coffee, I built a full homepage concept for LRD Studio. Not a template. A custom design based on your brand, your projects, and the structure your site needs.</p>
-
-  <div style="max-width:940px;margin:48px auto;border-radius:10px;overflow:hidden;box-shadow:0 30px 80px rgba(26,26,24,0.18), 0 10px 30px rgba(26,26,24,0.1);">
-    <div style="background:#2a2a28;padding:14px 18px;display:flex;align-items:center;gap:8px;">
-      <span style="width:11px;height:11px;border-radius:50%;background:#ff5f57;display:inline-block;"></span>
-      <span style="width:11px;height:11px;border-radius:50%;background:#ffbd2e;display:inline-block;"></span>
-      <span style="width:11px;height:11px;border-radius:50%;background:#28c840;display:inline-block;"></span>
-      <span style="flex:1;background:#1a1a18;border-radius:6px;padding:7px 14px;margin-left:10px;font-family:'DM Sans',sans-serif;font-size:12px;color:#8a8579;letter-spacing:0.02em;">&#x1F512;&ensp;lrdstudio.ca</span>
-    </div>
-    <div style="height:520px;overflow:hidden;background:#1a1a18;">
-      <iframe src="https://mattanthonyphoto.github.io/matt-proposals/lrd/lrd-homepage-mockup.html" style="width:100%;height:520px;border:none;display:block;" loading="lazy"></iframe>
-    </div>
-  </div>
-  <p style="text-align:center;margin-top:16px;"><a href="https://mattanthonyphoto.github.io/matt-proposals/lrd/lrd-homepage-mockup.html" target="_blank" style="color:var(--gold);text-decoration:none;font-family:'Josefin Sans',sans-serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;">Open full mockup &rarr;</a></p>
-
-  <div class="insight" style="margin-top:40px;">
-    <h4>What's Included in the Rebuild</h4>
-    <p>Full responsive Squarespace build: project grid, services, team bio, testimonial, process timeline, and contact. SEO-optimized structure with schema markup, proper alt text on every image, and service area targeting throughout. <strong>Included with the retainer. 6-month minimum commitment.</strong></p>
-  </div>
-</div>
 
 
-<!-- PHOTO BREAK -->
+
+
+
 <div class="photo-break">
   <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/0b4f9f4d-01c4-4da3-ae8e-1131391d280f/sunridge-whistle-web--39.jpg" alt="Sunridge interior detail">
   <div class="photo-break-caption">Sunridge &middot; Whistler, BC &middot; Matt Anthony Photography</div>
 </div>
 
 
-<!-- QUARTERLY ROADMAP -->
-<div class="section" data-nav="Roadmap">
-  <div class="eyebrow">The Rhythm</div>
-  <h2>Four quarters. Four shoots.<br><em>Constant visibility.</em></h2>
-  <p>Here's how the first year unfolds once we kick off.</p>
+
+
+
+
+<div class="section light" data-nav="Roadmap">
+  <div class="eyebrow">3-Month Pilot Roadmap</div>
+  <h2>What gets done.<br><em>Month by month.</em></h2>
+  <p>The pilot runs May through July. Three months, three projects documented with photography and atmospheric video.</p>
   <div class="roadmap">
     <div class="roadmap-line" id="roadmapLine"></div>
-
+    
     <div class="rm">
       <div class="rm-left">
-        <div class="rm-month">Q2 2026</div>
-        <div class="rm-label">Foundation</div>
+        <div class="rm-month">May 2026</div>
+        <div class="rm-label">Strongest Recent<br>Project</div>
       </div>
       <div class="rm-right">
         <ul>
-          <li>Full-day portfolio shoot: strongest recent project</li>
-          <li>699 image alt text fix across entire site (month one)</li>
-          <li>Google Business Profile setup and optimization</li>
-          <li>Schema markup implementation</li>
-          <li>Social media channels activated at 3x/week</li>
-          <li>Featured blog post on both sites</li>
-          <li>Strategy call: map the full year</li>
+          
+          <li>Full-day shoot at your strongest recently completed project</li>
+          
+          <li>20 to 25 edited images: spaces, materials, light, composition</li>
+          
+          <li>Material and detail close-ups that tell the design story</li>
+          
+          <li>60-second atmospheric walkthrough video</li>
+          
+          <li>All images with keyword-rich SEO alt text</li>
+          
+          <li>Social media reel from shoot footage</li>
+          
+          <li>Strategy call to map out summer content calendar</li>
+          
         </ul>
       </div>
     </div>
-
+    
     <div class="rm">
       <div class="rm-left">
-        <div class="rm-month">Q3 2026</div>
-        <div class="rm-label">Momentum</div>
+        <div class="rm-month">June 2026</div>
+        <div class="rm-label">Design Process:<br>In Progress</div>
       </div>
       <div class="rm-right">
         <ul>
-          <li>Full-day portfolio shoot: peak summer light, hero spaces</li>
-          <li>Social media cadence fully established</li>
-          <li>First magazine submissions: IDIBC Awards of Excellence</li>
-          <li>Featured blog post on both sites</li>
-          <li>Analytics review: what content is driving traffic</li>
+          
+          <li>Full-day session at a project in the design/install phase</li>
+          
+          <li>20 to 25 images: material selections, install progress, before/after moments</li>
+          
+          <li>Design process documentation that clients and followers want to see</li>
+          
+          <li>Social media reel from shoot content</li>
+          
+          <li>Strategy call: review first month, adjust approach</li>
+          
         </ul>
       </div>
     </div>
-
+    
     <div class="rm">
       <div class="rm-left">
-        <div class="rm-month">Q4 2026</div>
-        <div class="rm-label">Leverage</div>
+        <div class="rm-month">July 2026</div>
+        <div class="rm-label">Summer Light:<br>Hero Spaces</div>
       </div>
       <div class="rm-right">
         <ul>
-          <li>Full-day portfolio shoot: fall or winter project</li>
-          <li>Georgie and HAVAN award submissions</li>
-          <li>Publication pitches: Western Living, Dwell, ArchDaily</li>
-          <li>Featured blog post on both sites</li>
-          <li>Year-end content review and planning</li>
+          
+          <li>Full-day hero session in peak summer light</li>
+          
+          <li>20 to 25 images capturing how natural light transforms LRD spaces</li>
+          
+          <li>Atmospheric walkthrough video</li>
+          
+          <li>Social media reel + Pinterest content</li>
+          
+          <li>Pilot review: what worked, what the data says, what comes next</li>
+          
+          <li>If results proven: 12-month continuation locked in</li>
+          
         </ul>
       </div>
     </div>
-
-    <div class="rm">
-      <div class="rm-left">
-        <div class="rm-month">Q1 2027</div>
-        <div class="rm-label">Compound</div>
-      </div>
-      <div class="rm-right">
-        <ul>
-          <li>Full-day portfolio shoot: new year, fresh project</li>
-          <li>Award results and publicity leverage</li>
-          <li>Portfolio now 4 shoots deeper, 100+ new images</li>
-          <li>Featured blog post on both sites</li>
-          <li>Annual strategy: review, adjust, plan year two</li>
-        </ul>
-      </div>
-    </div>
-
+    
   </div>
-
+  
   <div class="stats">
-    <div class="stat"><span class="stat-val">4</span><span class="stat-lbl">Portfolio Shoots</span></div>
-    <div class="stat"><span class="stat-val">100</span><span class="stat-lbl">Professional Images</span></div>
-    <div class="stat"><span class="stat-val">8</span><span class="stat-lbl">Blog Posts (Both Sites)</span></div>
-    <div class="stat"><span class="stat-val">156</span><span class="stat-lbl">Social Posts Per Year</span></div>
+    
+    <div class="stat"><span class="stat-val">3</span><span class="stat-lbl">Full-Day Shoots</span></div>
+    
+    <div class="stat"><span class="stat-val">75</span><span class="stat-lbl">Professional Images</span></div>
+    
+    <div class="stat"><span class="stat-val">3</span><span class="stat-lbl">Social Reels</span></div>
+    
+    <div class="stat"><span class="stat-val">90</span><span class="stat-lbl">Days to Prove It</span></div>
+    
+  </div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="section" data-nav="Vision">
+  <div class="eyebrow">The 12-Month Vision</div>
+  <h2>What a full year of<br><em>content looks like.</em></h2>
+  <p>LRD’s portfolio is already beautiful. A full year of atmospheric video, design documentation, and awards submissions turns it into the most visible interior design studio in the Sea-to-Sky.</p>
+  <div class="tl">
+    
+    <div class="tl-item">
+      <div class="tl-q">Q2 2026</div>
+      <div class="tl-content">
+        <h4>Prove the Model</h4>
+        <p>3 shoots. 75 images. 3 atmospheric videos. Design process documentation. Every image searchable by Google for the first time. Social channels active with professional content.</p>
+      </div>
+    </div>
+    
+    <div class="tl-item">
+      <div class="tl-q">Q3 2026</div>
+      <div class="tl-content">
+        <h4>Compound</h4>
+        <p>Peak season. Summer light in Whistler and Squamish spaces. 150+ images. Atmospheric walkthroughs banked. Design journal content driving organic traffic.</p>
+      </div>
+    </div>
+    
+    <div class="tl-item">
+      <div class="tl-q">Q4 2026</div>
+      <div class="tl-content">
+        <h4>Leverage</h4>
+        <p>IDIBC and Georgie award submissions. Publication pitches to Western Living and Dwell. 225+ images. LRD’s online presence matches the calibre of the work.</p>
+      </div>
+    </div>
+    
+    <div class="tl-item">
+      <div class="tl-q">Q1 2027</div>
+      <div class="tl-content">
+        <h4>Separate</h4>
+        <p>300+ images, a year-end documentary, and the most visible interior design portfolio in the Sea-to-Sky. When a homeowner in Whistler searches for a designer, LRD shows up first.</p>
+      </div>
+    </div>
+    
   </div>
 </div>
 
 
-<!-- NUMBERS BAR -->
-<div class="numbers grain-section" style="grid-template-columns:repeat(4,1fr);">
-  <div class="num"><span class="num-val">100</span><span class="num-lbl">Professional Images Per Year</span></div>
-  <div class="num"><span class="num-val">4</span><span class="num-lbl">Atmospheric Videos</span></div>
-  <div class="num"><span class="num-val">12</span><span class="num-lbl">SEO Blog Posts Per Year</span></div>
-  <div class="num"><span class="num-val">8</span><span class="num-lbl">Project Features Across Both Sites</span></div>
+
+
+
+
+
+
+
+
+
+<div class="numbers grain-section">
+  
+  <div class="num"><span class="num-val">300</span><span class="num-lbl">Professional Images</span></div>
+  
+  <div class="num"><span class="num-val">12</span><span class="num-lbl">Atmospheric Videos</span></div>
+  
+  <div class="num"><span class="num-val">12</span><span class="num-lbl">Social Reels</span></div>
+  
 </div>
 
 
-<!-- MAGAZINE PIPELINE -->
-<div class="section cream" data-nav="Publications">
-  <div class="eyebrow">Magazine &amp; Awards</div>
-  <h2>Full support.<br><em>From shoot to submission.</em></h2>
-  <p class="lead">Lauren, the WL Design 25 win for Sunstone Kitchen just proved LRD's work belongs at the top. That momentum is real. This retainer keeps it going. Every shoot is photographed to submission spec from day one, and I handle the rest.</p>
 
-  <p>300 DPI, colour-calibrated, anonymous-ready images. Entry narratives written. Categories identified. Deadlines tracked. When submission season opens, your package is done. You focus on designing. I focus on getting the work seen.</p>
 
+
+
+
+
+
+
+
+<div class="section cream" data-nav="Awards">
+  <div class="eyebrow">Awards &amp; Publications</div>
+  <h2>One finalist credential.<br><em>Time to build on it.</em></h2>
+  <p class="lead">Lauren, the 2022 Western Living Designer of the Year finalist nod proved LRD’s work belongs at the top. But awards are a momentum game. Ashley de Boer has 5+ nominations for 2025 alone. The studios that submit consistently are the ones editors call first.</p>
+  
+  <p>The Western Living credential opened the door. Consistent submissions to IDIBC, Georgie, and HAVAN keep it open. Every project photographed to award spec is another entry. The goal isn’t one finalist badge, it’s a track record.</p>
+  
+  
+  <div class="numbers grain-section" style="margin:56px 0;">
+    
+    <div class="num"><span class="num-val">1</span><span class="num-lbl">LRD WL DOTY Finalist</span></div>
+    
+    <div class="num"><span class="num-val">5+</span><span class="num-lbl">Ashley de Boer 2025 Nominations</span></div>
+    
+    <div class="num"><span class="num-val">20</span><span class="num-lbl">LRD Projects Ready to Submit</span></div>
+    
+  </div>
+  
+  
+  <h3>What I Handle</h3><p>Every shoot is photographed to award-submission spec from day one. 300 DPI JPEG, colour-calibrated, anonymous-ready. When submission season opens, your images are done. I prepare entry materials, identify the right categories, and manage the process. You focus on designing.</p>
+  
+  
   <div class="services" style="margin:40px 0;">
-
+    
     <div class="svc">
       <h4>Award Submissions</h4>
       <ul>
+        
         <li>IDIBC Awards of Excellence</li>
-        <li>Georgie Awards (Best Interior Design)</li>
+        
+        <li>Georgie Awards (Best Interior Design Custom Residence)</li>
+        
         <li>HAVAN Awards</li>
+        
         <li>NKBA Awards</li>
+        
         <li>Dezeen &amp; AZ Awards</li>
+        
       </ul>
     </div>
-
+    
     <div class="svc">
       <h4>Publication Pitches</h4>
       <ul>
-        <li>Western Living — BC's top design magazine</li>
-        <li>Dwell — global residential design</li>
-        <li>ArchDaily &amp; Dezeen — international reach</li>
+        
+        <li>Western Living — BC’s top design magazine</li>
+        
+        <li>Dwell — global residential</li>
+        
+        <li>ArchDaily &amp; Dezeen</li>
+        
         <li>Azure Magazine</li>
+        
         <li>NUVO Magazine</li>
+        
       </ul>
     </div>
-
+    
   </div>
-
+  
+  
   <div class="insight">
-    <h4>Consistency Wins</h4>
-    <p>Ashley de Boer has 5+ nominations for 2025 alone. The studios that submit consistently are the ones editors call first. LRD just won Western Living and has 20 projects ready to submit. <strong>The difference between one win and a track record is consistency, not quality.</strong> This retainer keeps the pipeline full.</p>
+    <h4>20 Projects, 20 Potential Submissions</h4>
+    <p>LRD has the portfolio and the first credential. Sunridge alone could be submitted to IDIBC, Georgie, and HAVAN. <strong>The difference between one finalist nod and five is consistency, not quality.</strong> Keep the pipeline active.</p>
   </div>
+  
 </div>
 
 
-<!-- NEXT STEPS -->
+
+
+
+
+
+
+
+
+
 <div class="section" data-nav="Next Steps">
   <div class="eyebrow">Next Steps</div>
-  <h2>Ready when you are.<br><em>Let's make it official.</em></h2>
-
-  <p>Lauren, this is the formalization of what we talked about over coffee. One retainer, one relationship, and your entire marketing presence handled. I'm not a vendor you manage. I'm the marketing arm of your studio.</p>
-
+  <h2>Three signatures and<br><em>we start in May.</em></h2>
+  
+  <p>Lauren, this package is built around exactly what you and your team raised on April 7. We’ve done two sessions together already — we know how we work. The pilot is three months: May, June, July. If it works, it rolls into a 12-month engagement. If it doesn’t, you walk away with 75 professional images, three atmospheric videos, an active publication pipeline, an alt-text-fixed portfolio, and zero further obligation.</p>
+  
+  <p>Everything is ready to sign today: the agreement, the deposit invoice, and the May shoot can be scheduled before we hang up.</p>
+  
+  
   <div class="steps">
-
+    
     <div class="step">
       <span class="step-num">1</span>
-      <h4>Select Your Tier</h4>
-      <p>Scroll up and click the tier that fits. It'll be highlighted when you come back down here.</p>
+      <h4>Sign the Agreement</h4>
+      <p>3-month pilot terms. Sent alongside this proposal — DocuSign or wet signature, your call.</p>
     </div>
-
+    
     <div class="step">
       <span class="step-num">2</span>
-      <h4>Confirm Below</h4>
-      <p>Add any notes or questions and hit approve. I'll receive it instantly.</p>
+      <h4>50% Deposit</h4>
+      <p>$5,512.50 (50% of the pilot + GST). e-Transfer to info@mattanthonyphoto.com or invoice link. Locks in May priority.</p>
     </div>
-
+    
     <div class="step">
       <span class="step-num">3</span>
-      <h4>We Start</h4>
-      <p>First month's payment and the SEO work begins immediately. We schedule everything else from there.</p>
+      <h4>Schedule May Shoot</h4>
+      <p>Pick the strongest recently completed project. We map the summer content calendar on the same call.</p>
     </div>
-
+    
   </div>
-
-  <!-- APPROVAL FORM -->
-  <div id="approvalForm" style="margin-top:56px;padding:48px;background:var(--light);border:1px solid var(--gold-border);position:relative;">
-    <div style="position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold);"></div>
-
-    <div style="font-family:'Josefin Sans',sans-serif;font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;">Approve This Proposal</div>
-
-    <!-- Selected tier display -->
-    <div style="margin-bottom:28px;">
-      <div style="font-size:0.75rem;color:var(--stone);font-family:'Josefin Sans',sans-serif;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;">Selected Tier</div>
-      <div id="selectedTierDisplay" style="font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:500;color:var(--ink);line-height:1.2;">
-        <a href="#tiers" style="color:var(--gold);font-family:'DM Sans',sans-serif;font-size:0.95rem;font-weight:400;text-decoration:none;display:inline-flex;align-items:center;gap:8px;padding:10px 20px;border:1px solid var(--gold-border);transition:all 0.3s;" onmouseover="this.style.background='var(--gold)';this.style.color='var(--ink)'" onmouseout="this.style.background='transparent';this.style.color='var(--gold)'">&uarr; Select a tier</a>
-      </div>
-    </div>
-
-    <!-- Commitment -->
-    <div style="margin-bottom:28px;">
-      <div style="font-size:0.75rem;color:var(--stone);font-family:'Josefin Sans',sans-serif;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;">Commitment</div>
-      <div style="font-size:0.9rem;color:var(--ink);">6-month minimum &mdash; includes full website rebuild</div>
-    </div>
-
-    <!-- Notes -->
-    <div style="margin-bottom:28px;">
-      <div style="font-size:0.75rem;color:var(--stone);font-family:'Josefin Sans',sans-serif;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;">Notes (optional)</div>
-      <textarea id="approvalNotes" rows="3" placeholder="Any questions, adjustments, or details you'd like to discuss..." style="width:100%;padding:14px 18px;border:1px solid var(--gold-border);background:var(--white);font-family:'DM Sans',sans-serif;font-size:0.88rem;color:var(--ink);resize:vertical;line-height:1.7;outline:none;transition:border-color 0.3s;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--gold-border)'"></textarea>
-    </div>
-
-    <!-- Approve button -->
-    <button id="approveBtn" onclick="submitApproval()" style="display:inline-flex;align-items:center;gap:12px;padding:16px 40px;background:var(--ink);color:var(--paper);border:none;font-family:'Josefin Sans',sans-serif;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);" onmouseover="this.style.background='var(--gold)';this.style.color='var(--ink)'" onmouseout="this.style.background='var(--ink)';this.style.color='var(--paper)'">
-      <span>Approve &amp; Send to Matt</span>
-      <span style="font-size:1rem;">&rarr;</span>
-    </button>
-
-    <p style="margin-top:16px;font-size:0.75rem;color:var(--stone);">This opens your email client with your selections pre-filled. Nothing is binding until we both sign a formal agreement.</p>
-  </div>
-
-  <p style="margin-top:24px; font-size:0.85rem; color:var(--stone);">This proposal is valid through <strong style="color:var(--ink);">May 31, 2026</strong>.</p>
+  
+  
+  <p style="margin-top:24px; font-size:0.85rem; color:var(--stone);">This customized proposal is valid through <strong style="color:var(--ink);">April 30, 2026</strong>. After that, May priority cannot be guaranteed.</p>
+  
 </div>
 
 
-<!-- CLOSING IMAGE -->
-<div class="photo-break" style="height:50vh;min-height:360px;max-height:540px;">
-  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/91be57df-ed2d-4118-80dc-e98c2eca79e5/sunridge-whistle-web--43.jpg" alt="Sunridge interior by LRD Studio" style="filter:brightness(0.25);">
-  <div style="position:absolute;top:0;left:0;right:0;bottom:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px;">
-    <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:400;font-style:italic;color:var(--paper);max-width:560px;line-height:1.4;margin-bottom:32px;">I've got your back, Lauren.<br>Let's build something great.</p>
-    <div style="font-family:'Josefin Sans',sans-serif;font-size:0.7rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--paper);margin-bottom:20px;">Matt Anthony Photography</div>
-    <div style="font-size:0.8rem;color:rgba(246,244,240,0.5);line-height:2.2;">
-      <a href="https://mattanthonyphoto.com" style="color:var(--gold);text-decoration:none;">mattanthonyphoto.com</a><br>
-      <a href="mailto:info@mattanthonyphoto.com" style="color:var(--gold);text-decoration:none;">info@mattanthonyphoto.com</a> &middot; 604.765.9270<br>
-      Squamish, BC
-    </div>
-    <div style="margin-top:32px;font-family:'Josefin Sans',sans-serif;font-size:0.5rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(246,244,240,0.15);">This proposal is confidential and prepared exclusively for LRD Studio LTD.</div>
+
+
+
+
+
+<!-- FOOTER -->
+<div class="footer grain-section">
+  <div class="footer-mark">Matt Anthony Photography</div>
+  <div class="footer-info">
+    <a href="https://mattanthonyphoto.com">mattanthonyphoto.com</a><br>
+    <a href="mailto:info@mattanthonyphoto.com">info@mattanthonyphoto.com</a> &middot; 604.765.9270<br>
+    Squamish, BC
   </div>
+  <div class="footer-note">This proposal is confidential and prepared exclusively for LRD Studio LTD.</div>
 </div>
 
 <script>
 (function(){
   'use strict';
 
-  /* LOADING SCREEN */
+  /* ═══════ LOADING SCREEN ═══════ */
   var loader = document.getElementById('loader');
   window.addEventListener('load', function(){
     setTimeout(function(){ loader.classList.add('done'); }, 1100);
   });
 
-  /* SCROLL PROGRESS BAR */
+  /* ═══════ SCROLL PROGRESS BAR ═══════ */
   var progressBar = document.getElementById('scrollProgress');
   function updateProgress(){
     var h = document.documentElement.scrollHeight - window.innerHeight;
@@ -1417,7 +1618,7 @@
     progressBar.style.width = (h > 0 ? (s / h) * 100 : 0) + '%';
   }
 
-  /* COVER PARALLAX */
+  /* ═══════ COVER PARALLAX ═══════ */
   var coverImg = document.querySelector('.cover-image');
   function updateParallax(){
     if(window.scrollY < window.innerHeight){
@@ -1425,18 +1626,23 @@
     }
   }
 
-  /* PHOTO BREAK PARALLAX + KEN BURNS */
+  /* ═══════ PHOTO BREAK PARALLAX + KEN BURNS ═══════ */
   var isTouchDevice = 'ontouchstart' in window;
   var photoBreakEls = document.querySelectorAll('.photo-break');
+  var photoBreakImgs = document.querySelectorAll('.photo-break img');
   function updatePhotoParallax(){
     photoBreakEls.forEach(function(pb){
       var rect = pb.getBoundingClientRect();
       var inView = rect.bottom > 0 && rect.top < window.innerHeight;
-      if(inView){ pb.classList.add('in-view'); } else { pb.classList.remove('in-view'); }
+      if(inView){
+        pb.classList.add('in-view');
+      } else {
+        pb.classList.remove('in-view');
+      }
     });
   }
 
-  /* SECTION NAV DOTS */
+  /* ═══════ SECTION NAV DOTS ═══════ */
   var sectionNav = document.getElementById('sectionNav');
   var navSections = document.querySelectorAll('[data-nav]');
   var navDots = [];
@@ -1454,17 +1660,25 @@
   function updateNavDots(){
     var scrollY = window.scrollY;
     var winH = window.innerHeight;
-    if(scrollY > winH * 0.5){ sectionNav.classList.add('visible'); } else { sectionNav.classList.remove('visible'); }
+    // Show/hide nav (hide on cover)
+    if(scrollY > winH * 0.5){
+      sectionNav.classList.add('visible');
+    } else {
+      sectionNav.classList.remove('visible');
+    }
+    // Highlight active section
     var active = null;
     navDots.forEach(function(item){
       var rect = item.section.getBoundingClientRect();
-      if(rect.top < winH * 0.5 && rect.bottom > winH * 0.3){ active = item; }
+      if(rect.top < winH * 0.5 && rect.bottom > winH * 0.3){
+        active = item;
+      }
       item.dot.classList.remove('active');
     });
     if(active) active.dot.classList.add('active');
   }
 
-  /* SCROLL REVEAL */
+  /* ═══════ SCROLL REVEAL ═══════ */
   var revealTargets = [];
   document.querySelectorAll('.section, .numbers, .mosaic').forEach(function(section){
     section.querySelectorAll('.eyebrow, h2, .lead, .stats, .services, .tiers, .insight, .roadmap, .tl, .numbers, .steps, .addons').forEach(function(el, i){
@@ -1494,9 +1708,10 @@
       }
     });
   }, { threshold:0.15, rootMargin:'0px 0px -40px 0px' });
+
   revealTargets.forEach(function(el){ revealObserver.observe(el); });
 
-  /* EYEBROW LINE ANIMATION */
+  /* ═══════ EYEBROW LINE ANIMATION ═══════ */
   var eyebrows = document.querySelectorAll('.eyebrow');
   var eyebrowObserver = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
@@ -1508,7 +1723,7 @@
   }, { threshold:0.5 });
   eyebrows.forEach(function(eb){ eyebrowObserver.observe(eb); });
 
-  /* NUMBER COUNTER ANIMATION */
+  /* ═══════ NUMBER COUNTER ANIMATION ═══════ */
   function animateCounter(el){
     var valEl = el.querySelector('.stat-val, .num-val');
     if(!valEl || valEl.dataset.counted) return;
@@ -1530,7 +1745,7 @@
     requestAnimationFrame(tick);
   }
 
-  /* PHOTO BREAK CURTAIN REVEAL */
+  /* ═══════ PHOTO BREAK CURTAIN REVEAL ═══════ */
   var photoRevealObserver = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
       if(entry.isIntersecting){
@@ -1541,7 +1756,7 @@
   }, { threshold:0.1 });
   photoBreakEls.forEach(function(pb){ photoRevealObserver.observe(pb); });
 
-  /* HEADLINE GOLD UNDERLINE */
+  /* ═══════ HEADLINE GOLD UNDERLINE ═══════ */
   var headlines = document.querySelectorAll('h2');
   var headlineObserver = new IntersectionObserver(function(entries){
     entries.forEach(function(entry){
@@ -1553,24 +1768,22 @@
   }, { threshold:0.5 });
   headlines.forEach(function(h){ headlineObserver.observe(h); });
 
-  /* SCROLL INDICATOR HIDE */
+  /* ═══════ SCROLL INDICATOR HIDE ═══════ */
   var scrollIndicator = document.getElementById('scrollIndicator');
   function updateScrollIndicator(){
-    if(window.scrollY > 100){ scrollIndicator.classList.add('hidden'); } else { scrollIndicator.classList.remove('hidden'); }
+    if(window.scrollY > 100){
+      scrollIndicator.classList.add('hidden');
+    } else {
+      scrollIndicator.classList.remove('hidden');
+    }
   }
 
-  /* TIER SELECTION + 3D TILT */
-  var tierNames = { seo:'SEO & Visibility — $2,500/mo', social:'SEO + Social — $3,000/mo', full:'Full Creative Partner — $3,500/mo' };
+  /* ═══════ TIER SELECTION + 3D TILT ═══════ */
   var tiers = document.querySelectorAll('.tier[data-tier]');
-  var selectedTierDisplay = document.getElementById('selectedTierDisplay');
   tiers.forEach(function(tier){
     tier.addEventListener('click', function(){
       tiers.forEach(function(t){ t.classList.remove('selected'); });
       tier.classList.add('selected');
-      var key = tier.getAttribute('data-tier');
-      if(tierNames[key] && selectedTierDisplay){
-        selectedTierDisplay.innerHTML = tierNames[key];
-      }
     });
     if(!isTouchDevice){
       tier.addEventListener('mousemove', function(e){
@@ -1587,29 +1800,7 @@
     }
   });
 
-  /* APPROVAL SUBMIT */
-  window.submitApproval = function(){
-    var selectedTier = document.querySelector('.tier.selected');
-    var tierKey = selectedTier ? selectedTier.getAttribute('data-tier') : null;
-    var tierLabel = tierKey && tierNames[tierKey] ? tierNames[tierKey] : 'No tier selected';
-    var notes = (document.getElementById('approvalNotes').value || '').trim();
-
-    var subject = encodeURIComponent('LRD Studio — Creative Partner Approval');
-    var body = encodeURIComponent(
-      'Hi Matt,\n\n' +
-      'I\'d like to move forward with the Creative Partner retainer.\n\n' +
-      'Selected Tier: ' + tierLabel + '\n' +
-      'Commitment: 6-month minimum\n' +
-      'Website Rebuild: Included\n' +
-      (notes ? '\nNotes: ' + notes + '\n' : '') +
-      '\nLooking forward to getting started.\n\n' +
-      'Lauren Ritz\nLRD Studio'
-    );
-
-    window.location.href = 'mailto:info@mattanthonyphoto.com?subject=' + subject + '&body=' + body;
-  };
-
-  /* ROADMAP LINE DRAW */
+  /* ═══════ ROADMAP LINE DRAW ═══════ */
   var roadmapLine = document.getElementById('roadmapLine');
   var roadmap = document.querySelector('.roadmap');
   function updateRoadmapLine(){
@@ -1623,17 +1814,14 @@
     roadmapLine.style.height = (progress * roadmapHeight) + 'px';
   }
 
-  /* SMOOTH SCROLL FOR CTA */
-  var cta = document.querySelector('.cover-cta');
-  if(cta){
-    cta.addEventListener('click', function(e){
-      e.preventDefault();
-      var target = document.querySelector(this.getAttribute('href'));
-      if(target) target.scrollIntoView({ behavior:'smooth', block:'start' });
-    });
-  }
+  /* ═══════ SMOOTH SCROLL FOR CTA ═══════ */
+  document.querySelector('.cover-cta').addEventListener('click', function(e){
+    e.preventDefault();
+    var target = document.querySelector(this.getAttribute('href'));
+    if(target) target.scrollIntoView({ behavior:'smooth', block:'start' });
+  });
 
-  /* COMBINED SCROLL HANDLER */
+  /* ═══════ COMBINED SCROLL HANDLER ═══════ */
   var ticking = false;
   window.addEventListener('scroll', function(){
     if(!ticking){
@@ -1650,6 +1838,7 @@
     }
   }, {passive:true});
 
+  // Init
   updateProgress();
   updateParallax();
   updatePhotoParallax();
