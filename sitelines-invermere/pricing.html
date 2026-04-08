@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Site Lines × Matt Anthony — Invermere 2026 Pricing</title>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1A1A18;
+    --paper: #F6F4F0;
+    --gold: #C9A96E;
+    --gold-dim: rgba(201,169,110,0.12);
+    --gold-border: rgba(201,169,110,0.28);
+    --stone: #8A8579;
+    --light-stone: #D9D5CD;
+    --white: #FFFFFF;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-weight: 300;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  .wrap { max-width: 880px; margin: 0 auto; padding: 60px 40px; }
+
+  /* Header */
+  .header { text-align: center; margin-bottom: 60px; padding-bottom: 40px; border-bottom: 1px solid var(--gold-border); }
+  .eyebrow { font-family: 'Josefin Sans', sans-serif; font-size: 11px; font-weight: 400; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 18px; }
+  .h1 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 48px; line-height: 1.1; color: var(--ink); margin-bottom: 14px; }
+  .h1 em { font-style: italic; color: var(--gold); }
+  .lead { font-size: 16px; color: var(--stone); max-width: 580px; margin: 0 auto; }
+
+  /* Section */
+  .section { margin-bottom: 56px; }
+  .section-label { font-family: 'Josefin Sans', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; display: flex; align-items: center; gap: 14px; }
+  .section-label::after { content: ''; flex: 1; height: 1px; background: var(--gold-border); }
+  .h2 { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-size: 30px; line-height: 1.2; color: var(--ink); margin-bottom: 24px; }
+  .h2 em { font-style: italic; color: var(--gold); }
+
+  /* Tier cards */
+  .tiers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; margin-top: 28px; }
+  .tier {
+    background: var(--white);
+    border: 1px solid var(--light-stone);
+    padding: 28px 22px;
+    position: relative;
+    transition: border-color 0.3s, transform 0.3s;
+  }
+  .tier.rec { border-color: var(--gold); background: linear-gradient(180deg, #FFFEFB 0%, #FFFFFF 100%); }
+  .tier-name { font-family: 'Josefin Sans', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--stone); margin-bottom: 14px; }
+  .tier.rec .tier-name { color: var(--gold); }
+  .tier-price { font-family: 'Cormorant Garamond', serif; font-size: 38px; font-weight: 500; color: var(--ink); line-height: 1; margin-bottom: 6px; }
+  .tier-term { font-size: 12px; color: var(--stone); margin-bottom: 18px; padding-bottom: 18px; border-bottom: 1px solid var(--light-stone); }
+  .tier ul { list-style: none; }
+  .tier li { font-size: 13px; color: var(--ink); padding: 6px 0 6px 18px; position: relative; line-height: 1.4; }
+  .tier li::before { content: '+'; position: absolute; left: 0; color: var(--gold); font-weight: 600; }
+  .tier li.dim { color: var(--stone); }
+  .tier li.dim::before { content: '—'; color: var(--light-stone); }
+  .badge {
+    position: absolute; top: -10px; right: 18px;
+    background: var(--gold); color: var(--ink);
+    font-family: 'Josefin Sans', sans-serif; font-size: 9px; font-weight: 600;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    padding: 5px 10px;
+  }
+
+  /* Project list */
+  .projects { background: var(--white); border: 1px solid var(--light-stone); padding: 28px 32px; margin-top: 8px; }
+  .project-row { display: flex; justify-content: space-between; align-items: baseline; padding: 14px 0; border-bottom: 1px solid var(--light-stone); }
+  .project-row:last-child { border-bottom: none; }
+  .project-row .name { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; color: var(--ink); }
+  .project-row .scope { font-size: 12px; color: var(--stone); margin-left: 14px; font-style: italic; }
+  .project-row .price { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; color: var(--gold); }
+  .project-row .meta { display: flex; align-items: baseline; }
+
+  /* Insight box */
+  .insight {
+    border-left: 3px solid var(--gold);
+    background: var(--gold-dim);
+    padding: 22px 26px;
+    margin-top: 24px;
+  }
+  .insight-title { font-family: 'Josefin Sans', sans-serif; font-size: 11px; font-weight: 600; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+  .insight p { font-size: 14px; color: var(--ink); line-height: 1.65; }
+  .insight p + p { margin-top: 10px; }
+  .insight strong { color: var(--ink); font-weight: 500; }
+
+  /* Travel grid */
+  .travel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  .travel-card { background: var(--white); border: 1px solid var(--light-stone); padding: 24px; }
+  .travel-card-label { font-family: 'Josefin Sans', sans-serif; font-size: 10px; font-weight: 600; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+  .travel-card-title { font-family: 'Cormorant Garamond', serif; font-size: 22px; font-weight: 500; margin-bottom: 6px; }
+  .travel-card-amount { font-family: 'Cormorant Garamond', serif; font-size: 26px; color: var(--ink); margin-bottom: 6px; }
+  .travel-card-note { font-size: 12px; color: var(--stone); line-height: 1.5; }
+
+  /* Footer */
+  .footer { text-align: center; padding-top: 50px; margin-top: 60px; border-top: 1px solid var(--gold-border); }
+  .footer-name { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 500; margin-bottom: 4px; }
+  .footer-name em { font-style: italic; color: var(--gold); }
+  .footer-meta { font-family: 'Josefin Sans', sans-serif; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--stone); margin-bottom: 14px; }
+  .footer-contact { font-size: 13px; color: var(--ink); }
+  .footer-contact a { color: var(--gold); text-decoration: none; }
+  .footer-validity { font-size: 11px; color: var(--stone); margin-top: 18px; font-style: italic; }
+
+  @media (max-width: 768px) {
+    .wrap { padding: 40px 22px; }
+    .h1 { font-size: 34px; }
+    .h2 { font-size: 24px; }
+    .tiers { grid-template-columns: 1fr; }
+    .travel-grid { grid-template-columns: 1fr; }
+    .project-row { flex-direction: column; align-items: flex-start; gap: 4px; }
+    .project-row .meta { margin: 0; }
+  }
+
+  @media print {
+    body { background: white; }
+    .wrap { padding: 24px; max-width: 100%; }
+    .tier, .projects, .travel-card, .insight { break-inside: avoid; }
+    .header { margin-bottom: 36px; padding-bottom: 24px; }
+    .section { margin-bottom: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="eyebrow">Site Lines Architecture × Matt Anthony</div>
+    <h1 class="h1">Invermere 2026.<br><em>Pricing summary.</em></h1>
+    <p class="lead">Four projects, two coordinated trips, one creative partner. Grandfathered relationship rates and a clean upsell ladder if you want video on top.</p>
+  </div>
+
+  <!-- PROJECTS -->
+  <div class="section">
+    <div class="section-label">The Four Projects</div>
+    <h2 class="h2">Two trips.<br><em>Four builds. Drone and twilight included on every one.</em></h2>
+    <div class="projects">
+      <div class="project-row">
+        <div class="meta">
+          <span class="name">Colman</span>
+          <span class="scope">June &middot; Exterior only</span>
+        </div>
+        <div class="price">$1,500</div>
+      </div>
+      <div class="project-row">
+        <div class="meta">
+          <span class="name">Schmidt</span>
+          <span class="scope">June &middot; Interior + Exterior</span>
+        </div>
+        <div class="price">$2,500</div>
+      </div>
+      <div class="project-row">
+        <div class="meta">
+          <span class="name">Slingerland</span>
+          <span class="scope">September &middot; Interior + Exterior</span>
+        </div>
+        <div class="price">$2,500</div>
+      </div>
+      <div class="project-row">
+        <div class="meta">
+          <span class="name">Collings</span>
+          <span class="scope">September &middot; Interior + Exterior</span>
+        </div>
+        <div class="price">$2,500</div>
+      </div>
+      <div class="project-row">
+        <div class="meta">
+          <span class="name">Travel day fees</span>
+          <span class="scope">Half-day rate &times; 2 trips</span>
+        </div>
+        <div class="price">$2,500</div>
+      </div>
+      <div class="project-row" style="border-top: 2px solid var(--ink); padding-top: 18px; margin-top: 6px;">
+        <div class="meta">
+          <span class="name" style="color: var(--gold);"><em>Photography total</em></span>
+        </div>
+        <div class="price" style="font-size: 26px;">$11,500</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIERS -->
+  <div class="section">
+    <div class="section-label">The Three Options</div>
+    <h2 class="h2">Photo is the base.<br><em>Video is the choice.</em></h2>
+    <div class="tiers">
+
+      <div class="tier">
+        <div class="tier-name">Photography</div>
+        <div class="tier-price">$11,500</div>
+        <div class="tier-term">Stills only</div>
+        <ul>
+          <li>4 projects, fully shot</li>
+          <li>Drone aerials &mdash; included</li>
+          <li>Twilight exteriors &mdash; included</li>
+          <li>Travel day fees</li>
+          <li>20&ndash;25 final images per project</li>
+          <li>Multi-format delivery + licensing</li>
+          <li class="dim">Social reels</li>
+          <li class="dim">Hero project film</li>
+        </ul>
+      </div>
+
+      <div class="tier rec">
+        <div class="badge">Recommended</div>
+        <div class="tier-name">Photography + Reels</div>
+        <div class="tier-price">$16,500</div>
+        <div class="tier-term">Stills + 4 social reels</div>
+        <ul>
+          <li>Everything in Photography</li>
+          <li>4 vertical social reels</li>
+          <li>One per project, 60&ndash;90 sec</li>
+          <li>Instagram + LinkedIn ready</li>
+          <li>Music, captions, brand edit</li>
+          <li>Shot during the photo day</li>
+          <li class="dim">Hero project film</li>
+        </ul>
+      </div>
+
+      <div class="tier">
+        <div class="tier-name">Photography + Hero Film</div>
+        <div class="tier-price">$20,000</div>
+        <div class="tier-term">Stills + Reels + 1 documentary</div>
+        <ul>
+          <li>Everything in Photography + Reels</li>
+          <li>1 hero project documentary</li>
+          <li>2&ndash;3 minutes, narrative cut</li>
+          <li>Pick your strongest of the four</li>
+          <li>Multi-angle, drone, ambient sound</li>
+          <li>Centerpiece for site + proposals</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="insight">
+      <div class="insight-title">How the Pricing Works</div>
+      <p><strong>Project rates are grandfathered.</strong> My standard architect rate is $3,500 per project for new clients in 2026. Site Lines is held at $2,500 (and $1,500 for exterior-only) because we've built this together.</p>
+      <p><strong>Drone aerials and twilight exteriors are part of the base service</strong> &mdash; included on every project, not an add-on charge.</p>
+      <p><strong>The travel day fee</strong> is half my standard shoot day rate, applied once per trip, covering the day each trip consumes on the road.</p>
+    </div>
+  </div>
+
+  <!-- TRAVEL -->
+  <div class="section">
+    <div class="section-label">Travel Actuals (Pass-Through)</div>
+    <h2 class="h2">Billed at cost.<br><em>Same as last year.</em></h2>
+    <div class="travel-grid">
+      <div class="travel-card">
+        <div class="travel-card-label">June Trip</div>
+        <div class="travel-card-title">Colman + Schmidt</div>
+        <div class="travel-card-amount">~$3,150</div>
+        <p class="travel-card-note">Vehicle (mileage), accommodation, per diem, incidentals. Full receipts after the trip.</p>
+      </div>
+      <div class="travel-card">
+        <div class="travel-card-label">September Trip</div>
+        <div class="travel-card-title">Slingerland + Collings</div>
+        <div class="travel-card-amount">~$3,150</div>
+        <p class="travel-card-note">Vehicle (mileage), accommodation, per diem, incidentals. Full receipts after the trip.</p>
+      </div>
+    </div>
+    <div class="insight" style="margin-top: 18px;">
+      <p><strong>Total estimated travel: ~$6,300</strong> across both trips, separate from the production fees above. Billed at cost as a pass-through, exactly the way we ran 2025.</p>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <div class="footer">
+    <div class="footer-name">Matt Anthony <em>Photography</em></div>
+    <div class="footer-meta">Architectural &amp; Interiors &middot; Squamish, BC</div>
+    <div class="footer-contact">
+      604.765.9270 &middot; <a href="mailto:info@mattanthonyphoto.com">info@mattanthonyphoto.com</a> &middot; <a href="https://mattanthonyphoto.com">mattanthonyphoto.com</a>
+    </div>
+    <div class="footer-validity">Pricing valid through April 30, 2026. After that, June and September availability cannot be guaranteed.</div>
+  </div>
+
+</div>
+
+</body>
+</html>
