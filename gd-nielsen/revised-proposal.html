@@ -1,0 +1,1292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Revised Proposal — GD Nielsen Homes</title>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1A1A18;
+    --paper: #F6F4F0;
+    --gold: #C9A96E;
+    --gold-dim: rgba(201,169,110,0.12);
+    --gold-border: rgba(201,169,110,0.25);
+    --gold-glow: rgba(201,169,110,0.06);
+    --stone: #8A8579;
+    --white: #FFFFFF;
+    --light: #FAFAF8;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { font-size:16px; -webkit-print-color-adjust:exact; print-color-adjust:exact; scroll-behavior:smooth; }
+  body { background:var(--white); color:var(--ink); font-family:'DM Sans',sans-serif; font-weight:300; line-height:1.75; overflow-x:hidden; }
+
+  /* ═══════════════════════════════════════
+     COVER
+     ═══════════════════════════════════════ */
+  .cover {
+    min-height:100vh; background:var(--ink); color:var(--paper);
+    display:flex; flex-direction:column; justify-content:flex-end;
+    position:relative; overflow:hidden;
+  }
+  .cover-image {
+    position:absolute; top:0; left:0; width:100%; height:100%;
+    background-image:url("https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/e07b8aac-c1ec-4293-b956-79b41aa39f33/5322-backhouse-web-1.jpg");
+    background-size:cover; background-position:center 25%;
+    will-change:transform; transition:transform 0.1s linear;
+  }
+  .cover-image::after {
+    content:''; position:absolute; top:0; left:0; width:100%; height:100%;
+    background:linear-gradient(to bottom, rgba(26,26,24,0.45) 0%, rgba(26,26,24,0.35) 30%, rgba(26,26,24,0.6) 55%, rgba(26,26,24,0.94) 80%, rgba(26,26,24,0.99) 100%);
+  }
+  .cover-top {
+    position:absolute; top:0; left:0; right:0; z-index:3;
+    padding:40px 60px; display:flex; justify-content:space-between; align-items:center;
+  }
+  .cover-logo {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.35em; text-transform:uppercase; color:rgba(246,244,240,0.6);
+  }
+  .cover-date {
+    font-family:'Josefin Sans',sans-serif; font-size:0.65rem;
+    letter-spacing:0.2em; color:rgba(246,244,240,0.4);
+  }
+  .cover-content {
+    position:relative; z-index:2; padding:0 60px 80px; max-width:720px;
+  }
+  .cover-eyebrow {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.4em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:20px; display:flex; align-items:center; gap:16px;
+  }
+  .cover-eyebrow::before { content:''; width:32px; height:1px; background:var(--gold); }
+  .cover h1 {
+    font-family:'Cormorant Garamond',serif; font-weight:400;
+    font-size:clamp(3rem,6vw,5rem); line-height:1.05; margin-bottom:20px;
+    letter-spacing:-0.01em;
+    text-shadow:0 2px 40px rgba(0,0,0,0.5), 0 4px 80px rgba(0,0,0,0.3);
+  }
+  .cover h1 em { font-style:italic; font-weight:500; color:var(--gold); }
+  .cover-sub {
+    font-size:1rem; color:rgba(246,244,240,0.75); max-width:480px;
+    line-height:1.8; margin-bottom:56px;
+    text-shadow:0 1px 20px rgba(0,0,0,0.4), 0 2px 40px rgba(0,0,0,0.2);
+  }
+  .cover-meta-bar {
+    display:flex; gap:48px; padding-top:32px;
+    border-top:1px solid rgba(201,169,110,0.15);
+  }
+  .cover-meta-item {
+    font-size:0.75rem; color:rgba(246,244,240,0.35); line-height:1.8;
+  }
+  .cover-meta-item strong {
+    display:block; color:rgba(246,244,240,0.7); font-weight:400;
+    font-family:'Josefin Sans',sans-serif; font-size:0.6rem;
+    letter-spacing:0.15em; text-transform:uppercase; margin-bottom:2px;
+  }
+  .cover-cta {
+    display:inline-flex; align-items:center; gap:10px;
+    margin-top:32px; padding:12px 28px;
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.6rem;
+    letter-spacing:0.25em; text-transform:uppercase;
+    color:var(--paper); border:1px solid rgba(246,244,240,0.25);
+    text-decoration:none; cursor:pointer;
+    transition:all 0.4s cubic-bezier(0.16,1,0.3,1);
+    opacity:0; animation:coverFade 0.9s 1.5s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+  .cover-cta:hover { border-color:var(--gold); color:var(--gold); padding-right:36px; }
+  .cover-cta-arrow { display:inline-block; transition:transform 0.3s ease; font-size:0.8rem; }
+  .cover-cta:hover .cover-cta-arrow { transform:translateY(3px); }
+
+  .cover .cover-eyebrow,
+  .cover h1,
+  .cover .cover-sub,
+  .cover .cover-meta-bar {
+    opacity:0; transform:translateY(24px);
+    animation:coverFade 0.9s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+  .cover .cover-eyebrow { animation-delay:0.3s; }
+  .cover h1 { animation-delay:0.6s; }
+  .cover .cover-sub { animation-delay:0.9s; }
+  .cover .cover-meta-bar { animation-delay:1.2s; }
+  @keyframes coverFade { to { opacity:1; transform:translateY(0); } }
+
+  .scroll-indicator {
+    position:absolute; bottom:40px; left:50%;
+    transform:translateX(-50%); display:flex; flex-direction:column;
+    align-items:center; gap:8px;
+    opacity:0; animation:coverFade 0.9s 1.8s cubic-bezier(0.16,1,0.3,1) forwards;
+    transition:opacity 0.4s ease;
+  }
+  .scroll-indicator.hidden { opacity:0 !important; }
+  .scroll-indicator-text {
+    font-family:'Josefin Sans',sans-serif; font-size:0.45rem;
+    letter-spacing:0.3em; text-transform:uppercase; color:rgba(246,244,240,0.3);
+  }
+  .scroll-indicator-line {
+    width:1px; height:32px; position:relative; overflow:hidden;
+    background:rgba(246,244,240,0.1);
+  }
+  .scroll-indicator-line::after {
+    content:''; position:absolute; top:-100%; left:0;
+    width:100%; height:100%; background:var(--gold);
+    animation:scrollPulse 2s cubic-bezier(0.16,1,0.3,1) infinite;
+  }
+  @keyframes scrollPulse { 0%{top:-100%;} 50%{top:100%;} 100%{top:100%;} }
+
+  /* ═══════════════════════════════════════
+     LAYOUT
+     ═══════════════════════════════════════ */
+  .section { padding:120px 60px; max-width:1000px; margin:0 auto; }
+  .section.wide { max-width:1200px; }
+  .section.dark { background:var(--ink); color:var(--paper); }
+  .section.cream { background:var(--paper); }
+  .section.light { background:var(--light); }
+
+  .eyebrow {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.6rem;
+    letter-spacing:0.35em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:16px; display:flex; align-items:center; gap:14px;
+  }
+  .eyebrow::before { content:''; width:0; height:1px; background:var(--gold); transition:width 0.6s 0.2s cubic-bezier(0.16,1,0.3,1); }
+  .eyebrow.visible::before { width:24px; }
+
+  h2 {
+    font-family:'Cormorant Garamond',serif; font-weight:400;
+    font-size:2.6rem; line-height:1.12; margin-bottom:32px;
+    letter-spacing:-0.01em; text-wrap:balance;
+  }
+  h2 em { font-style:italic; font-weight:500; position:relative; display:inline; }
+  h2 em::after {
+    content:''; position:absolute; bottom:2px; left:0;
+    width:0; height:1.5px;
+    background:linear-gradient(90deg, var(--gold), rgba(201,169,110,0.3));
+    transition:width 1s 0.3s cubic-bezier(0.16,1,0.3,1);
+  }
+  h2.underlined em::after { width:100%; }
+  h3 {
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.75rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--stone);
+    margin:56px 0 20px;
+  }
+  p { margin-bottom:20px; font-size:0.95rem; }
+  .lead { font-size:1.05rem; line-height:1.9; color:var(--stone); text-wrap:pretty; }
+
+  .divider { width:1px; height:80px; background:var(--gold-dim); margin:0 auto; border:none; display:block; }
+
+  /* ═══════════════════════════════════════
+     STATS
+     ═══════════════════════════════════════ */
+  .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; margin:56px 0; background:var(--gold-dim); }
+  .stat { background:var(--white); text-align:center; padding:36px 16px; }
+  .section.cream .stat { background:var(--paper); }
+  .stat-val {
+    font-family:'Cormorant Garamond',serif; font-size:3rem; font-weight:500;
+    color:var(--gold); display:block; line-height:1; margin-bottom:10px;
+    text-shadow:0 0 40px rgba(201,169,110,0.15);
+  }
+  .stat-lbl {
+    font-family:'Josefin Sans',sans-serif; font-size:0.55rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:var(--stone);
+  }
+
+  /* ═══════════════════════════════════════
+     SERVICES GRID
+     ═══════════════════════════════════════ */
+  .services { display:grid; grid-template-columns:1fr 1fr; gap:1px; margin:56px 0; background:var(--gold-dim); }
+  .svc {
+    background:var(--white); padding:40px 36px; position:relative;
+    transition:all 0.3s cubic-bezier(0.16,1,0.3,1);
+    border-left:3px solid transparent;
+  }
+  .svc:hover { border-left-color:var(--gold); background:var(--light); }
+  .svc h4 {
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.7rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:20px;
+  }
+  .svc ul { list-style:none; }
+  .svc li {
+    font-size:0.85rem; padding:8px 0 8px 24px; position:relative;
+    color:var(--stone); border-bottom:1px solid rgba(26,26,24,0.04);
+  }
+  .svc li:last-child { border:none; }
+  .svc li::before {
+    content:''; position:absolute; left:0; top:16px;
+    width:8px; height:1px; background:var(--gold);
+  }
+
+  /* ═══════════════════════════════════════
+     PHOTO BREAKS
+     ═══════════════════════════════════════ */
+  .photo-break {
+    width:100%; height:60vh; min-height:420px; max-height:640px;
+    position:relative; overflow:hidden;
+    clip-path:inset(0 0 0 0); transition:clip-path 1.2s cubic-bezier(0.16,1,0.3,1);
+  }
+  .photo-break.revealed { clip-path:inset(0 0 0 0); }
+  .photo-break img {
+    width:100%; height:120%; object-fit:cover; display:block;
+    position:absolute; top:-10%; left:0;
+    filter:brightness(0.85);
+    transition:filter 0.8s cubic-bezier(0.16,1,0.3,1);
+    will-change:transform;
+  }
+  .photo-break:hover img { filter:brightness(0.95); }
+  .photo-break::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:80px;
+    background:linear-gradient(rgba(26,26,24,0.15), transparent);
+    z-index:1; pointer-events:none;
+  }
+  .photo-break::after {
+    content:''; position:absolute; bottom:0; left:0; right:0; height:120px;
+    background:linear-gradient(transparent, rgba(26,26,24,0.6));
+    z-index:1; pointer-events:none;
+  }
+  .photo-break-caption {
+    position:absolute; bottom:0; left:0; right:0; z-index:2;
+    padding:24px 60px;
+    font-family:'Josefin Sans',sans-serif; font-size:0.5rem;
+    letter-spacing:0.3em; text-transform:uppercase;
+    color:rgba(246,244,240,0.5);
+  }
+  .photo-break.in-view img {
+    animation:kenBurns 12s ease-in-out infinite alternate;
+  }
+  @keyframes kenBurns { 0%{transform:scale(1) translateY(0);} 100%{transform:scale(1.06) translateY(-8px);} }
+
+  /* ═══════════════════════════════════════
+     PRICING CARD (single tier)
+     ═══════════════════════════════════════ */
+  .price-card {
+    background:var(--ink); color:var(--paper); padding:56px 48px;
+    margin:56px 0; position:relative;
+    border:1px solid rgba(201,169,110,0.3);
+    box-shadow:0 12px 48px rgba(0,0,0,0.15);
+  }
+  .price-card::before {
+    content:''; position:absolute; top:0; left:0; right:0; bottom:0;
+    background:linear-gradient(180deg, rgba(201,169,110,0.03) 0%, transparent 40%);
+    pointer-events:none;
+  }
+  .price-card-name {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:12px;
+  }
+  .price-card-price {
+    font-family:'Cormorant Garamond',serif; font-size:3.5rem;
+    font-weight:400; line-height:1; margin-bottom:6px; color:var(--paper);
+  }
+  .price-card-price span { font-size:1rem; color:var(--stone); font-family:'DM Sans',sans-serif; font-weight:300; }
+  .price-card-term {
+    font-size:0.75rem; color:var(--stone); margin-bottom:32px;
+    padding-bottom:24px; border-bottom:1px solid rgba(201,169,110,0.2);
+  }
+  .price-card ul { list-style:none; }
+  .price-card li {
+    font-size:0.85rem; padding:8px 0 8px 22px; position:relative;
+    color:rgba(246,244,240,0.75); border-bottom:1px solid rgba(246,244,240,0.05);
+  }
+  .price-card li:last-child { border:none; }
+  .price-card li::before {
+    content:''; position:absolute; left:0; top:16px;
+    width:8px; height:1px; background:var(--gold);
+  }
+  .price-card-bottom {
+    margin-top:28px; padding-top:20px; border-top:1px solid rgba(201,169,110,0.2);
+    font-size:0.7rem; color:var(--stone);
+  }
+  .price-card-bottom strong { color:var(--gold); font-weight:500; font-size:0.85rem; }
+
+  /* ═══════════════════════════════════════
+     PROJECT BOOK CARD
+     ═══════════════════════════════════════ */
+  .book-card {
+    background:var(--light); padding:56px 48px; margin:40px 0;
+    border-left:3px solid var(--gold); position:relative;
+  }
+
+  /* ═══════════════════════════════════════
+     INSIGHT
+     ═══════════════════════════════════════ */
+  .insight {
+    background:var(--light); padding:48px 56px; margin:56px 0;
+    position:relative; border:1px solid rgba(201,169,110,0.08);
+    box-shadow:0 8px 32px rgba(0,0,0,0.03);
+  }
+  .insight::before {
+    content:''; position:absolute; top:0; left:0; bottom:0;
+    width:3px; background:var(--gold);
+    box-shadow:4px 0 16px rgba(201,169,110,0.08);
+  }
+  .insight h4 {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:20px;
+  }
+  .insight p { font-size:0.9rem; margin-bottom:10px; }
+  .insight p:last-child { margin-bottom:0; }
+
+  /* ═══════════════════════════════════════
+     NUMBERS BAR
+     ═══════════════════════════════════════ */
+  .numbers {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    margin:56px 0; background:var(--gold-dim);
+  }
+  .num { background:var(--ink); text-align:center; padding:48px 24px; }
+  .num-val {
+    font-family:'Cormorant Garamond',serif; font-size:3.5rem;
+    font-weight:500; color:var(--gold); display:block; line-height:1; margin-bottom:10px;
+    text-shadow:0 0 60px rgba(201,169,110,0.25), 0 0 120px rgba(201,169,110,0.1);
+  }
+  .num-lbl {
+    font-family:'Josefin Sans',sans-serif; font-size:0.55rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:rgba(246,244,240,0.4);
+  }
+
+  /* ═══════════════════════════════════════
+     ROADMAP
+     ═══════════════════════════════════════ */
+  .roadmap { margin:56px 0; position:relative; }
+  .roadmap-line {
+    position:absolute; left:200px; top:48px; width:2px;
+    height:0; background:var(--gold);
+    transition:height 0.05s linear; z-index:1;
+    box-shadow:0 0 6px rgba(201,169,110,0.3);
+  }
+  .roadmap-line::after {
+    content:''; position:absolute; bottom:-4px; left:-3px;
+    width:8px; height:8px; border-radius:50%;
+    background:var(--gold); box-shadow:0 0 12px rgba(201,169,110,0.5);
+  }
+  .rm {
+    display:grid; grid-template-columns:200px 1fr; gap:0;
+    border-bottom:1px solid rgba(26,26,24,0.06); min-height:0;
+  }
+  .rm:last-child { border:none; }
+  .rm-left {
+    padding:40px 32px 40px 0; border-right:2px solid var(--gold-dim); position:relative;
+  }
+  .rm-left::after {
+    content:''; position:absolute; right:-5px; top:48px;
+    width:8px; height:8px; border-radius:50%; background:var(--gold);
+  }
+  .rm-month {
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.6rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:4px;
+  }
+  .rm-label {
+    font-family:'Cormorant Garamond',serif; font-size:1.3rem;
+    font-weight:400; font-style:italic; color:var(--ink); line-height:1.3;
+  }
+  .rm-right { padding:40px 0 40px 40px; }
+  .rm-right ul { list-style:none; }
+  .rm-right li {
+    font-size:0.85rem; padding:6px 0 6px 24px; position:relative; color:var(--stone);
+  }
+  .rm-right li::before {
+    content:''; position:absolute; left:0; top:14px;
+    width:8px; height:1px; background:var(--gold);
+  }
+
+  /* ═══════════════════════════════════════
+     STEPS
+     ═══════════════════════════════════════ */
+  .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin:56px 0; background:var(--gold-dim); }
+  .step {
+    background:var(--white); padding:40px 32px;
+    transition:background 0.3s ease, box-shadow 0.3s ease;
+  }
+  .step:hover { background:var(--light); box-shadow:0 4px 24px rgba(0,0,0,0.04); }
+  .step-num {
+    font-family:'Cormorant Garamond',serif; font-size:3rem;
+    font-weight:400; color:var(--gold); line-height:1; margin-bottom:16px; display:block;
+    text-shadow:0 0 40px rgba(201,169,110,0.15);
+  }
+  .step h4 { font-family:'DM Sans',sans-serif; font-weight:500; font-size:0.95rem; margin-bottom:10px; }
+  .step p { font-size:0.82rem; color:var(--stone); margin-bottom:0; }
+
+  /* ═══════════════════════════════════════
+     SUMMARY TABLE
+     ═══════════════════════════════════════ */
+  .summary-table { width:100%; border-collapse:collapse; margin:40px 0; }
+  .summary-table th {
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.6rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--gold);
+    text-align:left; padding:14px 20px; border-bottom:2px solid var(--gold-dim);
+  }
+  .summary-table td {
+    padding:18px 20px; border-bottom:1px solid rgba(26,26,24,0.06);
+    font-size:0.9rem;
+  }
+  .summary-table td:last-child { text-align:right; font-weight:400; }
+  .summary-table tr.total td {
+    border-top:2px solid var(--gold); border-bottom:none;
+    font-weight:500; color:var(--ink);
+  }
+  .summary-table .price {
+    font-family:'Cormorant Garamond',serif; font-size:1.2rem; font-weight:500; color:var(--gold);
+  }
+
+  /* ═══════════════════════════════════════
+     SCROLL PROGRESS
+     ═══════════════════════════════════════ */
+  .scroll-progress {
+    position:fixed; top:0; left:0; height:2px; width:0%;
+    background:linear-gradient(90deg, var(--gold), rgba(201,169,110,0.4));
+    z-index:9999; transition:width 0.05s linear;
+    box-shadow:0 0 8px rgba(201,169,110,0.3);
+  }
+
+  /* ═══════════════════════════════════════
+     SECTION NAV DOTS
+     ═══════════════════════════════════════ */
+  .section-nav {
+    position:fixed; right:24px; top:50%; transform:translateY(-50%);
+    z-index:9998; display:flex; flex-direction:column; gap:12px;
+    opacity:0; transition:opacity 0.4s ease;
+  }
+  .section-nav.visible { opacity:1; }
+  .section-nav-dot {
+    width:8px; height:8px; border-radius:50%;
+    background:transparent; border:1px solid var(--stone);
+    cursor:pointer; transition:all 0.3s ease; position:relative;
+  }
+  .section-nav-dot:hover { border-color:var(--gold); transform:scale(1.3); }
+  .section-nav-dot.active {
+    background:var(--gold); border-color:var(--gold);
+    box-shadow:0 0 8px rgba(201,169,110,0.4);
+  }
+  .section-nav-dot::before {
+    content:attr(data-label);
+    position:absolute; right:20px; top:50%; transform:translateY(-50%);
+    font-family:'Josefin Sans',sans-serif; font-size:0.5rem;
+    letter-spacing:0.15em; text-transform:uppercase; color:var(--gold);
+    white-space:nowrap; opacity:0; pointer-events:none;
+    transition:opacity 0.3s ease, right 0.3s ease;
+  }
+  .section-nav-dot:hover::before { opacity:1; right:24px; }
+
+  /* ═══════════════════════════════════════
+     SCROLL REVEAL
+     ═══════════════════════════════════════ */
+  .reveal {
+    opacity:0; transform:translateY(32px);
+    transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+  }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+  .reveal-delay-1 { transition-delay:0.1s; }
+  .reveal-delay-2 { transition-delay:0.2s; }
+  .reveal-delay-3 { transition-delay:0.3s; }
+  .reveal-delay-4 { transition-delay:0.4s; }
+  .reveal-delay-5 { transition-delay:0.5s; }
+
+  /* ═══════════════════════════════════════
+     LOADING SCREEN
+     ═══════════════════════════════════════ */
+  .loader {
+    position:fixed; top:0; left:0; right:0; bottom:0;
+    background:var(--ink); z-index:99999;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1), visibility 0.8s;
+  }
+  .loader.done { opacity:0; visibility:hidden; pointer-events:none; }
+  .loader-brand {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.6em; text-transform:uppercase; color:var(--paper);
+    opacity:0; animation:loaderIn 0.6s 0.15s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+  .loader-sub {
+    font-family:'Cormorant Garamond',serif; font-style:italic; font-size:0.9rem;
+    color:rgba(138,133,121,0.7); margin-top:8px;
+    opacity:0; animation:loaderIn 0.6s 0.4s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+  .loader-line {
+    width:80px; height:1px; background:var(--gold-dim); margin-top:24px;
+    position:relative; overflow:hidden; border-radius:1px;
+    opacity:0; animation:loaderIn 0.6s 0.3s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+  .loader-line::after {
+    content:''; position:absolute; top:0; left:-100%; width:100%; height:100%;
+    background:linear-gradient(90deg, transparent, var(--gold), transparent);
+    animation:loaderFill 1s 0.5s cubic-bezier(0.33,1,0.68,1) forwards;
+  }
+  @keyframes loaderIn { to { opacity:1; } }
+  @keyframes loaderFill { to { left:100%; } }
+
+  /* ═══════════════════════════════════════
+     FILM GRAIN
+     ═══════════════════════════════════════ */
+  .grain-section::after {
+    content:''; position:absolute; top:0; left:0; right:0; bottom:0;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    background-size:128px 128px; pointer-events:none; z-index:0; opacity:0.5;
+  }
+  .grain-section { position:relative; }
+  .grain-section > * { position:relative; z-index:1; }
+
+  /* ═══════════════════════════════════════
+     RESPONSIVE
+     ═══════════════════════════════════════ */
+  @media print {
+    .cover { min-height:100vh; }
+    .section { padding:60px; }
+    .scroll-progress, .section-nav, .loader, .cover-cta, .scroll-indicator { display:none; }
+    .photo-break { height:200px; page-break-inside:avoid; clip-path:none !important; }
+    h2 em::after { width:100% !important; }
+    .reveal { opacity:1 !important; transform:none !important; }
+    .eyebrow::before { width:24px !important; }
+    .grain-section::after { display:none; }
+  }
+  @media (max-width:768px) {
+    .cover-content, .cover-top { padding-left:32px; padding-right:32px; }
+    .section { padding:80px 32px; }
+    .stats { grid-template-columns:1fr 1fr; }
+    .services { grid-template-columns:1fr; }
+    .steps { grid-template-columns:1fr; }
+    .numbers { grid-template-columns:1fr; }
+    .rm { grid-template-columns:1fr; }
+    .rm-left { border-right:none; border-bottom:2px solid var(--gold-dim); padding:24px 0; }
+    .rm-left::after { display:none; }
+    .rm-right { padding:24px 0; }
+    .roadmap-line { display:none; }
+    .cover-meta-bar { flex-direction:column; gap:16px; }
+    .section-nav { display:none; }
+    .svc { border-left:none !important; }
+    .svc:hover { border-left:none !important; }
+    .photo-break { height:200px; min-height:200px; }
+    .photo-break-caption { padding:12px 32px; }
+    .scroll-indicator { display:none; }
+    .summary-table { font-size:0.8rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- LOADING SCREEN -->
+<div class="loader" id="loader">
+  <div class="loader-brand">Matt Anthony Photography</div>
+  <div class="loader-sub">Revised Proposal</div>
+  <div class="loader-line"></div>
+</div>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="section-nav" id="sectionNav"></nav>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-image" id="coverImg"></div>
+  <div class="cover-top">
+    <div class="cover-logo">Matt Anthony Photography</div>
+    <div class="cover-date">April 2026</div>
+  </div>
+  <div class="cover-content">
+    <div class="cover-eyebrow">Revised Proposal</div>
+    <h1>Your visual partner.<br><em>Tailored.</em></h1>
+    <p class="cover-sub">Everything your digital presence needs. Nothing it doesn't.</p>
+    <div class="cover-meta-bar">
+      <div class="cover-meta-item"><strong>Prepared for</strong>Greg Nielsen, DK Cheng, Diane &amp; Derrick</div>
+      <div class="cover-meta-item"><strong>Prepared by</strong>Matt Anthony</div>
+      <div class="cover-meta-item"><strong>Updated</strong>April 9, 2026</div>
+    </div>
+    <a class="cover-cta" href="#investment"><span>View the Investment</span><span class="cover-cta-arrow">&darr;</span></a>
+  </div>
+  <div class="scroll-indicator" id="scrollIndicator">
+    <div class="scroll-indicator-text">Scroll</div>
+    <div class="scroll-indicator-line"></div>
+  </div>
+</div>
+
+
+<!-- SCOPE OVERVIEW -->
+<div class="section cream" data-nav="Scope">
+  <div class="eyebrow">What We Agreed On</div>
+  <h2>Three components.<br><em>Nothing you don't need.</em></h2>
+  <p class="lead">Based on your feedback, here's the revised scope: a website rebuild, an ongoing retainer for social media, SEO, and photography, and build documentation books quoted per project. Clean, focused, and built around exactly what GD Nielsen asked for.</p>
+
+  <div class="stats">
+    <div class="stat"><span class="stat-val">40</span><span class="stat-lbl">Years of Built Work</span></div>
+    <div class="stat"><span class="stat-val">26</span><span class="stat-lbl">Portfolio Projects</span></div>
+    <div class="stat"><span class="stat-val">1</span><span class="stat-lbl">Georgie Award Winner</span></div>
+    <div class="stat"><span class="stat-val">3</span><span class="stat-lbl">Engagement Components</span></div>
+  </div>
+</div>
+
+
+<!-- PHOTO BREAK -->
+<div class="photo-break">
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/23aedb76-4c10-4a31-ba9c-9ebd434a25bc/5322-backhouse-web-2.jpg" alt="The Perch — dusk exterior, Sunshine Coast">
+  <div class="photo-break-caption">The Perch &middot; Sunshine Coast, BC &middot; Matt Anthony Photography</div>
+</div>
+
+
+<!-- WEBSITE REDESIGN -->
+<div class="section" data-nav="Website">
+  <div class="eyebrow">Component 01</div>
+  <h2>Website redesign.<br><em>$10,000.</em></h2>
+  <p class="lead">A complete rebuild of gdnielsen.com designed to match the caliber of your built work. This is a collaborative process &mdash; your input drives every decision, from the visual direction to the forms that capture leads to the exact search terms you want to rank for. I build it, but it's your site and your vision.</p>
+
+  <div class="services">
+    <div class="svc">
+      <h4>Collaborative Design Process</h4>
+      <ul>
+        <li>Discovery workshop to align on your aesthetic direction, brand feel, and how you want to present GD Nielsen online</li>
+        <li>Your feedback shapes every design decision &mdash; layout, typography, colour, imagery</li>
+        <li>Revision rounds built into the process so nothing ships without your sign-off</li>
+        <li>Decision on the Mandarin section (kill or complete &mdash; your call)</li>
+      </ul>
+    </div>
+    <div class="svc">
+      <h4>Lead Capture &amp; Conversion</h4>
+      <ul>
+        <li>Opt-in forms designed around how your ideal clients think &mdash; budget range, timeline, lot status, project type</li>
+        <li>Consultation booking integrated directly into the site</li>
+        <li>Form fields, placement, and messaging tailored to what you want to know before a first call</li>
+        <li>Lead capture that qualifies prospects so you're not wasting time on tyre-kickers</li>
+      </ul>
+    </div>
+    <div class="svc">
+      <h4>SEO &amp; Keywords</h4>
+      <ul>
+        <li>Keyword strategy built around the search terms you want to own &mdash; we define these together</li>
+        <li>Proper page titles + meta descriptions on every page, written to target your priority terms</li>
+        <li>LocalBusiness, Organization, BreadcrumbList schema markup</li>
+        <li>Alt text on every image, optimized for search</li>
+        <li>Internal linking strategy to strengthen your key pages</li>
+        <li>Sitemap rebuild + Google Search Console setup</li>
+        <li>301 redirect map for any URL changes</li>
+      </ul>
+    </div>
+    <div class="svc">
+      <h4>Portfolio &amp; Launch</h4>
+      <ul>
+        <li>Full migration of portfolio projects with new editorial templates</li>
+        <li>New pages: Team, Press, Testimonials, Services</li>
+        <li>Filterable portfolio (by location, style, budget tier)</li>
+        <li>Project page template with narrative, square footage, year, location, credits, awards, photo set</li>
+        <li>Pre-launch QA on staging</li>
+        <li>Launch sequence with social announcement</li>
+        <li>30 days of post-launch monitoring + bug fixes</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="insight">
+    <h4>Payment</h4>
+    <p><strong style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--gold);">$10,000</strong> &mdash; split 50/50: $5,000 on signing, $5,000 at launch.</p>
+  </div>
+</div>
+
+
+<!-- PHOTO BREAK -->
+<div class="photo-break">
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/0e7a6365-526e-4c0e-8b06-4939d5008849/5322-backhouse-web-4.jpg" alt="The Perch — interior, suspended fireplace, Sunshine Coast">
+  <div class="photo-break-caption">The Perch &middot; Sunshine Coast, BC &middot; Matt Anthony Photography</div>
+</div>
+
+
+<!-- RETAINER -->
+<div class="section cream" id="retainer" data-nav="Retainer">
+  <div class="eyebrow">Component 02</div>
+  <h2>Creative Partner retainer.<br><em>$2,500 per month.</em></h2>
+  <p class="lead">Your dedicated visual and marketing partner on a 12-month engagement. Social media, SEO, and portfolio photography &mdash; all handled.</p>
+
+  <div class="services">
+    <div class="svc">
+      <h4>Portfolio Photography</h4>
+      <ul>
+        <li>2 full-day portfolio shoots per year (half-year cadence)</li>
+        <li>40&ndash;80 fully edited hero + detail images per shoot</li>
+        <li>Exteriors and interiors at the same editorial standard</li>
+        <li>Wide editorial sets + social-cropped verticals</li>
+        <li>Full commercial license for portfolio, web, social, press, and submissions</li>
+      </ul>
+    </div>
+    <div class="svc">
+      <h4>Social Media Management</h4>
+      <ul>
+        <li>Ongoing content creation and posting on Instagram</li>
+        <li>Content sourced from three pools: your portfolio shoots, build documentation visits, and existing project photography that meets quality standards</li>
+        <li>50+ social-ready assets per quarter &mdash; feed posts, Reels stills, story templates</li>
+        <li>No separate content shoots required &mdash; every image comes from work we're already doing together or your existing archive</li>
+        <li>Caption writing, alt text, and posting calendar to bring @gdnielsenhomes back to life</li>
+        <li>Pinterest included at no extra cost if it's a channel you want to develop &mdash; pins repurposed from existing content</li>
+      </ul>
+    </div>
+    <div class="svc">
+      <h4>Monthly SEO</h4>
+      <ul>
+        <li>Ongoing technical SEO monitoring and maintenance</li>
+        <li>Monthly performance reporting (rankings, traffic, conversions)</li>
+        <li>Content optimization based on search data</li>
+        <li>Google Business Profile management</li>
+        <li>Local SEO strategy for North Van / West Van searches</li>
+      </ul>
+    </div>
+    <div class="svc">
+      <h4>Website Updates &amp; Scheduling</h4>
+      <ul>
+        <li>Monthly site updates &mdash; new projects, fresh photography, and content from our shoots added to the site as we produce it</li>
+        <li>Your website stays current without you lifting a finger</li>
+        <li>Priority scheduling &mdash; 1&ndash;2 week booking, not 6+ weeks</li>
+        <li>Supplemental shoots when projects need them</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="price-card">
+    <div class="price-card-name">Creative Partner &mdash; Editorial Tier</div>
+    <div class="price-card-price">$2,500 <span>/ month</span></div>
+    <div class="price-card-term">12-month engagement</div>
+    <ul>
+      <li>2 full-day portfolio shoots per year</li>
+      <li>Social media management (Instagram + optional Pinterest)</li>
+      <li>Monthly SEO monitoring + reporting</li>
+      <li>50+ social assets/quarter from shoots, documentation visits, and existing archive</li>
+      <li>Monthly website updates &mdash; new projects and content added as we shoot</li>
+      <li>Priority scheduling</li>
+    </ul>
+    <div class="price-card-bottom">Annual investment<br><strong>$30,000</strong></div>
+  </div>
+</div>
+
+
+<!-- PHOTO BREAK -->
+<div class="photo-break">
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/9d699cdf-a6ac-442f-b234-97b0aba24035/5322-backhouse-web-5.jpg" alt="The Perch — living room, ocean view, Sunshine Coast">
+  <div class="photo-break-caption">The Perch &middot; Sunshine Coast, BC &middot; Matt Anthony Photography</div>
+</div>
+
+
+<!-- BUILD DOCUMENTATION BOOKS -->
+<div class="section" data-nav="Books">
+  <div class="eyebrow">Component 03</div>
+  <h2>Build documentation books.<br><em>$7,000 per project.</em></h2>
+  <p class="lead">The full story of a build, from the ground up. Every site visit produces content for both the book and your social media &mdash; two assets built simultaneously.</p>
+
+  <div class="services">
+    <div class="svc">
+      <h4>Documentation Visits</h4>
+      <ul>
+        <li>Up to 10 site visits across the build (foundation through finishing)</li>
+        <li>1&ndash;2 hours per visit</li>
+        <li>Progress photography at key milestones &mdash; excavation, framing, envelope, mechanical, finishing, staging</li>
+        <li>BTS and crew content captured alongside editorial documentation</li>
+      </ul>
+    </div>
+    <div class="svc">
+      <h4>Final Portfolio Shoot</h4>
+      <ul>
+        <li>Full completed-project photography ($2,000 value)</li>
+        <li>Submission-grade hero images for awards, press, and website</li>
+        <li>Included in the book package &mdash; not billed separately</li>
+      </ul>
+    </div>
+    <div class="svc">
+      <h4>The Book</h4>
+      <ul>
+        <li>Designed and laid out as a printed documentation book</li>
+        <li>Chronological build story from site clearing to final walkthrough</li>
+        <li>Professional print coordination</li>
+      </ul>
+    </div>
+    <div class="svc">
+      <h4>The Social Media Bonus</h4>
+      <ul>
+        <li>Every visit produces 10&ndash;20 images that feed your content calendar</li>
+        <li>Two assets built at once &mdash; the book and months of social content</li>
+        <li>In-progress content that followers and potential clients love</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="insight">
+    <h4>How It Works</h4>
+    <p>Ideal to start from the beginning of a build. Once a project is selected, we map out the key milestones and schedule visits accordingly. A typical custom home timeline is 12&ndash;18 months, so visits are roughly monthly. Each visit is $500 (up to 10), plus the final portfolio shoot at $2,000, plus the designed book &mdash; all bundled at <strong>$7,000 per project</strong>.</p>
+  </div>
+</div>
+
+
+<!-- NUMBERS BAR -->
+<div class="numbers grain-section">
+  <div class="num"><span class="num-val">10</span><span class="num-lbl">Site Visits Per Build</span></div>
+  <div class="num"><span class="num-val">200+</span><span class="num-lbl">Images Per Book</span></div>
+  <div class="num"><span class="num-val">2</span><span class="num-lbl">Assets Per Visit (Book + Social)</span></div>
+</div>
+
+
+<!-- INVESTMENT SUMMARY -->
+<div class="section cream" id="investment" data-nav="Investment">
+  <div class="eyebrow">Year 1 Investment</div>
+  <h2>The full picture.<br><em>Transparent.</em></h2>
+
+  <table class="summary-table">
+    <thead>
+      <tr>
+        <th>Component</th>
+        <th>Investment</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Website redesign</td>
+        <td><span class="price">$10,000</span><br><span style="font-size:0.75rem;color:var(--stone);">one-time (50/50 split)</span></td>
+      </tr>
+      <tr>
+        <td>Creative Partner retainer (12 &times; $2,500)</td>
+        <td><span class="price">$30,000</span><br><span style="font-size:0.75rem;color:var(--stone);">$2,500/month</span></td>
+      </tr>
+      <tr class="total">
+        <td><strong>Base Year 1</strong></td>
+        <td><span class="price" style="font-size:1.6rem;">$40,000</span></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div style="margin-top:24px;">
+    <div style="font-family:'Josefin Sans',sans-serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">With Build Documentation Books</div>
+    <table class="summary-table">
+      <tbody>
+        <tr>
+          <td>Base (no books)</td>
+          <td><span class="price">$40,000</span></td>
+        </tr>
+        <tr>
+          <td>+ 1 project book</td>
+          <td><span class="price">$47,000</span></td>
+        </tr>
+        <tr>
+          <td>+ 2 project books</td>
+          <td><span class="price">$54,000</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="insight" style="margin-top:48px;">
+    <h4>The Context</h4>
+    <p>A single inbound lead from a $5M custom build has a project margin in the high six figures. This entire engagement pays for itself with <strong>one new project</strong> sourced via the rebuilt site or a social presence that positions GD Nielsen where its built work already belongs.</p>
+  </div>
+</div>
+
+
+<!-- PHOTO BREAK -->
+<div class="photo-break">
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/20c8872d-0ddd-4861-b66c-4cc150ab59d6/5322-backhouse-web-20.jpg" alt="The Perch — twilight exterior, Sunshine Coast">
+  <div class="photo-break-caption">The Perch &middot; Sunshine Coast, BC &middot; Matt Anthony Photography</div>
+</div>
+
+
+<!-- ROADMAP -->
+<div class="section" data-nav="Roadmap">
+  <div class="eyebrow">The First 6 Months</div>
+  <h2>Here's how it unfolds.<br><em>Concrete milestones.</em></h2>
+
+  <div class="roadmap">
+    <div class="roadmap-line" id="roadmapLine"></div>
+
+    <div class="rm">
+      <div class="rm-left">
+        <div class="rm-month">Month 1</div>
+        <div class="rm-label">Foundations</div>
+      </div>
+      <div class="rm-right">
+        <ul>
+          <li>Engagement begins, retainer and website deposit invoiced</li>
+          <li>Retainer onboarding call + website discovery workshop</li>
+          <li>Content audit and information architecture</li>
+          <li>Social channels activated &mdash; posting calendar built</li>
+          <li>SEO baseline audit and Google Business Profile setup</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rm">
+      <div class="rm-left">
+        <div class="rm-month">Month 2&ndash;3</div>
+        <div class="rm-label">Build &amp; Launch</div>
+      </div>
+      <div class="rm-right">
+        <ul>
+          <li>Website design direction signed off</li>
+          <li>Site build in progress &mdash; project pages, new sections, SEO markup</li>
+          <li>Social content flowing weekly on Instagram</li>
+          <li>First portfolio shoot scheduled (half-year cadence, shoot 1 of 2)</li>
+          <li>Build documentation visits begin on active projects (if books selected)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rm">
+      <div class="rm-left">
+        <div class="rm-month">Month 4&ndash;5</div>
+        <div class="rm-label">Website Live</div>
+      </div>
+      <div class="rm-right">
+        <ul>
+          <li>New website launches with full SEO foundation</li>
+          <li>Portfolio populated with new editorial photography</li>
+          <li>Existing project archive reviewed for social-ready content</li>
+          <li>Monthly SEO reporting cadence established</li>
+          <li>Social content calendar running with 6-week buffer</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rm">
+      <div class="rm-left">
+        <div class="rm-month">Month 6</div>
+        <div class="rm-label">Momentum</div>
+      </div>
+      <div class="rm-right">
+        <ul>
+          <li>Second portfolio shoot (half-year cadence, shoot 2 of 2)</li>
+          <li>Content engine running &mdash; fresh assets flowing to all channels</li>
+          <li>SEO gains visible in search rankings and traffic</li>
+          <li>Build documentation books in progress on active projects</li>
+          <li>6-month review and Year 2 planning</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- WHAT I NEED -->
+<div class="section light" data-nav="Requirements">
+  <div class="eyebrow">What I Need From You</div>
+  <h2>Minimal involvement.<br><em>Maximum output.</em></h2>
+
+  <div class="services">
+    <div class="svc">
+      <h4>For the Website</h4>
+      <ul>
+        <li>2 hours of discovery/IA workshop time (Greg + DK ideally)</li>
+        <li>Sign-off on design direction (one round of revisions included)</li>
+        <li>Final content review on each section</li>
+        <li>Decision on the Mandarin section</li>
+        <li>Access to current Squarespace, Google Analytics, GSC, and existing brand assets</li>
+      </ul>
+    </div>
+    <div class="svc">
+      <h4>For the Retainer</h4>
+      <ul>
+        <li>A 30-min call every 6 weeks to plan the next content sprint</li>
+        <li>Coordination with past clients for re-shoot access on portfolio days</li>
+        <li>Access to existing project photography for social content review</li>
+      </ul>
+    </div>
+    <div class="svc">
+      <h4>For Project Books</h4>
+      <ul>
+        <li>Let me know which builds are starting (or recently started)</li>
+        <li>Site access coordination with your superintendents</li>
+      </ul>
+    </div>
+    <div class="svc">
+      <h4>That's It</h4>
+      <ul>
+        <li>No content meetings</li>
+        <li>No asset chases</li>
+        <li>No managing me</li>
+        <li>I run the program, you focus on building</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<!-- NEXT STEPS -->
+<div class="section" data-nav="Next Steps">
+  <div class="eyebrow">Next Steps</div>
+  <h2>Ready when you are.<br><em>Let's get started.</em></h2>
+
+  <div class="steps">
+    <div class="step">
+      <span class="step-num">1</span>
+      <h4>Confirm Scope</h4>
+      <p>Reply to confirm the three components work for you. I'll send the engagement letter.</p>
+    </div>
+    <div class="step">
+      <span class="step-num">2</span>
+      <h4>Onboarding + Workshop</h4>
+      <p>Retainer onboarding call and website discovery workshop booked within the first two weeks.</p>
+    </div>
+    <div class="step">
+      <span class="step-num">3</span>
+      <h4>Content Starts Flowing</h4>
+      <p>Social channels go live, website build begins, and documentation visits start on active projects.</p>
+    </div>
+  </div>
+
+  <!-- APPROVAL FORM -->
+  <div id="approvalForm" style="margin-top:56px;padding:48px;background:var(--light);border:1px solid var(--gold-border);position:relative;">
+    <div style="position:absolute;top:0;left:0;width:3px;height:100%;background:var(--gold);"></div>
+
+    <div style="font-family:'Josefin Sans',sans-serif;font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;">Approve This Proposal</div>
+
+    <!-- Summary -->
+    <div style="margin-bottom:28px;">
+      <div style="font-size:0.75rem;color:var(--stone);font-family:'Josefin Sans',sans-serif;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;">Engagement Summary</div>
+      <div style="font-size:0.9rem;color:var(--ink);line-height:2;">
+        Website Redesign &mdash; <strong style="color:var(--gold);">$10,000</strong> (50/50 split)<br>
+        Creative Partner Retainer &mdash; <strong style="color:var(--gold);">$2,500/mo</strong> (12-month term)<br>
+        Build Documentation Books &mdash; <strong style="color:var(--gold);">$7,000/project</strong> (as needed)
+      </div>
+    </div>
+
+    <!-- Notes -->
+    <div style="margin-bottom:28px;">
+      <div style="font-size:0.75rem;color:var(--stone);font-family:'Josefin Sans',sans-serif;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;">Notes or Questions (optional)</div>
+      <textarea id="approvalNotes" rows="3" placeholder="Any adjustments, questions, or details you'd like to discuss before we formalize..." style="width:100%;padding:14px 18px;border:1px solid var(--gold-border);background:var(--white);font-family:'DM Sans',sans-serif;font-size:0.88rem;color:var(--ink);resize:vertical;line-height:1.7;outline:none;transition:border-color 0.3s;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='var(--gold-border)'"></textarea>
+    </div>
+
+    <!-- Approve button -->
+    <button id="approveBtn" onclick="submitApproval()" style="display:inline-flex;align-items:center;gap:12px;padding:16px 40px;background:var(--ink);color:var(--paper);border:none;font-family:'Josefin Sans',sans-serif;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);" onmouseover="this.style.background='var(--gold)';this.style.color='var(--ink)'" onmouseout="this.style.background='var(--ink)';this.style.color='var(--paper)'">
+      <span>Approve &amp; Send to Matt</span>
+      <span style="font-size:1rem;">&rarr;</span>
+    </button>
+
+    <p style="margin-top:16px;font-size:0.75rem;color:var(--stone);">This opens your email client with your approval pre-filled. Nothing is binding until we both sign a formal engagement letter.</p>
+  </div>
+
+  <p style="margin-top:24px; font-size:0.85rem; color:var(--stone);">Engagement begins upon signing. Website deposit of <strong style="color:var(--ink);">$5,000</strong> and first month's retainer of <strong style="color:var(--ink);">$2,500</strong> invoiced at kickoff.</p>
+</div>
+
+
+<!-- CLOSING -->
+<div class="photo-break" style="height:65vh;min-height:450px;max-height:700px;">
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/8a674d33-4176-43dd-89c1-a565c1c3df48/5322-backhouse-web-24.jpg" alt="The Perch — aerial drone, Sunshine Coast" style="filter:brightness(0.25);">
+  <div style="position:absolute;top:0;left:0;right:0;bottom:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px;">
+    <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:400;font-style:italic;color:var(--paper);max-width:560px;line-height:1.4;margin-bottom:32px;">Forty years of built work<br>deserves to be seen.</p>
+    <div style="font-family:'Josefin Sans',sans-serif;font-size:0.7rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--paper);margin-bottom:20px;">Matt Anthony Photography</div>
+    <div style="font-size:0.8rem;color:rgba(246,244,240,0.5);line-height:2.2;">
+      <a href="https://mattanthonyphoto.com" style="color:var(--gold);text-decoration:none;">mattanthonyphoto.com</a><br>
+      <a href="mailto:info@mattanthonyphoto.com" style="color:var(--gold);text-decoration:none;">info@mattanthonyphoto.com</a> &middot; 604.765.9270<br>
+      Squamish, BC
+    </div>
+    <div style="margin-top:32px;font-family:'Josefin Sans',sans-serif;font-size:0.5rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(246,244,240,0.15);">This proposal is confidential and prepared exclusively for GD Nielsen Homes.</div>
+  </div>
+</div>
+
+
+<script>
+(function(){
+  'use strict';
+
+  /* LOADING SCREEN */
+  var loader = document.getElementById('loader');
+  window.addEventListener('load', function(){
+    setTimeout(function(){ loader.classList.add('done'); }, 1100);
+  });
+
+  /* SCROLL PROGRESS BAR */
+  var progressBar = document.getElementById('scrollProgress');
+  function updateProgress(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var s = window.scrollY;
+    progressBar.style.width = (h > 0 ? (s / h) * 100 : 0) + '%';
+  }
+
+  /* COVER PARALLAX */
+  var coverImg = document.querySelector('.cover-image');
+  function updateParallax(){
+    if(window.scrollY < window.innerHeight){
+      coverImg.style.transform = 'scale(1.08) translateY(' + (window.scrollY * 0.3) + 'px)';
+    }
+  }
+
+  /* PHOTO BREAK PARALLAX */
+  var photoBreakEls = document.querySelectorAll('.photo-break');
+  function updatePhotoParallax(){
+    photoBreakEls.forEach(function(pb){
+      var rect = pb.getBoundingClientRect();
+      var inView = rect.bottom > 0 && rect.top < window.innerHeight;
+      if(inView){ pb.classList.add('in-view'); } else { pb.classList.remove('in-view'); }
+    });
+  }
+
+  /* SECTION NAV DOTS */
+  var sectionNav = document.getElementById('sectionNav');
+  var navSections = document.querySelectorAll('[data-nav]');
+  var navDots = [];
+  navSections.forEach(function(sec){
+    var dot = document.createElement('div');
+    dot.className = 'section-nav-dot';
+    dot.setAttribute('data-label', sec.getAttribute('data-nav'));
+    dot.addEventListener('click', function(){
+      sec.scrollIntoView({ behavior:'smooth', block:'start' });
+    });
+    sectionNav.appendChild(dot);
+    navDots.push({ dot:dot, section:sec });
+  });
+
+  function updateNavDots(){
+    var scrollY = window.scrollY;
+    var winH = window.innerHeight;
+    if(scrollY > winH * 0.5){ sectionNav.classList.add('visible'); } else { sectionNav.classList.remove('visible'); }
+    var active = null;
+    navDots.forEach(function(item){
+      var rect = item.section.getBoundingClientRect();
+      if(rect.top < winH * 0.5 && rect.bottom > winH * 0.3){ active = item; }
+      item.dot.classList.remove('active');
+    });
+    if(active) active.dot.classList.add('active');
+  }
+
+  /* SCROLL REVEAL */
+  var revealTargets = [];
+  document.querySelectorAll('.section, .numbers').forEach(function(section){
+    section.querySelectorAll('.eyebrow, h2, .lead, .stats, .services, .insight, .roadmap, .price-card, .numbers, .steps, .summary-table').forEach(function(el, i){
+      el.classList.add('reveal');
+      if(i > 0 && i < 6) el.classList.add('reveal-delay-' + i);
+      revealTargets.push(el);
+    });
+    section.querySelectorAll('.stat, .svc, .step, .num, .rm').forEach(function(el, i){
+      el.classList.add('reveal');
+      el.classList.add('reveal-delay-' + Math.min(i + 1, 5));
+      revealTargets.push(el);
+    });
+    Array.prototype.forEach.call(section.children, function(child){
+      if(child.tagName === 'P' && !child.classList.contains('lead') && !child.classList.contains('cover-sub')){
+        child.classList.add('reveal');
+        revealTargets.push(child);
+      }
+    });
+  });
+
+  var revealObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+        animateCounter(entry.target);
+      }
+    });
+  }, { threshold:0.15, rootMargin:'0px 0px -40px 0px' });
+  revealTargets.forEach(function(el){ revealObserver.observe(el); });
+
+  /* EYEBROW LINE ANIMATION */
+  var eyebrows = document.querySelectorAll('.eyebrow');
+  var eyebrowObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        eyebrowObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold:0.5 });
+  eyebrows.forEach(function(eb){ eyebrowObserver.observe(eb); });
+
+  /* NUMBER COUNTER ANIMATION */
+  function animateCounter(el){
+    var valEl = el.querySelector('.stat-val, .num-val');
+    if(!valEl || valEl.dataset.counted) return;
+    valEl.dataset.counted = 'true';
+    var text = valEl.textContent.trim();
+    var hasPlus = text.indexOf('+') > -1;
+    var num = parseInt(text.replace(/[^0-9]/g,''), 10);
+    if(isNaN(num) || num === 0) return;
+    var duration = 1200;
+    var start = performance.now();
+    function ease(t){ return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2; }
+    function tick(now){
+      var t = Math.min((now - start) / duration, 1);
+      var val = Math.round(ease(t) * num);
+      valEl.textContent = val + (hasPlus ? '+' : '');
+      if(t < 1) requestAnimationFrame(tick);
+    }
+    valEl.textContent = '0' + (hasPlus ? '+' : '');
+    requestAnimationFrame(tick);
+  }
+
+  /* PHOTO BREAK CURTAIN REVEAL */
+  var photoRevealObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('revealed');
+        photoRevealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold:0.1 });
+  photoBreakEls.forEach(function(pb){ photoRevealObserver.observe(pb); });
+
+  /* HEADLINE GOLD UNDERLINE */
+  var headlines = document.querySelectorAll('h2');
+  var headlineObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('underlined');
+        headlineObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold:0.5 });
+  headlines.forEach(function(h){ headlineObserver.observe(h); });
+
+  /* SCROLL INDICATOR HIDE */
+  var scrollIndicator = document.getElementById('scrollIndicator');
+  function updateScrollIndicator(){
+    if(window.scrollY > 100){ scrollIndicator.classList.add('hidden'); } else { scrollIndicator.classList.remove('hidden'); }
+  }
+
+  /* ROADMAP LINE DRAW */
+  var roadmapLine = document.getElementById('roadmapLine');
+  var roadmap = roadmapLine ? roadmapLine.parentElement : null;
+  function updateRoadmapLine(){
+    if(!roadmap || !roadmapLine) return;
+    var rect = roadmap.getBoundingClientRect();
+    var winH = window.innerHeight;
+    if(rect.top < winH && rect.bottom > 0){
+      var progress = Math.min(Math.max((winH - rect.top) / (rect.height + winH * 0.3), 0), 1);
+      roadmapLine.style.height = (progress * (roadmap.offsetHeight - 96)) + 'px';
+    }
+  }
+
+  /* COMBINED SCROLL HANDLER */
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if(!ticking){
+      requestAnimationFrame(function(){
+        updateProgress();
+        updateParallax();
+        updatePhotoParallax();
+        updateNavDots();
+        updateScrollIndicator();
+        updateRoadmapLine();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, { passive:true });
+
+  /* APPROVAL FORM */
+  window.submitApproval = function(){
+    var notes = document.getElementById('approvalNotes').value.trim();
+    var subject = encodeURIComponent('GD Nielsen — Proposal Approved');
+    var body = 'Hi Matt,%0D%0A%0D%0A'
+      + 'We%27re happy with the revised proposal and ready to move forward with the official contract.%0D%0A%0D%0A'
+      + 'Confirmed scope:%0D%0A'
+      + '- Website Redesign: $10,000 (50/50 split)%0D%0A'
+      + '- Creative Partner Retainer: $2,500/mo (12-month term)%0D%0A'
+      + '- Build Documentation Books: $7,000/project (as needed)%0D%0A';
+    if(notes){
+      body += '%0D%0ANotes: ' + encodeURIComponent(notes) + '%0D%0A';
+    }
+    body += '%0D%0APlease send through the engagement letter.%0D%0A%0D%0ABest,%0D%0ADK';
+    window.location.href = 'mailto:info@mattanthonyphoto.com?subject=' + subject + '&body=' + body;
+
+    var btn = document.getElementById('approveBtn');
+    btn.innerHTML = '<span>Sent &mdash; Check Your Email Client</span> <span style="font-size:1rem;">&check;</span>';
+    btn.style.background = 'var(--gold)';
+    btn.style.color = 'var(--ink)';
+    btn.onmouseover = null;
+    btn.onmouseout = null;
+  };
+
+})();
+</script>
+
+</body>
+</html>
