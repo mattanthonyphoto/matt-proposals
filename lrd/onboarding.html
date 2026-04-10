@@ -1,0 +1,672 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LRD Studio — Onboarding Checklist</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Cormorant+Garamond:wght@400;500;600&display=swap');
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'DM Sans', -apple-system, sans-serif;
+    color: #1A1A18;
+    background: #fff;
+    line-height: 1.6;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  @page {
+    size: letter;
+    margin: 0.6in 0.7in;
+  }
+
+  .page {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 0;
+  }
+
+  /* Header */
+  .header {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 32px;
+    border-bottom: 1px solid #E8E5DF;
+  }
+
+  .header-label {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #B8A082;
+    margin-bottom: 12px;
+  }
+
+  .header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 32px;
+    font-weight: 500;
+    color: #1A1A18;
+    margin-bottom: 8px;
+  }
+
+  .header p {
+    font-size: 14px;
+    color: #8A8579;
+    max-width: 480px;
+    margin: 0 auto;
+  }
+
+  /* Intro */
+  .intro {
+    background: #FAFAF8;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin-bottom: 36px;
+    font-size: 14px;
+    color: #4A4A45;
+    line-height: 1.7;
+  }
+
+  .intro strong {
+    color: #1A1A18;
+  }
+
+  /* Section */
+  .section {
+    margin-bottom: 36px;
+    page-break-inside: avoid;
+  }
+
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 18px;
+  }
+
+  .section-number {
+    width: 36px;
+    height: 36px;
+    background: #1A1A18;
+    color: #F6F4F0;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    font-weight: 600;
+    flex-shrink: 0;
+  }
+
+  .section-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px;
+    font-weight: 500;
+    color: #1A1A18;
+  }
+
+  .section-time {
+    font-size: 12px;
+    color: #B8A082;
+    font-weight: 500;
+    margin-left: auto;
+    white-space: nowrap;
+  }
+
+  .section-desc {
+    font-size: 14px;
+    color: #6B6B65;
+    margin-bottom: 16px;
+    padding-left: 50px;
+  }
+
+  /* Steps */
+  .steps {
+    padding-left: 50px;
+    list-style: none;
+  }
+
+  .step {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid #F0EDE8;
+    font-size: 14px;
+  }
+
+  .step:last-child {
+    border-bottom: none;
+  }
+
+  .checkbox {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #D9D5CD;
+    border-radius: 4px;
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  .step-content {
+    flex: 1;
+  }
+
+  .step-content strong {
+    color: #1A1A18;
+  }
+
+  .step-path {
+    display: inline-block;
+    background: #F4F2ED;
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 4px;
+    color: #6B6B65;
+    margin: 4px 0;
+  }
+
+  .step-note {
+    font-size: 13px;
+    color: #8A8579;
+    font-style: italic;
+    margin-top: 4px;
+  }
+
+  /* Link box */
+  .link-box {
+    display: block;
+    background: #1A1A18;
+    color: #F6F4F0;
+    text-align: center;
+    padding: 14px 20px;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    margin: 12px 0 4px 0;
+    word-break: break-all;
+  }
+
+  .link-box:hover {
+    background: #2A2A28;
+  }
+
+  .link-label {
+    font-size: 11px;
+    color: #B8A082;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+
+  /* Divider */
+  .divider {
+    height: 1px;
+    background: #E8E5DF;
+    margin: 36px 0;
+  }
+
+  /* Summary box */
+  .summary {
+    background: #FAFAF8;
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin-top: 36px;
+  }
+
+  .summary h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+
+  .summary-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px 24px;
+    font-size: 13px;
+  }
+
+  .summary-grid dt {
+    color: #8A8579;
+  }
+
+  .summary-grid dd {
+    color: #1A1A18;
+    font-weight: 500;
+  }
+
+  /* Footer */
+  .footer {
+    text-align: center;
+    margin-top: 48px;
+    padding-top: 24px;
+    border-top: 1px solid #E8E5DF;
+    font-size: 12px;
+    color: #B8A082;
+  }
+
+  .footer a {
+    color: #1A1A18;
+    text-decoration: none;
+  }
+
+  /* Portal guide */
+  .portal-feature {
+    display: flex;
+    gap: 16px;
+    padding: 14px 0;
+    border-bottom: 1px solid #F0EDE8;
+    padding-left: 50px;
+  }
+
+  .portal-feature:last-child {
+    border-bottom: none;
+  }
+
+  .portal-icon {
+    width: 40px;
+    height: 40px;
+    background: #F4F2ED;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    flex-shrink: 0;
+  }
+
+  .portal-feature-content h4 {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1A1A18;
+    margin-bottom: 2px;
+  }
+
+  .portal-feature-content p {
+    font-size: 13px;
+    color: #6B6B65;
+    line-height: 1.5;
+  }
+
+  .portal-highlight {
+    background: #1A1A18;
+    color: #F6F4F0;
+    border-radius: 8px;
+    padding: 20px 24px;
+    margin: 16px 0 8px 50px;
+  }
+
+  .portal-highlight h4 {
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #B8A082;
+    margin-bottom: 10px;
+  }
+
+  .portal-highlight ol {
+    padding-left: 18px;
+    font-size: 14px;
+    line-height: 1.8;
+    color: #E8E5DF;
+  }
+
+  .portal-highlight ol strong {
+    color: #F6F4F0;
+  }
+
+  .page-break {
+    page-break-before: always;
+  }
+
+  /* Print tweaks */
+  @media print {
+    body { background: #fff; }
+    .page { padding: 0; }
+    .link-box { background: #1A1A18 !important; }
+    .section-number { background: #1A1A18 !important; color: #F6F4F0 !important; }
+    .portal-icon { background: #F4F2ED !important; }
+    .portal-highlight { background: #1A1A18 !important; color: #F6F4F0 !important; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="header-label">Creative Partner Onboarding</div>
+    <h1>Welcome, Lauren</h1>
+    <p>A few quick setup tasks and a walkthrough of your private client portal.</p>
+  </div>
+
+  <div class="intro">
+    Everything I build for you — social media, SEO, the website rebuild, content planning — runs through a few platforms that need your access, plus a private portal where you'll review and approve everything. <strong>Steps 1-4 are one-time setup. Step 5 is your portal — the thing you'll actually use week to week.</strong>
+  </div>
+
+  <!-- STEP 1: Squarespace -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">1</div>
+      <div class="section-title">Squarespace Access</div>
+      <div class="section-time">2 minutes</div>
+    </div>
+    <div class="section-desc">
+      I need administrator access to your current site so I can begin the rebuild prep, audit your SEO, and set up Google Business Profile verification.
+    </div>
+    <ul class="steps">
+      <li class="step">
+        <div class="checkbox"></div>
+        <div class="step-content">
+          Log into your Squarespace dashboard at <strong>lrdstudio.ca</strong>
+        </div>
+      </li>
+      <li class="step">
+        <div class="checkbox"></div>
+        <div class="step-content">
+          Navigate to:
+          <br><span class="step-path">Settings &rarr; Permissions &amp; Ownership &rarr; Invite Contributor</span>
+        </div>
+      </li>
+      <li class="step">
+        <div class="checkbox"></div>
+        <div class="step-content">
+          Enter <strong>info@mattanthonyphoto.com</strong> and set the role to <strong>Administrator</strong>
+        </div>
+      </li>
+      <li class="step">
+        <div class="checkbox"></div>
+        <div class="step-content">
+          Click <strong>Send Invite</strong>
+          <div class="step-note">You stay the site owner — I just get backend access for the rebuild.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- STEP 2: Connect Platforms + Meta -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">2</div>
+      <div class="section-title">Connect Your Social Platforms</div>
+      <div class="section-time">8 minutes</div>
+    </div>
+    <div class="section-desc">
+      Two things need to happen here. First, you'll connect your accounts to Zernio — the tool I use to schedule and publish your content. Then you'll add me as an admin on Meta so I can manage your Instagram directly for analytics and engagement.
+    </div>
+
+    <div style="padding-left: 50px;">
+      <div class="link-label">Your Zernio signup link</div>
+      <a class="link-box" href="https://zernio.com/signup?inviteToken=67ff1c96d565dbd3f545fff4de212582243c404af2948c45" target="_blank">
+        zernio.com/signup?inviteToken=67ff1c96...
+      </a>
+    </div>
+
+    <ul class="steps" style="margin-top: 16px;">
+      <li class="step">
+        <div class="checkbox"></div>
+        <div class="step-content">
+          Click the link above and create your Zernio account using <strong>lauren@lrdstudio.ca</strong>
+        </div>
+      </li>
+      <li class="step">
+        <div class="checkbox"></div>
+        <div class="step-content">
+          Once logged in, click <strong>"Add Account"</strong> and connect <strong>Instagram</strong>
+          <div class="step-note">Log in with the Meta account that manages @lrdstudio_interiors. You'll authorize read + publish access.</div>
+        </div>
+      </li>
+      <li class="step">
+        <div class="checkbox"></div>
+        <div class="step-content">
+          Click <strong>"Add Account"</strong> again and connect <strong>Pinterest</strong>
+          <div class="step-note">Pinterest acts as a passive SEO engine for your projects — every pin links back to your site.</div>
+        </div>
+      </li>
+      <li class="step">
+        <div class="checkbox"></div>
+        <div class="step-content">
+          Click <strong>"Add Account"</strong> again and connect <strong>Google Business Profile</strong>
+          <div class="step-note">If you haven't claimed your GBP yet, that's fine — let me know and I'll walk you through it.</div>
+        </div>
+      </li>
+    </ul>
+
+    <div class="section-desc" style="margin-top: 20px; margin-bottom: 12px;">
+      <strong style="color: #1A1A18;">Now add me to Meta Business Manager.</strong> Zernio handles scheduling, but I also need direct admin access for analytics, engagement, and troubleshooting.
+    </div>
+
+    <ul class="steps">
+      <li class="step">
+        <div class="checkbox"></div>
+        <div class="step-content">
+          Go to <strong>business.facebook.com</strong> and log in
+        </div>
+      </li>
+      <li class="step">
+        <div class="checkbox"></div>
+        <div class="step-content">
+          Navigate to:
+          <br><span class="step-path">Settings &rarr; People &rarr; Add People</span>
+        </div>
+      </li>
+      <li class="step">
+        <div class="checkbox"></div>
+        <div class="step-content">
+          Enter <strong>info@mattanthonyphoto.com</strong> and grant <strong>Admin access</strong>
+        </div>
+      </li>
+      <li class="step">
+        <div class="checkbox"></div>
+        <div class="step-content">
+          Click <strong>Send Invite</strong>
+          <div class="step-note">This doesn't give me access to your personal Facebook — only the business assets connected to @lrdstudio_interiors.</div>
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- STEP 3: Priority Projects -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">3</div>
+      <div class="section-title">Prepare Your Project List</div>
+      <div class="section-time">Before the kickoff</div>
+    </div>
+    <div class="section-desc">
+      Come to the kickoff workshop with a shortlist of <strong>5 to 10 projects</strong> you want to lead with on the new site. These become the foundation of the portfolio, the content calendar, and the first round of social posts. Just project names is fine.
+    </div>
+    <ul class="steps">
+      <li class="step">
+        <div class="checkbox"></div>
+        <div class="step-content">
+          Pick <strong>5-10 projects</strong> for the new website portfolio
+          <div class="step-note">Include any that are in progress if you'd like them on the site when they're done.</div>
+        </div>
+      </li>
+      <li class="step">
+        <div class="checkbox"></div>
+        <div class="step-content">
+          Think about any <strong>upcoming projects</strong> in the next 3 months we should plan a shoot around
+        </div>
+      </li>
+    </ul>
+  </div>
+
+  <!-- STEP 4: Client Portal -->
+  <div class="section page-break">
+    <div class="section-header">
+      <div class="section-number">4</div>
+      <div class="section-title">Your Client Portal</div>
+    </div>
+    <div class="section-desc">
+      This is your private dashboard — and the only thing you need to check regularly. Everything else runs automatically. <strong>Your one recurring task is reviewing posts in Approvals.</strong>
+    </div>
+
+    <div style="padding-left: 50px;">
+      <div class="link-label">Your portal</div>
+      <a class="link-box" href="https://portal.mattanthonyphoto.com" target="_blank">
+        portal.mattanthonyphoto.com
+      </a>
+      <div style="display: flex; gap: 24px; margin-top: 8px; font-size: 13px; color: #6B6B65;">
+        <span><strong style="color:#1A1A18;">Login:</strong> lauren@lrdstudio.ca</span>
+        <span><strong style="color:#1A1A18;">Password:</strong> SummitArborTide38</span>
+      </div>
+    </div>
+
+    <ul class="steps" style="margin-top: 20px;">
+      <li class="step">
+        <div class="checkbox"></div>
+        <div class="step-content">
+          Log in at <strong>portal.mattanthonyphoto.com</strong> and confirm you can see your dashboard
+        </div>
+      </li>
+    </ul>
+
+    <!-- Primary features: Approvals + Calendar -->
+    <div style="padding-left: 50px; margin-top: 28px;">
+      <div class="link-label" style="margin-bottom: 12px;">The two pages you'll use most</div>
+    </div>
+
+    <div class="portal-feature">
+      <div class="portal-icon">&#9998;</div>
+      <div class="portal-feature-content">
+        <h4>Approvals</h4>
+        <p>Every social post I draft lands here before it goes live. You'll see the images, caption, and hashtags for each one. Three options: <strong>Approve</strong> if it's good to go, <strong>Request Revision</strong> with specific notes and I'll rebuild it, or <strong>Decline</strong> to start fresh. Nothing publishes without your sign-off.</p>
+      </div>
+    </div>
+
+    <div class="portal-feature">
+      <div class="portal-icon">&#128197;</div>
+      <div class="portal-feature-content">
+        <h4>Content Calendar</h4>
+        <p>A monthly view of every post — past and upcoming. Color-coded by status so you can see at a glance what's been published, what's scheduled, and what's waiting on your review. Click any post to see the full details.</p>
+      </div>
+    </div>
+
+    <!-- Approval workflow callout -->
+    <div class="portal-highlight">
+      <h4>Your weekly rhythm</h4>
+      <ol>
+        <li>I draft your posts and they appear in <strong>Approvals</strong></li>
+        <li>You review each one — takes about <strong>5-10 minutes</strong> with a coffee</li>
+        <li><strong>Approve</strong> the ones that are good to go</li>
+        <li>If something feels off, hit <strong>Request Revision</strong> and tell me what to change — I'll rebuild it with your notes</li>
+        <li>Approved posts publish automatically on schedule</li>
+      </ol>
+    </div>
+
+    <!-- Secondary features -->
+    <div style="padding-left: 50px; margin-top: 28px;">
+      <div class="link-label" style="margin-bottom: 12px;">Also inside your portal</div>
+    </div>
+
+    <div class="portal-feature">
+      <div class="portal-icon">&#9633;</div>
+      <div class="portal-feature-content">
+        <h4>Dashboard</h4>
+        <p>Home screen with pending approvals, this month's stats, and your latest published posts.</p>
+      </div>
+    </div>
+
+    <div class="portal-feature">
+      <div class="portal-icon">&#128200;</div>
+      <div class="portal-feature-content">
+        <h4>Performance Reports</h4>
+        <p>Weekly analytics — reach, engagement, and top-performing posts. Curated highlights, not raw data.</p>
+      </div>
+    </div>
+
+    <div class="portal-feature">
+      <div class="portal-icon">&#128247;</div>
+      <div class="portal-feature-content">
+        <h4>Projects &amp; Schedule</h4>
+        <p>Every shoot we work on — active and completed — with dates, deliverables, and countdowns.</p>
+      </div>
+    </div>
+
+    <div class="portal-feature">
+      <div class="portal-icon">&#128230;</div>
+      <div class="portal-feature-content">
+        <h4>Deliverables</h4>
+        <p>Your photo library. Browse, preview, and download full-resolution images from every project.</p>
+      </div>
+    </div>
+
+    <div class="portal-feature">
+      <div class="portal-icon">&#127912;</div>
+      <div class="portal-feature-content">
+        <h4>Brand Kit</h4>
+        <p>Your voice rules, vocabulary, hashtag strategy, and connected platforms — the playbook I follow.</p>
+      </div>
+    </div>
+
+    <div class="portal-feature">
+      <div class="portal-icon">&#128179;</div>
+      <div class="portal-feature-content">
+        <h4>Invoices</h4>
+        <p>Billing history, payment status, and downloadable invoices.</p>
+      </div>
+    </div>
+
+    <div class="step-note" style="padding-left: 50px; margin-top: 12px;">Works on your phone — the whole thing is built for thumbs.</div>
+  </div>
+
+  <!-- STEP 5: Book Kickoff -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-number">5</div>
+      <div class="section-title">Book Your Kickoff Workshop</div>
+      <div class="section-time">1 minute</div>
+    </div>
+    <div class="section-desc">
+      60-minute onboarding session to align on brand voice, content strategy, and quarterly planning. We'll confirm your content pillars, set the approval workflow, and lock in your first quarterly shoot date. Come with any projects you'd like to prioritize.
+    </div>
+    <div style="padding-left: 50px;">
+      <a class="link-box" href="https://api.leadconnectorhq.com/widget/booking/enp6ws53Ks3oceXUhRER" target="_blank">
+        Book Your Kickoff Workshop
+      </a>
+      <div class="step-note" style="text-align: center; margin-top: 8px;">Pick any time that works for you this week or next.</div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- Summary -->
+  <div class="summary">
+    <h3>Quick Reference</h3>
+    <dl class="summary-grid">
+      <dt>Your portal</dt>
+      <dd>portal.mattanthonyphoto.com</dd>
+      <dt>Portal login</dt>
+      <dd>lauren@lrdstudio.ca</dd>
+      <dt>Portal password</dt>
+      <dd>SummitArborTide38</dd>
+      <dt>Monthly check-in</dt>
+      <dd>1st Tuesday, 10:00 AM PT</dd>
+      <dt>Payment</dt>
+      <dd>Auto-billed on the 9th of each month</dd>
+      <dt>Fast contact</dt>
+      <dd>Text or email anytime</dd>
+      <dt>Kickoff workshop</dt>
+      <dd>Book above (Step 5)</dd>
+    </dl>
+  </div>
+
+  <div class="footer">
+    <p>Matt Anthony Photography &nbsp;&middot;&nbsp; <a href="https://www.mattanthonyphoto.com">mattanthonyphoto.com</a> &nbsp;&middot;&nbsp; 604.765.9270</p>
+  </div>
+
+</div>
+</body>
+</html>
