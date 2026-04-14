@@ -3,304 +3,285 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Clare Riley Design — Interior Design | Whistler & Pemberton</title>
-<meta name="description" content="Full-service interior design for refined mountain living. Whistler, Pemberton, and the Sea-to-Sky Corridor.">
+<title>Clare Riley Design</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300;1,400&family=Inter:wght@300;400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{
-  --ink:#1A1918;
-  --paper:#FAFAF8;
-  --mid:#97948E;
-  --light:#E8E7E3;
-  --muted:#C5C2BC;
-  --serif:'Cormorant',Georgia,serif;
-  --sans:'Inter',-apple-system,sans-serif;
-}
-html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
-body{font-family:var(--sans);color:var(--ink);background:var(--paper);overflow-x:hidden}
-img{max-width:100%;display:block}
-a{text-decoration:none;color:inherit}
+:root{--ink:#1A1918;--paper:#FAFAF8;--grey:#A09D97;--rule:#DDDBD6;--font:'EB Garamond',Georgia,serif}
+html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+body{font-family:var(--font);color:var(--ink);background:var(--paper);overflow-x:hidden}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
 ::selection{background:var(--ink);color:var(--paper)}
 
-/* ── Nav ── */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,5vw,64px);height:72px;transition:all .4s}
-.nav.scrolled{background:rgba(250,250,248,.92);backdrop-filter:blur(20px)}
-.nav-logo{height:clamp(22px,2.2vw,30px);width:auto;filter:brightness(0) invert(1);transition:filter .4s}
-.nav.scrolled .nav-logo{filter:brightness(0)}
-.nav-right{display:flex;align-items:center;gap:clamp(24px,3vw,44px)}
-.nav-right a{font-family:var(--sans);font-weight:400;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(255,255,255,.6);transition:color .3s}
-.nav.scrolled .nav-right a{color:var(--mid)}
-.nav-right a:hover{color:white}
-.nav.scrolled .nav-right a:hover{color:var(--ink)}
-.nav-right .nav-cta{color:rgba(255,255,255,.9);padding-bottom:1px;border-bottom:1px solid rgba(255,255,255,.25);transition:all .3s}
-.nav.scrolled .nav-cta{color:var(--ink);border-color:var(--ink)}
+/* ── Top bar ── */
+.bar{position:fixed;top:0;left:0;right:0;z-index:90;display:flex;justify-content:space-between;align-items:center;padding:28px clamp(24px,5vw,56px);mix-blend-mode:difference}
+.bar-logo{height:20px;filter:brightness(0) invert(1)}
+.bar-menu{font-family:var(--font);font-size:13px;letter-spacing:.06em;color:white;cursor:pointer;background:none;border:none;padding:4px 0}
 
-/* ── Hero ── */
-.hero{position:relative;height:100vh;min-height:600px;overflow:hidden}
-.hero-img{position:absolute;inset:0;background-size:cover;background-position:center 30%}
-.hero::after{content:'';position:absolute;bottom:0;left:0;right:0;height:30%;background:linear-gradient(to top,rgba(26,25,24,.2),transparent)}
+/* ── Menu overlay ── */
+.overlay{position:fixed;inset:0;z-index:200;background:var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s}
+.overlay.open{opacity:1;pointer-events:auto}
+.overlay-close{position:absolute;top:28px;right:clamp(24px,5vw,56px);font-family:var(--font);font-size:14px;color:var(--ink);cursor:pointer;background:none;border:none}
+.overlay nav{display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:48px}
+.overlay nav a{font-family:var(--font);font-weight:400;font-size:clamp(28px,4vw,44px);color:var(--ink);opacity:.3;transition:opacity .2s;line-height:1.5}
+.overlay nav a:hover{opacity:1}
+.overlay-line{width:24px;height:1px;background:var(--rule);margin-bottom:28px}
+.overlay-info{text-align:center;font-size:13px;color:var(--grey);line-height:2}
+.overlay-info a{border-bottom:1px solid var(--rule);transition:border-color .2s}
+.overlay-info a:hover{border-color:var(--ink);color:var(--ink)}
+.overlay-social{margin-top:24px;font-size:12px;letter-spacing:.1em;color:var(--grey)}
+.overlay-social a{margin:0 8px;transition:color .2s}
+.overlay-social a:hover{color:var(--ink)}
 
-/* ── Statement ── */
-.statement{padding:clamp(100px,16vw,220px) clamp(32px,6vw,100px);text-align:center}
-.statement h1{font-family:var(--serif);font-weight:300;font-size:clamp(32px,4.5vw,68px);line-height:1.2;letter-spacing:-.01em;max-width:800px;margin:0 auto}
-.statement h1 em{font-style:italic}
-.statement-sub{font-family:var(--sans);font-weight:300;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--mid);margin-top:32px}
+/* ── Opening ── */
+.opening{height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 clamp(24px,5vw,56px) clamp(48px,8vh,80px)}
+.opening h1{font-weight:400;font-size:clamp(42px,7vw,110px);line-height:.92;letter-spacing:-.02em}
+.opening-meta{font-style:italic;font-size:clamp(13px,1.1vw,16px);color:var(--grey);margin-top:20px;letter-spacing:.02em}
 
-/* ── Work ── */
-.work{padding:0 clamp(24px,5vw,64px) clamp(80px,10vw,140px)}
-.work-inner{max-width:1400px;margin:0 auto}
-.work-label{font-family:var(--sans);font-weight:400;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--mid);margin-bottom:clamp(40px,5vw,64px)}
-.work-row{margin-bottom:clamp(48px,6vw,80px)}
-.work-row:last-of-type{margin-bottom:0}
-.work-full{width:100%;overflow:hidden}
-.work-full img{width:100%;aspect-ratio:16/9;object-fit:cover}
-.work-pair{display:grid;grid-template-columns:1fr 1fr;gap:8px}
-.work-pair img{width:100%;aspect-ratio:4/3;object-fit:cover}
-.work-asym{display:grid;grid-template-columns:1.2fr 1fr;gap:8px}
-.work-asym img{width:100%;aspect-ratio:4/3;object-fit:cover}
-.work-caption{font-family:var(--sans);font-weight:400;font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);margin-top:12px;display:flex;justify-content:space-between}
-.work-caption span{color:var(--mid)}
-.work-link{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-weight:400;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--ink);margin-top:clamp(40px,5vw,60px);padding-bottom:2px;border-bottom:1px solid var(--light);transition:border-color .3s}
-.work-link:hover{border-color:var(--ink)}
+/* ── Flowing content ── */
+.flow{max-width:100%;padding:0 clamp(24px,5vw,56px)}
 
-/* ── Divider ── */
-.divider{width:1px;height:64px;background:var(--light);margin:0 auto}
+/* ── Offset image right ── */
+.img-right{margin:clamp(80px,14vh,160px) 0;margin-left:35%;width:60%}
+.img-right img{width:100%;aspect-ratio:3/4;object-fit:cover}
+.img-right figcaption{font-size:11px;letter-spacing:.14em;color:var(--grey);margin-top:10px;text-transform:uppercase}
 
-/* ── About ── */
-.about{padding:clamp(80px,12vw,160px) clamp(32px,6vw,100px)}
-.about-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:200px 1fr;gap:clamp(40px,6vw,120px);align-items:start}
-.about-label{font-family:var(--sans);font-weight:400;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--mid);padding-top:6px}
-.about-text p{font-family:var(--serif);font-weight:300;font-size:clamp(20px,2.2vw,32px);line-height:1.55;color:var(--ink);max-width:680px}
-.about-text p+p{margin-top:24px}
+/* ── Pull text ── */
+.pull{margin:clamp(60px,10vh,120px) 0;margin-left:clamp(60px,15%,240px);max-width:520px}
+.pull p{font-weight:400;font-size:clamp(22px,2.4vw,36px);line-height:1.45;letter-spacing:-.005em}
+.pull p em{font-style:italic}
 
-/* ── Break Image ── */
-.break-image{width:100%;overflow:hidden}
-.break-image img{width:100%;aspect-ratio:21/9;object-fit:cover}
+/* ── Full bleed ── */
+.bleed{margin:clamp(80px,14vh,160px) 0;width:100vw;margin-left:calc(-1 * clamp(24px,5vw,56px));overflow:hidden}
+.bleed img{width:100%;height:clamp(300px,60vh,700px);object-fit:cover}
 
-/* ── Services ── */
-.services{padding:clamp(80px,12vw,160px) clamp(32px,6vw,100px)}
-.services-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:200px 1fr;gap:clamp(40px,6vw,120px);align-items:start}
-.services-label{font-family:var(--sans);font-weight:400;font-size:10px;letter-spacing:.25em;text-transform:uppercase;color:var(--mid);padding-top:4px}
-.services-list{list-style:none;display:grid;grid-template-columns:1fr 1fr;gap:0;max-width:680px}
-.services-list li{font-family:var(--serif);font-weight:400;font-size:clamp(18px,1.6vw,24px);line-height:1.3;padding:clamp(14px,1.8vw,22px) 0;border-bottom:1px solid var(--light)}
-.services-list li:nth-child(odd){padding-right:clamp(16px,3vw,40px);border-right:1px solid var(--light)}
-.services-list li:nth-child(even){padding-left:clamp(16px,3vw,40px)}
+/* ── Offset pair ── */
+.img-pair{margin:clamp(80px,14vh,160px) 0;display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(40px,8vw,120px);align-items:end}
+.img-pair figure:first-child{padding-bottom:clamp(40px,6vw,80px)}
+.img-pair img{width:100%;aspect-ratio:4/5;object-fit:cover}
+.img-pair figcaption{font-size:11px;letter-spacing:.14em;color:var(--grey);margin-top:10px;text-transform:uppercase}
 
-/* ── Recognition ── */
-.recognition{padding:clamp(40px,5vw,64px) clamp(32px,6vw,100px);text-align:center}
-.recognition span{font-family:var(--sans);font-weight:300;font-size:10px;letter-spacing:.2em;text-transform:uppercase;color:var(--muted)}
+/* ── Centered moment ── */
+.moment{margin:clamp(100px,16vh,200px) auto;text-align:center;max-width:560px}
+.moment p{font-style:italic;font-size:clamp(14px,1.2vw,17px);line-height:1.9;color:var(--grey);letter-spacing:.02em}
+.moment-rule{width:24px;height:1px;background:var(--rule);margin:28px auto}
+.moment-awards{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--rule)}
 
-/* ── Contact ── */
-.contact{padding:clamp(80px,12vw,160px) clamp(32px,6vw,100px);text-align:center}
-.contact h2{font-family:var(--serif);font-weight:300;font-size:clamp(28px,3.5vw,52px);line-height:1.2;margin-bottom:40px}
-.contact-details{font-family:var(--sans);font-weight:300;font-size:13px;color:var(--mid);line-height:2.4}
-.contact-details a{color:var(--ink);border-bottom:1px solid var(--light);transition:border-color .3s}
-.contact-details a:hover{border-color:var(--ink)}
-.contact-cta{display:inline-block;font-family:var(--sans);font-weight:400;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--paper);background:var(--ink);padding:16px 44px;margin-top:40px;transition:opacity .3s}
-.contact-cta:hover{opacity:.7}
+/* ── Offset image left ── */
+.img-left{margin:clamp(80px,14vh,160px) 0;width:50%;margin-right:auto}
+.img-left img{width:100%;aspect-ratio:5/6;object-fit:cover}
+.img-left figcaption{font-size:11px;letter-spacing:.14em;color:var(--grey);margin-top:10px;text-transform:uppercase}
 
-/* ── Footer ── */
-.footer{padding:24px clamp(24px,5vw,64px);display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--light)}
-.footer span{font-family:var(--sans);font-size:9px;letter-spacing:.06em;color:var(--muted)}
-.footer a{color:var(--mid);transition:color .3s}
-.footer a:hover{color:var(--ink)}
+/* ── Index ── */
+.index{margin:clamp(80px,14vh,160px) 0;margin-left:clamp(60px,15%,240px);max-width:400px}
+.index-label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--rule);margin-bottom:32px}
+.index ol{list-style:none;counter-reset:idx}
+.index li{counter-increment:idx;font-size:clamp(18px,1.8vw,26px);line-height:1.3;padding:clamp(10px,1.2vw,16px) 0;border-bottom:1px solid var(--rule);display:flex;align-items:baseline;gap:clamp(12px,2vw,24px);transition:color .2s;cursor:default}
+.index li::before{content:counter(idx, decimal-leading-zero);font-size:11px;letter-spacing:.08em;color:var(--rule);flex-shrink:0;width:24px}
+.index li:hover{color:var(--grey)}
+.index-link{display:inline-block;font-size:12px;letter-spacing:.1em;color:var(--grey);margin-top:24px;padding-bottom:2px;border-bottom:1px solid var(--rule);transition:all .2s}
+.index-link:hover{color:var(--ink);border-color:var(--ink)}
+
+/* ── End ── */
+.end{margin:clamp(120px,20vh,260px) auto;text-align:center;padding:0 clamp(24px,5vw,56px)}
+.end h2{font-weight:400;font-size:clamp(28px,3.5vw,52px);line-height:1.2;letter-spacing:-.01em;margin-bottom:36px}
+.end h2 em{font-style:italic}
+.end-details{font-size:13px;color:var(--grey);line-height:2.2}
+.end-details a{color:var(--ink);border-bottom:1px solid var(--rule);transition:border-color .2s}
+.end-details a:hover{border-color:var(--ink)}
+
+/* ── Foot ── */
+.foot{padding:20px clamp(24px,5vw,56px);display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--rule)}
+.foot span{font-size:10px;letter-spacing:.04em;color:var(--rule)}
+.foot a{color:var(--grey);transition:color .2s}
+.foot a:hover{color:var(--ink)}
 
 /* ── Concept ── */
-.concept{position:fixed;bottom:0;left:0;right:0;z-index:200;background:var(--ink);padding:12px 32px;display:flex;align-items:center;justify-content:center;gap:20px;transform:translateY(100%);animation:slideUp .5s 1.5s forwards}
-.concept span{font-family:var(--sans);font-weight:300;font-size:11px;color:rgba(250,250,248,.35)}
-.concept strong{color:rgba(250,250,248,.6);font-weight:400}
-.concept a{font-family:var(--sans);font-weight:400;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);border:1px solid rgba(250,250,248,.15);padding:8px 20px;transition:all .3s}
+.concept{position:fixed;bottom:0;left:0;right:0;z-index:100;padding:10px 24px;background:var(--ink);display:flex;align-items:center;justify-content:center;gap:16px;transform:translateY(100%);animation:up .4s 1.5s forwards}
+.concept span{font-size:11px;color:rgba(250,250,248,.3);letter-spacing:.02em}
+.concept a{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);padding:7px 18px;border:1px solid rgba(250,250,248,.12);transition:all .2s}
 .concept a:hover{background:var(--paper);color:var(--ink)}
-@keyframes slideUp{to{transform:translateY(0)}}
+@keyframes up{to{transform:translateY(0)}}
 
 /* ── Fade ── */
-.fade{opacity:0;transition:opacity .8s ease}
-.fade.in{opacity:1}
-.fade-d1{transition-delay:.1s}.fade-d2{transition-delay:.2s}
+.f{opacity:0;transition:opacity 1s ease}
+.f.v{opacity:1}
 
-/* ── Mobile ── */
-.nav-hamburger{display:none;cursor:pointer;padding:8px;z-index:101}
-.nav-hamburger span{display:block;width:18px;height:1px;background:white;margin:5px 0;transition:all .3s}
-.nav.scrolled .nav-hamburger span{background:var(--ink)}
-.nav-hamburger.open span:nth-child(1){transform:rotate(45deg) translate(3px,3px)}
-.nav-hamburger.open span:nth-child(2){opacity:0}
-.nav-hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(3px,-3px)}
-.mobile-menu{position:fixed;inset:0;background:var(--paper);z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;opacity:0;pointer-events:none;transition:opacity .3s}
-.mobile-menu.open{opacity:1;pointer-events:auto}
-.mobile-menu a{font-family:var(--serif);font-size:clamp(24px,5vw,36px);font-weight:300;color:var(--ink);opacity:.4;transition:opacity .2s}
-.mobile-menu a:hover{opacity:1}
-
-@media(max-width:900px){
-  .nav-right{display:none}
-  .nav-hamburger{display:block}
-  .about-inner,.services-inner{grid-template-columns:1fr;gap:24px}
-  .services-list{grid-template-columns:1fr}
-  .services-list li:nth-child(odd){padding-right:0;border-right:none}
-  .services-list li:nth-child(even){padding-left:0}
-  .work-pair,.work-asym{grid-template-columns:1fr}
-  .work-pair img,.work-asym img{aspect-ratio:16/10}
-}
-@media(max-width:480px){
-  .concept{flex-direction:column;gap:8px;padding:10px 16px}
+/* ── Responsive ── */
+@media(max-width:768px){
+  .img-right{margin-left:10%;width:85%}
+  .img-left{width:80%}
+  .pull{margin-left:clamp(24px,8%,60px)}
+  .index{margin-left:clamp(24px,8%,60px)}
+  .img-pair{grid-template-columns:1fr;gap:clamp(24px,4vw,40px)}
+  .img-pair figure:first-child{padding-bottom:0}
+  .concept{flex-direction:column;gap:6px;padding:8px 16px}
 }
 </style>
 </head>
 <body>
 
-<nav class="nav" id="nav">
-  <a href="#"><img class="nav-logo" src="https://static.wixstatic.com/media/8fa823_83c242fbe43f46d88fd6207e1a79683e~mv2.png" alt="Clare Riley Design"></a>
-  <div class="nav-right">
-    <a href="#work">Work</a>
-    <a href="#about">Studio</a>
-    <a href="#services">Services</a>
-    <a href="#contact" class="nav-cta">Inquire</a>
-  </div>
-  <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
-</nav>
-<div class="mobile-menu" id="mobileMenu">
-  <a href="#work" class="mobile-link">Work</a>
-  <a href="#about" class="mobile-link">Studio</a>
-  <a href="#services" class="mobile-link">Services</a>
-  <a href="https://clarerileyhome.com" target="_blank" class="mobile-link">Shop</a>
-  <a href="#contact" class="mobile-link">Inquire</a>
+<!-- Top bar -->
+<div class="bar">
+  <img class="bar-logo" src="https://static.wixstatic.com/media/8fa823_83c242fbe43f46d88fd6207e1a79683e~mv2.png" alt="CRD">
+  <button class="bar-menu" id="menuBtn">Menu</button>
 </div>
 
-<!-- Hero — single image, no text -->
-<section class="hero">
-  <div class="hero-img" style="background-image:url('https://static.wixstatic.com/media/8fa823_82d94b8b9aa44ca2bb38fecd50207a52~mv2.jpg/v1/fill/w_1920,h_1080/8fa823_82d94b8b9aa44ca2bb38fecd50207a52~mv2.jpg')"></div>
-</section>
-
-<!-- Statement -->
-<div class="statement">
-  <h1 class="fade">Interior design for<br><em>refined mountain living</em></h1>
-  <div class="statement-sub fade fade-d1">Pemberton &ensp;·&ensp; Whistler &ensp;·&ensp; Sea-to-Sky</div>
+<!-- Overlay menu -->
+<div class="overlay" id="overlay">
+  <button class="overlay-close" id="closeBtn">Close</button>
+  <nav>
+    <a href="#work" class="ov-link">Work</a>
+    <a href="#studio" class="ov-link">Studio</a>
+    <a href="https://clarerileyhome.com" target="_blank">Shop</a>
+    <a href="#contact" class="ov-link">Contact</a>
+  </nav>
+  <div class="overlay-line"></div>
+  <div class="overlay-info">
+    <a href="tel:604-907-2217">604.907.2217</a><br>
+    <a href="mailto:info@clarerileydesign.com">info@clarerileydesign.com</a><br>
+    101-7336 Industrial Way<br>
+    Pemberton, BC
+  </div>
+  <div class="overlay-social">
+    <a href="https://www.instagram.com/clarerileydesign/" target="_blank">Instagram</a>
+    <a href="https://www.pinterest.com/clarerileydesign/" target="_blank">Pinterest</a>
+  </div>
 </div>
 
-<!-- Work -->
-<section class="work" id="work">
-  <div class="work-inner">
-    <div class="work-label fade">Selected Work</div>
-
-    <div class="work-row">
-      <div class="work-full fade">
-        <img src="https://static.wixstatic.com/media/8fa823_2e8440e1685a4078857a963f76ab7846~mv2.jpg/v1/fill/w_1400,h_788/8fa823_2e8440e1685a4078857a963f76ab7846~mv2.jpg" alt="Pinnacle Ridge" loading="lazy">
-      </div>
-      <div class="work-caption fade"><span>Pinnacle Ridge</span> Whistler</div>
-    </div>
-
-    <div class="work-row">
-      <div class="work-pair fade">
-        <img src="https://static.wixstatic.com/media/8fa823_ddf397e12ac94d45a4d4ac7878f52bdc~mv2.jpg/v1/fill/w_700,h_525/8fa823_ddf397e12ac94d45a4d4ac7878f52bdc~mv2.jpg" alt="Aspens Whistler" loading="lazy">
-        <img src="https://static.wixstatic.com/media/8fa823_775812c4fd854fdeaae5c71451f671a6~mv2.jpg/v1/fill/w_700,h_525/8fa823_775812c4fd854fdeaae5c71451f671a6~mv2.jpg" alt="Fitzsimmons Walk" loading="lazy">
-      </div>
-      <div class="work-caption fade"><span>Aspens Whistler &ensp;·&ensp; Fitzsimmons Walk</span> Whistler</div>
-    </div>
-
-    <div class="work-row">
-      <div class="work-full fade">
-        <img src="https://static.wixstatic.com/media/8fa823_f7ab7f73fef34925abbe008134b8f89d~mv2.jpg/v1/fill/w_1400,h_788/8fa823_f7ab7f73fef34925abbe008134b8f89d~mv2.jpg" alt="Mountain Star Lux" loading="lazy">
-      </div>
-      <div class="work-caption fade"><span>Mountain Star Lux</span> Whistler</div>
-    </div>
-
-    <div class="work-row">
-      <div class="work-asym fade">
-        <img src="https://static.wixstatic.com/media/8fa823_e56ccbcad10340628d6f73c4a60e86bc~mv2.jpg/v1/fill/w_800,h_600/8fa823_e56ccbcad10340628d6f73c4a60e86bc~mv2.jpg" alt="The Beer Farmers" loading="lazy">
-        <img src="https://static.wixstatic.com/media/8fa823_a8ea5ce990cc4d7d9fbbb0f732e87c01~mv2.jpg/v1/fill/w_700,h_525/8fa823_a8ea5ce990cc4d7d9fbbb0f732e87c01~mv2.jpg" alt="Oberson Road" loading="lazy">
-      </div>
-      <div class="work-caption fade"><span>The Beer Farmers &ensp;·&ensp; Oberson Road</span> Pemberton</div>
-    </div>
-
-    <div class="work-row">
-      <div class="work-full fade">
-        <img src="https://static.wixstatic.com/media/8fa823_19c9f6d3ba81413cb3396f7bb1bd4c82~mv2.jpg/v1/fill/w_1400,h_788/8fa823_19c9f6d3ba81413cb3396f7bb1bd4c82~mv2.jpg" alt="Greystone Lodge" loading="lazy">
-      </div>
-      <div class="work-caption fade"><span>Greystone Lodge</span> Whistler</div>
-    </div>
-
-    <a href="#" class="work-link fade">View all projects</a>
-  </div>
+<!-- Opening -->
+<section class="opening">
+  <h1 class="f">Clare<br>Riley<br>Design</h1>
+  <div class="opening-meta f">Interior Design &ensp;·&ensp; Pemberton, British Columbia</div>
 </section>
 
-<div class="divider"></div>
+<div class="flow">
 
-<!-- About -->
-<section class="about" id="about">
-  <div class="about-inner">
-    <div class="about-label fade">Studio</div>
-    <div class="about-text">
-      <p class="fade">We are a four-person design studio in Pemberton, BC, creating considered interiors for mountain homes across the Sea-to-Sky Corridor. Our work begins with listening and ends with spaces that feel as good as they look.</p>
-      <p class="fade fade-d1">Every project balances warmth with restraint, choosing materials that honour the landscape and layouts that frame the light. We collaborate with builders and architects from the earliest stages, so nothing is an afterthought.</p>
-    </div>
+  <!-- First image — offset right -->
+  <figure class="img-right f" id="work">
+    <img src="https://static.wixstatic.com/media/8fa823_2e8440e1685a4078857a963f76ab7846~mv2.jpg/v1/fill/w_1000,h_1333/8fa823_2e8440e1685a4078857a963f76ab7846~mv2.jpg" alt="Pinnacle Ridge">
+    <figcaption>Pinnacle Ridge &ensp;·&ensp; Whistler</figcaption>
+  </figure>
+
+  <!-- Pull text -->
+  <div class="pull f" id="studio">
+    <p>We design homes that feel as <em>considered</em> as the mountains they sit within. Four designers, one studio in Pemberton, twelve years of shaping interiors across the Sea-to-Sky.</p>
   </div>
-</section>
 
-<!-- Break -->
-<div class="break-image fade">
-  <img src="https://static.wixstatic.com/media/8fa823_31972398db484f37a14569fae632440a~mv2.jpg/v1/fill/w_1920,h_820/8fa823_31972398db484f37a14569fae632440a~mv2.jpg" alt="Interior" loading="lazy">
 </div>
 
-<!-- Services -->
-<section class="services" id="services">
-  <div class="services-inner">
-    <div class="services-label fade">Services</div>
-    <ul class="services-list">
-      <li class="fade">Custom New Builds</li>
-      <li class="fade fade-d1">Full Renovations</li>
-      <li class="fade">Vacation Properties</li>
-      <li class="fade fade-d1">2D & 3D Renderings</li>
-      <li class="fade">Furnishing & Styling</li>
-      <li class="fade fade-d1">Virtual Design</li>
-    </ul>
-  </div>
-</section>
-
-<!-- Recognition -->
-<div class="recognition fade">
-  <span>WL Design Finalist &ensp;&middot;&ensp; People's Choice Award &ensp;&middot;&ensp; Est. 2012</span>
+<!-- Full bleed -->
+<div class="bleed f">
+  <img src="https://static.wixstatic.com/media/8fa823_82d94b8b9aa44ca2bb38fecd50207a52~mv2.jpg/v1/fill/w_1920,h_1080/8fa823_82d94b8b9aa44ca2bb38fecd50207a52~mv2.jpg" alt="Interior">
 </div>
 
-<div class="divider"></div>
+<div class="flow">
+
+  <!-- Image pair — offset -->
+  <div class="img-pair">
+    <figure class="f">
+      <img src="https://static.wixstatic.com/media/8fa823_ddf397e12ac94d45a4d4ac7878f52bdc~mv2.jpg/v1/fill/w_700,h_875/8fa823_ddf397e12ac94d45a4d4ac7878f52bdc~mv2.jpg" alt="Aspens Whistler">
+      <figcaption>Aspens &ensp;·&ensp; Whistler</figcaption>
+    </figure>
+    <figure class="f">
+      <img src="https://static.wixstatic.com/media/8fa823_775812c4fd854fdeaae5c71451f671a6~mv2.jpg/v1/fill/w_800,h_1000/8fa823_775812c4fd854fdeaae5c71451f671a6~mv2.jpg" alt="Fitzsimmons Walk">
+      <figcaption>Fitzsimmons Walk &ensp;·&ensp; Whistler</figcaption>
+    </figure>
+  </div>
+
+  <!-- Centered moment -->
+  <div class="moment f">
+    <p>Every material is chosen. Every view is framed.<br>Nothing is accidental.</p>
+    <div class="moment-rule"></div>
+    <div class="moment-awards">WL Design Finalist &ensp;&middot;&ensp; People's Choice Award</div>
+  </div>
+
+  <!-- Image left -->
+  <figure class="img-left f">
+    <img src="https://static.wixstatic.com/media/8fa823_f7ab7f73fef34925abbe008134b8f89d~mv2.jpg/v1/fill/w_800,h_960/8fa823_f7ab7f73fef34925abbe008134b8f89d~mv2.jpg" alt="Mountain Star Lux">
+    <figcaption>Mountain Star Lux &ensp;·&ensp; Whistler</figcaption>
+  </figure>
+
+</div>
+
+<!-- Full bleed -->
+<div class="bleed f">
+  <img src="https://static.wixstatic.com/media/8fa823_31972398db484f37a14569fae632440a~mv2.jpg/v1/fill/w_1920,h_820/8fa823_31972398db484f37a14569fae632440a~mv2.jpg" alt="Interior detail">
+</div>
+
+<div class="flow">
+
+  <!-- Pull text -->
+  <div class="pull f">
+    <p>New builds, renovations, vacation properties. From first sketch to final styling, we handle <em>every detail</em> so you arrive to a home that's already yours.</p>
+  </div>
+
+  <!-- Offset image right -->
+  <figure class="img-right f">
+    <img src="https://static.wixstatic.com/media/8fa823_e56ccbcad10340628d6f73c4a60e86bc~mv2.jpg/v1/fill/w_1000,h_1333/8fa823_e56ccbcad10340628d6f73c4a60e86bc~mv2.jpg" alt="The Beer Farmers">
+    <figcaption>The Beer Farmers &ensp;·&ensp; Pemberton</figcaption>
+  </figure>
+
+  <!-- Project index -->
+  <div class="index f">
+    <div class="index-label">Selected Projects</div>
+    <ol>
+      <li>Pinnacle Ridge</li>
+      <li>Aspens Whistler</li>
+      <li>Fitzsimmons Walk</li>
+      <li>Mountain Star Lux</li>
+      <li>The Beer Farmers</li>
+      <li>Oberson Road</li>
+      <li>Greystone Lodge</li>
+      <li>Cedar Springs</li>
+      <li>Treeline</li>
+      <li>Montebello</li>
+    </ol>
+    <a href="#" class="index-link">View all work</a>
+  </div>
+
+</div>
+
+<!-- Final bleed -->
+<div class="bleed f">
+  <img src="https://static.wixstatic.com/media/8fa823_19c9f6d3ba81413cb3396f7bb1bd4c82~mv2.jpg/v1/fill/w_1920,h_820/8fa823_19c9f6d3ba81413cb3396f7bb1bd4c82~mv2.jpg" alt="Greystone Lodge">
+</div>
 
 <!-- Contact -->
-<section class="contact" id="contact">
-  <h2 class="fade">Begin a conversation</h2>
-  <div class="contact-details fade fade-d1">
-    101-7336 Industrial Way, Pemberton BC<br>
+<section class="end f" id="contact">
+  <h2>Begin a <em>conversation</em></h2>
+  <div class="end-details">
     <a href="tel:604-907-2217">604.907.2217</a><br>
-    <a href="mailto:info@clarerileydesign.com">info@clarerileydesign.com</a>
+    <a href="mailto:info@clarerileydesign.com">info@clarerileydesign.com</a><br>
+    101-7336 Industrial Way, Pemberton BC
   </div>
-  <a href="https://www.clarerileydesign.com/contact" class="contact-cta fade fade-d2">Book a Consultation</a>
 </section>
 
 <!-- Footer -->
-<footer class="footer">
+<footer class="foot">
   <span>&copy; 2026 Clare Riley Design Inc.</span>
-  <span>Website concept by <a href="https://mattanthonyphoto.com/discovery-call" target="_blank">Matt Anthony</a></span>
+  <span>Concept by <a href="https://mattanthonyphoto.com/discovery-call" target="_blank">Matt Anthony</a></span>
 </footer>
 
-<!-- Concept Banner -->
+<!-- Concept -->
 <div class="concept">
-  <span>Concept designed for <strong>Clare Riley Design</strong> by Matt Anthony Photography</span>
+  <span>Homepage concept for Clare Riley Design by Matt Anthony Photography</span>
   <a href="https://mattanthonyphoto.com/discovery-call" target="_blank">Discovery Call</a>
 </div>
 
 <script>
-// Nav
-const n=document.getElementById('nav');
-window.addEventListener('scroll',()=>n.classList.toggle('scrolled',scrollY>60));
+// Menu
+const o=document.getElementById('overlay');
+document.getElementById('menuBtn').onclick=()=>o.classList.add('open');
+document.getElementById('closeBtn').onclick=()=>o.classList.remove('open');
+document.querySelectorAll('.ov-link').forEach(a=>a.onclick=()=>o.classList.remove('open'));
 
-// Mobile
-const h=document.getElementById('hamburger'),m=document.getElementById('mobileMenu');
-h.addEventListener('click',()=>{h.classList.toggle('open');m.classList.toggle('open')});
-m.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{h.classList.remove('open');m.classList.remove('open')}));
-
-// Fade in
-const o=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('in');o.unobserve(x.target)}}),{threshold:.12});
-document.querySelectorAll('.fade').forEach(f=>o.observe(f));
+// Fade
+const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');obs.unobserve(x.target)}}),{threshold:.1});
+document.querySelectorAll('.f').forEach(el=>obs.observe(el));
 </script>
 </body>
 </html>
