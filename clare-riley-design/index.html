@@ -6,282 +6,166 @@
 <title>Clare Riley Design</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
 <style>
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-:root{--ink:#1A1918;--paper:#FAFAF8;--grey:#A09D97;--rule:#DDDBD6;--font:'EB Garamond',Georgia,serif}
-html{-webkit-font-smoothing:antialiased;scroll-behavior:smooth}
+:root{--ink:#1A1918;--paper:#FAF9F7;--grey:#B0ADA6;--font:'Cormorant',Georgia,serif}
+html{-webkit-font-smoothing:antialiased}
 body{font-family:var(--font);color:var(--ink);background:var(--paper);overflow-x:hidden}
-img{display:block;max-width:100%}
+img{display:block}
 a{color:inherit;text-decoration:none}
 ::selection{background:var(--ink);color:var(--paper)}
 
-/* ── Top bar ── */
-.bar{position:fixed;top:0;left:0;right:0;z-index:90;display:flex;justify-content:space-between;align-items:center;padding:28px clamp(24px,5vw,56px);mix-blend-mode:difference}
-.bar-logo{height:20px;filter:brightness(0) invert(1)}
-.bar-menu{font-family:var(--font);font-size:13px;letter-spacing:.06em;color:white;cursor:pointer;background:none;border:none;padding:4px 0}
+.menu-btn{position:fixed;top:0;right:0;z-index:90;padding:28px clamp(24px,5vw,48px);font-family:var(--font);font-size:14px;color:white;background:none;border:none;cursor:pointer;mix-blend-mode:difference;letter-spacing:.04em}
 
-/* ── Menu overlay ── */
-.overlay{position:fixed;inset:0;z-index:200;background:var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .4s}
-.overlay.open{opacity:1;pointer-events:auto}
-.overlay-close{position:absolute;top:28px;right:clamp(24px,5vw,56px);font-family:var(--font);font-size:14px;color:var(--ink);cursor:pointer;background:none;border:none}
-.overlay nav{display:flex;flex-direction:column;align-items:center;gap:6px;margin-bottom:48px}
-.overlay nav a{font-family:var(--font);font-weight:400;font-size:clamp(28px,4vw,44px);color:var(--ink);opacity:.3;transition:opacity .2s;line-height:1.5}
-.overlay nav a:hover{opacity:1}
-.overlay-line{width:24px;height:1px;background:var(--rule);margin-bottom:28px}
-.overlay-info{text-align:center;font-size:13px;color:var(--grey);line-height:2}
-.overlay-info a{border-bottom:1px solid var(--rule);transition:border-color .2s}
-.overlay-info a:hover{border-color:var(--ink);color:var(--ink)}
-.overlay-social{margin-top:24px;font-size:12px;letter-spacing:.1em;color:var(--grey)}
-.overlay-social a{margin:0 8px;transition:color .2s}
-.overlay-social a:hover{color:var(--ink)}
+.menu{position:fixed;inset:0;z-index:200;background:var(--paper);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;pointer-events:none;transition:opacity .35s}
+.menu.open{opacity:1;pointer-events:auto}
+.menu-close{position:absolute;top:28px;right:clamp(24px,5vw,48px);font-family:var(--font);font-size:14px;background:none;border:none;cursor:pointer;color:var(--ink);letter-spacing:.04em}
+.menu nav{display:flex;flex-direction:column;align-items:center;gap:4px;margin-bottom:48px}
+.menu nav a{font-size:clamp(30px,4.5vw,48px);font-weight:300;line-height:1.4;opacity:.25;transition:opacity .2s}
+.menu nav a:hover{opacity:1}
+.menu-rule{width:20px;height:1px;background:var(--grey);margin-bottom:28px;opacity:.4}
+.menu-info{text-align:center;font-size:14px;font-weight:300;color:var(--grey);line-height:2.2}
+.menu-info a{border-bottom:1px solid transparent;transition:all .2s}
+.menu-info a:hover{color:var(--ink);border-color:var(--ink)}
+.menu-social{margin-top:28px;font-size:13px;font-weight:300;color:var(--grey);letter-spacing:.06em}
+.menu-social a{margin:0 10px;transition:color .2s}
+.menu-social a:hover{color:var(--ink)}
 
-/* ── Opening ── */
-.opening{height:100vh;display:flex;flex-direction:column;justify-content:flex-end;padding:0 clamp(24px,5vw,56px) clamp(48px,8vh,80px)}
-.opening h1{font-weight:400;font-size:clamp(42px,7vw,110px);line-height:.92;letter-spacing:-.02em}
-.opening-meta{font-style:italic;font-size:clamp(13px,1.1vw,16px);color:var(--grey);margin-top:20px;letter-spacing:.02em}
+/* ── Frames ── */
 
-/* ── Flowing content ── */
-.flow{max-width:100%;padding:0 clamp(24px,5vw,56px)}
+.img-frame{width:100%;height:100vh;overflow:hidden;position:relative}
+.img-frame img{width:100%;height:100%;object-fit:cover}
+.img-frame .watermark{position:absolute;bottom:clamp(24px,4vh,40px);left:clamp(24px,5vw,48px);font-weight:300;font-size:clamp(13px,1.1vw,16px);color:rgba(255,255,255,.5);letter-spacing:.04em}
 
-/* ── Offset image right ── */
-.img-right{margin:clamp(80px,14vh,160px) 0;margin-left:35%;width:60%}
-.img-right img{width:100%;aspect-ratio:3/4;object-fit:cover}
-.img-right figcaption{font-size:11px;letter-spacing:.14em;color:var(--grey);margin-top:10px;text-transform:uppercase}
+.text-frame{min-height:80vh;display:flex;align-items:center;justify-content:center;padding:clamp(80px,15vh,160px) clamp(32px,10vw,200px);text-align:center}
+.text-frame p{font-weight:300;font-size:clamp(26px,3.2vw,48px);line-height:1.35;letter-spacing:-.01em;max-width:720px}
+.text-frame p em{font-style:italic}
 
-/* ── Pull text ── */
-.pull{margin:clamp(60px,10vh,120px) 0;margin-left:clamp(60px,15%,240px);max-width:520px}
-.pull p{font-weight:400;font-size:clamp(22px,2.4vw,36px);line-height:1.45;letter-spacing:-.005em}
-.pull p em{font-style:italic}
+.img-half{width:100%;height:90vh;overflow:hidden}
+.img-half img{width:100%;height:100%;object-fit:cover}
 
-/* ── Full bleed ── */
-.bleed{margin:clamp(80px,14vh,160px) 0;width:100vw;margin-left:calc(-1 * clamp(24px,5vw,56px));overflow:hidden}
-.bleed img{width:100%;height:clamp(300px,60vh,700px);object-fit:cover}
+.composed{position:relative;min-height:100vh;padding:clamp(60px,10vh,120px) clamp(24px,5vw,48px)}
+.composed-a{position:relative;width:clamp(260px,42%,560px);aspect-ratio:4/5;overflow:hidden;z-index:1}
+.composed-b{position:relative;width:clamp(240px,38%,480px);aspect-ratio:3/4;overflow:hidden;margin-left:auto;margin-top:clamp(-120px,-15vh,-200px);z-index:2}
+.composed img{width:100%;height:100%;object-fit:cover}
 
-/* ── Offset pair ── */
-.img-pair{margin:clamp(80px,14vh,160px) 0;display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(40px,8vw,120px);align-items:end}
-.img-pair figure:first-child{padding-bottom:clamp(40px,6vw,80px)}
-.img-pair img{width:100%;aspect-ratio:4/5;object-fit:cover}
-.img-pair figcaption{font-size:11px;letter-spacing:.14em;color:var(--grey);margin-top:10px;text-transform:uppercase}
+.brief{min-height:50vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:clamp(80px,12vh,140px) clamp(32px,8vw,120px);text-align:center;gap:24px}
+.brief p{font-weight:300;font-style:italic;font-size:clamp(14px,1.2vw,17px);color:var(--grey);line-height:1.9;letter-spacing:.02em}
+.brief-rule{width:20px;height:1px;background:var(--grey);opacity:.3}
+.brief small{font-size:11px;font-weight:400;letter-spacing:.2em;text-transform:uppercase;color:var(--grey);opacity:.45}
 
-/* ── Centered moment ── */
-.moment{margin:clamp(100px,16vh,200px) auto;text-align:center;max-width:560px}
-.moment p{font-style:italic;font-size:clamp(14px,1.2vw,17px);line-height:1.9;color:var(--grey);letter-spacing:.02em}
-.moment-rule{width:24px;height:1px;background:var(--rule);margin:28px auto}
-.moment-awards{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--rule)}
+.contact-frame{min-height:60vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:clamp(80px,14vh,160px) clamp(32px,8vw,120px);text-align:center}
+.contact-frame h2{font-weight:300;font-size:clamp(30px,4vw,56px);line-height:1.2;letter-spacing:-.01em;margin-bottom:36px}
+.contact-frame h2 em{font-style:italic}
+.contact-frame .details{font-weight:300;font-size:14px;color:var(--grey);line-height:2.4}
+.contact-frame .details a{color:var(--ink);border-bottom:1px solid var(--grey);transition:all .2s}
+.contact-frame .details a:hover{border-color:var(--ink)}
 
-/* ── Offset image left ── */
-.img-left{margin:clamp(80px,14vh,160px) 0;width:50%;margin-right:auto}
-.img-left img{width:100%;aspect-ratio:5/6;object-fit:cover}
-.img-left figcaption{font-size:11px;letter-spacing:.14em;color:var(--grey);margin-top:10px;text-transform:uppercase}
+.foot{padding:20px clamp(24px,5vw,48px);display:flex;justify-content:space-between;align-items:center}
+.foot span{font-size:10px;font-weight:400;letter-spacing:.04em;color:var(--grey);opacity:.5}
+.foot a{transition:opacity .2s}
+.foot a:hover{opacity:1}
 
-/* ── Index ── */
-.index{margin:clamp(80px,14vh,160px) 0;margin-left:clamp(60px,15%,240px);max-width:400px}
-.index-label{font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--rule);margin-bottom:32px}
-.index ol{list-style:none;counter-reset:idx}
-.index li{counter-increment:idx;font-size:clamp(18px,1.8vw,26px);line-height:1.3;padding:clamp(10px,1.2vw,16px) 0;border-bottom:1px solid var(--rule);display:flex;align-items:baseline;gap:clamp(12px,2vw,24px);transition:color .2s;cursor:default}
-.index li::before{content:counter(idx, decimal-leading-zero);font-size:11px;letter-spacing:.08em;color:var(--rule);flex-shrink:0;width:24px}
-.index li:hover{color:var(--grey)}
-.index-link{display:inline-block;font-size:12px;letter-spacing:.1em;color:var(--grey);margin-top:24px;padding-bottom:2px;border-bottom:1px solid var(--rule);transition:all .2s}
-.index-link:hover{color:var(--ink);border-color:var(--ink)}
-
-/* ── End ── */
-.end{margin:clamp(120px,20vh,260px) auto;text-align:center;padding:0 clamp(24px,5vw,56px)}
-.end h2{font-weight:400;font-size:clamp(28px,3.5vw,52px);line-height:1.2;letter-spacing:-.01em;margin-bottom:36px}
-.end h2 em{font-style:italic}
-.end-details{font-size:13px;color:var(--grey);line-height:2.2}
-.end-details a{color:var(--ink);border-bottom:1px solid var(--rule);transition:border-color .2s}
-.end-details a:hover{border-color:var(--ink)}
-
-/* ── Foot ── */
-.foot{padding:20px clamp(24px,5vw,56px);display:flex;justify-content:space-between;align-items:center;border-top:1px solid var(--rule)}
-.foot span{font-size:10px;letter-spacing:.04em;color:var(--rule)}
-.foot a{color:var(--grey);transition:color .2s}
-.foot a:hover{color:var(--ink)}
-
-/* ── Concept ── */
-.concept{position:fixed;bottom:0;left:0;right:0;z-index:100;padding:10px 24px;background:var(--ink);display:flex;align-items:center;justify-content:center;gap:16px;transform:translateY(100%);animation:up .4s 1.5s forwards}
-.concept span{font-size:11px;color:rgba(250,250,248,.3);letter-spacing:.02em}
-.concept a{font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);padding:7px 18px;border:1px solid rgba(250,250,248,.12);transition:all .2s}
+.concept{position:fixed;bottom:0;left:0;right:0;z-index:100;padding:9px 24px;background:var(--ink);display:flex;align-items:center;justify-content:center;gap:16px;transform:translateY(100%);animation:up .4s 2s forwards}
+.concept span{font-size:10px;font-weight:300;color:rgba(250,249,247,.25);letter-spacing:.02em}
+.concept a{font-size:9px;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:rgba(250,249,247,.7);padding:6px 16px;border:1px solid rgba(250,249,247,.1);transition:all .2s}
 .concept a:hover{background:var(--paper);color:var(--ink)}
 @keyframes up{to{transform:translateY(0)}}
 
-/* ── Fade ── */
-.f{opacity:0;transition:opacity 1s ease}
+.f{opacity:0;transition:opacity 1.2s ease}
 .f.v{opacity:1}
 
-/* ── Responsive ── */
 @media(max-width:768px){
-  .img-right{margin-left:10%;width:85%}
-  .img-left{width:80%}
-  .pull{margin-left:clamp(24px,8%,60px)}
-  .index{margin-left:clamp(24px,8%,60px)}
-  .img-pair{grid-template-columns:1fr;gap:clamp(24px,4vw,40px)}
-  .img-pair figure:first-child{padding-bottom:0}
-  .concept{flex-direction:column;gap:6px;padding:8px 16px}
+  .composed-a{width:75%}
+  .composed-b{width:65%;margin-top:-60px}
+  .concept{flex-direction:column;gap:5px;padding:7px 16px}
 }
 </style>
 </head>
 <body>
 
-<!-- Top bar -->
-<div class="bar">
-  <img class="bar-logo" src="https://static.wixstatic.com/media/8fa823_83c242fbe43f46d88fd6207e1a79683e~mv2.png" alt="CRD">
-  <button class="bar-menu" id="menuBtn">Menu</button>
-</div>
+<button class="menu-btn" id="menuBtn">Menu</button>
 
-<!-- Overlay menu -->
-<div class="overlay" id="overlay">
-  <button class="overlay-close" id="closeBtn">Close</button>
+<div class="menu" id="menu">
+  <button class="menu-close" id="closeBtn">Close</button>
   <nav>
-    <a href="#work" class="ov-link">Work</a>
-    <a href="#studio" class="ov-link">Studio</a>
+    <a href="#" class="ml">Work</a>
+    <a href="#" class="ml">Studio</a>
+    <a href="#" class="ml">Services</a>
     <a href="https://clarerileyhome.com" target="_blank">Shop</a>
-    <a href="#contact" class="ov-link">Contact</a>
+    <a href="#contact" class="ml">Contact</a>
   </nav>
-  <div class="overlay-line"></div>
-  <div class="overlay-info">
+  <div class="menu-rule"></div>
+  <div class="menu-info">
     <a href="tel:604-907-2217">604.907.2217</a><br>
     <a href="mailto:info@clarerileydesign.com">info@clarerileydesign.com</a><br>
-    101-7336 Industrial Way<br>
-    Pemberton, BC
+    101-7336 Industrial Way, Pemberton BC
   </div>
-  <div class="overlay-social">
+  <div class="menu-social">
     <a href="https://www.instagram.com/clarerileydesign/" target="_blank">Instagram</a>
     <a href="https://www.pinterest.com/clarerileydesign/" target="_blank">Pinterest</a>
   </div>
 </div>
 
-<!-- Opening -->
-<section class="opening">
-  <h1 class="f">Clare<br>Riley<br>Design</h1>
-  <div class="opening-meta f">Interior Design &ensp;·&ensp; Pemberton, British Columbia</div>
-</section>
+<div class="img-frame f">
+  <img src="https://static.wixstatic.com/media/8fa823_82d94b8b9aa44ca2bb38fecd50207a52~mv2.jpg/v1/fill/w_1920,h_1080/8fa823_82d94b8b9aa44ca2bb38fecd50207a52~mv2.jpg" alt="Clare Riley Design">
+  <span class="watermark">Clare Riley Design</span>
+</div>
 
-<div class="flow">
+<div class="text-frame f">
+  <p>Interiors as <em>considered</em> as the mountains they sit within</p>
+</div>
 
-  <!-- First image — offset right -->
-  <figure class="img-right f" id="work">
-    <img src="https://static.wixstatic.com/media/8fa823_2e8440e1685a4078857a963f76ab7846~mv2.jpg/v1/fill/w_1000,h_1333/8fa823_2e8440e1685a4078857a963f76ab7846~mv2.jpg" alt="Pinnacle Ridge">
-    <figcaption>Pinnacle Ridge &ensp;·&ensp; Whistler</figcaption>
-  </figure>
+<div class="img-half f">
+  <img src="https://static.wixstatic.com/media/8fa823_2e8440e1685a4078857a963f76ab7846~mv2.jpg/v1/fill/w_1920,h_1080/8fa823_2e8440e1685a4078857a963f76ab7846~mv2.jpg" alt="Pinnacle Ridge, Whistler">
+</div>
 
-  <!-- Pull text -->
-  <div class="pull f" id="studio">
-    <p>We design homes that feel as <em>considered</em> as the mountains they sit within. Four designers, one studio in Pemberton, twelve years of shaping interiors across the Sea-to-Sky.</p>
+<div class="composed">
+  <div class="composed-a f">
+    <img src="https://static.wixstatic.com/media/8fa823_ddf397e12ac94d45a4d4ac7878f52bdc~mv2.jpg/v1/fill/w_800,h_1000/8fa823_ddf397e12ac94d45a4d4ac7878f52bdc~mv2.jpg" alt="Aspens, Whistler">
   </div>
-
-</div>
-
-<!-- Full bleed -->
-<div class="bleed f">
-  <img src="https://static.wixstatic.com/media/8fa823_82d94b8b9aa44ca2bb38fecd50207a52~mv2.jpg/v1/fill/w_1920,h_1080/8fa823_82d94b8b9aa44ca2bb38fecd50207a52~mv2.jpg" alt="Interior">
-</div>
-
-<div class="flow">
-
-  <!-- Image pair — offset -->
-  <div class="img-pair">
-    <figure class="f">
-      <img src="https://static.wixstatic.com/media/8fa823_ddf397e12ac94d45a4d4ac7878f52bdc~mv2.jpg/v1/fill/w_700,h_875/8fa823_ddf397e12ac94d45a4d4ac7878f52bdc~mv2.jpg" alt="Aspens Whistler">
-      <figcaption>Aspens &ensp;·&ensp; Whistler</figcaption>
-    </figure>
-    <figure class="f">
-      <img src="https://static.wixstatic.com/media/8fa823_775812c4fd854fdeaae5c71451f671a6~mv2.jpg/v1/fill/w_800,h_1000/8fa823_775812c4fd854fdeaae5c71451f671a6~mv2.jpg" alt="Fitzsimmons Walk">
-      <figcaption>Fitzsimmons Walk &ensp;·&ensp; Whistler</figcaption>
-    </figure>
+  <div class="composed-b f">
+    <img src="https://static.wixstatic.com/media/8fa823_f7ab7f73fef34925abbe008134b8f89d~mv2.jpg/v1/fill/w_700,h_933/8fa823_f7ab7f73fef34925abbe008134b8f89d~mv2.jpg" alt="Mountain Star Lux, Whistler">
   </div>
-
-  <!-- Centered moment -->
-  <div class="moment f">
-    <p>Every material is chosen. Every view is framed.<br>Nothing is accidental.</p>
-    <div class="moment-rule"></div>
-    <div class="moment-awards">WL Design Finalist &ensp;&middot;&ensp; People's Choice Award</div>
-  </div>
-
-  <!-- Image left -->
-  <figure class="img-left f">
-    <img src="https://static.wixstatic.com/media/8fa823_f7ab7f73fef34925abbe008134b8f89d~mv2.jpg/v1/fill/w_800,h_960/8fa823_f7ab7f73fef34925abbe008134b8f89d~mv2.jpg" alt="Mountain Star Lux">
-    <figcaption>Mountain Star Lux &ensp;·&ensp; Whistler</figcaption>
-  </figure>
-
 </div>
 
-<!-- Full bleed -->
-<div class="bleed f">
-  <img src="https://static.wixstatic.com/media/8fa823_31972398db484f37a14569fae632440a~mv2.jpg/v1/fill/w_1920,h_820/8fa823_31972398db484f37a14569fae632440a~mv2.jpg" alt="Interior detail">
+<div class="brief f">
+  <p>Four designers. Twelve years. One studio in Pemberton.<br>New builds, renovations, and mountain homes across the Sea-to-Sky.</p>
+  <div class="brief-rule"></div>
+  <small>WL Design Finalist &ensp;&middot;&ensp; People's Choice Award</small>
 </div>
 
-<div class="flow">
-
-  <!-- Pull text -->
-  <div class="pull f">
-    <p>New builds, renovations, vacation properties. From first sketch to final styling, we handle <em>every detail</em> so you arrive to a home that's already yours.</p>
-  </div>
-
-  <!-- Offset image right -->
-  <figure class="img-right f">
-    <img src="https://static.wixstatic.com/media/8fa823_e56ccbcad10340628d6f73c4a60e86bc~mv2.jpg/v1/fill/w_1000,h_1333/8fa823_e56ccbcad10340628d6f73c4a60e86bc~mv2.jpg" alt="The Beer Farmers">
-    <figcaption>The Beer Farmers &ensp;·&ensp; Pemberton</figcaption>
-  </figure>
-
-  <!-- Project index -->
-  <div class="index f">
-    <div class="index-label">Selected Projects</div>
-    <ol>
-      <li>Pinnacle Ridge</li>
-      <li>Aspens Whistler</li>
-      <li>Fitzsimmons Walk</li>
-      <li>Mountain Star Lux</li>
-      <li>The Beer Farmers</li>
-      <li>Oberson Road</li>
-      <li>Greystone Lodge</li>
-      <li>Cedar Springs</li>
-      <li>Treeline</li>
-      <li>Montebello</li>
-    </ol>
-    <a href="#" class="index-link">View all work</a>
-  </div>
-
+<div class="img-frame f">
+  <img src="https://static.wixstatic.com/media/8fa823_31972398db484f37a14569fae632440a~mv2.jpg/v1/fill/w_1920,h_1080/8fa823_31972398db484f37a14569fae632440a~mv2.jpg" alt="Interior detail">
 </div>
 
-<!-- Final bleed -->
-<div class="bleed f">
-  <img src="https://static.wixstatic.com/media/8fa823_19c9f6d3ba81413cb3396f7bb1bd4c82~mv2.jpg/v1/fill/w_1920,h_820/8fa823_19c9f6d3ba81413cb3396f7bb1bd4c82~mv2.jpg" alt="Greystone Lodge">
-</div>
-
-<!-- Contact -->
-<section class="end f" id="contact">
+<section class="contact-frame f" id="contact">
   <h2>Begin a <em>conversation</em></h2>
-  <div class="end-details">
+  <div class="details">
     <a href="tel:604-907-2217">604.907.2217</a><br>
     <a href="mailto:info@clarerileydesign.com">info@clarerileydesign.com</a><br>
-    101-7336 Industrial Way, Pemberton BC
+    Pemberton, British Columbia
   </div>
 </section>
 
-<!-- Footer -->
 <footer class="foot">
   <span>&copy; 2026 Clare Riley Design Inc.</span>
   <span>Concept by <a href="https://mattanthonyphoto.com/discovery-call" target="_blank">Matt Anthony</a></span>
 </footer>
 
-<!-- Concept -->
 <div class="concept">
-  <span>Homepage concept for Clare Riley Design by Matt Anthony Photography</span>
-  <a href="https://mattanthonyphoto.com/discovery-call" target="_blank">Discovery Call</a>
+  <span>Homepage concept for Clare Riley Design</span>
+  <a href="https://mattanthonyphoto.com/discovery-call" target="_blank">Book a Discovery Call</a>
 </div>
 
 <script>
-// Menu
-const o=document.getElementById('overlay');
-document.getElementById('menuBtn').onclick=()=>o.classList.add('open');
-document.getElementById('closeBtn').onclick=()=>o.classList.remove('open');
-document.querySelectorAll('.ov-link').forEach(a=>a.onclick=()=>o.classList.remove('open'));
-
-// Fade
-const obs=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');obs.unobserve(x.target)}}),{threshold:.1});
-document.querySelectorAll('.f').forEach(el=>obs.observe(el));
+const m=document.getElementById('menu');
+document.getElementById('menuBtn').onclick=()=>m.classList.add('open');
+document.getElementById('closeBtn').onclick=()=>m.classList.remove('open');
+m.querySelectorAll('.ml').forEach(a=>a.onclick=()=>m.classList.remove('open'));
+const o=new IntersectionObserver(e=>e.forEach(x=>{if(x.isIntersecting){x.target.classList.add('v');o.unobserve(x.target)}}),{threshold:.08});
+document.querySelectorAll('.f').forEach(el=>o.observe(el));
 </script>
 </body>
 </html>
