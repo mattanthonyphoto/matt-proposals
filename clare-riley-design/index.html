@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clare Riley Design — Whistler & Pemberton Interior Design | Refined Mountain Living</title>
+<meta name="description" content="Clare Riley Design is a full-service interior design studio in Pemberton, BC, specializing in refined mountain living across Whistler, Squamish, and the Sea-to-Sky Corridor. WL Design Award finalist.">
+<meta name="keywords" content="interior designer Whistler, interior designer Pemberton, mountain home design, Whistler interior design, Pemberton interior design, Sea-to-Sky interior designer, vacation property design, mountain living, Clare Riley Design">
+<meta name="author" content="Clare Riley Design Inc.">
+<meta name="geo.region" content="CA-BC">
+<meta name="geo.placename" content="Pemberton">
+<link rel="canonical" href="https://www.clarerileydesign.com/">
+<meta property="og:title" content="Clare Riley Design — Refined Mountain Living, Thoughtfully Designed">
+<meta property="og:description" content="Full-service interior design for Whistler, Pemberton, and the Sea-to-Sky Corridor. WL Design Award finalist. New builds, renovations, and vacation properties.">
+<meta property="og:image" content="https://static.wixstatic.com/media/8fa823_82d94b8b9aa44ca2bb38fecd50207a52~mv2.jpg">
+<meta property="og:url" content="https://www.clarerileydesign.com/">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+
+:root{
+  --ink: #2B2924;
+  --paper: #F9F7F2;
+  --sage: #5B7565;
+  --clay: #B8956E;
+  --fog: #EDEBE4;
+  --moss: #8A9B8D;
+  --stone: #918A82;
+  --warm: #D5CFC5;
+  --snow: #FFFFFF;
+  --display: 'Playfair Display', Georgia, serif;
+  --sans: 'Outfit', -apple-system, sans-serif;
+}
+
+html{scroll-behavior:smooth;-webkit-font-smoothing:antialiased}
+body{font-family:var(--sans);color:var(--ink);background:var(--paper);overflow-x:hidden}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:inherit}
+::selection{background:var(--sage);color:var(--paper)}
+
+/* ── Loader ── */
+.loader{position:fixed;inset:0;background:var(--ink);z-index:9999;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:24px}
+.loader.done{animation:loaderOut .9s cubic-bezier(0.76,0,0.24,1) forwards}
+@keyframes loaderOut{0%{clip-path:inset(0)}100%{clip-path:inset(0 0 100% 0)}}
+.loader-logo{height:clamp(40px,5vw,56px);width:auto;filter:brightness(0) invert(1);opacity:0;animation:fadeUp .6s .3s forwards}
+.loader-line{width:48px;height:1px;background:var(--sage);transform:scaleX(0);animation:scaleIn .8s .5s cubic-bezier(0.16,1,0.3,1) forwards}
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:.7;transform:translateY(0)}}
+@keyframes scaleIn{to{transform:scaleX(1)}}
+
+/* ── Nav ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(24px,5vw,72px);height:76px;transition:all .5s cubic-bezier(0.16,1,0.3,1);background:transparent}
+.nav.scrolled{background:rgba(249,247,242,.96);backdrop-filter:blur(20px) saturate(1.3);height:64px;box-shadow:0 1px 0 rgba(0,0,0,.04)}
+.nav-logo{height:clamp(28px,3vw,38px);width:auto;filter:brightness(0) invert(1);transition:filter .5s}
+.nav.scrolled .nav-logo{filter:brightness(0)}
+.nav-links{display:flex;gap:clamp(20px,2.5vw,36px);align-items:center}
+.nav-links a{font-family:var(--sans);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.8);transition:all .3s}
+.nav.scrolled .nav-links a{color:var(--stone)}
+.nav-links a:hover{color:white}
+.nav.scrolled .nav-links a:hover{color:var(--ink)}
+.nav-links .nav-cta{color:var(--ink) !important;background:var(--paper);padding:11px 28px;font-weight:600;letter-spacing:.08em;transition:all .3s}
+.nav.scrolled .nav-cta{background:var(--sage);color:var(--paper) !important}
+.nav-links .nav-cta:hover{background:var(--sage);color:var(--paper) !important}
+.nav.scrolled .nav-cta:hover{background:var(--ink);color:var(--paper) !important}
+
+/* ── Hero ── */
+.hero{position:relative;height:100vh;min-height:650px;overflow:hidden;display:flex;align-items:center}
+.hero-slides{position:absolute;inset:0}
+.hero-slide{position:absolute;inset:0;background-size:cover;background-position:center;opacity:0;transform:scale(1.06);transition:opacity 1.8s cubic-bezier(0.16,1,0.3,1),transform 8s ease-out}
+.hero-slide.active{opacity:1;transform:scale(1)}
+.hero::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(43,41,36,.82) 0%,rgba(43,41,36,.4) 40%,rgba(43,41,36,.15) 70%,rgba(43,41,36,.3) 100%)}
+.hero-content{position:relative;z-index:2;padding:0 clamp(32px,6vw,100px);max-width:780px}
+.hero-eyebrow{font-family:var(--sans);font-weight:500;font-size:11px;letter-spacing:.35em;text-transform:uppercase;color:var(--sage);display:flex;align-items:center;gap:14px;margin-bottom:28px;opacity:0;animation:heroIn .8s .6s forwards}
+.hero-eyebrow::before{content:'';width:32px;height:1px;background:var(--sage)}
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(40px,5.5vw,80px);line-height:1.05;color:white;opacity:0;animation:heroIn .8s .8s forwards}
+.hero h1 em{font-style:italic;color:var(--clay)}
+.hero-sub{font-family:var(--sans);font-weight:300;font-size:clamp(14px,1.1vw,16px);color:rgba(255,255,255,.65);line-height:1.85;max-width:460px;margin-top:24px;opacity:0;animation:heroIn .8s 1s forwards}
+.hero-ctas{display:flex;gap:14px;margin-top:36px;opacity:0;animation:heroIn .8s 1.2s forwards;flex-wrap:wrap}
+.hero-btn{font-family:var(--sans);font-weight:600;font-size:11px;letter-spacing:.1em;text-transform:uppercase;padding:16px 38px;transition:all .4s}
+.hero-btn--primary{background:var(--sage);color:var(--paper)}
+.hero-btn--primary:hover{background:var(--clay);color:var(--paper)}
+.hero-btn--ghost{border:1px solid rgba(255,255,255,.3);color:white}
+.hero-btn--ghost:hover{border-color:var(--sage);color:var(--sage)}
+.hero-scroll{position:absolute;bottom:32px;left:50%;transform:translateX(-50%);z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;animation:heroIn .8s 1.8s forwards}
+.hero-scroll span{font-family:var(--sans);font-size:8px;letter-spacing:.3em;text-transform:uppercase;color:rgba(255,255,255,.2)}
+.hero-scroll-line{width:1px;height:40px;background:linear-gradient(to bottom,var(--sage),transparent);animation:pulse 2.5s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:.2;transform:scaleY(.5)}50%{opacity:1;transform:scaleY(1)}}
+@keyframes heroIn{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── Awards Strip ── */
+.awards-strip{background:var(--ink);padding:20px clamp(24px,5vw,72px);display:flex;align-items:center;justify-content:center;gap:clamp(16px,3vw,40px);flex-wrap:wrap}
+.awards-strip span{font-family:var(--sans);font-weight:400;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:rgba(249,247,242,.2)}
+.awards-strip em{font-family:var(--display);font-style:italic;font-size:clamp(14px,1.2vw,18px);color:rgba(249,247,242,.4);letter-spacing:.01em}
+.awards-dot{width:3px;height:3px;border-radius:50%;background:var(--sage);opacity:.4}
+
+/* ── Section Utilities ── */
+.section{padding:clamp(100px,14vw,180px) clamp(32px,6vw,100px)}
+.section-inner{max-width:1280px;margin:0 auto}
+.label{font-family:var(--sans);font-weight:500;font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--sage);margin-bottom:16px}
+.section-line{width:40px;height:1px;background:var(--sage);margin:20px 0 24px}
+h2{font-family:var(--display);font-weight:400;line-height:1.1;letter-spacing:-.01em}
+h2 em{font-style:italic;color:var(--sage)}
+
+/* ── Portfolio Grid ── */
+.portfolio h2{font-size:clamp(36px,4.5vw,60px);margin-bottom:16px}
+.portfolio-lead{font-family:var(--sans);font-weight:300;font-size:clamp(14px,1.05vw,15px);color:var(--stone);max-width:520px;line-height:1.8;margin-bottom:clamp(40px,5vw,60px)}
+.portfolio-grid{display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:auto auto;gap:12px}
+.portfolio-card{position:relative;overflow:hidden;background:var(--fog);cursor:pointer}
+.portfolio-card--tall{grid-row:span 2}
+.portfolio-card img{width:100%;height:100%;object-fit:cover;transition:transform .8s cubic-bezier(0.16,1,0.3,1)}
+.portfolio-card:hover img{transform:scale(1.04)}
+.portfolio-card-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(43,41,36,.8) 0%,transparent 60%);opacity:0;transition:opacity .5s}
+.portfolio-card:hover .portfolio-card-overlay{opacity:1}
+.portfolio-card-info{position:absolute;bottom:0;left:0;right:0;padding:clamp(24px,3vw,36px);transform:translateY(12px);opacity:0;transition:all .5s cubic-bezier(0.16,1,0.3,1)}
+.portfolio-card:hover .portfolio-card-info{transform:translateY(0);opacity:1}
+.portfolio-card-name{font-family:var(--display);font-size:clamp(20px,1.8vw,26px);color:white;line-height:1.15}
+.portfolio-card-loc{font-family:var(--sans);font-weight:400;font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--clay);margin-top:6px}
+.portfolio-card-tag{font-family:var(--sans);font-weight:300;font-size:11px;color:rgba(255,255,255,.5);margin-top:4px}
+.portfolio-more{display:flex;align-items:center;gap:12px;margin-top:clamp(32px,4vw,48px)}
+.portfolio-more a{font-family:var(--sans);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--sage);display:flex;align-items:center;gap:10px;transition:all .3s}
+.portfolio-more a:hover{color:var(--clay);gap:16px}
+.portfolio-more a svg{width:16px;height:16px;transition:transform .3s}
+
+/* ── Full Bleed ── */
+.full-bleed{position:relative;height:clamp(300px,50vh,600px);overflow:hidden}
+.full-bleed img{width:100%;height:100%;object-fit:cover;position:absolute;inset:0}
+.full-bleed::after{content:'';position:absolute;inset:0;background:rgba(43,41,36,.08)}
+.full-bleed .bleed-caption{position:absolute;bottom:clamp(20px,3vw,40px);right:clamp(24px,5vw,72px);font-family:var(--display);font-style:italic;font-size:clamp(13px,1vw,15px);color:rgba(255,255,255,.45);z-index:1}
+
+/* ── Philosophy ── */
+.philosophy{background:var(--fog)}
+.philosophy-grid{display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(48px,7vw,100px);align-items:center}
+.philosophy-text h2{font-size:clamp(32px,3.8vw,52px);margin-bottom:12px}
+.philosophy-text p{font-family:var(--sans);font-weight:300;font-size:clamp(14px,1.05vw,15px);color:var(--stone);line-height:1.9;margin-bottom:16px}
+.philosophy-text p strong{font-weight:500;color:var(--ink)}
+.philosophy-signature{margin-top:28px;display:flex;align-items:center;gap:14px}
+.philosophy-signature-name{font-family:var(--display);font-style:italic;font-size:clamp(18px,1.4vw,22px);color:var(--ink)}
+.philosophy-signature-role{font-family:var(--sans);font-weight:300;font-size:11px;color:var(--stone);letter-spacing:.06em}
+.philosophy-signature-line{width:28px;height:1px;background:var(--sage)}
+.philosophy-images{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.philosophy-images .img-feature{grid-column:1/3;overflow:hidden;aspect-ratio:16/10}
+.philosophy-images .img-detail{overflow:hidden;aspect-ratio:1/1}
+.philosophy-images img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(0.16,1,0.3,1)}
+.philosophy-images div:hover img{transform:scale(1.03)}
+
+/* ── Stats ── */
+.stats{background:var(--ink);padding:clamp(72px,9vw,110px) clamp(32px,5vw,80px)}
+.stats-grid{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:0;text-align:center}
+.stat{padding:clamp(16px,2.5vw,32px);position:relative}
+.stat::after{content:'';position:absolute;right:0;top:20%;height:60%;width:1px;background:rgba(249,247,242,.06)}
+.stat:last-child::after{display:none}
+.stat-num{font-family:var(--display);font-size:clamp(40px,5vw,64px);color:var(--paper);line-height:1;letter-spacing:-.02em}
+.stat-num span{color:var(--sage)}
+.stat-desc{font-family:var(--sans);font-weight:400;font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(249,247,242,.22);margin-top:14px}
+
+/* ── Services ── */
+.services h2{font-size:clamp(32px,3.8vw,52px);margin-bottom:clamp(40px,5vw,60px)}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,28px)}
+.service-card{padding:clamp(28px,3.5vw,44px);border:1px solid var(--warm);transition:all .4s;position:relative;overflow:hidden}
+.service-card::before{content:'';position:absolute;top:0;left:0;width:100%;height:2px;background:var(--sage);transform:scaleX(0);transition:transform .5s cubic-bezier(0.16,1,0.3,1);transform-origin:left}
+.service-card:hover{border-color:var(--sage);background:var(--fog)}
+.service-card:hover::before{transform:scaleX(1)}
+.service-num{font-family:var(--display);font-size:clamp(28px,2.5vw,36px);color:var(--warm);margin-bottom:20px;transition:color .3s}
+.service-card:hover .service-num{color:var(--sage)}
+.service-card h4{font-family:var(--display);font-size:clamp(20px,1.6vw,24px);line-height:1.2;margin-bottom:12px}
+.service-card p{font-family:var(--sans);font-weight:300;font-size:clamp(13px,.95vw,14px);color:var(--stone);line-height:1.8}
+
+/* ── Process ── */
+.process{background:var(--fog)}
+.process h2{font-size:clamp(32px,3.8vw,52px);margin-bottom:clamp(48px,6vw,72px)}
+.process-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
+.process-steps::before{content:'';position:absolute;top:5px;left:0;right:0;height:1px;background:var(--warm)}
+.process-step{padding:36px clamp(8px,1.5vw,24px) 0 0;position:relative}
+.process-dot{width:10px;height:10px;border-radius:50%;border:2px solid var(--sage);background:var(--fog);position:absolute;top:0;left:0;z-index:1;transition:all .3s}
+.process-step:hover .process-dot{background:var(--sage);transform:scale(1.4)}
+.process-step h4{font-family:var(--display);font-size:clamp(16px,1.3vw,20px);margin-bottom:8px;margin-top:24px}
+.process-step p{font-family:var(--sans);font-weight:300;font-size:clamp(12px,.88vw,13px);color:var(--stone);line-height:1.8}
+
+/* ── Featured Project ── */
+.featured{background:var(--ink);position:relative;overflow:hidden}
+.featured-inner{max-width:1280px;margin:0 auto;display:grid;grid-template-columns:1.1fr 1fr;min-height:0}
+.featured-images{display:grid;grid-template-columns:1fr 1fr;gap:6px;padding:clamp(48px,6vw,80px);padding-right:0}
+.featured-images .fi-main{grid-column:1/3;overflow:hidden;aspect-ratio:16/10}
+.featured-images .fi-detail{overflow:hidden}
+.featured-images img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(0.16,1,0.3,1)}
+.featured-images div:hover img{transform:scale(1.03)}
+.featured-text{padding:clamp(48px,6vw,80px);display:flex;flex-direction:column;justify-content:center}
+.featured-text .label{color:var(--moss)}
+.featured-text h2{font-size:clamp(28px,2.8vw,42px);color:var(--paper);margin-bottom:8px}
+.featured-text h2 em{color:var(--clay)}
+.featured-meta{display:flex;gap:20px;margin:20px 0 24px;flex-wrap:wrap}
+.featured-meta-item{font-family:var(--sans);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:rgba(249,247,242,.35);display:flex;align-items:center;gap:6px}
+.featured-meta-item span{color:var(--clay);font-weight:500}
+.featured-text p{font-family:var(--sans);font-weight:300;font-size:clamp(13px,.95vw,14px);color:rgba(249,247,242,.55);line-height:1.85;margin-bottom:14px}
+.featured-badge{display:inline-flex;align-items:center;gap:8px;font-family:var(--sans);font-weight:500;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--clay);border:1px solid rgba(184,149,110,.3);padding:10px 20px;margin-top:16px;transition:all .3s}
+.featured-badge:hover{background:var(--clay);color:var(--ink);border-color:var(--clay)}
+.featured-badge svg{width:14px;height:14px}
+
+/* ── Testimonial ── */
+.testimonial-section{text-align:center;position:relative;padding:clamp(120px,16vw,200px) clamp(32px,6vw,100px)}
+.testimonial-section::before{content:'\201C';font-family:var(--display);font-size:clamp(180px,22vw,340px);color:var(--fog);position:absolute;top:clamp(20px,4vw,60px);left:50%;transform:translateX(-50%);line-height:.6;pointer-events:none}
+.testimonial-section blockquote{font-family:var(--display);font-style:italic;font-weight:400;font-size:clamp(22px,2.8vw,38px);line-height:1.45;color:var(--ink);max-width:720px;margin:0 auto 36px;position:relative;z-index:1}
+.testimonial-line{width:40px;height:1px;background:var(--sage);margin:0 auto 16px}
+.testimonial-cite{font-family:var(--sans);font-weight:500;font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--sage)}
+.testimonial-role{font-family:var(--sans);font-weight:300;font-size:11px;color:var(--stone);margin-top:4px;display:block;letter-spacing:.04em}
+
+/* ── Team ── */
+.team{background:var(--fog)}
+.team h2{font-size:clamp(32px,3.8vw,52px);margin-bottom:12px}
+.team-lead{font-family:var(--sans);font-weight:300;font-size:clamp(14px,1.05vw,15px);color:var(--stone);max-width:520px;line-height:1.8;margin-bottom:clamp(40px,5vw,56px)}
+.team-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2vw,28px)}
+.team-member{position:relative;overflow:hidden}
+.team-member-img{aspect-ratio:3/4;overflow:hidden;background:var(--warm)}
+.team-member-img img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(0.16,1,0.3,1)}
+.team-member:hover .team-member-img img{transform:scale(1.04)}
+.team-member-info{padding:18px 0 0}
+.team-member-name{font-family:var(--display);font-size:clamp(18px,1.4vw,22px);line-height:1.2}
+.team-member-role{font-family:var(--sans);font-weight:300;font-size:12px;color:var(--stone);margin-top:4px;letter-spacing:.04em}
+
+/* ── CTA ── */
+.cta-section{position:relative;overflow:hidden}
+.cta-bg{position:absolute;inset:0;background-size:cover;background-position:center}
+.cta-bg::after{content:'';position:absolute;inset:0;background:rgba(43,41,36,.82);backdrop-filter:blur(2px)}
+.cta-content{position:relative;z-index:1;text-align:center;padding:clamp(80px,10vw,140px) clamp(32px,6vw,100px)}
+.cta-content h3{font-family:var(--display);font-weight:400;font-size:clamp(32px,4.2vw,56px);color:var(--paper);line-height:1.1;margin-bottom:16px}
+.cta-content h3 em{font-style:italic;color:var(--clay)}
+.cta-content p{font-family:var(--sans);font-weight:300;font-size:clamp(14px,1.1vw,16px);color:rgba(249,247,242,.4);margin-bottom:36px}
+.cta-btn{display:inline-block;font-family:var(--sans);font-weight:500;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--paper);border:1px solid rgba(249,247,242,.2);padding:18px 48px;transition:all .4s}
+.cta-btn:hover{background:var(--sage);border-color:var(--sage)}
+
+/* ── Footer ── */
+.footer{background:var(--ink);border-top:1px solid rgba(249,247,242,.04);padding:clamp(56px,7vw,88px) clamp(32px,5vw,80px) 28px}
+.footer-inner{max-width:1280px;margin:0 auto}
+.footer-grid{display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:clamp(28px,4vw,56px);margin-bottom:clamp(56px,7vw,88px)}
+.footer-col h5{font-family:var(--display);font-size:clamp(15px,1.2vw,17px);color:var(--paper);margin-bottom:16px}
+.footer-brand p{font-family:var(--sans);font-weight:300;font-size:13px;color:#B8B5AF;line-height:1.7;max-width:280px;margin-bottom:18px}
+.footer-brand .footer-logo{height:32px;filter:brightness(0) invert(1);opacity:.7;margin-bottom:20px}
+.footer-contact{font-family:var(--sans);font-size:12px;color:#C8C5BF;line-height:2.2}
+.footer-contact a{color:#C8C5BF;transition:color .3s}
+.footer-contact a:hover{color:var(--sage)}
+.footer-links{list-style:none}
+.footer-links li{margin-bottom:9px}
+.footer-links a{font-family:var(--sans);font-size:12px;color:#B0ADA7;transition:color .3s}
+.footer-links a:hover{color:var(--sage)}
+.footer-areas{list-style:none;columns:2;column-gap:16px}
+.footer-areas li{margin-bottom:7px}
+.footer-areas a{font-family:var(--sans);font-size:12px;color:#B0ADA7;transition:color .3s}
+.footer-areas a:hover{color:var(--sage)}
+.footer-social{display:flex;gap:12px;margin-top:16px}
+.footer-social a{width:36px;height:36px;border:1px solid rgba(249,247,242,.1);display:flex;align-items:center;justify-content:center;transition:all .3s}
+.footer-social a:hover{border-color:var(--sage);background:rgba(91,117,101,.15)}
+.footer-social a svg{width:14px;height:14px;fill:rgba(249,247,242,.4)}
+.footer-social a:hover svg{fill:var(--sage)}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:24px;border-top:1px solid rgba(249,247,242,.08)}
+.footer-copyright{font-family:var(--sans);font-size:10px;color:#9A9790;letter-spacing:.04em}
+.footer-credit{font-family:var(--sans);font-size:10px;color:#9A9790}
+.footer-credit a{color:var(--sage);opacity:.4;transition:opacity .3s}
+.footer-credit a:hover{opacity:1}
+
+/* ── Concept Banner ── */
+.concept-banner{position:fixed;bottom:0;left:0;right:0;z-index:200;background:rgba(43,41,36,.97);backdrop-filter:blur(20px);padding:14px 32px;display:flex;align-items:center;justify-content:center;gap:20px;border-top:1px solid var(--sage);transform:translateY(100%);animation:bannerUp .6s 2.5s cubic-bezier(0.16,1,0.3,1) forwards}
+.concept-banner-text{font-family:var(--sans);font-weight:300;font-size:12px;color:rgba(249,247,242,.4)}
+.concept-banner-text strong{color:var(--clay);font-weight:500}
+.concept-banner-link{font-family:var(--sans);font-weight:500;font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--paper);background:var(--sage);padding:10px 24px;transition:all .3s}
+.concept-banner-link:hover{background:var(--paper);color:var(--ink)}
+@keyframes bannerUp{to{transform:translateY(0)}}
+
+/* ── Reveal ── */
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(0.16,1,0.3,1),transform .7s cubic-bezier(0.16,1,0.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.reveal-d1{transition-delay:.1s}.reveal-d2{transition-delay:.2s}.reveal-d3{transition-delay:.3s}.reveal-d4{transition-delay:.4s}.reveal-d5{transition-delay:.5s}
+
+/* ── Mobile ── */
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:8px;z-index:101}
+.nav-hamburger span{width:20px;height:1.5px;background:white;transition:all .3s}
+.nav.scrolled .nav-hamburger span{background:var(--ink)}
+.nav-hamburger.open span:nth-child(1){transform:rotate(45deg) translate(4px,4px)}
+.nav-hamburger.open span:nth-child(2){opacity:0}
+.nav-hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(4px,-4px)}
+.mobile-menu{position:fixed;inset:0;background:var(--ink);z-index:99;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;transform:translateY(-100%);transition:transform .5s cubic-bezier(0.16,1,0.3,1)}
+.mobile-menu.open{transform:translateY(0)}
+.mobile-menu a{font-family:var(--display);font-size:clamp(28px,5vw,40px);color:var(--paper);opacity:.5;transition:all .3s}
+.mobile-menu a:hover{opacity:1;color:var(--sage)}
+
+@media(max-width:900px){
+  .nav-links{display:none}
+  .nav-hamburger{display:flex}
+  .portfolio-grid{grid-template-columns:1fr 1fr}
+  .portfolio-card--tall{grid-row:auto}
+  .philosophy-grid{grid-template-columns:1fr;gap:40px}
+  .philosophy-images{order:-1}
+  .featured-inner{grid-template-columns:1fr}
+  .featured-images{padding:clamp(32px,4vw,48px)}
+  .services-grid{grid-template-columns:1fr}
+  .process-steps{grid-template-columns:1fr 1fr;gap:28px;row-gap:40px}
+  .process-steps::before{display:none}
+  .process-dot{position:static;margin-bottom:12px}
+  .process-step{padding-top:0}
+  .process-step h4{margin-top:0}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .stats-grid{grid-template-columns:1fr 1fr}
+  .stat::after{display:none}
+  .footer-grid{grid-template-columns:1fr 1fr}
+  .footer-brand{grid-column:1/3}
+  .footer-bottom{flex-direction:column;gap:6px;text-align:center}
+  .concept-banner{flex-direction:column;gap:8px;padding:12px 16px}
+}
+@media(max-width:480px){
+  .portfolio-grid{grid-template-columns:1fr}
+  .process-steps{grid-template-columns:1fr}
+  .team-grid{grid-template-columns:1fr 1fr}
+  .stats-grid{grid-template-columns:1fr}
+  .stat{padding:16px 0;border-bottom:1px solid rgba(249,247,242,.04)}
+  .stat:last-child{border:none}
+  .footer-grid{grid-template-columns:1fr}
+  .footer-brand{grid-column:auto}
+  .awards-strip{flex-direction:column;gap:10px}
+  .awards-dot{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- Loader -->
+<div class="loader" id="loader">
+  <img class="loader-logo" src="https://static.wixstatic.com/media/8fa823_83c242fbe43f46d88fd6207e1a79683e~mv2.png" alt="Clare Riley Design">
+  <div class="loader-line"></div>
+</div>
+
+<!-- Nav -->
+<nav class="nav" id="nav">
+  <a href="#"><img class="nav-logo" src="https://static.wixstatic.com/media/8fa823_83c242fbe43f46d88fd6207e1a79683e~mv2.png" alt="Clare Riley Design"></a>
+  <div class="nav-links">
+    <a href="#portfolio">Portfolio</a>
+    <a href="#philosophy">Our Approach</a>
+    <a href="#services">Services</a>
+    <a href="#team">Team</a>
+    <a href="https://clarerileyhome.com" target="_blank">Shop</a>
+    <a href="#contact" class="nav-cta">Get in Touch</a>
+  </div>
+  <div class="nav-hamburger" id="hamburger"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#portfolio" class="mobile-link">Portfolio</a>
+  <a href="#philosophy" class="mobile-link">Our Approach</a>
+  <a href="#services" class="mobile-link">Services</a>
+  <a href="#team" class="mobile-link">Team</a>
+  <a href="https://clarerileyhome.com" target="_blank" class="mobile-link">Shop</a>
+  <a href="#contact" class="mobile-link">Get in Touch</a>
+</div>
+
+<!-- Hero -->
+<section class="hero" id="hero">
+  <div class="hero-slides" id="heroSlides">
+    <div class="hero-slide active" style="background-image:url('https://static.wixstatic.com/media/8fa823_82d94b8b9aa44ca2bb38fecd50207a52~mv2.jpg/v1/fill/w_1920,h_1080/8fa823_82d94b8b9aa44ca2bb38fecd50207a52~mv2.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('https://static.wixstatic.com/media/8fa823_23fd4de0531d495db7d727854db53703~mv2.jpg/v1/fill/w_1920,h_1080/8fa823_23fd4de0531d495db7d727854db53703~mv2.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('https://static.wixstatic.com/media/8fa823_b8ebe985469d4191b5cb2d608fe5c410~mv2.jpg/v1/fill/w_1920,h_1080/8fa823_b8ebe985469d4191b5cb2d608fe5c410~mv2.jpg')"></div>
+    <div class="hero-slide" style="background-image:url('https://static.wixstatic.com/media/8fa823_5afa88d082c7471c9152eac0497aea17~mv2.jpg/v1/fill/w_1920,h_1080/8fa823_5afa88d082c7471c9152eac0497aea17~mv2.jpg')"></div>
+  </div>
+  <div class="hero-content">
+    <div class="hero-eyebrow">Interior Design · Whistler & Pemberton</div>
+    <h1>Refined mountain<br>living, <em>thoughtfully</em><br>designed</h1>
+    <p class="hero-sub">Full-service interior design for the Sea-to-Sky Corridor. From custom new builds to complete renovations, we create warm, intentional spaces that honour mountain life.</p>
+    <div class="hero-ctas">
+      <a href="#portfolio" class="hero-btn hero-btn--primary">View Our Work</a>
+      <a href="#contact" class="hero-btn hero-btn--ghost">Book a Consultation</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <span>Scroll</span>
+    <div class="hero-scroll-line"></div>
+  </div>
+</section>
+
+<!-- Awards Strip -->
+<div class="awards-strip">
+  <span>Recognition</span>
+  <div class="awards-dot"></div>
+  <em>WL Design Finalist</em>
+  <div class="awards-dot"></div>
+  <em>People's Choice Award</em>
+  <div class="awards-dot"></div>
+  <em>Est. 2012 · Pemberton Studio</em>
+</div>
+
+<!-- Portfolio -->
+<section class="section portfolio" id="portfolio">
+  <div class="section-inner">
+    <div class="label reveal">Selected Work</div>
+    <h2 class="reveal reveal-d1">Spaces shaped by<br><em>mountain & light</em></h2>
+    <p class="portfolio-lead reveal reveal-d2">A curated selection of residential projects across Whistler, Pemberton, and the Sea-to-Sky Corridor.</p>
+    <div class="portfolio-grid">
+      <div class="portfolio-card portfolio-card--tall reveal">
+        <img src="https://static.wixstatic.com/media/8fa823_2e8440e1685a4078857a963f76ab7846~mv2.jpg/v1/fill/w_800,h_1100/8fa823_2e8440e1685a4078857a963f76ab7846~mv2.jpg" alt="Pinnacle Ridge" loading="lazy">
+        <div class="portfolio-card-overlay"></div>
+        <div class="portfolio-card-info">
+          <div class="portfolio-card-name">Pinnacle Ridge</div>
+          <div class="portfolio-card-loc">Whistler</div>
+          <div class="portfolio-card-tag">Full Interior Design</div>
+        </div>
+      </div>
+      <div class="portfolio-card reveal reveal-d1">
+        <img src="https://static.wixstatic.com/media/8fa823_ddf397e12ac94d45a4d4ac7878f52bdc~mv2.jpg/v1/fill/w_800,h_600/8fa823_ddf397e12ac94d45a4d4ac7878f52bdc~mv2.jpg" alt="Aspens Whistler" loading="lazy">
+        <div class="portfolio-card-overlay"></div>
+        <div class="portfolio-card-info">
+          <div class="portfolio-card-name">Aspens Whistler</div>
+          <div class="portfolio-card-loc">Whistler Village</div>
+          <div class="portfolio-card-tag">Vacation Property Renovation</div>
+        </div>
+      </div>
+      <div class="portfolio-card reveal reveal-d2">
+        <img src="https://static.wixstatic.com/media/8fa823_775812c4fd854fdeaae5c71451f671a6~mv2.jpg/v1/fill/w_800,h_600/8fa823_775812c4fd854fdeaae5c71451f671a6~mv2.jpg" alt="Fitzsimmons Walk" loading="lazy">
+        <div class="portfolio-card-overlay"></div>
+        <div class="portfolio-card-info">
+          <div class="portfolio-card-name">Fitzsimmons Walk</div>
+          <div class="portfolio-card-loc">Whistler</div>
+          <div class="portfolio-card-tag">Custom New Build</div>
+        </div>
+      </div>
+      <div class="portfolio-card reveal reveal-d2">
+        <img src="https://static.wixstatic.com/media/8fa823_f7ab7f73fef34925abbe008134b8f89d~mv2.jpg/v1/fill/w_800,h_600/8fa823_f7ab7f73fef34925abbe008134b8f89d~mv2.jpg" alt="Mountain Star Lux" loading="lazy">
+        <div class="portfolio-card-overlay"></div>
+        <div class="portfolio-card-info">
+          <div class="portfolio-card-name">Mountain Star Lux</div>
+          <div class="portfolio-card-loc">Whistler</div>
+          <div class="portfolio-card-tag">Luxury Renovation</div>
+        </div>
+      </div>
+      <div class="portfolio-card reveal reveal-d3">
+        <img src="https://static.wixstatic.com/media/8fa823_e56ccbcad10340628d6f73c4a60e86bc~mv2.jpg/v1/fill/w_800,h_600/8fa823_e56ccbcad10340628d6f73c4a60e86bc~mv2.jpg" alt="The Beer Farmers" loading="lazy">
+        <div class="portfolio-card-overlay"></div>
+        <div class="portfolio-card-info">
+          <div class="portfolio-card-name">The Beer Farmers</div>
+          <div class="portfolio-card-loc">Pemberton</div>
+          <div class="portfolio-card-tag">People's Choice Award Winner</div>
+        </div>
+      </div>
+    </div>
+    <div class="portfolio-more reveal">
+      <a href="#portfolio">View All Projects <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- Full Bleed -->
+<div class="full-bleed">
+  <img src="https://static.wixstatic.com/media/8fa823_31972398db484f37a14569fae632440a~mv2.jpg/v1/fill/w_1920,h_900/8fa823_31972398db484f37a14569fae632440a~mv2.jpg" alt="Mountain interior" loading="lazy">
+  <span class="bleed-caption">Fitzsimmons Walk, Whistler</span>
+</div>
+
+<!-- Philosophy / About -->
+<section class="section philosophy" id="philosophy">
+  <div class="section-inner">
+    <div class="philosophy-grid">
+      <div class="philosophy-text">
+        <div class="label reveal">Our Approach</div>
+        <h2 class="reveal reveal-d1">Designing for<br>how you <em>live</em></h2>
+        <div class="section-line reveal reveal-d2"></div>
+        <p class="reveal reveal-d2">At Clare Riley Design, we believe every mountain home should feel both <strong>beautiful and uniquely yours</strong>. Our studio brings a rare blend of creative vision and construction expertise to every project, whether it's a full custom build or a thoughtful renovation.</p>
+        <p class="reveal reveal-d3">Based in Pemberton and deeply rooted in the Sea-to-Sky community, we understand the unique demands of mountain living. From hard-wearing materials that stand up to Whistler winters to layouts that frame the landscape, <strong>every detail is intentional</strong>.</p>
+        <p class="reveal reveal-d3">We collaborate closely with your chosen builder and architect from day one, helping avoid costly changes later and creating spaces that work from the very first walkthrough.</p>
+        <div class="philosophy-signature reveal reveal-d4">
+          <div class="philosophy-signature-line"></div>
+          <div>
+            <div class="philosophy-signature-name">Clare Riley</div>
+            <div class="philosophy-signature-role">Creative Director</div>
+          </div>
+        </div>
+      </div>
+      <div class="philosophy-images">
+        <div class="img-feature reveal">
+          <img src="https://static.wixstatic.com/media/8fa823_38d9f60ba7734ede8654c3cd4e84f05d~mv2.jpg/v1/fill/w_1000,h_625/8fa823_38d9f60ba7734ede8654c3cd4e84f05d~mv2.jpg" alt="Clare Riley Design studio work" loading="lazy">
+        </div>
+        <div class="img-detail reveal reveal-d1">
+          <img src="https://static.wixstatic.com/media/8fa823_2df14a1a3ed8482687fc4fc5e11c7998~mv2.jpg/v1/fill/w_500,h_500/8fa823_2df14a1a3ed8482687fc4fc5e11c7998~mv2.jpg" alt="Interior detail" loading="lazy">
+        </div>
+        <div class="img-detail reveal reveal-d2">
+          <img src="https://static.wixstatic.com/media/8fa823_2239f42a09984b229a6209fceb8fceea~mv2.jpg/v1/fill/w_500,h_500/8fa823_2239f42a09984b229a6209fceb8fceea~mv2.jpg" alt="Material selection" loading="lazy">
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Stats -->
+<div class="stats">
+  <div class="stats-grid">
+    <div class="stat reveal">
+      <div class="stat-num">1<span>2</span></div>
+      <div class="stat-desc">Years Designing</div>
+    </div>
+    <div class="stat reveal reveal-d1">
+      <div class="stat-num"><span>4</span></div>
+      <div class="stat-desc">Studio Designers</div>
+    </div>
+    <div class="stat reveal reveal-d2">
+      <div class="stat-num">10<span>0+</span></div>
+      <div class="stat-desc">Mountain Homes</div>
+    </div>
+    <div class="stat reveal reveal-d3">
+      <div class="stat-num"><span>6</span></div>
+      <div class="stat-desc">Communities Served</div>
+    </div>
+  </div>
+</div>
+
+<!-- Services -->
+<section class="section services" id="services">
+  <div class="section-inner">
+    <div class="label reveal">What We Do</div>
+    <h2 class="reveal reveal-d1">Design services for<br><em>every stage</em></h2>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-num">01</div>
+        <h4>Custom New Builds</h4>
+        <p>Full-service interior design from blueprint to completion. We collaborate with your builder and architect from day one to create a cohesive, beautiful home.</p>
+      </div>
+      <div class="service-card reveal reveal-d1">
+        <div class="service-num">02</div>
+        <h4>Full Renovations</h4>
+        <p>Thoughtful reconfigurations that honour the bones of your home while updating materials, layouts, and finishes for how you live today.</p>
+      </div>
+      <div class="service-card reveal reveal-d2">
+        <div class="service-num">03</div>
+        <h4>Vacation Properties</h4>
+        <p>Guest-focused design for Whistler second homes and investment properties. Hard-wearing materials, turnkey furnishing, and rental-ready styling.</p>
+      </div>
+      <div class="service-card reveal reveal-d3">
+        <div class="service-num">04</div>
+        <h4>2D & 3D Renderings</h4>
+        <p>Precision floor plans and photorealistic 3D visualizations that bring your space to life before construction begins, minimizing costly changes.</p>
+      </div>
+      <div class="service-card reveal reveal-d4">
+        <div class="service-num">05</div>
+        <h4>Furnishing & Styling</h4>
+        <p>End-to-end sourcing, purchasing, delivery, and installation. We handle every detail so you arrive to a home that's move-in ready and truly yours.</p>
+      </div>
+      <div class="service-card reveal reveal-d5">
+        <div class="service-num">06</div>
+        <h4>Virtual Design</h4>
+        <p>Remote design services for clients outside our immediate area. The same thoughtful process, delivered digitally with detailed specifications.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Process -->
+<section class="section process" id="process">
+  <div class="section-inner">
+    <div class="label reveal">How We Work</div>
+    <h2 class="reveal reveal-d1">From vision<br>to <em>reality</em></h2>
+    <div class="process-steps">
+      <div class="process-step reveal">
+        <div class="process-dot"></div>
+        <h4>Discovery</h4>
+        <p>We learn how you live, what inspires you, and how your home should feel. Every great project starts with listening.</p>
+      </div>
+      <div class="process-step reveal reveal-d1">
+        <div class="process-dot"></div>
+        <h4>Concept & Planning</h4>
+        <p>Space planning, material palettes, and 3D renderings give you a clear picture before any work begins.</p>
+      </div>
+      <div class="process-step reveal reveal-d2">
+        <div class="process-dot"></div>
+        <h4>Design Development</h4>
+        <p>Detailed drawings, lighting plans, and specifications. We coordinate with your builder so nothing is left to chance.</p>
+      </div>
+      <div class="process-step reveal reveal-d3">
+        <div class="process-dot"></div>
+        <h4>Implementation</h4>
+        <p>We manage procurement, trades coordination, and site visits. Every decision is made, so you don't have to.</p>
+      </div>
+      <div class="process-step reveal reveal-d4">
+        <div class="process-dot"></div>
+        <h4>Styling & Reveal</h4>
+        <p>Furnishing, art, accessories, and the final details that transform a build into a home you never want to leave.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Featured Project -->
+<section class="featured" id="featured">
+  <div class="featured-inner">
+    <div class="featured-images">
+      <div class="fi-main reveal">
+        <img src="https://static.wixstatic.com/media/8fa823_a8ea5ce990cc4d7d9fbbb0f732e87c01~mv2.jpg/v1/fill/w_1200,h_750/8fa823_a8ea5ce990cc4d7d9fbbb0f732e87c01~mv2.jpg" alt="The Beer Farmers" loading="lazy">
+      </div>
+      <div class="fi-detail reveal reveal-d1">
+        <img src="https://static.wixstatic.com/media/8fa823_19c9f6d3ba81413cb3396f7bb1bd4c82~mv2.jpg/v1/fill/w_600,h_400/8fa823_19c9f6d3ba81413cb3396f7bb1bd4c82~mv2.jpg" alt="The Beer Farmers detail" loading="lazy">
+      </div>
+      <div class="fi-detail reveal reveal-d2">
+        <img src="https://static.wixstatic.com/media/8fa823_443b22c6475d4488822a780dd0e463f0~mv2.jpg/v1/fill/w_600,h_400/8fa823_443b22c6475d4488822a780dd0e463f0~mv2.jpg" alt="The Beer Farmers interior" loading="lazy">
+      </div>
+    </div>
+    <div class="featured-text">
+      <div class="label reveal">Featured Project</div>
+      <h2 class="reveal reveal-d1">The Beer <em>Farmers</em></h2>
+      <div class="featured-meta reveal reveal-d2">
+        <div class="featured-meta-item"><span>Location</span> Pemberton, BC</div>
+        <div class="featured-meta-item"><span>Scope</span> Full Interior + Outdoor</div>
+      </div>
+      <p class="reveal reveal-d2">A celebration of mountain hospitality in the heart of Pemberton. The outdoor dining room at The Beer Farmers was designed to bring the warmth of the interior experience outside, set against the dramatic backdrop of Mount Currie.</p>
+      <p class="reveal reveal-d3">The space balances rustic charm with refined details, creating an atmosphere that feels both special and completely at home in its setting.</p>
+      <a href="#" class="featured-badge reveal reveal-d4">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2l2.4 7.4H22l-6.2 4.5 2.4 7.4L12 16.8l-6.2 4.5 2.4-7.4L2 9.4h7.6z"/></svg>
+        People's Choice Award — WL Design
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- Full Bleed 2 -->
+<div class="full-bleed">
+  <img src="https://static.wixstatic.com/media/8fa823_77492c25f166433f98b850ca08d1e392~mv2.jpg/v1/fill/w_1920,h_900/8fa823_77492c25f166433f98b850ca08d1e392~mv2.jpg" alt="Mountain home interior" loading="lazy">
+  <span class="bleed-caption">Mountain Star, Whistler</span>
+</div>
+
+<!-- Testimonial -->
+<section class="testimonial-section">
+  <blockquote class="reveal">Working with Clare and her team was the best decision we made for our Whistler build. They understood exactly what we wanted before we could even articulate it.</blockquote>
+  <div class="testimonial-line reveal reveal-d1"></div>
+  <div class="testimonial-cite reveal reveal-d2">Whistler Homeowner</div>
+  <span class="testimonial-role reveal reveal-d2">Custom New Build, 2024</span>
+</section>
+
+<!-- Team -->
+<section class="section team" id="team">
+  <div class="section-inner">
+    <div class="label reveal">Our Studio</div>
+    <h2 class="reveal reveal-d1">Meet the <em>team</em></h2>
+    <p class="team-lead reveal reveal-d2">Four designers. One shared commitment to creating mountain homes that feel as good as they look.</p>
+    <div class="team-grid">
+      <div class="team-member reveal">
+        <div class="team-member-img">
+          <img src="https://static.wixstatic.com/media/8fa823_e47d70c4d5f348aaa72af7c5699dc49f~mv2.jpg/v1/fill/w_600,h_800/8fa823_e47d70c4d5f348aaa72af7c5699dc49f~mv2.jpg" alt="Clare Riley" loading="lazy">
+        </div>
+        <div class="team-member-info">
+          <div class="team-member-name">Clare Riley</div>
+          <div class="team-member-role">Creative Director</div>
+        </div>
+      </div>
+      <div class="team-member reveal reveal-d1">
+        <div class="team-member-img">
+          <img src="https://static.wixstatic.com/media/8fa823_ed8d0460afb149669a90f130b4d4e366~mv2.jpg/v1/fill/w_600,h_800/8fa823_ed8d0460afb149669a90f130b4d4e366~mv2.jpg" alt="Jennie Kyle" loading="lazy">
+        </div>
+        <div class="team-member-info">
+          <div class="team-member-name">Jennie Kyle</div>
+          <div class="team-member-role">Senior Designer & PM</div>
+        </div>
+      </div>
+      <div class="team-member reveal reveal-d2">
+        <div class="team-member-img">
+          <img src="https://static.wixstatic.com/media/8fa823_a863bbd137e747128cbf0e51d686c8e5~mv2.jpg/v1/fill/w_600,h_800/8fa823_a863bbd137e747128cbf0e51d686c8e5~mv2.jpg" alt="Alexandra Tiller" loading="lazy">
+        </div>
+        <div class="team-member-info">
+          <div class="team-member-name">Alexandra Tiller</div>
+          <div class="team-member-role">Office Manager & Designer</div>
+        </div>
+      </div>
+      <div class="team-member reveal reveal-d3">
+        <div class="team-member-img">
+          <img src="https://static.wixstatic.com/media/8fa823_3772e89bcf234afc87a414938c77b91c~mv2.jpg/v1/fill/w_600,h_800/8fa823_3772e89bcf234afc87a414938c77b91c~mv2.jpg" alt="Bec Claffey" loading="lazy">
+        </div>
+        <div class="team-member-info">
+          <div class="team-member-name">Bec Claffey</div>
+          <div class="team-member-role">Designer & Administration</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-bg" style="background-image:url('https://static.wixstatic.com/media/8fa823_86a51592b0504db1aff7b8fc9885c502~mv2.jpg/v1/fill/w_1920,h_1080/8fa823_86a51592b0504db1aff7b8fc9885c502~mv2.jpg')"></div>
+  <div class="cta-content">
+    <h3 class="reveal">Start your mountain<br>home <em>journey</em></h3>
+    <p class="reveal reveal-d1">Book a complimentary consultation to discuss your project</p>
+    <a href="https://www.clarerileydesign.com/contact" class="cta-btn reveal reveal-d2">Get in Touch</a>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <img class="footer-logo" src="https://static.wixstatic.com/media/8fa823_83c242fbe43f46d88fd6207e1a79683e~mv2.png" alt="Clare Riley Design">
+        <p>Full-service interior design studio in Pemberton, BC, creating refined mountain living spaces across the Sea-to-Sky Corridor.</p>
+        <div class="footer-contact">
+          <a href="tel:604-907-2217">604-907-2217</a><br>
+          <a href="mailto:info@clarerileydesign.com">info@clarerileydesign.com</a><br>
+          101-7336 Industrial Way<br>
+          Pemberton, BC V0N 2L0
+        </div>
+        <div class="footer-social">
+          <a href="https://www.instagram.com/clarerileydesign/" target="_blank" aria-label="Instagram"><svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg></a>
+          <a href="https://www.pinterest.com/clarerileydesign/" target="_blank" aria-label="Pinterest"><svg viewBox="0 0 24 24"><path d="M12 0C5.373 0 0 5.372 0 12c0 5.084 3.163 9.426 7.627 11.174-.105-.949-.2-2.405.042-3.441.218-.937 1.407-5.965 1.407-5.965s-.359-.719-.359-1.782c0-1.668.967-2.914 2.171-2.914 1.023 0 1.518.769 1.518 1.69 0 1.029-.655 2.568-.994 3.995-.283 1.194.599 2.169 1.777 2.169 2.133 0 3.772-2.249 3.772-5.495 0-2.873-2.064-4.882-5.012-4.882-3.414 0-5.418 2.561-5.418 5.207 0 1.031.397 2.138.893 2.738a.36.36 0 01.083.345l-.333 1.36c-.053.22-.174.267-.402.161-1.499-.698-2.436-2.889-2.436-4.649 0-3.785 2.75-7.262 7.929-7.262 4.163 0 7.398 2.967 7.398 6.931 0 4.136-2.607 7.464-6.227 7.464-1.216 0-2.359-.632-2.75-1.378l-.748 2.853c-.271 1.043-1.002 2.35-1.492 3.146C9.57 23.812 10.763 24 12 24c6.627 0 12-5.373 12-12 0-6.628-5.373-12-12-12z"/></svg></a>
+          <a href="https://www.facebook.com/ClareRileyDesign/" target="_blank" aria-label="Facebook"><svg viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg></a>
+        </div>
+      </div>
+      <div class="footer-col">
+        <h5>Services</h5>
+        <ul class="footer-links">
+          <li><a href="#">Custom New Builds</a></li>
+          <li><a href="#">Full Renovations</a></li>
+          <li><a href="#">Vacation Properties</a></li>
+          <li><a href="#">2D & 3D Renderings</a></li>
+          <li><a href="#">Furnishing & Styling</a></li>
+          <li><a href="#">Virtual Design</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Studio</h5>
+        <ul class="footer-links">
+          <li><a href="#">Our Team</a></li>
+          <li><a href="#">Portfolio</a></li>
+          <li><a href="#">Blog</a></li>
+          <li><a href="#">FAQs</a></li>
+          <li><a href="#">Contact</a></li>
+          <li><a href="https://clarerileyhome.com" target="_blank">Shop CRD Home</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>Service Areas</h5>
+        <ul class="footer-areas">
+          <li><a href="#">Pemberton</a></li>
+          <li><a href="#">Whistler</a></li>
+          <li><a href="#">Squamish</a></li>
+          <li><a href="#">Lillooet</a></li>
+          <li><a href="#">Sunshine Coast</a></li>
+          <li><a href="#">Vancouver</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copyright">&copy; 2026 Clare Riley Design Inc. All rights reserved.</span>
+      <span class="footer-credit">Website concept by <a href="https://mattanthonyphoto.com/discovery-call" target="_blank">Matt Anthony</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- Concept Banner -->
+<div class="concept-banner">
+  <span class="concept-banner-text">This homepage concept was designed for <strong>Clare Riley Design</strong> by Matt Anthony Photography</span>
+  <a href="https://mattanthonyphoto.com/discovery-call" target="_blank" class="concept-banner-link">Book a Discovery Call</a>
+</div>
+
+<script>
+// Loader
+window.addEventListener('load',()=>{setTimeout(()=>{document.getElementById('loader').classList.add('done')},800)});
+
+// Nav scroll
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>80)});
+
+// Mobile menu
+const hamburger=document.getElementById('hamburger');
+const mobileMenu=document.getElementById('mobileMenu');
+hamburger.addEventListener('click',()=>{hamburger.classList.toggle('open');mobileMenu.classList.toggle('open')});
+document.querySelectorAll('.mobile-link').forEach(l=>l.addEventListener('click',()=>{hamburger.classList.remove('open');mobileMenu.classList.remove('open')}));
+
+// Hero slideshow
+const slides=document.querySelectorAll('.hero-slide');
+let current=0;
+setInterval(()=>{slides[current].classList.remove('active');current=(current+1)%slides.length;slides[current].classList.add('active')},5000);
+
+// Reveal on scroll
+const reveals=document.querySelectorAll('.reveal');
+const observer=new IntersectionObserver((entries)=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target)}})},{threshold:0.15,rootMargin:'0px 0px -40px 0px'});
+reveals.forEach(r=>observer.observe(r));
+</script>
+</body>
+</html>
