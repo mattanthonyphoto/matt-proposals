@@ -1069,14 +1069,33 @@
 
     <div style="font-family:'Josefin Sans',sans-serif;font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;">Approve This Proposal</div>
 
-    <!-- Summary -->
+    <!-- Option Selection -->
     <div style="margin-bottom:28px;">
-      <div style="font-size:0.75rem;color:var(--stone);font-family:'Josefin Sans',sans-serif;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;">Engagement Summary</div>
-      <div style="font-size:0.9rem;color:var(--ink);line-height:2;">
-        <strong style="color:var(--stone);font-family:'Josefin Sans',sans-serif;font-size:0.65rem;letter-spacing:0.15em;">OPTION A</strong> &mdash; Website <strong style="color:var(--gold);">$10,000</strong> + Retainer <strong style="color:var(--gold);">$2,500/mo &times; 6</strong> = <strong style="color:var(--gold);">$25,000</strong><br>
-        <strong style="color:var(--stone);font-family:'Josefin Sans',sans-serif;font-size:0.65rem;letter-spacing:0.15em;">OPTION B</strong> &mdash; Website <strong style="color:var(--gold);">$5,000</strong> + Retainer <strong style="color:var(--gold);">$2,500/mo &times; 12</strong> = <strong style="color:var(--gold);">$35,000</strong><br>
-        Build Documentation Books &mdash; <strong style="color:var(--gold);">$7,000/project</strong> (as needed)
-      </div>
+      <div style="font-size:0.75rem;color:var(--stone);font-family:'Josefin Sans',sans-serif;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:16px;">Select Your Option</div>
+
+      <label id="labelA" style="display:block;padding:20px 24px;border:1px solid var(--gold-border);background:var(--white);margin-bottom:8px;cursor:pointer;transition:all 0.3s ease;position:relative;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="if(!document.getElementById('optA').checked)this.style.borderColor='var(--gold-border)'">
+        <input type="radio" name="option" id="optA" value="A" onchange="selectOption()" style="position:absolute;opacity:0;pointer-events:none;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div>
+            <strong style="font-family:'Josefin Sans',sans-serif;font-size:0.65rem;letter-spacing:0.15em;color:var(--gold);">OPTION A &mdash; 6-MONTH</strong>
+            <div style="font-size:0.85rem;color:var(--ink);margin-top:4px;">Website $10,000 + Retainer $2,500/mo &times; 6, then month-to-month</div>
+          </div>
+          <strong style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold);">$25,000</strong>
+        </div>
+      </label>
+
+      <label id="labelB" style="display:block;padding:20px 24px;border:1px solid var(--gold-border);background:var(--white);margin-bottom:8px;cursor:pointer;transition:all 0.3s ease;position:relative;" onmouseover="this.style.borderColor='var(--gold)'" onmouseout="if(!document.getElementById('optB').checked)this.style.borderColor='var(--gold-border)'">
+        <input type="radio" name="option" id="optB" value="B" onchange="selectOption()" style="position:absolute;opacity:0;pointer-events:none;">
+        <div style="display:flex;justify-content:space-between;align-items:center;">
+          <div>
+            <strong style="font-family:'Josefin Sans',sans-serif;font-size:0.65rem;letter-spacing:0.15em;color:var(--gold);">OPTION B &mdash; 12-MONTH</strong>
+            <div style="font-size:0.85rem;color:var(--ink);margin-top:4px;">Website $5,000 + Retainer $2,500/mo &times; 12</div>
+          </div>
+          <strong style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;color:var(--gold);">$35,000</strong>
+        </div>
+      </label>
+
+      <div style="font-size:0.78rem;color:var(--stone);margin-top:8px;">Build Documentation Books &mdash; $7,000/project (as needed with either option)</div>
     </div>
 
     <!-- Notes -->
@@ -1304,16 +1323,31 @@
   }, { passive:true });
 
   /* APPROVAL FORM */
+  window.selectOption = function(){
+    var a = document.getElementById('optA');
+    var b = document.getElementById('optB');
+    var labelA = document.getElementById('labelA');
+    var labelB = document.getElementById('labelB');
+    labelA.style.borderColor = a.checked ? 'var(--gold)' : 'var(--gold-border)';
+    labelA.style.background = a.checked ? 'rgba(201,169,110,0.06)' : 'var(--white)';
+    labelB.style.borderColor = b.checked ? 'var(--gold)' : 'var(--gold-border)';
+    labelB.style.background = b.checked ? 'rgba(201,169,110,0.06)' : 'var(--white)';
+  };
+
   window.submitApproval = function(){
+    var optA = document.getElementById('optA').checked;
+    var optB = document.getElementById('optB').checked;
+    if(!optA && !optB){
+      alert('Please select Option A or Option B before approving.');
+      return;
+    }
+    var chosen = optA ? 'Option A — 6-Month ($25,000)' : 'Option B — 12-Month ($35,000)';
     var notes = document.getElementById('approvalNotes').value.trim();
     var subject = encodeURIComponent('GD Nielsen — Proposal Approved');
     var body = 'Hi Matt,%0D%0A%0D%0A'
-      + 'We%27re happy with the revised proposal and ready to move forward with the official contract.%0D%0A%0D%0A'
-      + 'We%27d like to go with:%0D%0A'
-      + '- Option A: Website $10,000 + Retainer $2,500/mo x 6 months = $25,000%0D%0A'
-      + '- Option B: Website $5,000 + Retainer $2,500/mo x 12 months = $35,000%0D%0A'
-      + '(Please indicate which option above)%0D%0A'
-      + '- Build Documentation Books: $7,000/project (as needed)%0D%0A';
+      + 'We%27re happy with the revised proposal and ready to move forward.%0D%0A%0D%0A'
+      + 'Selected: ' + encodeURIComponent(chosen) + '%0D%0A'
+      + '+ Build Documentation Books: $7,000/project (as needed)%0D%0A';
     if(notes){
       body += '%0D%0ANotes: ' + encodeURIComponent(notes) + '%0D%0A';
     }
