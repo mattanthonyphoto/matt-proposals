@@ -1,0 +1,1414 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Growth System — Clare Riley Design</title>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1A1A18;
+    --paper: #F6F4F0;
+    --gold: #C9A96E;
+    --gold-dim: rgba(201,169,110,0.12);
+    --gold-border: rgba(201,169,110,0.25);
+    --gold-glow: rgba(201,169,110,0.06);
+    --stone: #8A8579;
+    --white: #FFFFFF;
+    --light: #FAFAF8;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { font-size:16px; -webkit-print-color-adjust:exact; print-color-adjust:exact; scroll-behavior:smooth; }
+  body { background:var(--white); color:var(--ink); font-family:'DM Sans',sans-serif; font-weight:300; line-height:1.75; overflow-x:hidden; }
+
+  /* ═══ LOADING SCREEN ═══ */
+  .loader {
+    position:fixed; top:0; left:0; right:0; bottom:0;
+    background:var(--ink); z-index:99999;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1), visibility 0.8s;
+  }
+  .loader.done { opacity:0; visibility:hidden; pointer-events:none; }
+  .loader-brand {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.6em; text-transform:uppercase; color:var(--paper);
+    opacity:0; animation:loaderIn 0.6s 0.15s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+  .loader-sub {
+    font-family:'Cormorant Garamond',serif; font-style:italic; font-size:0.9rem;
+    color:var(--stone); margin-top:8px;
+    opacity:0; animation:loaderIn 0.6s 0.4s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+  .loader-line {
+    width:80px; height:1px; background:var(--gold-dim); margin-top:24px;
+    position:relative; overflow:hidden; border-radius:1px;
+    opacity:0; animation:loaderIn 0.6s 0.3s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+  .loader-line::after {
+    content:''; position:absolute; top:0; left:-100%; width:100%; height:100%;
+    background:linear-gradient(90deg, transparent, var(--gold), transparent);
+    animation:loaderFill 1s 0.5s cubic-bezier(0.33,1,0.68,1) forwards;
+  }
+  @keyframes loaderIn { to { opacity:1; } }
+  @keyframes loaderFill { to { left:100%; } }
+
+  /* ═══ SCROLL PROGRESS ═══ */
+  .scroll-progress {
+    position:fixed; top:0; left:0; height:2px; width:0%;
+    background:linear-gradient(90deg, var(--gold), rgba(201,169,110,0.4));
+    z-index:9999; transition:width 0.05s linear;
+    box-shadow:0 0 8px rgba(201,169,110,0.3);
+  }
+
+  /* ═══ COVER ═══ */
+  .cover {
+    min-height:100vh; background:var(--ink); color:var(--paper);
+    display:flex; flex-direction:column; justify-content:flex-end;
+    position:relative; overflow:hidden;
+  }
+  .cover-image {
+    position:absolute; top:0; left:0; width:100%; height:100%;
+    background-size:cover; background-position:center 30%;
+    will-change:transform; transition:transform 0.1s linear;
+  }
+  .cover-image::after {
+    content:''; position:absolute; top:0; left:0; width:100%; height:100%;
+    background:linear-gradient(to bottom,
+      rgba(26,26,24,0.4) 0%, rgba(26,26,24,0.3) 30%,
+      rgba(26,26,24,0.55) 55%, rgba(26,26,24,0.94) 80%, rgba(26,26,24,0.99) 100%);
+  }
+  .cover-top {
+    position:absolute; top:0; left:0; right:0; z-index:3;
+    padding:40px 60px; display:flex; justify-content:space-between; align-items:center;
+  }
+  .cover-logo {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.35em; text-transform:uppercase; color:rgba(246,244,240,0.6);
+  }
+  .cover-date {
+    font-family:'Josefin Sans',sans-serif; font-size:0.65rem;
+    letter-spacing:0.2em; color:rgba(246,244,240,0.4);
+  }
+  .cover-content { position:relative; z-index:2; padding:0 60px 80px; max-width:720px; }
+  .cover-eyebrow {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.4em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:20px; display:flex; align-items:center; gap:16px;
+  }
+  .cover-eyebrow::before { content:''; width:32px; height:1px; background:var(--gold); }
+  .cover h1 {
+    font-family:'Cormorant Garamond',serif; font-weight:400;
+    font-size:clamp(3rem,6vw,5rem); line-height:1.05; margin-bottom:20px;
+    letter-spacing:-0.01em; text-shadow:0 2px 40px rgba(0,0,0,0.5);
+    text-wrap:balance;
+  }
+  .cover h1 em { font-style:italic; font-weight:500; color:var(--gold); }
+  .cover-sub {
+    font-size:1rem; color:rgba(246,244,240,0.75); max-width:480px;
+    line-height:1.8; margin-bottom:56px;
+    text-shadow:0 1px 20px rgba(0,0,0,0.4);
+  }
+  .cover-meta-bar {
+    display:flex; gap:48px; padding-top:32px;
+    border-top:1px solid rgba(201,169,110,0.15);
+  }
+  .cover-meta-item { font-size:0.75rem; color:rgba(246,244,240,0.35); line-height:1.8; }
+  .cover-meta-item strong {
+    display:block; color:rgba(246,244,240,0.7); font-weight:400;
+    font-family:'Josefin Sans',sans-serif; font-size:0.6rem;
+    letter-spacing:0.15em; text-transform:uppercase; margin-bottom:2px;
+  }
+  .cover .cover-eyebrow, .cover h1, .cover .cover-sub, .cover .cover-meta-bar {
+    opacity:0; transform:translateY(24px);
+    animation:coverFade 0.9s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+  .cover .cover-eyebrow { animation-delay:0.3s; }
+  .cover h1 { animation-delay:0.6s; }
+  .cover .cover-sub { animation-delay:0.9s; }
+  .cover .cover-meta-bar { animation-delay:1.2s; }
+  @keyframes coverFade { to { opacity:1; transform:translateY(0); } }
+
+  .scroll-indicator {
+    position:absolute; bottom:40px; left:50%; transform:translateX(-50%);
+    display:flex; flex-direction:column; align-items:center; gap:8px;
+    opacity:0; animation:coverFade 0.9s 1.8s cubic-bezier(0.16,1,0.3,1) forwards;
+    transition:opacity 0.4s ease;
+  }
+  .scroll-indicator.hidden { opacity:0 !important; }
+  .scroll-indicator-text {
+    font-family:'Josefin Sans',sans-serif; font-size:0.45rem;
+    letter-spacing:0.3em; text-transform:uppercase; color:rgba(246,244,240,0.3);
+  }
+  .scroll-indicator-line {
+    width:1px; height:32px; position:relative; overflow:hidden; background:rgba(246,244,240,0.1);
+  }
+  .scroll-indicator-line::after {
+    content:''; position:absolute; top:-100%; left:0;
+    width:100%; height:100%; background:var(--gold);
+    animation:scrollPulse 2s cubic-bezier(0.16,1,0.3,1) infinite;
+  }
+  @keyframes scrollPulse { 0% { top:-100%; } 50% { top:100%; } 100% { top:100%; } }
+
+  /* ═══ MOSAIC ═══ */
+  .mosaic { display:grid; grid-template-columns:1fr 1fr 1fr 1fr; grid-template-rows:200px 200px; gap:3px; background:var(--ink); }
+  .mosaic img {
+    width:100%; height:100%; object-fit:cover; display:block;
+    filter:brightness(0.92); transition:filter 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
+  }
+  .mosaic img:hover { filter:brightness(1.05); transform:scale(1.015); }
+  .mosaic img:nth-child(1) { grid-column:1/3; grid-row:1/3; }
+  .mosaic img:nth-child(2) { grid-column:3/4; grid-row:1/2; }
+  .mosaic img:nth-child(3) { grid-column:4/5; grid-row:1/2; }
+  .mosaic img:nth-child(4) { grid-column:3/5; grid-row:2/3; }
+  .mosaic-caption {
+    background:var(--ink); padding:20px 60px;
+    font-family:'Josefin Sans',sans-serif; font-size:0.55rem;
+    letter-spacing:0.3em; text-transform:uppercase;
+    color:rgba(246,244,240,0.3); text-align:center;
+  }
+
+  /* ═══ LAYOUT ═══ */
+  .section { padding:120px 60px; max-width:1000px; margin:0 auto; }
+  .section.wide { max-width:1200px; }
+  .section.dark { background:var(--ink); color:var(--paper); max-width:100%; }
+  .section.cream { background:var(--paper); }
+  .section.light { background:var(--light); }
+
+  .eyebrow {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.6rem;
+    letter-spacing:0.35em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:16px; display:flex; align-items:center; gap:14px;
+  }
+  .eyebrow::before { content:''; width:0; height:1px; background:var(--gold); transition:width 0.6s 0.2s cubic-bezier(0.16,1,0.3,1); }
+  .eyebrow.visible::before { width:24px; }
+
+  h2 {
+    font-family:'Cormorant Garamond',serif; font-weight:400;
+    font-size:2.6rem; line-height:1.12; margin-bottom:32px;
+    letter-spacing:-0.01em; text-wrap:balance;
+  }
+  h2 em { font-style:italic; font-weight:500; position:relative; display:inline; }
+  h2 em::after {
+    content:''; position:absolute; bottom:2px; left:0;
+    width:0; height:1.5px;
+    background:linear-gradient(90deg, var(--gold), rgba(201,169,110,0.3));
+    transition:width 1s 0.3s cubic-bezier(0.16,1,0.3,1);
+  }
+  h2.underlined em::after { width:100%; }
+
+  h3 {
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.75rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--stone); margin:56px 0 20px;
+  }
+  p { margin-bottom:20px; font-size:0.95rem; }
+  .lead { font-size:1.05rem; line-height:1.9; color:var(--stone); text-wrap:pretty; }
+  .divider { width:1px; height:80px; background:var(--gold-dim); margin:0 auto; border:none; display:block; }
+
+  /* ═══ STATS ═══ */
+  .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; margin:56px 0; background:var(--gold-dim); }
+  .stat { background:var(--white); text-align:center; padding:36px 16px; }
+  .section.cream .stat { background:var(--paper); }
+  .stat-val {
+    font-family:'Cormorant Garamond',serif; font-size:3rem; font-weight:500;
+    color:var(--gold); display:block; line-height:1; margin-bottom:10px;
+    text-shadow:0 0 40px rgba(201,169,110,0.15);
+  }
+  .stat-lbl {
+    font-family:'Josefin Sans',sans-serif; font-size:0.55rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:var(--stone);
+  }
+
+  /* ═══ SERVICES GRID ═══ */
+  .services { display:grid; grid-template-columns:1fr 1fr; gap:1px; margin:56px 0; background:var(--gold-dim); }
+  .services.three-col { grid-template-columns:1fr 1fr 1fr; }
+  .svc {
+    background:var(--white); padding:40px 36px; position:relative;
+    transition:all 0.3s cubic-bezier(0.16,1,0.3,1); border-left:3px solid transparent;
+  }
+  .svc:hover { border-left-color:var(--gold); background:var(--light); }
+  .svc h4 {
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.7rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:20px;
+  }
+  .svc ul { list-style:none; }
+  .svc li {
+    font-size:0.85rem; padding:8px 0 8px 24px; position:relative;
+    color:var(--stone); border-bottom:1px solid rgba(26,26,24,0.04);
+  }
+  .svc li:last-child { border:none; }
+  .svc li::before {
+    content:''; position:absolute; left:0; top:16px; width:8px; height:1px; background:var(--gold);
+  }
+
+  /* ═══ PRICING TIERS ═══ */
+  .tiers { display:grid; grid-template-columns:repeat(3,1fr); gap:0; margin:56px 0; position:relative; }
+  .tier {
+    padding:48px 32px 40px; border:1px solid rgba(26,26,24,0.06);
+    background:var(--white); position:relative; cursor:pointer;
+    transition:transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s cubic-bezier(0.16,1,0.3,1);
+    transform-style:preserve-3d; perspective:800px;
+  }
+  .tier:hover { transform:translateY(-6px); box-shadow:0 20px 60px rgba(0,0,0,0.08), 0 0 0 1px var(--gold-border); z-index:1; }
+  .tier + .tier { border-left:none; }
+  .tier.rec {
+    background:var(--ink); color:var(--paper); border-color:rgba(201,169,110,0.3);
+    transform:scaleY(1.02); z-index:2;
+    box-shadow:0 12px 48px rgba(0,0,0,0.15);
+  }
+  .tier.rec::before {
+    content:''; position:absolute; top:0; left:0; right:0; bottom:0;
+    background:linear-gradient(180deg, rgba(201,169,110,0.03) 0%, transparent 40%);
+    pointer-events:none;
+  }
+  .tier.rec:hover { transform:scaleY(1.02) translateY(-6px); box-shadow:0 24px 64px rgba(0,0,0,0.22), 0 0 40px rgba(201,169,110,0.08); }
+  .tier-badge {
+    position:absolute; top:-1px; left:0; right:0; height:3px;
+    background:linear-gradient(135deg, var(--gold), rgba(201,169,110,0.8));
+  }
+  .tier-badge span {
+    position:absolute; top:8px; left:50%; transform:translateX(-50%);
+    font-family:'Josefin Sans',sans-serif; font-size:0.5rem;
+    letter-spacing:0.3em; text-transform:uppercase; color:var(--gold); white-space:nowrap;
+  }
+  .tier-name {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin:24px 0 12px;
+  }
+  .tier-price {
+    font-family:'Cormorant Garamond',serif; font-size:3.2rem;
+    font-weight:400; line-height:1; margin-bottom:6px;
+  }
+  .tier:not(.rec) .tier-price { color:var(--ink); }
+  .tier.rec .tier-price { color:var(--paper); }
+  .tier-price span { font-size:1rem; color:var(--stone); font-family:'DM Sans',sans-serif; font-weight:300; }
+  .tier-term {
+    font-size:0.75rem; color:var(--stone); margin-bottom:32px;
+    padding-bottom:24px; border-bottom:1px solid var(--gold-dim);
+  }
+  .tier.rec .tier-term { border-color:rgba(201,169,110,0.2); }
+  .tier ul { list-style:none; }
+  .tier li {
+    font-size:0.8rem; padding:7px 0 7px 22px; position:relative;
+    border-bottom:1px solid rgba(26,26,24,0.03);
+  }
+  .tier.rec li { color:rgba(246,244,240,0.75); border-color:rgba(246,244,240,0.05); }
+  .tier li:last-child { border:none; }
+  .tier li::before {
+    content:''; position:absolute; left:0; top:14px; width:8px; height:1px; background:var(--gold);
+  }
+  .tier li.off { opacity:0.25; }
+  .tier li.off::before { background:var(--stone); }
+  .tier-bottom {
+    margin-top:28px; padding-top:20px; border-top:1px solid var(--gold-dim);
+    font-size:0.7rem; color:var(--stone);
+  }
+  .tier.rec .tier-bottom { border-color:rgba(201,169,110,0.2); }
+  .tier-bottom strong { color:var(--gold); font-weight:500; font-size:0.85rem; }
+  .tier.selected:not(.rec) { box-shadow:0 0 0 2px var(--gold), 0 20px 60px rgba(0,0,0,0.1); }
+  .tier.rec.selected { box-shadow:0 0 0 2px var(--gold), 0 24px 64px rgba(0,0,0,0.22), 0 0 40px rgba(201,169,110,0.12); }
+  .tier-selected-badge {
+    position:absolute; top:12px; right:12px;
+    font-family:'Josefin Sans',sans-serif; font-size:0.45rem;
+    letter-spacing:0.25em; text-transform:uppercase;
+    color:var(--gold); border:1px solid var(--gold);
+    padding:3px 10px; border-radius:2px;
+    opacity:0; transform:translateY(-4px);
+    transition:opacity 0.3s ease, transform 0.3s ease;
+  }
+  .tier.selected .tier-selected-badge { opacity:1; transform:translateY(0); }
+
+  /* ═══ INSIGHT BOX ═══ */
+  .insight {
+    background:var(--light); padding:48px 56px; margin:56px 0;
+    position:relative; border:1px solid rgba(201,169,110,0.08);
+    box-shadow:0 8px 32px rgba(0,0,0,0.03);
+  }
+  .insight::before {
+    content:''; position:absolute; top:0; left:0; bottom:0;
+    width:3px; background:var(--gold); box-shadow:4px 0 16px rgba(201,169,110,0.08);
+  }
+  .insight h4 {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:20px;
+  }
+  .insight p { font-size:0.9rem; margin-bottom:10px; }
+  .insight p:last-child { margin-bottom:0; }
+
+  /* ═══ FLYWHEEL ═══ */
+  .flywheel {
+    display:grid; grid-template-columns:1fr 1fr 1fr; gap:2px; margin:56px 0;
+    background:var(--gold-dim);
+  }
+  .flywheel-item {
+    background:var(--ink); padding:40px 28px; text-align:center;
+    position:relative;
+  }
+  .flywheel-num {
+    font-family:'Cormorant Garamond',serif; font-size:2.4rem; font-weight:500;
+    color:var(--gold); line-height:1; margin-bottom:12px;
+    text-shadow:0 0 40px rgba(201,169,110,0.25);
+  }
+  .flywheel-label {
+    font-family:'Josefin Sans',sans-serif; font-size:0.55rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:rgba(246,244,240,0.7);
+    margin-bottom:8px;
+  }
+  .flywheel-desc {
+    font-size:0.78rem; color:rgba(246,244,240,0.4); line-height:1.7;
+  }
+  .flywheel-arrow {
+    position:absolute; right:-12px; top:50%; transform:translateY(-50%);
+    color:var(--gold); font-size:1.2rem; z-index:2;
+  }
+
+  /* ═══ ROADMAP ═══ */
+  .roadmap { margin:56px 0; position:relative; }
+  .roadmap-line {
+    position:absolute; left:200px; top:48px; width:2px;
+    height:0; background:var(--gold);
+    transition:height 0.05s linear; z-index:1;
+    box-shadow:0 0 6px rgba(201,169,110,0.3);
+  }
+  .roadmap-line::after {
+    content:''; position:absolute; bottom:-4px; left:-3px;
+    width:8px; height:8px; border-radius:50%;
+    background:var(--gold); box-shadow:0 0 12px rgba(201,169,110,0.5);
+  }
+  .rm {
+    display:grid; grid-template-columns:200px 1fr; gap:0;
+    border-bottom:1px solid rgba(26,26,24,0.06);
+  }
+  .rm:last-child { border:none; }
+  .rm-left {
+    padding:40px 32px 40px 0; border-right:2px solid var(--gold-dim); position:relative;
+  }
+  .rm-left::after {
+    content:''; position:absolute; right:-5px; top:48px;
+    width:8px; height:8px; border-radius:50%; background:var(--gold);
+  }
+  .rm-month {
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.6rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:4px;
+  }
+  .rm-label {
+    font-family:'Cormorant Garamond',serif; font-size:1.3rem;
+    font-weight:400; font-style:italic; color:var(--ink); line-height:1.3;
+  }
+  .rm-right { padding:40px 0 40px 40px; }
+  .rm-right ul { list-style:none; }
+  .rm-right li {
+    font-size:0.85rem; padding:6px 0 6px 24px; position:relative; color:var(--stone);
+  }
+  .rm-right li::before {
+    content:''; position:absolute; left:0; top:14px; width:8px; height:1px; background:var(--gold);
+  }
+
+  /* ═══ NUMBERS BAR ═══ */
+  .numbers { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; margin:56px 0; background:var(--gold-dim); }
+  .num { background:var(--ink); text-align:center; padding:48px 24px; }
+  .num-val {
+    font-family:'Cormorant Garamond',serif; font-size:3.5rem;
+    font-weight:500; color:var(--gold); display:block; line-height:1; margin-bottom:10px;
+    text-shadow:0 0 60px rgba(201,169,110,0.25), 0 0 120px rgba(201,169,110,0.1);
+  }
+  .num-lbl {
+    font-family:'Josefin Sans',sans-serif; font-size:0.55rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:rgba(246,244,240,0.4);
+  }
+
+  /* ═══ MONTH VIEW ═══ */
+  .month-grid { display:grid; grid-template-columns:1fr 1fr; gap:1px; margin:56px 0; background:var(--gold-dim); }
+  .month-week {
+    background:var(--white); padding:36px 32px;
+    transition:background 0.3s ease;
+  }
+  .month-week:hover { background:var(--light); }
+  .month-week-label {
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.6rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:16px;
+  }
+  .month-week ul { list-style:none; }
+  .month-week li {
+    font-size:0.82rem; padding:6px 0 6px 20px; position:relative; color:var(--stone);
+    border-bottom:1px solid rgba(26,26,24,0.04);
+  }
+  .month-week li:last-child { border:none; }
+  .month-week li::before {
+    content:''; position:absolute; left:0; top:14px; width:6px; height:1px; background:var(--gold);
+  }
+
+  /* ═══ NEXT STEPS ═══ */
+  .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin:56px 0; background:var(--gold-dim); }
+  .step {
+    background:var(--white); padding:40px 32px;
+    transition:background 0.3s ease, box-shadow 0.3s ease;
+  }
+  .step:hover { background:var(--light); box-shadow:0 4px 24px rgba(0,0,0,0.04); }
+  .step-num {
+    font-family:'Cormorant Garamond',serif; font-size:3rem;
+    font-weight:400; color:var(--gold); line-height:1; margin-bottom:16px;
+    text-shadow:0 0 40px rgba(201,169,110,0.15);
+  }
+  .step h4 { font-family:'DM Sans',sans-serif; font-weight:500; font-size:0.95rem; margin-bottom:10px; }
+  .step p { font-size:0.82rem; color:var(--stone); margin-bottom:0; }
+
+  /* ═══ PHOTO BREAKS ═══ */
+  .photo-break {
+    width:100%; height:45vh; min-height:320px; max-height:480px;
+    position:relative; overflow:hidden;
+    clip-path:inset(0 0 0 0); transition:clip-path 1.2s cubic-bezier(0.16,1,0.3,1);
+  }
+  .photo-break img {
+    width:100%; height:120%; object-fit:cover; display:block;
+    position:absolute; top:-10%; left:0;
+    filter:brightness(0.85); will-change:transform;
+    transition:filter 0.8s cubic-bezier(0.16,1,0.3,1);
+  }
+  .photo-break:hover img { filter:brightness(0.95); }
+  .photo-break.in-view img { animation:kenBurns 12s ease-in-out infinite alternate; }
+  @keyframes kenBurns { 0% { transform:scale(1) translateY(0); } 100% { transform:scale(1.06) translateY(-8px); } }
+  .photo-break::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:80px;
+    background:linear-gradient(rgba(26,26,24,0.15), transparent); z-index:1; pointer-events:none;
+  }
+  .photo-break::after {
+    content:''; position:absolute; bottom:0; left:0; right:0; height:120px;
+    background:linear-gradient(transparent, rgba(26,26,24,0.6)); z-index:1; pointer-events:none;
+  }
+  .photo-break-caption {
+    position:absolute; bottom:0; left:0; right:0; z-index:2; padding:24px 60px;
+    font-family:'Josefin Sans',sans-serif; font-size:0.5rem;
+    letter-spacing:0.3em; text-transform:uppercase; color:rgba(246,244,240,0.5);
+  }
+
+  /* ═══ SECTION NAV ═══ */
+  .section-nav {
+    position:fixed; right:24px; top:50%; transform:translateY(-50%);
+    z-index:9998; display:flex; flex-direction:column; gap:12px;
+    opacity:0; transition:opacity 0.4s ease;
+  }
+  .section-nav.visible { opacity:1; }
+  .section-nav-dot {
+    width:8px; height:8px; border-radius:50%;
+    background:transparent; border:1px solid var(--stone);
+    cursor:pointer; transition:all 0.3s ease; position:relative;
+  }
+  .section-nav-dot:hover { border-color:var(--gold); transform:scale(1.3); }
+  .section-nav-dot.active { background:var(--gold); border-color:var(--gold); box-shadow:0 0 8px rgba(201,169,110,0.4); }
+  .section-nav-dot::before {
+    content:attr(data-label);
+    position:absolute; right:20px; top:50%; transform:translateY(-50%);
+    font-family:'Josefin Sans',sans-serif; font-size:0.5rem;
+    letter-spacing:0.15em; text-transform:uppercase; color:var(--gold);
+    white-space:nowrap; opacity:0; pointer-events:none; transition:opacity 0.3s ease, right 0.3s ease;
+  }
+  .section-nav-dot:hover::before { opacity:1; right:24px; }
+
+  /* ═══ FOOTER ═══ */
+  .footer {
+    background:var(--ink); padding:80px 60px; text-align:center;
+    border-top:1px solid rgba(201,169,110,0.1);
+  }
+  .footer-mark {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.7rem;
+    letter-spacing:0.4em; text-transform:uppercase; color:var(--paper); margin-bottom:20px;
+  }
+  .footer-info { font-size:0.8rem; color:var(--stone); line-height:2.2; }
+  .footer-info a { color:var(--gold); text-decoration:none; }
+  .footer-note {
+    margin-top:40px; font-size:0.6rem; letter-spacing:0.15em;
+    text-transform:uppercase; font-family:'Josefin Sans',sans-serif; color:rgba(246,244,240,0.15);
+  }
+
+  /* ═══ SCROLL REVEAL ═══ */
+  .reveal {
+    opacity:0; transform:translateY(32px);
+    transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+  }
+  .reveal.visible { opacity:1; transform:translateY(0); }
+  .reveal-delay-1 { transition-delay:0.1s; }
+  .reveal-delay-2 { transition-delay:0.2s; }
+  .reveal-delay-3 { transition-delay:0.3s; }
+  .reveal-delay-4 { transition-delay:0.4s; }
+  .reveal-delay-5 { transition-delay:0.5s; }
+
+  /* ═══ FILM GRAIN ═══ */
+  .grain-section::after {
+    content:''; position:absolute; top:0; left:0; right:0; bottom:0;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    background-size:128px 128px; pointer-events:none; z-index:0; opacity:0.5;
+  }
+  .grain-section { position:relative; }
+  .grain-section > * { position:relative; z-index:1; }
+
+  /* ═══ RESPONSIVE ═══ */
+  @media print {
+    .cover { min-height:100vh; }
+    .section { padding:60px; }
+    .tier.rec { transform:none; box-shadow:none; }
+    .scroll-progress, .section-nav, .loader, .scroll-indicator { display:none; }
+    .photo-break { height:200px; page-break-inside:avoid; clip-path:none !important; }
+    h2 em::after { width:100% !important; }
+    .reveal { opacity:1 !important; transform:none !important; }
+    .eyebrow::before { width:24px !important; }
+    .grain-section::after { display:none; }
+  }
+  @media (max-width:768px) {
+    .cover-content, .cover-top { padding-left:32px; padding-right:32px; }
+    .section { padding:80px 32px; }
+    .mosaic { grid-template-columns:1fr 1fr; grid-template-rows:200px 200px 200px; }
+    .mosaic img:nth-child(1) { grid-column:1/3; grid-row:1/2; }
+    .mosaic img:nth-child(2) { grid-column:1/2; grid-row:2/3; }
+    .mosaic img:nth-child(3) { grid-column:2/3; grid-row:2/3; }
+    .mosaic img:nth-child(4) { grid-column:1/3; grid-row:3/4; }
+    .stats, .services, .tiers, .steps, .numbers, .month-grid, .flywheel { grid-template-columns:1fr; }
+    .services.three-col { grid-template-columns:1fr; }
+    .tier + .tier { border-left:1px solid rgba(26,26,24,0.06); border-top:none; }
+    .tier.rec { transform:none; }
+    .rm { grid-template-columns:1fr; }
+    .rm-left { border-right:none; border-bottom:2px solid var(--gold-dim); padding:24px 0; }
+    .rm-left::after { display:none; }
+    .rm-right { padding:24px 0; }
+    .roadmap-line { display:none; }
+    .cover-meta-bar { flex-direction:column; gap:16px; }
+    .footer { padding:60px 32px; }
+    .section-nav { display:none; }
+    .svc { border-left:none !important; }
+    .svc:hover { border-left:none !important; }
+    .photo-break { height:200px; min-height:200px; }
+    .photo-break-caption { padding:12px 32px; }
+    .scroll-indicator { display:none; }
+    .insight { padding:32px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- LOADING SCREEN -->
+<div class="loader" id="loader">
+  <div class="loader-brand">Matt Anthony Photography</div>
+  <div class="loader-sub">Growth System</div>
+  <div class="loader-line"></div>
+</div>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="section-nav" id="sectionNav"></nav>
+
+<!-- ═══════════════════════════════════════
+     COVER
+     ═══════════════════════════════════════ -->
+<div class="cover">
+  <div class="cover-image" id="coverImg" style="background-image:url('https://static.wixstatic.com/media/8fa823_2e8440e1685a4078857a963f76ab7846~mv2.jpg/v1/fill/w_1920,h_1080/8fa823_2e8440e1685a4078857a963f76ab7846~mv2.jpg');background-position:center 40%;"></div>
+  <div class="cover-top">
+    <div class="cover-logo">Matt Anthony Photography</div>
+    <div class="cover-date">April 2026</div>
+  </div>
+  <div class="cover-content">
+    <div class="cover-eyebrow">Growth System</div>
+    <h1>Your entire<br>marketing.<br><em>Automated.</em></h1>
+    <p class="cover-sub">Cold email outreach, a custom website, social media, photography, and SEO. One integrated system. One monthly investment. Everything connected.</p>
+    <div class="cover-meta-bar">
+      <div class="cover-meta-item"><strong>Prepared for</strong>Clare Riley, Founder</div>
+      <div class="cover-meta-item"><strong>Prepared by</strong>Matt Anthony</div>
+      <div class="cover-meta-item"><strong>Date</strong>April 14, 2026</div>
+    </div>
+  </div>
+  <div class="scroll-indicator" id="scrollIndicator">
+    <div class="scroll-indicator-text">Scroll</div>
+    <div class="scroll-indicator-line"></div>
+  </div>
+</div>
+
+
+<!-- MOSAIC -->
+<div class="mosaic">
+  <img src="https://static.wixstatic.com/media/8fa823_f7ab7f73fef34925abbe008134b8f89d~mv2.jpg/v1/fill/w_1200,h_900/8fa823_f7ab7f73fef34925abbe008134b8f89d~mv2.jpg" alt="Mountain Star Lux">
+  <img src="https://static.wixstatic.com/media/8fa823_e56ccbcad10340628d6f73c4a60e86bc~mv2.jpg/v1/fill/w_700,h_700/8fa823_e56ccbcad10340628d6f73c4a60e86bc~mv2.jpg" alt="The Beer Farmers">
+  <img src="https://static.wixstatic.com/media/8fa823_2102f9cbca8c4b10b2f4159f94a28cac~mv2.jpg/v1/fill/w_700,h_700/8fa823_2102f9cbca8c4b10b2f4159f94a28cac~mv2.jpg" alt="Treeline">
+  <img src="https://static.wixstatic.com/media/8fa823_a8ea5ce990cc4d7d9fbbb0f732e87c01~mv2.jpg/v1/fill/w_1400,h_700/8fa823_a8ea5ce990cc4d7d9fbbb0f732e87c01~mv2.jpg" alt="Oberson Road">
+</div>
+<div class="mosaic-caption">Clare Riley Design &middot; Whistler &middot; Pemberton &middot; Sea-to-Sky</div>
+
+
+<!-- ═══════════════════════════════════════
+     WHERE THINGS STAND
+     ═══════════════════════════════════════ -->
+<div class="section cream" data-nav="Today">
+  <div class="eyebrow">Where Things Stand</div>
+  <h2>Your work speaks for itself.<br><em>Your systems don't.</em></h2>
+  <p class="lead">Clare, you've built a portfolio that competes with studios twice your size. 28,000 people follow your work on Instagram. You're a Western Living Design Award finalist. The design quality isn't the question. The question is: what happens when you stop being the one manually chasing every lead, every post, every follow-up?</p>
+
+  <p>Right now, your outreach is manual. Your Wix site undersells your work. Your content pipeline depends on you finding the time between design projects. That's not a criticism &mdash; it's the reality of running a studio where the founder is also the best designer. But it means your growth is capped by your hours.</p>
+
+  <p>This proposal is a system that removes that cap.</p>
+
+  <div class="stats">
+    <div class="stat"><span class="stat-val">28K</span><span class="stat-lbl">Instagram Followers</span></div>
+    <div class="stat"><span class="stat-val">12</span><span class="stat-lbl">Portfolio Projects</span></div>
+    <div class="stat"><span class="stat-val">1</span><span class="stat-lbl">WL Design Finalist</span></div>
+    <div class="stat"><span class="stat-val">0</span><span class="stat-lbl">Automated Systems</span></div>
+  </div>
+</div>
+
+
+<!-- PHOTO BREAK -->
+<div class="photo-break">
+  <img src="https://static.wixstatic.com/media/8fa823_f7ab7f73fef34925abbe008134b8f89d~mv2.jpg/v1/fill/w_1920,h_900/8fa823_f7ab7f73fef34925abbe008134b8f89d~mv2.jpg" alt="Mountain Star Lux interior">
+  <div class="photo-break-caption">Mountain Star Lux &middot; Whistler, BC</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     THE SYSTEM
+     ═══════════════════════════════════════ -->
+<div class="section dark grain-section" data-nav="System">
+  <div style="max-width:1000px;margin:0 auto;">
+    <div class="eyebrow" style="color:var(--gold);">The Growth System</div>
+    <h2 style="color:var(--paper);">Six pieces. One engine.<br><em>Everything feeds everything.</em></h2>
+    <p style="color:rgba(246,244,240,0.65);max-width:600px;">Most studios treat marketing as separate tasks: hire a photographer, post on Instagram, maybe update the website. That's why it never compounds. This system is designed so that every piece amplifies the others.</p>
+
+    <div class="flywheel">
+      <div class="flywheel-item">
+        <div class="flywheel-num">01</div>
+        <div class="flywheel-label">Cold Email</div>
+        <div class="flywheel-desc">Finds builders and architects who need a designer. Brings them to your website.</div>
+        <span class="flywheel-arrow">&rarr;</span>
+      </div>
+      <div class="flywheel-item">
+        <div class="flywheel-num">02</div>
+        <div class="flywheel-label">Website</div>
+        <div class="flywheel-desc">A custom-built site that converts visitors into discovery calls.</div>
+        <span class="flywheel-arrow">&rarr;</span>
+      </div>
+      <div class="flywheel-item">
+        <div class="flywheel-num">03</div>
+        <div class="flywheel-label">SEO</div>
+        <div class="flywheel-desc">Organic search brings in leads you didn't chase. Compounds over time.</div>
+      </div>
+      <div class="flywheel-item">
+        <div class="flywheel-num">04</div>
+        <div class="flywheel-label">Social Media</div>
+        <div class="flywheel-desc">3x/week posting. Builds brand trust before the first email lands.</div>
+        <span class="flywheel-arrow">&rarr;</span>
+      </div>
+      <div class="flywheel-item">
+        <div class="flywheel-num">05</div>
+        <div class="flywheel-label">Photography</div>
+        <div class="flywheel-desc">Creates the content that feeds every other channel.</div>
+        <span class="flywheel-arrow">&rarr;</span>
+      </div>
+      <div class="flywheel-item">
+        <div class="flywheel-num">06</div>
+        <div class="flywheel-label">Awards</div>
+        <div class="flywheel-desc">Wins that create press, credibility, and inbound interest. The flywheel accelerates.</div>
+      </div>
+    </div>
+
+    <div class="insight" style="background:rgba(246,244,240,0.04);border-color:rgba(201,169,110,0.1);">
+      <h4>Why Integration Matters</h4>
+      <p style="color:rgba(246,244,240,0.65);">A cold email lands in a builder's inbox. They click through to your website. The site is stunning &mdash; custom-designed, SEO-optimized, showcasing professional photography of your best projects. They check your Instagram &mdash; 28K followers, consistent posts, real work. They book a discovery call. Six months later, you shoot that project, submit it for a Western Living award, and the press from that win generates three more inbound leads. That's not six separate services. That's one system.</p>
+    </div>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     WHAT'S INCLUDED
+     ═══════════════════════════════════════ -->
+<div class="section" data-nav="Services">
+  <div class="eyebrow">What's Included</div>
+  <h2>Six pillars. Each one<br><em>amplifies the others.</em></h2>
+
+  <div class="services three-col">
+
+    <div class="svc">
+      <h4>Cold Email Outreach</h4>
+      <ul>
+        <li>200-300 verified prospects (builders, architects, developers in your service area)</li>
+        <li>Personalized 3-step email sequences with 6-8 copy variations</li>
+        <li>Sending infrastructure built on your domain (SPF/DKIM/DMARC configured)</li>
+        <li>Reply management and lead triage &mdash; warm leads handed to you with context</li>
+        <li>50-75 new prospects added monthly</li>
+        <li>A/B copy testing and optimization</li>
+        <li>Monthly performance report</li>
+      </ul>
+    </div>
+
+    <div class="svc">
+      <h4>Website Rebuild + SEO</h4>
+      <ul>
+        <li>Full custom-coded Squarespace rebuild (not a template)</li>
+        <li>InteriorDesigner + LocalBusiness schema markup</li>
+        <li>Google Business Profile setup + optimization</li>
+        <li>Service area pages: Whistler, Pemberton, Squamish, Vancouver, Sunshine Coast</li>
+        <li>Image alt text optimization across all portfolio projects</li>
+        <li>1 SEO blog post per month targeting local search</li>
+        <li>2 hours/month of site modifications included</li>
+      </ul>
+    </div>
+
+    <div class="svc">
+      <h4>Social Media Management</h4>
+      <ul>
+        <li>3x/week posting across Instagram + Pinterest</li>
+        <li>50/50 photo and short-form video</li>
+        <li>Content pillar framework built collaboratively, refreshed quarterly</li>
+        <li>Design-intent captions and hashtag strategy</li>
+        <li>Pinterest as passive SEO engine</li>
+        <li>Story content from shoot footage</li>
+        <li>Community engagement and growth</li>
+      </ul>
+    </div>
+
+    <div class="svc">
+      <h4>Photography + Video</h4>
+      <ul>
+        <li>4 full-day shoots per year, scheduled flexibly</li>
+        <li>Each shoot: project OR studio marketing (Clare's call)</li>
+        <li>20-25 edited images + 60-second atmospheric video per shoot</li>
+        <li>Material and detail close-ups (50%+ of deliverables)</li>
+        <li>Multi-format delivery: web, social, print, publication-ready</li>
+        <li>Full licensing for all channels</li>
+        <li>Shoot rollover if a project slips</li>
+      </ul>
+    </div>
+
+    <div class="svc">
+      <h4>Awards + Publications</h4>
+      <ul>
+        <li>Every shoot photographed to submission spec</li>
+        <li>Award submissions: IDIBC Shine + Western Living DOTY</li>
+        <li>Annual publication outreach campaign (fall timing)</li>
+        <li>Targets: Western Living, Azure, Dwell, The Local Project</li>
+        <li>Submission narratives and materials prepared</li>
+        <li>Editor relationship management</li>
+      </ul>
+    </div>
+
+    <div class="svc">
+      <h4>Content Strategy</h4>
+      <ul>
+        <li>Content pillar framework (4-6 pillars, refreshed quarterly)</li>
+        <li>Featured blog post on both sites per project shoot</li>
+        <li>Monthly strategy call</li>
+        <li>Quarterly content performance review</li>
+        <li>Cross-channel content planning</li>
+        <li>Shared Dropbox: drop files, I turn them into posts</li>
+      </ul>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- PHOTO BREAK -->
+<div class="photo-break">
+  <img src="https://static.wixstatic.com/media/8fa823_a8ea5ce990cc4d7d9fbbb0f732e87c01~mv2.jpg/v1/fill/w_1920,h_900/8fa823_a8ea5ce990cc4d7d9fbbb0f732e87c01~mv2.jpg" alt="Oberson Road interior">
+  <div class="photo-break-caption">Oberson Road &middot; Pemberton, BC</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     COLD EMAIL DEEP DIVE
+     ═══════════════════════════════════════ -->
+<div class="section cream" data-nav="Cold Email">
+  <div class="eyebrow">Pillar 01</div>
+  <h2>New leads, every week.<br><em>Without lifting a finger.</em></h2>
+  <p class="lead">You told me you're doing all your outreach manually. One email at a time, when you have a spare moment between projects. That's not a lead generation system &mdash; it's a side task competing with your actual work. Here's what changes.</p>
+
+  <p>I build a research-backed prospect list of builders, architects, and developers in the Sea-to-Sky corridor and Greater Vancouver who don't have a go-to interior designer. Every contact is verified. Every email is personalized &mdash; referencing their recent projects, their build style, their market position. Not a blast. Not a template. A professional introduction from your domain, sent at scale.</p>
+
+  <p>The system runs a 3-step sequence: an introduction email, a follow-up three days later, and a graceful close four days after that. If someone replies, the sequence stops automatically. I triage every response, filter out the noise, and hand you the warm leads with context so you can have a real conversation.</p>
+
+  <div class="services" style="margin:40px 0;">
+    <div class="svc">
+      <h4>What You're Doing Now</h4>
+      <ul>
+        <li>Manual emails, one at a time</li>
+        <li>No systematic follow-up</li>
+        <li>Time-consuming prospect research</li>
+        <li>Inconsistent volume (depends on your schedule)</li>
+        <li>No tracking or optimization</li>
+        <li>Growth capped by your available hours</li>
+      </ul>
+    </div>
+    <div class="svc">
+      <h4>What This System Does</h4>
+      <ul>
+        <li>50-75 personalized emails per week, automated</li>
+        <li>3-step sequences with intelligent follow-up</li>
+        <li>Verified prospect database, continuously refreshed</li>
+        <li>Consistent outreach whether you're shooting or designing</li>
+        <li>Monthly performance data (open rates, replies, leads)</li>
+        <li>Growth decoupled from your time</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="insight">
+    <h4>The Math</h4>
+    <p>At 50-75 cold emails per week, you're reaching <strong>200-300 qualified prospects per month</strong>. Industry response rates for personalized B2B outreach run 5-15%. Even at the conservative end, that's <strong>10-15 warm conversations per month</strong> with builders and architects who know your name and have seen your work. If one in five of those conversations converts, that's 2-3 new projects per month entering your pipeline. All while you're designing.</p>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     WEBSITE DEEP DIVE
+     ═══════════════════════════════════════ -->
+<div class="section" data-nav="Website">
+  <div class="eyebrow">Pillar 02</div>
+  <h2>Your website should close<br><em>as well as you design.</em></h2>
+  <p class="lead">Your Wix site is functional. But it's not doing justice to your portfolio, it's not ranking for local search, and when a cold email prospect clicks through, the experience doesn't match the quality of your work. This is what's possible.</p>
+
+  <p>Before we even had coffee, I built a full homepage concept for Clare Riley Design. Not a template. A custom design based on your brand, your projects, and the structure your site needs to convert visitors into enquiries.</p>
+
+  <!-- MOCKUP EMBED -->
+  <div style="max-width:940px;margin:48px auto;border-radius:10px;overflow:hidden;box-shadow:0 30px 80px rgba(26,26,24,0.18), 0 10px 30px rgba(26,26,24,0.1);">
+    <div style="background:#2a2a28;padding:14px 18px;display:flex;align-items:center;gap:8px;">
+      <span style="width:11px;height:11px;border-radius:50%;background:#ff5f57;display:inline-block;"></span>
+      <span style="width:11px;height:11px;border-radius:50%;background:#ffbd2e;display:inline-block;"></span>
+      <span style="width:11px;height:11px;border-radius:50%;background:#28c840;display:inline-block;"></span>
+      <span style="flex:1;background:#1a1a18;border-radius:6px;padding:7px 14px;margin-left:10px;font-family:'DM Sans',sans-serif;font-size:12px;color:#8a8579;letter-spacing:0.02em;">&#x1F512;&ensp;clarerileydesign.com</span>
+    </div>
+    <div style="height:520px;overflow:hidden;background:#1a1a18;">
+      <iframe src="https://mattanthonyphoto.github.io/matt-proposals/clare-riley-design/index.html" style="width:100%;height:520px;border:none;display:block;" loading="lazy"></iframe>
+    </div>
+  </div>
+  <p style="text-align:center;margin-top:16px;"><a href="https://mattanthonyphoto.github.io/matt-proposals/clare-riley-design/index.html" target="_blank" style="color:var(--gold);text-decoration:none;font-family:'Josefin Sans',sans-serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;">Open full mockup &rarr;</a></p>
+
+  <p>The entire site runs on custom code. That means every pixel is intentional, every image is optimized for search engines, and the design matches the calibre of your interiors. Content and layout changes are handled by me &mdash; the retainer includes 2 hours of site modifications per month.</p>
+
+  <div class="insight" style="margin-top:40px;">
+    <h4>Why Custom Code Matters</h4>
+    <p>Template websites on Wix or Squarespace look fine. But they generate the same HTML structure as every other template site, which means Google can't distinguish your work from a DIY hobbyist. Custom code means <strong>proper schema markup</strong> (telling Google you're an interior design studio in Pemberton), <strong>optimized image loading</strong> (your portfolio loads fast on every device), and <strong>SEO structure</strong> that compounds over time. Six months in, your site is ranking for "interior designer Whistler" and "custom home design Pemberton" while your competitors are invisible.</p>
+  </div>
+</div>
+
+
+<!-- PHOTO BREAK -->
+<div class="photo-break">
+  <img src="https://static.wixstatic.com/media/8fa823_e56ccbcad10340628d6f73c4a60e86bc~mv2.jpg/v1/fill/w_1920,h_900/8fa823_e56ccbcad10340628d6f73c4a60e86bc~mv2.jpg" alt="The Beer Farmers">
+  <div class="photo-break-caption">The Beer Farmers &middot; People's Choice, WL Design 2025</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     SOCIAL + PHOTO
+     ═══════════════════════════════════════ -->
+<div class="section light">
+  <div class="eyebrow">Pillars 03 &amp; 04</div>
+  <h2>28K followers is a foundation.<br><em>Let's build on it.</em></h2>
+  <p class="lead">You already have the audience. The challenge is feeding it consistently while running a design studio. The system takes that off your plate entirely. Three posts per week across Instagram and Pinterest, a mix of professional photography and short-form video, all drawn from a content pillar framework we build together.</p>
+
+  <p>Every quarterly photoshoot creates a library of content that feeds your social channels for months. Detail shots, wide angles, atmospheric video, behind-the-scenes &mdash; all delivered in every format: vertical for Instagram, square for grid, Pinterest 2:3, Stories 9:16. You don't crop anything. You don't write captions. You don't schedule. I handle all of it.</p>
+
+  <p>Pinterest works as a passive SEO engine. Every pin links back to your website. Over time, that's hundreds of indexed pages driving traffic to your portfolio without any additional effort.</p>
+
+  <div class="stats">
+    <div class="stat"><span class="stat-val">156</span><span class="stat-lbl">Social Posts Per Year</span></div>
+    <div class="stat"><span class="stat-val">100+</span><span class="stat-lbl">Professional Images</span></div>
+    <div class="stat"><span class="stat-val">4</span><span class="stat-lbl">Atmospheric Videos</span></div>
+    <div class="stat"><span class="stat-val">8</span><span class="stat-lbl">Blog Posts (Both Sites)</span></div>
+  </div>
+</div>
+
+
+<!-- PHOTO BREAK -->
+<div class="photo-break">
+  <img src="https://static.wixstatic.com/media/8fa823_2102f9cbca8c4b10b2f4159f94a28cac~mv2.jpg/v1/fill/w_1920,h_900/8fa823_2102f9cbca8c4b10b2f4159f94a28cac~mv2.jpg" alt="Treeline interior">
+  <div class="photo-break-caption">Treeline &middot; Whistler, BC</div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     A TYPICAL MONTH
+     ═══════════════════════════════════════ -->
+<div class="section cream" data-nav="In Practice">
+  <div class="eyebrow">What This Looks Like</div>
+  <h2>A typical month,<br><em>once the system is running.</em></h2>
+  <p class="lead">By month four, here's what's happening every month without you doing any of it:</p>
+
+  <div class="month-grid">
+    <div class="month-week">
+      <div class="month-week-label">Week 1</div>
+      <ul>
+        <li>75 personalized cold emails sent to builders and architects</li>
+        <li>3 social posts go live (IG + Pinterest)</li>
+        <li>SEO blog post published and indexed</li>
+        <li>Website updates made from your requests</li>
+      </ul>
+    </div>
+    <div class="month-week">
+      <div class="month-week-label">Week 2</div>
+      <ul>
+        <li>Warm leads from cold email triaged and sent to you</li>
+        <li>3 more social posts published</li>
+        <li>Community engagement on your IG</li>
+        <li>Follow-up sequences running automatically</li>
+      </ul>
+    </div>
+    <div class="month-week">
+      <div class="month-week-label">Week 3</div>
+      <ul>
+        <li>Next batch of cold emails deployed</li>
+        <li>3 more social posts published</li>
+        <li>New prospects added to the pipeline</li>
+        <li>Content performance check</li>
+      </ul>
+    </div>
+    <div class="month-week">
+      <div class="month-week-label">Week 4</div>
+      <ul>
+        <li>Monthly report delivered: leads, traffic, growth, rankings</li>
+        <li>Strategy call: what's working, what to adjust</li>
+        <li>Next month's content calendar finalized</li>
+        <li>Cold email copy refreshed based on data</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="insight">
+    <h4>Your Time Investment</h4>
+    <p>One 30-minute strategy call per month. That's it. Everything else runs in the background. You focus on what you do best &mdash; designing beautiful spaces &mdash; while your marketing engine keeps your pipeline full and your brand growing.</p>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     INVESTMENT
+     ═══════════════════════════════════════ -->
+<div class="section wide" id="tiers" data-nav="Investment">
+  <div class="eyebrow">Investment</div>
+  <h2>Three ways in. Each builds<br><em>on the last.</em></h2>
+  <p>Start with cold email to prove the system works. Add the website and SEO to convert those leads. Go full Creative Partner to own every channel. Each tier includes everything below it.</p>
+
+  <div class="tiers">
+
+    <div class="tier" data-tier="lead">
+      <div class="tier-selected-badge">Selected</div>
+      <div class="tier-name">Lead Engine</div>
+      <div class="tier-price">$750 <span>/ mo</span></div>
+      <div class="tier-term">3-month minimum</div>
+      <ul>
+        <li>200-300 verified prospect database</li>
+        <li>3-step personalized email sequences</li>
+        <li>Sending infrastructure on your domain</li>
+        <li>Reply management + lead triage</li>
+        <li>50-75 new prospects added monthly</li>
+        <li>Monthly performance report</li>
+        <li>A/B copy testing</li>
+        <li class="off">Website rebuild + SEO</li>
+        <li class="off">Social media management</li>
+        <li class="off">Photography + video</li>
+        <li class="off">Awards + publications</li>
+      </ul>
+      <div class="tier-bottom">3-month commitment<br><strong>$2,250</strong></div>
+    </div>
+
+    <div class="tier" data-tier="growth">
+      <div class="tier-selected-badge">Selected</div>
+      <div class="tier-name">Growth Partner</div>
+      <div class="tier-price">$2,750 <span>/ mo</span></div>
+      <div class="tier-term">6-month minimum &middot; includes website rebuild</div>
+      <ul>
+        <li>Everything in Lead Engine</li>
+        <li>Full custom-coded Squarespace website rebuild</li>
+        <li>SEO foundation: schema, alt text, GBP, service area pages</li>
+        <li>1 SEO blog post per month</li>
+        <li>2 hours/month of site modifications</li>
+        <li>Monthly strategy call</li>
+        <li class="off">Social media management</li>
+        <li class="off">Photography + video</li>
+        <li class="off">Awards + publications</li>
+      </ul>
+      <div class="tier-bottom">6-month commitment<br><strong>$16,500</strong></div>
+    </div>
+
+    <div class="tier rec" data-tier="full">
+      <div class="tier-selected-badge">Selected</div>
+      <div class="tier-badge"><span>Recommended</span></div>
+      <div class="tier-name">Full Creative Partner</div>
+      <div class="tier-price">$4,000 <span>/ mo</span></div>
+      <div class="tier-term">6-month minimum &middot; the complete system</div>
+      <ul>
+        <li>Everything in Growth Partner</li>
+        <li>Social media: 3x/week IG + Pinterest</li>
+        <li>Content pillar framework, refreshed quarterly</li>
+        <li>4 quarterly photoshoots (project or marketing, your call)</li>
+        <li>20-25 images + atmospheric video per shoot</li>
+        <li>Detail/vignette sessions</li>
+        <li>Award submissions: IDIBC Shine + WL DOTY</li>
+        <li>Annual publication outreach campaign</li>
+        <li>Blog posts on both sites per shoot</li>
+        <li>Quarterly content performance review</li>
+        <li>Full image licensing</li>
+      </ul>
+      <div class="tier-bottom">6-month commitment<br><strong>$24,000</strong></div>
+    </div>
+
+  </div>
+
+  <div style="margin-top:48px;">
+    <div class="eyebrow">Add-On Shoots</div>
+    <div style="display:flex;flex-direction:column;gap:2px;margin-top:20px;">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 24px;background:var(--light);border-left:3px solid var(--gold);">
+        <span style="font-size:0.9rem;color:var(--ink);">Site Visit Shoot <span style="color:var(--stone);font-size:0.82rem;">&mdash; in-progress project documentation, 15-20 images</span></span>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--gold);">$1,000</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:18px 24px;background:var(--light);border-left:3px solid var(--gold);">
+        <span style="font-size:0.9rem;color:var(--ink);">Portfolio Shoot <span style="color:var(--stone);font-size:0.82rem;">&mdash; completed project, 20-25 images + video</span></span>
+        <span style="font-family:'Cormorant Garamond',serif;font-size:1.4rem;font-weight:500;color:var(--gold);">$1,500</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="insight">
+    <h4>Why Start With Cold Email</h4>
+    <p>You don't have to commit to the full system on day one. Start with the Lead Engine at $750/month. In three months, you'll see exactly how many warm leads the system generates, what kinds of conversations it starts, and how those conversations convert. That data makes the next decision &mdash; whether to add the website rebuild, social media, and photography &mdash; obvious. No guesswork. Just proof.</p>
+  </div>
+</div>
+
+
+<!-- NUMBERS BAR -->
+<div class="numbers grain-section">
+  <div class="num"><span class="num-val">600+</span><span class="num-lbl">Prospects Contacted Per Year</span></div>
+  <div class="num"><span class="num-val">156</span><span class="num-lbl">Social Posts Published</span></div>
+  <div class="num"><span class="num-val">100+</span><span class="num-lbl">Professional Images</span></div>
+  <div class="num"><span class="num-val">12</span><span class="num-lbl">Months of Compounding Growth</span></div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     ROADMAP
+     ═══════════════════════════════════════ -->
+<div class="section" data-nav="Roadmap">
+  <div class="eyebrow">The Roadmap</div>
+  <h2>How the first year<br><em>unfolds.</em></h2>
+  <p>Here's the rhythm once we kick off. Everything is designed to build on itself &mdash; each quarter compounds the last.</p>
+
+  <div class="roadmap">
+    <div class="roadmap-line" id="roadmapLine"></div>
+
+    <div class="rm">
+      <div class="rm-left">
+        <div class="rm-month">Month 1-2</div>
+        <div class="rm-label">Foundation</div>
+      </div>
+      <div class="rm-right">
+        <ul>
+          <li>Cold email: prospect list built, sequences written, sending accounts warmed up</li>
+          <li>First cold email campaign goes live (builders in Sea-to-Sky)</li>
+          <li>Website rebuild begins (custom-coded Squarespace)</li>
+          <li>Google Business Profile created and optimized</li>
+          <li>Image alt text audit across your existing portfolio</li>
+          <li>Content pillar workshop with Clare</li>
+          <li>Social channels activated (if Growth Partner or above)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rm">
+      <div class="rm-left">
+        <div class="rm-month">Month 3-4</div>
+        <div class="rm-label">Momentum</div>
+      </div>
+      <div class="rm-right">
+        <ul>
+          <li>Cold email: second ICP campaign launches (architects)</li>
+          <li>First warm leads converting into discovery calls</li>
+          <li>New website goes live</li>
+          <li>SEO foundation in place: schema, service pages, blog posts</li>
+          <li>First quarterly photoshoot scheduled</li>
+          <li>Social media rhythm established (3x/week)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rm">
+      <div class="rm-left">
+        <div class="rm-month">Month 5-8</div>
+        <div class="rm-label">Compound</div>
+      </div>
+      <div class="rm-right">
+        <ul>
+          <li>Cold email: pipeline data informing copy optimization</li>
+          <li>Website traffic growing from SEO + social + cold email</li>
+          <li>Second and third quarterly shoots completed</li>
+          <li>Blog posts on both sites from each shoot</li>
+          <li>Content library deep enough to post for months</li>
+          <li>Pinterest pins compounding organic reach</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="rm">
+      <div class="rm-left">
+        <div class="rm-month">Month 9-12</div>
+        <div class="rm-label">Scale</div>
+      </div>
+      <div class="rm-right">
+        <ul>
+          <li>Annual publication outreach: pitches to Western Living, Azure, Dwell, The Local Project</li>
+          <li>Award submissions: IDIBC Shine + WL Designers of the Year</li>
+          <li>Fourth quarterly shoot</li>
+          <li>Full system review: leads generated, revenue attributed, ROI calculated</li>
+          <li>Year two planning: expand, refine, double down on what's working</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- PHOTO BREAK -->
+<div class="photo-break" style="height:50vh;min-height:360px;max-height:540px;">
+  <img src="https://static.wixstatic.com/media/8fa823_31972398db484f37a14569fae632440a~mv2.jpg/v1/fill/w_1920,h_1080/8fa823_31972398db484f37a14569fae632440a~mv2.jpg" alt="Clare Riley Design interior" style="filter:brightness(0.75);">
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     NEXT STEPS
+     ═══════════════════════════════════════ -->
+<div class="section" data-nav="Next Steps">
+  <div class="eyebrow">Next Steps</div>
+  <h2>Start small or go all in.<br><em>Either way, we start.</em></h2>
+
+  <p>Clare, what I showed you today isn't theoretical. This system is already running for my own business and for other studios in the Sea-to-Sky. The cold email infrastructure is built, the social media engine is live, and I've already designed your homepage. The only question is which piece we start with.</p>
+
+  <div class="steps">
+    <div class="step">
+      <span class="step-num">1</span>
+      <h4>Pick Your Starting Point</h4>
+      <p>Lead Engine at $750/month is the lowest-commitment way to see results. Growth Partner or Full Creative Partner gets the complete system running faster.</p>
+    </div>
+    <div class="step">
+      <span class="step-num">2</span>
+      <h4>Follow-Up Call</h4>
+      <p>We hop on a 30-minute call to finalize scope, answer questions, and set a start date. I'll have a formal agreement ready.</p>
+    </div>
+    <div class="step">
+      <span class="step-num">3</span>
+      <h4>System Goes Live</h4>
+      <p>Cold email infrastructure warms up in week one. Prospect list and sequences go live by week three. Your growth engine starts running.</p>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:56px;">
+    <a href="mailto:info@mattanthonyphoto.com?subject=Clare%20Riley%20Design%20%E2%80%94%20Growth%20System&body=Hi%20Matt%2C%0A%0AI%E2%80%99d%20like%20to%20learn%20more%20about%20the%20growth%20system.%20Let%E2%80%99s%20set%20up%20a%20follow-up%20call.%0A%0ACheers%2C%0AClare" style="display:inline-flex;align-items:center;gap:12px;padding:16px 40px;background:var(--ink);color:var(--paper);border:none;font-family:'Josefin Sans',sans-serif;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);" onmouseover="this.style.background='var(--gold)';this.style.color='var(--ink)'" onmouseout="this.style.background='var(--ink)';this.style.color='var(--paper)'">
+      <span>Let's Talk &rarr;</span>
+    </a>
+  </div>
+</div>
+
+
+<!-- ═══════════════════════════════════════
+     CLOSING
+     ═══════════════════════════════════════ -->
+<div class="photo-break" style="height:50vh;min-height:360px;max-height:540px;">
+  <img src="https://static.wixstatic.com/media/8fa823_82d94b8b9aa44ca2bb38fecd50207a52~mv2.jpg/v1/fill/w_1920,h_1080/8fa823_82d94b8b9aa44ca2bb38fecd50207a52~mv2.jpg" alt="Clare Riley Design" style="filter:brightness(0.25);">
+  <div style="position:absolute;top:0;left:0;right:0;bottom:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:40px;">
+    <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:400;font-style:italic;color:var(--paper);max-width:560px;line-height:1.4;margin-bottom:32px;">The best interior design studio<br>in the Sea-to-Sky.<br>Let's make sure people find you.</p>
+    <div style="font-family:'Josefin Sans',sans-serif;font-size:0.7rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--paper);margin-bottom:20px;">Matt Anthony Photography</div>
+    <div style="font-size:0.8rem;color:rgba(246,244,240,0.5);line-height:2.2;">
+      <a href="https://mattanthonyphoto.com" style="color:var(--gold);text-decoration:none;">mattanthonyphoto.com</a><br>
+      <a href="mailto:info@mattanthonyphoto.com" style="color:var(--gold);text-decoration:none;">info@mattanthonyphoto.com</a> &middot; 604.765.9270<br>
+      Squamish, BC
+    </div>
+    <div style="margin-top:32px;font-family:'Josefin Sans',sans-serif;font-size:0.5rem;letter-spacing:0.15em;text-transform:uppercase;color:rgba(246,244,240,0.15);">This proposal is confidential and prepared exclusively for Clare Riley Design Inc.</div>
+  </div>
+</div>
+
+
+<script>
+(function(){
+  'use strict';
+
+  /* LOADING SCREEN */
+  var loader = document.getElementById('loader');
+  window.addEventListener('load', function(){
+    setTimeout(function(){ loader.classList.add('done'); }, 1100);
+  });
+
+  /* SCROLL PROGRESS */
+  var progressBar = document.getElementById('scrollProgress');
+  function updateProgress(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var s = window.scrollY;
+    progressBar.style.width = (h > 0 ? (s / h) * 100 : 0) + '%';
+  }
+
+  /* COVER PARALLAX */
+  var coverImg = document.querySelector('.cover-image');
+  function updateParallax(){
+    if(window.scrollY < window.innerHeight){
+      coverImg.style.transform = 'scale(1.08) translateY(' + (window.scrollY * 0.3) + 'px)';
+    }
+  }
+
+  /* PHOTO BREAK PARALLAX */
+  var photoBreakEls = document.querySelectorAll('.photo-break');
+  function updatePhotoParallax(){
+    photoBreakEls.forEach(function(pb){
+      var rect = pb.getBoundingClientRect();
+      var inView = rect.bottom > 0 && rect.top < window.innerHeight;
+      if(inView){ pb.classList.add('in-view'); } else { pb.classList.remove('in-view'); }
+    });
+  }
+
+  /* SECTION NAV */
+  var sectionNav = document.getElementById('sectionNav');
+  var navSections = document.querySelectorAll('[data-nav]');
+  var navDots = [];
+  navSections.forEach(function(sec){
+    var dot = document.createElement('div');
+    dot.className = 'section-nav-dot';
+    dot.setAttribute('data-label', sec.getAttribute('data-nav'));
+    dot.addEventListener('click', function(){ sec.scrollIntoView({ behavior:'smooth', block:'start' }); });
+    sectionNav.appendChild(dot);
+    navDots.push({ dot:dot, section:sec });
+  });
+  function updateNavDots(){
+    var scrollY = window.scrollY; var winH = window.innerHeight;
+    if(scrollY > winH * 0.5){ sectionNav.classList.add('visible'); } else { sectionNav.classList.remove('visible'); }
+    var active = null;
+    navDots.forEach(function(item){
+      var rect = item.section.getBoundingClientRect();
+      if(rect.top < winH * 0.5 && rect.bottom > winH * 0.3){ active = item; }
+      item.dot.classList.remove('active');
+    });
+    if(active) active.dot.classList.add('active');
+  }
+
+  /* SCROLL REVEAL */
+  var revealTargets = [];
+  document.querySelectorAll('.section, .numbers, .mosaic').forEach(function(section){
+    section.querySelectorAll('.eyebrow, h2, .lead, .stats, .services, .tiers, .insight, .roadmap, .steps, .month-grid, .flywheel').forEach(function(el, i){
+      el.classList.add('reveal');
+      if(i > 0 && i < 6) el.classList.add('reveal-delay-' + i);
+      revealTargets.push(el);
+    });
+    section.querySelectorAll('.stat, .svc, .tier, .step, .num, .rm, .month-week, .flywheel-item').forEach(function(el, i){
+      el.classList.add('reveal');
+      el.classList.add('reveal-delay-' + Math.min(i + 1, 5));
+      revealTargets.push(el);
+    });
+    Array.prototype.forEach.call(section.children, function(child){
+      if(child.tagName === 'P' && !child.classList.contains('lead') && !child.classList.contains('cover-sub')){
+        child.classList.add('reveal'); revealTargets.push(child);
+      }
+    });
+  });
+  var revealObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){ entry.target.classList.add('visible'); revealObserver.unobserve(entry.target); animateCounter(entry.target); }
+    });
+  }, { threshold:0.15, rootMargin:'0px 0px -40px 0px' });
+  revealTargets.forEach(function(el){ revealObserver.observe(el); });
+
+  /* EYEBROW ANIMATION */
+  var eyebrows = document.querySelectorAll('.eyebrow');
+  var eyebrowObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){ if(entry.isIntersecting){ entry.target.classList.add('visible'); eyebrowObserver.unobserve(entry.target); } });
+  }, { threshold:0.5 });
+  eyebrows.forEach(function(eb){ eyebrowObserver.observe(eb); });
+
+  /* NUMBER COUNTER */
+  function animateCounter(el){
+    var valEl = el.querySelector('.stat-val, .num-val');
+    if(!valEl || valEl.dataset.counted) return;
+    valEl.dataset.counted = 'true';
+    var text = valEl.textContent.trim();
+    var hasPlus = text.indexOf('+') > -1;
+    var hasK = text.indexOf('K') > -1;
+    var num = parseInt(text.replace(/[^0-9]/g,''), 10);
+    if(isNaN(num) || num === 0) return;
+    var suffix = hasK ? 'K' : '';
+    var duration = 1200; var start = performance.now();
+    function ease(t){ return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2; }
+    function tick(now){
+      var t = Math.min((now - start) / duration, 1);
+      var val = Math.round(ease(t) * num);
+      valEl.textContent = val + suffix + (hasPlus ? '+' : '');
+      if(t < 1) requestAnimationFrame(tick);
+    }
+    valEl.textContent = '0' + suffix + (hasPlus ? '+' : '');
+    requestAnimationFrame(tick);
+  }
+
+  /* PHOTO REVEAL */
+  var photoRevealObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){ if(entry.isIntersecting){ entry.target.classList.add('revealed'); photoRevealObserver.unobserve(entry.target); } });
+  }, { threshold:0.1 });
+  photoBreakEls.forEach(function(pb){ photoRevealObserver.observe(pb); });
+
+  /* HEADLINE UNDERLINE */
+  var headlines = document.querySelectorAll('h2');
+  var headlineObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){ if(entry.isIntersecting){ entry.target.classList.add('underlined'); headlineObserver.unobserve(entry.target); } });
+  }, { threshold:0.5 });
+  headlines.forEach(function(h){ headlineObserver.observe(h); });
+
+  /* SCROLL INDICATOR HIDE */
+  var scrollIndicator = document.getElementById('scrollIndicator');
+  function updateScrollIndicator(){
+    if(window.scrollY > 100){ scrollIndicator.classList.add('hidden'); } else { scrollIndicator.classList.remove('hidden'); }
+  }
+
+  /* TIER SELECTION + 3D TILT */
+  var isTouchDevice = 'ontouchstart' in window;
+  var tierNames = { lead:'Lead Engine — $750/mo', growth:'Growth Partner — $2,750/mo', full:'Full Creative Partner — $4,000/mo' };
+  var tiers = document.querySelectorAll('.tier[data-tier]');
+  tiers.forEach(function(tier){
+    tier.addEventListener('click', function(){
+      tiers.forEach(function(t){ t.classList.remove('selected'); });
+      tier.classList.add('selected');
+    });
+    if(!isTouchDevice){
+      tier.addEventListener('mousemove', function(e){
+        var rect = tier.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width - 0.5;
+        var y = (e.clientY - rect.top) / rect.height - 0.5;
+        tier.style.transform = tier.classList.contains('rec')
+          ? 'scaleY(1.02) perspective(800px) rotateY(' + (x * 4) + 'deg) rotateX(' + (-y * 4) + 'deg)'
+          : 'perspective(800px) rotateY(' + (x * 4) + 'deg) rotateX(' + (-y * 4) + 'deg)';
+      });
+      tier.addEventListener('mouseleave', function(){
+        tier.style.transform = tier.classList.contains('rec') ? 'scaleY(1.02)' : '';
+      });
+    }
+  });
+
+  /* ROADMAP LINE */
+  var roadmapLine = document.getElementById('roadmapLine');
+  var roadmap = document.querySelector('.roadmap');
+  function updateRoadmapLine(){
+    if(!roadmap || !roadmapLine) return;
+    var rect = roadmap.getBoundingClientRect();
+    var roadmapTop = rect.top + window.scrollY;
+    var roadmapHeight = rect.height - 96;
+    var scrollPos = window.scrollY + window.innerHeight * 0.6;
+    var progress = (scrollPos - roadmapTop - 48) / roadmapHeight;
+    progress = Math.max(0, Math.min(1, progress));
+    roadmapLine.style.height = (progress * roadmapHeight) + 'px';
+  }
+
+  /* COMBINED SCROLL */
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if(!ticking){
+      requestAnimationFrame(function(){
+        updateProgress(); updateParallax(); updatePhotoParallax();
+        updateScrollIndicator(); updateRoadmapLine(); updateNavDots();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, {passive:true});
+
+  updateProgress(); updateParallax(); updatePhotoParallax(); updateRoadmapLine(); updateNavDots();
+})();
+</script>
+
+</body>
+</html>
