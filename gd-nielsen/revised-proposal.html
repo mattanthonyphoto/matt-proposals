@@ -265,7 +265,10 @@
     position:relative;
     border:1px solid var(--gold-border);
     box-shadow:0 8px 32px rgba(0,0,0,0.04);
+    cursor:pointer; transition:all 0.3s cubic-bezier(0.16,1,0.3,1);
   }
+  .price-card:hover { border-color:var(--gold); }
+  .price-card.selected { border-color:var(--gold); border-width:2px; background:rgba(201,169,110,0.04); }
   .price-card.featured { border-color:var(--gold); border-width:2px; }
   .price-card.featured::after {
     content:'BEST VALUE'; position:absolute; top:20px; right:20px;
@@ -747,7 +750,7 @@
   </div>
 
   <div class="price-cards">
-    <div class="price-card">
+    <div class="price-card" id="cardA" onclick="selectPriceCard('A')">
       <div class="price-card-name">Option A &mdash; 6-Month</div>
       <div class="price-card-price">$2,500 <span>/ month</span></div>
       <div class="price-card-term">6-month engagement, then month-to-month</div>
@@ -762,7 +765,7 @@
       </ul>
       <div class="price-card-bottom">Total engagement<br><strong>$25,000</strong></div>
     </div>
-    <div class="price-card featured">
+    <div class="price-card featured" id="cardB" onclick="selectPriceCard('B')">
       <div class="price-card-name">Option B &mdash; 12-Month</div>
       <div class="price-card-price">$2,500 <span>/ month</span></div>
       <div class="price-card-term">12-month engagement</div>
@@ -1312,7 +1315,14 @@
     }
   }, { passive:true });
 
-  /* APPROVAL FORM */
+  /* PRICE CARD + APPROVAL FORM SYNC */
+  window.selectPriceCard = function(opt){
+    document.getElementById('opt' + opt).checked = true;
+    selectOption();
+    document.getElementById('cardA').classList.toggle('selected', opt === 'A');
+    document.getElementById('cardB').classList.toggle('selected', opt === 'B');
+  };
+
   window.selectOption = function(){
     var a = document.getElementById('optA');
     var b = document.getElementById('optB');
@@ -1322,6 +1332,8 @@
     labelA.style.background = a.checked ? 'rgba(201,169,110,0.06)' : 'var(--light)';
     labelB.style.borderColor = b.checked ? 'var(--gold)' : 'var(--gold-border)';
     labelB.style.background = b.checked ? 'rgba(201,169,110,0.06)' : 'var(--light)';
+    document.getElementById('cardA').classList.toggle('selected', a.checked);
+    document.getElementById('cardB').classList.toggle('selected', b.checked);
   };
 
   window.submitApproval = function(){
