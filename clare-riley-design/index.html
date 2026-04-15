@@ -267,32 +267,54 @@ ul { list-style: none }
 .work-grid {
   max-width: 1120px; margin: 0 auto;
   display: grid; grid-template-columns: 1fr 1fr;
-  gap: var(--gap);
+  gap: clamp(8px, 1.2vw, 16px);
 }
 
-figure { position: relative; overflow: hidden }
-figure img { transition: transform .7s cubic-bezier(.25,.46,.45,.94) }
-@media (hover: hover) { figure:hover img { transform: scale(1.025) } }
+figure { position: relative; overflow: hidden; cursor: pointer }
+figure img {
+  transition: transform .9s cubic-bezier(.25,.46,.45,.94);
+}
 
 .work-grid figure img { width: 100%; aspect-ratio: 4/3; object-fit: cover }
 
+/* ── hover overlay ── */
 figcaption {
-  padding: 14px 0 clamp(24px, 3vh, 40px);
-  display: flex; align-items: baseline; gap: 10px; flex-wrap: wrap;
+  position: absolute; bottom: 0; left: 0; right: 0;
+  padding: clamp(48px, 6vw, 72px) clamp(18px, 2.5vw, 28px) clamp(18px, 2.5vw, 24px);
+  background: linear-gradient(0deg, rgba(28,27,25,.68) 0%, rgba(28,27,25,.12) 65%, transparent 100%);
+  display: flex; flex-direction: column; align-items: flex-start; gap: 4px;
+  opacity: 0; transform: translateY(10px);
+  transition: opacity .5s cubic-bezier(.25,.46,.45,.94), transform .5s cubic-bezier(.25,.46,.45,.94);
 }
-.w-name { font-family: var(--serif); font-size: clamp(.88rem, 1.1vw, 1.05rem); font-weight: 400 }
-.w-loc { font-size: .48rem; font-weight: 300; letter-spacing: .22em; text-transform: uppercase; color: var(--mid) }
+@media (hover: hover) {
+  figure:hover img { transform: scale(1.045) }
+  figure:hover figcaption { opacity: 1; transform: none }
+}
+/* touch devices: always show overlay */
+@media (hover: none) {
+  figcaption { opacity: 1; transform: none }
+}
+
+.w-name {
+  font-family: var(--serif); font-size: clamp(.92rem, 1.2vw, 1.1rem);
+  font-weight: 400; color: #fff;
+}
+.w-loc {
+  font-size: .48rem; font-weight: 300; letter-spacing: .22em;
+  text-transform: uppercase; color: rgba(255,255,255,.45);
+}
 .w-award {
   font-size: .44rem; font-weight: 300; letter-spacing: .16em; text-transform: uppercase;
-  color: var(--sage); margin-left: auto;
+  color: rgba(255,255,255,.7); margin-top: 2px;
   display: inline-flex; align-items: center; gap: 6px;
 }
 .w-award::before {
   content: ''; width: 5px; height: 5px; border-radius: 50%;
-  background: var(--sage); opacity: .5;
+  background: rgba(255,255,255,.5);
 }
 
 .w-more {
+  grid-column: 1 / -1;
   text-align: center; padding: clamp(40px, 5vh, 64px) 0 0;
 }
 .w-more a {
@@ -523,10 +545,11 @@ html.js [data-r] {
               transform .85s cubic-bezier(.25,.46,.45,.94);
 }
 html.js [data-r].vis { opacity: 1; transform: none }
-html.js [data-r="1"] { transition-delay: .08s }
-html.js [data-r="2"] { transition-delay: .16s }
-html.js [data-r="3"] { transition-delay: .24s }
-html.js [data-r="4"] { transition-delay: .32s }
+html.js [data-r="1"] { transition-delay: .1s }
+html.js [data-r="2"] { transition-delay: .2s }
+html.js [data-r="3"] { transition-delay: .3s }
+html.js [data-r="4"] { transition-delay: .4s }
+html.js [data-r="5"] { transition-delay: .5s }
 
 /* ─────────────────────────────────────────────
    RESPONSIVE
@@ -639,7 +662,7 @@ html.js [data-r="4"] { transition-delay: .32s }
       <figcaption><span class="w-name">Mountain Star Lux</span><span class="w-loc">Whistler</span></figcaption>
     </figure>
 
-    <figure data-r>
+    <figure data-r="2">
       <img src="https://static.wixstatic.com/media/8fa823_8dcff44c98bd4db9b49eb16c92aeaadd~mv2.jpg/v1/fill/w_1000,h_750/8fa823_8dcff44c98bd4db9b49eb16c92aeaadd~mv2.jpg" alt="The Beer Farmers — hospitality interior design, Pemberton BC" loading="lazy" width="1000" height="750">
       <figcaption>
         <span class="w-name">The Beer Farmers</span><span class="w-loc">Pemberton</span>
@@ -647,17 +670,17 @@ html.js [data-r="4"] { transition-delay: .32s }
       </figcaption>
     </figure>
 
-    <figure data-r="1">
+    <figure data-r="3">
       <img src="https://static.wixstatic.com/media/8fa823_446db83482634dd6ae4b82bd10bd5d1e~mv2.jpg/v1/fill/w_1000,h_750/8fa823_446db83482634dd6ae4b82bd10bd5d1e~mv2.jpg" alt="Fitzsimmons Walk — contemporary mountain interior, Whistler BC" loading="lazy" width="1000" height="750">
       <figcaption><span class="w-name">Fitzsimmons Walk</span><span class="w-loc">Whistler</span></figcaption>
     </figure>
 
-    <figure data-r>
+    <figure data-r="4">
       <img src="https://static.wixstatic.com/media/8fa823_d79b9fa15a654b0abd5aac2705ef0fea~mv2.jpg/v1/fill/w_1000,h_750/8fa823_d79b9fa15a654b0abd5aac2705ef0fea~mv2.jpg" alt="Treeline — natural materials interior styling, Whistler BC" loading="lazy" width="1000" height="750">
       <figcaption><span class="w-name">Treeline</span><span class="w-loc">Whistler</span></figcaption>
     </figure>
 
-    <figure data-r="1">
+    <figure data-r="5">
       <img src="https://static.wixstatic.com/media/8fa823_2102f9cbca8c4b10b2f4159f94a28cac~mv2.jpg/v1/fill/w_1000,h_750/8fa823_2102f9cbca8c4b10b2f4159f94a28cac~mv2.jpg" alt="Spearhead — modern mountain interior, Whistler BC" loading="lazy" width="1000" height="750">
       <figcaption><span class="w-name">Spearhead</span><span class="w-loc">Whistler</span></figcaption>
     </figure>
