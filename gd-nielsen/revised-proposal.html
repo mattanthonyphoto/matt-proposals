@@ -256,13 +256,23 @@
   @keyframes kenBurns { 0%{transform:scale(1) translateY(0);} 100%{transform:scale(1.06) translateY(-8px);} }
 
   /* ═══════════════════════════════════════
-     PRICING CARD (single tier)
+     PRICING CARDS (two options)
      ═══════════════════════════════════════ */
+  .price-cards { display:grid; grid-template-columns:1fr 1fr; gap:1px; margin:56px 0; background:var(--gold-dim); }
+  @media (max-width:768px) { .price-cards { grid-template-columns:1fr; } }
   .price-card {
     background:var(--ink); color:var(--paper); padding:56px 48px;
-    margin:56px 0; position:relative;
+    position:relative;
     border:1px solid rgba(201,169,110,0.3);
     box-shadow:0 12px 48px rgba(0,0,0,0.15);
+  }
+  .price-card.featured { border-color:var(--gold); }
+  .price-card.featured::after {
+    content:'BEST VALUE'; position:absolute; top:20px; right:20px;
+    font-family:'Josefin Sans',sans-serif; font-size:0.5rem;
+    letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--ink); background:var(--gold);
+    padding:4px 12px;
   }
   .price-card::before {
     content:''; position:absolute; top:0; left:0; right:0; bottom:0;
@@ -624,7 +634,7 @@
 <!-- WEBSITE REDESIGN -->
 <div class="section" data-nav="Website">
   <div class="eyebrow">Component 01</div>
-  <h2>Website redesign.<br><em>$10,000.</em></h2>
+  <h2>Website redesign.<br><em>$10,000 or $5,000.</em></h2>
   <p class="lead">A complete rebuild of gdnielsen.com designed to match the caliber of your built work. This is a collaborative process &mdash; your input drives every decision, from the visual direction to the forms that capture leads to the exact search terms you want to rank for. I build it, but it's your site and your vision.</p>
 
   <div class="services">
@@ -674,7 +684,7 @@
 
   <div class="insight">
     <h4>Payment</h4>
-    <p><strong style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--gold);">$10,000</strong> &mdash; $5,000 deposit on signing, $5,000 at launch.</p>
+    <p><strong style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--gold);">$10,000</strong> with the 6-month retainer, or <strong style="font-family:'Cormorant Garamond',serif;font-size:1.6rem;color:var(--gold);">$5,000</strong> with the 12-month retainer. Either way &mdash; 50% deposit on signing, 50% at launch.</p>
   </div>
 </div>
 
@@ -690,7 +700,7 @@
 <div class="section cream" id="retainer" data-nav="Retainer">
   <div class="eyebrow">Component 02</div>
   <h2>Creative Partner retainer.<br><em>$2,500 per month.</em></h2>
-  <p class="lead">Your dedicated visual and marketing partner on a 6-month engagement, rolling month-to-month after that. Social media, SEO, and portfolio photography &mdash; all handled.</p>
+  <p class="lead">Your dedicated visual and marketing partner. Two options to choose from &mdash; same scope, same quality, your call on the commitment. Social media, SEO, and portfolio photography &mdash; all handled.</p>
 
   <div class="services">
     <div class="svc">
@@ -736,19 +746,37 @@
     </div>
   </div>
 
-  <div class="price-card">
-    <div class="price-card-name">Creative Partner &mdash; Editorial Tier</div>
-    <div class="price-card-price">$2,500 <span>/ month</span></div>
-    <div class="price-card-term">6-month engagement, then month-to-month</div>
-    <ul>
-      <li>1 full-day portfolio shoot per half-year</li>
-      <li>1 monthly site visit for social content (additional visits $500 each)</li>
-      <li>Social media management (Instagram + optional Pinterest)</li>
-      <li>Monthly SEO monitoring + reporting</li>
-      <li>Monthly website updates &mdash; new projects and content added as we shoot</li>
-      <li>Priority scheduling</li>
-    </ul>
-    <div class="price-card-bottom">6-month investment<br><strong>$15,000</strong></div>
+  <div class="price-cards">
+    <div class="price-card">
+      <div class="price-card-name">Option A &mdash; 6-Month</div>
+      <div class="price-card-price">$2,500 <span>/ month</span></div>
+      <div class="price-card-term">6-month engagement, then month-to-month</div>
+      <ul>
+        <li>Website redesign at $10,000</li>
+        <li>1 full-day portfolio shoot per half-year</li>
+        <li>1 monthly site visit for social content (additional visits $500 each)</li>
+        <li>Social media management (Instagram + optional Pinterest)</li>
+        <li>Monthly SEO monitoring + reporting</li>
+        <li>Monthly website updates</li>
+        <li>Priority scheduling</li>
+      </ul>
+      <div class="price-card-bottom">Total engagement<br><strong>$25,000</strong></div>
+    </div>
+    <div class="price-card featured">
+      <div class="price-card-name">Option B &mdash; 12-Month</div>
+      <div class="price-card-price">$2,500 <span>/ month</span></div>
+      <div class="price-card-term">12-month engagement</div>
+      <ul>
+        <li>Website redesign at $5,000 ($5K savings)</li>
+        <li>1 full-day portfolio shoot per half-year</li>
+        <li>1 monthly site visit for social content (additional visits $500 each)</li>
+        <li>Social media management (Instagram + optional Pinterest)</li>
+        <li>Monthly SEO monitoring + reporting</li>
+        <li>Monthly website updates</li>
+        <li>Priority scheduling</li>
+      </ul>
+      <div class="price-card-bottom">Total Year 1<br><strong>$35,000</strong></div>
+    </div>
   </div>
 </div>
 
@@ -822,44 +850,58 @@
   <div class="eyebrow">Your Investment</div>
   <h2>The full picture.<br><em>Transparent.</em></h2>
 
-  <table class="summary-table">
-    <thead>
-      <tr>
-        <th>Component</th>
-        <th>Investment</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr>
-        <td>Website redesign</td>
-        <td><span class="price">$10,000</span><br><span style="font-size:0.75rem;color:var(--stone);">one-time ($5,000 deposit + $5,000 at launch)</span></td>
-      </tr>
-      <tr>
-        <td>Creative Partner retainer (6 &times; $2,500)</td>
-        <td><span class="price">$15,000</span><br><span style="font-size:0.75rem;color:var(--stone);">$2,500/month</span></td>
-      </tr>
-      <tr class="total">
-        <td><strong>Total Engagement</strong></td>
-        <td><span class="price" style="font-size:1.6rem;">$25,000</span></td>
-      </tr>
-    </tbody>
-  </table>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
+    <div>
+      <div style="font-family:'Josefin Sans',sans-serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--stone);margin-bottom:16px;">Option A &mdash; 6-Month</div>
+      <table class="summary-table">
+        <thead><tr><th>Component</th><th>Investment</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Website redesign</td>
+            <td><span class="price">$10,000</span><br><span style="font-size:0.75rem;color:var(--stone);">$5,000 deposit + $5,000 at launch</span></td>
+          </tr>
+          <tr>
+            <td>Retainer (6 &times; $2,500)</td>
+            <td><span class="price">$15,000</span><br><span style="font-size:0.75rem;color:var(--stone);">month-to-month after 6</span></td>
+          </tr>
+          <tr class="total">
+            <td><strong>Total</strong></td>
+            <td><span class="price" style="font-size:1.6rem;">$25,000</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div>
+      <div style="font-family:'Josefin Sans',sans-serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Option B &mdash; 12-Month</div>
+      <table class="summary-table">
+        <thead><tr><th>Component</th><th>Investment</th></tr></thead>
+        <tbody>
+          <tr>
+            <td>Website redesign</td>
+            <td><span class="price">$5,000</span><br><span style="font-size:0.75rem;color:var(--stone);">$5,000 savings with 12-month term</span></td>
+          </tr>
+          <tr>
+            <td>Retainer (12 &times; $2,500)</td>
+            <td><span class="price">$30,000</span></td>
+          </tr>
+          <tr class="total">
+            <td><strong>Total Year 1</strong></td>
+            <td><span class="price" style="font-size:1.6rem;">$35,000</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
 
-  <div style="margin-top:24px;">
-    <div style="font-family:'Josefin Sans',sans-serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">With Build Documentation Books</div>
+  <style>@media (max-width:768px) { div[style*="grid-template-columns:1fr 1fr;gap:32px"] { display:block !important; } div[style*="grid-template-columns:1fr 1fr;gap:32px"] > div:first-child { margin-bottom:40px; } }</style>
+
+  <div style="margin-top:32px;">
+    <div style="font-family:'Josefin Sans',sans-serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Build Documentation Books (either option)</div>
     <table class="summary-table">
       <tbody>
         <tr>
-          <td>Base (no books)</td>
-          <td><span class="price">$25,000</span></td>
-        </tr>
-        <tr>
-          <td>+ 1 project book</td>
-          <td><span class="price">$32,000</span></td>
-        </tr>
-        <tr>
-          <td>+ 2 project books</td>
-          <td><span class="price">$39,000</span></td>
+          <td>Per project</td>
+          <td><span class="price">$7,000</span><br><span style="font-size:0.75rem;color:var(--stone);">added as needed</span></td>
         </tr>
       </tbody>
     </table>
@@ -1031,8 +1073,8 @@
     <div style="margin-bottom:28px;">
       <div style="font-size:0.75rem;color:var(--stone);font-family:'Josefin Sans',sans-serif;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:8px;">Engagement Summary</div>
       <div style="font-size:0.9rem;color:var(--ink);line-height:2;">
-        Website Redesign &mdash; <strong style="color:var(--gold);">$10,000</strong> ($5,000 deposit + $5,000 at launch)<br>
-        Creative Partner Retainer &mdash; <strong style="color:var(--gold);">$2,500/mo</strong> (6-month term, then month-to-month)<br>
+        <strong style="color:var(--stone);font-family:'Josefin Sans',sans-serif;font-size:0.65rem;letter-spacing:0.15em;">OPTION A</strong> &mdash; Website <strong style="color:var(--gold);">$10,000</strong> + Retainer <strong style="color:var(--gold);">$2,500/mo &times; 6</strong> = <strong style="color:var(--gold);">$25,000</strong><br>
+        <strong style="color:var(--stone);font-family:'Josefin Sans',sans-serif;font-size:0.65rem;letter-spacing:0.15em;">OPTION B</strong> &mdash; Website <strong style="color:var(--gold);">$5,000</strong> + Retainer <strong style="color:var(--gold);">$2,500/mo &times; 12</strong> = <strong style="color:var(--gold);">$35,000</strong><br>
         Build Documentation Books &mdash; <strong style="color:var(--gold);">$7,000/project</strong> (as needed)
       </div>
     </div>
@@ -1052,7 +1094,7 @@
     <p style="margin-top:16px;font-size:0.75rem;color:var(--stone);">This opens your email client with your approval pre-filled. Nothing is binding until we both sign a formal engagement letter.</p>
   </div>
 
-  <p style="margin-top:24px; font-size:0.85rem; color:var(--stone);">Engagement begins upon signing. Website deposit of <strong style="color:var(--ink);">$5,000</strong> and first month's retainer of <strong style="color:var(--ink);">$2,500</strong> invoiced at kickoff.</p>
+  <p style="margin-top:24px; font-size:0.85rem; color:var(--stone);">Engagement begins upon signing. Website deposit and first month's retainer of <strong style="color:var(--ink);">$2,500</strong> invoiced at kickoff.</p>
 </div>
 
 
@@ -1267,9 +1309,10 @@
     var subject = encodeURIComponent('GD Nielsen — Proposal Approved');
     var body = 'Hi Matt,%0D%0A%0D%0A'
       + 'We%27re happy with the revised proposal and ready to move forward with the official contract.%0D%0A%0D%0A'
-      + 'Confirmed scope:%0D%0A'
-      + '- Website Redesign: $10,000 ($5,000 deposit + $5,000 at launch)%0D%0A'
-      + '- Creative Partner Retainer: $2,500/mo (12-month term)%0D%0A'
+      + 'We%27d like to go with:%0D%0A'
+      + '- Option A: Website $10,000 + Retainer $2,500/mo x 6 months = $25,000%0D%0A'
+      + '- Option B: Website $5,000 + Retainer $2,500/mo x 12 months = $35,000%0D%0A'
+      + '(Please indicate which option above)%0D%0A'
       + '- Build Documentation Books: $7,000/project (as needed)%0D%0A';
     if(notes){
       body += '%0D%0ANotes: ' + encodeURIComponent(notes) + '%0D%0A';
