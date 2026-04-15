@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Clare Riley Design — Interior Design | Pemberton & Whistler, BC</title>
-<meta name="description" content="Full-service interior design studio in Pemberton, BC. Custom homes, renovations, and vacation properties across Whistler, Squamish, and the Sea-to-Sky Corridor. People's Choice — Western Living Design 2025.">
+<title>Clare Riley Design — Interior Design for Refined Mountain Living | Pemberton & Whistler, BC</title>
+<meta name="description" content="Award-winning interior design studio in Pemberton, BC. Custom new builds, renovations, and vacation properties across Whistler, Squamish, the Sunshine Coast, and Vancouver. People's Choice — Western Living 2025.">
 <meta property="og:title" content="Clare Riley Design — Interior Design for Refined Mountain Living">
-<meta property="og:description" content="Full-service interior design studio in Pemberton, BC. Custom homes, renovations, and vacation properties across the Sea-to-Sky Corridor.">
+<meta property="og:description" content="Award-winning interior design studio in Pemberton, BC. Custom homes, renovations, and vacation properties across Whistler and the Sea-to-Sky Corridor.">
 <meta property="og:image" content="https://static.wixstatic.com/media/8fa823_82d94b8b9aa44ca2bb38fecd50207a52~mv2.jpg/v1/fill/w_1200,h_630/8fa823_82d94b8b9aa44ca2bb38fecd50207a52~mv2.jpg">
 <meta property="og:type" content="website">
 <link rel="canonical" href="https://www.clarerileydesign.com">
@@ -44,6 +44,47 @@
     "https://www.pinterest.com/clarerileydesign/"
   ],
   "award": ["People's Choice — Western Living Design 2025", "Finalist — Western Living Design 2025"]
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "What areas does Clare Riley Design serve?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We serve homeowners across Pemberton, Whistler, Squamish, Lillooet, the Sunshine Coast, and Vancouver. Our studio is based in Pemberton, BC."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "What interior design services do you offer?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "We offer full-service interior design including custom new builds, full renovations, vacation property design and furnishing, 2D and 3D CAD drawings, and complete furniture sourcing and installation."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Do you work with architects and builders?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Yes. We collaborate closely with architects, builders, and skilled tradespeople throughout the Sea-to-Sky Corridor to ensure cohesive design from blueprint to final detail."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Can you design and furnish a vacation property remotely?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Absolutely. We specialize in vacation property design for out-of-town homeowners, handling everything from space planning and material selection to furniture procurement, delivery, and full installation."
+      }
+    }
+  ]
 }
 </script>
 
@@ -196,12 +237,35 @@ ul { list-style: none }
 .hero-content h1 {
   font-family: var(--serif); font-style: italic; font-weight: 400;
   font-size: clamp(2.6rem, 5.8vw, 4.4rem);
-  line-height: 1.12; letter-spacing: -.01em; margin-bottom: 14px;
+  line-height: 1.12; letter-spacing: -.01em; margin-bottom: 10px;
 }
-.hero-content p {
+.hero-tag {
   font-weight: 200; font-size: clamp(.58rem, .85vw, .7rem);
   letter-spacing: .32em; text-transform: uppercase; opacity: .5;
+  margin-bottom: 28px;
 }
+.hero-meta {
+  display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  animation: heroIn 1.1s ease .8s both;
+}
+.hero-badge {
+  display: inline-flex; align-items: center; gap: 8px;
+  font-size: .44rem; font-weight: 300; letter-spacing: .14em; text-transform: uppercase;
+  color: rgba(255,255,255,.5);
+  border: 1px solid rgba(255,255,255,.15); padding: 8px 14px;
+}
+.hero-badge::before {
+  content: ''; width: 5px; height: 5px; border-radius: 50%; background: var(--sage);
+}
+.hero-cta {
+  display: inline-block; font-weight: 300; font-size: .5rem;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: #fff; background: rgba(255,255,255,.12);
+  backdrop-filter: blur(8px); -webkit-backdrop-filter: blur(8px);
+  padding: 12px 28px; border: 1px solid rgba(255,255,255,.2);
+  transition: all .4s;
+}
+.hero-cta:hover { background: var(--sage); border-color: var(--sage) }
 .hero-scroll {
   position: absolute; bottom: 28px; left: 50%; transform: translateX(-50%);
   display: flex; flex-direction: column; align-items: center; gap: 8px;
@@ -243,6 +307,28 @@ ul { list-style: none }
 .intro-rule {
   display: block; width: 36px; height: 1px; background: var(--sage);
   margin-bottom: 24px;
+}
+
+/* ─────────────────────────────────────────────
+   TRUST BAR
+   ───────────────────────────────────────────── */
+
+.trust {
+  padding: clamp(40px, 6vh, 72px) var(--pad);
+  border-top: 1px solid var(--faint); border-bottom: 1px solid var(--faint);
+}
+.trust-inner {
+  max-width: 1120px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: clamp(16px, 3vw, 40px); text-align: center;
+}
+.trust-item { display: flex; flex-direction: column; gap: 4px }
+.trust-num {
+  font-family: var(--serif); font-size: clamp(1.3rem, 2vw, 1.8rem); font-weight: 400;
+}
+.trust-label {
+  font-size: .46rem; font-weight: 300; letter-spacing: .2em;
+  text-transform: uppercase; color: var(--mid);
 }
 
 /* ─────────────────────────────────────────────
@@ -355,6 +441,54 @@ figcaption {
 }
 .svc-card p {
   font-weight: 300; font-size: .82rem; line-height: 1.85; color: var(--mid);
+}
+
+/* ─────────────────────────────────────────────
+   MID CTA
+   ───────────────────────────────────────────── */
+
+.mid-cta {
+  grid-column: 1 / -1; text-align: center;
+  padding: clamp(48px, 7vh, 80px) var(--pad) 0;
+}
+.mid-cta p {
+  font-family: var(--serif); font-style: italic; font-weight: 400;
+  font-size: clamp(1.1rem, 1.6vw, 1.4rem); color: var(--mid);
+  margin-bottom: 20px;
+}
+.mid-cta a {
+  display: inline-block; font-weight: 300; font-size: .52rem;
+  letter-spacing: .2em; text-transform: uppercase;
+  color: var(--paper); background: var(--sage);
+  padding: 14px 36px; transition: all .35s;
+}
+.mid-cta a:hover { background: var(--ink) }
+
+/* ─────────────────────────────────────────────
+   PROCESS
+   ───────────────────────────────────────────── */
+
+.process {
+  padding: var(--section) var(--pad);
+}
+.process-grid {
+  max-width: 1120px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr);
+  gap: clamp(20px, 3vw, 40px); counter-reset: step;
+}
+.process-step { counter-increment: step }
+.process-step::before {
+  content: counter(step, decimal-leading-zero);
+  display: block; font-family: var(--serif); font-size: clamp(2rem, 3vw, 2.8rem);
+  font-weight: 400; color: var(--faint); margin-bottom: 16px;
+  line-height: 1;
+}
+.process-step h3 {
+  font-family: var(--serif); font-weight: 400;
+  font-size: clamp(.95rem, 1.2vw, 1.1rem); margin-bottom: 10px;
+}
+.process-step p {
+  font-weight: 300; font-size: .82rem; line-height: 1.9; color: var(--mid);
 }
 
 /* ─────────────────────────────────────────────
@@ -559,13 +693,18 @@ html.js [data-r="5"] { transition-delay: .5s }
   .intro-inner { grid-template-columns: 1fr; gap: 32px }
   .test-grid { grid-template-columns: 1fr }
   .svc-grid { grid-template-columns: 1fr }
+  .process-grid { grid-template-columns: 1fr 1fr }
   .about-inner { grid-template-columns: 1fr; gap: 40px }
   .about-img { position: static; max-width: 520px }
+  .trust-inner { grid-template-columns: repeat(2, 1fr); gap: 24px }
 }
 @media (max-width: 768px) {
   .nav-links { display: none }
   .nav-ham { display: block }
   .work-grid { grid-template-columns: 1fr }
+  .process-grid { grid-template-columns: 1fr }
+  .trust-inner { grid-template-columns: repeat(2, 1fr) }
+  .hero-meta { flex-direction: column; align-items: flex-start; gap: 12px }
   .contact-links { flex-direction: column; gap: 8px }
   .concept { flex-direction: column; gap: 6px; padding: 10px 16px }
 }
@@ -620,8 +759,12 @@ html.js [data-r="5"] { transition-delay: .5s }
   </div>
   <div class="hero-overlay"></div>
   <div class="hero-content">
-    <h1>Clare Riley<br>Design</h1>
-    <p>Interior Design &ensp;·&ensp; Pemberton & Whistler</p>
+    <h1>Interior Design for<br>Refined Mountain Living</h1>
+    <p class="hero-tag">Clare Riley Design &ensp;·&ensp; Pemberton & Whistler, BC</p>
+    <div class="hero-meta">
+      <span class="hero-badge">People's Choice — Western Living 2025</span>
+      <a href="#contact" class="hero-cta">Start Your Project &rarr;</a>
+    </div>
   </div>
   <div class="hero-scroll"><span>Scroll</span></div>
 </section>
@@ -633,12 +776,37 @@ html.js [data-r="5"] { transition-delay: .5s }
 <section class="intro">
   <div class="intro-inner">
     <blockquote class="intro-quote" data-r>
-      We design for the moment you walk in and exhale.
+      Homes that feel lived-in from the moment you step inside.
     </blockquote>
     <div class="intro-text" data-r="1">
       <span class="intro-rule"></span>
-      <p>Founded in Pemberton, BC, Clare Riley Design is a full-service interior design studio. Originally from Australia, Clare brings a rare sense of warmth to mountain interiors, spaces that feel like they have a story before anyone walks in.</p>
-      <p>From ground-up custom builds to thoughtful renovations and mountain retreats, we work alongside architects and builders to design homes for how people actually want to live.</p>
+      <p>Clare Riley Design is a full-service interior design studio based in Pemberton, BC, serving homeowners across Whistler, Squamish, the Sunshine Coast, and Vancouver. Originally from Australia, Clare founded the studio in 2017 with a simple belief: great design isn't about trends, it's about how a space makes you feel.</p>
+      <p>We work closely with architects, builders, and tradespeople on everything from ground-up custom homes to full renovations and vacation properties. Every project starts with understanding how our clients want to live, then designing the space to make it effortless.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     TRUST BAR
+     ═══════════════════════════════════════════ -->
+
+<section class="trust" data-r>
+  <div class="trust-inner">
+    <div class="trust-item">
+      <span class="trust-num">2017</span>
+      <span class="trust-label">Founded in Pemberton</span>
+    </div>
+    <div class="trust-item">
+      <span class="trust-num">4</span>
+      <span class="trust-label">Design Team</span>
+    </div>
+    <div class="trust-item">
+      <span class="trust-num">6</span>
+      <span class="trust-label">Regions Served</span>
+    </div>
+    <div class="trust-item">
+      <span class="trust-num">2025</span>
+      <span class="trust-label">Western Living Award</span>
     </div>
   </div>
 </section>
@@ -685,8 +853,40 @@ html.js [data-r="5"] { transition-delay: .5s }
       <figcaption><span class="w-name">Spearhead</span><span class="w-loc">Whistler</span></figcaption>
     </figure>
 
-    <div class="w-more" data-r><a href="https://www.clarerileydesign.com/design-portfolio">View all projects &rarr;</a></div>
+    <div class="mid-cta" data-r>
+      <p>Have a project in mind?</p>
+      <a href="#contact">Book a Consultation &rarr;</a>
+    </div>
 
+    <div class="w-more" data-r><a href="https://www.clarerileydesign.com/design-portfolio">View all 12 projects &rarr;</a></div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+     PROCESS
+     ═══════════════════════════════════════════ -->
+
+<section class="process">
+  <div class="section-head" data-r><h2>How We Work</h2></div>
+
+  <div class="process-grid">
+    <div class="process-step" data-r>
+      <h3>Discovery</h3>
+      <p>We start by listening. Understanding your lifestyle, your vision, and how you want each room to feel sets the foundation for everything that follows.</p>
+    </div>
+    <div class="process-step" data-r="1">
+      <h3>Concept & Design</h3>
+      <p>Detailed floor plans, material palettes, and photorealistic 3D renderings let you see and refine the design before a single order is placed.</p>
+    </div>
+    <div class="process-step" data-r="2">
+      <h3>Procurement</h3>
+      <p>We source, order, and manage everything from custom furniture to finishing hardware, coordinating with builders and trades to keep your project on track.</p>
+    </div>
+    <div class="process-step" data-r="3">
+      <h3>Installation</h3>
+      <p>On delivery day, our team handles placement, styling, and every final detail so the space feels complete and lived-in from the moment we hand it over.</p>
+    </div>
   </div>
 </section>
 
@@ -700,23 +900,23 @@ html.js [data-r="5"] { transition-delay: .5s }
   <div class="svc-grid">
     <div class="svc-card" data-r="1">
       <div class="svc-num">01</div>
-      <h3>New Builds</h3>
-      <p>Full interior design from concept through installation. We work alongside your architect and builder to create spaces that feel intentional from the first sketch.</p>
+      <h3>Custom New Builds</h3>
+      <p>End-to-end interior design for ground-up homes. We collaborate with your architect and builder from initial blueprint through final styling, ensuring every material, finish, and furnishing serves the way you live.</p>
     </div>
     <div class="svc-card" data-r="2">
       <div class="svc-num">02</div>
-      <h3>Renovations</h3>
-      <p>Thoughtful transformation of existing spaces. Whether it's a full gut renovation or a strategic refresh, we design for how you actually live.</p>
+      <h3>Full Renovations</h3>
+      <p>Transforming existing homes and condos for modern mountain living. From reconfiguring layouts to updating finishes, we manage the full scope so the result feels cohesive, not patched together.</p>
     </div>
     <div class="svc-card" data-r="3">
       <div class="svc-num">03</div>
       <h3>Vacation Properties</h3>
-      <p>Mountain retreat styling that feels like home, not a hotel. Furnishing packages, material selection, and design management for second-home owners.</p>
+      <p>Design and furnishing packages for second-home owners who want their Whistler or Pemberton property to feel warm and personal, not like a rental. We handle everything from space planning to pillow placement.</p>
     </div>
     <div class="svc-card" data-r="4">
       <div class="svc-num">04</div>
-      <h3>Visualization & Procurement</h3>
-      <p>Photorealistic 3D renderings, detailed construction drawings, and custom furniture sourcing to see and furnish your space before a single order is placed.</p>
+      <h3>Visualization & Sourcing</h3>
+      <p>Detailed 2D floor plans, photorealistic 3D renderings, and full furniture procurement. See your space before construction begins, then let us source, order, and install every piece.</p>
     </div>
   </div>
 </section>
@@ -751,8 +951,8 @@ html.js [data-r="5"] { transition-delay: .5s }
     </div>
     <div class="about-text">
       <h2 data-r>The Studio</h2>
-      <p data-r>Originally from Australia, Clare Riley brought her eye for light and texture to British Columbia's mountain landscape nearly two decades ago. Since founding the studio in 2017, her team has grown to four designers, each project grounded in the belief that a home should feel lived-in from the moment you step inside.</p>
-      <p data-r>We work across the full spectrum of residential and commercial design: from ground-up custom builds to full renovations, vacation properties, and furniture sourcing. Every project begins with understanding how our clients want to live, then designing the space to make it effortless.</p>
+      <p data-r>Clare Riley grew up in Australia, where light and landscape shape everything. She brought that sensibility to British Columbia's mountains, founding the studio in Pemberton in 2017. Today, a team of four designers works across the Sea-to-Sky Corridor and beyond, grounded in a shared belief: a home should feel like yours from the moment you walk in.</p>
+      <p data-r>We take on a limited number of projects each year so every client gets our full attention. Whether it's a new build in Whistler, a renovation on the Sunshine Coast, or a vacation property in Pemberton Meadows, we're involved from first concept to final cushion.</p>
 
       <ul class="team-list" data-r>
         <li><span>Clare Riley</span><span class="role">Creative Director</span></li>
@@ -779,13 +979,13 @@ html.js [data-r="5"] { transition-delay: .5s }
      ═══════════════════════════════════════════ -->
 
 <section class="contact" id="contact">
-  <h2 data-r>Begin Your Project</h2>
-  <p data-r>New build, renovation, or vacation property. We'd love to hear what you're planning.</p>
+  <h2 data-r>Let's Talk About Your Home</h2>
+  <p data-r>Whether you're building new, renovating, or furnishing a vacation property across Whistler, Pemberton, or the Sea-to-Sky, we'd love to hear what you're planning.</p>
   <div class="contact-links" data-r>
-    <a href="mailto:info@clarerileydesign.com">info@clarerileydesign.com</a>
+    <a href="mailto:clare@clarerileydesign.com">clare@clarerileydesign.com</a>
     <a href="tel:604-907-2217">604.907.2217</a>
   </div>
-  <a href="https://www.clarerileydesign.com/contact" class="contact-cta" data-r>Start a Conversation &rarr;</a>
+  <a href="https://www.clarerileydesign.com/contact" class="contact-cta" data-r>Book a Consultation &rarr;</a>
 </section>
 
 <!-- ═══════════════════════════════════════════
