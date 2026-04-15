@@ -264,21 +264,17 @@ ul { list-style: none }
   background: var(--sage); margin-top: 14px;
 }
 
-.work-grid { max-width: 1120px; margin: 0 auto }
+.work-grid {
+  max-width: 1120px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: var(--gap);
+}
 
 figure { position: relative; overflow: hidden }
 figure img { transition: transform .7s cubic-bezier(.25,.46,.45,.94) }
 @media (hover: hover) { figure:hover img { transform: scale(1.025) } }
 
-.w-full { margin-bottom: var(--gap) }
-.w-full img { width: 100%; aspect-ratio: 16/9; object-fit: cover }
-
-.w-pair {
-  display: grid; gap: var(--gap); margin-bottom: var(--gap);
-}
-.w-pair--lr { grid-template-columns: 1.25fr 1fr }
-.w-pair--rl { grid-template-columns: 1fr 1.25fr }
-.w-pair img { width: 100%; aspect-ratio: 4/3; object-fit: cover }
+.work-grid figure img { width: 100%; aspect-ratio: 4/3; object-fit: cover }
 
 figcaption {
   padding: 14px 0 clamp(24px, 3vh, 40px);
@@ -546,8 +542,7 @@ html.js [data-r="4"] { transition-delay: .32s }
 @media (max-width: 768px) {
   .nav-links { display: none }
   .nav-ham { display: block }
-  .w-pair--lr, .w-pair--rl { grid-template-columns: 1fr }
-  .w-pair img { aspect-ratio: 3/2 }
+  .work-grid { grid-template-columns: 1fr }
   .contact-links { flex-direction: column; gap: 8px }
   .concept { flex-direction: column; gap: 6px; padding: 10px 16px }
 }
@@ -634,40 +629,38 @@ html.js [data-r="4"] { transition-delay: .32s }
 
   <div class="work-grid">
 
-    <figure class="w-full" data-r>
-      <img src="https://static.wixstatic.com/media/8fa823_2e8440e1685a4078857a963f76ab7846~mv2.jpg/v1/fill/w_1600,h_900/8fa823_2e8440e1685a4078857a963f76ab7846~mv2.jpg" alt="Pinnacle Ridge — full interior design, Whistler BC" loading="lazy" width="1600" height="900">
+    <figure data-r>
+      <img src="https://static.wixstatic.com/media/8fa823_2e8440e1685a4078857a963f76ab7846~mv2.jpg/v1/fill/w_1000,h_750/8fa823_2e8440e1685a4078857a963f76ab7846~mv2.jpg" alt="Pinnacle Ridge — full interior design, Whistler BC" loading="lazy" width="1000" height="750">
       <figcaption><span class="w-name">Pinnacle Ridge</span><span class="w-loc">Whistler</span></figcaption>
     </figure>
 
-    <div class="w-pair w-pair--lr" data-r>
-      <figure>
-        <img src="https://static.wixstatic.com/media/8fa823_9f7e568b77994c4a9f791512f9715922~mv2.jpg/v1/fill/w_1000,h_750/8fa823_9f7e568b77994c4a9f791512f9715922~mv2.jpg" alt="Mountain Star Lux — luxury townhome renovation, Whistler BC" loading="lazy" width="1000" height="750">
-        <figcaption><span class="w-name">Mountain Star Lux</span><span class="w-loc">Whistler</span></figcaption>
-      </figure>
-      <figure>
-        <img src="https://static.wixstatic.com/media/8fa823_446db83482634dd6ae4b82bd10bd5d1e~mv2.jpg/v1/fill/w_1000,h_750/8fa823_446db83482634dd6ae4b82bd10bd5d1e~mv2.jpg" alt="Fitzsimmons Walk — contemporary mountain interior, Whistler BC" loading="lazy" width="1000" height="750">
-        <figcaption><span class="w-name">Fitzsimmons Walk</span><span class="w-loc">Whistler</span></figcaption>
-      </figure>
-    </div>
+    <figure data-r="1">
+      <img src="https://static.wixstatic.com/media/8fa823_9f7e568b77994c4a9f791512f9715922~mv2.jpg/v1/fill/w_1000,h_750/8fa823_9f7e568b77994c4a9f791512f9715922~mv2.jpg" alt="Mountain Star Lux — luxury townhome renovation, Whistler BC" loading="lazy" width="1000" height="750">
+      <figcaption><span class="w-name">Mountain Star Lux</span><span class="w-loc">Whistler</span></figcaption>
+    </figure>
 
-    <figure class="w-full" data-r>
-      <img src="https://static.wixstatic.com/media/8fa823_8dcff44c98bd4db9b49eb16c92aeaadd~mv2.jpg/v1/fill/w_1600,h_900/8fa823_8dcff44c98bd4db9b49eb16c92aeaadd~mv2.jpg" alt="The Beer Farmers — hospitality interior design, Pemberton BC" loading="lazy" width="1600" height="900">
+    <figure data-r>
+      <img src="https://static.wixstatic.com/media/8fa823_8dcff44c98bd4db9b49eb16c92aeaadd~mv2.jpg/v1/fill/w_1000,h_750/8fa823_8dcff44c98bd4db9b49eb16c92aeaadd~mv2.jpg" alt="The Beer Farmers — hospitality interior design, Pemberton BC" loading="lazy" width="1000" height="750">
       <figcaption>
         <span class="w-name">The Beer Farmers</span><span class="w-loc">Pemberton</span>
         <span class="w-award">People's Choice — Western Living 2025</span>
       </figcaption>
     </figure>
 
-    <div class="w-pair w-pair--rl" data-r>
-      <figure>
-        <img src="https://static.wixstatic.com/media/8fa823_d79b9fa15a654b0abd5aac2705ef0fea~mv2.jpg/v1/fill/w_1000,h_750/8fa823_d79b9fa15a654b0abd5aac2705ef0fea~mv2.jpg" alt="Treeline — natural materials interior styling, Whistler BC" loading="lazy" width="1000" height="750">
-        <figcaption><span class="w-name">Treeline</span><span class="w-loc">Whistler</span></figcaption>
-      </figure>
-      <figure>
-        <img src="https://static.wixstatic.com/media/8fa823_2102f9cbca8c4b10b2f4159f94a28cac~mv2.jpg/v1/fill/w_1000,h_750/8fa823_2102f9cbca8c4b10b2f4159f94a28cac~mv2.jpg" alt="Spearhead — modern mountain interior, Whistler BC" loading="lazy" width="1000" height="750">
-        <figcaption><span class="w-name">Spearhead</span><span class="w-loc">Whistler</span></figcaption>
-      </figure>
-    </div>
+    <figure data-r="1">
+      <img src="https://static.wixstatic.com/media/8fa823_446db83482634dd6ae4b82bd10bd5d1e~mv2.jpg/v1/fill/w_1000,h_750/8fa823_446db83482634dd6ae4b82bd10bd5d1e~mv2.jpg" alt="Fitzsimmons Walk — contemporary mountain interior, Whistler BC" loading="lazy" width="1000" height="750">
+      <figcaption><span class="w-name">Fitzsimmons Walk</span><span class="w-loc">Whistler</span></figcaption>
+    </figure>
+
+    <figure data-r>
+      <img src="https://static.wixstatic.com/media/8fa823_d79b9fa15a654b0abd5aac2705ef0fea~mv2.jpg/v1/fill/w_1000,h_750/8fa823_d79b9fa15a654b0abd5aac2705ef0fea~mv2.jpg" alt="Treeline — natural materials interior styling, Whistler BC" loading="lazy" width="1000" height="750">
+      <figcaption><span class="w-name">Treeline</span><span class="w-loc">Whistler</span></figcaption>
+    </figure>
+
+    <figure data-r="1">
+      <img src="https://static.wixstatic.com/media/8fa823_2102f9cbca8c4b10b2f4159f94a28cac~mv2.jpg/v1/fill/w_1000,h_750/8fa823_2102f9cbca8c4b10b2f4159f94a28cac~mv2.jpg" alt="Spearhead — modern mountain interior, Whistler BC" loading="lazy" width="1000" height="750">
+      <figcaption><span class="w-name">Spearhead</span><span class="w-loc">Whistler</span></figcaption>
+    </figure>
 
     <div class="w-more" data-r><a href="https://www.clarerileydesign.com/design-portfolio">View all projects &rarr;</a></div>
 
