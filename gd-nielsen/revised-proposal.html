@@ -850,62 +850,36 @@
   <div class="eyebrow">Your Investment</div>
   <h2>The full picture.<br><em>Transparent.</em></h2>
 
-  <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;">
-    <div>
-      <div style="font-family:'Josefin Sans',sans-serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--stone);margin-bottom:16px;">Option A &mdash; 6-Month</div>
-      <table class="summary-table">
-        <thead><tr><th>Component</th><th>Investment</th></tr></thead>
-        <tbody>
-          <tr>
-            <td>Website redesign</td>
-            <td><span class="price">$10,000</span><br><span style="font-size:0.75rem;color:var(--stone);">$5,000 deposit + $5,000 at launch</span></td>
-          </tr>
-          <tr>
-            <td>Retainer (6 &times; $2,500)</td>
-            <td><span class="price">$15,000</span><br><span style="font-size:0.75rem;color:var(--stone);">month-to-month after 6</span></td>
-          </tr>
-          <tr class="total">
-            <td><strong>Total</strong></td>
-            <td><span class="price" style="font-size:1.6rem;">$25,000</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div>
-      <div style="font-family:'Josefin Sans',sans-serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Option B &mdash; 12-Month</div>
-      <table class="summary-table">
-        <thead><tr><th>Component</th><th>Investment</th></tr></thead>
-        <tbody>
-          <tr>
-            <td>Website redesign</td>
-            <td><span class="price">$5,000</span><br><span style="font-size:0.75rem;color:var(--stone);">$5,000 savings with 12-month term</span></td>
-          </tr>
-          <tr>
-            <td>Retainer (12 &times; $2,500)</td>
-            <td><span class="price">$30,000</span></td>
-          </tr>
-          <tr class="total">
-            <td><strong>Total Year 1</strong></td>
-            <td><span class="price" style="font-size:1.6rem;">$35,000</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-
-  <style>@media (max-width:768px) { div[style*="grid-template-columns:1fr 1fr;gap:32px"] { display:block !important; } div[style*="grid-template-columns:1fr 1fr;gap:32px"] > div:first-child { margin-bottom:40px; } }</style>
-
-  <div style="margin-top:32px;">
-    <div style="font-family:'Josefin Sans',sans-serif;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;">Build Documentation Books (either option)</div>
-    <table class="summary-table">
-      <tbody>
-        <tr>
-          <td>Per project</td>
-          <td><span class="price">$7,000</span><br><span style="font-size:0.75rem;color:var(--stone);">added as needed</span></td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
+  <table class="summary-table">
+    <thead>
+      <tr>
+        <th></th>
+        <th>Option A &mdash; 6-Month</th>
+        <th>Option B &mdash; 12-Month</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Website redesign</td>
+        <td><span class="price">$10,000</span></td>
+        <td><span class="price">$5,000</span><br><span style="font-size:0.75rem;color:var(--gold);">save $5,000</span></td>
+      </tr>
+      <tr>
+        <td>Creative Partner retainer</td>
+        <td><span class="price">$15,000</span><br><span style="font-size:0.75rem;color:var(--stone);">$2,500/mo &times; 6, then month-to-month</span></td>
+        <td><span class="price">$30,000</span><br><span style="font-size:0.75rem;color:var(--stone);">$2,500/mo &times; 12</span></td>
+      </tr>
+      <tr>
+        <td>Build documentation books</td>
+        <td colspan="2" style="text-align:center;"><span class="price">$7,000</span><span style="font-size:0.75rem;color:var(--stone);"> / project, as needed</span></td>
+      </tr>
+      <tr class="total">
+        <td><strong>Total</strong></td>
+        <td><span class="price" style="font-size:1.6rem;">$25,000</span></td>
+        <td><span class="price" style="font-size:1.6rem;">$35,000</span></td>
+      </tr>
+    </tbody>
+  </table>
 
   <div class="insight" style="margin-top:48px;">
     <h4>The Context</h4>
