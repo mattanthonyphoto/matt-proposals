@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Six-Month Content Plan — Radius Architectural Millwork</title>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink:#1A1A18; --paper:#F6F4F0; --gold:#C9A96E;
+    --gold-dim:rgba(201,169,110,0.12); --gold-border:rgba(201,169,110,0.25);
+    --stone:#8A8579; --white:#FFFFFF; --light:#FAFAF8;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{font-size:16px;-webkit-print-color-adjust:exact;print-color-adjust:exact;scroll-behavior:smooth;}
+  body{background:var(--white);color:var(--ink);font-family:'DM Sans',sans-serif;font-weight:300;line-height:1.75;overflow-x:hidden;}
+
+  /* COVER */
+  .cover{min-height:100vh;background:var(--ink);color:var(--paper);display:flex;flex-direction:column;justify-content:flex-end;position:relative;overflow:hidden;}
+  .cover-image{position:absolute;top:0;left:0;width:100%;height:100%;background-size:cover;background-position:center 30%;will-change:transform;transition:transform 0.1s linear;}
+  .cover-image::after{content:'';position:absolute;top:0;left:0;width:100%;height:100%;background:linear-gradient(to bottom,rgba(26,26,24,0.5) 0%,rgba(26,26,24,0.4) 30%,rgba(26,26,24,0.65) 55%,rgba(26,26,24,0.96) 82%,rgba(26,26,24,0.99) 100%);}
+  .cover-top{position:absolute;top:0;left:0;right:0;z-index:3;padding:40px 60px;display:flex;justify-content:space-between;align-items:center;}
+  .cover-logo{font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:0.65rem;letter-spacing:0.35em;text-transform:uppercase;color:rgba(246,244,240,0.6);}
+  .cover-date{font-family:'Josefin Sans',sans-serif;font-size:0.65rem;letter-spacing:0.2em;color:rgba(246,244,240,0.4);}
+  .cover-content{position:relative;z-index:2;padding:0 60px 100px;max-width:780px;}
+  .cover-eyebrow{font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:0.65rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;display:flex;align-items:center;gap:16px;}
+  .cover-eyebrow::before{content:'';width:32px;height:1px;background:var(--gold);}
+  .cover h1{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:clamp(2.8rem,5.6vw,4.8rem);line-height:1.05;margin-bottom:24px;letter-spacing:-0.01em;text-shadow:0 2px 40px rgba(0,0,0,0.5);}
+  .cover h1 em{font-style:italic;font-weight:500;color:var(--gold);}
+  .cover-sub{font-size:1.05rem;color:rgba(246,244,240,0.78);max-width:560px;line-height:1.75;margin-bottom:32px;}
+  .cover-meta{display:flex;gap:40px;margin-top:16px;font-family:'Josefin Sans',sans-serif;font-size:0.6rem;letter-spacing:0.25em;text-transform:uppercase;color:rgba(246,244,240,0.45);}
+  .cover-meta div strong{display:block;color:var(--gold);font-size:0.8rem;letter-spacing:0.15em;margin-bottom:4px;font-weight:400;}
+
+  /* LAYOUT */
+  .section{padding:110px 60px;max-width:1040px;margin:0 auto;}
+  .section.wide{max-width:1200px;}
+  .section.dark{background:var(--ink);color:var(--paper);}
+  .section.cream{background:var(--paper);}
+  .section.light{background:var(--light);}
+
+  .eyebrow{font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:0.6rem;letter-spacing:0.35em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;display:flex;align-items:center;gap:14px;}
+  .eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);}
+
+  h2{font-family:'Cormorant Garamond',serif;font-weight:400;font-size:2.6rem;line-height:1.12;margin-bottom:28px;letter-spacing:-0.01em;text-wrap:balance;}
+  h2 em{font-style:italic;font-weight:500;}
+  h3{font-family:'Josefin Sans',sans-serif;font-weight:400;font-size:0.75rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--stone);margin:48px 0 20px;}
+  p{margin-bottom:20px;font-size:0.95rem;}
+  .lead{font-size:1.05rem;line-height:1.9;color:var(--stone);text-wrap:pretty;}
+
+  /* SOURCES GRID */
+  .sources{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin:56px 0;background:var(--gold-dim);}
+  .src{background:var(--white);padding:40px 28px;position:relative;border-top:3px solid var(--gold);}
+  .src-pct{font-family:'Cormorant Garamond',serif;font-size:2.4rem;font-weight:500;color:var(--gold);line-height:1;margin-bottom:8px;}
+  .src-name{font-family:'Josefin Sans',sans-serif;font-weight:400;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink);margin-bottom:12px;}
+  .src-desc{font-size:0.82rem;color:var(--stone);line-height:1.7;}
+
+  /* ANATOMY */
+  .anatomy{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin:56px 0;align-items:start;}
+  .anatomy-left{background:var(--ink);color:var(--paper);padding:48px 40px;position:relative;}
+  .anatomy-left::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:var(--gold);}
+  .anatomy-left h4{font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;}
+  .anatomy-input{font-family:'Cormorant Garamond',serif;font-size:1.8rem;font-weight:400;line-height:1.3;color:var(--paper);margin-bottom:16px;}
+  .anatomy-input em{font-style:italic;color:var(--gold);}
+  .anatomy-input-sub{font-size:0.85rem;color:rgba(246,244,240,0.6);line-height:1.7;}
+  .anatomy-right{padding:0;}
+  .anatomy-right h4{font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;}
+  .anatomy-list{list-style:none;}
+  .anatomy-list li{padding:14px 0 14px 28px;border-bottom:1px solid rgba(26,26,24,0.06);position:relative;font-size:0.88rem;color:var(--ink);}
+  .anatomy-list li:last-child{border:none;}
+  .anatomy-list li::before{content:'';position:absolute;left:0;top:22px;width:14px;height:1px;background:var(--gold);}
+  .anatomy-list li strong{color:var(--gold);font-weight:500;display:inline-block;min-width:40px;}
+  .anatomy-list li span{color:var(--stone);font-size:0.78rem;display:block;margin-top:4px;}
+
+  /* WEEKLY CADENCE */
+  .week-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:1px;margin:48px 0;background:var(--gold-dim);}
+  .week-day{background:var(--white);padding:24px 14px;text-align:center;min-height:160px;display:flex;flex-direction:column;}
+  .week-day.on{background:var(--light);border-top:3px solid var(--gold);}
+  .week-day.off{background:var(--white);color:var(--stone);opacity:0.5;}
+  .week-dow{font-family:'Josefin Sans',sans-serif;font-size:0.55rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--stone);margin-bottom:16px;}
+  .week-day.on .week-dow{color:var(--gold);}
+  .week-type{font-family:'Cormorant Garamond',serif;font-size:1rem;font-weight:500;font-style:italic;line-height:1.3;margin-bottom:8px;color:var(--ink);}
+  .week-plat{font-size:0.7rem;color:var(--stone);line-height:1.5;}
+
+  /* CONTENT PILLARS */
+  .pillars{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;margin:56px 0;background:var(--gold-dim);}
+  .pillar{background:var(--white);padding:36px 24px;text-align:left;border-top:3px solid var(--gold);}
+  .pillar-num{font-family:'Cormorant Garamond',serif;font-size:0.85rem;font-weight:500;color:var(--gold);letter-spacing:0.1em;margin-bottom:12px;}
+  .pillar-name{font-family:'Josefin Sans',sans-serif;font-weight:400;font-size:0.72rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--ink);margin-bottom:14px;}
+  .pillar-desc{font-size:0.78rem;color:var(--stone);line-height:1.65;}
+
+  /* INSIGHT CALLOUT */
+  .insight{background:var(--light);padding:44px 52px;margin:48px 0;position:relative;border:1px solid rgba(201,169,110,0.08);box-shadow:0 8px 32px rgba(0,0,0,0.03);}
+  .insight::before{content:'';position:absolute;top:0;left:0;bottom:0;width:3px;background:var(--gold);}
+  .insight h4{font-family:'Josefin Sans',sans-serif;font-weight:300;font-size:0.65rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+  .insight p{font-size:0.9rem;margin-bottom:10px;}
+  .insight p:last-child{margin-bottom:0;}
+
+  /* ROADMAP */
+  .roadmap{margin:56px 0;}
+  .rm{display:grid;grid-template-columns:220px 1fr;gap:0;border-bottom:1px solid rgba(26,26,24,0.06);}
+  .rm:last-child{border:none;}
+  .rm-left{padding:40px 32px 40px 0;border-right:2px solid var(--gold-dim);position:relative;}
+  .rm-left::after{content:'';position:absolute;right:-5px;top:48px;width:8px;height:8px;border-radius:50%;background:var(--gold);box-shadow:0 0 10px rgba(201,169,110,0.5);}
+  .rm-month{font-family:'Josefin Sans',sans-serif;font-weight:400;font-size:0.6rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:6px;}
+  .rm-label{font-family:'Cormorant Garamond',serif;font-size:1.5rem;font-weight:400;font-style:italic;color:var(--ink);line-height:1.3;margin-bottom:12px;}
+  .rm-focus{font-size:0.75rem;color:var(--stone);line-height:1.6;}
+  .rm-right{padding:40px 0 40px 40px;}
+  .rm-shoot{font-family:'Josefin Sans',sans-serif;font-size:0.55rem;letter-spacing:0.25em;text-transform:uppercase;color:var(--gold);margin-bottom:8px;}
+  .rm-shoot-desc{font-size:0.95rem;color:var(--ink);margin-bottom:20px;line-height:1.7;}
+  .rm-shoot-desc em{font-style:italic;color:var(--gold);}
+  .rm-right h5{font-family:'Josefin Sans',sans-serif;font-weight:400;font-size:0.55rem;letter-spacing:0.22em;text-transform:uppercase;color:var(--stone);margin:16px 0 8px;}
+  .rm-right ul{list-style:none;margin-bottom:12px;}
+  .rm-right li{font-size:0.82rem;padding:5px 0 5px 20px;position:relative;color:var(--stone);}
+  .rm-right li::before{content:'';position:absolute;left:0;top:13px;width:8px;height:1px;background:var(--gold);}
+  .rm-milestone{margin-top:16px;padding:14px 18px;background:var(--light);border-left:3px solid var(--gold);font-size:0.8rem;color:var(--ink);}
+  .rm-milestone strong{color:var(--gold);font-family:'Josefin Sans',sans-serif;font-size:0.55rem;letter-spacing:0.25em;text-transform:uppercase;display:block;margin-bottom:4px;}
+
+  /* BY THE NUMBERS */
+  .numbers{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;margin:40px 0;background:var(--gold-dim);}
+  .num{background:var(--ink);text-align:center;padding:48px 18px;}
+  .num-val{font-family:'Cormorant Garamond',serif;font-size:3.6rem;font-weight:500;color:var(--gold);display:block;line-height:1;margin-bottom:10px;}
+  .num-lbl{font-family:'Josefin Sans',sans-serif;font-size:0.55rem;letter-spacing:0.22em;text-transform:uppercase;color:rgba(246,244,240,0.7);}
+
+  /* DELIVERABLES */
+  .delivs{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;margin:56px 0;}
+  .deliv{padding:32px 28px;background:var(--white);border:1px solid rgba(26,26,24,0.06);border-top:3px solid var(--gold);}
+  .deliv h4{font-family:'Josefin Sans',sans-serif;font-weight:400;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;color:var(--gold);margin-bottom:16px;}
+  .deliv ul{list-style:none;}
+  .deliv li{font-size:0.82rem;padding:7px 0 7px 20px;position:relative;color:var(--stone);line-height:1.55;border-bottom:1px solid rgba(26,26,24,0.04);}
+  .deliv li:last-child{border:none;}
+  .deliv li::before{content:'';position:absolute;left:0;top:14px;width:8px;height:1px;background:var(--gold);}
+
+  /* PHOTO BREAK */
+  .photo-break{height:60vh;min-height:400px;position:relative;overflow:hidden;}
+  .photo-break img{width:100%;height:100%;object-fit:cover;transform:scale(1.05);transition:transform 0.8s cubic-bezier(0.16,1,0.3,1);}
+  .photo-break:hover img{transform:scale(1.02);}
+  .photo-break::after{content:'';position:absolute;bottom:0;left:0;right:0;height:120px;background:linear-gradient(transparent,rgba(26,26,24,0.65));}
+  .photo-break-caption{position:absolute;bottom:24px;left:40px;font-family:'Josefin Sans',sans-serif;font-size:0.55rem;letter-spacing:0.3em;text-transform:uppercase;color:rgba(246,244,240,0.75);z-index:2;}
+
+  /* CTA BUTTON */
+  .cta-row{margin-top:48px;display:flex;gap:20px;flex-wrap:wrap;}
+  .btn{display:inline-flex;align-items:center;gap:14px;padding:18px 36px;font-family:'Josefin Sans',sans-serif;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);border:1px solid var(--gold);}
+  .btn-solid{background:var(--ink);color:var(--paper);border-color:var(--ink);}
+  .btn-solid:hover{background:var(--gold);color:var(--ink);border-color:var(--gold);}
+  .btn-outline{background:transparent;color:var(--ink);}
+  .btn-outline:hover{background:var(--gold);color:var(--ink);}
+
+  /* CLOSING */
+  .closing{min-height:70vh;background:var(--ink);color:var(--paper);position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;text-align:center;padding:80px 40px;}
+  .closing::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background-image:url('https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/d524d107-05c4-42a3-9357-4303ef3840ad/LRD-2500px-19.jpg');background-size:cover;background-position:center;filter:brightness(0.22);}
+  .closing-inner{position:relative;z-index:2;max-width:640px;}
+  .closing-eyebrow{font-family:'Josefin Sans',sans-serif;font-size:0.65rem;letter-spacing:0.4em;text-transform:uppercase;color:var(--gold);margin-bottom:24px;}
+  .closing h2{font-family:'Cormorant Garamond',serif;font-size:clamp(2rem,4vw,3rem);font-style:italic;line-height:1.3;color:var(--paper);margin-bottom:36px;}
+  .closing h2 em{color:var(--gold);font-weight:500;}
+  .closing-cta{display:inline-flex;align-items:center;gap:14px;padding:18px 40px;border:1px solid var(--gold);background:transparent;color:var(--gold);font-family:'Josefin Sans',sans-serif;font-size:0.7rem;letter-spacing:0.2em;text-transform:uppercase;text-decoration:none;cursor:pointer;transition:all 0.4s cubic-bezier(0.16,1,0.3,1);}
+  .closing-cta:hover{background:var(--gold);color:var(--ink);}
+
+  /* FOOTER */
+  .footer{padding:48px 40px;background:var(--ink);color:rgba(246,244,240,0.4);text-align:center;font-size:0.7rem;line-height:2;}
+  .footer a{color:var(--gold);text-decoration:none;}
+  .footer-conf{margin-top:16px;font-family:'Josefin Sans',sans-serif;font-size:0.5rem;letter-spacing:0.18em;text-transform:uppercase;color:rgba(246,244,240,0.18);}
+
+  /* RESPONSIVE */
+  @media (max-width:960px){
+    .sources{grid-template-columns:repeat(2,1fr);}
+    .week-grid{grid-template-columns:repeat(4,1fr);}
+    .pillars{grid-template-columns:repeat(2,1fr);}
+    .anatomy{grid-template-columns:1fr;}
+    .delivs{grid-template-columns:1fr;}
+    .numbers{grid-template-columns:repeat(2,1fr);}
+  }
+  @media (max-width:768px){
+    .cover-content,.cover-top{padding-left:32px;padding-right:32px;}
+    .section{padding:72px 32px;}
+    .sources,.pillars{grid-template-columns:1fr;}
+    .week-grid{grid-template-columns:repeat(2,1fr);}
+    .rm{grid-template-columns:1fr;}
+    .rm-left{border-right:none;border-bottom:2px solid var(--gold-dim);padding:28px 0;}
+    .rm-left::after{display:none;}
+    .rm-right{padding:28px 0;}
+    .cover-meta{gap:20px;flex-wrap:wrap;}
+  }
+
+  @media print{.cover{min-height:auto;}.photo-break{height:280px;}}
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-image" id="coverImg" style="background-image:url('https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/9f3611d8-a842-42d6-b65b-cd25ba6920cd/sunridge-whistle-web--32.jpg');"></div>
+  <div class="cover-top">
+    <div class="cover-logo">Matt Anthony Photography</div>
+    <div class="cover-date">Six-Month Plan · April 2026</div>
+  </div>
+  <div class="cover-content">
+    <div class="cover-eyebrow">Prepared for Rick Wilson · Radius Architectural Millwork</div>
+    <h1>Six months. One shoot a month.<br><em>Ninety posts.</em></h1>
+    <p class="cover-sub">You asked a fair question: what does content actually look like from one shoot a month? Here's the answer, with the mechanics, the sources, the weekly rhythm, and month-by-month plan laid out end to end.</p>
+    <div class="cover-meta">
+      <div><strong>6</strong>Shoot Days</div>
+      <div><strong>~100</strong>Editorial Images</div>
+      <div><strong>90+</strong>Published Posts</div>
+      <div><strong>2</strong>Award Submissions</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- THE QUESTION -->
+<div class="section">
+  <div class="eyebrow">The Question</div>
+  <h2>The concern isn't the math.<br><em>It's the source.</em></h2>
+  <p class="lead">When you said you struggled to envision what content from a once-a-month shoot would look like, the real question underneath was: <em>what are we even shooting?</em> Your installs are slow. The Whistler project got locked out by the architect. Angus got pre-shot by a design firm. If the content engine depends on finished installs, it breaks every time someone else controls the site.</p>
+  <p class="lead">So the plan isn't built around installs. It's built around your shop in Burnaby, which you control every day of the week, plus installs and completions as they line up.</p>
+</div>
+
+
+<!-- WHERE CONTENT COMES FROM -->
+<div class="section wide light">
+  <div class="eyebrow">Four Sources</div>
+  <h2>Where the content<br><em>actually comes from.</em></h2>
+  <p class="lead">A typical month blends four sources of raw material. One shoot day is your monthly commitment — everything else is remixing, reframing, and writing around the visual library we build together.</p>
+
+  <div class="sources">
+    <div class="src">
+      <div class="src-pct">55%</div>
+      <div class="src-name">The Shop</div>
+      <div class="src-desc">Burnaby. Wood arriving, machining, finishing, team at work, specs on the bench. No client access required. This is the permanent engine.</div>
+    </div>
+    <div class="src">
+      <div class="src-pct">25%</div>
+      <div class="src-name">Installs</div>
+      <div class="src-desc">Jobsite captures during install windows. Team fitting panels, leveling runs, final adjustments. Booked around your install calendar.</div>
+    </div>
+    <div class="src">
+      <div class="src-pct">15%</div>
+      <div class="src-name">Completions</div>
+      <div class="src-desc">Finished project walkthroughs when access and timing align. Hero shots, portfolio-grade, publication-ready. Opportunistic.</div>
+    </div>
+    <div class="src">
+      <div class="src-pct">5%</div>
+      <div class="src-name">Archive Remix</div>
+      <div class="src-desc">Re-cutting prior shoots into new formats: carousels, material spotlights, before/after framing. Content you already paid for, working harder.</div>
+    </div>
+  </div>
+
+  <div class="insight">
+    <h4>Why The Shop Is The Unlock</h4>
+    <p>This is the part that solves what frustrated you last week. If the content engine depends on jobsite access, every locked-out project is a lost month. Shop-based content runs regardless. Wood arrives weekly. Panels move through finishing every week. Your team is there every day. <strong>That's a permanent source Radius owns outright.</strong> Installs and completions are bonuses on top.</p>
+  </div>
+</div>
+
+
+<!-- PHOTO BREAK -->
+<div class="photo-break">
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/0b4f9f4d-01c4-4da3-ae8e-1131391d280f/sunridge-whistle-web--39.jpg" alt="Custom millwork detail">
+  <div class="photo-break-caption">Sunridge · Whistler, BC · Matt Anthony Photography</div>
+</div>
+
+
+<!-- ANATOMY OF ONE SHOOT -->
+<div class="section">
+  <div class="eyebrow">Anatomy of One Shoot</div>
+  <h2>What a single shoot day<br><em>actually produces.</em></h2>
+  <p class="lead">One shoot day is 2-3 hours on site or in the shop. I capture around 150 frames, edit the strongest 15-20 into a finished set, and pull 30-60 seconds of motion along the way. Here's how that one day translates into a month of posts.</p>
+
+  <div class="anatomy">
+    <div class="anatomy-left">
+      <h4>Input</h4>
+      <div class="anatomy-input">One shoot day. <em>2-3 hours.</em></div>
+      <div class="anatomy-input-sub">Shop floor, install site, or finished project. ~150 captured frames. 30-60 seconds of B-roll. One strategy briefing before, one delivery after.</div>
+    </div>
+    <div class="anatomy-right">
+      <h4>Output</h4>
+      <ul class="anatomy-list">
+        <li><strong>15-20</strong>Editorial stills delivered within 7 days<span>Full licensing: web, social, print, submissions</span></li>
+        <li><strong>3-4</strong>Instagram carousels<span>Sequenced narratives: wood to panel, process to install</span></li>
+        <li><strong>6-8</strong>Instagram single posts<span>Hero frames, tight details, material close-ups</span></li>
+        <li><strong>1-2</strong>Reels or short video cuts<span>Shop-floor process, install day motion</span></li>
+        <li><strong>3-4</strong>LinkedIn posts<span>Longer-form craft commentary, single-image anchors</span></li>
+        <li><strong>5-8</strong>Story frames<span>Behind-the-scenes, polling, reposts to feed</span></li>
+        <li><strong>14-16</strong>Total published posts across IG + LinkedIn<span>That's the monthly cadence, repeatable, month after month</span></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+
+<!-- WEEKLY CADENCE -->
+<div class="section wide cream">
+  <div class="eyebrow">Weekly Rhythm</div>
+  <h2>A typical posting week.<br><em>Four beats, every week.</em></h2>
+  <p class="lead">You don't need to think about when to post. The week runs on a fixed cadence, captions are written ahead, and content is queued. What you see here is the default pattern — we adjust when an install or launch reshuffles priorities.</p>
+
+  <div class="week-grid">
+    <div class="week-day on">
+      <div class="week-dow">Mon</div>
+      <div class="week-type">Process Detail</div>
+      <div class="week-plat">Instagram</div>
+    </div>
+    <div class="week-day off">
+      <div class="week-dow">Tue</div>
+      <div class="week-type">—</div>
+      <div class="week-plat">Stories</div>
+    </div>
+    <div class="week-day on">
+      <div class="week-dow">Wed</div>
+      <div class="week-type">Project Hero</div>
+      <div class="week-plat">Instagram + LinkedIn</div>
+    </div>
+    <div class="week-day off">
+      <div class="week-dow">Thu</div>
+      <div class="week-type">—</div>
+      <div class="week-plat">Stories</div>
+    </div>
+    <div class="week-day on">
+      <div class="week-dow">Fri</div>
+      <div class="week-type">Team or Material</div>
+      <div class="week-plat">Instagram</div>
+    </div>
+    <div class="week-day off">
+      <div class="week-dow">Sat</div>
+      <div class="week-type">—</div>
+      <div class="week-plat">Dark day</div>
+    </div>
+    <div class="week-day on">
+      <div class="week-dow">Sun</div>
+      <div class="week-type">Craft Story</div>
+      <div class="week-plat">LinkedIn long-form</div>
+    </div>
+  </div>
+
+  <div class="insight">
+    <h4>Monthly Cadence</h4>
+    <p><strong>Week 1:</strong> Shoot day plus delivery and next-month plan.<br><strong>Week 2:</strong> Posting begins, captions written, calendar published to you for review.<br><strong>Week 3:</strong> Mid-month rhythm. Engagement check. Adjust pillars if needed.<br><strong>Week 4:</strong> Strategy call, 20 minutes. Review what landed, what didn't, what we shoot next.</p>
+  </div>
+</div>
+
+
+<!-- CONTENT PILLARS -->
+<div class="section wide">
+  <div class="eyebrow">Five Content Pillars</div>
+  <h2>The story Radius tells<br><em>every month.</em></h2>
+  <p class="lead">Every post lives under one of five pillars. That's what keeps the feed coherent instead of random, and it's what gives the audience a reason to keep coming back.</p>
+
+  <div class="pillars">
+    <div class="pillar">
+      <div class="pillar-num">01</div>
+      <div class="pillar-name">The Craft</div>
+      <div class="pillar-desc">Joinery, slip-matching, veneer selection, tolerances. The technical decisions other shops never explain.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">02</div>
+      <div class="pillar-name">The Shop</div>
+      <div class="pillar-desc">Burnaby behind the scenes. Machinery in action, finishing booth, material arriving, the daily rhythm.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">03</div>
+      <div class="pillar-name">The Install</div>
+      <div class="pillar-desc">Jobsite reality. Panels fitting, install crew working, the transition from shop to final home.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">04</div>
+      <div class="pillar-name">The Team</div>
+      <div class="pillar-desc">Rick's POV. Shop history. The people who build the work. Founder authority on LinkedIn.</div>
+    </div>
+    <div class="pillar">
+      <div class="pillar-num">05</div>
+      <div class="pillar-name">The Finished</div>
+      <div class="pillar-desc">Completed projects, hero shots, editorial frames. The kind of imagery that wins AWMAC entries.</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- PHOTO BREAK -->
+<div class="photo-break">
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/d524d107-05c4-42a3-9357-4303ef3840ad/LRD-2500px-19.jpg" alt="Interior millwork and cabinetry">
+  <div class="photo-break-caption">LRD Studio · Vancouver · Matt Anthony Photography</div>
+</div>
+
+
+<!-- SIX-MONTH ROADMAP -->
+<div class="section wide">
+  <div class="eyebrow">The Six-Month Roadmap</div>
+  <h2>What it looks like<br><em>month by month.</em></h2>
+  <p class="lead">Each month has a theme, a shoot focus, and a milestone. The plan adjusts when real installs and completions land — OGR, Angus reshoot, and anything else that comes in gets slotted in opportunistically.</p>
+
+  <div class="roadmap">
+
+    <div class="rm">
+      <div class="rm-left">
+        <div class="rm-month">Month 1 · May 2026</div>
+        <div class="rm-label">Foundation</div>
+        <div class="rm-focus">Baseline visual library. Establish voice and identity.</div>
+      </div>
+      <div class="rm-right">
+        <div class="rm-shoot">Shoot 1 · The Shop Overview</div>
+        <div class="rm-shoot-desc">Full Burnaby shop walkthrough. Machine room, finishing booth, material bay, team in action, panels on the bench. <em>The permanent content reservoir.</em></div>
+        <h5>Themes</h5>
+        <ul>
+          <li>Introducing Radius: who we are, what we make, how we work</li>
+          <li>The AWMAC Gold, explained in one post</li>
+          <li>Wood species spotlight series begins</li>
+          <li>Strategy call: content pillars locked, voice established</li>
+        </ul>
+        <div class="rm-milestone"><strong>Milestone</strong>60-80 image library delivered. 14 posts published. Audience hook established.</div>
+      </div>
+    </div>
+
+    <div class="rm">
+      <div class="rm-left">
+        <div class="rm-month">Month 2 · June 2026</div>
+        <div class="rm-label">Process Story</div>
+        <div class="rm-focus">One project, start to finish. Deep-craft narrative.</div>
+      </div>
+      <div class="rm-right">
+        <div class="rm-shoot">Shoot 2 · Project In Production</div>
+        <div class="rm-shoot-desc">Follow one specific job deep. Panel selection, slip-matching decisions, joinery, finishing stages. <em>The story of how a single piece gets made.</em></div>
+        <h5>Themes</h5>
+        <ul>
+          <li>"How we built X" carousel series launches</li>
+          <li>Slip-matching explained in a LinkedIn long-form post</li>
+          <li>Finishing process reel</li>
+          <li>Material spotlight: one wood species featured across the week</li>
+        </ul>
+        <div class="rm-milestone"><strong>Milestone</strong>First "how it's made" narrative published. Save rate trackable. Month-over-month follower growth visible.</div>
+      </div>
+    </div>
+
+    <div class="rm">
+      <div class="rm-left">
+        <div class="rm-month">Month 3 · July 2026</div>
+        <div class="rm-label">Install Window</div>
+        <div class="rm-focus">Shop to site. The context beyond Burnaby.</div>
+      </div>
+      <div class="rm-right">
+        <div class="rm-shoot">Shoot 3 · Install Day</div>
+        <div class="rm-shoot-desc">Jobsite capture during an active install. Team fitting panels, final adjustments, crane or hoist moments if any. <em>The shop-to-home transition.</em></div>
+        <h5>Themes</h5>
+        <ul>
+          <li>"Shop to install" reel sequence</li>
+          <li>The logistics of custom millwork: before/after framing</li>
+          <li>Install crew spotlight</li>
+          <li>Three-month check-in: review, adjust, lock year two direction</li>
+        </ul>
+        <div class="rm-milestone"><strong>Milestone</strong>3-month minimum met. 45-60 images in library. 42+ posts live. Decision point: continue at $1,500, or upgrade to Creative Partner.</div>
+      </div>
+    </div>
+
+    <div class="rm">
+      <div class="rm-left">
+        <div class="rm-month">Month 4 · August 2026</div>
+        <div class="rm-label">Completion + Editorial</div>
+        <div class="rm-focus">Publication-ready imagery. First awards set.</div>
+      </div>
+      <div class="rm-right">
+        <div class="rm-shoot">Shoot 4 · Completion Walkthrough</div>
+        <div class="rm-shoot-desc">A finished project shot when access lines up (Old Gravel Road if timing holds, or Angus reshoot as a millwork-focused second pass). <em>Portfolio-grade and AWMAC-ready.</em></div>
+        <h5>Themes</h5>
+        <ul>
+          <li>Hero shots drop on Instagram</li>
+          <li>Project page built for the website</li>
+          <li>LinkedIn long-form: the design intent behind the millwork</li>
+          <li>Pitch to Western Living, Dwell, or regional publications</li>
+        </ul>
+        <div class="rm-milestone"><strong>Milestone</strong>AWMAC / Georgie submission set delivered. Publication pitch sent. First "editorial" identity visible on the feed.</div>
+      </div>
+    </div>
+
+    <div class="rm">
+      <div class="rm-left">
+        <div class="rm-month">Month 5 · September 2026</div>
+        <div class="rm-label">Brand + People</div>
+        <div class="rm-focus">Humanize the work. Build founder authority.</div>
+      </div>
+      <div class="rm-right">
+        <div class="rm-shoot">Shoot 5 · People-Focused Shop Day</div>
+        <div class="rm-shoot-desc">Rick on camera, team member profiles, founder story. <em>The people behind the panels.</em></div>
+        <h5>Themes</h5>
+        <ul>
+          <li>Rick's POV: a LinkedIn series, one post a week</li>
+          <li>Team profile posts: Q&A style, one per week</li>
+          <li>Shop history: how Radius got here</li>
+          <li>"Why we still do X by hand" craft defense post</li>
+        </ul>
+        <div class="rm-milestone"><strong>Milestone</strong>LinkedIn following crosses inflection point. First inbound lead traceable to social. Founder brand visible.</div>
+      </div>
+    </div>
+
+    <div class="rm">
+      <div class="rm-left">
+        <div class="rm-month">Month 6 · October 2026</div>
+        <div class="rm-label">Compounding + Awards</div>
+        <div class="rm-focus">Six-month retrospective. AWMAC push. Year two plan.</div>
+      </div>
+      <div class="rm-right">
+        <div class="rm-shoot">Shoot 6 · Variety Day</div>
+        <div class="rm-shoot-desc">Second install or a shop revisit covering new work that's come through since month 1. <em>Closing the first full loop.</em></div>
+        <h5>Themes</h5>
+        <ul>
+          <li>6-month retrospective carousel: where Radius was, where it is now</li>
+          <li>AWMAC submissions go in</li>
+          <li>Year-end awards calendar pitches (Georgie, HAVAN, publications)</li>
+          <li>Year 2 planning call: what worked, what scales, what to keep</li>
+        </ul>
+        <div class="rm-milestone"><strong>Milestone</strong>AWMAC entries submitted. Full content library Radius owns forever. Year 2 plan drafted.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- BY THE NUMBERS -->
+<div class="section wide" style="padding-top:0;">
+  <div class="numbers">
+    <div class="num"><span class="num-val">6</span><span class="num-lbl">Shoot Days</span></div>
+    <div class="num"><span class="num-val">100+</span><span class="num-lbl">Editorial Images</span></div>
+    <div class="num"><span class="num-val">90+</span><span class="num-lbl">Published Posts</span></div>
+    <div class="num"><span class="num-val">2</span><span class="num-lbl">Award Submissions</span></div>
+  </div>
+</div>
+
+
+<!-- WHAT YOU OWN AT THE END -->
+<div class="section cream">
+  <div class="eyebrow">What You Own At The End</div>
+  <h2>Six months in, here's what<br><em>Radius has in the bank.</em></h2>
+  <p class="lead">These are tangible outputs, not engagement metrics. Things you own outright and can keep using for years after the retainer ends.</p>
+
+  <div class="delivs">
+    <div class="deliv">
+      <h4>Image Library</h4>
+      <ul>
+        <li>100+ editorial stills, fully edited</li>
+        <li>30-60 seconds of usable B-roll footage</li>
+        <li>Organized by project, wood species, and pillar</li>
+        <li>Licensed for web, social, print, and submissions</li>
+        <li>Delivered via Dropbox, yours forever</li>
+      </ul>
+    </div>
+    <div class="deliv">
+      <h4>Social Presence</h4>
+      <ul>
+        <li>90+ posts published across IG + LinkedIn</li>
+        <li>Content calendar documented for year two</li>
+        <li>Caption bank, hashtag strategy, pillar framework</li>
+        <li>Measurable follower growth and engagement baseline</li>
+        <li>A feed that actually represents the AWMAC-Gold work</li>
+      </ul>
+    </div>
+    <div class="deliv">
+      <h4>Pipeline Assets</h4>
+      <ul>
+        <li>AWMAC submission set for at least one project</li>
+        <li>Georgie or HAVAN submission material prepped</li>
+        <li>1-2 publication pitch packages sent</li>
+        <li>Project pages ready for web deployment</li>
+        <li>Founder brand footprint on LinkedIn</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="insight">
+    <h4>The Long View</h4>
+    <p>The first millwork shop in the Lower Mainland to build a real content engine wins the category. SOMA, Kategorie1, Pacific Rim — none of them are doing this. <strong>Six months of compounding content is a position competitors can't catch up on in a year.</strong> That's the real investment here, not the posts themselves.</p>
+  </div>
+</div>
+
+
+<!-- CLOSING -->
+<div class="closing">
+  <div class="closing-inner">
+    <div class="closing-eyebrow">Next Step</div>
+    <h2>The 6-month picture is above.<br>The 3-month minimum is where we <em>start.</em></h2>
+    <p style="color:rgba(246,244,240,0.7);font-size:0.95rem;margin-bottom:36px;line-height:1.8;">Start with the three-month minimum. If the content is working at month 3 — and based on what I've seen in your shop and your portfolio, it will be — we lock in months 4 through 6 and keep building.</p>
+    <a class="closing-cta" href="https://mattanthonyphoto.com/discovery-call">Book the Call &rarr;</a>
+    <p style="margin-top:32px;color:rgba(246,244,240,0.4);font-size:0.8rem;">Or email <a href="mailto:info@mattanthonyphoto.com" style="color:var(--gold);text-decoration:none;">info@mattanthonyphoto.com</a> with a few times that work this week or next.</p>
+  </div>
+</div>
+
+
+<!-- FOOTER -->
+<div class="footer">
+  <div>
+    <a href="https://mattanthonyphoto.com">mattanthonyphoto.com</a> ·
+    <a href="mailto:info@mattanthonyphoto.com">info@mattanthonyphoto.com</a> ·
+    604.765.9270
+  </div>
+  <div class="footer-conf">This plan is confidential and prepared exclusively for Rick Wilson at Radius Architectural Millwork Ltd.</div>
+</div>
+
+
+<script>
+(function(){
+  var coverImg = document.getElementById('coverImg');
+  if(coverImg){
+    window.addEventListener('scroll', function(){
+      if(window.scrollY < window.innerHeight){
+        coverImg.style.transform = 'scale(1.06) translateY(' + (window.scrollY * 0.25) + 'px)';
+      }
+    }, {passive:true});
+  }
+})();
+</script>
+
+</body>
+</html>
