@@ -1,0 +1,1593 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Valleycliffe Aux Box Install — Photography Proposal — [Company Name]</title>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1A1A18;
+    --paper: #F6F4F0;
+    --gold: #C9A96E;
+    --gold-dim: rgba(201,169,110,0.12);
+    --gold-border: rgba(201,169,110,0.25);
+    --gold-glow: rgba(201,169,110,0.06);
+    --stone: #8A8579;
+    --white: #FFFFFF;
+    --light: #FAFAF8;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { font-size:16px; -webkit-print-color-adjust:exact; print-color-adjust:exact; scroll-behavior:smooth; }
+  body { background:var(--white); color:var(--ink); font-family:'DM Sans',sans-serif; font-weight:300; line-height:1.75; overflow-x:hidden; }
+
+
+  /* ═══════════════════════════════════════
+     COVER — FULL BLEED CINEMATIC
+     ═══════════════════════════════════════ */
+  .cover {
+    min-height:100vh; background:var(--ink); color:var(--paper);
+    display:flex; flex-direction:column; justify-content:flex-end;
+    padding:0 0 0 0; position:relative; page-break-after:always; overflow:hidden;
+  }
+  .cover-image {
+    position:absolute; top:0; left:0; width:100%; height:100%;
+    background-image:url("https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/312b0797-a43a-4a51-906e-f913c78c7b79/fitzsimmons-whistler-architectural-photography-matt-anthony-.jpg-3.jpg");
+    background-size:cover; background-position:center 25%;
+  }
+  .cover-image::after {
+    content:''; position:absolute; top:0; left:0; width:100%; height:100%;
+    background:linear-gradient(
+      to bottom,
+      rgba(26,26,24,0.45) 0%,
+      rgba(26,26,24,0.35) 30%,
+      rgba(26,26,24,0.6) 55%,
+      rgba(26,26,24,0.94) 80%,
+      rgba(26,26,24,0.99) 100%
+    );
+  }
+  .cover-top {
+    position:absolute; top:0; left:0; right:0; z-index:3;
+    padding:40px 60px; display:flex; justify-content:space-between; align-items:center;
+  }
+  .cover-logo {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.35em; text-transform:uppercase; color:rgba(246,244,240,0.6);
+  }
+  .cover-date {
+    font-family:'Josefin Sans',sans-serif; font-size:0.65rem;
+    letter-spacing:0.2em; color:rgba(246,244,240,0.4);
+  }
+  .cover-content {
+    position:relative; z-index:2; padding:0 60px 80px;
+    max-width:720px;
+  }
+  .cover-eyebrow {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.4em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:20px; display:flex; align-items:center; gap:16px;
+  }
+  .cover-eyebrow::before {
+    content:''; width:32px; height:1px; background:var(--gold);
+  }
+  .cover h1 {
+    font-family:'Cormorant Garamond',serif; font-weight:400;
+    font-size:clamp(3rem,6vw,5rem); line-height:1.05; margin-bottom:20px;
+    letter-spacing:-0.01em;
+  }
+  .cover h1 em {
+    font-style:italic; font-weight:500; color:var(--gold);
+  }
+  .cover-sub {
+    font-size:1rem; color:rgba(246,244,240,0.75); max-width:480px;
+    line-height:1.8; margin-bottom:56px;
+  }
+  .cover-meta-bar {
+    display:flex; gap:48px; padding-top:32px;
+    border-top:1px solid rgba(201,169,110,0.15);
+  }
+  .cover-meta-item {
+    font-size:0.75rem; color:rgba(246,244,240,0.35); line-height:1.8;
+  }
+  .cover-meta-item strong {
+    display:block; color:rgba(246,244,240,0.7); font-weight:400;
+    font-family:'Josefin Sans',sans-serif; font-size:0.6rem;
+    letter-spacing:0.15em; text-transform:uppercase; margin-bottom:2px;
+  }
+
+  /* ═══════════════════════════════════════
+     PHOTO MOSAIC
+     ═══════════════════════════════════════ */
+  .mosaic {
+    display:grid; grid-template-columns:1fr 1fr 1fr 1fr;
+    grid-template-rows:200px 200px; gap:3px; background:var(--ink);
+  }
+  .mosaic img {
+    width:100%; height:100%; object-fit:cover; display:block;
+    filter:brightness(0.92); transition:filter 0.5s ease;
+  }
+  .mosaic img:hover { filter:brightness(1.05); }
+  .mosaic img:nth-child(1) { grid-column:1/3; grid-row:1/3; }
+  .mosaic img:nth-child(2) { grid-column:3/4; grid-row:1/2; }
+  .mosaic img:nth-child(3) { grid-column:4/5; grid-row:1/2; }
+  .mosaic img:nth-child(4) { grid-column:3/5; grid-row:2/3; }
+  .mosaic-caption {
+    background:var(--ink); padding:20px 60px;
+    font-family:'Josefin Sans',sans-serif; font-size:0.55rem;
+    letter-spacing:0.3em; text-transform:uppercase;
+    color:rgba(246,244,240,0.3); text-align:center;
+  }
+
+  /* ═══════════════════════════════════════
+     LAYOUT
+     ═══════════════════════════════════════ */
+  .section { padding:120px 60px; max-width:1000px; margin:0 auto; }
+  .section.wide { max-width:1200px; }
+  .section.full { max-width:100%; }
+  .section.dark { background:var(--ink); color:var(--paper); }
+  .section.cream { background:var(--paper); }
+  .section.light { background:var(--light); }
+
+  .eyebrow {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.6rem;
+    letter-spacing:0.35em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:16px; display:flex; align-items:center; gap:14px;
+  }
+  .eyebrow::before { content:''; width:24px; height:1px; background:var(--gold); }
+
+  h2 {
+    font-family:'Cormorant Garamond',serif; font-weight:400;
+    font-size:2.6rem; line-height:1.12; margin-bottom:32px;
+    letter-spacing:-0.01em;
+  }
+  h2 em { font-style:italic; font-weight:500; }
+  h3 {
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.75rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--stone);
+    margin:56px 0 20px;
+  }
+  p { margin-bottom:20px; font-size:0.95rem; }
+  .lead { font-size:1.05rem; line-height:1.9; color:var(--stone); }
+
+  .divider {
+    width:1px; height:80px; background:var(--gold-dim);
+    margin:0 auto; border:none; display:block;
+  }
+  .spacer { height:80px; }
+
+  /* ═══════════════════════════════════════
+     STATS
+     ═══════════════════════════════════════ */
+  .stats { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; margin:56px 0; background:var(--gold-dim); }
+  .stat { background:var(--white); text-align:center; padding:36px 16px; }
+  .section.cream .stat { background:var(--paper); }
+  .stat-val {
+    font-family:'Cormorant Garamond',serif; font-size:3rem; font-weight:500;
+    color:var(--gold); display:block; line-height:1; margin-bottom:10px;
+  }
+  .stat-lbl {
+    font-family:'Josefin Sans',sans-serif; font-size:0.55rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:var(--stone);
+  }
+
+  /* ═══════════════════════════════════════
+     SERVICES GRID
+     ═══════════════════════════════════════ */
+  .services { display:grid; grid-template-columns:1fr 1fr; gap:1px; margin:56px 0; background:var(--gold-dim); }
+  .svc {
+    background:var(--white); padding:40px 36px; position:relative;
+  }
+  .svc.new { background:var(--light); }
+  .svc-badge {
+    position:absolute; top:20px; right:20px;
+    font-family:'Josefin Sans',sans-serif; font-size:0.5rem;
+    letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--gold); border:1px solid var(--gold-border); padding:4px 12px;
+  }
+  .svc h4 {
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.7rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:20px;
+  }
+  .svc ul { list-style:none; }
+  .svc li {
+    font-size:0.85rem; padding:8px 0 8px 24px; position:relative;
+    color:var(--stone); border-bottom:1px solid rgba(26,26,24,0.04);
+  }
+  .svc li:last-child { border:none; }
+  .svc li::before {
+    content:''; position:absolute; left:0; top:16px;
+    width:8px; height:1px; background:var(--gold);
+  }
+
+  /* ═══════════════════════════════════════
+     PRICING TIERS
+     ═══════════════════════════════════════ */
+  .tiers {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
+    margin:80px 0; position:relative;
+  }
+  .tier {
+    padding:64px 42px 56px; border:1px solid rgba(26,26,24,0.06);
+    background:var(--white); position:relative;
+    transition:transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .tier:hover { transform:translateY(-6px); box-shadow:0 20px 60px rgba(0,0,0,0.08); z-index:1; }
+  .tier.rec {
+    background:var(--ink); color:var(--paper); border-color:var(--gold);
+    transform:scaleY(1.02); z-index:2;
+    box-shadow:0 12px 48px rgba(0,0,0,0.15);
+  }
+  .tier.rec:hover { transform:scaleY(1.02) translateY(-6px); box-shadow:0 24px 64px rgba(0,0,0,0.22); }
+  .tier-badge {
+    position:absolute; top:-1px; left:0; right:0;
+    height:3px; background:var(--gold);
+  }
+  .tier-badge span {
+    position:absolute; top:10px; left:50%; transform:translateX(-50%);
+    font-family:'Josefin Sans',sans-serif; font-size:0.5rem;
+    letter-spacing:0.3em; text-transform:uppercase;
+    color:var(--gold); white-space:nowrap;
+  }
+  .tier-name {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:var(--gold);
+    margin:32px 0 18px;
+  }
+  .tier-price {
+    font-family:'Cormorant Garamond',serif; font-size:3.4rem;
+    font-weight:400; line-height:1; margin-bottom:10px;
+  }
+  .tier:not(.rec) .tier-price { color:var(--ink); }
+  .tier.rec .tier-price { color:var(--paper); }
+  .tier-price span { font-size:1rem; color:var(--stone); font-family:'DM Sans',sans-serif; font-weight:300; }
+  .tier-term {
+    font-size:0.75rem; color:var(--stone); margin-bottom:40px;
+    padding-bottom:32px; border-bottom:1px solid var(--gold-dim);
+  }
+  .tier.rec .tier-term { border-color:rgba(201,169,110,0.2); }
+  .tier ul { list-style:none; padding:0; margin:0; }
+  .tier li {
+    font-size:0.82rem; padding:12px 0 12px 26px; position:relative;
+    line-height:1.5;
+    border-bottom:1px solid rgba(26,26,24,0.04);
+  }
+  .tier.rec li { color:rgba(246,244,240,0.78); border-color:rgba(246,244,240,0.06); }
+  .tier li:last-child { border:none; }
+  .tier li::before {
+    content:''; position:absolute; left:0; top:20px;
+    width:10px; height:1px; background:var(--gold);
+  }
+  .tier li.off { opacity:0.28; }
+  .tier li.off::before { background:var(--stone); }
+  .tier-bottom {
+    margin-top:40px; padding-top:28px; border-top:1px solid var(--gold-dim);
+    font-size:0.72rem; color:var(--stone);
+  }
+  .tier.rec .tier-bottom { border-color:rgba(201,169,110,0.2); }
+  .tier-bottom strong { color:var(--gold); font-weight:500; font-size:0.9rem; }
+
+  /* ═══════════════════════════════════════
+     COMPARISON CALLOUT
+     ═══════════════════════════════════════ */
+  .insight {
+    background:var(--light); padding:60px 64px; margin:80px 0;
+    position:relative;
+  }
+  .insight::before {
+    content:''; position:absolute; top:0; left:0; bottom:0;
+    width:3px; background:var(--gold);
+  }
+  .insight h4 {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:24px;
+  }
+  .insight p { font-size:0.92rem; margin-bottom:14px; line-height:1.7; }
+  .insight p:last-child { margin-bottom:0; }
+  .insight .tier-breakdown {
+    margin-top:32px; display:flex; flex-direction:column; gap:18px;
+  }
+  .insight .tb {
+    display:flex; align-items:baseline; gap:16px; font-size:0.9rem;
+    padding-bottom:18px; border-bottom:1px solid rgba(26,26,24,0.06);
+  }
+  .insight .tb:last-child { border-bottom:none; padding-bottom:0; }
+  .insight .tb-label {
+    font-weight:500; color:var(--gold); min-width:180px;
+    font-family:'Josefin Sans',sans-serif; font-size:0.7rem;
+    letter-spacing:0.1em; text-transform:uppercase;
+  }
+  .insight .tb-desc { color:var(--stone); line-height:1.6; }
+
+  /* ═══════════════════════════════════════
+     ROADMAP
+     ═══════════════════════════════════════ */
+  .roadmap { margin:56px 0; }
+  .rm {
+    display:grid; grid-template-columns:200px 1fr; gap:0;
+    border-bottom:1px solid rgba(26,26,24,0.06); min-height:0;
+  }
+  .rm:last-child { border:none; }
+  .rm-left {
+    padding:40px 32px 40px 0; border-right:2px solid var(--gold-dim);
+    position:relative;
+  }
+  .rm-left::after {
+    content:''; position:absolute; right:-5px; top:48px;
+    width:8px; height:8px; border-radius:50%; background:var(--gold);
+  }
+  .rm-month {
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.6rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:4px;
+  }
+  .rm-label {
+    font-family:'Cormorant Garamond',serif; font-size:1.3rem;
+    font-weight:400; font-style:italic; color:var(--ink); line-height:1.3;
+  }
+  .rm-right { padding:40px 0 40px 40px; }
+  .rm-right ul { list-style:none; }
+  .rm-right li {
+    font-size:0.85rem; padding:6px 0 6px 24px; position:relative; color:var(--stone);
+  }
+  .rm-right li::before {
+    content:''; position:absolute; left:0; top:14px;
+    width:8px; height:1px; background:var(--gold);
+  }
+
+  /* ═══════════════════════════════════════
+     TIMELINE (12-month)
+     ═══════════════════════════════════════ */
+  .tl { margin:56px 0; }
+  .tl-item {
+    display:grid; grid-template-columns:160px 1fr;
+    gap:0; padding:32px 0; border-bottom:1px solid rgba(26,26,24,0.06);
+  }
+  .tl-item:last-child { border:none; }
+  .tl-q {
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.6rem;
+    letter-spacing:0.15em; text-transform:uppercase; color:var(--gold); padding-top:4px;
+  }
+  .tl-content h4 {
+    font-family:'Cormorant Garamond',serif; font-weight:500;
+    font-size:1.4rem; margin-bottom:8px; font-style:italic;
+  }
+  .tl-content p { font-size:0.85rem; color:var(--stone); margin-bottom:0; }
+
+  /* ═══════════════════════════════════════
+     BY THE NUMBERS
+     ═══════════════════════════════════════ */
+  .numbers {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    margin:56px 0; background:var(--gold-dim);
+  }
+  .num {
+    background:var(--ink); text-align:center; padding:48px 24px;
+  }
+  .num-val {
+    font-family:'Cormorant Garamond',serif; font-size:3.5rem;
+    font-weight:500; color:var(--gold); display:block; line-height:1; margin-bottom:10px;
+  }
+  .num-lbl {
+    font-family:'Josefin Sans',sans-serif; font-size:0.55rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:rgba(246,244,240,0.4);
+  }
+
+  /* ═══════════════════════════════════════
+     NEXT STEPS
+     ═══════════════════════════════════════ */
+  .steps { display:grid; grid-template-columns:repeat(3,1fr); gap:1px; margin:56px 0; background:var(--gold-dim); }
+  .step {
+    background:var(--white); padding:40px 32px;
+  }
+  .step-num {
+    font-family:'Cormorant Garamond',serif; font-size:3rem;
+    font-weight:400; color:var(--gold); line-height:1; margin-bottom:16px;
+    display:block;
+  }
+  .step h4 {
+    font-family:'DM Sans',sans-serif; font-weight:500; font-size:0.95rem; margin-bottom:10px;
+  }
+  .step p { font-size:0.82rem; color:var(--stone); margin-bottom:0; }
+
+  /* ═══════════════════════════════════════
+     ADDON
+     ═══════════════════════════════════════ */
+  .addons { max-width:560px; margin:40px 0; }
+  .addon {
+    display:flex; justify-content:space-between; padding:16px 0;
+    border-bottom:1px solid rgba(246,244,240,0.06); font-size:0.88rem;
+    color:rgba(246,244,240,0.5);
+  }
+  .addon span:last-child { color:var(--gold); font-weight:400; }
+
+  /* ═══════════════════════════════════════
+     FOOTER
+     ═══════════════════════════════════════ */
+  .footer {
+    background:var(--ink); padding:80px 60px; text-align:center;
+    border-top:1px solid rgba(201,169,110,0.1);
+  }
+  .footer-mark {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.7rem;
+    letter-spacing:0.4em; text-transform:uppercase; color:var(--paper); margin-bottom:20px;
+  }
+  .footer-info {
+    font-size:0.8rem; color:var(--stone); line-height:2.2;
+  }
+  .footer-info a { color:var(--gold); text-decoration:none; }
+  .footer-note {
+    margin-top:40px; font-size:0.6rem; letter-spacing:0.15em;
+    text-transform:uppercase; font-family:'Josefin Sans',sans-serif;
+    color:rgba(246,244,240,0.15);
+  }
+
+  /* ═══════════════════════════════════════
+     SCROLL PROGRESS BAR
+     ═══════════════════════════════════════ */
+  .scroll-progress {
+    position:fixed; top:0; left:0; height:2px; width:0%;
+    background:linear-gradient(90deg, var(--gold), rgba(201,169,110,0.4));
+    z-index:9999; transition:width 0.05s linear;
+    box-shadow:0 0 8px rgba(201,169,110,0.3);
+  }
+
+  /* ═══════════════════════════════════════
+     SCROLL REVEAL ANIMATIONS
+     ═══════════════════════════════════════ */
+  .reveal {
+    opacity:0; transform:translateY(32px);
+    transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1), transform 0.8s cubic-bezier(0.16,1,0.3,1);
+  }
+  .reveal.visible {
+    opacity:1; transform:translateY(0);
+  }
+  .reveal-delay-1 { transition-delay:0.1s; }
+  .reveal-delay-2 { transition-delay:0.2s; }
+  .reveal-delay-3 { transition-delay:0.3s; }
+  .reveal-delay-4 { transition-delay:0.4s; }
+  .reveal-delay-5 { transition-delay:0.5s; }
+
+  /* ═══════════════════════════════════════
+     COVER CASCADE
+     ═══════════════════════════════════════ */
+  .cover .cover-eyebrow,
+  .cover h1,
+  .cover .cover-sub,
+  .cover .cover-meta-bar {
+    opacity:0; transform:translateY(24px);
+    animation:coverFade 0.9s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+  .cover .cover-eyebrow { animation-delay:0.3s; }
+  .cover h1 { animation-delay:0.6s; }
+  .cover .cover-sub { animation-delay:0.9s; }
+  .cover .cover-meta-bar { animation-delay:1.2s; }
+  @keyframes coverFade {
+    to { opacity:1; transform:translateY(0); }
+  }
+
+  /* ═══════════════════════════════════════
+     COVER PARALLAX
+     ═══════════════════════════════════════ */
+  .cover-image {
+    will-change:transform;
+    transition:transform 0.1s linear;
+  }
+
+  /* ═══════════════════════════════════════
+     FILM GRAIN OVERLAY
+     ═══════════════════════════════════════ */
+  .grain-section::after {
+    content:''; position:absolute; top:0; left:0; right:0; bottom:0;
+    background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    background-size:128px 128px;
+    pointer-events:none; z-index:0; opacity:0.5;
+  }
+  .grain-section { position:relative; }
+  .grain-section > * { position:relative; z-index:1; }
+
+  /* ═══════════════════════════════════════
+     ROADMAP LINE DRAW
+     ═══════════════════════════════════════ */
+  .roadmap { position:relative; }
+  .roadmap-line {
+    position:absolute; left:200px; top:48px; width:2px;
+    height:0; background:var(--gold);
+    transition:height 0.05s linear; z-index:1;
+    box-shadow:0 0 6px rgba(201,169,110,0.3);
+  }
+  .roadmap-line::after {
+    content:''; position:absolute; bottom:-4px; left:-3px;
+    width:8px; height:8px; border-radius:50%;
+    background:var(--gold); box-shadow:0 0 12px rgba(201,169,110,0.5);
+  }
+
+  /* ═══════════════════════════════════════
+     ENHANCED TIER INTERACTIONS
+     ═══════════════════════════════════════ */
+  .tier {
+    transition:transform 0.4s cubic-bezier(0.16,1,0.3,1), box-shadow 0.4s cubic-bezier(0.16,1,0.3,1);
+  }
+  .tier:hover {
+    box-shadow:0 20px 60px rgba(0,0,0,0.08), 0 0 0 1px var(--gold-border);
+  }
+  .tier.rec:hover {
+    box-shadow:0 24px 64px rgba(0,0,0,0.22), 0 0 40px rgba(201,169,110,0.08);
+  }
+
+  /* ═══════════════════════════════════════
+     MOSAIC ENHANCED
+     ═══════════════════════════════════════ */
+  .mosaic img {
+    transition:filter 0.6s cubic-bezier(0.16,1,0.3,1), transform 0.6s cubic-bezier(0.16,1,0.3,1);
+  }
+  .mosaic img:hover {
+    filter:brightness(1.05); transform:scale(1.015);
+  }
+
+  /* ═══════════════════════════════════════
+     PHOTO BREAK — PARALLAX BANNERS
+     ═══════════════════════════════════════ */
+  .photo-break {
+    width:100%; height:45vh; min-height:320px; max-height:480px;
+    position:relative; overflow:hidden;
+  }
+  .photo-break img {
+    width:100%; height:120%; object-fit:cover; display:block;
+    position:absolute; top:-10%; left:0;
+    filter:brightness(0.85);
+    transition:filter 0.8s cubic-bezier(0.16,1,0.3,1);
+    will-change:transform;
+  }
+  .photo-break:hover img { filter:brightness(0.95); }
+  .photo-break::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:80px;
+    background:linear-gradient(rgba(26,26,24,0.15), transparent);
+    z-index:1; pointer-events:none;
+  }
+  .photo-break::after {
+    content:''; position:absolute; bottom:0; left:0; right:0; height:120px;
+    background:linear-gradient(transparent, rgba(26,26,24,0.6));
+    z-index:1; pointer-events:none;
+  }
+  .photo-break-caption {
+    position:absolute; bottom:0; left:0; right:0; z-index:2;
+    padding:24px 60px;
+    font-family:'Josefin Sans',sans-serif; font-size:0.5rem;
+    letter-spacing:0.3em; text-transform:uppercase;
+    color:rgba(246,244,240,0.5);
+  }
+
+  /* ═══════════════════════════════════════
+     PHOTO BREAK — CURTAIN REVEAL
+     ═══════════════════════════════════════ */
+  .photo-break {
+    clip-path:inset(0 0 0 0);
+    transition:clip-path 1.2s cubic-bezier(0.16,1,0.3,1);
+  }
+  .photo-break.revealed {
+    clip-path:inset(0 0 0 0);
+  }
+
+  /* ═══════════════════════════════════════
+     PHOTO KEN BURNS
+     ═══════════════════════════════════════ */
+  .photo-break.in-view img {
+    animation:kenBurns 12s ease-in-out infinite alternate;
+  }
+  @keyframes kenBurns {
+    0% { transform:scale(1) translateY(0); }
+    100% { transform:scale(1.06) translateY(-8px); }
+  }
+
+  /* ═══════════════════════════════════════
+     HEADLINE GOLD UNDERLINE
+     ═══════════════════════════════════════ */
+  h2 em {
+    position:relative; display:inline;
+  }
+  h2 em::after {
+    content:''; position:absolute; bottom:2px; left:0;
+    width:0; height:1.5px;
+    background:linear-gradient(90deg, var(--gold), rgba(201,169,110,0.3));
+    transition:width 1s 0.3s cubic-bezier(0.16,1,0.3,1);
+  }
+  h2.underlined em::after {
+    width:100%;
+  }
+
+  /* ═══════════════════════════════════════
+     COVER SCROLL INDICATOR
+     ═══════════════════════════════════════ */
+  .scroll-indicator {
+    position:absolute; bottom:40px; left:50%;
+    transform:translateX(-50%); display:flex; flex-direction:column;
+    align-items:center; gap:8px;
+    opacity:0; animation:coverFade 0.9s 1.8s cubic-bezier(0.16,1,0.3,1) forwards;
+    transition:opacity 0.4s ease;
+  }
+  .scroll-indicator.hidden { opacity:0 !important; }
+  .scroll-indicator-text {
+    font-family:'Josefin Sans',sans-serif; font-size:0.45rem;
+    letter-spacing:0.3em; text-transform:uppercase;
+    color:rgba(246,244,240,0.3);
+  }
+  .scroll-indicator-line {
+    width:1px; height:32px; position:relative; overflow:hidden;
+    background:rgba(246,244,240,0.1);
+  }
+  .scroll-indicator-line::after {
+    content:''; position:absolute; top:-100%; left:0;
+    width:100%; height:100%; background:var(--gold);
+    animation:scrollPulse 2s cubic-bezier(0.16,1,0.3,1) infinite;
+  }
+  @keyframes scrollPulse {
+    0% { top:-100%; }
+    50% { top:100%; }
+    100% { top:100%; }
+  }
+
+  /* ═══════════════════════════════════════
+     TIER 3D TILT
+     ═══════════════════════════════════════ */
+  .tier {
+    transform-style:preserve-3d;
+    perspective:800px;
+  }
+
+  /* ═══════════════════════════════════════
+     STAT COUNTER ANIMATION
+     ═══════════════════════════════════════ */
+  .stat-val, .num-val {
+    transition:opacity 0.4s ease;
+  }
+
+  /* ═══════════════════════════════════════
+     LOADING SCREEN — REFINED
+     ═══════════════════════════════════════ */
+  .loader {
+    position:fixed; top:0; left:0; right:0; bottom:0;
+    background:var(--ink); z-index:99999;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    transition:opacity 0.8s cubic-bezier(0.16,1,0.3,1), visibility 0.8s;
+  }
+  .loader.done {
+    opacity:0; visibility:hidden; pointer-events:none;
+  }
+  .loader-brand {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.6em; text-transform:uppercase; color:var(--paper);
+    opacity:0; animation:loaderIn 0.6s 0.15s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+  .loader-sub {
+    font-family:'Cormorant Garamond',serif; font-style:italic; font-size:0.9rem;
+    color:var(--stone); margin-top:8px;
+    opacity:0; animation:loaderIn 0.6s 0.4s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+  .loader-line {
+    width:80px; height:1px; background:var(--gold-dim); margin-top:24px;
+    position:relative; overflow:hidden; border-radius:1px;
+    opacity:0; animation:loaderIn 0.6s 0.3s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+  .loader-line::after {
+    content:''; position:absolute; top:0; left:-100%; width:100%; height:100%;
+    background:linear-gradient(90deg, transparent, var(--gold), transparent);
+    animation:loaderFill 1s 0.5s cubic-bezier(0.33,1,0.68,1) forwards;
+  }
+  @keyframes loaderIn { to { opacity:1; } }
+  @keyframes loaderFill { to { left:100%; } }
+
+  /* ═══════════════════════════════════════
+     GOLD ACCENT GLOW — PREMIUM DETAILS
+     ═══════════════════════════════════════ */
+  .stat-val, .num-val, .step-num {
+    text-shadow:0 0 40px rgba(201,169,110,0.15);
+  }
+  .tier.rec {
+    border-color:rgba(201,169,110,0.3);
+  }
+  .tier.rec::before {
+    content:''; position:absolute; top:0; left:0; right:0; bottom:0;
+    background:linear-gradient(180deg, rgba(201,169,110,0.03) 0%, transparent 40%);
+    pointer-events:none;
+  }
+  .tier-badge {
+    background:linear-gradient(135deg, var(--gold), rgba(201,169,110,0.8));
+  }
+
+  /* ═══════════════════════════════════════
+     SECTION DIVIDER — GOLD HAIRLINE
+     ═══════════════════════════════════════ */
+  .section + .photo-break,
+  .photo-break + .section {
+    border:none;
+  }
+  .section::after {
+    content:none;
+  }
+
+  /* ═══════════════════════════════════════
+     REFINED TYPOGRAPHY
+     ═══════════════════════════════════════ */
+  h2 {
+    text-wrap:balance;
+  }
+  .lead {
+    text-wrap:pretty;
+  }
+  .cover h1 {
+    text-shadow:0 2px 40px rgba(0,0,0,0.5), 0 4px 80px rgba(0,0,0,0.3);
+  }
+  .cover .cover-sub {
+    text-shadow:0 1px 20px rgba(0,0,0,0.4), 0 2px 40px rgba(0,0,0,0.2);
+  }
+
+  /* ═══════════════════════════════════════
+     INSIGHT BOX GLOW
+     ═══════════════════════════════════════ */
+  .insight {
+    border:1px solid rgba(201,169,110,0.08);
+    box-shadow:0 8px 32px rgba(0,0,0,0.03);
+  }
+  .insight::before {
+    box-shadow:4px 0 16px rgba(201,169,110,0.08);
+  }
+
+  /* ═══════════════════════════════════════
+     NUMBERS BAR GLOW
+     ═══════════════════════════════════════ */
+  .numbers .num-val {
+    text-shadow:0 0 60px rgba(201,169,110,0.25), 0 0 120px rgba(201,169,110,0.1);
+  }
+
+  /* ═══════════════════════════════════════
+     STEP CARDS HOVER
+     ═══════════════════════════════════════ */
+  .step {
+    transition:background 0.3s ease, box-shadow 0.3s ease;
+  }
+  .step:hover {
+    background:var(--light);
+    box-shadow:0 4px 24px rgba(0,0,0,0.04);
+  }
+
+  /* ═══════════════════════════════════════
+     SERVICE CARDS — REFINED
+     ═══════════════════════════════════════ */
+  .svc-badge {
+    background:linear-gradient(135deg, rgba(201,169,110,0.08), transparent);
+  }
+
+  /* ═══════════════════════════════════════
+     SECTION NAV DOTS
+     ═══════════════════════════════════════ */
+  .section-nav {
+    position:fixed; right:24px; top:50%; transform:translateY(-50%);
+    z-index:9998; display:flex; flex-direction:column; gap:12px;
+    opacity:0; transition:opacity 0.4s ease;
+  }
+  .section-nav.visible { opacity:1; }
+  .section-nav-dot {
+    width:8px; height:8px; border-radius:50%;
+    background:transparent; border:1px solid var(--stone);
+    cursor:pointer; transition:all 0.3s ease;
+    position:relative;
+  }
+  .section-nav-dot:hover {
+    border-color:var(--gold); transform:scale(1.3);
+  }
+  .section-nav-dot.active {
+    background:var(--gold); border-color:var(--gold);
+    box-shadow:0 0 8px rgba(201,169,110,0.4);
+  }
+  .section-nav-dot::before {
+    content:attr(data-label);
+    position:absolute; right:20px; top:50%; transform:translateY(-50%);
+    font-family:'Josefin Sans',sans-serif; font-size:0.5rem;
+    letter-spacing:0.15em; text-transform:uppercase; color:var(--gold);
+    white-space:nowrap; opacity:0; pointer-events:none;
+    transition:opacity 0.3s ease, right 0.3s ease;
+  }
+  .section-nav-dot:hover::before {
+    opacity:1; right:24px;
+  }
+
+  /* ═══════════════════════════════════════
+     ANIMATED EYEBROW LINE
+     ═══════════════════════════════════════ */
+  .eyebrow::before {
+    width:0; transition:width 0.6s 0.2s cubic-bezier(0.16,1,0.3,1);
+  }
+  .eyebrow.visible::before {
+    width:24px;
+  }
+
+  /* ═══════════════════════════════════════
+     TIER SELECTION
+     ═══════════════════════════════════════ */
+  .tier { cursor:pointer; position:relative; }
+  .tier.selected:not(.rec) {
+    box-shadow:0 0 0 2px var(--gold), 0 20px 60px rgba(0,0,0,0.1);
+  }
+  .tier.rec.selected {
+    box-shadow:0 0 0 2px var(--gold), 0 24px 64px rgba(0,0,0,0.22), 0 0 40px rgba(201,169,110,0.12);
+  }
+  .tier-selected-badge {
+    position:absolute; top:12px; right:12px;
+    font-family:'Josefin Sans',sans-serif; font-size:0.45rem;
+    letter-spacing:0.25em; text-transform:uppercase;
+    color:var(--gold); border:1px solid var(--gold);
+    padding:3px 10px; border-radius:2px;
+    opacity:0; transform:translateY(-4px);
+    transition:opacity 0.3s ease, transform 0.3s ease;
+  }
+  .tier.selected .tier-selected-badge {
+    opacity:1; transform:translateY(0);
+  }
+
+  /* ═══════════════════════════════════════
+     SERVICE CARD HOVER
+     ═══════════════════════════════════════ */
+  .svc {
+    transition:all 0.3s cubic-bezier(0.16,1,0.3,1);
+    border-left:3px solid transparent;
+  }
+  .svc:hover {
+    border-left-color:var(--gold);
+    background:var(--light);
+  }
+  .svc.new:hover {
+    background:var(--white);
+  }
+
+  /* ═══════════════════════════════════════
+     COVER CTA BUTTON
+     ═══════════════════════════════════════ */
+  .cover-cta {
+    display:inline-flex; align-items:center; gap:10px;
+    margin-top:32px; padding:12px 28px;
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.6rem;
+    letter-spacing:0.25em; text-transform:uppercase;
+    color:var(--paper); border:1px solid rgba(246,244,240,0.25);
+    text-decoration:none; cursor:pointer;
+    transition:all 0.4s cubic-bezier(0.16,1,0.3,1);
+    opacity:0; animation:coverFade 0.9s 1.5s cubic-bezier(0.16,1,0.3,1) forwards;
+  }
+  .cover-cta:hover {
+    border-color:var(--gold); color:var(--gold);
+    padding-right:36px;
+  }
+  .cover-cta-arrow {
+    display:inline-block; transition:transform 0.3s ease;
+    font-size:0.8rem;
+  }
+  .cover-cta:hover .cover-cta-arrow { transform:translateY(3px); }
+
+  @media print {
+    .cover { min-height:100vh; }
+    .section { padding:60px; }
+    .tier.rec { transform:none; box-shadow:none; }
+    .tier:hover { transform:none; box-shadow:none; }
+    .scroll-progress, .section-nav, .loader, .cover-cta, .scroll-indicator { display:none; }
+    .photo-break { height:200px; page-break-inside:avoid; clip-path:none !important; }
+    h2 em::after { width:100% !important; }
+    .reveal { opacity:1 !important; transform:none !important; }
+    .eyebrow::before { width:24px !important; }
+    .grain-section::after { display:none; }
+  }
+  @media (max-width:768px) {
+    .cover-content,.cover-top { padding-left:32px; padding-right:32px; }
+    .section { padding:80px 32px; }
+    .mosaic { grid-template-columns:1fr 1fr; grid-template-rows:200px 200px 200px; }
+    .mosaic img:nth-child(1) { grid-column:1/3; grid-row:1/2; }
+    .mosaic img:nth-child(2) { grid-column:1/2; grid-row:2/3; }
+    .mosaic img:nth-child(3) { grid-column:2/3; grid-row:2/3; }
+    .mosaic img:nth-child(4) { grid-column:1/3; grid-row:3/4; }
+    .stats,.services,.tiers,.steps,.numbers { grid-template-columns:1fr; }
+    .tier + .tier { border-left:1px solid rgba(26,26,24,0.06); border-top:none; }
+    .tier.rec { transform:none; }
+    .rm { grid-template-columns:1fr; }
+    .rm-left { border-right:none; border-bottom:2px solid var(--gold-dim); padding:24px 0; }
+    .rm-left::after { display:none; }
+    .rm-right { padding:24px 0; }
+    .roadmap::before, .roadmap-line { display:none; }
+    .tl-item { grid-template-columns:1fr; }
+    .tl-q { margin-bottom:8px; }
+    .cover-meta-bar { flex-direction:column; gap:16px; }
+    .footer { padding:60px 32px; }
+    .section-nav { display:none; }
+    .svc { border-left:none !important; }
+    .svc:hover { border-left:none !important; }
+    .photo-break { height:200px; min-height:200px; }
+    .photo-break-caption { padding:12px 32px; }
+    .scroll-indicator { display:none; }
+  }
+</style>
+
+</head>
+<body>
+
+<!-- LOADING SCREEN -->
+<div class="loader" id="loader">
+  <div class="loader-brand">Matt Anthony Photography</div>
+  <div class="loader-sub" style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:0.9rem;color:rgba(138,133,121,0.7);margin-top:8px;opacity:0;animation:loaderIn 0.6s 0.4s cubic-bezier(0.16,1,0.3,1) forwards;">Valleycliffe Aux Box Install — Photography Proposal</div>
+  <div class="loader-line"></div>
+</div>
+
+<div class="scroll-progress" id="scrollProgress"></div>
+<nav class="section-nav" id="sectionNav"></nav>
+
+<!-- COVER -->
+<div class="cover">
+  <div class="cover-image" id="coverImg" style="background-image:url('https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/8149d10c-5f63-4d8a-beff-4d8c42e3a0e8/warbler-33.jpg');background-position:center 45%;"></div>
+  <div class="cover-top">
+    <div class="cover-logo">Matt Anthony Photography</div>
+    <div class="cover-date">April 2026</div>
+  </div>
+  <div class="cover-content">
+    <div class="cover-eyebrow">Install Day Coverage · June 2026</div>
+    <h1>The crane lift.<br>The Chief behind it.<br><em>Captured properly.</em></h1>
+    <p class="cover-sub">A focused install-day shoot for your Valleycliffe Aux Box placement — drone aerials, ground coverage of the crane set, and a finished package of stills and clips built for social, web, and supplier content.</p>
+    <div class="cover-meta-bar">
+      <div class="cover-meta-item"><strong>Prepared for</strong>[Owner Name], Owner</div>
+      <div class="cover-meta-item"><strong>Prepared by</strong>Matt Anthony</div>
+      <div class="cover-meta-item"><strong>Valid through</strong>May 31, 2026</div>
+    </div>
+    
+    <a class="cover-cta" href="#pricing"><span>View the Plan</span><span class="cover-cta-arrow">&darr;</span></a>
+    
+  </div>
+  <div class="scroll-indicator" id="scrollIndicator">
+    <div class="scroll-indicator-text">Scroll</div>
+    <div class="scroll-indicator-line"></div>
+  </div>
+</div>
+
+
+
+
+
+
+<div class="section cream" data-nav="Story">
+  <div class="eyebrow">The Project</div>
+  <h2>One shoot day.<br><em>Every moment that matters.</em></h2>
+  <p class="lead">A crane lift in Valleycliffe with the Chief sitting behind the site is exactly the kind of moment most builders miss. It happens once, it happens fast, and it only looks the way it looks on install day. This proposal is built to capture it properly — drone in the air, camera on the ground, and a full content package landing in your hands within two weeks.</p>
+  
+  <p>Aux Box installs are uniquely visual — prefab architecture touching down on site, a crane doing the heavy lifting, a finished home appearing in a day. That sequence tells the story of your business better than any photograph of the finished unit ever will. The goal of this shoot is to document that sequence in a way that your social, your website, and your supplier partners can all pull from for months.</p>
+  
+  <p>I'm Sea to Sky based, Transport Canada Advanced drone licensed, and have photographed builds from Squamish to Pemberton for the last five years. Valleycliffe is fifteen minutes from my door, so there's no travel overhead on this one.</p>
+  
+  
+  <div class="stats">
+    
+    <div class="stat"><span class="stat-val">1</span><span class="stat-lbl">Install Day</span></div>
+    
+    <div class="stat"><span class="stat-val">15-20</span><span class="stat-lbl">Final Stills</span></div>
+    
+    <div class="stat"><span class="stat-val">4K</span><span class="stat-lbl">Drone Footage</span></div>
+    
+    <div class="stat"><span class="stat-val">10 Days</span><span class="stat-lbl">Delivery</span></div>
+    
+  </div>
+  
+</div>
+
+
+
+
+
+
+
+<div class="photo-break">
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/ef4086f4-8a2f-4e3e-aedf-e5c6c68d4466/warbler-11.jpg" alt="Custom home exterior with drone perspective — Sea to Sky">
+  <div class="photo-break-caption">Balmoral Construction &middot; Warbler Residence &middot; Whistler</div>
+</div>
+
+
+
+
+
+
+<div class="section" data-nav="Services">
+  <div class="eyebrow">What's Covered</div>
+  <h2>Drone in the air.<br><em>Camera on the ground.</em></h2>
+  <p>The scope is built around what you specifically asked for — drone footage and crane install coverage — delivered at the level your marketing actually needs. Every frame is captured, edited, and delivered ready to publish.</p>
+  <div class="services">
+    
+    <div class="svc">
+      
+      <h4>Drone Aerials</h4>
+      <ul>
+        
+        <li>4K drone coverage of the site before, during, and after the set</li>
+        
+        <li>Aerial angles featuring the Chief in the background</li>
+        
+        <li>Crane lift filmed from above — the money shot</li>
+        
+        <li>Transport Canada Advanced licensed, fully insured</li>
+        
+        <li>Raw clips delivered alongside edited sizzle cut</li>
+        
+      </ul>
+    </div>
+    
+    <div class="svc">
+      
+      <h4>Ground Coverage</h4>
+      <ul>
+        
+        <li>Crane rigging and pre-lift preparation</li>
+        
+        <li>The lift sequence itself, multiple angles</li>
+        
+        <li>Unit set on foundation, final positioning</li>
+        
+        <li>Crew and equipment in context</li>
+        
+        <li>Post-install finished exterior frames</li>
+        
+      </ul>
+    </div>
+    
+    <div class="svc">
+      
+      <h4>Final Deliverables</h4>
+      <ul>
+        
+        <li>15 to 20 edited stills, colour graded</li>
+        
+        <li>Web, print, and social format exports</li>
+        
+        <li>Short edited sizzle cut (30 to 60 seconds)</li>
+        
+        <li>Raw 4K drone clips for your own editing</li>
+        
+        <li>Delivered via Dropbox within 10 business days</li>
+        
+      </ul>
+    </div>
+    
+    <div class="svc">
+      
+      <h4>Licensing & Use</h4>
+      <ul>
+        
+        <li>Full commercial licensing for your business</li>
+        
+        <li>Unlimited use across web, social, and print</li>
+        
+        <li>Supplier co-marketing usage included</li>
+        
+        <li>Cost-share available for Aux Box and other partners</li>
+        
+        <li>30% license fee per additional party if applicable</li>
+        
+      </ul>
+    </div>
+    
+  </div>
+</div>
+
+
+
+
+
+
+
+<div class="photo-break">
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/65d67cb8-2a5f-4a1e-9a6a-6d5f09b99c58/warbler-34.jpg" alt="Drone aerial of custom home build — Sea to Sky Corridor">
+  <div class="photo-break-caption">Balmoral Construction &middot; Whistler &middot; 2025</div>
+</div>
+
+
+
+
+
+
+<div class="section wide" id="tiers" data-nav="Pricing">
+  <div class="eyebrow">The Investment</div>
+  <h2>One day.<br><em>One fee. Full package.</em></h2>
+  <p>Priced as a focused install-day shoot. No travel fees — Valleycliffe is local. No surprise add-ons. What you see is what you get.</p>
+  <div class="tiers">
+    
+    <div class="tier rec" data-tier="install-day">
+      <div class="tier-selected-badge">Selected</div>
+      <div class="tier-badge"><span>Recommended</span></div>
+      <div class="tier-name">Install Day Coverage</div>
+      <div class="tier-price">$1,500 <span></span></div>
+      <div class="tier-term">Valleycliffe &middot; Early June 2026</div>
+      <ul>
+        
+        <li>3 to 4 hours on site during the install</li>
+        
+        <li>4K drone aerials — site, set, and Chief backdrop</li>
+        
+        <li>Ground coverage of the crane lift and placement</li>
+        
+        <li>15 to 20 edited stills, colour graded</li>
+        
+        <li>Short edited sizzle cut (30 to 60 sec)</li>
+        
+        <li>Raw 4K drone clips included</li>
+        
+        <li>Multi-format delivery: web, print, social</li>
+        
+        <li>Full commercial licensing</li>
+        
+        <li>Dropbox delivery within 10 business days</li>
+        
+        <li>Cost-share available for Aux Box (+30%)</li>
+        
+      </ul>
+      <div class="tier-bottom">Project invoice<br><strong>$1,500 + GST</strong></div>
+    </div>
+    
+  </div>
+  
+  <div class="insight">
+    <h4>How the Pricing Works</h4>
+    <p><strong>Flat fee, no travel.</strong> Valleycliffe is fifteen minutes from Squamish, so there's no travel day to bill. <strong>Deposit:</strong> 50% ($750) to lock the date, balance on delivery. <strong>Cost-share:</strong> If Aux Box wants licensed use of the install imagery for their own marketing, they pay 30% ($450) on top of your fee in exchange for full usage rights. This is optional and I'll coordinate directly with them if it's a fit.</p>
+    
+    <div class="tier-breakdown">
+      
+      <div class="tb"><span class="tb-label">Install Day Coverage — $1,500</span><span class="tb-desc">Full install-day shoot with drone and ground coverage, delivered as a complete content package. This is the baseline fee.</span></div>
+      
+      <div class="tb"><span class="tb-label">Optional Cost-Share +$450</span><span class="tb-desc">If Aux Box licenses the install imagery for their marketing, they pay an additional 30%. Your fee doesn't change. I handle the coordination.</span></div>
+      
+      <div class="tb"><span class="tb-label">Finished ADU Shoot (Future)</span><span class="tb-desc">Once the unit is sited, skirted, and ready to photograph, a finished-home shoot runs at my standard Builder rate ($3,500) and produces 25 to 30 editorial-grade images. Happy to quote that separately when you're ready.</span></div>
+      
+    </div>
+    
+    
+  </div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="section light" data-nav="Roadmap">
+  <div class="eyebrow">Install Day Plan</div>
+  <h2>The sequence.<br><em>Start to finish.</em></h2>
+  <p>Here's how the shoot runs on install day. The exact timing flexes around when the crane arrives and the unit sets — we'll confirm the window once you lock the install date with Aux Box.</p>
+  <div class="roadmap">
+    <div class="roadmap-line" id="roadmapLine"></div>
+    
+    <div class="rm">
+      <div class="rm-left">
+        <div class="rm-month">Pre-Lift</div>
+        <div class="rm-label">Site Prep<br>Coverage</div>
+      </div>
+      <div class="rm-right">
+        <ul>
+          
+          <li>Arrive 30 to 45 minutes before crane scheduled set</li>
+          
+          <li>Drone up for site-before aerials — foundation, approach, Chief backdrop</li>
+          
+          <li>Ground frames of the crew, rigging, and unit pre-lift</li>
+          
+          <li>Scout angles for the lift sequence</li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="rm">
+      <div class="rm-left">
+        <div class="rm-month">The Lift</div>
+        <div class="rm-label">Crane Set<br>(The Main Event)</div>
+      </div>
+      <div class="rm-right">
+        <ul>
+          
+          <li>Drone capturing the lift from above — signature angle</li>
+          
+          <li>Secondary ground camera for wide and detail frames</li>
+          
+          <li>Unit in transit from delivery position to foundation</li>
+          
+          <li>Final placement and crew finishing rigging off</li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="rm">
+      <div class="rm-left">
+        <div class="rm-month">Post-Set</div>
+        <div class="rm-label">Finished<br>Unit Frames</div>
+      </div>
+      <div class="rm-right">
+        <ul>
+          
+          <li>Unit sited on foundation — exterior hero frames</li>
+          
+          <li>Drone pulls for a wide establishing shot with the Chief</li>
+          
+          <li>Detail coverage of the unit and any finishing work</li>
+          
+          <li>Optional quick walkthrough interior if access allows</li>
+          
+        </ul>
+      </div>
+    </div>
+    
+    <div class="rm">
+      <div class="rm-left">
+        <div class="rm-month">Delivery</div>
+        <div class="rm-label">Edit +<br>Drop</div>
+      </div>
+      <div class="rm-right">
+        <ul>
+          
+          <li>Full edit and delivery within 10 business days</li>
+          
+          <li>15 to 20 stills in web, print, and social formats</li>
+          
+          <li>Short sizzle cut built for Instagram and LinkedIn</li>
+          
+          <li>Raw 4K drone clips packaged separately</li>
+          
+          <li>Cost-share coordination with Aux Box if selected</li>
+          
+        </ul>
+      </div>
+    </div>
+    
+  </div>
+  
+  <div class="stats">
+    
+    <div class="stat"><span class="stat-val">3-4</span><span class="stat-lbl">Hours On Site</span></div>
+    
+    <div class="stat"><span class="stat-val">15-20</span><span class="stat-lbl">Final Images</span></div>
+    
+    <div class="stat"><span class="stat-val">10</span><span class="stat-lbl">Day Turnaround</span></div>
+    
+    <div class="stat"><span class="stat-val">0</span><span class="stat-lbl">Travel Fees</span></div>
+    
+  </div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="numbers grain-section">
+  
+  <div class="num"><span class="num-val">20</span><span class="num-lbl">Final Images</span></div>
+  
+  <div class="num"><span class="num-val">4K</span><span class="num-lbl">Drone Footage</span></div>
+  
+  <div class="num"><span class="num-val">10</span><span class="num-lbl">Day Turnaround</span></div>
+  
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="section" data-nav="Next Steps">
+  <div class="eyebrow">Next Steps</div>
+  <h2>Lock the date.<br><em>I'll handle the rest.</em></h2>
+  
+  <p>Valleycliffe is the easy one — short drive, great site, a real visual moment with the crane and the Chief. The goal is to get this one shot properly, deliver a package you can use across your marketing for months, and build from there toward the Whistler spa install and the custom home work you mentioned.</p>
+  
+  <p>Once the install window is confirmed with Aux Box, I'll block the date on my calendar, send the short contract and deposit invoice, and coordinate directly with the crane operator so we're not in each other's way on the day.</p>
+  
+  
+  <div class="steps">
+    
+    <div class="step">
+      <span class="step-num">1</span>
+      <h4>Confirm the Install Window</h4>
+      <p>Early June date from Aux Box. Even a rough week is enough to hold the calendar — we can lock the exact day once the crane is booked.</p>
+    </div>
+    
+    <div class="step">
+      <span class="step-num">2</span>
+      <h4>Sign + Deposit</h4>
+      <p>Short contract and 50% deposit ($750) secures the date. Balance is invoiced on delivery.</p>
+    </div>
+    
+    <div class="step">
+      <span class="step-num">3</span>
+      <h4>Future Projects</h4>
+      <p>Whistler spa install and future custom home builds can be quoted separately, or rolled into a Creative Partner retainer if the volume is there. Happy to walk through either on a call.</p>
+    </div>
+    
+  </div>
+  
+  
+  <p style="margin-top:24px; font-size:0.85rem; color:var(--stone);">This proposal is valid through <strong style="color:var(--ink);">May 31, 2026</strong>. June availability cannot be guaranteed after that date.</p>
+  
+</div>
+
+
+
+
+
+
+
+<!-- FOOTER -->
+<div class="footer grain-section">
+  <div class="footer-mark">Matt Anthony Photography</div>
+  <div class="footer-info">
+    <a href="https://mattanthonyphoto.com">mattanthonyphoto.com</a><br>
+    <a href="mailto:info@mattanthonyphoto.com">info@mattanthonyphoto.com</a> &middot; 604.765.9270<br>
+    Squamish, BC
+  </div>
+  <div class="footer-note">This proposal is confidential and prepared exclusively for [Company Name].</div>
+</div>
+
+<script>
+(function(){
+  'use strict';
+
+  /* ═══════ LOADING SCREEN ═══════ */
+  var loader = document.getElementById('loader');
+  window.addEventListener('load', function(){
+    setTimeout(function(){ loader.classList.add('done'); }, 1100);
+  });
+
+  /* ═══════ SCROLL PROGRESS BAR ═══════ */
+  var progressBar = document.getElementById('scrollProgress');
+  function updateProgress(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    var s = window.scrollY;
+    progressBar.style.width = (h > 0 ? (s / h) * 100 : 0) + '%';
+  }
+
+  /* ═══════ COVER PARALLAX ═══════ */
+  var coverImg = document.querySelector('.cover-image');
+  function updateParallax(){
+    if(window.scrollY < window.innerHeight){
+      coverImg.style.transform = 'scale(1.08) translateY(' + (window.scrollY * 0.3) + 'px)';
+    }
+  }
+
+  /* ═══════ PHOTO BREAK PARALLAX + KEN BURNS ═══════ */
+  var isTouchDevice = 'ontouchstart' in window;
+  var photoBreakEls = document.querySelectorAll('.photo-break');
+  var photoBreakImgs = document.querySelectorAll('.photo-break img');
+  function updatePhotoParallax(){
+    photoBreakEls.forEach(function(pb){
+      var rect = pb.getBoundingClientRect();
+      var inView = rect.bottom > 0 && rect.top < window.innerHeight;
+      if(inView){
+        pb.classList.add('in-view');
+      } else {
+        pb.classList.remove('in-view');
+      }
+    });
+  }
+
+  /* ═══════ SECTION NAV DOTS ═══════ */
+  var sectionNav = document.getElementById('sectionNav');
+  var navSections = document.querySelectorAll('[data-nav]');
+  var navDots = [];
+  navSections.forEach(function(sec){
+    var dot = document.createElement('div');
+    dot.className = 'section-nav-dot';
+    dot.setAttribute('data-label', sec.getAttribute('data-nav'));
+    dot.addEventListener('click', function(){
+      sec.scrollIntoView({ behavior:'smooth', block:'start' });
+    });
+    sectionNav.appendChild(dot);
+    navDots.push({ dot:dot, section:sec });
+  });
+
+  function updateNavDots(){
+    var scrollY = window.scrollY;
+    var winH = window.innerHeight;
+    // Show/hide nav (hide on cover)
+    if(scrollY > winH * 0.5){
+      sectionNav.classList.add('visible');
+    } else {
+      sectionNav.classList.remove('visible');
+    }
+    // Highlight active section
+    var active = null;
+    navDots.forEach(function(item){
+      var rect = item.section.getBoundingClientRect();
+      if(rect.top < winH * 0.5 && rect.bottom > winH * 0.3){
+        active = item;
+      }
+      item.dot.classList.remove('active');
+    });
+    if(active) active.dot.classList.add('active');
+  }
+
+  /* ═══════ SCROLL REVEAL ═══════ */
+  var revealTargets = [];
+  document.querySelectorAll('.section, .numbers, .mosaic').forEach(function(section){
+    section.querySelectorAll('.eyebrow, h2, .lead, .stats, .services, .tiers, .insight, .roadmap, .tl, .numbers, .steps, .addons').forEach(function(el, i){
+      el.classList.add('reveal');
+      if(i > 0 && i < 6) el.classList.add('reveal-delay-' + i);
+      revealTargets.push(el);
+    });
+    section.querySelectorAll('.stat, .svc, .tier, .step, .num, .rm, .tl-item').forEach(function(el, i){
+      el.classList.add('reveal');
+      el.classList.add('reveal-delay-' + Math.min(i + 1, 5));
+      revealTargets.push(el);
+    });
+    Array.prototype.forEach.call(section.children, function(child){
+      if(child.tagName === 'P' && !child.classList.contains('lead') && !child.classList.contains('cover-sub')){
+        child.classList.add('reveal');
+        revealTargets.push(child);
+      }
+    });
+  });
+
+  var revealObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+        animateCounter(entry.target);
+      }
+    });
+  }, { threshold:0.15, rootMargin:'0px 0px -40px 0px' });
+
+  revealTargets.forEach(function(el){ revealObserver.observe(el); });
+
+  /* ═══════ EYEBROW LINE ANIMATION ═══════ */
+  var eyebrows = document.querySelectorAll('.eyebrow');
+  var eyebrowObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('visible');
+        eyebrowObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold:0.5 });
+  eyebrows.forEach(function(eb){ eyebrowObserver.observe(eb); });
+
+  /* ═══════ NUMBER COUNTER ANIMATION ═══════ */
+  function animateCounter(el){
+    var valEl = el.querySelector('.stat-val, .num-val');
+    if(!valEl || valEl.dataset.counted) return;
+    valEl.dataset.counted = 'true';
+    var text = valEl.textContent.trim();
+    var hasPlus = text.indexOf('+') > -1;
+    var num = parseInt(text.replace(/[^0-9]/g,''), 10);
+    if(isNaN(num) || num === 0) return;
+    var duration = 1200;
+    var start = performance.now();
+    function ease(t){ return t < 0.5 ? 4*t*t*t : 1 - Math.pow(-2*t+2,3)/2; }
+    function tick(now){
+      var t = Math.min((now - start) / duration, 1);
+      var val = Math.round(ease(t) * num);
+      valEl.textContent = val + (hasPlus ? '+' : '');
+      if(t < 1) requestAnimationFrame(tick);
+    }
+    valEl.textContent = '0' + (hasPlus ? '+' : '');
+    requestAnimationFrame(tick);
+  }
+
+  /* ═══════ PHOTO BREAK CURTAIN REVEAL ═══════ */
+  var photoRevealObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('revealed');
+        photoRevealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold:0.1 });
+  photoBreakEls.forEach(function(pb){ photoRevealObserver.observe(pb); });
+
+  /* ═══════ HEADLINE GOLD UNDERLINE ═══════ */
+  var headlines = document.querySelectorAll('h2');
+  var headlineObserver = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        entry.target.classList.add('underlined');
+        headlineObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold:0.5 });
+  headlines.forEach(function(h){ headlineObserver.observe(h); });
+
+  /* ═══════ SCROLL INDICATOR HIDE ═══════ */
+  var scrollIndicator = document.getElementById('scrollIndicator');
+  function updateScrollIndicator(){
+    if(window.scrollY > 100){
+      scrollIndicator.classList.add('hidden');
+    } else {
+      scrollIndicator.classList.remove('hidden');
+    }
+  }
+
+  /* ═══════ TIER SELECTION + 3D TILT ═══════ */
+  var tiers = document.querySelectorAll('.tier[data-tier]');
+  tiers.forEach(function(tier){
+    tier.addEventListener('click', function(){
+      tiers.forEach(function(t){ t.classList.remove('selected'); });
+      tier.classList.add('selected');
+    });
+    if(!isTouchDevice){
+      tier.addEventListener('mousemove', function(e){
+        var rect = tier.getBoundingClientRect();
+        var x = (e.clientX - rect.left) / rect.width - 0.5;
+        var y = (e.clientY - rect.top) / rect.height - 0.5;
+        tier.style.transform = tier.classList.contains('rec')
+          ? 'scaleY(1.02) perspective(800px) rotateY(' + (x * 4) + 'deg) rotateX(' + (-y * 4) + 'deg)'
+          : 'perspective(800px) rotateY(' + (x * 4) + 'deg) rotateX(' + (-y * 4) + 'deg)';
+      });
+      tier.addEventListener('mouseleave', function(){
+        tier.style.transform = tier.classList.contains('rec') ? 'scaleY(1.02)' : '';
+      });
+    }
+  });
+
+  /* ═══════ ROADMAP LINE DRAW ═══════ */
+  var roadmapLine = document.getElementById('roadmapLine');
+  var roadmap = document.querySelector('.roadmap');
+  function updateRoadmapLine(){
+    if(!roadmap || !roadmapLine) return;
+    var rect = roadmap.getBoundingClientRect();
+    var roadmapTop = rect.top + window.scrollY;
+    var roadmapHeight = rect.height - 96;
+    var scrollPos = window.scrollY + window.innerHeight * 0.6;
+    var progress = (scrollPos - roadmapTop - 48) / roadmapHeight;
+    progress = Math.max(0, Math.min(1, progress));
+    roadmapLine.style.height = (progress * roadmapHeight) + 'px';
+  }
+
+  /* ═══════ SMOOTH SCROLL FOR CTA ═══════ */
+  document.querySelector('.cover-cta').addEventListener('click', function(e){
+    e.preventDefault();
+    var target = document.querySelector(this.getAttribute('href'));
+    if(target) target.scrollIntoView({ behavior:'smooth', block:'start' });
+  });
+
+  /* ═══════ COMBINED SCROLL HANDLER ═══════ */
+  var ticking = false;
+  window.addEventListener('scroll', function(){
+    if(!ticking){
+      requestAnimationFrame(function(){
+        updateProgress();
+        updateParallax();
+        updatePhotoParallax();
+        updateScrollIndicator();
+        updateRoadmapLine();
+        updateNavDots();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  }, {passive:true});
+
+  // Init
+  updateProgress();
+  updateParallax();
+  updatePhotoParallax();
+  updateRoadmapLine();
+  updateNavDots();
+
+})();
+</script>
+
+</body>
+</html>
