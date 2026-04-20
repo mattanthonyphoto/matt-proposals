@@ -207,11 +207,53 @@
     display:grid; grid-template-columns:repeat(3,1fr); gap:28px;
     margin:80px 0; position:relative;
   }
-  .tiers.tiers-single {
-    grid-template-columns:minmax(0,560px); justify-content:center;
-  }
   .tiers.tiers-double {
     grid-template-columns:repeat(2,minmax(0,480px)); justify-content:center;
+  }
+  .single-offer {
+    margin:72px auto; max-width:640px; text-align:center;
+    padding:48px 0; border-top:1px solid var(--gold-border); border-bottom:1px solid var(--gold-border);
+  }
+  .single-offer-head { margin-bottom:36px; }
+  .single-offer-name {
+    font-family:'Josefin Sans',sans-serif; font-size:11px; font-weight:400;
+    letter-spacing:0.3em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:18px;
+  }
+  .single-offer-price {
+    font-family:'Cormorant Garamond',serif; font-size:56px; font-weight:400;
+    color:var(--ink); line-height:1; letter-spacing:-0.01em;
+  }
+  .single-offer-price span {
+    font-size:14px; color:var(--stone); letter-spacing:0.05em;
+    font-family:'DM Sans',sans-serif; margin-left:6px;
+  }
+  .single-offer-term {
+    font-family:'DM Sans',sans-serif; font-size:13px; color:var(--stone);
+    margin-top:14px; letter-spacing:0.02em;
+  }
+  .single-offer-list {
+    list-style:none; padding:0; margin:0 auto 36px; text-align:left;
+    max-width:440px;
+  }
+  .single-offer-list li {
+    font-family:'DM Sans',sans-serif; font-size:14.5px; color:var(--ink);
+    padding:11px 0 11px 26px; position:relative; line-height:1.55;
+    border-bottom:1px solid rgba(26,26,24,0.06);
+  }
+  .single-offer-list li:last-child { border-bottom:none; }
+  .single-offer-list li:before {
+    content:""; position:absolute; left:0; top:20px;
+    width:12px; height:1px; background:var(--gold);
+  }
+  .single-offer-list li.off { color:var(--stone); opacity:0.5; }
+  .single-offer-list li.off:before { background:var(--stone); }
+  .single-offer-foot {
+    font-family:'Josefin Sans',sans-serif; font-size:11px; font-weight:400;
+    letter-spacing:0.25em; text-transform:uppercase; color:var(--stone);
+  }
+  .single-offer-foot strong {
+    color:var(--ink); font-weight:600; letter-spacing:0.15em;
   }
   .tier {
     padding:64px 42px 56px; border:1px solid rgba(26,26,24,0.06);
@@ -1082,41 +1124,40 @@
   <div class="eyebrow">The Investment</div>
   <h2>One day.<br><em>One fee. Full package.</em></h2>
   <p>Priced as a focused install-day shoot. No travel fees — Valleycliffe is local. No surprise add-ons. What you see is what you get.</p>
-  <div class="tiers tiers-single">
-    
-    <div class="tier rec" data-tier="install-day">
-      <div class="tier-selected-badge">Selected</div>
-      <div class="tier-badge"><span>Recommended</span></div>
-      <div class="tier-name">Install Day Coverage</div>
-      <div class="tier-price">$1,500 <span></span></div>
-      <div class="tier-term">Valleycliffe &middot; Early June 2026</div>
-      <ul>
-        
-        <li>3 to 4 hours on site during the install</li>
-        
-        <li>4K drone aerials — site, set, and Chief backdrop</li>
-        
-        <li>Ground coverage of the crane lift and placement</li>
-        
-        <li>15 to 20 edited stills, colour graded</li>
-        
-        <li>Short edited sizzle cut (30 to 60 sec)</li>
-        
-        <li>Raw 4K drone clips included</li>
-        
-        <li>Multi-format delivery: web, print, social</li>
-        
-        <li>Full commercial licensing</li>
-        
-        <li>Dropbox delivery within 10 business days</li>
-        
-        <li>Cost-share available for Aux Box (+30%)</li>
-        
-      </ul>
-      <div class="tier-bottom">Project invoice<br><strong>$1,500 + GST</strong></div>
+  
+  
+  <div class="single-offer">
+    <div class="single-offer-head">
+      <div class="single-offer-name">Install Day Coverage</div>
+      <div class="single-offer-price">$1,500</div>
+      <div class="single-offer-term">Valleycliffe &middot; Early June 2026</div>
     </div>
-    
+    <ul class="single-offer-list">
+      
+      <li>3 to 4 hours on site during the install</li>
+      
+      <li>4K drone aerials — site, set, and Chief backdrop</li>
+      
+      <li>Ground coverage of the crane lift and placement</li>
+      
+      <li>15 to 20 edited stills, colour graded</li>
+      
+      <li>Short edited sizzle cut (30 to 60 sec)</li>
+      
+      <li>Raw 4K drone clips included</li>
+      
+      <li>Multi-format delivery: web, print, social</li>
+      
+      <li>Full commercial licensing</li>
+      
+      <li>Dropbox delivery within 10 business days</li>
+      
+      <li>Cost-share available for Aux Box (+30%)</li>
+      
+    </ul>
+    <div class="single-offer-foot">Project invoice &middot; <strong>$1,500 + GST</strong></div>
   </div>
+  
   
   <div class="insight">
     <h4>How the Pricing Works</h4>
