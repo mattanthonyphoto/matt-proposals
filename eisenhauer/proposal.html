@@ -10,39 +10,41 @@
 <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;500;600&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
   :root {
-    --paper:      #F7F3EC;
-    --bone:       #EFE7D9;
-    --warm-white: #FBF8F2;
-    --linen:      #E6DCCB;
-    --taupe:      #5B4E40;
-    --taupe-soft: #7A6B5C;
-    --ink-warm:   #2B2520;
-    --stone:      #8A7F72;
+    /* Matt Anthony brand palette — matches the main site */
+    --ink:        #1A1A18;
+    --ink-soft:   #1F1D1B;
+    --ink-lift:   #25221F;
+    --paper:      #F6F4F0;
+    --paper-dim:  rgba(246,244,240,0.72);
+    --paper-mute: rgba(246,244,240,0.48);
+    --stone:      #8A8579;
+    --stone-line: rgba(138,133,121,0.22);
+    --stone-wash: rgba(138,133,121,0.08);
+    --gold:       #C9A96E;
+    --gold-deep:  #B8975A;
+    --gold-soft:  #E2CDA0;
+    --gold-line:  rgba(201,169,110,0.22);
+    --gold-wash:  rgba(201,169,110,0.05);
 
-    /* Primary accent — warm charcoal / ink-stone.
-       Deliberately desaturated — no gold. */
-    --gold:       #4A4339;
-    --gold-deep:  #2E2A23;
-    --gold-soft:  #8B8377;
-    --gold-line:  rgba(74,67,57,0.22);
-    --gold-wash:  rgba(74,67,57,0.05);
-
-    /* Reserved for the CTA button + "Recommended" badge only.
-       A single muted terracotta accent for "money moments." */
-    --accent-warm:      #7A5E48;
-    --accent-warm-deep: #523F30;
+    /* Legacy aliases kept so unchanged rules still work */
+    --ink-warm:   #1A1A18;
+    --bone:       #1F1D1B;
+    --warm-white: #25221F;
+    --linen:      #1F1D1B;
+    --taupe:      #1A1A18;
+    --taupe-soft: #8A8579;
   }
 
   * { margin:0; padding:0; box-sizing:border-box; }
   html { font-size:16px; scroll-behavior:smooth; -webkit-print-color-adjust:exact; }
   body {
-    background:var(--paper); color:var(--ink-warm);
+    background:var(--ink); color:var(--paper);
     font-family:'DM Sans',sans-serif; font-weight:300;
     line-height:1.78; overflow-x:hidden;
     font-feature-settings:"kern" 1, "liga" 1;
     -webkit-font-smoothing:antialiased;
   }
-  ::selection { background:var(--gold); color:var(--ink-warm); }
+  ::selection { background:var(--gold); color:var(--ink); }
 
   /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
      SCROLL PROGRESS
@@ -60,14 +62,14 @@
     position:fixed; top:28px; right:28px; z-index:150;
     font-family:'Josefin Sans',sans-serif; font-size:0.58rem;
     font-weight:600; letter-spacing:0.3em; text-transform:uppercase;
-    color:var(--taupe); background:rgba(247,243,236,0.85);
+    color:var(--paper-dim); background:rgba(26,26,24,0.78);
     backdrop-filter:blur(10px); -webkit-backdrop-filter:blur(10px);
     padding:10px 16px; border:1px solid var(--gold-line);
     opacity:0; transform:translateY(-10px); transition:opacity 0.5s, transform 0.5s;
     pointer-events:none;
   }
   .chapter-badge.show { opacity:1; transform:translateY(0); }
-  .chapter-badge .num { color:var(--gold-deep); margin-right:8px; }
+  .chapter-badge .num { color:var(--gold); margin-right:8px; }
 
   /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
      ANIMATION PRIMITIVES
@@ -219,24 +221,24 @@
   }
 
   /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-     SECTION BASE (ALL LIGHT-TONED)
+     SECTION BASE (DARK-INK — matches main site)
      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-  section.sec { position:relative; padding:130px 60px; }
-  section.sec.paper { background:var(--paper); }
-  section.sec.bone  { background:var(--bone); }
-  section.sec.warm  { background:var(--warm-white); }
-  section.sec.linen { background:var(--linen); }
+  section.sec { position:relative; padding:130px 60px; color:var(--paper); }
+  section.sec.paper { background:var(--ink); }
+  section.sec.bone  { background:var(--ink-soft); }
+  section.sec.warm  { background:var(--ink-lift); }
+  section.sec.linen { background:var(--ink-soft); }
   section.sec > .wrap { max-width:960px; margin:0 auto; position:relative; }
   section.sec > .wrap.wide { max-width:1140px; }
 
   .sec-num {
     font-family:'Josefin Sans',sans-serif; font-size:0.58rem;
     font-weight:600; letter-spacing:0.32em; text-transform:uppercase;
-    color:var(--gold-deep); margin-bottom:10px;
+    color:var(--gold); margin-bottom:10px;
   }
   .eyebrow {
     font-family:'Josefin Sans',sans-serif; font-weight:500; font-size:0.62rem;
-    letter-spacing:0.38em; text-transform:uppercase; color:var(--gold-deep);
+    letter-spacing:0.38em; text-transform:uppercase; color:var(--gold);
     margin-bottom:20px; display:flex; align-items:center; gap:14px;
   }
   .eyebrow::before { content:''; display:block; width:0; height:1px; background:var(--gold); transition:width 1.2s cubic-bezier(0.22,1,0.36,1); }
@@ -245,15 +247,15 @@
   h2 {
     font-family:'Cormorant Garamond',serif; font-weight:300;
     font-size:clamp(2.2rem, 4.5vw, 3.2rem); line-height:1.1; letter-spacing:-0.015em;
-    margin-bottom:36px; color:var(--ink-warm);
+    margin-bottom:36px; color:var(--paper);
     max-width:780px;
   }
-  h2 em { font-style:italic; font-weight:400; color:var(--gold-deep); }
+  h2 em { font-style:italic; font-weight:400; color:var(--gold); }
 
   h3 {
     font-family:'Cormorant Garamond',serif; font-weight:400;
     font-size:1.7rem; line-height:1.25; letter-spacing:-0.005em;
-    margin:52px 0 14px; color:var(--ink-warm);
+    margin:52px 0 14px; color:var(--paper);
     position:relative;
   }
   h3 .mark {
@@ -266,45 +268,46 @@
   h4 {
     font-family:'Josefin Sans',sans-serif; font-weight:600; font-size:0.7rem;
     letter-spacing:0.3em; text-transform:uppercase;
-    color:var(--gold-deep); margin:36px 0 12px;
+    color:var(--gold); margin:36px 0 12px;
   }
 
-  p { margin-bottom:18px; font-size:1rem; line-height:1.88; color:var(--ink-warm); }
+  p { margin-bottom:18px; font-size:1rem; line-height:1.88; color:var(--paper-dim); }
   p.lead {
     font-family:'Cormorant Garamond',serif; font-size:1.35rem; font-weight:400;
-    line-height:1.55; font-style:italic; color:var(--taupe);
+    line-height:1.55; font-style:italic; color:var(--paper);
     max-width:720px; margin-bottom:36px;
   }
-  strong { font-weight:500; color:var(--ink-warm); }
+  strong { font-weight:500; color:var(--paper); }
   em     { font-style:italic; }
 
   ul, ol { margin:0 0 24px 0; padding-left:0; list-style:none; }
   ul li, ol li {
     position:relative; padding:11px 0 11px 28px;
     font-size:0.98rem; line-height:1.7;
-    border-bottom:1px solid rgba(91,78,64,0.07);
+    border-bottom:1px solid rgba(138,133,121,0.10);
+    color:var(--paper-dim);
   }
   ul li:last-child, ol li:last-child { border-bottom:none; }
   ul li::before {
     content:''; position:absolute; left:0; top:22px;
-    width:14px; height:1px; background:var(--gold);
+    width:14px; height:1px; background:var(--stone);
     transition:width 0.6s cubic-bezier(0.22,1,0.36,1);
   }
   .stagger.in ul li::before { width:14px; }
 
   blockquote {
     margin:40px 0; padding:32px 40px;
-    background:var(--warm-white); border-left:3px solid var(--gold);
+    background:var(--ink-lift); border-left:3px solid var(--gold);
     font-family:'Cormorant Garamond',serif; font-style:italic;
-    font-size:1.35rem; line-height:1.55; color:var(--taupe);
+    font-size:1.35rem; line-height:1.55; color:var(--paper);
     position:relative;
-    box-shadow:0 1px 0 var(--gold-line);
+    box-shadow:0 1px 0 var(--stone-line);
   }
   blockquote::before {
     content:'\201C'; position:absolute; top:-12px; left:22px;
     font-family:'Cormorant Garamond',serif; font-size:3.8rem;
     color:var(--gold); line-height:1; font-style:normal;
-    background:var(--warm-white); padding:0 8px;
+    background:var(--ink-lift); padding:0 8px;
   }
 
   /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -323,6 +326,7 @@
     font-family:'Cormorant Garamond',serif; font-weight:300;
     font-size:3.6rem; line-height:1; color:var(--gold);
     font-style:italic; padding-top:4px;
+    opacity:0.85;
   }
   .finding h3 { margin-top:0; }
 
@@ -332,27 +336,27 @@
   .priorities { margin-top:40px; }
   .pri {
     display:grid; grid-template-columns:180px 1fr; gap:40px;
-    padding:48px 0; border-top:1px solid var(--gold-line);
+    padding:48px 0; border-top:1px solid var(--stone-line);
     transition:background 0.6s, padding-left 0.6s;
   }
-  .pri:last-child { border-bottom:1px solid var(--gold-line); }
-  .pri:hover { background:var(--warm-white); padding-left:24px; padding-right:24px; }
+  .pri:last-child { border-bottom:1px solid var(--stone-line); }
+  .pri:hover { background:var(--ink-lift); padding-left:24px; padding-right:24px; }
   .pri-label {
     font-family:'Josefin Sans',sans-serif; font-weight:600;
     font-size:0.6rem; letter-spacing:0.32em; text-transform:uppercase;
-    color:var(--gold-deep);
+    color:var(--gold);
   }
   .pri-label .num {
     display:block; font-family:'Cormorant Garamond',serif;
     font-size:3rem; font-weight:300; font-style:italic;
-    color:var(--ink-warm); line-height:1; margin-bottom:8px;
+    color:var(--paper); line-height:1; margin-bottom:8px;
   }
   .pri-label .when {
     display:block; margin-top:10px; font-size:0.55rem;
     color:var(--stone); letter-spacing:0.24em;
   }
   .pri-body h3 { margin-top:0; font-size:1.5rem; }
-  .pri-body p { color:var(--taupe); }
+  .pri-body p { color:var(--paper-dim); }
 
   /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
      ROADMAP — VERTICAL TIMELINE
@@ -361,49 +365,52 @@
   .roadmap::before {
     content:''; position:absolute; left:16px; top:20px; bottom:20px;
     width:1px; background:linear-gradient(to bottom, transparent, var(--gold), transparent);
+    opacity:0.5;
   }
   .milestone { position:relative; padding:20px 0 28px; }
   .milestone::before {
     content:''; position:absolute; left:-48px; top:32px;
     width:10px; height:10px; border-radius:50%;
-    background:var(--paper); border:1.5px solid var(--gold);
+    background:var(--ink); border:1.5px solid var(--gold);
     transition:background 0.5s, transform 0.5s;
   }
   .milestone.in::before { background:var(--gold); transform:scale(1.2); }
   .milestone .month {
     font-family:'Josefin Sans',sans-serif; font-weight:600;
     font-size:0.6rem; letter-spacing:0.3em; text-transform:uppercase;
-    color:var(--gold-deep); margin-bottom:6px;
+    color:var(--gold); margin-bottom:6px;
   }
   .milestone h4 {
-    margin:0 0 12px; color:var(--ink-warm);
+    margin:0 0 12px; color:var(--paper);
     font-size:1.25rem; font-family:'Cormorant Garamond',serif;
     font-weight:400; font-style:italic; letter-spacing:0.01em;
     text-transform:none;
   }
   .milestone ul { margin:0; }
-  .milestone li { border-bottom-color:rgba(91,78,64,0.05); }
+  .milestone li { border-bottom-color:rgba(138,133,121,0.08); }
 
   /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
      KPI — WARM TAUPE (NOT BLACK)
      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
   section.sec.taupe {
-    background:linear-gradient(135deg, var(--taupe) 0%, var(--ink-warm) 100%);
+    background:linear-gradient(135deg, #1F1D1B 0%, #141311 100%);
     color:var(--paper);
   }
   section.sec.taupe::before {
     content:''; position:absolute; top:0; left:0; right:0; height:1px;
     background:linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity:0.5;
   }
   section.sec.taupe::after {
     content:''; position:absolute; bottom:0; left:0; right:0; height:1px;
     background:linear-gradient(90deg, transparent, var(--gold), transparent);
+    opacity:0.5;
   }
   section.sec.taupe h2 { color:var(--paper); }
   section.sec.taupe h2 em { color:var(--gold); }
-  section.sec.taupe p { color:rgba(247,243,236,0.86); }
-  section.sec.taupe .eyebrow { color:var(--gold-soft); }
-  section.sec.taupe p.lead { color:rgba(247,243,236,0.92); }
+  section.sec.taupe p { color:var(--paper-dim); }
+  section.sec.taupe .eyebrow { color:var(--gold); }
+  section.sec.taupe p.lead { color:var(--paper); }
 
   .kpi-table {
     width:100%; border-collapse:collapse; margin:48px 0 16px;
@@ -412,23 +419,23 @@
     padding:18px 16px; text-align:center;
     font-family:'Josefin Sans',sans-serif; font-weight:600;
     font-size:0.6rem; letter-spacing:0.3em; text-transform:uppercase;
-    color:var(--gold-soft);
+    color:var(--gold);
     border-bottom:1.5px solid var(--gold);
   }
-  .kpi-table thead th.metric-col { text-align:left; color:rgba(247,243,236,0.6); }
+  .kpi-table thead th.metric-col { text-align:left; color:var(--stone); }
   .kpi-table tbody td {
     padding:22px 16px; text-align:center;
     font-family:'Cormorant Garamond',serif; font-weight:400;
     font-size:1.8rem; color:var(--paper);
-    border-bottom:1px solid rgba(74,67,57,0.12);
+    border-bottom:1px solid rgba(138,133,121,0.10);
     transition:background 0.4s;
   }
-  .kpi-table tbody tr:hover td { background:rgba(74,67,57,0.06); }
+  .kpi-table tbody tr:hover td { background:rgba(201,169,110,0.05); }
   .kpi-table tbody tr:last-child td { border-bottom:none; }
   .kpi-table td.metric-col {
     text-align:left;
     font-family:'DM Sans',sans-serif; font-weight:400;
-    font-size:0.92rem; color:rgba(247,243,236,0.88);
+    font-size:0.92rem; color:var(--paper-dim);
   }
   .kpi-table td.full-row {
     font-family:'Cormorant Garamond',serif; font-style:italic;
@@ -440,14 +447,14 @@
      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
   .why-twelve {
     display:grid; grid-template-columns:repeat(3,1fr);
-    gap:1px; background:var(--gold-line); margin-top:48px;
+    gap:1px; background:var(--stone-line); margin-top:48px;
   }
   .why-card {
-    background:var(--warm-white); padding:40px 32px;
+    background:var(--ink-lift); padding:40px 32px;
     position:relative;
     transition:background 0.5s, transform 0.5s;
   }
-  .why-card:hover { background:var(--bone); transform:translateY(-4px); }
+  .why-card:hover { background:#2E2A25; transform:translateY(-4px); }
   .why-num {
     font-family:'Cormorant Garamond',serif; font-weight:300;
     font-size:2.4rem; line-height:1; color:var(--gold);
@@ -456,77 +463,125 @@
   .why-card h4 {
     font-family:'Cormorant Garamond',serif; font-weight:500;
     font-size:1.2rem; letter-spacing:-0.005em; text-transform:none;
-    color:var(--ink-warm); margin:0 0 12px; line-height:1.3;
+    color:var(--paper); margin:0 0 12px; line-height:1.3;
   }
   .why-card p {
-    font-size:0.9rem; line-height:1.65; color:var(--taupe);
+    font-size:0.9rem; line-height:1.65; color:var(--paper-dim);
     margin-bottom:0;
   }
 
   /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-     ECONOMICS TABLE
+     ECONOMICS CARDS
      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-  .econ-table {
-    width:100%; border-collapse:collapse; margin:48px 0 32px;
-    background:var(--paper); border:1px solid var(--gold-line);
+  .econ-cards {
+    display:grid; grid-template-columns:repeat(3, 1fr);
+    gap:24px; margin:48px 0 32px;
   }
-  .econ-table thead th {
-    padding:22px 18px; text-align:center;
-    font-family:'Josefin Sans',sans-serif; font-weight:600;
-    font-size:0.62rem; letter-spacing:0.3em; text-transform:uppercase;
-    color:var(--taupe);
-    border-bottom:1.5px solid var(--gold);
+  .econ-card {
+    background:var(--ink-lift); padding:40px 32px 32px;
+    border:1px solid var(--stone-line); position:relative;
+    transition:transform 0.5s cubic-bezier(0.22,1,0.36,1),
+               box-shadow 0.5s cubic-bezier(0.22,1,0.36,1),
+               border-color 0.5s;
   }
-  .econ-table thead th:first-child { text-align:left; }
-  .econ-table thead th.hero-col {
-    background:linear-gradient(180deg, var(--bone) 0%, var(--warm-white) 100%);
-    color:var(--gold-deep);
-    font-size:0.7rem;
-    border-top:3px solid var(--gold); border-left:1px solid var(--gold);
-    border-right:1px solid var(--gold);
+  .econ-card:hover {
+    transform:translateY(-6px);
+    border-color:var(--stone);
+    box-shadow:0 25px 60px -30px rgba(0,0,0,0.6);
   }
-  .econ-table tbody td {
-    padding:20px 18px; text-align:center;
-    font-size:0.95rem; color:var(--taupe);
-    border-bottom:1px solid rgba(91,78,64,0.08);
+  .econ-card.featured {
+    background:linear-gradient(155deg, #2A2724 0%, #1F1D1B 100%);
+    border:1.5px solid var(--gold);
+    box-shadow:0 25px 60px -20px rgba(201,169,110,0.18);
   }
-  .econ-table tbody td:first-child {
-    text-align:left;
-    font-family:'Josefin Sans',sans-serif; font-weight:500;
-    font-size:0.7rem; letter-spacing:0.18em; text-transform:uppercase;
-    color:var(--ink-warm);
+  .econ-card.featured:hover {
+    transform:translateY(-10px);
+    box-shadow:0 35px 80px -20px rgba(201,169,110,0.28);
   }
-  .econ-table tbody td.hero-col {
-    background:rgba(74,67,57,0.08);
-    color:var(--ink-warm);
-    border-left:1px solid var(--gold);
-    border-right:1px solid var(--gold);
-    font-weight:500;
+  .econ-tag {
+    position:absolute; top:-11px; left:32px;
+    font-family:'Josefin Sans',sans-serif; font-size:0.55rem;
+    font-weight:600; letter-spacing:0.32em; text-transform:uppercase;
+    color:var(--ink); background:var(--gold); padding:6px 14px;
   }
-  .econ-table tbody tr.total-row td { padding-top:26px; border-top:1.5px solid var(--gold-line); }
-  .econ-table tbody tr.total-row td.hero-col { color:var(--gold-deep); }
-  .econ-table tbody tr:last-child td { border-bottom:none; font-size:1.1rem; font-family:'Cormorant Garamond',serif; font-weight:500; }
-  .econ-table tbody tr:last-child td.hero-col {
-    color:var(--gold-deep);
-    background:rgba(74,67,57,0.14);
-    border-bottom:3px solid var(--gold);
+  .econ-title {
+    font-family:'Cormorant Garamond',serif; font-weight:300;
+    font-size:2.2rem; color:var(--paper); line-height:1;
+    margin-bottom:4px;
   }
+  .econ-card.featured .econ-title { color:var(--gold-soft); }
+  .econ-sub {
+    font-family:'Josefin Sans',sans-serif; font-size:0.58rem;
+    font-weight:500; letter-spacing:0.3em; text-transform:uppercase;
+    color:var(--stone); margin-bottom:24px;
+  }
+  .econ-attrs {
+    border-top:1px solid var(--stone-line);
+    padding-top:16px; margin-bottom:20px;
+  }
+  .econ-row {
+    display:flex; justify-content:space-between; align-items:flex-start;
+    gap:12px; padding:11px 0;
+    border-bottom:1px solid rgba(138,133,121,0.08);
+  }
+  .econ-row:last-child { border-bottom:none; }
+  .econ-row > span:first-child {
+    font-family:'Josefin Sans',sans-serif; font-size:0.58rem;
+    letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--stone); flex:0 0 auto; padding-top:3px;
+  }
+  .econ-row .v {
+    font-family:'DM Sans',sans-serif; font-size:0.88rem;
+    color:var(--paper-dim); text-align:right;
+    line-height:1.45;
+  }
+  .econ-row .v em {
+    display:block; font-size:0.78rem; color:var(--stone);
+    margin-top:2px; font-style:italic;
+  }
+  .econ-row .v.hot { color:var(--gold); font-weight:500; }
+
+  .econ-totals {
+    border-top:1.5px solid var(--gold-line); padding-top:20px;
+    margin-top:12px;
+  }
+  .econ-card.featured .econ-totals { border-top-color:var(--gold); }
+  .econ-total-row {
+    display:flex; justify-content:space-between; align-items:baseline;
+    gap:12px; padding:10px 0;
+  }
+  .econ-total-row > span:first-child {
+    font-family:'Josefin Sans',sans-serif; font-size:0.56rem;
+    letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--stone);
+  }
+  .econ-total-row .big {
+    font-family:'Cormorant Garamond',serif; font-weight:400;
+    font-size:1.6rem; color:var(--paper); line-height:1.1;
+    text-align:right;
+  }
+  .econ-total-row .big em {
+    display:block; font-size:0.68rem;
+    color:var(--stone); margin-top:2px; font-style:italic;
+    letter-spacing:0.05em;
+  }
+  .econ-total-row .big.highlight { color:var(--gold); font-size:2rem; font-weight:500; }
 
   /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
      FEATURED 12-MONTH HERO CARD
      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
   .opt-hero {
-    background:linear-gradient(135deg, var(--warm-white) 0%, var(--bone) 100%);
+    background:linear-gradient(155deg, #2A2724 0%, #1F1D1B 100%);
     border:1.5px solid var(--gold);
     padding:56px 52px 48px;
     margin:48px 0 20px;
     position:relative;
-    box-shadow:0 30px 80px -30px rgba(74,67,57,0.25);
+    box-shadow:0 30px 80px -30px rgba(201,169,110,0.2);
     transition:transform 0.5s, box-shadow 0.5s;
   }
   .opt-hero:hover {
     transform:translateY(-6px);
-    box-shadow:0 40px 100px -30px rgba(74,67,57,0.35);
+    box-shadow:0 40px 100px -30px rgba(201,169,110,0.3);
   }
   .opt-hero .opt-badge {
     position:absolute; top:-14px; left:52px;
@@ -542,13 +597,13 @@
   .opt-hero-price { text-align:right; }
   .opt-hero-price .price {
     font-family:'Cormorant Garamond',serif; font-size:3.4rem;
-    font-weight:300; color:var(--gold-deep); line-height:1;
+    font-weight:300; color:var(--gold); line-height:1;
     margin-bottom:4px;
   }
   .opt-hero-price .price .per { font-size:1rem; color:var(--stone); font-family:'DM Sans',sans-serif; }
   .opt-hero-price .total {
     font-family:'Josefin Sans',sans-serif; font-size:0.62rem;
-    letter-spacing:0.28em; text-transform:uppercase; color:var(--taupe-soft);
+    letter-spacing:0.28em; text-transform:uppercase; color:var(--stone);
     margin-top:4px;
   }
   .opt-hero-grid {
@@ -557,7 +612,7 @@
   .opt-hero-grid h4 {
     font-family:'Josefin Sans',sans-serif; font-size:0.65rem;
     font-weight:600; letter-spacing:0.28em; text-transform:uppercase;
-    color:var(--gold-deep); margin:0 0 14px;
+    color:var(--gold); margin:0 0 14px;
   }
   .opt-hero-grid ul { margin:0; }
   .opt-hero-grid li {
@@ -571,21 +626,21 @@
      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
   .options { display:grid; grid-template-columns:1fr 1fr; gap:28px; margin:48px 0 32px; }
   .opt {
-    background:var(--warm-white); padding:52px 44px 44px;
-    position:relative; border:1px solid var(--gold-line);
+    background:var(--ink-lift); padding:52px 44px 44px;
+    position:relative; border:1px solid var(--stone-line);
     transition:transform 0.5s cubic-bezier(0.22,1,0.36,1),
                box-shadow 0.5s cubic-bezier(0.22,1,0.36,1),
                border-color 0.5s;
   }
   .opt:hover {
     transform:translateY(-8px);
-    box-shadow:0 30px 70px -20px rgba(91,78,64,0.18);
+    box-shadow:0 30px 70px -20px rgba(0,0,0,0.6);
     border-color:var(--gold);
   }
   .opt.featured {
-    background:linear-gradient(135deg, var(--warm-white) 0%, var(--bone) 100%);
+    background:linear-gradient(155deg, #2A2724 0%, #1F1D1B 100%);
     border:1px solid var(--gold);
-    box-shadow:0 20px 50px -20px rgba(74,67,57,0.2);
+    box-shadow:0 20px 50px -20px rgba(201,169,110,0.2);
   }
   .opt-badge {
     position:absolute; top:-12px; left:44px;
@@ -596,7 +651,7 @@
   .opt h3 { margin-top:0; }
   .opt .price {
     font-family:'Cormorant Garamond',serif; font-size:3rem;
-    font-weight:300; color:var(--gold-deep); margin:14px 0 4px;
+    font-weight:300; color:var(--gold); margin:14px 0 4px;
     line-height:1;
   }
   .opt .price .per {
@@ -611,18 +666,18 @@
   .opt ul { margin:0; }
   .opt li {
     padding:10px 0 10px 22px; font-size:0.92rem;
-    border-bottom:1px solid rgba(91,78,64,0.06);
+    border-bottom:1px solid rgba(138,133,121,0.08);
   }
   .opt li::before { top:19px; }
   .opt .note {
     margin-top:22px; padding-top:22px;
-    border-top:1px solid var(--gold-line);
-    font-size:0.88rem; font-style:italic; color:var(--taupe-soft);
+    border-top:1px solid var(--stone-line);
+    font-size:0.88rem; font-style:italic; color:var(--stone);
     line-height:1.65;
   }
 
   .opt-c {
-    background:var(--bone); padding:36px 44px; margin-top:20px;
+    background:var(--ink-soft); padding:36px 44px; margin-top:20px;
     border-left:3px solid var(--gold); position:relative;
   }
   .opt-c h4 { margin-top:0; }
@@ -641,80 +696,37 @@
   .split-col ul { margin-top:16px; }
   .split-col li { border-bottom-color:rgba(91,78,64,0.06); font-size:0.92rem; }
   .split-stat {
-    background:var(--warm-white); padding:40px 36px; border-top:2px solid var(--gold);
+    background:var(--ink-lift); padding:40px 36px; border-top:2px solid var(--gold);
   }
   .split-stat .big {
     font-family:'Cormorant Garamond',serif; font-weight:300;
-    font-size:3.4rem; line-height:1; color:var(--gold-deep);
+    font-size:3.4rem; line-height:1; color:var(--gold);
     font-style:italic; margin-bottom:10px;
   }
   .split-stat .big-label {
     font-family:'Josefin Sans',sans-serif; font-size:0.58rem;
     letter-spacing:0.28em; text-transform:uppercase; color:var(--stone);
   }
+  .split-stat p { color:var(--paper-dim) !important; }
 
-  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
-     CLIENT PORTAL SHOWCASE
-     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
-  .portal-showcase {
-    background:var(--warm-white); padding:56px 52px;
-    border:1.5px solid var(--gold-line);
-    margin:48px 0 32px;
-    position:relative;
-    box-shadow:0 25px 60px -30px rgba(91,78,64,0.15);
-  }
-  .portal-showcase::before {
-    content:''; position:absolute; top:0; left:0; right:0; height:3px;
-    background:linear-gradient(90deg, var(--gold-soft), var(--gold), var(--gold-deep));
-  }
-  .portal-inside {
-    display:grid; grid-template-columns:1fr 1fr; gap:56px;
-    padding-bottom:44px; border-bottom:1px solid var(--gold-line);
-  }
-  .portal-col h4 {
-    font-family:'Cormorant Garamond',serif; font-weight:500;
-    font-size:1.4rem; letter-spacing:-0.005em; text-transform:none;
-    color:var(--ink-warm); margin:0 0 18px; line-height:1.3;
-    font-style:italic;
-  }
-  .portal-col ul { margin:0; }
-  .portal-col li {
-    padding:10px 0 10px 22px; font-size:0.92rem; line-height:1.6;
-    border-bottom:1px solid rgba(91,78,64,0.05);
-  }
-  .portal-col li::before { top:19px; width:12px; }
-  .portal-footer {
-    display:grid; grid-template-columns:repeat(3,1fr); gap:32px;
-    padding-top:36px;
-  }
-  .portal-stat { text-align:center; }
-  .portal-stat .n {
-    font-family:'Cormorant Garamond',serif; font-weight:300;
-    font-size:3rem; line-height:1; color:var(--gold-deep);
-    font-style:italic; margin-bottom:8px;
-  }
-  .portal-stat .l {
-    font-family:'Josefin Sans',sans-serif; font-size:0.58rem;
-    letter-spacing:0.26em; text-transform:uppercase; color:var(--stone);
-  }
 
   /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
      PLATFORM / WORKFLOW CHIPS
      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
   .workflow { display:grid; grid-template-columns:repeat(3,1fr); gap:24px; margin:40px 0; }
   .tool {
-    background:var(--warm-white); padding:36px 28px;
-    border:1px solid var(--gold-line);
+    background:var(--ink); padding:36px 28px;
+    border:1px solid var(--stone-line);
     transition:transform 0.4s, border-color 0.4s;
   }
   .tool:hover { transform:translateY(-4px); border-color:var(--gold); }
-  .tool h4 { margin:0 0 10px; color:var(--gold-deep); }
+  .tool h4 { margin:0 0 10px; color:var(--gold); }
   .tool .tool-name {
     font-family:'Cormorant Garamond',serif; font-size:1.4rem;
-    font-weight:500; color:var(--ink-warm); margin-bottom:12px;
+    font-weight:500; color:var(--paper); margin-bottom:12px;
     display:block;
   }
-  .tool p { font-size:0.9rem; margin-bottom:0; color:var(--taupe); }
+  .tool p { font-size:0.9rem; margin-bottom:0; color:var(--paper-dim); }
 
   /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
      TIMELINE — DATED ROW LIST
@@ -730,11 +742,11 @@
   .date-row .when {
     font-family:'Josefin Sans',sans-serif; font-weight:600;
     font-size:0.66rem; letter-spacing:0.28em; text-transform:uppercase;
-    color:var(--gold-deep);
+    color:var(--gold);
   }
   .date-row .what {
     font-family:'Cormorant Garamond',serif; font-size:1.25rem;
-    font-weight:400; color:var(--ink-warm); font-style:italic;
+    font-weight:400; color:var(--paper); font-style:italic;
   }
   .date-row .tag {
     font-family:'Josefin Sans',sans-serif; font-size:0.58rem;
@@ -958,9 +970,7 @@
     .opt-hero-top { grid-template-columns:1fr; gap:20px; }
     .opt-hero-price { text-align:left; }
     .opt-hero-grid { grid-template-columns:1fr; gap:28px; }
-    .portal-showcase { padding:32px 24px; }
-    .portal-inside { grid-template-columns:1fr; gap:32px; }
-    .portal-footer { grid-template-columns:1fr; gap:20px; }
+    .econ-cards { grid-template-columns:1fr; gap:20px; }
     .pri { grid-template-columns:1fr; gap:16px; padding:32px 0; }
     .pri-label .num { font-size:2.2rem; }
     .finding { grid-template-columns:60px 1fr; gap:20px; }
@@ -1044,7 +1054,7 @@
       <li>A proprietary voice-extraction workflow that turns recorded conversations into blogs, social, and editorial copy in your tone — not generic agency output.</li>
       <li>Keyword research, rank tracking, and content velocity reporting as ongoing monthly infrastructure.</li>
       <li>Scheduled publishing across every channel with manual review on every post. Nothing publishes without approval.</li>
-      <li>A dedicated client portal — your curated command center for rankings, reports, calendar, and deliverables. More on this in the Platform chapter.</li>
+      <li>Monthly written reports delivered to you and Justina — keyword movement, traffic sources, content performance, whatever we defined as the KPI.</li>
     </ul>
 
     <p class="reveal"><strong>Why this structure matters for you:</strong> the monthly deliverables don't depend on my availability on any given day. The systems run. I handle strategy, shoots, and the relationship. You get the benefit of a senior operator with the accountability of a small, focused team — not agency overhead.</p>
@@ -1174,10 +1184,10 @@
           <ul>
             <li>UTM parameter framework on every outbound link — social, email, LinkedIn.</li>
             <li>GA4 + Search Console wired to the new site in Month 1.</li>
-            <li>Monthly traffic-source report delivered in the portal: which channels drove visitors, which keywords, which content.</li>
+            <li>Monthly traffic-source report: which channels drove visitors, which keywords, which content.</li>
           </ul>
           <p>Three months in, you'll know which channels are driving real traffic and which aren't. Turning that traffic into <em>tracked leads</em> — the CRM side — is your team's domain, not mine. But I can recommend a proper lead-tracking build as an add-on engagement if you want the full loop closed.</p>
-          <p style="font-size:0.9rem; color:var(--taupe-soft); font-style:italic; margin-top:12px;">Add-on available: a dedicated lead-tracking system build (form routing, CRM wiring, automated source capture) scoped separately based on your existing stack.</p>
+          <p style="font-size:0.9rem; color:var(--stone); font-style:italic; margin-top:12px;">Add-on available: a dedicated lead-tracking system build (form routing, CRM wiring, automated source capture) scoped separately based on your existing stack.</p>
         </div>
       </div>
     </div>
@@ -1198,7 +1208,7 @@
         <ul>
           <li>2-hour onboarding call with Jeremy + Justina</li>
           <li>Three 30-min brand-voice recording sessions</li>
-          <li>Shared Dropbox folder + client portal provisioned — separate logins for Jeremy &amp; Justina</li>
+          <li>Shared Dropbox folder spun up for all asset handoff</li>
           <li>Domain retrieval + Tamarack handoff coordination</li>
           <li>Content pillars workshop — four to six pillars defined</li>
           <li>Site architecture approved · first two blogs drafted</li>
@@ -1214,7 +1224,7 @@
         <ul>
           <li>LinkedIn company page launched · Jeremy's profile optimized</li>
           <li>Instagram revival — "In Progress" series restarted, highlights curated</li>
-          <li>Content calendar live in portal · monthly cadence approved</li>
+          <li>Content calendar live · monthly cadence approved</li>
           <li>First full social wave published across LinkedIn + Instagram</li>
           <li>Weekly publishing cadence established</li>
           <li>Alberta-focused pillar content begins</li>
@@ -1320,7 +1330,7 @@
         </tr>
         <tr>
           <td class="metric-col">Traffic-source attribution</td>
-          <td colspan="3" class="full-row">Full channel &amp; keyword attribution live in the portal from Month 1</td>
+          <td colspan="3" class="full-row">Full channel &amp; keyword attribution delivered in monthly reports from Month 1</td>
         </tr>
       </tbody>
     </table>
@@ -1380,54 +1390,53 @@
     <h2 class="reveal reveal-delay-2">The 12-month is cheaper <em>per month</em> than the 6-month.</h2>
     <p class="lead reveal reveal-delay-3">Once you factor in the $5,000 website build, the short-term option stops looking short-term.</p>
 
-    <table class="econ-table reveal">
-      <thead>
-        <tr>
-          <th></th>
-          <th class="hero-col">12-Month</th>
-          <th>6-Month</th>
-          <th>Strategy Only</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Retainer</td>
-          <td class="hero-col">$3,500/mo × 12 = $42,000</td>
-          <td>$3,500/mo × 6 = $21,000</td>
-          <td>$2,500/mo × 12 = $30,000</td>
-        </tr>
-        <tr>
-          <td>Website build</td>
-          <td class="hero-col">Included</td>
-          <td>+ $5,000</td>
-          <td>+ $5,000</td>
-        </tr>
-        <tr>
-          <td>Portfolio projects documented</td>
-          <td class="hero-col">4 projects · one bundled visit</td>
-          <td>2 projects · one visit</td>
-          <td>Booked separately</td>
-        </tr>
-        <tr>
-          <td>Travel &amp; accommodation</td>
-          <td class="hero-col">Included</td>
-          <td>Billed at cost</td>
-          <td>Billed at cost</td>
-        </tr>
-        <tr class="total-row">
-          <td><strong>Total year-one spend</strong></td>
-          <td class="hero-col"><strong>$42,000</strong></td>
-          <td><strong>$26,000</strong> (6 mo only)</td>
-          <td><strong>$35,000</strong></td>
-        </tr>
-        <tr>
-          <td><strong>Effective monthly rate</strong></td>
-          <td class="hero-col"><strong>$3,500</strong></td>
-          <td><strong>$4,333</strong></td>
-          <td><strong>$2,917</strong></td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="econ-cards stagger">
+      <div class="econ-card featured">
+        <div class="econ-tag">Recommended</div>
+        <div class="econ-title">12-Month</div>
+        <div class="econ-sub">Creative Partner</div>
+        <div class="econ-attrs">
+          <div class="econ-row"><span>Retainer</span><span class="v">$3,500/mo × 12<br><em>= $42,000</em></span></div>
+          <div class="econ-row"><span>Website build</span><span class="v hot">Included</span></div>
+          <div class="econ-row"><span>Portfolio projects</span><span class="v">4 · one bundled visit</span></div>
+          <div class="econ-row"><span>Travel &amp; accommodation</span><span class="v hot">Included</span></div>
+        </div>
+        <div class="econ-totals">
+          <div class="econ-total-row"><span>Year-one spend</span><span class="big">$42,000</span></div>
+          <div class="econ-total-row"><span>Effective monthly</span><span class="big highlight">$3,500</span></div>
+        </div>
+      </div>
+
+      <div class="econ-card">
+        <div class="econ-title">6-Month</div>
+        <div class="econ-sub">Retainer</div>
+        <div class="econ-attrs">
+          <div class="econ-row"><span>Retainer</span><span class="v">$3,500/mo × 6<br><em>= $21,000</em></span></div>
+          <div class="econ-row"><span>Website build</span><span class="v">+ $5,000</span></div>
+          <div class="econ-row"><span>Portfolio projects</span><span class="v">2 · one visit</span></div>
+          <div class="econ-row"><span>Travel &amp; accommodation</span><span class="v">Billed at cost</span></div>
+        </div>
+        <div class="econ-totals">
+          <div class="econ-total-row"><span>Year-one spend</span><span class="big">$26,000<br><em>(6 mo only)</em></span></div>
+          <div class="econ-total-row"><span>Effective monthly</span><span class="big">$4,333</span></div>
+        </div>
+      </div>
+
+      <div class="econ-card">
+        <div class="econ-title">Strategy</div>
+        <div class="econ-sub">Only</div>
+        <div class="econ-attrs">
+          <div class="econ-row"><span>Retainer</span><span class="v">$2,500/mo × 12<br><em>= $30,000</em></span></div>
+          <div class="econ-row"><span>Website build</span><span class="v">+ $5,000</span></div>
+          <div class="econ-row"><span>Portfolio projects</span><span class="v">Booked separately</span></div>
+          <div class="econ-row"><span>Travel &amp; accommodation</span><span class="v">Billed at cost</span></div>
+        </div>
+        <div class="econ-totals">
+          <div class="econ-total-row"><span>Year-one spend</span><span class="big">$35,000</span></div>
+          <div class="econ-total-row"><span>Effective monthly</span><span class="big">$2,917</span></div>
+        </div>
+      </div>
+    </div>
 
     <p class="reveal"><strong>Per month, the 12-month is 20% cheaper than the 6-month.</strong> Per shoot day, it's roughly 40% cheaper. Per month of compounding content and rankings, it isn't close. The 6-month tier is built for clients who need to test before they commit — not for the builder who has already diagnosed the problem and wants it fixed.</p>
   </div>
@@ -1446,7 +1455,7 @@
       <div class="opt-hero-top">
         <div>
           <h3 style="margin-top:0; font-size:2rem;">12-Month Creative Partner Retainer<span class="mark"></span></h3>
-          <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.2rem; color:var(--taupe); margin-bottom:0;">A long-term engagement for builders who have decided to own their market.</p>
+          <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.2rem; color:var(--paper-dim); margin-bottom:0;">A long-term engagement for builders who have decided to own their market.</p>
         </div>
         <div class="opt-hero-price">
           <div class="price">$3,500<span class="per">&nbsp;/mo</span></div>
@@ -1487,9 +1496,8 @@
         <div>
           <h4>Your command center</h4>
           <ul>
-            <li><strong>Full client portal access</strong></li>
             <li>Monthly 60-min strategy call (Justina attends)</li>
-            <li>Monthly written report delivered in portal</li>
+            <li>Monthly written report delivered to both of you</li>
             <li>Async approvals on all content</li>
             <li>You own every account, asset, and login</li>
           </ul>
@@ -1504,13 +1512,13 @@
         <h3>6-Month Retainer<span class="mark"></span></h3>
         <div class="price">$3,500<span class="per">&nbsp;/mo</span></div>
         <div class="total">$21,000 + $5,000 website</div>
-        <div class="total" style="color:var(--taupe);">$26,000 total · 6 months</div>
+        <div class="total" style="color:var(--stone);">$26,000 total · 6 months</div>
         <ul>
           <li>Everything in Priorities 1–3</li>
           <li>Website build <strong>+ $5,000</strong> (not included)</li>
           <li><strong>Two portfolio projects documented</strong> (one Kootenay visit)</li>
           <li>Travel &amp; accommodation billed separately at cost</li>
-          <li>Full client portal access</li>
+          <li>Monthly written report delivered to you &amp; Justina</li>
           <li>Monthly reporting + strategy call</li>
           <li>Content production (blogs, social, LinkedIn)</li>
           <li>Awards submissions begin (complete in extension)</li>
@@ -1523,12 +1531,12 @@
         <h3>Strategy Only<span class="mark"></span></h3>
         <div class="price">$2,500<span class="per">&nbsp;/mo</span></div>
         <div class="total">$30,000 + $5,000 website</div>
-        <div class="total" style="color:var(--taupe);">$35,000 total · 12 months</div>
+        <div class="total" style="color:var(--stone);">$35,000 total · 12 months</div>
         <ul>
           <li>All strategy, SEO, GEO, content</li>
           <li>Website build <strong>+ $5,000</strong> (not included)</li>
           <li><strong>No shoots included</strong> (book separately at $2,000–$3,500/day plus travel &amp; accommodation — travel is only comped on a retainer with shoots)</li>
-          <li>Full client portal access</li>
+          <li>Monthly written report delivered to you &amp; Justina</li>
           <li>Monthly reporting + strategy call</li>
           <li>Content production (blogs, social, LinkedIn)</li>
         </ul>
@@ -1538,51 +1546,10 @@
   </div>
 </section>
 
-<!-- ══════════════════════════════ 10 — CLIENT PORTAL (centerpiece) ══════════════════════════════ -->
-<section class="sec bone" data-chapter="Your Portal" data-num="10">
-  <div class="wrap">
-    <div class="sec-num reveal">10 — Your Portal</div>
-    <div class="eyebrow reveal reveal-delay-1">Your command center</div>
-    <h2 class="reveal reveal-delay-2">A dedicated client portal, <em>built for builders.</em></h2>
-    <p class="lead reveal reveal-delay-3">Not a raw analytics dashboard. Not a shared drive. A custom portal designed for people running construction companies — where three numbers tell you whether the marketing is working, and everything else is one click away if you want it.</p>
-
-    <div class="portal-showcase reveal">
-      <div class="portal-inside">
-        <div class="portal-col">
-          <h4>What lives inside</h4>
-          <ul>
-            <li><strong>Three headline metrics</strong> — traffic this month, ranking position vs Munter, top-performing content. Designed for a 30-second check-in.</li>
-            <li><strong>Live content calendar</strong> — every scheduled blog, post, and shoot. Approve, comment, or request revisions inline.</li>
-            <li><strong>Monthly reports archive</strong> — every report ever delivered, downloadable, searchable.</li>
-            <li><strong>Recent deliverables gallery</strong> — every blog, LinkedIn post, Instagram carousel, shoot gallery.</li>
-            <li><strong>Shoot schedule</strong> — upcoming shoot dates, project confirmations, shot lists.</li>
-            <li><strong>Keyword tracker</strong> — live rankings on your 20 target keywords, updated weekly.</li>
-            <li><strong>Brand voice library</strong> — your recorded extractions, transcripts, approved phrases.</li>
-          </ul>
-        </div>
-        <div class="portal-col">
-          <h4>Built for how you actually work</h4>
-          <ul>
-            <li><strong>Revision requests land back with me</strong> — comment directly on drafts in the portal; I see it in my own dashboard.</li>
-            <li><strong>Archive access</strong> — if we ever part ways, the portal stays readable for 90 days. You walk away with everything.</li>
-          </ul>
-        </div>
-      </div>
-      <div class="portal-footer">
-        <div class="portal-stat"><div class="n">3</div><div class="l">Headline metrics on the dashboard</div></div>
-        <div class="portal-stat"><div class="n">24/7</div><div class="l">Access · mobile &amp; desktop</div></div>
-        <div class="portal-stat"><div class="n">∞</div><div class="l">Historical reports archived</div></div>
-      </div>
-    </div>
-
-    <p class="reveal"><strong>The portal is included in every tier.</strong> It's provisioned in Month 1 and stays live for the full engagement. For the 12-month tier, it becomes the operating system of our relationship — every deliverable, every report, every decision lives in one place that you and Justina can access any time, from anywhere.</p>
-  </div>
-</section>
-
 <!-- ══════════════════════════════ 11 — PLATFORM & WORKFLOW ══════════════════════════════ -->
-<section class="sec warm" data-chapter="Platform" data-num="11">
+<section class="sec warm" data-chapter="Platform" data-num="10">
   <div class="wrap">
-    <div class="sec-num reveal">11 — Platform</div>
+    <div class="sec-num reveal">10 — Platform</div>
     <div class="eyebrow reveal reveal-delay-1">Supporting tools</div>
     <h2 class="reveal reveal-delay-2">Transparent. <em>Nothing hidden behind the agency.</em></h2>
     <p class="lead reveal reveal-delay-3">Every tool chosen so you and Justina can log in, see what's happening, and keep working if I'm ever off-grid for a week shooting.</p>
@@ -1601,12 +1568,12 @@
       <div class="tool">
         <h4>Analytics</h4>
         <span class="tool-name">GA4 + Search Console</span>
-        <p>Wired to the new site in Month 1. Portal reports pull directly. Raw accounts stay in your Google workspace — not mine.</p>
+        <p>Wired to the new site in Month 1. Monthly reports pull directly from here. Raw accounts stay in your Google workspace — not mine.</p>
       </div>
       <div class="tool">
         <h4>Traffic reporting</h4>
         <span class="tool-name">UTM + GA4 attribution</span>
-        <p>Every outbound link tagged. Monthly traffic-source report delivered in the portal — you see where visitors are coming from. Converting those visitors to tracked leads is on your side; full lead-tracking builds are available as an add-on (see below).</p>
+        <p>Every outbound link tagged. Monthly traffic-source report delivered to both you and Justina — you see where visitors are coming from. Converting those visitors to tracked leads is on your side; full lead-tracking builds are available as an add-on.</p>
       </div>
       <div class="tool">
         <h4>Publishing</h4>
@@ -1614,9 +1581,9 @@
         <p>Every social post, blog, and LinkedIn update is scheduled with a manual review step. Nothing goes live without explicit approval from you or Justina.</p>
       </div>
       <div class="tool">
-        <h4>Your command center</h4>
-        <span class="tool-name">The client portal</span>
-        <p>See chapter 10. Everything you need to know about the engagement, in one place, with separate logins for you and Justina.</p>
+        <h4>Monthly reporting</h4>
+        <span class="tool-name">Written + walkthrough</span>
+        <p>Every month you get a written report plus a 60-min call to walk through it. No opaque agency dashboards — plain language, decisions, next month's plan.</p>
       </div>
     </div>
 
@@ -1625,9 +1592,9 @@
 </section>
 
 <!-- ══════════════════════════════ 09 — ALBERTA STRATEGY ══════════════════════════════ -->
-<section class="sec linen" data-chapter="Alberta" data-num="12">
+<section class="sec linen" data-chapter="Alberta" data-num="11">
   <div class="wrap">
-    <div class="sec-num reveal">12 — Alberta</div>
+    <div class="sec-num reveal">11 — Alberta</div>
     <div class="eyebrow reveal reveal-delay-1">Where your buyers actually live</div>
     <h2 class="reveal reveal-delay-2">Your clients aren't in the Kootenays. They're in <em>Calgary.</em></h2>
     <p class="lead reveal reveal-delay-3">You told me most of your clients live out-of-region, heavily Alberta. Tamarack has been targeting them — but without location-keyed content or Alberta-specific distribution, the targeting can't land. Here's the dedicated strategy.</p>
@@ -1656,15 +1623,15 @@
     <div class="split-stat reveal" style="margin-top:48px">
       <div class="big">~80%</div>
       <div class="big-label">Of your client base lives outside the Kootenays</div>
-      <p style="margin-top:16px; margin-bottom:0; color:var(--taupe); font-size:0.95rem;">Your website doesn't speak to them directly. The new one will.</p>
+      <p style="margin-top:16px; margin-bottom:0; color:var(--paper-dim); font-size:0.95rem;">Your website doesn't speak to them directly. The new one will.</p>
     </div>
   </div>
 </section>
 
 <!-- ══════════════════════════════ 10 — TRANSITION ══════════════════════════════ -->
-<section class="sec paper" data-chapter="Transition" data-num="13">
+<section class="sec paper" data-chapter="Transition" data-num="12">
   <div class="wrap">
-    <div class="sec-num reveal">13 — Transition</div>
+    <div class="sec-num reveal">12 — Transition</div>
     <div class="eyebrow reveal reveal-delay-1">Leaving Tamarack cleanly</div>
     <h2 class="reveal reveal-delay-2">Zero downtime. <em>Zero lost authority.</em></h2>
     <p class="lead reveal reveal-delay-3">You're in a contract with Tamarack and don't know who owns your domain. Here's exactly how I handle the website migration.</p>
@@ -1679,14 +1646,14 @@
 
     <p class="reveal"><strong>You do not lose a day of visibility during the transition. You do not lose any existing SEO authority. That is a guarantee.</strong></p>
 
-    <p class="reveal" style="font-size:0.9rem; color:var(--taupe-soft); font-style:italic; margin-top:24px;">Note: paid advertising (Google &amp; Meta) is not part of this engagement. If you'd like to continue paid campaigns after Tamarack, I'm happy to recommend a vetted paid-media specialist — that work is handled separately on their own terms.</p>
+    <p class="reveal" style="font-size:0.9rem; color:var(--stone); font-style:italic; margin-top:24px;">Note: paid advertising (Google &amp; Meta) is not part of this engagement. If you'd like to continue paid campaigns after Tamarack, I'm happy to recommend a vetted paid-media specialist — that work is handled separately on their own terms.</p>
   </div>
 </section>
 
 <!-- ══════════════════════════════ 11 — TIME ══════════════════════════════ -->
-<section class="sec bone" data-chapter="Your Time" data-num="14">
+<section class="sec bone" data-chapter="Your Time" data-num="13">
   <div class="wrap">
-    <div class="sec-num reveal">14 — Your Time</div>
+    <div class="sec-num reveal">13 — Your Time</div>
     <div class="eyebrow reveal reveal-delay-1">What I need from you</div>
     <h2 class="reveal reveal-delay-2">Honest about the <em>time cost.</em></h2>
 
@@ -1707,15 +1674,15 @@
 
     <p class="reveal" style="margin-top:28px"><strong>Total time commitment:</strong> ~6 hours in Month 1, ~1–2 hours/month thereafter. Designed for a builder actively running five projects who doesn't have time for an agency that needs hand-holding.</p>
 
-    <p class="reveal" style="font-size:0.9rem; color:var(--taupe-soft); font-style:italic;">Note: the blog is run fully by me for SEO and GEO performance — no approval required. You'll see every post published in your portal, and can flag anything you'd want changed after the fact, but I hold the pen on the blog so the cadence and keyword execution stay tight.</p>
+    <p class="reveal" style="font-size:0.9rem; color:var(--stone); font-style:italic;">Note: the blog is run fully by me for SEO and GEO performance — no approval required. You'll see every post in the monthly report and can flag anything you'd want changed after the fact, but I hold the pen on the blog so the cadence and keyword execution stay tight.</p>
   </div>
 </section>
 
 <!-- ══════════════════════════════ 12 — URGENCY ══════════════════════════════ -->
-<section class="sec urgency" data-chapter="Urgency" data-num="15">
+<section class="sec urgency" data-chapter="Urgency" data-num="14">
   <div class="urgency-bg"></div>
   <div class="wrap">
-    <div class="sec-num reveal" style="color:var(--gold-soft)">15 — Urgency</div>
+    <div class="sec-num reveal" style="color:var(--gold-soft)">14 — Urgency</div>
     <div class="eyebrow reveal reveal-delay-1">The July shoot window</div>
     <h2 class="reveal reveal-delay-2">This isn't a manufactured deadline. It's how architectural photography <em>works in the Kootenays.</em></h2>
     <p class="lead reveal reveal-delay-3">The shoot trip needs to land in July or August 2026. Here's why:</p>
@@ -1732,9 +1699,9 @@
 
 
 <!-- ══════════════════════════════ 14 — DATES ══════════════════════════════ -->
-<section class="sec warm" data-chapter="Calendar" data-num="16">
+<section class="sec warm" data-chapter="Calendar" data-num="15">
   <div class="wrap">
-    <div class="sec-num reveal">16 — Calendar</div>
+    <div class="sec-num reveal">15 — Calendar</div>
     <div class="eyebrow reveal reveal-delay-1">Starting now, not May</div>
     <h2 class="reveal reveal-delay-2">We move <em>this week.</em></h2>
     <p class="lead reveal reveal-delay-3">You said you want minimal downtime and to get going fast. The schedule below reflects that. Website build starts the day after signing; the shoot week is already holding dates in July.</p>
@@ -1747,7 +1714,7 @@
       </div>
       <div class="date-row">
         <div class="when">Week of 04 · 27 · 2026</div>
-        <div class="what">Onboarding · brand voice sessions · Dropbox &amp; portal live</div>
+        <div class="what">Onboarding · brand voice sessions · Dropbox live</div>
         <div class="tag">Month 1 begins</div>
       </div>
       <div class="date-row">
@@ -1790,7 +1757,7 @@
 </section>
 
 <!-- ══════════════════════════════ CTA ══════════════════════════════ -->
-<section class="cta" data-chapter="Move Forward" data-num="17">
+<section class="cta" data-chapter="Move Forward" data-num="16">
   <div class="cta-bg"></div>
   <div class="cta-inner">
     <div class="eyebrow reveal">Ready when you are</div>
