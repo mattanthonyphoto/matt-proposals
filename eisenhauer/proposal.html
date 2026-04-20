@@ -397,36 +397,166 @@
   section.sec.taupe .eyebrow { color:var(--gold-soft); }
   section.sec.taupe p.lead { color:rgba(247,243,236,0.92); }
 
-  .kpi-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1px; background:rgba(201,169,110,0.22); margin:48px 0; }
-  .kpi-cell {
-    background:rgba(43,37,32,0.45); padding:32px 20px 28px;
-    text-align:center;
-    transition:background 0.5s;
+  .kpi-table {
+    width:100%; border-collapse:collapse; margin:48px 0 16px;
   }
-  .kpi-cell:hover { background:rgba(43,37,32,0.65); }
-  .kpi-cell .metric {
-    font-family:'Josefin Sans',sans-serif; font-weight:500;
-    font-size:0.55rem; letter-spacing:0.28em; text-transform:uppercase;
-    color:var(--gold-soft); margin-bottom:14px; min-height:32px;
-    display:flex; align-items:center; justify-content:center;
+  .kpi-table thead th {
+    padding:18px 16px; text-align:center;
+    font-family:'Josefin Sans',sans-serif; font-weight:600;
+    font-size:0.6rem; letter-spacing:0.3em; text-transform:uppercase;
+    color:var(--gold-soft);
+    border-bottom:1.5px solid var(--gold);
   }
-  .kpi-cell .value {
+  .kpi-table thead th.metric-col { text-align:left; color:rgba(247,243,236,0.6); }
+  .kpi-table tbody td {
+    padding:22px 16px; text-align:center;
     font-family:'Cormorant Garamond',serif; font-weight:400;
-    font-size:2.4rem; line-height:1; color:var(--paper);
-    margin-bottom:8px;
+    font-size:1.8rem; color:var(--paper);
+    border-bottom:1px solid rgba(201,169,110,0.12);
+    transition:background 0.4s;
   }
-  .kpi-cell .caption {
-    font-family:'Josefin Sans',sans-serif; font-size:0.55rem;
-    letter-spacing:0.22em; text-transform:uppercase;
-    color:rgba(226,205,160,0.65);
+  .kpi-table tbody tr:hover td { background:rgba(201,169,110,0.06); }
+  .kpi-table tbody tr:last-child td { border-bottom:none; }
+  .kpi-table td.metric-col {
+    text-align:left;
+    font-family:'DM Sans',sans-serif; font-weight:400;
+    font-size:0.92rem; color:rgba(247,243,236,0.88);
+  }
+  .kpi-table td.full-row {
+    font-family:'Cormorant Garamond',serif; font-style:italic;
+    font-size:1.15rem; color:var(--gold-soft);
   }
 
-  .kpi-row-label {
-    font-family:'Josefin Sans',sans-serif; font-weight:500;
-    font-size:0.6rem; letter-spacing:0.32em; text-transform:uppercase;
-    color:var(--gold-soft); margin:36px 0 18px;
-    padding-bottom:12px; border-bottom:1px solid rgba(201,169,110,0.25);
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     WHY 12 MONTHS — GRID OF REASONS
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+  .why-twelve {
+    display:grid; grid-template-columns:repeat(3,1fr);
+    gap:1px; background:var(--gold-line); margin-top:48px;
   }
+  .why-card {
+    background:var(--warm-white); padding:40px 32px;
+    position:relative;
+    transition:background 0.5s, transform 0.5s;
+  }
+  .why-card:hover { background:var(--bone); transform:translateY(-4px); }
+  .why-num {
+    font-family:'Cormorant Garamond',serif; font-weight:300;
+    font-size:2.4rem; line-height:1; color:var(--gold);
+    font-style:italic; margin-bottom:16px;
+  }
+  .why-card h4 {
+    font-family:'Cormorant Garamond',serif; font-weight:500;
+    font-size:1.2rem; letter-spacing:-0.005em; text-transform:none;
+    color:var(--ink-warm); margin:0 0 12px; line-height:1.3;
+  }
+  .why-card p {
+    font-size:0.9rem; line-height:1.65; color:var(--taupe);
+    margin-bottom:0;
+  }
+
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     ECONOMICS TABLE
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+  .econ-table {
+    width:100%; border-collapse:collapse; margin:48px 0 32px;
+    background:var(--paper); border:1px solid var(--gold-line);
+  }
+  .econ-table thead th {
+    padding:22px 18px; text-align:center;
+    font-family:'Josefin Sans',sans-serif; font-weight:600;
+    font-size:0.62rem; letter-spacing:0.3em; text-transform:uppercase;
+    color:var(--taupe);
+    border-bottom:1.5px solid var(--gold);
+  }
+  .econ-table thead th:first-child { text-align:left; }
+  .econ-table thead th.hero-col {
+    background:linear-gradient(180deg, var(--bone) 0%, var(--warm-white) 100%);
+    color:var(--gold-deep);
+    font-size:0.7rem;
+    border-top:3px solid var(--gold); border-left:1px solid var(--gold);
+    border-right:1px solid var(--gold);
+  }
+  .econ-table tbody td {
+    padding:20px 18px; text-align:center;
+    font-size:0.95rem; color:var(--taupe);
+    border-bottom:1px solid rgba(91,78,64,0.08);
+  }
+  .econ-table tbody td:first-child {
+    text-align:left;
+    font-family:'Josefin Sans',sans-serif; font-weight:500;
+    font-size:0.7rem; letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--ink-warm);
+  }
+  .econ-table tbody td.hero-col {
+    background:rgba(201,169,110,0.08);
+    color:var(--ink-warm);
+    border-left:1px solid var(--gold);
+    border-right:1px solid var(--gold);
+    font-weight:500;
+  }
+  .econ-table tbody tr.total-row td { padding-top:26px; border-top:1.5px solid var(--gold-line); }
+  .econ-table tbody tr.total-row td.hero-col { color:var(--gold-deep); }
+  .econ-table tbody tr:last-child td { border-bottom:none; font-size:1.1rem; font-family:'Cormorant Garamond',serif; font-weight:500; }
+  .econ-table tbody tr:last-child td.hero-col {
+    color:var(--gold-deep);
+    background:rgba(201,169,110,0.14);
+    border-bottom:3px solid var(--gold);
+  }
+
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     FEATURED 12-MONTH HERO CARD
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+  .opt-hero {
+    background:linear-gradient(135deg, var(--warm-white) 0%, var(--bone) 100%);
+    border:1.5px solid var(--gold);
+    padding:56px 52px 48px;
+    margin:48px 0 20px;
+    position:relative;
+    box-shadow:0 30px 80px -30px rgba(201,169,110,0.25);
+    transition:transform 0.5s, box-shadow 0.5s;
+  }
+  .opt-hero:hover {
+    transform:translateY(-6px);
+    box-shadow:0 40px 100px -30px rgba(201,169,110,0.35);
+  }
+  .opt-hero .opt-badge {
+    position:absolute; top:-14px; left:52px;
+    font-family:'Josefin Sans',sans-serif; font-size:0.58rem;
+    font-weight:600; letter-spacing:0.32em; text-transform:uppercase;
+    color:var(--paper); background:var(--gold-deep); padding:8px 22px;
+  }
+  .opt-hero-top {
+    display:grid; grid-template-columns:1fr auto; gap:40px;
+    align-items:end; margin-bottom:40px;
+    padding-bottom:32px; border-bottom:1px solid var(--gold-line);
+  }
+  .opt-hero-price { text-align:right; }
+  .opt-hero-price .price {
+    font-family:'Cormorant Garamond',serif; font-size:3.4rem;
+    font-weight:300; color:var(--gold-deep); line-height:1;
+    margin-bottom:4px;
+  }
+  .opt-hero-price .price .per { font-size:1rem; color:var(--stone); font-family:'DM Sans',sans-serif; }
+  .opt-hero-price .total {
+    font-family:'Josefin Sans',sans-serif; font-size:0.62rem;
+    letter-spacing:0.28em; text-transform:uppercase; color:var(--taupe-soft);
+    margin-top:4px;
+  }
+  .opt-hero-grid {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:40px;
+  }
+  .opt-hero-grid h4 {
+    font-family:'Josefin Sans',sans-serif; font-size:0.65rem;
+    font-weight:600; letter-spacing:0.28em; text-transform:uppercase;
+    color:var(--gold-deep); margin:0 0 14px;
+  }
+  .opt-hero-grid ul { margin:0; }
+  .opt-hero-grid li {
+    padding:8px 0 8px 20px; font-size:0.9rem; line-height:1.55;
+    border-bottom:1px solid rgba(91,78,64,0.05);
+  }
+  .opt-hero-grid li::before { top:17px; width:12px; }
 
   /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
      OPTIONS — WARM CARDS
@@ -513,6 +643,51 @@
   .split-stat .big-label {
     font-family:'Josefin Sans',sans-serif; font-size:0.58rem;
     letter-spacing:0.28em; text-transform:uppercase; color:var(--stone);
+  }
+
+  /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+     CLIENT PORTAL SHOWCASE
+     ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+  .portal-showcase {
+    background:var(--warm-white); padding:56px 52px;
+    border:1.5px solid var(--gold-line);
+    margin:48px 0 32px;
+    position:relative;
+    box-shadow:0 25px 60px -30px rgba(91,78,64,0.15);
+  }
+  .portal-showcase::before {
+    content:''; position:absolute; top:0; left:0; right:0; height:3px;
+    background:linear-gradient(90deg, var(--gold-soft), var(--gold), var(--gold-deep));
+  }
+  .portal-inside {
+    display:grid; grid-template-columns:1fr 1fr; gap:56px;
+    padding-bottom:44px; border-bottom:1px solid var(--gold-line);
+  }
+  .portal-col h4 {
+    font-family:'Cormorant Garamond',serif; font-weight:500;
+    font-size:1.4rem; letter-spacing:-0.005em; text-transform:none;
+    color:var(--ink-warm); margin:0 0 18px; line-height:1.3;
+    font-style:italic;
+  }
+  .portal-col ul { margin:0; }
+  .portal-col li {
+    padding:10px 0 10px 22px; font-size:0.92rem; line-height:1.6;
+    border-bottom:1px solid rgba(91,78,64,0.05);
+  }
+  .portal-col li::before { top:19px; width:12px; }
+  .portal-footer {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:32px;
+    padding-top:36px;
+  }
+  .portal-stat { text-align:center; }
+  .portal-stat .n {
+    font-family:'Cormorant Garamond',serif; font-weight:300;
+    font-size:3rem; line-height:1; color:var(--gold-deep);
+    font-style:italic; margin-bottom:8px;
+  }
+  .portal-stat .l {
+    font-family:'Josefin Sans',sans-serif; font-size:0.58rem;
+    letter-spacing:0.26em; text-transform:uppercase; color:var(--stone);
   }
 
   /* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
@@ -670,7 +845,19 @@
     .options { grid-template-columns:1fr; }
     .split { grid-template-columns:1fr; gap:40px; }
     .workflow { grid-template-columns:1fr; }
-    .kpi-grid { grid-template-columns:1fr 1fr; }
+    .kpi-table tbody td { padding:14px 8px; font-size:1.3rem; }
+    .kpi-table td.metric-col { font-size:0.8rem; }
+    .kpi-table thead th { padding:12px 8px; font-size:0.5rem; letter-spacing:0.2em; }
+    .why-twelve { grid-template-columns:1fr; }
+    .econ-table thead th, .econ-table tbody td { padding:12px 10px; font-size:0.8rem; }
+    .econ-table thead th { font-size:0.5rem; letter-spacing:0.2em; }
+    .opt-hero { padding:40px 28px; }
+    .opt-hero-top { grid-template-columns:1fr; gap:20px; }
+    .opt-hero-price { text-align:left; }
+    .opt-hero-grid { grid-template-columns:1fr; gap:28px; }
+    .portal-showcase { padding:32px 24px; }
+    .portal-inside { grid-template-columns:1fr; gap:32px; }
+    .portal-footer { grid-template-columns:1fr; gap:20px; }
     .pri { grid-template-columns:1fr; gap:16px; padding:32px 0; }
     .pri-label .num { font-size:2.2rem; }
     .finding { grid-template-columns:60px 1fr; gap:20px; }
@@ -745,26 +932,19 @@
     <h3 class="reveal"><span class="mark"></span>The team</h3>
     <ul class="stagger">
       <li><strong>Matt Anthony</strong> — strategy, shooting, editorial direction, client relationship. Single point of contact. You never get passed around.</li>
-      <li><strong>Alena Machinskaia</strong> — retoucher, handles all post-production on architectural shoots.</li>
-      <li><strong>Second shooter / assistant</strong> — dispatched to projects when needed, trained to my brief.</li>
+      <li><strong>Dedicated photo editor</strong> — handles all post-production on architectural shoots. Trained to my grading standards.</li>
+      <li><strong>Second shooter / assistant</strong> — dispatched to projects when needed, briefed to my standards.</li>
     </ul>
 
     <h3 class="reveal"><span class="mark"></span>The systems</h3>
     <ul class="stagger">
-      <li>AI-driven content pipeline that extracts your brand voice from recorded conversations and outputs blogs, social, and editorial copy in your tone — not generic agency output.</li>
-      <li>Automated keyword research, rank tracking, content velocity reporting.</li>
-      <li>Postiz + Zernio scheduling. Manual review on every post; nothing publishes without approval.</li>
-      <li>A dedicated Notion workspace — your entire marketing operation in one place, live and accessible to both you and Justina.</li>
+      <li>A proprietary voice-extraction workflow that turns recorded conversations into blogs, social, and editorial copy in your tone — not generic agency output.</li>
+      <li>Keyword research, rank tracking, and content velocity reporting as ongoing monthly infrastructure.</li>
+      <li>Scheduled publishing across every channel with manual review on every post. Nothing publishes without approval.</li>
+      <li>A dedicated client portal — your curated command center for rankings, reports, calendar, and deliverables. More on this in the Platform chapter.</li>
     </ul>
 
-    <h3 class="reveal"><span class="mark"></span>Current Creative Partner clients</h3>
-    <ul class="stagger">
-      <li><strong>Balmoral Construction</strong> (Whistler) — six months in, full SEO + GEO rebuild, quarterly shoots, monthly content.</li>
-      <li><strong>LRD Studio</strong> (Lauren Ritz Design, Whistler) — interior design retainer, signed April 9.</li>
-      <li>Three additional architect/designer retainers in onboarding.</li>
-    </ul>
-
-    <p class="reveal"><strong>Why this structure matters for you:</strong> the monthly deliverables don't depend on my availability on any given day. The systems run. I handle strategy, shoots, and the relationship. You get the benefit of a senior operator with the overhead of a small, accountable team.</p>
+    <p class="reveal"><strong>Why this structure matters for you:</strong> the monthly deliverables don't depend on my availability on any given day. The systems run. I handle strategy, shoots, and the relationship. You get the benefit of a senior operator with the accountability of a small, focused team — not agency overhead.</p>
   </div>
 </section>
 
@@ -890,9 +1070,9 @@
           <h3>The ROI clarity you've been missing.<span class="mark"></span></h3>
           <ul>
             <li>UTM parameter framework on every outbound link — social, email, LinkedIn, ads.</li>
-            <li>GA4 + Search Console properly wired to the new site.</li>
-            <li>Asana integration so every inbound lead gets a source tag attached automatically.</li>
-            <li>Monthly report: leads by source, cost per lead on paid channels, conversion rates by channel.</li>
+            <li>GA4 + Search Console wired to the new site in Month 1.</li>
+            <li>Source tagging on every inbound lead, delivered into your portal monthly.</li>
+            <li>Monthly report: leads by source, keyword movement, content performance, cost per lead on paid channels.</li>
           </ul>
           <p>Three months in, you can tell me with precision which channels work and which don't. That is the conversation you've been trying to have with Tamarack for two years.</p>
         </div>
@@ -916,7 +1096,7 @@
           <li>2-hour onboarding call with Jeremy + Justina</li>
           <li>Three 30-min brand-voice recording sessions</li>
           <li>Shared Dropbox folder spun up for all asset handoff</li>
-          <li>Dedicated Notion workspace live, shared with you + Justina</li>
+          <li>Your dedicated client portal provisioned — separate logins for Jeremy &amp; Justina</li>
           <li>Domain retrieval + Tamarack handoff coordination</li>
           <li>Content pillars workshop — four to six pillars defined</li>
           <li>Paid ads audit (Google + Meta) — decision made on continuation</li>
@@ -985,108 +1165,329 @@
     <div class="eyebrow reveal reveal-delay-1">Measurable commitments</div>
     <h2 class="reveal reveal-delay-2">What I commit to. What I am <em>accountable for.</em></h2>
 
-    <div class="kpi-row-label reveal">Keyword Rankings</div>
-    <div class="kpi-grid stagger">
-      <div class="kpi-cell"><div class="metric">Metric</div><div class="value" style="font-size:1.1rem;line-height:1.3;color:var(--gold-soft);font-family:'Josefin Sans',sans-serif;letter-spacing:0.2em;text-transform:uppercase;">Window</div><div class="caption">&nbsp;</div></div>
-      <div class="kpi-cell"><div class="metric">Keywords · Page 1</div><div class="value"><span data-count="5">0</span></div><div class="caption">Month 3</div></div>
-      <div class="kpi-cell"><div class="metric">Keywords · Page 1</div><div class="value"><span data-count="12">0</span></div><div class="caption">Month 6</div></div>
-      <div class="kpi-cell"><div class="metric">Keywords · Page 1</div><div class="value"><span data-count="20" data-suffix="+">0</span></div><div class="caption">Month 12</div></div>
-
-      <div class="kpi-cell"><div class="metric">Keywords · Top 3</div><div class="value" style="color:var(--gold-soft)">—</div><div class="caption">Baseline</div></div>
-      <div class="kpi-cell"><div class="metric">Keywords · Top 3</div><div class="value"><span data-count="0">0</span></div><div class="caption">Month 3</div></div>
-      <div class="kpi-cell"><div class="metric">Keywords · Top 3</div><div class="value"><span data-count="3">0</span></div><div class="caption">Month 6</div></div>
-      <div class="kpi-cell"><div class="metric">Keywords · Top 3</div><div class="value"><span data-count="8" data-suffix="+">0</span></div><div class="caption">Month 12</div></div>
-    </div>
-
-    <div class="kpi-row-label reveal">Content &amp; Traffic</div>
-    <div class="kpi-grid stagger">
-      <div class="kpi-cell"><div class="metric">New Indexed Pages</div><div class="value"><span data-count="4">0</span></div><div class="caption">Month 3</div></div>
-      <div class="kpi-cell"><div class="metric">New Indexed Pages</div><div class="value"><span data-count="12">0</span></div><div class="caption">Month 6</div></div>
-      <div class="kpi-cell"><div class="metric">New Indexed Pages</div><div class="value"><span data-count="24" data-suffix="+">0</span></div><div class="caption">Month 12</div></div>
-      <div class="kpi-cell"><div class="metric">Organic Traffic</div><div class="value"><span data-count="150" data-suffix="%">0</span></div><div class="caption">Month 12 vs baseline</div></div>
-
-      <div class="kpi-cell"><div class="metric">Blog Posts Published</div><div class="value"><span data-count="6">0</span></div><div class="caption">Month 3</div></div>
-      <div class="kpi-cell"><div class="metric">Blog Posts Published</div><div class="value"><span data-count="12">0</span></div><div class="caption">Month 6</div></div>
-      <div class="kpi-cell"><div class="metric">Blog Posts Published</div><div class="value"><span data-count="24">0</span></div><div class="caption">Month 12</div></div>
-      <div class="kpi-cell"><div class="metric">LinkedIn Followers</div><div class="value"><span data-count="800" data-suffix="+">0</span></div><div class="caption">Month 12</div></div>
-    </div>
-
-    <div class="kpi-row-label reveal">Generative Search &amp; Attribution</div>
-    <div class="kpi-grid stagger">
-      <div class="kpi-cell"><div class="metric">GEO Citations (ChatGPT, Claude, Perplexity)</div><div class="value">Live</div><div class="caption">Month 3 tracking</div></div>
-      <div class="kpi-cell"><div class="metric">GEO Citations</div><div class="value"><span data-count="3" data-suffix="+">0</span></div><div class="caption">Month 6</div></div>
-      <div class="kpi-cell"><div class="metric">GEO Citations</div><div class="value"><span data-count="8" data-suffix="+">0</span></div><div class="caption">Month 12</div></div>
-      <div class="kpi-cell"><div class="metric">Lead Source Attribution</div><div class="value"><span data-count="100" data-suffix="%">0</span></div><div class="caption">From Month 1</div></div>
-    </div>
+    <table class="kpi-table reveal">
+      <thead>
+        <tr>
+          <th class="metric-col">Metric</th>
+          <th>Month 3</th>
+          <th>Month 6</th>
+          <th>Month 12</th>
+        </tr>
+      </thead>
+      <tbody class="stagger">
+        <tr>
+          <td class="metric-col">Target keywords on page 1</td>
+          <td><span data-count="5">0</span></td>
+          <td><span data-count="12">0</span></td>
+          <td><span data-count="20" data-suffix="+">0</span></td>
+        </tr>
+        <tr>
+          <td class="metric-col">Target keywords in top 3</td>
+          <td><span data-count="0">0</span></td>
+          <td><span data-count="3">0</span></td>
+          <td><span data-count="8" data-suffix="+">0</span></td>
+        </tr>
+        <tr>
+          <td class="metric-col">New indexed pages</td>
+          <td><span data-count="4">0</span></td>
+          <td><span data-count="12">0</span></td>
+          <td><span data-count="24" data-suffix="+">0</span></td>
+        </tr>
+        <tr>
+          <td class="metric-col">Blog posts published</td>
+          <td><span data-count="6">0</span></td>
+          <td><span data-count="12">0</span></td>
+          <td><span data-count="24">0</span></td>
+        </tr>
+        <tr>
+          <td class="metric-col">Organic traffic vs baseline</td>
+          <td><span data-count="20" data-suffix="%">0</span></td>
+          <td><span data-count="60" data-suffix="%">0</span></td>
+          <td><span data-count="150" data-suffix="%">0</span></td>
+        </tr>
+        <tr>
+          <td class="metric-col">Generative-search citations</td>
+          <td>Tracking live</td>
+          <td><span data-count="3" data-suffix="+">0</span></td>
+          <td><span data-count="8" data-suffix="+">0</span></td>
+        </tr>
+        <tr>
+          <td class="metric-col">LinkedIn followers</td>
+          <td><span data-count="100" data-suffix="+">0</span></td>
+          <td><span data-count="300" data-suffix="+">0</span></td>
+          <td><span data-count="800" data-suffix="+">0</span></td>
+        </tr>
+        <tr>
+          <td class="metric-col">Lead source attribution</td>
+          <td colspan="3" class="full-row">100% of inbound leads tagged from Month 1</td>
+        </tr>
+      </tbody>
+    </table>
 
     <p class="reveal" style="margin-top:36px"><strong>What I do not promise:</strong> a specific number of closed leads. Lead volume is a function of visibility (which I control) times conversion (which depends on your site, your sales process, and your offer). I commit to the visibility side with hard numbers. If leads come in and don't close, we look at conversion together — that's a separate conversation and often a separate fix.</p>
   </div>
 </section>
 
-<!-- ══════════════════════════════ 07 — OPTIONS ══════════════════════════════ -->
-<section class="sec paper" data-chapter="Investment" data-num="07">
+<!-- ══════════════════════════════ 07 — WHY 12 MONTHS ══════════════════════════════ -->
+<section class="sec paper" data-chapter="The Case for 12" data-num="07">
   <div class="wrap">
-    <div class="sec-num reveal">07 — Investment</div>
-    <div class="eyebrow reveal reveal-delay-1">Two options</div>
-    <h2 class="reveal reveal-delay-2">Built for compounding. Priced to <em>commit.</em></h2>
+    <div class="sec-num reveal">07 — The Case For Twelve</div>
+    <div class="eyebrow reveal reveal-delay-1">Why long-term</div>
+    <h2 class="reveal reveal-delay-2">This work <em>compounds.</em> It doesn't sprint.</h2>
+    <p class="lead reveal reveal-delay-3">Everything I do for you — SEO, GEO, content, relationships, publications, portfolio — gets stronger with time. Six months is when the foundation finishes setting. Twelve is when it starts returning.</p>
 
-    <div class="options">
-      <div class="opt featured reveal reveal-delay-1">
-        <div class="opt-badge">Recommended</div>
-        <h3>Option A · 12-Month Retainer<span class="mark"></span></h3>
-        <div class="price">$3,500<span class="per">&nbsp;/mo</span></div>
-        <div class="total">$42,000 CAD · 12 months</div>
-        <ul>
-          <li>Everything in Priorities 1–5</li>
-          <li>Website rebuild <strong>included</strong></li>
-          <li><strong>Two Kootenay shoot trips</strong> (Month 2 + Month 7–9)</li>
-          <li>Monthly reporting + strategy call</li>
-          <li>Full content production (blogs, social, LinkedIn)</li>
-          <li>Awards submission pipeline</li>
-          <li>Publication pitch pipeline</li>
-          <li>Paid ads audit + management partnership (if continuing)</li>
-        </ul>
-        <p class="note">SEO and GEO compound. The first six months build the foundation; months 7–12 are when the work starts returning. Signing 6 months only is like planting a tree and digging it up at month 5 to check it.</p>
+    <div class="why-twelve stagger">
+      <div class="why-card">
+        <div class="why-num">01</div>
+        <h4>SEO compounds over quarters</h4>
+        <p>Google rewards sites that publish consistently for 6+ months. Every month of content builds domain authority. Six months in, your rankings are moving. By month twelve, they're defensible.</p>
       </div>
-
-      <div class="opt reveal reveal-delay-2">
-        <h3>Option B · 6-Month Retainer<span class="mark"></span></h3>
-        <div class="price">$3,500<span class="per">&nbsp;/mo</span></div>
-        <div class="total">$21,000 CAD · 6 months</div>
-        <ul>
-          <li>Everything in Priorities 1–3</li>
-          <li>Website rebuild <strong>included</strong></li>
-          <li><strong>One Kootenay shoot trip</strong> (Month 2)</li>
-          <li>Monthly reporting + strategy call</li>
-          <li>Content production (blogs, social, LinkedIn)</li>
-          <li>Awards submissions begin (complete in extension)</li>
-          <li>Option to extend to 12 months at Month 5, same rate</li>
-        </ul>
-        <p class="note">If budget is the reason for choosing 6 over 12, talk to me first. A scope adjustment often beats a shorter term.</p>
+      <div class="why-card">
+        <div class="why-num">02</div>
+        <h4>Your sales cycle is twelve months</h4>
+        <p>A custom-home buyer takes 6–12 months from first touch to signed contract. A 6-month retainer doesn't cover a single full cycle. A 12-month covers nearly two. The math of marketing should match the math of the business.</p>
       </div>
-    </div>
-
-    <div class="opt-c reveal">
-      <h4>Option C · Lower tier available</h4>
-      <p><span class="inline-price">$2,500/mo</span> — All strategy, SEO, content, website rebuild. <strong>No shoots included</strong> (book separately at $2,000–$3,500/day + travel).</p>
-      <p style="margin-bottom:0; font-size:0.9rem; color:var(--taupe-soft); font-style:italic;">I don't recommend this for you. Your imagery is strong, but 40% of the project library is unshot or undershot, and the portfolio is the single biggest visual asset on the new site. The $3,500 tier exists to solve that in the same engagement.</p>
+      <div class="why-card">
+        <div class="why-num">03</div>
+        <h4>Awards &amp; publications take time</h4>
+        <p>Submission cycles run 4–9 months. Pitch-to-feature for magazines is routinely 6+ months. The 6-month retainer lets us <em>start</em> these. The 12-month lets us <em>land</em> them.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">04</div>
+        <h4>Two shoot trips &gt; one</h4>
+        <p>One summer shoot trip is a milestone. Two means you capture completions in both summer and fall — your portfolio doubles in year one, and seasonal range makes a builder's work look far more complete.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">05</div>
+        <h4>You build with patience. Your marketing should too.</h4>
+        <p>Your projects take 24 months. Your buyers decide over years, not weeks. A 12-month marketing engagement matches the pace of your actual business. A six-month engagement treats marketing like a project. It isn't.</p>
+      </div>
+      <div class="why-card">
+        <div class="why-num">06</div>
+        <h4>Website included = $5,000 back in your pocket</h4>
+        <p>On the 12-month tier, the full site rebuild is included. On every other tier, the website is a separate $5,000 build. That alone makes the 12-month tier the best per-dollar value by a wide margin (see the economics below).</p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- ══════════════════════════════ 08 — PLATFORM & WORKFLOW ══════════════════════════════ -->
-<section class="sec warm" data-chapter="Platform" data-num="08">
+<!-- ══════════════════════════════ 08 — THE ECONOMICS ══════════════════════════════ -->
+<section class="sec warm" data-chapter="The Economics" data-num="08">
   <div class="wrap">
-    <div class="sec-num reveal">08 — Platform</div>
-    <div class="eyebrow reveal reveal-delay-1">How we work together</div>
-    <h2 class="reveal reveal-delay-2">Transparent tools. <em>Nothing hidden behind the agency.</em></h2>
-    <p class="lead reveal reveal-delay-3">Every tool is chosen so you and Justina can log in, see what's happening, and keep working if I'm ever off-grid for a week shooting.</p>
+    <div class="sec-num reveal">08 — The Economics</div>
+    <div class="eyebrow reveal reveal-delay-1">Apples to apples</div>
+    <h2 class="reveal reveal-delay-2">The 12-month is cheaper <em>per month</em> than the 6-month.</h2>
+    <p class="lead reveal reveal-delay-3">Once you factor in the $5,000 website build, the short-term option stops looking short-term.</p>
+
+    <table class="econ-table reveal">
+      <thead>
+        <tr>
+          <th></th>
+          <th class="hero-col">12-Month</th>
+          <th>6-Month</th>
+          <th>Strategy Only</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Retainer</td>
+          <td class="hero-col">$3,500/mo × 12 = $42,000</td>
+          <td>$3,500/mo × 6 = $21,000</td>
+          <td>$2,500/mo × 12 = $30,000</td>
+        </tr>
+        <tr>
+          <td>Website build</td>
+          <td class="hero-col">Included</td>
+          <td>+ $5,000</td>
+          <td>+ $5,000</td>
+        </tr>
+        <tr>
+          <td>Kootenay shoot trips</td>
+          <td class="hero-col">2 included</td>
+          <td>1 included</td>
+          <td>Booked separately</td>
+        </tr>
+        <tr class="total-row">
+          <td><strong>Total year-one spend</strong></td>
+          <td class="hero-col"><strong>$42,000</strong></td>
+          <td><strong>$26,000</strong> (6 mo only)</td>
+          <td><strong>$35,000</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Effective monthly rate</strong></td>
+          <td class="hero-col"><strong>$3,500</strong></td>
+          <td><strong>$4,333</strong></td>
+          <td><strong>$2,917</strong></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="reveal"><strong>Per month, the 12-month is 20% cheaper than the 6-month.</strong> Per shoot day, it's roughly 40% cheaper. Per month of compounding content and rankings, it isn't close. The 6-month tier is built for clients who need to test before they commit — not for the builder who has already diagnosed the problem and wants it fixed.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ 09 — OPTIONS ══════════════════════════════ -->
+<section class="sec paper" data-chapter="Investment" data-num="09">
+  <div class="wrap">
+    <div class="sec-num reveal">09 — Investment</div>
+    <div class="eyebrow reveal reveal-delay-1">Choose the tier</div>
+    <h2 class="reveal reveal-delay-2">Built for compounding. Priced to <em>commit.</em></h2>
+
+    <!-- DOMINANT 12-MONTH CARD -->
+    <div class="opt-hero reveal">
+      <div class="opt-badge">Strongly Recommended</div>
+      <div class="opt-hero-top">
+        <div>
+          <h3 style="margin-top:0; font-size:2rem;">12-Month Creative Partner Retainer<span class="mark"></span></h3>
+          <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.2rem; color:var(--taupe); margin-bottom:0;">A long-term engagement for builders who have decided to own their market.</p>
+        </div>
+        <div class="opt-hero-price">
+          <div class="price">$3,500<span class="per">&nbsp;/mo</span></div>
+          <div class="total">$42,000 CAD · 12 months</div>
+          <div class="total" style="color:var(--gold-deep); font-weight:600;">Website rebuild included</div>
+        </div>
+      </div>
+      <div class="opt-hero-grid">
+        <div>
+          <h4>Strategy &amp; execution</h4>
+          <ul>
+            <li>Everything in Priorities 1–5</li>
+            <li>Full website rebuild on Squarespace</li>
+            <li>Two 20-keyword rank-tracking baselines</li>
+            <li>Two long-form blog posts / month (24 total)</li>
+            <li>Monthly new service or location page</li>
+            <li>LinkedIn launch + weekly posting</li>
+            <li>Instagram revival + pillar-mapped content</li>
+            <li>Alberta-focused relocator content track</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Production &amp; portfolio</h4>
+          <ul>
+            <li><strong>Two Kootenay shoot trips</strong> (summer + fall/winter)</li>
+            <li>4–5 projects captured per trip</li>
+            <li>Full post-production on every shoot</li>
+            <li>All imagery renamed + alt-texted for SEO</li>
+          </ul>
+          <h4 style="margin-top:24px">Credentials &amp; distribution</h4>
+          <ul>
+            <li>Awards submission pipeline (CHBA, Georgie, Wood Design)</li>
+            <li>Publication pitches (Avenue, Western Living, Robb, Gray)</li>
+            <li>Paid ads audit + specialist handoff if continuing</li>
+            <li>Alberta realtor / partnership outreach</li>
+          </ul>
+        </div>
+        <div>
+          <h4>Your command center</h4>
+          <ul>
+            <li><strong>Full client portal access</strong></li>
+            <li>Monthly 60-min strategy call (Justina attends)</li>
+            <li>Monthly written report delivered in portal</li>
+            <li>Async approvals on all content</li>
+            <li>You own every account, asset, and login</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- SMALLER TIER CARDS -->
+    <p class="reveal" style="margin-top:60px; font-family:'Josefin Sans',sans-serif; font-size:0.65rem; letter-spacing:0.32em; text-transform:uppercase; color:var(--stone);">Other tiers available</p>
+    <div class="options">
+      <div class="opt reveal reveal-delay-1">
+        <h3>6-Month Retainer<span class="mark"></span></h3>
+        <div class="price">$3,500<span class="per">&nbsp;/mo</span></div>
+        <div class="total">$21,000 + $5,000 website</div>
+        <div class="total" style="color:var(--taupe);">$26,000 total · 6 months</div>
+        <ul>
+          <li>Everything in Priorities 1–3</li>
+          <li>Website build <strong>+ $5,000</strong> (not included)</li>
+          <li><strong>One Kootenay shoot trip</strong> (Month 2)</li>
+          <li>Full client portal access</li>
+          <li>Monthly reporting + strategy call</li>
+          <li>Content production (blogs, social, LinkedIn)</li>
+          <li>Awards submissions begin (complete in extension)</li>
+          <li>Option to convert to 12-month at Month 5 — remaining website fee credited</li>
+        </ul>
+        <p class="note">For clients who need to test the relationship before a full-year commitment. After six months of results, almost everyone extends — you'll just have paid the website fee separately instead of getting it included.</p>
+      </div>
+
+      <div class="opt reveal reveal-delay-2">
+        <h3>Strategy Only<span class="mark"></span></h3>
+        <div class="price">$2,500<span class="per">&nbsp;/mo</span></div>
+        <div class="total">$30,000 + $5,000 website</div>
+        <div class="total" style="color:var(--taupe);">$35,000 total · 12 months</div>
+        <ul>
+          <li>All strategy, SEO, GEO, content</li>
+          <li>Website build <strong>+ $5,000</strong> (not included)</li>
+          <li><strong>No shoots included</strong> (book separately at $2,000–$3,500/day + travel)</li>
+          <li>Full client portal access</li>
+          <li>Monthly reporting + strategy call</li>
+          <li>Content production (blogs, social, LinkedIn)</li>
+        </ul>
+        <p class="note">I don't recommend this for you. Your imagery is strong, but 40% of the project library is unshot or undershot — and the portfolio is the single biggest visual asset on the new site. The 12-month tier solves that in the same engagement.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ 10 — CLIENT PORTAL (centerpiece) ══════════════════════════════ -->
+<section class="sec bone" data-chapter="Your Portal" data-num="10">
+  <div class="wrap">
+    <div class="sec-num reveal">10 — Your Portal</div>
+    <div class="eyebrow reveal reveal-delay-1">Your command center</div>
+    <h2 class="reveal reveal-delay-2">A dedicated client portal, <em>built for builders.</em></h2>
+    <p class="lead reveal reveal-delay-3">Not a raw analytics dashboard. Not a shared drive. A custom portal designed for people running construction companies — where three numbers tell you whether the marketing is working, and everything else is one click away if you want it.</p>
+
+    <div class="portal-showcase reveal">
+      <div class="portal-inside">
+        <div class="portal-col">
+          <h4>What lives inside</h4>
+          <ul>
+            <li><strong>Three headline metrics</strong> — traffic, ranking position vs Munter, inbound leads this month. Designed for a 30-second check-in.</li>
+            <li><strong>Live content calendar</strong> — every scheduled blog, post, and shoot. Approve, comment, or request revisions inline.</li>
+            <li><strong>Monthly reports archive</strong> — every report ever delivered, downloadable, searchable.</li>
+            <li><strong>Recent deliverables gallery</strong> — every blog, LinkedIn post, Instagram carousel, shoot gallery.</li>
+            <li><strong>Shoot schedule</strong> — upcoming shoot dates, project confirmations, shot lists.</li>
+            <li><strong>Keyword tracker</strong> — live rankings on your 20 target keywords, updated weekly.</li>
+            <li><strong>Brand voice library</strong> — your recorded extractions, transcripts, approved phrases.</li>
+          </ul>
+        </div>
+        <div class="portal-col">
+          <h4>Built for how you actually work</h4>
+          <ul>
+            <li><strong>Separate logins</strong> for Jeremy and Justina — with different views if you want (ops vs owner).</li>
+            <li><strong>Magic-link or password login</strong> — no app to download, no password to remember.</li>
+            <li><strong>Mobile-first</strong> — check rankings from a jobsite. Approve a blog post between meetings.</li>
+            <li><strong>Curated, not raw</strong> — you see outcomes. The full GA4 and Search Console accounts are yours, accessible if you want to dig deeper.</li>
+            <li><strong>Revision requests land back with me</strong> — comment directly on drafts in the portal; I see it in my own dashboard.</li>
+            <li><strong>Archive access</strong> — if we ever part ways, the portal stays readable for 90 days. You walk away with everything.</li>
+          </ul>
+        </div>
+      </div>
+      <div class="portal-footer">
+        <div class="portal-stat"><div class="n">3</div><div class="l">Headline metrics on the dashboard</div></div>
+        <div class="portal-stat"><div class="n">24/7</div><div class="l">Access · mobile &amp; desktop</div></div>
+        <div class="portal-stat"><div class="n">∞</div><div class="l">Historical reports archived</div></div>
+      </div>
+    </div>
+
+    <p class="reveal"><strong>The portal is included in every tier.</strong> It's provisioned in Month 1 and stays live for the full engagement. For the 12-month tier, it becomes the operating system of our relationship — every deliverable, every report, every decision lives in one place that you and Justina can access any time, from anywhere.</p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════ 11 — PLATFORM & WORKFLOW ══════════════════════════════ -->
+<section class="sec warm" data-chapter="Platform" data-num="11">
+  <div class="wrap">
+    <div class="sec-num reveal">11 — Platform</div>
+    <div class="eyebrow reveal reveal-delay-1">Supporting tools</div>
+    <h2 class="reveal reveal-delay-2">Transparent. <em>Nothing hidden behind the agency.</em></h2>
+    <p class="lead reveal reveal-delay-3">Every tool chosen so you and Justina can log in, see what's happening, and keep working if I'm ever off-grid for a week shooting.</p>
 
     <div class="workflow stagger">
       <div class="tool">
         <h4>CMS</h4>
         <span class="tool-name">Squarespace</span>
-        <p>Built on Squarespace so you and Justina can log in, edit copy, check analytics, and review rankings without needing me. No WordPress lock-in. No agency gate-keeping.</p>
+        <p>Built on Squarespace so you and Justina can log in, edit copy, check traffic, and review content without needing me. No WordPress lock-in. No agency gate-keeping.</p>
       </div>
       <div class="tool">
         <h4>Asset handoff</h4>
@@ -1094,35 +1495,35 @@
         <p>Shared Dropbox folder spun up in Month 1. Every photo, plan, floorplan, and finished project file lives here. I pull from it; you approve from it.</p>
       </div>
       <div class="tool">
-        <h4>Operating system</h4>
-        <span class="tool-name">Notion</span>
-        <p>Your dedicated workspace holds the content calendar, monthly reports, keyword tracker, project briefs, and brand voice library. Live and visible to you + Justina.</p>
-      </div>
-      <div class="tool">
         <h4>Analytics</h4>
         <span class="tool-name">GA4 + Search Console</span>
-        <p>Wired to the new site in Month 1. Monthly reports pull directly. Raw data stays in your Google account — not mine.</p>
+        <p>Wired to the new site in Month 1. Portal reports pull directly. Raw accounts stay in your Google workspace — not mine.</p>
       </div>
       <div class="tool">
-        <h4>Lead attribution</h4>
-        <span class="tool-name">UTM + Asana</span>
-        <p>Every outbound link tagged. Every inbound lead lands in Asana with a source. Three months in, you can name your best channel.</p>
+        <h4>Source tagging</h4>
+        <span class="tool-name">UTM framework</span>
+        <p>Every outbound link — social, email, LinkedIn, ads — tagged with a campaign and source. Attribution flows into your portal monthly.</p>
       </div>
       <div class="tool">
         <h4>Publishing</h4>
-        <span class="tool-name">Postiz + Zernio</span>
-        <p>Scheduled posts for LinkedIn, Instagram, and Pinterest. Manual review on every post. Nothing publishes without approval.</p>
+        <span class="tool-name">Scheduled with review</span>
+        <p>Every social post, blog, and LinkedIn update is scheduled with a manual review step. Nothing goes live without explicit approval from you or Justina.</p>
+      </div>
+      <div class="tool">
+        <h4>Your command center</h4>
+        <span class="tool-name">The client portal</span>
+        <p>See chapter 10. Everything you need to know about the engagement, in one place, with separate logins for you and Justina.</p>
       </div>
     </div>
 
-    <p class="reveal"><strong>You own every asset.</strong> Domain. Hosting. Analytics. Dropbox. Notion workspace. Social accounts. If we ever part ways, you walk away with everything. No held-hostage handoffs.</p>
+    <p class="reveal"><strong>You own every asset.</strong> Domain. Hosting. Analytics. Dropbox. Social accounts. If we ever part ways, you walk away with everything. No held-hostage handoffs.</p>
   </div>
 </section>
 
 <!-- ══════════════════════════════ 09 — ALBERTA STRATEGY ══════════════════════════════ -->
-<section class="sec bone" data-chapter="Alberta" data-num="09">
+<section class="sec linen" data-chapter="Alberta" data-num="12">
   <div class="wrap">
-    <div class="sec-num reveal">09 — Alberta</div>
+    <div class="sec-num reveal">12 — Alberta</div>
     <div class="eyebrow reveal reveal-delay-1">Where your buyers actually live</div>
     <h2 class="reveal reveal-delay-2">Your clients aren't in the Kootenays. They're in <em>Calgary.</em></h2>
     <p class="lead reveal reveal-delay-3">You told me most of your clients live out-of-region, heavily Alberta. Tamarack has been targeting them — but without location-keyed content or Alberta-specific distribution, the targeting can't land. Here's the dedicated strategy.</p>
@@ -1157,9 +1558,9 @@
 </section>
 
 <!-- ══════════════════════════════ 10 — TRANSITION ══════════════════════════════ -->
-<section class="sec paper" data-chapter="Transition" data-num="10">
+<section class="sec paper" data-chapter="Transition" data-num="13">
   <div class="wrap">
-    <div class="sec-num reveal">10 — Transition</div>
+    <div class="sec-num reveal">13 — Transition</div>
     <div class="eyebrow reveal reveal-delay-1">Leaving Tamarack cleanly</div>
     <h2 class="reveal reveal-delay-2">Zero downtime. <em>The ads don't go dark.</em></h2>
     <p class="lead reveal reveal-delay-3">You're in a contract with Tamarack and don't know who owns your domain. Your Google and Meta campaigns are running through them. Here's exactly how I handle all of it.</p>
@@ -1188,9 +1589,9 @@
 </section>
 
 <!-- ══════════════════════════════ 11 — TIME ══════════════════════════════ -->
-<section class="sec warm" data-chapter="Your Time" data-num="11">
+<section class="sec bone" data-chapter="Your Time" data-num="14">
   <div class="wrap">
-    <div class="sec-num reveal">11 — Your Time</div>
+    <div class="sec-num reveal">14 — Your Time</div>
     <div class="eyebrow reveal reveal-delay-1">What I need from you</div>
     <h2 class="reveal reveal-delay-2">Honest about the <em>time cost.</em></h2>
 
@@ -1215,10 +1616,10 @@
 </section>
 
 <!-- ══════════════════════════════ 12 — URGENCY ══════════════════════════════ -->
-<section class="sec urgency" data-chapter="Urgency" data-num="12">
+<section class="sec urgency" data-chapter="Urgency" data-num="15">
   <div class="urgency-bg"></div>
   <div class="wrap">
-    <div class="sec-num reveal" style="color:var(--gold-soft)">12 — Urgency</div>
+    <div class="sec-num reveal" style="color:var(--gold-soft)">15 — Urgency</div>
     <div class="eyebrow reveal reveal-delay-1">The July shoot window</div>
     <h2 class="reveal reveal-delay-2">This isn't a manufactured deadline. It's how architectural photography <em>works in the Kootenays.</em></h2>
     <p class="lead reveal reveal-delay-3">The shoot trip needs to land in July or August 2026. Here's why:</p>
@@ -1234,25 +1635,26 @@
 </section>
 
 <!-- ══════════════════════════════ 13 — PROOF ══════════════════════════════ -->
-<section class="sec paper" data-chapter="Proof" data-num="13">
+<section class="sec paper" data-chapter="Proof" data-num="16">
   <div class="wrap">
-    <div class="sec-num reveal">13 — Proof</div>
-    <div class="eyebrow reveal reveal-delay-1">Work you can check</div>
+    <div class="sec-num reveal">16 — Proof</div>
+    <div class="eyebrow reveal reveal-delay-1">What's already running</div>
     <h2 class="reveal reveal-delay-2">Not theory. <em>Running systems.</em></h2>
+    <p class="lead reveal reveal-delay-3">Happy to walk through live client examples on our review call — comparable Sea-to-Sky builder sites, on-record keyword movement, and real portals I can demo screen-to-screen.</p>
 
     <ul class="stagger">
-      <li><strong>Balmoral Construction</strong> — six months in, live at <a href="https://balmoralconstruction.com" style="color:var(--gold-deep); border-bottom:1px solid var(--gold);">balmoralconstruction.com</a>. Started ranking outside the top 20 on every key Whistler term; now on page 1 for 11 of the target keywords and in the top 3 on five of them.</li>
-      <li><strong>LRD Studio</strong> — signed April 9, 2026 as the first Creative Partner under the full framework.</li>
-      <li><strong>Site Lines Architecture</strong> — grandfathered photography client, expanding into the Kootenays via the Invermere pipeline.</li>
-      <li>Five additional architect, designer, and builder retainers in various stages of onboarding or discovery.</li>
+      <li><strong>Comparable builder site, six months in</strong> — started ranking outside the top 20 on every target term; now on page 1 for 11 target keywords and in the top 3 on five. Full case study on the walkthrough call.</li>
+      <li><strong>Active Creative Partner engagements</strong> across architects, designers, and builders — each running the same foundation I'm proposing for you, adapted to their market.</li>
+      <li><strong>Portfolio of architectural work</strong> shot across BC and internationally for firms that book me for design-intent photography specifically.</li>
+      <li><strong>Portal demo available</strong> — I can screen-share the live portal on our review call so you and Justina can see exactly what yours will look like.</li>
     </ul>
   </div>
 </section>
 
 <!-- ══════════════════════════════ 14 — DATES ══════════════════════════════ -->
-<section class="sec bone" data-chapter="Calendar" data-num="14">
+<section class="sec warm" data-chapter="Calendar" data-num="17">
   <div class="wrap">
-    <div class="sec-num reveal">14 — Calendar</div>
+    <div class="sec-num reveal">17 — Calendar</div>
     <div class="eyebrow reveal reveal-delay-1">Proposed start dates</div>
     <h2 class="reveal reveal-delay-2">Booked <em>in pencil.</em></h2>
 
@@ -1302,7 +1704,7 @@
 </section>
 
 <!-- ══════════════════════════════ CTA ══════════════════════════════ -->
-<section class="cta" data-chapter="Next Step" data-num="15">
+<section class="cta" data-chapter="Next Step" data-num="18">
   <div class="cta-bg"></div>
   <div class="cta-inner">
     <div class="eyebrow reveal">Next step</div>
