@@ -26,6 +26,14 @@
     --gold-line:  rgba(201,169,110,0.22);
     --gold-wash:  rgba(201,169,110,0.05);
 
+    /* Light section variants — cream & warm paper */
+    --cream:       #F6F4F0;
+    --cream-warm:  #EFE7D3;
+    --card-white:  #FFFFFF;
+    --ink-on-light-soft: rgba(26,26,24,0.72);
+    --ink-on-light-mute: rgba(26,26,24,0.52);
+    --ink-line:    rgba(26,26,24,0.10);
+
     /* Legacy aliases kept so unchanged rules still work */
     --ink-warm:   #1A1A18;
     --bone:       #1F1D1B;
@@ -224,10 +232,12 @@
      SECTION BASE (DARK-INK — matches main site)
      ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
   section.sec { position:relative; padding:130px 60px; color:var(--paper); }
-  section.sec.paper { background:var(--ink); }
+  /* LIGHT section backgrounds (cream) */
+  section.sec.paper { background:var(--cream); color:var(--ink); }
+  section.sec.warm  { background:var(--cream-warm); color:var(--ink); }
+  /* DARK section backgrounds (ink) */
   section.sec.bone  { background:var(--ink-soft); }
-  section.sec.warm  { background:var(--ink-lift); }
-  section.sec.linen { background:var(--ink-soft); }
+  section.sec.linen { background:var(--ink); }
   section.sec > .wrap { max-width:960px; margin:0 auto; position:relative; }
   section.sec > .wrap.wide { max-width:1140px; }
 
@@ -236,6 +246,118 @@
     font-weight:600; letter-spacing:0.32em; text-transform:uppercase;
     color:var(--gold); margin-bottom:10px;
   }
+
+  /* ───── LIGHT SECTION OVERRIDES ───── */
+  section.sec.paper h2,
+  section.sec.warm  h2,
+  section.sec.paper h3,
+  section.sec.warm  h3 { color:var(--ink); }
+  section.sec.paper h4,
+  section.sec.warm  h4 { color:var(--gold-deep); }
+  section.sec.paper p,
+  section.sec.warm  p { color:var(--ink-on-light-soft); }
+  section.sec.paper p.lead,
+  section.sec.warm  p.lead { color:#3A332A; }
+  section.sec.paper strong,
+  section.sec.warm  strong { color:var(--ink); }
+  section.sec.paper ul li,
+  section.sec.warm  ul li {
+    color:var(--ink-on-light-soft);
+    border-bottom-color:var(--ink-line);
+  }
+  section.sec.paper ul li::before,
+  section.sec.warm  ul li::before { background:var(--gold-deep); }
+
+  section.sec.paper blockquote,
+  section.sec.warm  blockquote {
+    background:var(--card-white);
+    color:var(--ink);
+    box-shadow:0 10px 30px -20px rgba(0,0,0,0.15);
+  }
+  section.sec.paper blockquote::before,
+  section.sec.warm  blockquote::before { background:var(--card-white); }
+
+  /* Priority rows on light */
+  section.sec.paper .pri,
+  section.sec.warm  .pri { border-top-color:var(--ink-line); }
+  section.sec.paper .pri:last-child,
+  section.sec.warm  .pri:last-child { border-bottom-color:var(--ink-line); }
+  section.sec.paper .pri:hover,
+  section.sec.warm  .pri:hover { background:var(--card-white); }
+  section.sec.paper .pri-label .num,
+  section.sec.warm  .pri-label .num { color:var(--ink); }
+  section.sec.paper .pri-body p,
+  section.sec.warm  .pri-body p { color:var(--ink-on-light-soft); }
+
+  /* Roadmap on light */
+  section.sec.paper .milestone::before,
+  section.sec.warm  .milestone::before { background:var(--cream); }
+  section.sec.paper .milestone h4,
+  section.sec.warm  .milestone h4 { color:var(--ink); }
+  section.sec.paper .milestone li,
+  section.sec.warm  .milestone li { border-bottom-color:var(--ink-line); }
+
+  /* Why-12 cards on light */
+  section.sec.paper .why-twelve,
+  section.sec.warm  .why-twelve { background:var(--ink-line); }
+  section.sec.paper .why-card,
+  section.sec.warm  .why-card { background:var(--card-white); }
+  section.sec.paper .why-card:hover,
+  section.sec.warm  .why-card:hover { background:var(--cream); }
+  section.sec.paper .why-card h4,
+  section.sec.warm  .why-card h4 { color:var(--ink); }
+  section.sec.paper .why-card p,
+  section.sec.warm  .why-card p { color:var(--ink-on-light-soft); }
+
+  /* Workflow tools on light */
+  section.sec.paper .tool,
+  section.sec.warm  .tool { background:var(--card-white); border-color:var(--ink-line); }
+  section.sec.paper .tool .tool-name,
+  section.sec.warm  .tool .tool-name { color:var(--ink); }
+  section.sec.paper .tool p,
+  section.sec.warm  .tool p { color:var(--ink-on-light-soft); }
+
+  /* Option cards on light */
+  section.sec.paper .opt,
+  section.sec.warm  .opt {
+    background:var(--card-white);
+    border-color:var(--ink-line);
+  }
+  section.sec.paper .opt:hover,
+  section.sec.warm  .opt:hover {
+    box-shadow:0 30px 70px -20px rgba(0,0,0,0.2);
+    border-color:var(--gold);
+  }
+  section.sec.paper .opt li,
+  section.sec.warm  .opt li { border-bottom-color:var(--ink-line); }
+  section.sec.paper .opt .note,
+  section.sec.warm  .opt .note {
+    border-top-color:var(--ink-line);
+    color:var(--ink-on-light-mute);
+  }
+  section.sec.paper .opt-hero,
+  section.sec.warm  .opt-hero {
+    background:linear-gradient(155deg, var(--card-white) 0%, var(--cream) 100%);
+    box-shadow:0 30px 80px -30px rgba(0,0,0,0.2);
+  }
+  section.sec.paper .opt-hero .opt-badge,
+  section.sec.warm  .opt-hero .opt-badge { background:var(--ink); color:var(--paper); }
+  section.sec.paper .opt-hero-grid li,
+  section.sec.warm  .opt-hero-grid li { border-bottom-color:var(--ink-line); }
+  section.sec.paper .opt-c,
+  section.sec.warm  .opt-c { background:var(--card-white); }
+
+  /* Alberta split-stat on light */
+  section.sec.paper .split-stat,
+  section.sec.warm  .split-stat { background:var(--card-white); }
+
+  /* Calendar date-rows on light */
+  section.sec.paper .date-row,
+  section.sec.warm  .date-row { border-bottom-color:var(--ink-line); }
+  section.sec.paper .date-row .what,
+  section.sec.warm  .date-row .what { color:var(--ink); }
+  section.sec.paper .date-row:hover,
+  section.sec.warm  .date-row:hover { background:rgba(26,26,24,0.03); }
   .eyebrow {
     font-family:'Josefin Sans',sans-serif; font-weight:500; font-size:0.62rem;
     letter-spacing:0.38em; text-transform:uppercase; color:var(--gold);
@@ -1096,7 +1218,7 @@
 </section>
 
 <!-- ══════════════════════════════ 04 — THE PLAN ══════════════════════════════ -->
-<section class="sec paper" data-chapter="The Plan" data-num="04">
+<section class="sec bone" data-chapter="The Plan" data-num="04">
   <div class="wrap">
     <div class="sec-num reveal">04 — The Plan</div>
     <div class="eyebrow reveal reveal-delay-1">In priority order</div>
@@ -1195,7 +1317,7 @@
 </section>
 
 <!-- ══════════════════════════════ 05 — ROADMAP ══════════════════════════════ -->
-<section class="sec bone" data-chapter="Roadmap" data-num="05">
+<section class="sec warm" data-chapter="Roadmap" data-num="05">
   <div class="wrap">
     <div class="sec-num reveal">05 — Roadmap</div>
     <div class="eyebrow reveal reveal-delay-1">Month-by-month</div>
@@ -1383,7 +1505,7 @@
 </section>
 
 <!-- ══════════════════════════════ 08 — THE ECONOMICS ══════════════════════════════ -->
-<section class="sec warm" data-chapter="The Economics" data-num="08">
+<section class="sec bone" data-chapter="The Economics" data-num="08">
   <div class="wrap">
     <div class="sec-num reveal">08 — The Economics</div>
     <div class="eyebrow reveal reveal-delay-1">Apples to apples</div>
@@ -1443,7 +1565,7 @@
 </section>
 
 <!-- ══════════════════════════════ 09 — OPTIONS ══════════════════════════════ -->
-<section class="sec paper" data-chapter="Investment" data-num="09">
+<section class="sec warm" data-chapter="Investment" data-num="09">
   <div class="wrap">
     <div class="sec-num reveal">09 — Investment</div>
     <div class="eyebrow reveal reveal-delay-1">Choose the tier</div>
@@ -1547,7 +1669,7 @@
 </section>
 
 <!-- ══════════════════════════════ 11 — PLATFORM & WORKFLOW ══════════════════════════════ -->
-<section class="sec warm" data-chapter="Platform" data-num="10">
+<section class="sec bone" data-chapter="Platform" data-num="10">
   <div class="wrap">
     <div class="sec-num reveal">10 — Platform</div>
     <div class="eyebrow reveal reveal-delay-1">Supporting tools</div>
@@ -1592,7 +1714,7 @@
 </section>
 
 <!-- ══════════════════════════════ 09 — ALBERTA STRATEGY ══════════════════════════════ -->
-<section class="sec linen" data-chapter="Alberta" data-num="11">
+<section class="sec warm" data-chapter="Alberta" data-num="11">
   <div class="wrap">
     <div class="sec-num reveal">11 — Alberta</div>
     <div class="eyebrow reveal reveal-delay-1">Where your buyers actually live</div>
@@ -1629,7 +1751,7 @@
 </section>
 
 <!-- ══════════════════════════════ 10 — TRANSITION ══════════════════════════════ -->
-<section class="sec paper" data-chapter="Transition" data-num="12">
+<section class="sec bone" data-chapter="Transition" data-num="12">
   <div class="wrap">
     <div class="sec-num reveal">12 — Transition</div>
     <div class="eyebrow reveal reveal-delay-1">Leaving Tamarack cleanly</div>
@@ -1651,7 +1773,7 @@
 </section>
 
 <!-- ══════════════════════════════ 11 — TIME ══════════════════════════════ -->
-<section class="sec bone" data-chapter="Your Time" data-num="13">
+<section class="sec warm" data-chapter="Your Time" data-num="13">
   <div class="wrap">
     <div class="sec-num reveal">13 — Your Time</div>
     <div class="eyebrow reveal reveal-delay-1">What I need from you</div>
@@ -1699,7 +1821,7 @@
 
 
 <!-- ══════════════════════════════ 14 — DATES ══════════════════════════════ -->
-<section class="sec warm" data-chapter="Calendar" data-num="15">
+<section class="sec paper" data-chapter="Calendar" data-num="15">
   <div class="wrap">
     <div class="sec-num reveal">15 — Calendar</div>
     <div class="eyebrow reveal reveal-delay-1">Starting now, not May</div>
