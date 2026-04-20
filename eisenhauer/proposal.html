@@ -786,31 +786,126 @@
   .cta h2 { color:var(--paper); margin:0 auto 26px; font-size:clamp(2.4rem, 5vw, 3.4rem); }
   .cta h2 em { color:var(--gold-soft); }
   .cta p { color:rgba(247,243,236,0.88); font-size:1.05rem; margin-bottom:36px; }
-  .cta-slots {
-    display:flex; justify-content:center; gap:24px; flex-wrap:wrap;
-    margin:44px 0 36px;
+  /* CTA FORM */
+  .go-form {
+    max-width:720px; margin:56px auto 0;
+    text-align:left;
   }
-  .cta-slot {
-    padding:28px 36px;
-    border:1px solid rgba(201,169,110,0.4);
-    background:rgba(43,37,32,0.3);
-    backdrop-filter:blur(6px); -webkit-backdrop-filter:blur(6px);
-    min-width:260px;
-    transition:background 0.4s, transform 0.4s, border-color 0.4s;
+  .tier-select {
+    display:grid; grid-template-columns:1fr; gap:14px;
+    margin-bottom:36px;
   }
-  .cta-slot:hover {
+  .tier-radio {
+    display:block; cursor:pointer; position:relative;
+  }
+  .tier-radio input {
+    position:absolute; opacity:0; pointer-events:none;
+  }
+  .tier-card {
+    background:rgba(43,37,32,0.4);
+    backdrop-filter:blur(8px); -webkit-backdrop-filter:blur(8px);
+    border:1px solid rgba(201,169,110,0.25);
+    padding:20px 26px; position:relative;
+    transition:background 0.35s, border-color 0.35s, transform 0.35s;
+  }
+  .tier-radio:hover .tier-card {
+    background:rgba(43,37,32,0.55);
+    border-color:var(--gold-soft);
+    transform:translateX(4px);
+  }
+  .tier-radio input:checked + .tier-card {
     background:rgba(201,169,110,0.18);
-    transform:translateY(-4px);
     border-color:var(--gold);
+    box-shadow:inset 3px 0 0 var(--gold);
   }
-  .cta-slot .label {
-    font-family:'Josefin Sans',sans-serif; font-size:0.58rem;
+  .tier-radio input:checked + .tier-card::after {
+    content:''; position:absolute; right:22px; top:50%; transform:translateY(-50%);
+    width:10px; height:10px; border-radius:50%;
+    background:var(--gold); box-shadow:0 0 0 6px rgba(201,169,110,0.15);
+  }
+  .tier-flag {
+    display:inline-block;
+    font-family:'Josefin Sans',sans-serif; font-size:0.5rem;
     font-weight:600; letter-spacing:0.3em; text-transform:uppercase;
-    color:var(--gold-soft); margin-bottom:10px;
+    color:var(--ink-warm); background:var(--gold);
+    padding:3px 10px; margin-bottom:8px;
   }
-  .cta-slot .time {
-    font-family:'Cormorant Garamond',serif; font-size:1.35rem;
-    font-weight:400; color:var(--paper); line-height:1.3;
+  .tier-name {
+    font-family:'Cormorant Garamond',serif; font-size:1.25rem;
+    font-weight:500; color:var(--paper); line-height:1.3;
+    font-style:italic;
+  }
+  .tier-detail {
+    font-size:0.82rem; color:rgba(247,243,236,0.72);
+    margin-top:4px; line-height:1.5;
+  }
+  .tier-total {
+    font-family:'Josefin Sans',sans-serif; font-size:0.58rem;
+    font-weight:600; letter-spacing:0.25em; text-transform:uppercase;
+    color:var(--gold-soft); margin-top:8px;
+  }
+  .tier-deciding .tier-name { color:var(--gold-soft); font-style:italic; }
+
+  .notes-field { margin-bottom:32px; }
+  .notes-field label {
+    display:block; font-family:'Josefin Sans',sans-serif;
+    font-size:0.58rem; font-weight:600; letter-spacing:0.28em;
+    text-transform:uppercase; color:var(--gold-soft);
+    margin-bottom:10px;
+  }
+  .notes-field textarea {
+    width:100%; padding:14px 16px;
+    background:rgba(43,37,32,0.4);
+    backdrop-filter:blur(6px);
+    border:1px solid rgba(201,169,110,0.25);
+    color:var(--paper);
+    font-family:'DM Sans',sans-serif; font-size:0.92rem;
+    line-height:1.6; resize:vertical; min-height:70px;
+    transition:border-color 0.3s, background 0.3s;
+    outline:none;
+  }
+  .notes-field textarea:focus {
+    border-color:var(--gold);
+    background:rgba(43,37,32,0.6);
+  }
+  .notes-field textarea::placeholder { color:rgba(247,243,236,0.4); font-style:italic; }
+
+  .go-btn {
+    display:flex; align-items:center; justify-content:space-between;
+    width:100%; gap:16px;
+    padding:22px 32px;
+    background:linear-gradient(90deg, var(--gold-deep), var(--gold));
+    color:var(--ink-warm); border:none; cursor:pointer;
+    font-family:'Josefin Sans',sans-serif; font-weight:600;
+    font-size:0.75rem; letter-spacing:0.3em; text-transform:uppercase;
+    transition:transform 0.4s cubic-bezier(0.22,1,0.36,1),
+               box-shadow 0.4s cubic-bezier(0.22,1,0.36,1),
+               background 0.4s;
+    position:relative; overflow:hidden;
+  }
+  .go-btn::before {
+    content:''; position:absolute; top:0; left:-100%;
+    width:100%; height:100%;
+    background:linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition:left 0.8s ease-out;
+  }
+  .go-btn:hover {
+    transform:translateY(-2px);
+    box-shadow:0 20px 40px -10px rgba(201,169,110,0.5);
+    background:linear-gradient(90deg, var(--gold), var(--gold-soft));
+  }
+  .go-btn:hover::before { left:100%; }
+  .go-btn:active { transform:translateY(0); }
+  .go-btn-arrow {
+    font-size:1.2rem; letter-spacing:0; font-weight:400;
+    transition:transform 0.4s;
+  }
+  .go-btn:hover .go-btn-arrow { transform:translateX(6px); }
+
+  .go-fineprint {
+    text-align:center; margin-top:18px !important;
+    font-size:0.78rem !important; font-style:italic;
+    color:rgba(247,243,236,0.55) !important;
   }
   .signature {
     margin-top:64px; padding-top:34px;
@@ -1099,7 +1194,6 @@
           <li>Your dedicated client portal provisioned — separate logins for Jeremy &amp; Justina</li>
           <li>Domain retrieval + Tamarack handoff coordination</li>
           <li>Content pillars workshop — four to six pillars defined</li>
-          <li>Paid ads audit (Google + Meta) — decision made on continuation</li>
           <li>GA4, Search Console, UTM framework deployed</li>
           <li>Site architecture approved · first two blogs drafted</li>
         </ul>
@@ -1373,7 +1467,6 @@
           <ul>
             <li>Awards submission pipeline (CHBA, Georgie, Wood Design)</li>
             <li>Publication pitches (Avenue, Western Living, Robb, Gray)</li>
-            <li>Paid ads audit + specialist handoff if continuing</li>
             <li>Alberta realtor / partnership outreach</li>
           </ul>
         </div>
@@ -1562,10 +1655,9 @@
   <div class="wrap">
     <div class="sec-num reveal">13 — Transition</div>
     <div class="eyebrow reveal reveal-delay-1">Leaving Tamarack cleanly</div>
-    <h2 class="reveal reveal-delay-2">Zero downtime. <em>The ads don't go dark.</em></h2>
-    <p class="lead reveal reveal-delay-3">You're in a contract with Tamarack and don't know who owns your domain. Your Google and Meta campaigns are running through them. Here's exactly how I handle all of it.</p>
+    <h2 class="reveal reveal-delay-2">Zero downtime. <em>Zero lost authority.</em></h2>
+    <p class="lead reveal reveal-delay-3">You're in a contract with Tamarack and don't know who owns your domain. Here's exactly how I handle the website migration.</p>
 
-    <h3 class="reveal"><span class="mark"></span>The website migration</h3>
     <ul class="stagger">
       <li><strong>Before anything else:</strong> one-page checklist to forward to Justina or Tamarack — domain ownership, DNS access, asset handoff, account logins.</li>
       <li><strong>Parallel build.</strong> New Squarespace site built on a staging URL. Your live site never stops serving visitors while we build.</li>
@@ -1574,17 +1666,9 @@
       <li><strong>Handoff protocol.</strong> If Tamarack owns any assets (domain, image files, account logins), we retrieve them before launch. I have a script for that conversation.</li>
     </ul>
 
-    <h3 class="reveal"><span class="mark"></span>The paid ads handoff</h3>
-    <p class="reveal">Tamarack currently runs your Google and Meta campaigns. When they leave, those campaigns need a home — or they go dark. I handle this three ways, and we decide together in Month 1.</p>
-    <ul class="stagger">
-      <li><strong>Audit first.</strong> Month 1: full audit of existing Google &amp; Meta campaigns. Spend, CTR, cost per click, conversion data (what little exists without UTM). You see what's actually working before we touch anything.</li>
-      <li><strong>Path A — Pause and reinvest.</strong> For most builders in your position, I recommend pausing paid ads for 90 days while SEO, GEO, and content velocity come online. Redirect the budget into one of the retainer tiers or reserve it. Restart paid once the foundation can convert the traffic.</li>
-      <li><strong>Path B — Keep running with a specialist partner.</strong> If the audit shows strong ROI worth protecting, I hand off campaign management to a trusted paid-media partner (pre-vetted, Alberta-geo-aware, on a flat monthly fee you pay directly). I oversee creative and messaging; they optimize spend.</li>
-      <li><strong>Path C — Narrow the spend.</strong> If the audit is mixed, we cut campaigns to the highest-performing assets only and run them leaner while the organic side ramps.</li>
-    </ul>
-    <p class="reveal"><strong>You will never be in a situation where ads are running unmanaged.</strong> That's the commitment.</p>
-
     <p class="reveal"><strong>You do not lose a day of visibility during the transition. You do not lose any existing SEO authority. That is a guarantee.</strong></p>
+
+    <p class="reveal" style="font-size:0.9rem; color:var(--taupe-soft); font-style:italic; margin-top:24px;">Note: paid advertising (Google &amp; Meta) is not part of this engagement. If you'd like to continue paid campaigns after Tamarack, I'm happy to recommend a vetted paid-media specialist — that work is handled separately on their own terms.</p>
   </div>
 </section>
 
@@ -1606,12 +1690,13 @@
     <h3 class="reveal"><span class="mark"></span>Months 2–12 · low intensity</h3>
     <ul class="stagger">
       <li><strong>One 60-min monthly strategy call</strong> — review the report, plan next month (Justina attends as ops lead)</li>
-      <li><strong>Async approvals</strong> on blogs via email (~15 min per draft, 2× per month)</li>
       <li><strong>Async approvals</strong> on social calendar (monthly batch, ~20 min)</li>
       <li><strong>Shoot week in the Kootenays:</strong> coordinate project access + homeowner permissions (~4 hours total)</li>
     </ul>
 
-    <p class="reveal" style="margin-top:28px"><strong>Total time commitment:</strong> ~6 hours in Month 1, ~2–3 hours/month thereafter. Designed for a builder actively running five projects who doesn't have time for an agency that needs hand-holding.</p>
+    <p class="reveal" style="margin-top:28px"><strong>Total time commitment:</strong> ~6 hours in Month 1, ~1–2 hours/month thereafter. Designed for a builder actively running five projects who doesn't have time for an agency that needs hand-holding.</p>
+
+    <p class="reveal" style="font-size:0.9rem; color:var(--taupe-soft); font-style:italic;">Note: the blog is run fully by me for SEO and GEO performance — no approval required. You'll see every post published in your portal, and can flag anything you'd want changed after the fact, but I hold the pen on the blog so the cadence and keyword execution stay tight.</p>
   </div>
 </section>
 
@@ -1630,99 +1715,130 @@
       <li>Homeowners are on-site and available for approvals</li>
     </ul>
 
-    <p class="reveal" style="margin-top:28px; font-size:1.05rem;"><strong>Sign by May 15, 2026</strong> — I block the week of <strong>July 20–25</strong> for your shoot. Sign later and the next realistic window is September (shorter days, weather risk) or spring 2027 — which delays the portfolio rebuild by nine months and pushes your first compounding rank gains into late 2027.</p>
+    <p class="reveal" style="margin-top:28px; font-size:1.05rem;"><strong>Sign this month</strong> — I block the week of <strong>July 13–18</strong> for your shoot. Wait past May and the next realistic window is September (shorter days, weather risk) or spring 2027 — which delays the portfolio rebuild by nine months and pushes your first compounding rank gains into late 2027.</p>
   </div>
 </section>
 
-<!-- ══════════════════════════════ 13 — PROOF ══════════════════════════════ -->
-<section class="sec paper" data-chapter="Proof" data-num="16">
-  <div class="wrap">
-    <div class="sec-num reveal">16 — Proof</div>
-    <div class="eyebrow reveal reveal-delay-1">What's already running</div>
-    <h2 class="reveal reveal-delay-2">Not theory. <em>Running systems.</em></h2>
-    <p class="lead reveal reveal-delay-3">Happy to walk through live client examples on our review call — comparable Sea-to-Sky builder sites, on-record keyword movement, and real portals I can demo screen-to-screen.</p>
-
-    <ul class="stagger">
-      <li><strong>Comparable builder site, six months in</strong> — started ranking outside the top 20 on every target term; now on page 1 for 11 target keywords and in the top 3 on five. Full case study on the walkthrough call.</li>
-      <li><strong>Active Creative Partner engagements</strong> across architects, designers, and builders — each running the same foundation I'm proposing for you, adapted to their market.</li>
-      <li><strong>Portfolio of architectural work</strong> shot across BC and internationally for firms that book me for design-intent photography specifically.</li>
-      <li><strong>Portal demo available</strong> — I can screen-share the live portal on our review call so you and Justina can see exactly what yours will look like.</li>
-    </ul>
-  </div>
-</section>
 
 <!-- ══════════════════════════════ 14 — DATES ══════════════════════════════ -->
-<section class="sec warm" data-chapter="Calendar" data-num="17">
+<section class="sec warm" data-chapter="Calendar" data-num="16">
   <div class="wrap">
-    <div class="sec-num reveal">17 — Calendar</div>
-    <div class="eyebrow reveal reveal-delay-1">Proposed start dates</div>
-    <h2 class="reveal reveal-delay-2">Booked <em>in pencil.</em></h2>
+    <div class="sec-num reveal">16 — Calendar</div>
+    <div class="eyebrow reveal reveal-delay-1">Starting now, not May</div>
+    <h2 class="reveal reveal-delay-2">We move <em>this week.</em></h2>
+    <p class="lead reveal reveal-delay-3">You said you want minimal downtime and to get going fast. The schedule below reflects that. Website build starts the day after signing; the shoot week is already holding dates in July.</p>
 
     <div class="dates stagger">
       <div class="date-row">
-        <div class="when">05 · 05 · 2026</div>
-        <div class="what">Contract signed</div>
-        <div class="tag">Target</div>
+        <div class="when">This week · April 2026</div>
+        <div class="what">Contract signed · kickoff call scheduled</div>
+        <div class="tag">Day 0</div>
       </div>
       <div class="date-row">
-        <div class="when">Week of 05 · 11 · 2026</div>
-        <div class="what">Onboarding call</div>
+        <div class="when">Week of 04 · 27 · 2026</div>
+        <div class="what">Onboarding call · Dropbox &amp; portal spun up</div>
         <div class="tag">2 hrs</div>
       </div>
       <div class="date-row">
-        <div class="when">05 · 22 · 2026</div>
-        <div class="what">Site architecture approved</div>
+        <div class="when">05 · 04 · 2026</div>
+        <div class="what">Brand voice sessions begin</div>
+        <div class="tag">3 × 30 min</div>
+      </div>
+      <div class="date-row">
+        <div class="when">05 · 15 · 2026</div>
+        <div class="what">Site architecture approved · first blogs drafted</div>
         <div class="tag">Foundation</div>
       </div>
       <div class="date-row">
-        <div class="when">06 · 19 · 2026</div>
-        <div class="what">Website live</div>
+        <div class="when">06 · 05 · 2026</div>
+        <div class="what">Website live · first rankings baseline</div>
         <div class="tag">Launch</div>
       </div>
       <div class="date-row">
-        <div class="when">07 · 20 – 25 · 2026</div>
-        <div class="what">Kootenay shoot week</div>
-        <div class="tag">4–5 projects</div>
+        <div class="when">07 · 13 – 18 · 2026</div>
+        <div class="what">Kootenay shoot week · 4–5 projects captured</div>
+        <div class="tag">On hold</div>
       </div>
       <div class="date-row">
-        <div class="when">08 · 15 · 2026</div>
+        <div class="when">08 · 10 · 2026</div>
         <div class="what">Full portfolio integrated</div>
         <div class="tag">Imagery live</div>
       </div>
       <div class="date-row">
-        <div class="when">11 · 05 · 2026</div>
+        <div class="when">10 · 30 · 2026</div>
         <div class="what">Month 6 review</div>
         <div class="tag">Milestone</div>
       </div>
       <div class="date-row">
-        <div class="when">05 · 05 · 2027</div>
-        <div class="what">Month 12 review</div>
-        <div class="tag">Renewal</div>
+        <div class="when">10 · 2026 onward</div>
+        <div class="what">Second shoot window opens (12-month tier)</div>
+        <div class="tag">Fall / winter</div>
+      </div>
+      <div class="date-row">
+        <div class="when">04 · 2027</div>
+        <div class="what">Month 12 review · renewal conversation</div>
+        <div class="tag">Compounding</div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- ══════════════════════════════ CTA ══════════════════════════════ -->
-<section class="cta" data-chapter="Next Step" data-num="18">
+<section class="cta" data-chapter="Move Forward" data-num="17">
   <div class="cta-bg"></div>
   <div class="cta-inner">
-    <div class="eyebrow reveal">Next step</div>
-    <h2 class="reveal reveal-delay-1">Let's walk through this <em>live.</em></h2>
-    <p class="reveal reveal-delay-2">30 minutes on Zoom with you and Justina. You ask questions in real time. We don't lose two weeks in email.</p>
+    <div class="eyebrow reveal">Ready when you are</div>
+    <h2 class="reveal reveal-delay-1">Lock it in. <em>We start this week.</em></h2>
+    <p class="reveal reveal-delay-2">Pick the tier that fits. Hit the button. You'll land on my calendar to book the kickoff call and sign the contract. Website build starts the day after.</p>
 
-    <div class="cta-slots">
-      <div class="cta-slot reveal reveal-delay-1">
-        <div class="label">Option 1</div>
-        <div class="time">Tuesday · April 28<br>10:00 AM PT</div>
+    <form id="go-form" class="go-form reveal reveal-delay-2">
+      <div class="tier-select">
+        <label class="tier-radio">
+          <input type="radio" name="tier" value="12month" checked>
+          <div class="tier-card">
+            <div class="tier-flag">Recommended</div>
+            <div class="tier-name">12-Month Creative Partner</div>
+            <div class="tier-detail">$3,500/mo · Website included · 2 shoot trips</div>
+            <div class="tier-total">$42,000 · 12 months</div>
+          </div>
+        </label>
+        <label class="tier-radio">
+          <input type="radio" name="tier" value="6month">
+          <div class="tier-card">
+            <div class="tier-name">6-Month Retainer</div>
+            <div class="tier-detail">$3,500/mo + $5K website · 1 shoot trip</div>
+            <div class="tier-total">$26,000 · 6 months</div>
+          </div>
+        </label>
+        <label class="tier-radio">
+          <input type="radio" name="tier" value="strategy">
+          <div class="tier-card">
+            <div class="tier-name">Strategy Only</div>
+            <div class="tier-detail">$2,500/mo + $5K website · no shoots</div>
+            <div class="tier-total">$35,000 · 12 months</div>
+          </div>
+        </label>
+        <label class="tier-radio">
+          <input type="radio" name="tier" value="deciding">
+          <div class="tier-card tier-deciding">
+            <div class="tier-name">Let's walk through it first</div>
+            <div class="tier-detail">Book a 30-min review call — I'll answer questions live before you decide</div>
+          </div>
+        </label>
       </div>
-      <div class="cta-slot reveal reveal-delay-2">
-        <div class="label">Option 2</div>
-        <div class="time">Thursday · April 30<br>2:00 PM PT</div>
-      </div>
-    </div>
 
-    <p class="reveal" style="font-size:0.95rem;">Reply with your preference and I'll send the calendar invite. If neither works, tell me three windows that do.</p>
+      <div class="notes-field">
+        <label for="notes-input">Any questions or context before we talk?</label>
+        <textarea id="notes-input" name="notes" rows="3" placeholder="Optional — anything you'd like me to know before the call"></textarea>
+      </div>
+
+      <button type="submit" class="go-btn">
+        <span class="go-btn-label">We're ready to move forward</span>
+        <span class="go-btn-arrow">→</span>
+      </button>
+
+      <p class="go-fineprint">Clicking the button opens my calendar so you can book the call directly. Your tier selection and notes travel with you.</p>
+    </form>
 
     <div class="signature reveal">
       <span class="sig-name">Matt Anthony</span>
@@ -1731,6 +1847,23 @@
     </div>
   </div>
 </section>
+
+<script>
+  document.getElementById('go-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    const tier = document.querySelector('input[name="tier"]:checked').value;
+    const notes = document.getElementById('notes-input').value;
+    const type = tier === 'deciding' ? 'review' : 'kickoff';
+    const base = 'https://mattanthonyphoto.com/discovery-call';
+    const params = new URLSearchParams({
+      type,
+      tier,
+      source: 'eisenhauer-proposal',
+      notes
+    });
+    window.location.href = base + '?' + params.toString();
+  });
+</script>
 
 <script>
   // ───── SCROLL PROGRESS
