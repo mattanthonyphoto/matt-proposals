@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Proposal — Jeremy Eisenhauer</title>
+<meta name="description" content="Twelve-month visibility plan for the highest-end legacy homebuilder in the East Kootenay. Prepared by Matt Anthony Photography.">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1A1A18;
+    --paper: #F6F4F0;
+    --gold: #C9A96E;
+    --gold-deep: #B8975A;
+    --gold-dim: rgba(201,169,110,0.12);
+    --gold-border: rgba(201,169,110,0.25);
+    --stone: #8A8579;
+    --white: #FFFFFF;
+    --light: #FAFAF8;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { font-size:16px; scroll-behavior:smooth; -webkit-print-color-adjust:exact; }
+  body {
+    background:var(--white); color:var(--ink);
+    font-family:'DM Sans',sans-serif; font-weight:300;
+    line-height:1.75; overflow-x:hidden;
+  }
+
+  /* COVER */
+  .cover {
+    min-height:100vh; background:var(--ink); color:var(--paper);
+    display:flex; flex-direction:column; justify-content:flex-end;
+    position:relative; overflow:hidden;
+  }
+  .cover-img {
+    position:absolute; inset:0;
+    background-image:url("https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/64c6702a-78ea-4fe3-a601-78bce7c197a8/warbler-whistler-architectural-photography-matt-anthony-.jpg-5.jpg");
+    background-size:cover; background-position:center;
+  }
+  .cover-img::after {
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(to bottom,
+      rgba(26,26,24,0.55) 0%,
+      rgba(26,26,24,0.40) 30%,
+      rgba(26,26,24,0.65) 55%,
+      rgba(26,26,24,0.94) 82%,
+      rgba(26,26,24,0.99) 100%);
+  }
+  .cover-top {
+    position:absolute; top:0; left:0; right:0; z-index:3;
+    padding:40px 60px; display:flex; justify-content:space-between; align-items:center;
+  }
+  .cover-logo {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.35em; text-transform:uppercase; color:rgba(246,244,240,0.6);
+  }
+  .cover-date {
+    font-family:'Josefin Sans',sans-serif; font-size:0.65rem;
+    letter-spacing:0.2em; color:rgba(246,244,240,0.4);
+  }
+  .cover-content {
+    position:relative; z-index:2; padding:0 60px 80px;
+    max-width:760px;
+  }
+  .eyebrow-gold {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.4em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:20px; display:flex; align-items:center; gap:16px;
+  }
+  .eyebrow-gold::before { content:''; width:32px; height:1px; background:var(--gold); }
+  .cover h1 {
+    font-family:'Cormorant Garamond',serif; font-weight:400;
+    font-size:clamp(3rem,7vw,5.5rem); line-height:1.02;
+    letter-spacing:-0.015em; margin-bottom:22px;
+  }
+  .cover h1 em { font-style:italic; font-weight:500; color:var(--gold); }
+  .cover-sub {
+    font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300;
+    font-size:1.35rem; line-height:1.4; color:rgba(246,244,240,0.85);
+    max-width:560px; margin-bottom:40px;
+  }
+  .cover-lede {
+    font-size:0.95rem; line-height:1.85; color:rgba(246,244,240,0.75);
+    max-width:520px; margin-bottom:56px;
+  }
+  .cover-meta {
+    display:flex; flex-wrap:wrap; gap:40px 56px; padding-top:32px;
+    border-top:1px solid rgba(201,169,110,0.2);
+  }
+  .cover-meta-item { font-size:0.82rem; color:rgba(246,244,240,0.75); line-height:1.6; }
+  .cover-meta-item strong {
+    display:block; color:var(--gold); font-weight:600;
+    font-family:'Josefin Sans',sans-serif; font-size:0.6rem;
+    letter-spacing:0.25em; text-transform:uppercase; margin-bottom:4px;
+  }
+
+  /* SECTIONS */
+  .section { padding:110px 60px; max-width:940px; margin:0 auto; }
+  .section.dark { background:var(--ink); color:var(--paper); max-width:100%; padding:110px 60px; }
+  .section.dark .wrap { max-width:940px; margin:0 auto; }
+  .section.cream { background:var(--paper); max-width:100%; padding:110px 60px; }
+  .section.cream .wrap { max-width:940px; margin:0 auto; }
+
+  .eyebrow {
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.6rem;
+    letter-spacing:0.35em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:20px; display:flex; align-items:center; gap:14px;
+  }
+  .eyebrow::before { content:''; width:24px; height:1px; background:var(--gold); }
+  .section.dark .eyebrow { color:var(--gold); }
+
+  h2 {
+    font-family:'Cormorant Garamond',serif; font-weight:400;
+    font-size:2.8rem; line-height:1.12; letter-spacing:-0.01em;
+    margin-bottom:40px;
+  }
+  h2 em { font-style:italic; font-weight:500; color:var(--gold-deep); }
+  .section.dark h2 em { color:var(--gold); }
+
+  h3 {
+    font-family:'Cormorant Garamond',serif; font-weight:500;
+    font-size:1.55rem; line-height:1.25; letter-spacing:-0.005em;
+    margin:44px 0 16px; color:var(--ink);
+  }
+  .section.dark h3 { color:var(--paper); }
+  h3::before {
+    content:''; display:block; width:36px; height:1.5px;
+    background:var(--gold); margin-bottom:14px;
+  }
+
+  h4 {
+    font-family:'Josefin Sans',sans-serif; font-weight:600; font-size:0.7rem;
+    letter-spacing:0.28em; text-transform:uppercase;
+    color:var(--gold-deep); margin:36px 0 14px;
+  }
+  .section.dark h4 { color:var(--gold); }
+
+  p { margin-bottom:18px; font-size:1rem; line-height:1.85; }
+  .lead { font-size:1.15rem; line-height:1.85; color:var(--stone); }
+  .section.dark p { color:rgba(246,244,240,0.85); }
+
+  strong { font-weight:500; }
+  em { font-style:italic; }
+
+  ul, ol { margin:0 0 24px 18px; }
+  li { margin-bottom:10px; font-size:0.98rem; line-height:1.7; }
+  li::marker { color:var(--gold); }
+
+  blockquote {
+    margin:28px 0; padding:20px 28px;
+    border-left:2.5px solid var(--gold);
+    background:rgba(201,169,110,0.05);
+    font-family:'Cormorant Garamond',serif; font-style:italic;
+    font-size:1.15rem; line-height:1.55; color:var(--ink);
+  }
+  .section.dark blockquote { background:rgba(201,169,110,0.08); color:var(--paper); }
+
+  hr.divider {
+    border:none; height:1px; background:var(--gold-dim);
+    margin:60px 0;
+  }
+
+  /* TABLE */
+  .kpi-table {
+    width:100%; border-collapse:collapse; margin:32px 0 40px;
+    font-size:0.9rem;
+  }
+  .kpi-table thead { border-bottom:2px solid var(--gold); }
+  .kpi-table th {
+    text-align:left; padding:14px 16px 14px 0;
+    font-family:'Josefin Sans',sans-serif; font-size:0.65rem;
+    font-weight:600; letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--ink);
+  }
+  .section.dark .kpi-table th { color:var(--paper); }
+  .kpi-table th:not(:first-child), .kpi-table td:not(:first-child) {
+    text-align:center;
+  }
+  .kpi-table td {
+    padding:14px 16px 14px 0;
+    border-bottom:1px solid rgba(201,169,110,0.15);
+    vertical-align:top;
+  }
+  .kpi-table tbody tr:last-child td { border-bottom:none; }
+
+  /* OPTION CARDS */
+  .options { display:grid; grid-template-columns:1fr 1fr; gap:1px; background:var(--gold-dim); margin:48px 0; }
+  .opt { background:var(--white); padding:48px 40px; position:relative; }
+  .opt.featured { background:var(--ink); color:var(--paper); }
+  .opt.featured h3 { color:var(--paper); }
+  .opt-badge {
+    position:absolute; top:20px; right:20px;
+    font-family:'Josefin Sans',sans-serif; font-size:0.55rem;
+    font-weight:600; letter-spacing:0.25em; text-transform:uppercase;
+    color:var(--ink); background:var(--gold); padding:6px 14px;
+  }
+  .opt .price {
+    font-family:'Cormorant Garamond',serif; font-size:2.8rem;
+    font-weight:400; color:var(--gold); margin:16px 0 6px;
+    line-height:1;
+  }
+  .opt .price-sub {
+    font-family:'Josefin Sans',sans-serif; font-size:0.65rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:var(--stone);
+    margin-bottom:24px;
+  }
+  .opt ul { list-style:none; margin-left:0; }
+  .opt li {
+    padding:10px 0 10px 22px; position:relative;
+    font-size:0.92rem; line-height:1.5;
+    border-bottom:1px solid rgba(201,169,110,0.12);
+  }
+  .opt li::before {
+    content:''; position:absolute; left:0; top:20px;
+    width:10px; height:1px; background:var(--gold);
+  }
+  .opt li:last-child { border-bottom:none; }
+  .opt.featured li { color:rgba(246,244,240,0.88); border-color:rgba(201,169,110,0.18); }
+
+  .lower-tier {
+    background:var(--light); padding:36px 40px; margin:32px 0; border-left:3px solid var(--gold);
+  }
+  .lower-tier .price-inline {
+    font-family:'Cormorant Garamond',serif; font-size:1.6rem;
+    color:var(--gold-deep); font-weight:500;
+  }
+
+  /* TIMELINE */
+  .timeline { list-style:none; margin:32px 0 0; padding:0; }
+  .timeline li {
+    padding:18px 0 18px 40px; position:relative;
+    border-bottom:1px solid rgba(201,169,110,0.15);
+    font-size:0.95rem; line-height:1.55;
+  }
+  .timeline li::before {
+    content:''; position:absolute; left:0; top:26px;
+    width:18px; height:1.5px; background:var(--gold);
+  }
+  .timeline li strong {
+    display:inline-block; min-width:200px; color:var(--gold-deep);
+    font-family:'Josefin Sans',sans-serif; font-size:0.7rem;
+    letter-spacing:0.2em; text-transform:uppercase; font-weight:600;
+  }
+
+  /* CTA */
+  .cta {
+    background:var(--ink); color:var(--paper);
+    padding:100px 60px; text-align:center;
+  }
+  .cta-inner { max-width:720px; margin:0 auto; }
+  .cta h2 { color:var(--paper); font-size:2.4rem; margin-bottom:24px; }
+  .cta h2 em { color:var(--gold); }
+  .cta p { color:rgba(246,244,240,0.8); font-size:1.05rem; margin-bottom:32px; }
+  .cta-slots {
+    display:flex; justify-content:center; gap:24px; flex-wrap:wrap;
+    margin:40px 0 32px;
+  }
+  .cta-slot {
+    padding:24px 32px; border:1px solid rgba(201,169,110,0.35);
+    background:rgba(201,169,110,0.05);
+    min-width:240px;
+  }
+  .cta-slot .label {
+    font-family:'Josefin Sans',sans-serif; font-size:0.6rem;
+    letter-spacing:0.28em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:8px;
+  }
+  .cta-slot .time {
+    font-family:'Cormorant Garamond',serif; font-size:1.3rem;
+    color:var(--paper);
+  }
+  .signature {
+    margin-top:56px; padding-top:32px;
+    border-top:1px solid rgba(201,169,110,0.18);
+    font-size:0.85rem; color:rgba(246,244,240,0.6);
+    line-height:1.8;
+  }
+  .signature strong { color:var(--gold); font-weight:500; }
+
+  /* RESPONSIVE */
+  @media (max-width: 760px) {
+    .cover-top, .cover-content { padding-left:30px; padding-right:30px; }
+    .cover-content { padding-bottom:60px; }
+    .section, .section.dark, .section.cream, .cta { padding:70px 30px; }
+    h2 { font-size:2.1rem; }
+    h3 { font-size:1.3rem; }
+    .options { grid-template-columns:1fr; }
+    .cover-meta { gap:24px; }
+    .timeline li strong { display:block; margin-bottom:4px; min-width:0; }
+    .kpi-table { font-size:0.8rem; }
+    .kpi-table th, .kpi-table td { padding:10px 8px 10px 0; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover-img"></div>
+  <div class="cover-top">
+    <div class="cover-logo">Matt Anthony Photography</div>
+    <div class="cover-date">2026 · 04 · 20</div>
+  </div>
+  <div class="cover-content">
+    <div class="eyebrow-gold">Creative Partner Proposal</div>
+    <h1>Outrank <em>Munter.</em></h1>
+    <div class="cover-sub">The visibility plan for the highest-end legacy homebuilder in the East Kootenay.</div>
+    <p class="cover-lede">A twelve-month roadmap to close the search gap, rebuild the digital foundation, and turn your portfolio into the sales asset it should already be. Built around measurable milestones, a zero-downtime transition from your current agency, and one compact Kootenay shoot week that captures the work the site doesn't yet show.</p>
+    <div class="cover-meta">
+      <div class="cover-meta-item"><strong>Prepared For</strong>Jeremy Eisenhauer<br>Kimberly, BC</div>
+      <div class="cover-meta-item"><strong>Prepared By</strong>Matt Anthony<br>Squamish, BC</div>
+      <div class="cover-meta-item"><strong>Investment</strong>$21,000 — $42,000 CAD</div>
+      <div class="cover-meta-item"><strong>Target Start</strong>May 2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- GAP -->
+<section class="section">
+  <div class="eyebrow">The Gap, In One Sentence</div>
+  <h2>You are the highest-end legacy homebuilder in the East Kootenay, and on every search that matters, a competitor is <em>beating you.</em></h2>
+  <p class="lead">That's a visibility problem, not a product problem — and it's a fixable one.</p>
+
+  <h3>What you told me</h3>
+  <ul>
+    <li>Five years with your current agency, you still can't justify the ROI.</li>
+    <li>You don't know where leads come from, and you don't know what you're paying for.</li>
+    <li>Your Alberta clients are increasingly finding competitors first.</li>
+    <li>Munter shows up on the searches you should own. You don't.</li>
+    <li>The website looks nice but doesn't establish <em>where you build</em> in the first three seconds.</li>
+    <li>The blog was set up with good intent and went dormant.</li>
+    <li>LinkedIn doesn't exist for the company — and your buyers are on it.</li>
+    <li>You're moving too fast to track leads manually, and the agency hasn't built that infrastructure for you.</li>
+  </ul>
+
+  <blockquote>"I want to know exactly how much each lead is costing me and where they come from."</blockquote>
+  <p>This proposal is built around that answer.</p>
+</section>
+
+<!-- HOW I DELIVER -->
+<section class="section dark">
+  <div class="wrap">
+    <div class="eyebrow">How I Actually Deliver</div>
+    <h2>And why the retainer <em>works.</em></h2>
+    <p class="lead">Before anything else: you raised the fair question of whether a small operation can handle a builder of your size. Here's the honest answer.</p>
+
+    <h3>The team</h3>
+    <ul>
+      <li><strong>Matt Anthony</strong> — strategy, shooting, editorial direction, client relationship. Single point of contact. You never get passed around.</li>
+      <li><strong>Alena Machinskaia</strong> — retoucher, handles all post-production on architectural shoots.</li>
+      <li><strong>Second shooter / assistant</strong> — dispatched to projects when needed, trained to my brief.</li>
+    </ul>
+
+    <h3>The systems</h3>
+    <ul>
+      <li>AI-driven content pipeline that extracts brand voice from recorded client conversations and outputs blogs, social, and editorial copy in your tone — not generic agency output.</li>
+      <li>Automated keyword research, rank tracking, content velocity reporting.</li>
+      <li>Postiz + Zernio scheduling. Manual review on every post; nothing publishes without approval.</li>
+      <li>A single Notion workspace per client — your entire marketing operation in one place, accessible to you and Justina in real time.</li>
+    </ul>
+
+    <h3>Current Creative Partner clients</h3>
+    <ul>
+      <li><strong>Balmoral Construction</strong> (Whistler) — six months in, ranking for "custom home builder Whistler," "luxury builder Pemberton," full SEO + GEO rebuild, quarterly shoots, monthly content.</li>
+      <li><strong>LRD Studio</strong> (Lauren Ritz Design, Whistler) — interior design retainer, signed April 9.</li>
+      <li>Three additional architect/designer retainers in onboarding.</li>
+    </ul>
+
+    <p><strong>Why this structure matters for you:</strong> the monthly deliverables don't depend on my availability on any given day. The systems run. I handle strategy, shoots, and the relationship. You get the benefit of a senior operator with the overhead of a small team.</p>
+  </div>
+</section>
+
+<!-- AUDIT FINDINGS -->
+<section class="section">
+  <div class="eyebrow">Audit Findings</div>
+  <h2>Three findings from the data that <em>matter most.</em></h2>
+
+  <h3>1. Munter owns the searches that should be yours</h3>
+  <p>On the keyword set a luxury East Kootenay buyer actually types — <em>custom home builder Kimberly, luxury homes Cranbrook, timber frame builder Kootenays, passive house Kootenay, architect-led home builder Kimberly</em> — Munter ranks in the top 3 on the majority. You rank outside the top 10 on all of them, and on several you don't appear on page 1 at all.</p>
+  <p>This isn't because Munter builds better houses. It's because their site is structured for search, and yours isn't.</p>
+
+  <h3>2. The website isn't telling Google (or ChatGPT) where you build</h3>
+  <p>There's no location-specific service page, no dedicated "Kimberly custom home builder" page, no "East Kootenay luxury builder" page, no city-keyed content. Search engines can't rank you for searches you haven't told them you serve. Neither can the generative tools (ChatGPT, Claude, Perplexity) that are increasingly where high-net-worth buyers start their research.</p>
+
+  <h3>3. Your content velocity is zero</h3>
+  <p>Your blog hasn't published in 18+ months. Your "In Progress" social series stopped 149 weeks ago. You have no LinkedIn presence at all. For a builder of your caliber, your digital footprint should be one of your biggest sales assets — right now it's a liability.</p>
+</section>
+
+<!-- PRIORITY PLAN -->
+<section class="section cream">
+  <div class="wrap">
+    <div class="eyebrow">The Plan — In Priority Order</div>
+    <h2>Not everything is equally urgent. Here's the order, and <em>why.</em></h2>
+
+    <h3>Priority 1 — Fix the conversion (Months 1–2)</h3>
+    <p>Before we drive more traffic, we stop wasting the traffic you already have.</p>
+    <ul>
+      <li><strong>Website rebuild</strong> on a 2026-standard structure. Location established in the first three seconds. Service-location pages for Kimberly, Cranbrook, Fernie, Invermere, Golden. GEO-ready structure for ChatGPT/Claude/Perplexity citation. Interlinked pages. Page-speed optimized.</li>
+      <li><strong>Portfolio overhaul.</strong> We shoot four to five of your best finished and near-finished projects in one bundled Kootenay trip and rebuild the portfolio around that imagery. Current imagery is good; new imagery will be remarkable.</li>
+      <li><strong>Migration plan.</strong> I handle the Tamarack transition — domain retrieval, DNS cutover, analytics preservation, zero-downtime launch.</li>
+    </ul>
+
+    <h3>Priority 2 — Beat Munter (Months 2–6)</h3>
+    <p>Now we go after the rankings.</p>
+    <ul>
+      <li><strong>Keyword + GEO strategy.</strong> Target the 20 highest-intent terms in your market. Publish content that claims each one.</li>
+      <li><strong>Two long-form blog posts per month</strong>, written in your voice using the brand-voice extraction system, optimized for both Google and generative search.</li>
+      <li><strong>Monthly new page publishing</strong> — each month adds a new service page, location page, or pillar post. Twelve months from now, your site has 24+ new indexed pages targeting Munter's keyword set.</li>
+      <li><strong>Rank tracking + monthly reporting.</strong> You see exactly where you rank against Munter week-over-week.</li>
+    </ul>
+
+    <h3>Priority 3 — Build the social + LinkedIn machine (Months 3–6)</h3>
+    <p>Once the foundation holds, we turn on distribution.</p>
+    <ul>
+      <li><strong>LinkedIn launch.</strong> Company page, thought-leadership content for you, project features, behind-the-scenes. Your buyers are on LinkedIn. Your competitors aren't using it well. Open lane.</li>
+      <li><strong>Instagram revival.</strong> "In Progress" series back on. Stories tied to active projects. Highlights properly managed. Content pillars defined.</li>
+      <li><strong>Local photographer brief</strong> (optional). I provide a shot list tied to content pillars. You source a Kootenay-based photographer for fill content between my quarterly trips. Keeps the feed alive.</li>
+    </ul>
+
+    <h3>Priority 4 — Awards + publications (Months 4–12)</h3>
+    <p>Submission pipeline for:</p>
+    <ul>
+      <li>Canadian Home Builders' Association — National Awards for Housing Excellence</li>
+      <li>Georgie Awards (BC, if BC-registered — worth checking)</li>
+      <li>Wood Design Awards (BC &amp; National)</li>
+      <li>Robb Report, Gray Magazine, Mountain Living, Western Living features</li>
+    </ul>
+    <p>These are compounding assets. One award win = five years of credibility and inbound.</p>
+
+    <h3>Priority 5 — Lead tracking (Month 1, then ongoing)</h3>
+    <p>You said it yourself: you don't know where leads come from. We fix that on day one.</p>
+    <ul>
+      <li>UTM parameter setup on every outbound link (social, email, LinkedIn, ads).</li>
+      <li>GA4 + Search Console properly wired to the new site.</li>
+      <li>Asana integration so every lead that comes in has a source tag attached automatically.</li>
+      <li>Monthly report: leads by source, cost per lead (on anything paid), conversion rates by channel.</li>
+    </ul>
+    <p>Three months in, you can tell me with precision which channels are working and which aren't. <strong>That's the ROI clarity you've been missing.</strong></p>
+  </div>
+</section>
+
+<!-- ROADMAP -->
+<section class="section">
+  <div class="eyebrow">Month-By-Month Roadmap</div>
+  <h2>What you can expect, and <em>when.</em></h2>
+
+  <h3>Month 1 — Foundation</h3>
+  <ul>
+    <li>Onboarding extraction call (2 hrs with Jeremy + Justina)</li>
+    <li>Brand voice recording sessions (Jeremy, 3× 30-min sessions)</li>
+    <li>Domain retrieval + Tamarack handoff coordination</li>
+    <li>New site architecture approved</li>
+    <li>GA4, Search Console, UTM framework deployed</li>
+    <li>First two blog posts drafted</li>
+  </ul>
+
+  <h3>Month 2 — Launch</h3>
+  <ul>
+    <li>New website live</li>
+    <li>Portfolio shoot week in the Kootenays (4–5 projects, bundled)</li>
+    <li>First rank-tracking baseline report</li>
+    <li>LinkedIn company page launched</li>
+    <li>First two blogs published</li>
+  </ul>
+
+  <h3>Month 3 — Momentum</h3>
+  <ul>
+    <li>New imagery integrated site-wide</li>
+    <li>First social content wave (LinkedIn, Instagram revival)</li>
+    <li>Content calendar live in shared Notion</li>
+    <li>Two more blogs published</li>
+    <li>Monthly report #1: traffic, rankings, lead sources</li>
+  </ul>
+
+  <h3>Months 4–6 — Ranking push</h3>
+  <ul>
+    <li>Service-location pages published (Kimberly, Cranbrook, Fernie, Invermere)</li>
+    <li>Two blogs/month continuing</li>
+    <li>Weekly social cadence (LinkedIn + Instagram)</li>
+    <li>First awards submissions drafted</li>
+    <li>Month 6 review: ranking movement vs Munter on target keywords</li>
+  </ul>
+
+  <h3>Months 7–12 — Compounding</h3>
+  <ul>
+    <li>New pillar pages (timber frame, passive house, legacy homes)</li>
+    <li>Publication pitches drafted and sent</li>
+    <li>Second Kootenay shoot trip (if 12-month option)</li>
+    <li>Continued content velocity</li>
+    <li>Month 12 review: year-over-year traffic, ranking, lead attribution</li>
+  </ul>
+</section>
+
+<!-- KPIs -->
+<section class="section dark">
+  <div class="wrap">
+    <div class="eyebrow">Measurable Milestones</div>
+    <h2>What I commit to. What I am <em>accountable for.</em></h2>
+
+    <table class="kpi-table">
+      <thead>
+        <tr><th>Metric</th><th>Month 3</th><th>Month 6</th><th>Month 12</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Target keywords on page 1</td><td>5</td><td>12</td><td>20+</td></tr>
+        <tr><td>Target keywords in top 3</td><td>0</td><td>3</td><td>8+</td></tr>
+        <tr><td>New indexed pages</td><td>4</td><td>12</td><td>24+</td></tr>
+        <tr><td>Published blog posts</td><td>6</td><td>12</td><td>24</td></tr>
+        <tr><td>Organic traffic vs baseline</td><td>+20%</td><td>+60%</td><td>+150%</td></tr>
+        <tr><td>Generative search citations</td><td>Tracking live</td><td>3+</td><td>8+</td></tr>
+        <tr><td>LinkedIn followers</td><td>100+</td><td>300+</td><td>800+</td></tr>
+        <tr><td>Lead source attribution</td><td colspan="3" style="text-align:center">100% of new leads tagged from Month 1</td></tr>
+      </tbody>
+    </table>
+
+    <p><strong>What I do not promise:</strong> a specific number of closed leads. Lead volume is a function of visibility (which I control) times conversion (which depends on your site, your sales process, and your offer). I commit to the visibility side with hard numbers. If leads come in and don't close, we look at conversion together — that's a separate conversation and often a separate fix.</p>
+  </div>
+</section>
+
+<!-- OPTIONS -->
+<section class="section">
+  <div class="eyebrow">Two Options</div>
+  <h2>Built for compounding. Priced to <em>commit.</em></h2>
+
+  <div class="options">
+    <div class="opt featured">
+      <div class="opt-badge">Recommended</div>
+      <h3>Option A — 12-Month Retainer</h3>
+      <div class="price">$3,500<span style="font-size:1rem;color:var(--stone);">/mo</span></div>
+      <div class="price-sub">$42,000 total · 12 months</div>
+      <ul>
+        <li>Everything in Priorities 1–5</li>
+        <li>Website rebuild <strong>included</strong></li>
+        <li><strong>Two Kootenay shoot trips</strong> (Month 2 + Month 7–9)</li>
+        <li>Monthly reporting + strategy call</li>
+        <li>Full content production (blogs, social, LinkedIn)</li>
+        <li>Awards submission pipeline</li>
+        <li>Publication pitch pipeline</li>
+      </ul>
+      <p style="margin-top:20px; font-size:0.9rem; color:rgba(246,244,240,0.7);"><em>SEO and GEO compound. The first six months build the foundation; months 7–12 are when the work starts returning.</em></p>
+    </div>
+    <div class="opt">
+      <h3>Option B — 6-Month Retainer</h3>
+      <div class="price">$3,500<span style="font-size:1rem;color:var(--stone);">/mo</span></div>
+      <div class="price-sub">$21,000 total · 6 months</div>
+      <ul>
+        <li>Everything in Priorities 1–3</li>
+        <li>Website rebuild <strong>included</strong></li>
+        <li><strong>One Kootenay shoot trip</strong> (Month 2)</li>
+        <li>Monthly reporting + strategy call</li>
+        <li>Content production (blogs, social, LinkedIn)</li>
+        <li>Awards submissions begin (complete in extension)</li>
+        <li>Option to extend to 12 months at Month 5 at the same rate</li>
+      </ul>
+      <p style="margin-top:20px; font-size:0.9rem; color:var(--stone);"><em>If budget is the reason for choosing 6 over 12, talk to me first. There may be a scope adjustment that works better than a shorter term.</em></p>
+    </div>
+  </div>
+
+  <div class="lower-tier">
+    <h4 style="margin-top:0">Option C — Lower Tier Available</h4>
+    <p><span class="price-inline">$2,500/mo</span> — All strategy, SEO, content, website rebuild. <strong>No shoots included</strong> (book separately at $2,000–$3,500/day + travel).</p>
+    <p style="margin-bottom:0; font-size:0.9rem; color:var(--stone);"><em>I don't recommend this for you. Your imagery is strong, but 40% of the project library is unshot or undershot, and the portfolio is the single biggest visual asset on the new site. The $3,500 tier exists to solve that in the same engagement.</em></p>
+  </div>
+</section>
+
+<!-- TAMARACK TRANSITION -->
+<section class="section cream">
+  <div class="wrap">
+    <div class="eyebrow">The Tamarack Transition</div>
+    <h2>Zero downtime. <em>Guaranteed.</em></h2>
+    <p class="lead">You flagged you're in a contract with Tamarack and don't know who owns your domain. Here's how I handle that.</p>
+
+    <ul>
+      <li><strong>Before anything else:</strong> I provide you a one-page checklist — who to call, what to request, what documents you need from Tamarack. You forward it to Justina or to Tamarack directly.</li>
+      <li><strong>Parallel build.</strong> I build the new site on a staging environment that doesn't touch your live site. Nothing changes for your current visitors while we build.</li>
+      <li><strong>Contract timing.</strong> Tell me when Tamarack ends. I time launch to the day after. No overlap in fees.</li>
+      <li><strong>Cutover in one afternoon.</strong> DNS change, SSL verification, analytics preservation, 301 redirects for any URL that's changing. Site is never offline more than a few minutes.</li>
+      <li><strong>Handoff protocol.</strong> If Tamarack owns any assets (domain, image files, account logins), we retrieve them before launch. I have a script for this conversation if you want one.</li>
+    </ul>
+
+    <p><strong>You do not lose a day of visibility during the transition. You do not lose any existing SEO authority. That is a guarantee.</strong></p>
+  </div>
+</section>
+
+<!-- TIME COMMITMENT -->
+<section class="section">
+  <div class="eyebrow">What I Need From You</div>
+  <h2>Honest about the <em>time cost.</em></h2>
+
+  <h3>Month 1 (higher intensity)</h3>
+  <ul>
+    <li><strong>One 2-hour onboarding call</strong> with Jeremy + Justina</li>
+    <li><strong>Three 30-min brand voice recording sessions</strong> with Jeremy (scheduled around your week; phone or Zoom)</li>
+    <li><strong>One 1-hour content review call</strong> to approve site architecture and first content batch</li>
+    <li><strong>Ongoing:</strong> Slack or email for quick questions (budget ~20 min/week of your time)</li>
+  </ul>
+
+  <h3>Months 2–12 (low intensity)</h3>
+  <ul>
+    <li><strong>One 60-min monthly strategy call</strong> — review the report, plan the next month</li>
+    <li><strong>Async approvals</strong> on blogs (via email, ~15 min per draft, 2× per month)</li>
+    <li><strong>Async approvals</strong> on social calendar (monthly batch, ~20 min)</li>
+    <li><strong>Shoot week in the Kootenays:</strong> coordinate project access + homeowner permissions (~4 hours of your time total)</li>
+  </ul>
+
+  <p><strong>Total time commitment:</strong> ~6 hours in Month 1, ~2–3 hours/month thereafter. Designed for a builder who's actively running 5 projects and doesn't have time for an agency that needs hand-holding.</p>
+</section>
+
+<!-- URGENCY -->
+<section class="section dark">
+  <div class="wrap">
+    <div class="eyebrow">Urgency</div>
+    <h2>The July <em>shoot window.</em></h2>
+    <p class="lead">The Kootenay shoot trip needs to land in July or August 2026. Here's why:</p>
+
+    <ul>
+      <li>Long daylight hours (critical for exterior architectural work)</li>
+      <li>Dry, predictable weather</li>
+      <li>Projects finishing between May–June are photo-ready</li>
+      <li>Homeowners are on-site and available for approvals</li>
+    </ul>
+
+    <p><strong>If we sign by May 15, 2026</strong>, I block the week of <strong>July 20–25</strong> for your shoot. If we sign later, the next realistic shoot window is September (shorter days, weather risk) or spring 2027 — which delays the portfolio rebuild by nine months and pushes your first compounding rank gains into late 2027.</p>
+
+    <p><em>This isn't a manufactured deadline. It's how architectural photography works in the Kootenays.</em></p>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="section">
+  <div class="eyebrow">Proof</div>
+  <h2>Work you can <em>check.</em></h2>
+
+  <ul>
+    <li><strong>Balmoral Construction</strong> — six months in, live comparable site at <a href="https://balmoralconstruction.com" style="color:var(--gold-deep); border-bottom:1px solid var(--gold);">balmoralconstruction.com</a>. Started ranking outside the top 20 on every key Whistler term; now on page 1 for 11 of the target keywords and in the top 3 on five of them.</li>
+    <li><strong>LRD Studio</strong> — signed April 9, 2026 as the first Creative Partner under the full framework.</li>
+    <li><strong>Site Lines Architecture</strong> — grandfathered photography client, now expanding into the Kootenays via Invermere pipeline (references available on request).</li>
+    <li>Five additional architect/designer retainers in various stages of onboarding or discovery.</li>
+  </ul>
+</section>
+
+<!-- TIMELINE -->
+<section class="section cream">
+  <div class="wrap">
+    <div class="eyebrow">Proposed Start Dates</div>
+    <h2>Booked <em>in pencil.</em></h2>
+
+    <ul class="timeline">
+      <li><strong>Contract Signed</strong> Target by May 5, 2026</li>
+      <li><strong>Onboarding Call</strong> Week of May 11, 2026</li>
+      <li><strong>Site Architecture Approved</strong> May 22, 2026</li>
+      <li><strong>Website Live</strong> June 19, 2026</li>
+      <li><strong>Kootenay Shoot Week</strong> July 20–25, 2026</li>
+      <li><strong>Full Portfolio Integrated</strong> August 15, 2026</li>
+      <li><strong>Month 6 Review</strong> November 5, 2026</li>
+      <li><strong>Month 12 Review</strong> May 5, 2027</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="cta-inner">
+    <div class="eyebrow" style="justify-content:center">Next Step</div>
+    <h2>Let's walk through this <em>live.</em></h2>
+    <p>30 minutes on Zoom with you and Justina. You ask questions in real time. We don't lose two weeks in email.</p>
+
+    <div class="cta-slots">
+      <div class="cta-slot">
+        <div class="label">Option 1</div>
+        <div class="time">Tuesday · April 28<br>10:00 AM PT</div>
+      </div>
+      <div class="cta-slot">
+        <div class="label">Option 2</div>
+        <div class="time">Thursday · April 30<br>2:00 PM PT</div>
+      </div>
+    </div>
+
+    <p style="font-size:0.95rem;">Reply with your preference and I'll send the calendar invite. If neither works, tell me three windows that do.</p>
+
+    <div class="signature">
+      <strong>Matt Anthony</strong><br>
+      Matt Anthony Photography<br>
+      info@mattanthonyphoto.com
+    </div>
+  </div>
+</section>
+
+</body>
+</html>
