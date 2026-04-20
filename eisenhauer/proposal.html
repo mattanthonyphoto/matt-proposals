@@ -18,11 +18,19 @@
     --taupe-soft: #7A6B5C;
     --ink-warm:   #2B2520;
     --stone:      #8A7F72;
-    --gold:       #C9A96E;
-    --gold-deep:  #A8884F;
-    --gold-soft:  #E2CDA0;
-    --gold-line:  rgba(201,169,110,0.28);
-    --gold-wash:  rgba(201,169,110,0.08);
+
+    /* Primary accent — muted warm bronze / weathered stone.
+       Replaces the former bright-gold system. */
+    --gold:       #7A6A54;
+    --gold-deep:  #5B4E3B;
+    --gold-soft:  #A89A80;
+    --gold-line:  rgba(122,106,84,0.22);
+    --gold-wash:  rgba(122,106,84,0.06);
+
+    /* Reserved for the CTA button + "Recommended" badge only.
+       Kept slightly warmer to stay a "money moment" accent. */
+    --accent-warm:      #9B8463;
+    --accent-warm-deep: #72603F;
   }
 
   * { margin:0; padding:0; box-sizing:border-box; }
@@ -524,7 +532,7 @@
     position:absolute; top:-14px; left:52px;
     font-family:'Josefin Sans',sans-serif; font-size:0.58rem;
     font-weight:600; letter-spacing:0.32em; text-transform:uppercase;
-    color:var(--paper); background:var(--gold-deep); padding:8px 22px;
+    color:var(--paper); background:var(--accent-warm-deep); padding:8px 22px;
   }
   .opt-hero-top {
     display:grid; grid-template-columns:1fr auto; gap:40px;
@@ -874,8 +882,8 @@
     display:flex; align-items:center; justify-content:space-between;
     width:100%; gap:16px;
     padding:22px 32px;
-    background:linear-gradient(90deg, var(--gold-deep), var(--gold));
-    color:var(--ink-warm); border:none; cursor:pointer;
+    background:linear-gradient(90deg, var(--accent-warm-deep), var(--accent-warm));
+    color:var(--paper); border:none; cursor:pointer;
     font-family:'Josefin Sans',sans-serif; font-weight:600;
     font-size:0.75rem; letter-spacing:0.3em; text-transform:uppercase;
     transition:transform 0.4s cubic-bezier(0.22,1,0.36,1),
@@ -891,8 +899,8 @@
   }
   .go-btn:hover {
     transform:translateY(-2px);
-    box-shadow:0 20px 40px -10px rgba(201,169,110,0.5);
-    background:linear-gradient(90deg, var(--gold), var(--gold-soft));
+    box-shadow:0 20px 40px -10px rgba(114,96,63,0.45);
+    background:linear-gradient(90deg, var(--accent-warm), var(--accent-warm-deep));
   }
   .go-btn:hover::before { left:100%; }
   .go-btn:active { transform:translateY(0); }
@@ -1409,8 +1417,8 @@
         <tr>
           <td>Travel &amp; accommodation</td>
           <td class="hero-col">Included</td>
-          <td>Included</td>
-          <td>Not included</td>
+          <td>Billed at cost</td>
+          <td>Billed at cost</td>
         </tr>
         <tr class="total-row">
           <td><strong>Total year-one spend</strong></td>
@@ -1507,7 +1515,7 @@
           <li>Everything in Priorities 1–3</li>
           <li>Website build <strong>+ $5,000</strong> (not included)</li>
           <li><strong>Two portfolio projects documented</strong> (one Kootenay visit)</li>
-          <li><strong>Travel &amp; accommodation included</strong></li>
+          <li>Travel &amp; accommodation billed separately at cost</li>
           <li>Full client portal access</li>
           <li>Monthly reporting + strategy call</li>
           <li>Content production (blogs, social, LinkedIn)</li>
@@ -1810,7 +1818,7 @@
           <input type="radio" name="tier" value="6month">
           <div class="tier-card">
             <div class="tier-name">6-Month Retainer</div>
-            <div class="tier-detail">$3,500/mo + $5K website · 2 portfolio projects · Travel included</div>
+            <div class="tier-detail">$3,500/mo + $5K website · 2 portfolio projects · Travel at cost</div>
             <div class="tier-total">$26,000 · 6 months</div>
           </div>
         </label>
