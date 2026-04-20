@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Matt Anthony Photography — Selected Work & Pricing for AVID Interior Design</title>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200;300;400&family=Playfair+Display:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --white: #FFFFFF;
+    --off-white: #F9F6F1;
+    --ink: #1C1A17;
+    --gold: #B89968;
+    --terra: #9A6F4E;
+    --stone: #8A8579;
+    --light-stone: #C5C0B8;
+    --text: #484641;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { font-size:16px; scroll-behavior:smooth; }
+  body {
+    background:var(--white); color:var(--ink);
+    font-family:'DM Sans',sans-serif; font-weight:300;
+    line-height:1.8; overflow-x:hidden;
+  }
+
+  .progress {
+    position:fixed; top:0; left:0; height:2px; width:0%;
+    background:var(--gold); opacity:0.4; z-index:9999;
+    transition:width 0.06s linear;
+  }
+
+  .loader {
+    position:fixed; inset:0; background:var(--white); z-index:99999;
+    display:flex; align-items:center; justify-content:center;
+    transition:opacity 0.6s ease, visibility 0.6s;
+  }
+  .loader.done { opacity:0; visibility:hidden; pointer-events:none; }
+  .loader span {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.6rem;
+    letter-spacing:0.5em; text-transform:uppercase; color:var(--ink);
+    opacity:0; animation:fadeIn 0.5s 0.15s ease forwards;
+  }
+  @keyframes fadeIn { to { opacity:1; } }
+
+  .r { opacity:0; transform:translateY(16px); transition:opacity 0.7s ease, transform 0.7s ease; }
+  .r.v { opacity:1; transform:none; }
+
+  .header-bar {
+    position:sticky; top:0; z-index:100;
+    padding:20px 5vw;
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.15em; text-transform:uppercase; color:var(--ink);
+    display:flex; justify-content:space-between; align-items:center;
+    background:rgba(255,255,255,0.92); backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid rgba(0,0,0,0.05);
+  }
+  .header-bar em { font-style:normal; color:var(--stone); font-weight:200; }
+  .header-prepared {
+    font-family:'Josefin Sans',sans-serif; font-weight:200; font-size:0.38rem;
+    letter-spacing:0.35em; text-transform:uppercase; color:var(--stone);
+  }
+
+  .hero {
+    height:92vh; min-height:500px; position:relative; overflow:hidden;
+    display:flex; align-items:flex-end;
+  }
+  .hero img {
+    position:absolute; inset:0; width:100%; height:100%; object-fit:cover;
+    filter:brightness(0.55);
+  }
+  .hero-overlay {
+    position:relative; z-index:1; padding:8vh 5vw;
+    width:100%;
+    background:linear-gradient(transparent 0%, rgba(28,26,23,0.45) 100%);
+  }
+  .hero h1 {
+    font-family:'Playfair Display',serif; font-weight:300; color:var(--white);
+    font-size:clamp(2.4rem, 4.5vw, 3.8rem); line-height:1.08;
+    opacity:0; animation:fadeIn 0.8s 0.4s ease forwards;
+  }
+  .hero h1 em { font-style:italic; font-weight:400; }
+  .hero-sub {
+    margin-top:12px; font-size:0.82rem; color:rgba(246,244,240,0.6);
+    max-width:460px;
+    opacity:0; animation:fadeIn 0.8s 0.7s ease forwards;
+  }
+  .hero-meta {
+    margin-top:32px; padding-top:24px;
+    border-top:1px solid rgba(184,153,104,0.22);
+    display:flex; gap:40px; flex-wrap:wrap;
+    max-width:580px;
+    opacity:0; animation:fadeIn 0.8s 0.9s ease forwards;
+  }
+  .hero-meta-item {
+    font-size:0.72rem; color:rgba(246,244,240,0.45); line-height:1.6;
+  }
+  .hero-meta-item strong {
+    display:block; color:rgba(246,244,240,0.75); font-weight:400;
+    font-family:'Josefin Sans',sans-serif; font-size:0.5rem;
+    letter-spacing:0.2em; text-transform:uppercase; margin-bottom:4px;
+  }
+
+  .spread {
+    display:grid; grid-template-columns:38% 62%; min-height:82vh;
+    border-top:1px solid rgba(0,0,0,0.06);
+    margin-top:3px;
+  }
+  .spread.reverse { grid-template-columns:62% 38%; }
+  .spread-text {
+    padding:8vh 5vw;
+    display:flex; flex-direction:column; justify-content:flex-end;
+  }
+  .spread-label {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.42rem;
+    letter-spacing:0.35em; text-transform:uppercase; color:var(--stone);
+    margin-bottom:14px;
+  }
+  .spread-text h2 {
+    font-family:'Playfair Display',serif; font-weight:400;
+    font-size:2.2rem; line-height:1.18; margin-bottom:20px; color:var(--ink);
+  }
+  .spread-text h2 em { font-style:italic; }
+  .spread-text p {
+    font-size:0.85rem; color:var(--text); line-height:1.9; max-width:380px;
+  }
+  .spread-img {
+    position:relative; overflow:hidden;
+    padding:5vh 4vw; display:flex; align-items:center;
+  }
+  .spread-img img {
+    width:100%; height:auto; object-fit:contain; display:block;
+    box-shadow:0 4px 24px rgba(0,0,0,0.08);
+    transition:transform 0.6s ease;
+  }
+  .spread-img:hover img { transform:scale(1.015); }
+
+  .asym-pair {
+    display:grid; grid-template-columns:62% 38%; min-height:75vh;
+    gap:4px; margin:3px 0;
+  }
+  .asym-pair.reverse { grid-template-columns:38% 62%; }
+  .asym-pair-img {
+    position:relative; overflow:hidden;
+    padding:5vh 4vw; display:flex; align-items:center;
+  }
+  .asym-pair-img img {
+    width:100%; height:auto; object-fit:contain; display:block;
+    box-shadow:0 4px 24px rgba(0,0,0,0.08);
+    transition:transform 0.6s ease;
+  }
+  .asym-pair-img:hover img { transform:scale(1.015); }
+
+  .full-image { width:100%; line-height:0; margin:3px 0; }
+  .full-image img { width:100%; display:block; }
+
+  .text-block {
+    padding:10vh 5vw;
+    display:flex; flex-direction:column; align-items:center;
+    text-align:center;
+    border-top:1px solid rgba(0,0,0,0.06);
+    border-bottom:1px solid rgba(0,0,0,0.06);
+  }
+  .text-block::before {
+    content:''; display:block; width:32px; height:1px;
+    background:var(--gold); opacity:0.6; margin-bottom:28px;
+  }
+  .text-block p {
+    font-family:'Playfair Display',serif; font-style:italic;
+    font-size:1.5rem; line-height:1.55; color:var(--stone);
+    max-width:580px;
+  }
+
+  .info-section {
+    padding:8vh 5vw;
+    border-top:1px solid rgba(0,0,0,0.06);
+    max-width:100%;
+  }
+  .info-inner { max-width:580px; }
+  .info-section h2 {
+    font-family:'Playfair Display',serif; font-weight:400;
+    font-size:2.2rem; line-height:1.18; margin-bottom:20px;
+  }
+  .info-section h2 em { font-style:italic; }
+  .info-section p {
+    font-size:0.85rem; color:var(--text); line-height:1.9; margin-bottom:16px;
+  }
+
+  /* ═══ FAQ Q&A ═══ */
+  .faq-grid {
+    display:grid; grid-template-columns:1fr 1fr; gap:20px;
+    margin:32px 0;
+  }
+  .faq-card {
+    border:1px solid rgba(0,0,0,0.08); padding:26px 24px;
+    background:var(--off-white);
+  }
+  .faq-q {
+    font-family:'Josefin Sans',sans-serif; font-size:0.5rem;
+    letter-spacing:0.22em; text-transform:uppercase; color:var(--terra);
+    margin-bottom:10px;
+  }
+  .faq-h {
+    font-family:'Playfair Display',serif; font-size:1.3rem; font-weight:400;
+    line-height:1.25; margin-bottom:10px; color:var(--ink);
+  }
+  .faq-h em { font-style:italic; }
+  .faq-a {
+    font-size:0.82rem; color:var(--text); line-height:1.85;
+  }
+  @media (max-width:768px) {
+    .faq-grid { grid-template-columns:1fr; }
+  }
+
+  .pricing-grid {
+    display:grid; grid-template-columns:1fr 1fr; gap:24px;
+    margin:32px 0;
+  }
+  .pricing-card {
+    border:1px solid rgba(0,0,0,0.08); padding:28px 24px;
+  }
+  .pricing-card.featured {
+    border-color:var(--gold); position:relative;
+  }
+  .pricing-card.featured::before {
+    content:'Best Fit'; position:absolute; top:-10px; left:20px;
+    font-family:'Josefin Sans',sans-serif; font-size:0.35rem;
+    letter-spacing:0.25em; text-transform:uppercase;
+    background:var(--gold); color:var(--white); padding:3px 12px;
+  }
+  .pricing-name {
+    font-family:'Josefin Sans',sans-serif; font-size:0.5rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--stone);
+    margin-bottom:8px;
+  }
+  .pricing-price {
+    font-family:'Playfair Display',serif; font-size:2rem;
+    font-weight:400; color:var(--ink); margin-bottom:12px;
+  }
+  .pricing-desc {
+    font-size:0.8rem; color:var(--text); line-height:1.8; margin-bottom:16px;
+  }
+  .pricing-list {
+    list-style:none; padding:0;
+  }
+  .pricing-list li {
+    font-size:0.78rem; color:var(--text); padding:5px 0;
+    border-bottom:1px solid rgba(0,0,0,0.04);
+    padding-left:16px; position:relative;
+  }
+  .pricing-list li::before {
+    content:''; position:absolute; left:0; top:12px;
+    width:6px; height:1px; background:var(--gold);
+  }
+  @media (max-width:768px) {
+    .pricing-grid { grid-template-columns:1fr; }
+  }
+
+  .travel-table {
+    margin:24px 0; max-width:640px; border-collapse:collapse; width:100%;
+    font-size:0.82rem;
+  }
+  .travel-table th, .travel-table td {
+    text-align:left; padding:14px 16px;
+    border-bottom:1px solid rgba(0,0,0,0.06);
+  }
+  .travel-table th {
+    font-family:'Josefin Sans',sans-serif; font-size:0.42rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:var(--stone);
+    font-weight:300;
+  }
+  .travel-table td.amt { color:var(--terra); white-space:nowrap; }
+
+  .addons-list {
+    margin:32px 0; max-width:640px;
+  }
+  .addon-row {
+    display:flex; justify-content:space-between; align-items:baseline;
+    padding:14px 0; border-bottom:1px solid rgba(0,0,0,0.06);
+    font-size:0.82rem; color:var(--text);
+  }
+  .addon-row span:last-child { color:var(--terra); font-weight:400; white-space:nowrap; padding-left:16px; }
+
+  .cta {
+    position:relative; overflow:hidden;
+    padding:18vh 5vw; color:var(--white); min-height:70vh;
+    display:flex; align-items:center;
+  }
+  .cta-bg {
+    position:absolute; inset:0;
+    background-image:url('https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/23aedb76-4c10-4a31-ba9c-9ebd434a25bc/5322-backhouse-web-2.jpg');
+    background-size:cover; background-position:center;
+    filter:brightness(0.5) saturate(0.85);
+  }
+  .cta::after {
+    content:''; position:absolute; inset:0; z-index:0;
+    background:linear-gradient(90deg, rgba(28,26,23,0.92) 0%, rgba(28,26,23,0.7) 45%, rgba(28,26,23,0.25) 100%);
+  }
+  .cta-inner { position:relative; z-index:1; max-width:540px; }
+  .cta .spread-label { color:var(--gold); margin-bottom:14px; }
+  .cta h2 {
+    font-family:'Playfair Display',serif; font-weight:400;
+    font-size:2.2rem; line-height:1.18; margin-bottom:16px; color:var(--white);
+  }
+  .cta h2 em { font-style:italic; }
+  .cta p {
+    font-size:0.85rem; color:rgba(246,244,240,0.6); line-height:1.9; margin-bottom:32px;
+  }
+  .cta-btn {
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.48rem;
+    letter-spacing:0.3em; text-transform:uppercase;
+    color:var(--ink); background:var(--gold);
+    padding:16px 48px; text-decoration:none; display:inline-block;
+    transition:background 0.3s ease;
+  }
+  .cta-btn:hover { background:var(--white); }
+  .cta-contact {
+    margin-top:48px; padding-top:32px;
+    border-top:1px solid rgba(184,153,104,0.18);
+  }
+  .cta-line { font-size:0.78rem; color:rgba(246,244,240,0.45); margin:2px 0; }
+  .cta-line a { color:var(--gold); text-decoration:none; }
+
+  footer {
+    padding:24px 5vw;
+    font-family:'Josefin Sans',sans-serif; font-size:0.35rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--light-stone);
+    background:var(--ink);
+  }
+
+  @media (max-width:900px) {
+    .spread { grid-template-columns:1fr; min-height:auto; }
+    .spread.reverse { grid-template-columns:1fr; }
+    .spread-img { min-height:45vh; }
+    .asym-pair { grid-template-columns:1fr; min-height:auto; gap:2px; }
+    .asym-pair.reverse { grid-template-columns:1fr; }
+    .asym-pair-img { min-height:auto; padding:3vh 4vw; }
+    .header-prepared { display:none; }
+  }
+  @media (max-width:768px) {
+    .header-bar { padding:16px 5vw; font-size:0.58rem; }
+    .hero { height:auto; min-height:80vh; }
+    .hero h1 { font-size:2.2rem; }
+    .hero-sub { font-size:0.78rem; }
+    .hero-meta { gap:20px; }
+    .spread-text { padding:5vh 5vw; }
+    .spread-text h2 { font-size:1.8rem; }
+    .spread-text p { font-size:0.82rem; }
+    .spread-img { min-height:40vh; }
+    .asym-pair-img { padding:3vh 4vw; }
+    .text-block { padding:6vh 5vw; }
+    .text-block p { font-size:1.15rem; }
+    .cta { padding:8vh 5vw; }
+    .cta h2 { font-size:1.8rem; }
+    .progress { display:none; }
+  }
+  @media (max-width:480px) {
+    .hero h1 { font-size:1.8rem; }
+    .spread-text { padding:4vh 5vw; }
+    .spread-text h2 { font-size:1.5rem; }
+    .spread-label { font-size:0.38rem; }
+    .asym-pair-img { min-height:28vh; }
+    .cta { padding:6vh 5vw; }
+    .cta h2 { font-size:1.5rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+<div class="loader" id="loader"><span>Matt Anthony Photography</span></div>
+
+<div class="header-bar">
+  <span>Matt Anthony <em>Photography</em></span>
+  <span class="header-prepared">Prepared for AVID Interior Design</span>
+  <a href="#pricing" style="font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.4rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--white); background:var(--ink); padding:8px 20px; text-decoration:none; transition:background 0.3s ease;">View Pricing</a>
+</div>
+
+<!-- HERO OPENER -->
+<div class="hero">
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/23aedb76-4c10-4a31-ba9c-9ebd434a25bc/5322-backhouse-web-2.jpg" alt="Selected Work for AVID Interior Design">
+  <div class="hero-overlay">
+    <h1>Answers, Selected Work, <em>&amp; Pricing</em></h1>
+    <p class="hero-sub">A photography reference for Anna-Maria and the AVID team &mdash; built to answer the four questions from your note directly, then walk through the work behind it.</p>
+    <div class="hero-meta">
+      <div class="hero-meta-item">
+        <strong>Prepared For</strong>
+        Anna-Maria Wurz<br>AVID Interior Design Inc.
+      </div>
+      <div class="hero-meta-item">
+        <strong>Re</strong>
+        Calgary &amp; Alberta Projects
+      </div>
+      <div class="hero-meta-item">
+        <strong>Date</strong>
+        April 2026
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ABOUT -->
+<div class="info-section r">
+  <div class="info-inner">
+    <div class="spread-label">About</div>
+    <h2>Based in <em>Squamish</em>, BC &mdash; travelling for design-led work</h2>
+    <p>I'm an architectural and interiors photographer working primarily across British Columbia and increasingly into Alberta. The work is concentrated on residential architecture and high-end interiors where the design choices were specific and deliberate &mdash; imagery that communicates the <em>why</em> behind a room, not just its appearance.</p>
+    <p>Your AVID portfolio reads that way. There's a warmth in the material palettes, a confidence in the millwork and lighting decisions, and a restraint that tells me someone on your team is editing as carefully as they're designing. That's the kind of project I show up prepared for &mdash; I study the design narrative, the material selections, and the moments you'd want the camera to register before I ever set up a tripod. Editorial standards come built in; a meaningful share of my shoots end up in publication or award decks.</p>
+    <p>Clients include Sitelines Architecture, Balmoral Construction, Summerhill Fine Homes, LRD Studio, Shelter Residential Design, Michel Laflamme Architect, and The Window Merchant. Transport Canada certified Advanced Drone Pilot.</p>
+  </div>
+</div>
+
+<!-- YOUR QUESTIONS, ANSWERED -->
+<div class="info-section r" id="answers" style="scroll-margin-top:70px;">
+  <div class="info-inner" style="max-width:100%;">
+    <div class="spread-label">Your Questions, Answered</div>
+    <h2>The four things you <em>asked about</em></h2>
+    <p style="max-width:620px;">I want to answer these clearly before anything else, so you can decide quickly whether we're a fit.</p>
+
+    <div class="faq-grid">
+      <div class="faq-card">
+        <div class="faq-q">01 &middot; Scope</div>
+        <div class="faq-h">Interior photography is the <em>core</em>. Lifestyle is added on.</div>
+        <div class="faq-a">Interior design photography is my primary focus &mdash; spaces, vignettes, materials, millwork, and the details that separate a careful build from a catalog one. Lifestyle and team headshots aren't my specialty, but I can fold them into an interiors shoot when the day allows: on-site portraits of the designer or client in the space, candid walkthroughs, or tight-framed editorial headshots against a styled wall. If you need a dedicated, studio-lit headshot session, I'll be honest and point you to a Calgary portrait specialist. If you want the team captured inside a project you're documenting, that's a natural add-on.</div>
+      </div>
+
+      <div class="faq-card">
+        <div class="faq-q">02 &middot; Video</div>
+        <div class="faq-h">Yes &mdash; from 60-second reels to <em>cinematic films</em>.</div>
+        <div class="faq-a">Video is part of what I offer. Three formats: short social walkthroughs (~60 seconds, one key room arc), mid-length project films (90&ndash;120 seconds with exteriors, interiors, and detail), and longer cinematic pieces (2&ndash;3 minutes) for award and publication submissions or your home page hero. Most designer shoots pair photography with a short reel; a handful go bigger. Pricing below reflects all three tiers.</div>
+      </div>
+
+      <div class="faq-card">
+        <div class="faq-q">03 &middot; Fees</div>
+        <div class="faq-h">BC rates are <em>the same</em> to Calgary; travel is a flat add.</div>
+        <div class="faq-a">My shoot rates don't change whether the project is in Vancouver, Whistler, or Calgary. What changes is travel. For Calgary and the Bow Valley I add a flat travel fee ($650&ndash;$950 depending on location) that covers flights, vehicle, and accommodation. For more distant Alberta shoots or abroad, I quote travel at cost with no markup. Everything is outlined in the <em>Travel</em> section below.</div>
+      </div>
+
+      <div class="faq-card">
+        <div class="faq-q">04 &middot; Licensing</div>
+        <div class="faq-h">Full commercial use for <em>the commissioning party</em>, perpetual.</div>
+        <div class="faq-a">Every package includes a full commercial license for AVID Interior Design, perpetual, unlimited, and royalty-free &mdash; website, social, portfolio, Houzz, Instagram, print collateral, editorial submissions, award entries, paid advertising. Other parties on the project (builder, architect, trades, product suppliers) license the same images at a fraction of the shoot cost through my cost-share process; I coordinate that directly so you're not chasing anyone. Resale to stock libraries is the only carve-out. Full terms are in the agreement.</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- SERVICES & PRICING -->
+<div class="info-section r" id="pricing" style="scroll-margin-top:70px;">
+  <div class="info-inner" style="max-width:100%;">
+    <div class="spread-label">Services &amp; Pricing</div>
+    <h2>Photography for <em>Interior Designers</em></h2>
+    <p style="max-width:620px;">Per-project pricing built around how interior design firms actually use imagery &mdash; portfolio, social, publication pitches, and award submissions. Every shoot includes full commercial usage rights, drone coverage where it makes sense, and delivery within 7&ndash;10 business days via Dropbox.</p>
+
+    <div class="pricing-grid">
+      <div class="pricing-card featured">
+        <div class="pricing-name">Residential Interior</div>
+        <div class="pricing-price">$3,000</div>
+        <div class="pricing-desc">Interior-focused documentation for design portfolios, social media, and Western Living / Avenue / Western Home & Living style pitches.</div>
+        <ul class="pricing-list">
+          <li>Full day on site (up to 8 hours)</li>
+          <li>25&ndash;35 edited images</li>
+          <li>Vignette and material detail coverage</li>
+          <li>Styling support during the shoot</li>
+          <li>Short social-format reel</li>
+          <li>Full commercial license for AVID</li>
+        </ul>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-name">Architectural Project</div>
+        <div class="pricing-price">$3,500</div>
+        <div class="pricing-desc">Full documentation of a completed home &mdash; interiors, exteriors, drone, and detail.</div>
+        <ul class="pricing-list">
+          <li>Full day on site</li>
+          <li>30&ndash;40 edited images</li>
+          <li>Drone / aerial coverage</li>
+          <li>60&ndash;90 second walkthrough video</li>
+          <li>Detail and material capture</li>
+          <li>Full commercial license for AVID</li>
+        </ul>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-name">Award &amp; Publication Ready</div>
+        <div class="pricing-price">$5,500</div>
+        <div class="pricing-desc">Editorial-grade for magazine pitches, Western Living, Avenue, BAID / ARIDO awards, and design competitions.</div>
+        <ul class="pricing-list">
+          <li>Full day plus twilight session</li>
+          <li>40&ndash;55 edited images</li>
+          <li>Drone / aerial coverage</li>
+          <li>2&ndash;3 minute cinematic film</li>
+          <li>Editorial styling pass</li>
+          <li>Submission support &amp; image curation</li>
+        </ul>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-name">Focused Shoot</div>
+        <div class="pricing-price">$2,000</div>
+        <div class="pricing-desc">A streamlined full shoot &mdash; photography only, no add-ons. Best when you need clean, usable coverage without the editorial extras.</div>
+        <ul class="pricing-list">
+          <li>Full day on site</li>
+          <li>20&ndash;30 edited images</li>
+          <li>Material and styling close-ups</li>
+          <li>Full commercial license for AVID</li>
+        </ul>
+      </div>
+    </div>
+
+    <p style="max-width:620px; margin-top:24px;"><strong style="color:var(--ink);">Cost-share model:</strong> On almost every residential project, the builder, architect, millworker, and product suppliers also want the imagery. They license the same set for a fraction of the shoot cost &mdash; typically reducing your effective investment by 30&ndash;50%. I handle the outreach, agreements, and delivery for every party. AVID pays the primary rate; I coordinate the rest.</p>
+
+    <p style="max-width:620px;"><strong style="color:var(--ink);">A note on fit:</strong> Most AVID projects fit cleanly into <em>Residential Interior</em>. When a project is headed for Western Living, Avenue, or a BAID / ARIDO submission, the <em>Award &amp; Publication Ready</em> tier is built for that deck &mdash; twilight coverage, editorial curation, and a cinematic film in the same shoot window.</p>
+  </div>
+</div>
+
+<!-- TRAVEL STRUCTURE -->
+<div class="info-section r" id="travel" style="scroll-margin-top:70px;">
+  <div class="info-inner" style="max-width:100%;">
+    <div class="spread-label">Travel</div>
+    <h2>BC, Alberta, <em>and beyond</em></h2>
+    <p style="max-width:620px;">Shoot rates are the same regardless of location. Travel is added as a flat fee so there are no surprises. I drive or fly depending on distance, and I keep it lean &mdash; one photographer, one set of gear, one vehicle or one flight.</p>
+
+    <table class="travel-table">
+      <thead>
+        <tr>
+          <th>Region</th>
+          <th>Travel Fee</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Lower Mainland BC &amp; Sea-to-Sky</td>
+          <td class="amt">Included</td>
+          <td>No travel fee within Vancouver, Whistler, Squamish, Sunshine Coast</td>
+        </tr>
+        <tr>
+          <td>Interior BC (Okanagan, Kootenays)</td>
+          <td class="amt">$400 &ndash; $650</td>
+          <td>Drive or fly depending on timing</td>
+        </tr>
+        <tr>
+          <td>Calgary &amp; surrounding (incl. Okotoks, Airdrie)</td>
+          <td class="amt">$650</td>
+          <td>Flight, vehicle, one night accommodation</td>
+        </tr>
+        <tr>
+          <td>Canmore &amp; Bow Valley</td>
+          <td class="amt">$850</td>
+          <td>Flight to YYC, vehicle, accommodation</td>
+        </tr>
+        <tr>
+          <td>Edmonton &amp; Northern Alberta</td>
+          <td class="amt">$950</td>
+          <td>Flight, vehicle, accommodation</td>
+        </tr>
+        <tr>
+          <td>Further afield (North America, abroad)</td>
+          <td class="amt">At cost</td>
+          <td>Quoted per trip, no markup, receipts shared</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p style="max-width:620px;"><strong style="color:var(--ink);">Stacking shoots:</strong> When I'm in Calgary or the Bow Valley for one project, I split the travel fee across any additional AVID shoots booked that same trip. Two projects in one Calgary visit means the per-project travel drops significantly.</p>
+  </div>
+</div>
+
+<!-- LICENSING DETAIL -->
+<div class="info-section r" id="licensing" style="scroll-margin-top:70px;">
+  <div class="info-inner" style="max-width:100%;">
+    <div class="spread-label">Licensing</div>
+    <h2>What you can <em>do with the images</em></h2>
+    <p style="max-width:620px;">Licensing is straightforward. Every shoot includes a full commercial license issued to AVID Interior Design Inc., for all the uses you'd expect a design firm to need.</p>
+
+    <div class="pricing-grid" style="grid-template-columns:1fr 1fr;">
+      <div class="pricing-card">
+        <div class="pricing-name">Included for AVID</div>
+        <ul class="pricing-list" style="margin-top:8px;">
+          <li>Website, portfolio, blog, Houzz</li>
+          <li>Instagram, Pinterest, LinkedIn, Facebook</li>
+          <li>Print collateral, business cards, brochures</li>
+          <li>Magazine &amp; editorial submissions</li>
+          <li>Award submissions (BAID, ARIDO, etc.)</li>
+          <li>Paid social and Google advertising</li>
+          <li>Perpetual &middot; unlimited &middot; royalty-free</li>
+        </ul>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-name">Third-Party Licensing</div>
+        <ul class="pricing-list" style="margin-top:8px;">
+          <li>Builder on the project &mdash; from $500</li>
+          <li>Architect &mdash; from $500</li>
+          <li>Millwork, tile, lighting suppliers &mdash; from $350</li>
+          <li>Product manufacturers &mdash; quoted per use</li>
+          <li>I coordinate outreach and agreements</li>
+          <li>Cost-share reduces AVID's effective cost</li>
+        </ul>
+      </div>
+    </div>
+
+    <p style="max-width:620px; margin-top:24px;"><strong style="color:var(--ink);">Not included:</strong> resale to stock libraries, or transfer of the license to a non-project party (e.g., a publication claiming ownership beyond the story). If a magazine wants extended editorial rights, I handle that separately with them.</p>
+  </div>
+</div>
+
+<!-- PULLQUOTE -->
+<div class="text-block r">
+  <p>One shoot generates five assets: portfolio, publication pitches, award entries, social content, and client presentations. The photography is done once. The leverage is ongoing.</p>
+</div>
+
+<!-- SELECTED WORK -->
+<div class="info-section r" id="work" style="scroll-margin-top:70px;">
+  <div class="info-inner">
+    <div class="spread-label">Selected Work</div>
+    <h2>Recent <em>Projects</em></h2>
+    <p style="max-width:580px;">A handful of pieces from across BC. The thread tying them together is the same one I'd bring to your AVID work &mdash; pacing the imagery to read the way the design was actually meant to be experienced.</p>
+  </div>
+</div>
+
+<!-- 01 THE PERCH -->
+<div class="spread r">
+  <div class="spread-text">
+    <div class="spread-label">The Perch &mdash; Sunshine Coast</div>
+    <h2>Cantilevered Over <em>Granite Shoreline</em></h2>
+    <p>Charred cedar, blackened steel, floor-to-ceiling glass. The structure perches on a granite bluff above the Pacific &mdash; designed to vanish into the tree line from the water and reveal itself as a dramatic cantilever from the forest side. Two buildings, depending on where you stand.</p>
+  </div>
+  <div class="spread-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/23aedb76-4c10-4a31-ba9c-9ebd434a25bc/5322-backhouse-web-2.jpg" alt="The Perch" loading="lazy">
+  </div>
+</div>
+
+<div class="asym-pair reverse r">
+  <div class="asym-pair-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/34ff99ae-5592-488a-bfd6-ff7b4744ea8d/5322-backhouse-web-15.jpg" alt="The Perch — interior detail" loading="lazy">
+  </div>
+  <div class="asym-pair-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/9d699cdf-a6ac-442f-b234-97b0aba24035/5322-backhouse-web-5.jpg" alt="The Perch — kitchen" loading="lazy">
+  </div>
+</div>
+
+<div class="asym-pair r">
+  <div class="asym-pair-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/20c8872d-0ddd-4861-b66c-4cc150ab59d6/5322-backhouse-web-20.jpg" alt="The Perch — detail" loading="lazy">
+  </div>
+  <div class="asym-pair-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/8a674d33-4176-43dd-89c1-a565c1c3df48/5322-backhouse-web-24.jpg" alt="The Perch — aerial" loading="lazy">
+  </div>
+</div>
+
+<!-- 02 WARBLER ALPINE -->
+<div class="full-image r">
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/64c6702a-78ea-4fe3-a601-78bce7c197a8/warbler-whistler-architectural-photography-matt-anthony-.jpg-5.jpg" alt="Warbler Residence" loading="lazy">
+</div>
+
+<div class="spread reverse r">
+  <div class="spread-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/98b6bb8c-ede3-4de9-978a-fc8ae91554a6/warbler-whistler-architectural-photography-matt-anthony-.jpg-35.jpg" alt="Warbler — dusk" loading="lazy">
+  </div>
+  <div class="spread-text">
+    <div class="spread-label">The Warbler &mdash; Whistler</div>
+    <h2>Snow Load, Dark Timber, <em>Stone</em></h2>
+    <p>Deep snow compresses the tonal range. Alpine light shifts hour to hour, season to season. The Warbler's blackened timber cladding absorbs light and recedes into the tree line by design. Autumn, when the surrounding larch turns gold, reveals the full silhouette without intervention.</p>
+  </div>
+</div>
+
+<div class="asym-pair reverse r">
+  <div class="asym-pair-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/02772fb5-a65d-4ec6-82e1-4774876c7693/warbler-whistler-architectural-photography-matt-anthony-.jpg-20.jpg" alt="Warbler — interior detail" loading="lazy">
+  </div>
+  <div class="asym-pair-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/c938566f-ee96-40da-aec4-d51ac9fa7e09/warbler-whistler-architectural-photography-matt-anthony-.jpg-13.jpg" alt="Warbler — interior" loading="lazy">
+  </div>
+</div>
+
+<!-- 03 TRANQUIL RETREAT -->
+<div class="spread reverse r">
+  <div class="spread-img">
+    <img src="https://images.squarespace-cdn.com/content/6824fd48afd1dd40cd73e146/aa77ed99-a103-40dd-bce5-b355bab58632/sandy-hook-sunshine-coast-architectural-photography-matt-anthony-.jpg-11.jpg?content-type=image%2Fjpeg" alt="Tranquil Retreat" loading="lazy">
+  </div>
+  <div class="spread-text">
+    <div class="spread-label">Tranquil Retreat &mdash; Sandy Hook</div>
+    <h2>Corrugated Steel Against <em>Tidal Forest</em></h2>
+    <p>Raw corrugated steel chosen to weather alongside the salt air and cedar canopy. The material palette &mdash; steel, cedar soffits, granite retaining walls &mdash; was selected to converge with the site over time, not resist it. The interiors hold the same restraint, letting the views and the textures do the talking.</p>
+  </div>
+</div>
+
+<div class="asym-pair r">
+  <div class="asym-pair-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/8dab354d-32d7-4e2a-8a71-7ef3b5d5482c/sandy-hook-sunshine-coast-architectural-photography-matt-anthony-.jpg-15.jpg" alt="Tranquil Retreat — exterior" loading="lazy">
+  </div>
+  <div class="asym-pair-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/62f2712d-a413-46af-bcd8-d0f17957f8ab/sandy-hook-sunshine-coast-architectural-photography-matt-anthony-.jpg-4.jpg" alt="Tranquil Retreat — interior" loading="lazy">
+  </div>
+</div>
+
+<!-- 04 BROWNS ROAD -->
+<div class="spread reverse r">
+  <div class="spread-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/35e24e7e-8ae5-47fa-9242-792ad3b6e7b9/browns-road-sunshine-coast-architectural-photographer-matt-anthony-7.jpg" alt="Brown's Road" loading="lazy">
+  </div>
+  <div class="spread-text">
+    <div class="spread-label">Brown's Road &mdash; Roberts Creek</div>
+    <h2>Board-Formed Concrete and <em>Rain</em></h2>
+    <p>A net-zero home designed to be read through its materials. Board-formed concrete carrying the grain of the formwork. Standing-seam metal channelling rainwater into planted swales. The performance is embedded in the material choices &mdash; not applied as a label.</p>
+  </div>
+</div>
+
+<div class="asym-pair r">
+  <div class="asym-pair-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/500155bc-8662-4c70-ab44-feae601fa91e/browns-road-sunshine-coast-architectural-photographer-matt-anthony-16.jpg" alt="Brown's Road — wide" loading="lazy">
+  </div>
+  <div class="asym-pair-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/2f6d1495-5b03-4c34-8b78-7b3eaa479c17/browns-road-sunshine-coast-architectural-photographer-matt-anthony-10.jpg" alt="Brown's Road — detail" loading="lazy">
+  </div>
+</div>
+
+<!-- 05 PEAK VENTURES -->
+<div class="spread reverse r">
+  <div class="spread-img">
+    <img src="https://images.squarespace-cdn.com/content/6824fd48afd1dd40cd73e146/0ab160b7-ec92-4a1d-966a-8fe689ded9e9/peak-ventures-whistler-6.jpg?content-type=image%2Fjpeg" alt="Peak Ventures" loading="lazy">
+  </div>
+  <div class="spread-text">
+    <div class="spread-label">Peak Ventures &mdash; Whistler</div>
+    <h2>Mountain <em>Modernism</em></h2>
+    <p>Clean lines against a complex landscape. The flat roofline and dark cladding create a deliberate horizontal plane that contrasts with the vertical thrust of the surrounding conifers. Dark stained cedar, blackened steel, stone. Each surface absorbs or reflects differently, giving the facade depth and weight that shifts with the light.</p>
+  </div>
+</div>
+
+<div class="asym-pair reverse r">
+  <div class="asym-pair-img">
+    <img src="https://images.squarespace-cdn.com/content/6824fd48afd1dd40cd73e146/9735ee44-cdd3-463c-91e7-057ce01c798e/peak-ventures-whistler-14.jpg?content-type=image%2Fjpeg" alt="Peak Ventures — site" loading="lazy">
+  </div>
+  <div class="asym-pair-img">
+    <img src="https://images.squarespace-cdn.com/content/6824fd48afd1dd40cd73e146/7199e20e-015a-4f85-8473-9d3d74f49e88/peak-ventures-whistler-16.jpg?content-type=image%2Fjpeg" alt="Peak Ventures — detail" loading="lazy">
+  </div>
+</div>
+
+<!-- 06 SALT SPRING CABIN -->
+<div class="spread r">
+  <div class="spread-text">
+    <div class="spread-label">Salt Spring Island Cabin</div>
+    <h2>Glass, Timber, and <em>Island Light</em></h2>
+    <p>A cabin scaled to its clearing. Oversized glazing panels frame the surrounding Garry oak and arbutus like a series of curated views &mdash; each window a deliberate composition. Early morning. Island light low and warm, catching the grain of exposed timber framing.</p>
+  </div>
+  <div class="spread-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/686d53c540bccb49df1c90bc/39756732-3b67-4977-b540-0834ab916650/window-merchant-saltspring-cabin-web-11.jpg?format=2500w" alt="Salt Spring Cabin" loading="lazy">
+  </div>
+</div>
+
+<div class="asym-pair r">
+  <div class="asym-pair-img">
+    <img src="https://images.squarespace-cdn.com/content/6824fd48afd1dd40cd73e146/a2f153bb-03b7-47f1-9a60-2cac9c4dc962/window-merchant-saltspring-cabin-web-2.jpg?content-type=image%2Fjpeg" alt="Salt Spring Cabin — exterior" loading="lazy">
+  </div>
+  <div class="asym-pair-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/686d53c540bccb49df1c90bc/768dbfbc-fc42-4200-a125-87c44646c6bb/window-merchant-saltspring-cabin-web-9.jpg?format=2500w" alt="Salt Spring Cabin — interior" loading="lazy">
+  </div>
+</div>
+
+<!-- 07 GAMBIER -->
+<div class="spread reverse r">
+  <div class="spread-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/ccfb80fe-3b57-490b-bffb-dfe02f8e174e/linwood-gambier-web-34.jpg" alt="Gambier Island" loading="lazy">
+  </div>
+  <div class="spread-text">
+    <div class="spread-label">Gambier Island</div>
+    <h2>Accessed Only by <em>Water</em></h2>
+    <p>No road access. Every beam, every fixture, every pane of glass was barged across Howe Sound and carried up the granite by hand. The architecture follows the natural clearing rather than imposing one, wrapping the existing rock face and preserving the forest canopy that gives the site its character.</p>
+  </div>
+</div>
+
+<div class="asym-pair r">
+  <div class="asym-pair-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/01893150-5d74-4b4b-8592-3d5613bb42c9/linwood-gambier-web-10.jpg" alt="Gambier — interior" loading="lazy">
+  </div>
+  <div class="asym-pair-img">
+    <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/892c72af-cc8d-41d2-be9c-0892af249603/linwood-gambier-web-40.jpg" alt="Gambier — aerial" loading="lazy">
+  </div>
+</div>
+
+<!-- OPTIONAL ADD-ONS -->
+<div class="info-section r">
+  <div class="info-inner" style="max-width:100%;">
+    <div class="spread-label">Optional Add-Ons</div>
+    <h2>Extend any <em>package</em></h2>
+    <p style="max-width:620px;">Pricing applies on top of any tier above. All per project unless noted.</p>
+
+    <div class="addons-list">
+      <div class="addon-row"><span>On-site lifestyle portraits / editorial headshots (paired with interior shoot)</span><span>$450</span></div>
+      <div class="addon-row"><span>Twilight session (if not included in tier)</span><span>$500 &ndash; $800</span></div>
+      <div class="addon-row"><span>Additional drone flight (complex sites)</span><span>$350 &ndash; $500</span></div>
+      <div class="addon-row"><span>Short-form video content (60-sec walkthrough)</span><span>$800</span></div>
+      <div class="addon-row"><span>Long-form film (2&ndash;3 minute cinematic)</span><span>$1,500</span></div>
+      <div class="addon-row"><span>Rush delivery (3&ndash;5 business days)</span><span>$300</span></div>
+      <div class="addon-row"><span>Third-party image licensing (per party)</span><span>From $500</span></div>
+      <div class="addon-row"><span>Additional shoot day on a single project</span><span>$2,200</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- HOW IT WORKS -->
+<div class="info-section r">
+  <div class="info-inner" style="max-width:100%;">
+    <div class="spread-label">How It Works</div>
+    <h2>From booking to <em>delivery</em></h2>
+
+    <div class="pricing-grid" style="grid-template-columns:repeat(3, 1fr); gap:24px;">
+      <div class="pricing-card">
+        <div class="pricing-name">01 &middot; Discovery Call</div>
+        <p style="font-size:0.82rem; color:var(--text); line-height:1.85; margin-top:8px;">A 20-minute conversation about which projects are coming up, the spaces you want documented, and how the imagery will be used. I send a tailored proposal the same day.</p>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-name">02 &middot; Shoot Day</div>
+        <p style="font-size:0.82rem; color:var(--text); line-height:1.85; margin-top:8px;">I handle everything on site &mdash; lighting, angles, drone, styling support, detail work. You're welcome to be there but it's not required. A 50% deposit holds the date.</p>
+      </div>
+      <div class="pricing-card">
+        <div class="pricing-name">03 &middot; Delivery</div>
+        <p style="font-size:0.82rem; color:var(--text); line-height:1.85; margin-top:8px;">Edited images delivered via Dropbox within 7&ndash;10 business days. High-resolution files for print and publication, web-optimized versions for the site, social, and Houzz.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta r">
+  <div class="cta-bg"></div>
+  <div class="cta-inner">
+    <div class="spread-label">Next Steps</div>
+    <h2>Let's Talk About the <em>Next AVID Project</em></h2>
+    <p>The fastest way to dial in the right approach is a quick call. Twenty minutes, no agenda &mdash; we walk through what's coming up in Calgary, the timing, and which tier makes the most sense. I'll send a proposal the same day.</p>
+    <a class="cta-btn" href="https://mattanthonyphoto.com/discovery-call">Book a Call</a>
+    <div class="cta-contact">
+      <p class="cta-line"><a href="mailto:info@mattanthonyphoto.com">info@mattanthonyphoto.com</a></p>
+      <p class="cta-line">604.765.9270</p>
+      <p class="cta-line"><a href="https://mattanthonyphoto.com">mattanthonyphoto.com</a></p>
+    </div>
+  </div>
+</section>
+
+<footer>Matt Anthony Photography &bull; Squamish, British Columbia &bull; Prepared for AVID Interior Design, April 2026</footer>
+
+<script>
+(function(){
+  setTimeout(function(){ document.getElementById('loader').classList.add('done'); }, 600);
+
+  window.addEventListener('scroll', function(){
+    var h = document.documentElement.scrollHeight - window.innerHeight;
+    if(h > 0) document.getElementById('progress').style.width = (window.scrollY / h * 100) + '%';
+  });
+
+  var ro = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('v'); });
+  }, {threshold:0.05});
+  document.querySelectorAll('.r').forEach(function(el){ ro.observe(el); });
+})();
+</script>
+</body>
+</html>
