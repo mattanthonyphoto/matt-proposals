@@ -1627,7 +1627,7 @@
         <span class="go-btn-arrow">→</span>
       </button>
 
-      <p class="go-fineprint">Clicking the button opens my calendar so you can book the call directly. Your tier selection and notes travel with you.</p>
+      <p class="go-fineprint">Clicking the button sends me an email with your tier selection. I'll prepare the contract and invoice right after. If you'd rather walk through it first, pick the bottom option and you'll land on my calendar instead.</p>
     </form>
 
     <div class="signature reveal">
@@ -1642,13 +1642,47 @@
   document.getElementById('go-form').addEventListener('submit', function(e) {
     e.preventDefault();
     const tier = document.querySelector('input[name="tier"]:checked').value;
-    const notes = document.getElementById('notes-input').value;
-    const type = tier === 'deciding' ? 'review' : 'kickoff';
-    const base = 'https://mattanthonyphoto.com/discovery-call';
-    const params = new URLSearchParams({
-      type, tier, source: 'eisenhauer-proposal', notes
-    });
-    window.location.href = base + '?' + params.toString();
+    const notes = document.getElementById('notes-input').value.trim();
+
+    // "Still deciding" → calendar. All other tiers → email to Matt.
+    if (tier === 'deciding') {
+      const params = new URLSearchParams({
+        type: 'review',
+        tier,
+        source: 'eisenhauer-proposal',
+        notes
+      });
+      window.location.href = 'https://mattanthonyphoto.com/discovery-call?' + params.toString();
+      return;
+    }
+
+    const tierNames = {
+      '12month':  '12-Month Creative Partner Retainer',
+      '6month':   '6-Month Retainer',
+      'strategy': 'Strategy Only retainer'
+    };
+    const tierName = tierNames[tier];
+
+    const subject = `Ready to move forward — ${tierName}`;
+    const bodyLines = [
+      'Hi Matt,',
+      '',
+      `We\u2019re ready to move forward with the ${tierName}. Please prepare the contract and invoice at your earliest convenience.`,
+      ''
+    ];
+    if (notes) {
+      bodyLines.push('A few notes before we get started:');
+      bodyLines.push(notes);
+      bodyLines.push('');
+    }
+    bodyLines.push('Thanks,');
+    bodyLines.push('Jeremy');
+
+    const mailto = 'mailto:info@mattanthonyphoto.com'
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(bodyLines.join('\n'));
+
+    window.location.href = mailto;
   });
 </script>
 
