@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Invoice — Radius Architectural Millwork · Month 3</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400;1,500&family=DM+Sans:wght@300;400;500&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1A1A18;
+  --paper: #F6F4F0;
+  --white: #FFFFFF;
+  --gold: #C9A96E;
+  --stone: #6B6B68;
+  --light-stone: #D9D5CD;
+  --rule: rgba(26,26,24,0.10);
+}
+@page { size: Letter; margin: 0; }
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--paper); }
+body {
+  font-family: 'DM Sans', -apple-system, system-ui, sans-serif;
+  font-weight: 300;
+  color: var(--ink);
+  line-height: 1.55;
+  font-size: 10.5pt;
+  -webkit-print-color-adjust: exact;
+  print-color-adjust: exact;
+}
+.page {
+  width: 8.5in;
+  min-height: 11in;
+  padding: 0.7in 0.75in 0.85in;
+  margin: 0 auto;
+  background: var(--paper);
+  position: relative;
+}
+.header { display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:48px; padding-bottom:32px; border-bottom:1px solid var(--rule); }
+.brand { flex:1; }
+.brand-eyebrow { font-family:'Josefin Sans',sans-serif; font-size:7.5pt; font-weight:300; letter-spacing:0.32em; text-transform:uppercase; color:var(--gold); margin:0 0 8px; }
+.brand-name { font-family:'Cormorant Garamond',Georgia,serif; font-size:22pt; font-weight:400; color:var(--ink); margin:0 0 4px; line-height:1; }
+.brand-tag { font-family:'Cormorant Garamond',serif; font-style:italic; font-size:11pt; color:var(--stone); margin:0; }
+.invoice-meta { text-align:right; font-family:'Josefin Sans',sans-serif; }
+.invoice-label { font-size:7pt; letter-spacing:0.28em; text-transform:uppercase; color:var(--gold); margin:0 0 6px; }
+.invoice-title { font-family:'Cormorant Garamond',serif; font-size:32pt; font-weight:500; color:var(--ink); margin:0 0 12px; line-height:0.9; }
+.invoice-num { font-family:'Josefin Sans',sans-serif; font-size:8pt; letter-spacing:0.16em; text-transform:uppercase; color:var(--stone); margin:0; }
+.meta-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:24px; margin-bottom:40px; }
+.meta-block { font-size:9.5pt; }
+.meta-block .label { font-family:'Josefin Sans',sans-serif; font-size:6.5pt; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); margin:0 0 6px; }
+.meta-block .value { color:var(--ink); line-height:1.5; }
+.meta-block .value strong { font-weight:500; font-size:10.5pt; }
+.section-label { font-family:'Josefin Sans',sans-serif; font-size:7pt; letter-spacing:0.26em; text-transform:uppercase; color:var(--ink); margin:0 0 14px; }
+table.items { width:100%; border-collapse:collapse; margin-bottom:28px; }
+table.items thead th { font-family:'Josefin Sans',sans-serif; font-size:7pt; letter-spacing:0.18em; text-transform:uppercase; text-align:left; padding:12px 14px; background:var(--ink); color:var(--paper); border-bottom:2px solid var(--gold); }
+table.items thead th.right { text-align:right; }
+table.items tbody td { padding:18px 14px; vertical-align:top; border-bottom:1px solid var(--rule); font-size:10pt; background:var(--white); }
+table.items tbody td.right { text-align:right; font-family:'Cormorant Garamond',serif; font-size:13pt; font-weight:500; }
+.item-name { font-weight:500; color:var(--ink); font-size:11pt; margin:0 0 6px; }
+.item-desc { font-size:9pt; color:var(--stone); line-height:1.55; margin:0; }
+.item-desc ul { list-style:none; padding:0; margin:6px 0 0; }
+.item-desc li { padding:2px 0 2px 14px; position:relative; }
+.item-desc li::before { content:''; position:absolute; left:0; top:9px; width:6px; height:1px; background:var(--gold); }
+.totals { display:flex; justify-content:flex-end; margin-bottom:32px; }
+.totals-table { min-width:320px; }
+.totals-row { display:flex; justify-content:space-between; padding:10px 0; font-size:10pt; border-bottom:1px solid var(--rule); }
+.totals-row.grand { border-bottom:none; border-top:2px solid var(--ink); margin-top:6px; padding-top:16px; font-family:'Cormorant Garamond',serif; font-size:16pt; font-weight:500; }
+.totals-row .label { color:var(--stone); }
+.totals-row .value { color:var(--ink); font-weight:500; }
+.totals-row.grand .label, .totals-row.grand .value { color:var(--ink); }
+.commitment-box { background:var(--white); border-left:3px solid var(--gold); padding:22px 26px; margin-bottom:28px; }
+.commitment-box .label { font-family:'Josefin Sans',sans-serif; font-size:7pt; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); margin:0 0 14px; }
+.commitment-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:14px; }
+.commitment-stat { border:1px solid var(--rule); padding:14px 16px; background:var(--paper); }
+.commitment-stat .name { font-family:'Josefin Sans',sans-serif; font-size:6.5pt; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin:0 0 6px; }
+.commitment-stat .amount { font-family:'Cormorant Garamond',serif; font-size:16pt; font-weight:500; color:var(--ink); margin:0; line-height:1; }
+.commitment-stat .when { font-size:8.5pt; color:var(--stone); margin:4px 0 0; }
+.pay-instructions { background:var(--ink); color:var(--paper); padding:24px 28px; margin-bottom:28px; }
+.pay-instructions .label { font-family:'Josefin Sans',sans-serif; font-size:7pt; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); margin:0 0 12px; }
+.pay-instructions .method { font-size:9.5pt; margin:0 0 8px; line-height:1.55; }
+.pay-instructions .method strong { color:var(--gold); font-weight:500; }
+.pay-instructions .method:last-child { margin-bottom:0; }
+.notes { font-size:9pt; color:var(--stone); line-height:1.6; margin-bottom:32px; padding-bottom:24px; border-bottom:1px solid var(--rule); }
+.notes p { margin:0 0 8px; }
+.notes p:last-child { margin-bottom:0; }
+.footer { position:absolute; bottom:0.5in; left:0.75in; right:0.75in; display:flex; justify-content:space-between; align-items:flex-end; font-family:'Josefin Sans',sans-serif; font-size:7pt; letter-spacing:0.22em; text-transform:uppercase; color:var(--stone); padding-top:14px; border-top:1px solid var(--rule); }
+.footer .name { color:var(--ink); font-weight:400; }
+.footer .right { text-align:right; }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <div class="header">
+    <div class="brand">
+      <div class="brand-eyebrow">Social &amp; Content &middot; Month 3 of 3</div>
+      <h1 class="brand-name">Matt Anthony</h1>
+      <p class="brand-tag">Documenting design intent</p>
+    </div>
+    <div class="invoice-meta">
+      <div class="invoice-label">Invoice</div>
+      <div class="invoice-title">$1,575</div>
+      <div class="invoice-num">INV-2026-0701-RAD-03</div>
+    </div>
+  </div>
+
+  <div class="meta-grid">
+    <div class="meta-block">
+      <div class="label">Bill To</div>
+      <div class="value">
+        <strong>Radius Architectural Millwork Ltd.</strong><br>
+        Attn: Rick Wilson<br>
+        Burnaby, BC<br>
+        rick@radiuswood.com<br>
+        radiuswood.com
+      </div>
+    </div>
+    <div class="meta-block">
+      <div class="label">From</div>
+      <div class="value">
+        <strong>Matt Anthony Photography</strong><br>
+        40247 Diamond Head Road<br>
+        Squamish, BC V8B 0G2<br>
+        info@mattanthonyphoto.com<br>
+        604.765.9270<br>
+        GST# 79115 0261 RT0001
+      </div>
+    </div>
+    <div class="meta-block">
+      <div class="label">Engagement</div>
+      <div class="value">
+        <strong>Issued:</strong> July 1, 2026<br>
+        <strong>Due:</strong> July 9, 2026<br>
+        <strong>Service:</strong> Social &amp; Content<br>
+        <strong>Term:</strong> Month 3 of 3 (final)<br>
+        <strong>Period:</strong> July 1–31, 2026
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Services</div>
+  <table class="items">
+    <thead>
+      <tr>
+        <th>Description</th>
+        <th class="right">Amount</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <p class="item-name">Social &amp; Content Retainer &mdash; Month 3 of 3 (July 1 &ndash; July 31, 2026)</p>
+          <div class="item-desc">
+            Final month of the 3-month initial Social &amp; Content retainer. Month 3 review call included &mdash; engagement data, renewal / upgrade discussion.
+            <ul>
+              <li><strong>1 shoot day per month</strong> (2&ndash;3 hours) &mdash; shop, install, completion, or people-focused, elected month by month</li>
+              <li><strong>15&ndash;20 edited images</strong> delivered within 7 business days + 30&ndash;60 seconds of B-roll</li>
+              <li><strong>Social media management</strong> across Instagram and LinkedIn &mdash; 3&ndash;4 posts/week, ~14&ndash;16 published posts per month</li>
+              <li>Caption writing, hashtag strategy, monthly posting calendar, content pillar framework</li>
+              <li>Story frames (5&ndash;8/month) and reels / short-form video (1&ndash;2/month)</li>
+              <li>One 20-minute monthly strategy call</li>
+              <li>Full perpetual commercial license to Radius on all delivered imagery</li>
+            </ul>
+          </div>
+        </td>
+        <td class="right">$1,500.00</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="totals">
+    <div class="totals-table">
+      <div class="totals-row">
+        <span class="label">Subtotal</span>
+        <span class="value">$1,500.00</span>
+      </div>
+      <div class="totals-row">
+        <span class="label">GST (5%)</span>
+        <span class="value">$75.00</span>
+      </div>
+      <div class="totals-row grand">
+        <span class="label">Total Due</span>
+        <span class="value">$1,575.00 CAD</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="pay-instructions">
+    <div class="label">Payment Methods</div>
+    <p class="method"><strong>Interac e-Transfer</strong> &middot; info@mattanthonyphoto.com (auto-deposit enabled, no security question required)</p>
+    <p class="method"><strong>Online via GHL</strong> &middot; A secure payment link is available on request for credit card or ACH</p>
+    <p class="method"><strong>Cheque</strong> &middot; Payable to Matt Anthony Photography &middot; mailing address available on request</p>
+  </div>
+
+  <div class="notes">
+    <p><strong style="color: var(--ink);">Final invoice of the 3-month initial term.</strong> Total paid across May, June, and July 2026: $4,725.00 CAD.</p>
+    <p>After the 3-month minimum closes on July 31, 2026, the engagement continues month-to-month unless either Party provides 30 days' written notice to terminate. Month 3 review call will confirm direction: continue at current terms, upgrade to Creative Partner, or conclude.</p>
+  </div>
+
+  <div class="footer">
+    <div>
+      <div class="name">Matt Anthony Photography</div>
+      <div>Squamish, British Columbia</div>
+    </div>
+    <div class="right">
+      <div>mattanthonyphoto.com</div>
+      <div>604.765.9270</div>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
