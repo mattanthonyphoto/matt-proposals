@@ -1,0 +1,765 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Radius Architectural Millwork — 90-Day Content Roadmap</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@400;500;600&family=Josefin+Sans:wght@300;400&display=swap');
+  :root {
+    --ink: #2B2420;
+    --paper: #F4EFE8;
+    --white: #FFFFFF;
+    --gold: #8B6F4E;
+    --gold-light: #C9A57E;
+    --stone: #6B6055;
+    --light-stone: #D9CFBD;
+    --rule: rgba(43, 36, 32, 0.12);
+    --warm: #FAF6EF;
+  }
+  @page { size: Letter; margin: 0.6in 0.65in; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body { background: var(--white); }
+  body {
+    font-family: 'DM Sans', -apple-system, system-ui, sans-serif;
+    font-weight: 400;
+    color: var(--ink);
+    line-height: 1.55;
+    font-size: 10.5pt;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .page { max-width: 7.2in; margin: 0 auto; padding: 0; }
+
+  .cover {
+    padding: 1.4in 0 1.2in;
+    text-align: left;
+    border-bottom: 1px solid var(--rule);
+    margin-bottom: 48px;
+  }
+  .cover-eyebrow {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 9pt;
+    font-weight: 300;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 16px;
+  }
+  .cover-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 40pt;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.05;
+    margin-bottom: 20px;
+    letter-spacing: -0.01em;
+  }
+  .cover-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 14pt;
+    color: var(--stone);
+    margin-bottom: 40px;
+    max-width: 5.4in;
+  }
+  .cover-meta {
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 10px 28px;
+    font-size: 10pt;
+    padding-top: 28px;
+    border-top: 1px solid var(--rule);
+  }
+  .cover-meta dt {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 8pt;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding-top: 3px;
+  }
+  .cover-meta dd { color: var(--ink); font-weight: 500; }
+
+  h1.section {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24pt;
+    font-weight: 500;
+    color: var(--ink);
+    margin: 56px 0 8px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--gold);
+    page-break-after: avoid;
+  }
+  h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17pt;
+    font-weight: 500;
+    color: var(--ink);
+    margin: 32px 0 12px;
+    page-break-after: avoid;
+  }
+  h3 {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11pt;
+    font-weight: 600;
+    color: var(--ink);
+    letter-spacing: 0.02em;
+    margin: 22px 0 10px;
+    page-break-after: avoid;
+  }
+  h4 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 8.5pt;
+    font-weight: 400;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin: 18px 0 8px;
+  }
+  p { margin: 0 0 10px; }
+  p.lead {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 13pt;
+    font-style: italic;
+    color: var(--stone);
+    margin: 0 0 20px;
+    line-height: 1.5;
+  }
+  ul, ol { margin: 0 0 14px 20px; }
+  li { margin: 0 0 5px; }
+  strong { color: var(--ink); font-weight: 600; }
+  em { font-style: italic; color: var(--stone); }
+  a { color: var(--gold); text-decoration: none; }
+
+  .pill-box {
+    background: var(--warm);
+    border-left: 3px solid var(--gold);
+    padding: 18px 22px;
+    margin: 16px 0 22px;
+    border-radius: 2px;
+  }
+  .pill-box.dark {
+    background: var(--ink);
+    color: var(--paper);
+    border-left-color: var(--gold-light);
+  }
+  .pill-box.dark h4 { color: var(--gold-light); }
+  .pill-box.dark strong { color: var(--paper); }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 14px 0 22px;
+    font-size: 9.5pt;
+  }
+  thead th {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 8pt;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 10px 12px;
+    border-bottom: 2px solid var(--gold);
+  }
+  tbody td {
+    padding: 10px 12px;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: top;
+  }
+  tbody tr:nth-child(even) { background: var(--warm); }
+
+  .pillar-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin: 18px 0 24px;
+  }
+  .pillar-card {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-left: 3px solid var(--gold);
+    padding: 16px 18px;
+    page-break-inside: avoid;
+  }
+  .pillar-card .pname {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 15pt;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 4px;
+  }
+  .pillar-card .pweight {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 7.5pt;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .pillar-card p { font-size: 9.5pt; margin: 0; color: var(--stone); }
+
+  .week-block {
+    margin: 18px 0 22px;
+    padding: 18px 20px;
+    background: var(--warm);
+    border-radius: 3px;
+    page-break-inside: avoid;
+  }
+  .week-head {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    padding-bottom: 10px;
+    margin-bottom: 12px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .week-num {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 7.5pt;
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .week-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14pt;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .week-dates {
+    margin-left: auto;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 8pt;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--stone);
+  }
+  .week-row {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 12px;
+    padding: 5px 0;
+    font-size: 9.5pt;
+  }
+  .week-row .lbl {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 7.5pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding-top: 2px;
+  }
+
+  .shoot-card {
+    border: 1px solid var(--rule);
+    padding: 18px 22px;
+    margin: 14px 0 18px;
+    background: var(--white);
+    page-break-inside: avoid;
+  }
+  .shoot-card h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 16pt;
+    font-weight: 500;
+    margin: 0 0 4px;
+    letter-spacing: 0;
+  }
+  .shoot-card .meta {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 7.5pt;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .shoot-card .dates {
+    margin: 10px 0 6px;
+    padding: 10px 14px;
+    background: var(--warm);
+    border-left: 2px solid var(--gold);
+    font-size: 10pt;
+  }
+
+  .approval-box {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 28px 32px;
+    margin: 32px 0 0;
+    border-radius: 4px;
+    page-break-inside: avoid;
+  }
+  .approval-box h2 {
+    color: var(--paper);
+    margin: 0 0 12px;
+  }
+  .approval-box h4 { color: var(--gold-light); margin-top: 16px; }
+  .approval-box ol { margin-left: 20px; }
+  .approval-box li { margin-bottom: 6px; }
+
+  .ref-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin: 16px 0 24px;
+  }
+  .ref-card {
+    background: var(--warm);
+    padding: 16px 18px;
+    border-radius: 3px;
+    font-size: 9.5pt;
+  }
+  .ref-card .rname {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14pt;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 2px;
+  }
+  .ref-card .rmeta {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 7.5pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 8px;
+  }
+
+  .data-block {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 22px 26px;
+    margin: 20px 0 24px;
+    border-radius: 3px;
+  }
+  .data-block h3 { color: var(--paper); margin: 0 0 12px; font-family: 'Cormorant Garamond', serif; font-size: 15pt; font-weight: 500; }
+  .data-block .stat-row {
+    display: grid;
+    grid-template-columns: 90px 1fr;
+    gap: 14px;
+    padding: 6px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+    font-size: 9.5pt;
+  }
+  .data-block .stat-row:last-child { border-bottom: none; }
+  .data-block .stat-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18pt;
+    color: var(--gold-light);
+    font-weight: 500;
+    line-height: 1;
+  }
+  .data-block .stat-txt { color: var(--paper); padding-top: 4px; }
+
+  .dont-list {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    padding: 18px 22px;
+    margin: 16px 0 22px;
+  }
+  .dont-list li { color: var(--stone); }
+  .dont-list li strong { color: var(--ink); }
+
+  .tag-table th, .tag-table td { font-size: 9pt; padding: 8px 10px; }
+
+  .footer {
+    margin-top: 56px;
+    padding-top: 20px;
+    border-top: 1px solid var(--rule);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 8pt;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone);
+    text-align: center;
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <section class="cover">
+    <div class="cover-eyebrow">Content Roadmap · 90 Days · Research-backed</div>
+    <h1 class="cover-title">Radius Architectural<br/>Millwork.</h1>
+    <p class="cover-sub">A twelve-week plan built on the format mix that actually wins for craft trades in 2026, the architects most likely to amplify the work, and the founder voice nobody else in the field is using.</p>
+    <dl class="cover-meta">
+      <dt>Prepared for</dt><dd>Rick Wilson, Owner</dd>
+      <dt>Prepared by</dt><dd>Matt Anthony Photography</dd>
+      <dt>Term</dt><dd>May 1 – July 31, 2026</dd>
+      <dt>Cadence</dt><dd>3–4 posts/week · 1 shoot day/month · 1 strategy call/month</dd>
+      <dt>Status</dt><dd>For your review &amp; approval</dd>
+    </dl>
+  </section>
+
+  <h1 class="section">The thinking behind this</h1>
+  <p class="lead">We didn't write this from instinct. We benchmarked the field, mapped the architects in your service area, and pulled current 2026 format data for craft trades on Instagram and LinkedIn. The plan reflects what actually moves the needle, not what's traditional.</p>
+
+  <h3>What the field is doing</h3>
+  <p>We studied eight peer luxury millwork shops — three local (Soma, Pacific Rim, Uppercase, Ingrain) and five North American benchmarks (Henrybuilt in Seattle, Lanserring in NY/UK/Vienna, Lancaster Customs in Toronto, BH Woodturning, Daintree). Local shops post 2–4 times a week, mostly single hero shots of finished kitchens with short captions and inconsistent designer tagging. None are using founder voice. None are running material-education series. None are doing process carousels. The field is wide open.</p>
+
+  <div class="ref-grid">
+    <div class="ref-card">
+      <div class="rmeta">Reference · Seattle</div>
+      <div class="rname">Henrybuilt</div>
+      <p>~10K followers. Documented case study (Shorty Awards): every project post credits the architect, designer, and builder by handle. That single discipline is what their Shorty case study calls out as the reason for repeat-business growth. The playbook for tagging.</p>
+    </div>
+    <div class="ref-card">
+      <div class="rmeta">Reference · USA</div>
+      <div class="rname">Blacktail Studio</div>
+      <p>408K Instagram, 2.68M YouTube. Built the entire account on a single reel formula: 30–90 seconds, voiceover over tight process cuts, a "stakes" hook in the first three seconds. This is the format we want Rick fluent in.</p>
+    </div>
+  </div>
+
+  <h3>What's working in 2026 (and what isn't)</h3>
+  <div class="data-block">
+    <h3>The numbers shaping this plan</h3>
+    <div class="stat-row"><div class="stat-num">10×</div><div class="stat-txt"><strong>Carousels beat single images</strong> on engagement (10.15% vs 0.55%, SocialInsider 2026). Educational and process carousels dominate.</div></div>
+    <div class="stat-row"><div class="stat-num">5×</div><div class="stat-txt"><strong>Personal LinkedIn beats company page</strong> on reach for the same content (Refine Labs 2026). Rick's profile is a bigger lever than @radius.</div></div>
+    <div class="stat-row"><div class="stat-num">5</div><div class="stat-txt"><strong>Hashtag cap</strong>. Meta enforced this December 2025. Ten-plus tags now actively reduces reach. Keyword-rich captions replaced hashtag stacks.</div></div>
+    <div class="stat-row"><div class="stat-num">70/30</div><div class="stat-txt"><strong>Reel formula.</strong> 70% founder face/voice direct-to-camera, 30% process B-roll cut underneath. Voiceover-over-process is the dominant 2026 format for craft trades.</div></div>
+  </div>
+
+  <div class="pill-box">
+    <h4>The white space we're occupying</h4>
+    <p><strong>Founder voice on LinkedIn</strong> — uncontested locally. <strong>Process and material education carousels</strong> — no peer in BC is doing this. <strong>Disciplined architect / designer / builder tagging on every project post</strong> — Henrybuilt's documented growth lever, and the field of local peers is sloppy on it. <strong>Behind-the-bench shop content</strong> — open lane.</p>
+  </div>
+
+  <h1 class="section">The cadence</h1>
+
+  <h3>Weekly rhythm</h3>
+  <table>
+    <thead>
+      <tr><th>Day</th><th>Channel</th><th>Format</th><th>Pillar</th><th>Time (PT)</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Monday</td><td>Instagram</td><td>Carousel <em>(8–10 slides)</em></td><td>The Finished or The Craft</td><td>09:00</td></tr>
+      <tr><td>Tuesday</td><td>LinkedIn</td><td>Rick's personal profile, 200–400 words</td><td>The Team / founder voice</td><td>08:30</td></tr>
+      <tr><td>Wednesday</td><td>Instagram</td><td>Reel <em>(30–90 sec, voiceover)</em></td><td>The Craft or The Install</td><td>09:00</td></tr>
+      <tr><td>Friday</td><td>Instagram</td><td>Single image <em>(macro detail or finished)</em></td><td>The Shop or The Craft</td><td>10:00</td></tr>
+      <tr><td>Daily / ad-hoc</td><td>Stories</td><td>5–8 frames/week</td><td>Mixed (shop, install, polls)</td><td>—</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Format mix (revised from research)</h3>
+  <p>Roughly 14–16 posts per month: <strong>~40% carousel</strong>, <strong>~25% reel</strong>, <strong>~35% single image</strong>. This is a deliberate shift away from single-image-heavy posting — the 2026 data is decisive on carousels and reels carrying the work. One 20-minute strategy call each month to review what landed.</p>
+
+  <h1 class="section">The five pillars</h1>
+  <div class="pillar-grid">
+    <div class="pillar-card">
+      <div class="pname">The Craft</div>
+      <div class="pweight">30% — material education spine</div>
+      <p>Material and joinery close-ups, taught. Slip-matched veneer runs, book-matched panels, mitre details, finish layers. Every post names the species and the technique. This pillar carries the educational carousels — the highest-saving format on the calendar.</p>
+    </div>
+    <div class="pillar-card">
+      <div class="pname">The Finished</div>
+      <div class="pweight">25% — amplification engine</div>
+      <p>Hero shots and walk-through carousels of completed work. <strong>Every post tags the architect, designer, and builder by handle.</strong> This is where reach compounds when design partners re-share.</p>
+    </div>
+    <div class="pillar-card">
+      <div class="pname">The Team</div>
+      <div class="pweight">20% — founder voice (white space)</div>
+      <p>Rick on LinkedIn, in Rick's voice. The BCIT story, the one-car garage, AWMAC Gold, opinions on industry shifts. Native LinkedIn video for short clips. No local peer is doing this — it's the most defensible position in the plan.</p>
+    </div>
+    <div class="pillar-card">
+      <div class="pname">The Shop</div>
+      <div class="pweight">15% — the always-on engine</div>
+      <p>The 5,000 sq ft floor — re-saw, finishing room, milling, the no-CNC bench. Reusable assets that carry the calendar when installs are blocked. Daily rotation through stories.</p>
+    </div>
+    <div class="pillar-card">
+      <div class="pname">The Install</div>
+      <div class="pweight">10% — opportunistic</div>
+      <p>On-site, real-time. Site-measuring, scribe-fitting, the first piece in. Reel-and-stories first when access is short notice; full feed treatment when we get a half-day on site.</p>
+    </div>
+  </div>
+
+  <h1 class="section">The format playbook</h1>
+  <p class="lead">Each format has a specific recipe. We're not reinventing this — we're matching the templates that are demonstrably winning right now.</p>
+
+  <h3>Reels (4–5/month)</h3>
+  <ul>
+    <li><strong>Length:</strong> 15–30 sec for reach, 30–90 sec for saves and DM sends. Default to 30–60 sec.</li>
+    <li><strong>Hook:</strong> the first three seconds carry it. State the stakes. <em>"Three slices from one log. Same grain, four doors."</em></li>
+    <li><strong>Structure:</strong> Rick on camera (face + voice) for the lead and the close, process B-roll cut underneath the voiceover for the middle. 70/30 founder-to-process.</li>
+    <li><strong>Captions:</strong> front-load the first 125 characters with the hook. Keep total caption short — 80–150 characters.</li>
+  </ul>
+
+  <h3>Carousels (5–6/month)</h3>
+  <ul>
+    <li><strong>Slides:</strong> 8–10. One idea per carousel — single-project walk-through, single-technique teardown, single-material lesson. No grab-bags.</li>
+    <li><strong>Slide 1:</strong> a strong cover with text — promise the lesson. <strong>Slide 2:</strong> deliver the hook. <strong>Final slide:</strong> CTA — "save this," "DM us for the species," or tag the design partner.</li>
+    <li><strong>Captions:</strong> medium-to-long (150–600 words). Material specificity, design partner credits, technical narrative.</li>
+  </ul>
+
+  <h3>Single images (5–6/month)</h3>
+  <ul>
+    <li><strong>Use:</strong> connective tissue, not the strategy. Macro detail shots, finished hero stills, Friday shop scene.</li>
+    <li><strong>Captions:</strong> short (80–150 char). Front-loaded. One material name, one technique, one credit.</li>
+  </ul>
+
+  <h3>LinkedIn (4–5/month, Rick's personal profile)</h3>
+  <ul>
+    <li><strong>Format:</strong> 200–400 word founder posts, occasional native video (under 30 sec). Carousel PDFs for project case studies.</li>
+    <li><strong>Voice:</strong> Rick. Lessons from 25 years on the bench, opinions on industry shifts, project-detail teardowns. Every post tags the design partner where applicable.</li>
+    <li><strong>Frequency:</strong> 1/week is the floor; 3–4/week is the algorithm ceiling before reach decays. Start at 1, scale to 2.</li>
+  </ul>
+
+  <h3>Hashtags &amp; captions</h3>
+  <ul>
+    <li><strong>Five hashtags maximum</strong> — Meta capped this December 2025; 10+ now reduces reach. Mix two niche, two regional, one brand.</li>
+    <li><strong>Keyword-rich captions</strong> outperform hashtag stacks by ~30% on reach in 2026 (Later). Write captions that name species, techniques, and design partners explicitly.</li>
+  </ul>
+
+  <h1 class="section">What we won't do</h1>
+  <p class="lead">Just as important as what we shoot is what we don't. The 2026 data is clear on formats that worked in 2024 but no longer carry their weight.</p>
+  <div class="dont-list">
+    <ul>
+      <li><strong>Silent music-only B-roll reels.</strong> Watch completion lags voiceover by a wide margin. We'll script narration before every shoot day.</li>
+      <li><strong>Aesthetic-only carousels.</strong> Pretty photos with no narrative collapsed in 2026. Every carousel teaches one thing.</li>
+      <li><strong>Hashtag stacks of 20–30.</strong> Actively penalized now. Five tops.</li>
+      <li><strong>Generic motivational LinkedIn posts.</strong> Engagement floor since LinkedIn's 2026 "value over engagement" shift.</li>
+      <li><strong>Trend-chasing reels (transitions, dance audio).</strong> Never landed for craft niches.</li>
+      <li><strong>Archive content from past Radius projects</strong> unless you whitelist a specific project. Photo rights and stale collaborator relationships make this risky.</li>
+      <li><strong>Company-page-only LinkedIn posts.</strong> Native to your personal profile or it costs us 5× reach.</li>
+    </ul>
+  </div>
+
+  <h1 class="section">The amplification list</h1>
+  <p class="lead">When you tag the right architect on a finished project, they often re-share to an audience much larger than ours. We mapped the active design firms in your service area. Eight of them are the priority.</p>
+
+  <h3>Priority warm tags — the first eight to focus on</h3>
+  <table class="tag-table">
+    <thead>
+      <tr><th>Firm</th><th>Handle</th><th>Followers</th><th>Why this one first</th></tr>
+    </thead>
+    <tbody>
+      <tr><td><strong>Jamie Banfield Design</strong></td><td>@jamiebanfielddesign</td><td>~10K</td><td>Millwork-intensive renovations, routinely tags trade partners. Highest fit-to-content match.</td></tr>
+      <tr><td><strong>Sarah Gallop Design</strong></td><td>@sarahgallopdesign</td><td>~19K</td><td>Nine 2026 Georgie nominations. Custom homes Delta / N Van / Anmore. Active tagger.</td></tr>
+      <tr><td><strong>Falken Reynolds</strong></td><td>@falkenreynolds</td><td>~26K</td><td>2023 WL Designer of the Year, NUVO feature, routinely credits trades. Largest leverage.</td></tr>
+      <tr><td><strong>Hasler Homes</strong></td><td>@haslerhomesltd</td><td>~9.7K</td><td>2026 Georgie Custom Home Builder of the Year finalist. Strong trade tagger.</td></tr>
+      <tr><td><strong>Whistler Builder</strong></td><td>@whistlerbuilder</td><td>~1.2K</td><td>2026 Georgie finalist (Net Zero Mountain Haven). In-territory, every share matters.</td></tr>
+      <tr><td><strong>Naikoon Contracting</strong></td><td>@naikooncontracting</td><td>~8.4K</td><td>N Van + Passive House. Active. Aligned with where the residential market is moving.</td></tr>
+      <tr><td><strong>BattersbyHowat</strong></td><td>@battersbyhowat</td><td>~10K</td><td>Wallpaper* + Azure published. A single re-share carries publication weight.</td></tr>
+      <tr><td><strong>McLeod Bovell</strong></td><td>@mcleodbovell</td><td>~14K</td><td>Arthur Erickson Memorial Award winner. Western Living archive. Aspirational fit.</td></tr>
+    </tbody>
+  </table>
+
+  <h3>The longer list — fourteen more we'll work toward</h3>
+  <p>D'Arcy Jones Architects, Measured Architecture, PURE Design (Ami McKay), Gaile Guevara Studio, Stephanie Brown Inc., Frits de Vries Architect, Mera Studio Architects, Synthesis Design, Whistler Interiors, MCC Modern Concept Contracting, RDC Fine Homes, JSTL Construction, CVC Custom Builders, Vision Pacific. All verified as active in your service area; each will earn a tag when the relevant project gets featured.</p>
+
+  <div class="pill-box">
+    <h4>What we need from you on this list</h4>
+    <p>The single biggest gap: <strong>your past collaborator list.</strong> radiuswood.com doesn't show project credits, so we don't have your warm graph. For every past project that's photo-rights-clear, we need the architect, designer, and builder. We'll send a one-pager to fill in.</p>
+  </div>
+
+  <h1 class="section">The three shoots</h1>
+  <p class="lead">One half-day shoot per month, two to three hours on the floor. Each one is briefed against the format playbook above — Rick on camera with audio, B-roll for voiceover cuts, macro details for carousels, finished hero stills.</p>
+
+  <div class="shoot-card">
+    <div class="meta">Shoot 01 · May · Shop Overview + Founder On Camera</div>
+    <h3>The shop, the bench, and Rick on camera</h3>
+    <p>This is the foundation shoot. Most important brief change from the playbook: <strong>we capture you on camera with audio.</strong> Three to five short voiceover takes (30–90 sec each) on the techniques you'll narrate over B-roll: re-saw, slip-matched veneer, the no-CNC bench, the finishing schedule, the AWMAC Gold lesson. Then we shoot the B-roll — re-saw running, vacuum press, finishing room, install crew loading the truck, hands at the bench. Together those bank the next four to six weeks of reels.</p>
+    <p>Plus the basics: 50+ stills (macro details, shop scenes, founder portraits), 20 minutes of B-roll, finished-piece hero shots if any are crated and ready to ship.</p>
+    <div class="dates"><strong>Proposed dates:</strong> Tuesday May 5, Wednesday May 6, or Thursday May 7. Pick the day the bench is at full pace. Half-day, 2–3 hours, no shutdown required. We'll send a 1-page brief 48 hours prior with the voiceover prompts.</div>
+  </div>
+
+  <div class="shoot-card">
+    <div class="meta">Shoot 02 · June · Install or Finishing Room</div>
+    <h3>On-site, or a deep look at finishing</h3>
+    <p>Flexible by design. If a current install lands in the right window, we shoot on-site (templating, scribe-fitting, the first piece going in — gold for reels). If site access doesn't line up, we go deep on the finishing room — sample boards, sheen tests, the craft of a hand-rubbed finish, finisher portraits. Either way, more on-camera Rick takes for the August content runway.</p>
+    <div class="dates"><strong>Proposed window:</strong> Week of June 8–12. We'll lock the date one week prior, once the install schedule is clear.</div>
+  </div>
+
+  <div class="shoot-card">
+    <div class="meta">Shoot 03 · July · Architect Partner Site Visit</div>
+    <h3>Co-create with an active design partner</h3>
+    <p>The amplification shoot. Pick one architect or designer we're currently building for, and shoot a moment together — site visit, drawing review, a piece going in. The output: a carousel that walks the architect's drawing → shop drawing → finished piece, plus a reel with both your voice and theirs. They tag, you tag, the work shows up in front of the right audience.</p>
+    <div class="dates"><strong>Proposed window:</strong> Week of July 13–17. Architect to be selected on the June strategy call from the priority list above.</div>
+  </div>
+
+  <h1 class="section">The 12-week calendar</h1>
+
+  <h2>May</h2>
+
+  <div class="week-block">
+    <div class="week-head">
+      <div class="week-num">Week 01</div>
+      <div class="week-title">Shop Overview Shoot Week</div>
+      <div class="week-dates">May 4 – 10</div>
+    </div>
+    <div class="week-row"><div class="lbl">Shoot</div><div><strong>Half-day shop walkthrough.</strong> Rick on camera (5 voiceover takes) + 20 min process B-roll + 50+ stills.</div></div>
+    <div class="week-row"><div class="lbl">IG Reel</div><div>"Twenty hands. Zero CNC." — 45 sec, Rick voiceover over bench-in-motion B-roll.</div></div>
+    <div class="week-row"><div class="lbl">IG Carousel</div><div>"The Shop, in five stations." 8 slides — re-saw, vacuum press, finishing, hand tools, install crew. Cover slide promises the lesson.</div></div>
+    <div class="week-row"><div class="lbl">IG Single</div><div>Rick portrait at the bench. Macro: re-saw close-up.</div></div>
+    <div class="week-row"><div class="lbl">LinkedIn</div><div>Rick's personal profile — origin story, 250 words. Twig furniture → one-car garage → 5,000 sq ft. Tag @BCIT.</div></div>
+    <div class="week-row"><div class="lbl">Stories</div><div>Shop walk B-roll, "guess the species" poll, Friday wrap.</div></div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-head">
+      <div class="week-num">Week 02</div>
+      <div class="week-title">Material Library</div>
+      <div class="week-dates">May 11 – 17</div>
+    </div>
+    <div class="week-row"><div class="lbl">IG Reel</div><div>"Three slices from one log." — 30 sec, Rick voice over re-saw cutting book-matched veneer.</div></div>
+    <div class="week-row"><div class="lbl">IG Carousel</div><div>"How to read a wood library" — 9 slides, anigre / walnut / oak / sapele / alder side-by-side. Educational, save-driven.</div></div>
+    <div class="week-row"><div class="lbl">IG Single</div><div>Vacuum press in action.</div></div>
+    <div class="week-row"><div class="lbl">LinkedIn</div><div>Rick on the BCIT apprenticeship and what top-of-class meant in 1987.</div></div>
+    <div class="week-row"><div class="lbl">Stories</div><div>Shop sounds, species-guess poll round two.</div></div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-head">
+      <div class="week-num">Week 03</div>
+      <div class="week-title">Precision &amp; Install</div>
+      <div class="week-dates">May 18 – 24</div>
+    </div>
+    <div class="week-row"><div class="lbl">IG Reel</div><div>"One eighth of an inch." — 45 sec, Rick voiceover on install precision over B-roll of story sticks and scribe lines.</div></div>
+    <div class="week-row"><div class="lbl">IG Carousel</div><div>"Install day, in nine slides." Truck → site walk → scribe → set. Tag @haslerhomesltd or current builder.</div></div>
+    <div class="week-row"><div class="lbl">IG Single</div><div>Story stick close-up.</div></div>
+    <div class="week-row"><div class="lbl">LinkedIn</div><div>"A 3 mm error on Tuesday is a 30 mm problem on Friday." 250 words on installation precision.</div></div>
+    <div class="week-row"><div class="lbl">Stories</div><div>On-site BTS, install sequence.</div></div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-head">
+      <div class="week-num">Week 04</div>
+      <div class="week-title">The Finishing Room</div>
+      <div class="week-dates">May 25 – 31</div>
+    </div>
+    <div class="week-row"><div class="lbl">IG Reel</div><div>"Hand-rubbed, three coats." — 60 sec, Rick voiceover over finish layering.</div></div>
+    <div class="week-row"><div class="lbl">IG Carousel</div><div>"How a finish schedule actually works." 8 slides, sample boards across species.</div></div>
+    <div class="week-row"><div class="lbl">IG Single</div><div>Sheen test boards, late afternoon light.</div></div>
+    <div class="week-row"><div class="lbl">LinkedIn</div><div>"Finishing is where a piece either earns the wood or wastes it."</div></div>
+    <div class="week-row"><div class="lbl">Stories</div><div>Finishing room tour, weekend wrap.</div></div>
+  </div>
+
+  <h2>June</h2>
+
+  <div class="week-block">
+    <div class="week-head">
+      <div class="week-num">Week 05</div>
+      <div class="week-title">Lamoureux / Rosebery — 15-Year Marker</div>
+      <div class="week-dates">Jun 1 – 7</div>
+    </div>
+    <div class="week-row"><div class="lbl">IG Reel</div><div>"Eighteen months. One kitchen." — 60 sec, Rick voiceover on the AWMAC Gold project.</div></div>
+    <div class="week-row"><div class="lbl">IG Carousel</div><div>Rosebery archive walk-through, 9 slides <em>(only if photo rights are clear — we'll confirm with you first)</em>. Tag @lamoureuxarchitect.</div></div>
+    <div class="week-row"><div class="lbl">IG Single</div><div>Coffered ceiling close-up.</div></div>
+    <div class="week-row"><div class="lbl">LinkedIn</div><div>"The Lamoureux project, 15 years ago this month, taught us spring-back the hard way. We won AWMAC Gold for it. The lessons run every job since."</div></div>
+    <div class="week-row"><div class="lbl">Stories</div><div>Archive teasers.</div></div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-head">
+      <div class="week-num">Week 06</div>
+      <div class="week-title">Furniture &amp; Wine Cellar</div>
+      <div class="week-dates">Jun 8 – 14</div>
+    </div>
+    <div class="week-row"><div class="lbl">Shoot</div><div><strong>Half-day shoot 02</strong> — install or finishing room (locked one week prior). 3 more on-camera Rick takes.</div></div>
+    <div class="week-row"><div class="lbl">IG Reel</div><div>"Eighteen hundred bottles." — 45 sec, voiceover over wine cellar build.</div></div>
+    <div class="week-row"><div class="lbl">IG Carousel</div><div>"How a wine cellar gets built." 8 slides, drawing → shop → install.</div></div>
+    <div class="week-row"><div class="lbl">IG Single</div><div>Joinery close-up.</div></div>
+    <div class="week-row"><div class="lbl">LinkedIn</div><div>Rick on growing without losing quality.</div></div>
+    <div class="week-row"><div class="lbl">Stories</div><div>Live polls, Friday team shot.</div></div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-head">
+      <div class="week-num">Week 07</div>
+      <div class="week-title">European-Trained Bench</div>
+      <div class="week-dates">Jun 15 – 21</div>
+    </div>
+    <div class="week-row"><div class="lbl">IG Reel</div><div>"European trained." — 30 sec, journeymen at the bench, Rick voiceover.</div></div>
+    <div class="week-row"><div class="lbl">IG Carousel</div><div>"Meet the bench." 9 slides — five journeymen with one-line bios + the tools they run.</div></div>
+    <div class="week-row"><div class="lbl">IG Single</div><div>Bench-by-bench detail.</div></div>
+    <div class="week-row"><div class="lbl">LinkedIn</div><div>Rick on the team. Tag @BCIT, BC Trades.</div></div>
+    <div class="week-row"><div class="lbl">Stories</div><div>"Meet the team" mini-series, day-in-the-life.</div></div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-head">
+      <div class="week-num">Week 08</div>
+      <div class="week-title">Tools of the Shop</div>
+      <div class="week-dates">Jun 22 – 28</div>
+    </div>
+    <div class="week-row"><div class="lbl">IG Reel</div><div>"The re-saw." — 45 sec, Rick voiceover on the machine that defines the shop.</div></div>
+    <div class="week-row"><div class="lbl">IG Carousel</div><div>"Why we don't have a CNC." 8 slides, hand-tool wall, traditional joinery, the case for the bench.</div></div>
+    <div class="week-row"><div class="lbl">IG Single</div><div>Chip pile, end of day.</div></div>
+    <div class="week-row"><div class="lbl">LinkedIn</div><div>"We don't have a CNC. People ask why. The answer is the same one I'd give in 2003."</div></div>
+    <div class="week-row"><div class="lbl">Stories</div><div>Tool-of-the-day series.</div></div>
+  </div>
+
+  <h2>July</h2>
+
+  <div class="week-block">
+    <div class="week-head">
+      <div class="week-num">Week 09</div>
+      <div class="week-title">Canadian Wood, Canadian Joinery</div>
+      <div class="week-dates">Jun 29 – Jul 5</div>
+    </div>
+    <div class="week-row"><div class="lbl">IG Reel</div><div>"Knife ground in-house." — 30 sec, voiceover over moulding profile work.</div></div>
+    <div class="week-row"><div class="lbl">IG Carousel</div><div>"The moulding profile library." 8 slides.</div></div>
+    <div class="week-row"><div class="lbl">IG Single</div><div>Doug fir feature.</div></div>
+    <div class="week-row"><div class="lbl">LinkedIn</div><div>Rick on traditional joinery in Canadian residential.</div></div>
+    <div class="week-row"><div class="lbl">Stories</div><div>Canada Day shop wrap.</div></div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-head">
+      <div class="week-num">Week 10</div>
+      <div class="week-title">Architect Partner Shoot</div>
+      <div class="week-dates">Jul 6 – 12</div>
+    </div>
+    <div class="week-row"><div class="lbl">Shoot</div><div><strong>Half-day shoot 03</strong> — architect partner site visit (architect selected on June call).</div></div>
+    <div class="week-row"><div class="lbl">IG Reel</div><div>"Templating a radius corner." — 45 sec, dual-voice (Rick + architect) over process.</div></div>
+    <div class="week-row"><div class="lbl">IG Carousel</div><div>"Drawing → shop → finished." 9 slides, the architect's hand to the install. Tag the partner.</div></div>
+    <div class="week-row"><div class="lbl">IG Single</div><div>Collaboration moment on site.</div></div>
+    <div class="week-row"><div class="lbl">LinkedIn</div><div>"What it means to build for an architect who draws coffers like Brad Lamoureux does."</div></div>
+    <div class="week-row"><div class="lbl">Stories</div><div>On-site B-roll.</div></div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-head">
+      <div class="week-num">Week 11</div>
+      <div class="week-title">Spring-Back &amp; Laminated Curves</div>
+      <div class="week-dates">Jul 13 – 19</div>
+    </div>
+    <div class="week-row"><div class="lbl">IG Reel</div><div>"Spring-back." — 60 sec, Rick voiceover on the lesson nobody teaches you.</div></div>
+    <div class="week-row"><div class="lbl">IG Carousel</div><div>"How a curve gets built." 9 slides, bent-lam form to finished island.</div></div>
+    <div class="week-row"><div class="lbl">IG Single</div><div>Bent-lam form on the bench.</div></div>
+    <div class="week-row"><div class="lbl">LinkedIn</div><div>Rick on spring-back, in long form.</div></div>
+    <div class="week-row"><div class="lbl">Stories</div><div>"Ask Rick" Q&amp;A teaser.</div></div>
+  </div>
+
+  <div class="week-block">
+    <div class="week-head">
+      <div class="week-num">Week 12</div>
+      <div class="week-title">Quarter Wrap &amp; Decision Point</div>
+      <div class="week-dates">Jul 20 – 26</div>
+    </div>
+    <div class="week-row"><div class="lbl">IG Reel</div><div>"What twelve weeks looks like." — 60 sec, Rick reflection over the best B-roll of the quarter.</div></div>
+    <div class="week-row"><div class="lbl">IG Carousel</div><div>"Twelve weeks, ten frames." 10-slide recap of the strongest images.</div></div>
+    <div class="week-row"><div class="lbl">IG Single</div><div>Staff group photo.</div></div>
+    <div class="week-row"><div class="lbl">LinkedIn</div><div>"Twelve weeks back at this. What we built, who we built it for, what we learned."</div></div>
+    <div class="week-row"><div class="lbl">Stories</div><div>End-of-quarter wrap.</div></div>
+  </div>
+
+  <h1 class="section">What we need from you</h1>
+  <div class="approval-box">
+    <h2>Three approvals to start the engine</h2>
+    <h4>1 · The plan above</h4>
+    <p>Sign off on the cadence, pillar mix, format playbook, and calendar shape. If anything reads wrong — voice, projects to feature, weight on shop vs install — we'll redraft before publishing a single post.</p>
+    <h4>2 · Shoot 01 date</h4>
+    <p>Tuesday May 5, Wednesday May 6, or Thursday May 7. Pick the day the shop is at its full working pace. Half-day, 2–3 hours. The brief change: we'll need 30–45 minutes of your time on camera for voiceover takes — these become five to seven reels of runway.</p>
+    <h4>3 · Two lists from you</h4>
+    <p><strong>(a)</strong> Past collaborator credits — for every photo-rights-clear past project, the architect, designer, and builder we should tag. <strong>(b)</strong> Any architects on our priority eight that you've already worked with — those become the first wave of warm tags.</p>
+  </div>
+
+  <div class="footer">
+    Matt Anthony Photography · info@mattanthonyphoto.com · 604.765.9270
+  </div>
+
+</div>
+</body>
+</html>
