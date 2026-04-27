@@ -1683,7 +1683,7 @@
   <div class="narrow">
     <h2>Ready to start the engine</h2>
     <p>Three approvals and we're in the shop on May 5, 6, or 7.</p>
-    <a href="mailto:info@mattanthonyphoto.com?subject=Approving%20the%2090-day%20roadmap" class="cta-btn">Reply to approve</a>
+    <a id="ctaReply" href="mailto:info@mattanthonyphoto.com" class="cta-btn">Reply to approve</a>
     <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
   </div>
 </section>
@@ -1721,21 +1721,52 @@
   const datePicks = document.querySelectorAll('.date-pick');
   const dateNote = document.getElementById('dateNote');
   const STORAGE_KEY = 'radius-shoot-date';
+
+  function buildReplyLink(pickedDate) {
+    const subject = 'Approving the 90-day roadmap';
+    const datePart = pickedDate
+      ? `For Shoot 01 I'd like ${pickedDate}, 2026.`
+      : `For Shoot 01 — happy to lock in a date once we talk.`;
+    const body = [
+      'Hi Matt,',
+      '',
+      'Approving the 90-day roadmap — looks good.',
+      '',
+      datePart,
+      '',
+      'Can you send me a few proposed start times for that day so we can lock the schedule? Anything that lets the shop run at normal pace works on my end.',
+      '',
+      'Talk soon,',
+      'Rick'
+    ].join('\n');
+    return 'mailto:info@mattanthonyphoto.com?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
+  }
+
+  const ctaReply = document.getElementById('ctaReply');
+  function updateCta(pickedDate) {
+    if (ctaReply) ctaReply.href = buildReplyLink(pickedDate);
+  }
+
   const saved = localStorage.getItem(STORAGE_KEY);
   if (saved) {
     datePicks.forEach(p => {
       if (p.dataset.date === saved) {
         p.classList.add('selected');
-        dateNote.textContent = 'Saved: ' + saved + ' — confirm by reply when ready.';
+        dateNote.textContent = 'Saved: ' + saved + ' — Reply to approve will pre-fill this date.';
       }
     });
+    updateCta(saved);
+  } else {
+    updateCta(null);
   }
+
   datePicks.forEach(p => {
     p.addEventListener('click', () => {
       datePicks.forEach(o => o.classList.remove('selected'));
       p.classList.add('selected');
-      dateNote.textContent = 'Picked: ' + p.dataset.date + ' — confirm by reply.';
+      dateNote.textContent = 'Picked: ' + p.dataset.date + ' — Reply to approve will pre-fill this date.';
       localStorage.setItem(STORAGE_KEY, p.dataset.date);
+      updateCta(p.dataset.date);
     });
   });
 
