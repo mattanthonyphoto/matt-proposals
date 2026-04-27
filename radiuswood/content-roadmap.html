@@ -874,11 +874,176 @@
 
   @media print {
     nav.top, .progress, .cta, .print-btn { display: none !important; }
-    .week-card .week-body, .format-card .format-body, .faq-a, .research-content { max-height: none !important; }
+    .week-card .week-body, .format-card .format-body, .faq-a { max-height: none !important; }
     .week-card .chevron, .format-card .chevron { display: none; }
     section { padding: 32px 0; page-break-inside: avoid; }
     .hero { padding: 30px 0; }
     body { font-size: 11pt; }
+  }
+
+  /* hero approvals (replacing stats) */
+  .hero-approvals {
+    margin-top: 56px;
+    margin-bottom: 32px;
+  }
+  .primary-cta {
+    margin-top: 8px;
+  }
+  .secondary-link {
+    display: block;
+    margin-top: 16px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--stone);
+    text-decoration: none;
+  }
+  .secondary-link:hover { color: var(--gold); }
+  .secondary-link::after {
+    content: ' ↓';
+    color: var(--gold);
+  }
+
+  /* sample post mockup */
+  .sample-grid {
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 48px;
+    align-items: start;
+    margin-top: 24px;
+  }
+  @media (max-width: 720px) {
+    .sample-grid { grid-template-columns: 1fr; gap: 28px; }
+  }
+  .phone-frame {
+    background: var(--ink);
+    padding: 14px;
+    border-radius: 28px;
+    box-shadow: 0 24px 60px rgba(43, 36, 32, 0.18);
+  }
+  .phone-screen {
+    background: var(--paper);
+    border-radius: 18px;
+    overflow: hidden;
+    aspect-ratio: 4 / 5;
+    position: relative;
+  }
+  .post-cover {
+    position: absolute; inset: 0;
+    background: linear-gradient(160deg, #3D2E22 0%, #1F1813 100%);
+    color: var(--paper);
+    padding: 36px 32px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  .post-cover .eyebrow-tag {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+  }
+  .post-cover .cover-headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 36px;
+    font-weight: 500;
+    line-height: 1.05;
+    color: var(--paper);
+    letter-spacing: -0.01em;
+  }
+  .post-cover .cover-headline em {
+    font-style: italic;
+    color: var(--gold-light);
+  }
+  .post-cover .cover-sub {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 16px;
+    color: var(--gold-light);
+    margin-top: 6px;
+  }
+  .post-cover .cover-foot {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold-light);
+    opacity: 0.7;
+  }
+  .post-meta {
+    margin-top: 14px;
+    text-align: center;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    color: var(--stone);
+    text-transform: uppercase;
+  }
+  .post-meta strong { color: var(--ink); }
+
+  .caption-block {
+    background: var(--warm);
+    border-radius: 4px;
+    padding: 24px 26px;
+    border-left: 3px solid var(--gold);
+  }
+  .caption-block .lbl {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+  }
+  .caption-block .draft {
+    font-size: 14.5px;
+    color: var(--ink);
+    line-height: 1.65;
+    white-space: pre-wrap;
+    margin-bottom: 18px;
+  }
+  .caption-block .tags {
+    font-size: 13px;
+    color: var(--gold);
+    line-height: 1.6;
+    border-top: 1px solid var(--rule);
+    padding-top: 14px;
+  }
+
+  .calendar-disclaimer {
+    background: var(--warm);
+    border-left: 3px solid var(--gold);
+    padding: 16px 22px;
+    border-radius: 0 3px 3px 0;
+    font-size: 13.5px;
+    color: var(--stone);
+    line-height: 1.6;
+    margin-bottom: 28px;
+  }
+  .calendar-disclaimer strong { color: var(--ink); }
+
+  /* secondary CTA layout */
+  .cta-row {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .cta-btn.outline {
+    background: transparent;
+    color: var(--ink);
+    border: 1px solid var(--rule);
+  }
+  .cta-btn.outline:hover {
+    background: var(--paper);
+    border-color: var(--gold);
+    color: var(--ink);
   }
 </style>
 </head>
@@ -889,58 +1054,31 @@
 <nav class="top">
   <div class="wrap">
     <div class="brand">Radius × Matt Anthony</div>
-    <a href="#approve">Approve</a>
-    <a href="#plan">Plan</a>
     <a href="#deliverables">Deliverables</a>
-    <a href="#shootday">Shoot day</a>
+    <a href="#shoots">Shoots</a>
+    <a href="#sample">Sample</a>
     <a href="#calendar">Calendar</a>
-    <a href="#tags">Tags</a>
     <a href="#faq">FAQ</a>
+    <a href="#cta" style="color: var(--gold); border-bottom-color: var(--gold);">Approve →</a>
   </div>
 </nav>
 
-<header class="hero">
+<header class="hero" id="approve">
   <div class="narrow">
-    <div class="eyebrow">90-Day Content Roadmap · May → Jul 2026</div>
+    <div class="eyebrow">90-Day Roadmap · May → Jul 2026</div>
     <h1>Twelve weeks. <em>One plan.</em></h1>
-    <p class="sub">A research-backed content roadmap built around the founder voice nobody else in BC millwork is using, and the architects most likely to amplify the work.</p>
-    <div class="hero-stats">
-      <div class="hero-stat">
-        <div class="num">12</div>
-        <div class="lbl">Weeks</div>
-      </div>
-      <div class="hero-stat">
-        <div class="num">3</div>
-        <div class="lbl">Shoot Days</div>
-      </div>
-      <div class="hero-stat">
-        <div class="num">42–48</div>
-        <div class="lbl">Posts</div>
-      </div>
-      <div class="hero-stat">
-        <div class="num">8</div>
-        <div class="lbl">Priority Tags</div>
-      </div>
-    </div>
-  </div>
-</header>
+    <p class="sub">Built directly against your signed Social &amp; Content agreement. Three quick approvals to start the engine.</p>
 
-<section id="approve">
-  <div class="narrow">
-    <div class="section-eyebrow">Step One</div>
-    <h2>Three things to approve</h2>
-    <p class="section-lead">Before we publish a single post, sign off on these. Reply to the email or call — whichever's easier.</p>
-
-    <div class="approval-grid">
+    <div class="approval-grid hero-approvals">
       <div class="approval-card">
         <div class="num-tag">01</div>
-        <h3>The plan</h3>
-        <p>Cadence, pillar mix, and calendar shape below. If anything reads wrong, we redraft.</p>
+        <h3>Read it through</h3>
+        <p>If anything reads off — voice, projects, weight — flag it and we redraft before publishing.</p>
       </div>
       <div class="approval-card">
         <div class="num-tag">02</div>
         <h3>Pick Shoot 01</h3>
-        <p>Half-day, 3 hrs. We mic you while you work — no scripts, no camera-direct. Pick the day the bench is at full pace.</p>
+        <p>Half-day, 3 hrs. Mic'd while you work — no scripts, no camera-direct.</p>
         <div class="dates">
           <div class="date-pick" data-date="Tuesday May 5">
             <div class="day">Tue</div>
@@ -955,101 +1093,19 @@
             <div class="date">May 7</div>
           </div>
         </div>
-        <div class="date-note" id="dateNote">Click to preview your pick</div>
+        <div class="date-note" id="dateNote">Click to lock in</div>
       </div>
       <div class="approval-card">
         <div class="num-tag">03</div>
-        <h3>Send two lists</h3>
-        <p>(a) Past-project credits — architect / designer / builder per project. (b) Anyone on our priority eight you've already worked with.</p>
+        <h3>The credits list</h3>
+        <p>Past-project architects / designers / builders we should tag. We'll send a short form.</p>
       </div>
     </div>
+
+    <a id="ctaReplyTop" href="mailto:info@mattanthonyphoto.com?subject=Approving%20the%2090-day%20roadmap&body=Hi%20Matt%2C%0A%0AApproving%20the%2090-day%20roadmap%20%E2%80%94%20looks%20good.%0A%0AFor%20Shoot%2001%2C%20can%20you%20send%20me%20a%20few%20proposed%20start%20times%20for%20the%20day%20we%20agreed%20on%3F%20Let%27s%20also%20book%20a%20quick%20kickoff%20call%20to%20walk%20through%20the%20first%20month.%0A%0ATalk%20soon%2C%0ARick" class="cta-btn primary-cta">Reply to approve →</a>
+    <a href="#deliverables" class="secondary-link">See the plan</a>
   </div>
-</section>
-
-<section id="plan">
-  <div class="wrap">
-    <div class="section-eyebrow">Step Two</div>
-    <h2>The plan at a glance</h2>
-    <p class="section-lead">Four posts a week, one shoot a month, one founder voice on LinkedIn nobody else has.</p>
-
-    <div class="plan-grid">
-      <div>
-        <h3 style="margin-bottom: 18px;">Weekly rhythm</h3>
-        <div class="week-rhythm">
-          <div class="rhythm-row">
-            <div class="d">Mon</div>
-            <div class="desc">IG Carousel <em>(8–10 slides)</em></div>
-            <div class="time">9:00</div>
-          </div>
-          <div class="rhythm-row">
-            <div class="d">Tue</div>
-            <div class="desc">LinkedIn <em>(Rick's profile, 200–400 words)</em></div>
-            <div class="time">8:30</div>
-          </div>
-          <div class="rhythm-row">
-            <div class="d">Wed</div>
-            <div class="desc">IG Reel <em>(week 1 only)</em> or Single</div>
-            <div class="time">9:00</div>
-          </div>
-          <div class="rhythm-row">
-            <div class="d">Fri</div>
-            <div class="desc">IG Single <em>(macro / finished)</em></div>
-            <div class="time">10:00</div>
-          </div>
-          <div class="rhythm-row">
-            <div class="d">Ad hoc</div>
-            <div class="desc">Stories <em>(5–8/month total · ~1–2/week)</em></div>
-            <div class="time">—</div>
-          </div>
-        </div>
-      </div>
-
-      <div>
-        <h3 style="margin-bottom: 18px;">Five pillars</h3>
-        <div class="pillar-bar" data-pct="30">
-          <div class="top-row">
-            <div class="pname">The Craft</div>
-            <div class="pwt">30%</div>
-          </div>
-          <div class="track"><div class="fill" style="width: 30%;"></div></div>
-          <p>Material education. Slip-matched veneers, joinery, finish layers. Drives saves.</p>
-        </div>
-        <div class="pillar-bar" data-pct="25">
-          <div class="top-row">
-            <div class="pname">The Finished</div>
-            <div class="pwt">25%</div>
-          </div>
-          <div class="track"><div class="fill" style="width: 25%;"></div></div>
-          <p>Hero shots of completed work. <strong>Tag architect, designer, builder.</strong> Amplification engine.</p>
-        </div>
-        <div class="pillar-bar" data-pct="20">
-          <div class="top-row">
-            <div class="pname">The Team</div>
-            <div class="pwt">20%</div>
-          </div>
-          <div class="track"><div class="fill" style="width: 20%;"></div></div>
-          <p>Rick on LinkedIn. Founder voice. Uncontested locally — biggest white space.</p>
-        </div>
-        <div class="pillar-bar" data-pct="15">
-          <div class="top-row">
-            <div class="pname">The Shop</div>
-            <div class="pwt">15%</div>
-          </div>
-          <div class="track"><div class="fill" style="width: 15%;"></div></div>
-          <p>The 5,000 sq ft floor. Always-on engine. Carries the calendar between shoots.</p>
-        </div>
-        <div class="pillar-bar" data-pct="10">
-          <div class="top-row">
-            <div class="pname">The Install</div>
-            <div class="pwt">10%</div>
-          </div>
-          <div class="track"><div class="fill" style="width: 10%;"></div></div>
-          <p>On-site, real-time. Templating, scribe-fitting. Opportunistic.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+</header>
 
 <section id="deliverables">
   <div class="wrap">
@@ -1118,33 +1174,54 @@
     <div class="pill-source">
       <strong>Where the content comes from:</strong> per the contract, posts are sourced from four pools — (1) the monthly shoot day, (2) previous months' deliverables, (3) existing Radius archive imagery that meets quality standards, (4) archive remixes (carousels, before/after, material spotlights). The roadmap leans on pool 1 in May, then layers in pools 2–4 as the library grows.
     </div>
+
+    <div class="plan-grid" style="margin-top: 40px;">
+      <div>
+        <h3 style="margin-bottom: 14px;">Weekly rhythm</h3>
+        <div class="week-rhythm">
+          <div class="rhythm-row"><div class="d">Mon</div><div class="desc">IG Carousel</div><div class="time">9:00</div></div>
+          <div class="rhythm-row"><div class="d">Tue</div><div class="desc">LinkedIn <em>(Rick's profile)</em></div><div class="time">8:30</div></div>
+          <div class="rhythm-row"><div class="d">Wed</div><div class="desc">IG Reel <em>(1×/mo)</em> or Single</div><div class="time">9:00</div></div>
+          <div class="rhythm-row"><div class="d">Fri</div><div class="desc">IG Single</div><div class="time">10:00</div></div>
+          <div class="rhythm-row"><div class="d">Ad hoc</div><div class="desc">Stories <em>(5–8/month)</em></div><div class="time">—</div></div>
+        </div>
+      </div>
+      <div>
+        <h3 style="margin-bottom: 14px;">Five pillars <em style="font-weight: 400; color: var(--stone); font-size: 13px;">(per Section 3.2)</em></h3>
+        <div class="pillar-bar" data-pct="30"><div class="top-row"><div class="pname">The Craft</div><div class="pwt">30%</div></div><div class="track"><div class="fill" style="width: 30%;"></div></div></div>
+        <div class="pillar-bar" data-pct="25"><div class="top-row"><div class="pname">The Finished</div><div class="pwt">25%</div></div><div class="track"><div class="fill" style="width: 25%;"></div></div></div>
+        <div class="pillar-bar" data-pct="20"><div class="top-row"><div class="pname">The Team</div><div class="pwt">20%</div></div><div class="track"><div class="fill" style="width: 20%;"></div></div></div>
+        <div class="pillar-bar" data-pct="15"><div class="top-row"><div class="pname">The Shop</div><div class="pwt">15%</div></div><div class="track"><div class="fill" style="width: 15%;"></div></div></div>
+        <div class="pillar-bar" data-pct="10"><div class="top-row"><div class="pname">The Install</div><div class="pwt">10%</div></div><div class="track"><div class="fill" style="width: 10%;"></div></div></div>
+      </div>
+    </div>
   </div>
 </section>
 
-<section>
+<section id="shoots">
   <div class="wrap">
     <div class="section-eyebrow">Three Shoots</div>
     <h2>The shoot days</h2>
-    <p class="section-lead">One half-day each month. Each one banks weeks of content. Per the contract, you can elect any of: shop capture, install capture, completion capture, or a people-focused day.</p>
+    <p class="section-lead">One half-day each month. Per Section 3.1 of your contract, you elect each shoot month-by-month from four types: <strong>shop capture</strong>, <strong>install capture</strong>, <strong>completion capture</strong>, or a <strong>people-focused day</strong>. The recommendations below are starting points — we lock the type on the prior month's strategy call.</p>
 
     <div class="shoots-grid">
       <div class="shoot-tile">
-        <div class="shoot-num">Shoot 01 · May</div>
-        <h3>Shop overview + live audio</h3>
-        <div class="when">Tue May 5 / Wed May 6 / Thu May 7</div>
-        <p>The foundation. We mic you while you work — no scripts, no staged takes, just you talking through what you're doing as you'd talk a journeyman through it. That natural audio becomes voiceover for 5–7 weeks of reels. Plus 20 min B-roll, 50+ stills.</p>
+        <div class="shoot-num">Shoot 01 · May · Recommended</div>
+        <h3>Shop capture</h3>
+        <div class="when">Tue May 5 · Wed May 6 · Thu May 7</div>
+        <p>The foundation. We mic you while you work — no scripts. Talk through what you're doing as you'd brief a journeyman. That natural audio plus 30–60 sec B-roll and 15–20 stills sets up the next 6 weeks of content.</p>
       </div>
       <div class="shoot-tile">
-        <div class="shoot-num">Shoot 02 · June</div>
-        <h3>Install or finishing room</h3>
+        <div class="shoot-num">Shoot 02 · June · Recommended</div>
+        <h3>Install or completion capture</h3>
         <div class="when">Week of Jun 8 – 12</div>
-        <p>If a current install lands in the window, we shoot on-site (templating, scribe-fitting, first piece in). If not, the finishing room — sample boards, sheen tests, finisher portraits. More live audio as you work.</p>
+        <p>Whichever lands — current install (templating, scribe-fitting, first piece in) or a finished project walkthrough. We confirm the type one week prior, on the May strategy call.</p>
       </div>
       <div class="shoot-tile">
-        <div class="shoot-num">Shoot 03 · July</div>
-        <h3>Architect partner site visit</h3>
+        <div class="shoot-num">Shoot 03 · July · Recommended</div>
+        <h3>People-focused day</h3>
         <div class="when">Week of Jul 13 – 17</div>
-        <p>The amplification shoot. Co-create with one design partner — they tag, you tag, the work shows up where it needs to. Audio captured from the conversation between you and the architect.</p>
+        <p>Architect partner site visit. Co-create with one design partner — they tag, you tag, the work shows up where it needs to. Architect selected on the June strategy call.</p>
       </div>
     </div>
   </div>
@@ -1200,16 +1277,59 @@
     </div>
 
     <div class="tl-summary">
-      <p><strong>What we leave with:</strong> 50+ stills, 20 min of B-roll, 30+ min of natural shop audio. <strong>What you give up:</strong> roughly 60 focused minutes, mostly walking the floor talking like you already do. The other two hours, you're working.</p>
+      <p><strong>What we leave with:</strong> 15–20 final stills (delivered in 7 business days), 30–60 sec B-roll (10 business days), and 30+ min of natural shop audio. <strong>What you give up:</strong> roughly 60 focused minutes, mostly walking the floor talking like you already do.</p>
+    </div>
+  </div>
+</section>
+
+<section id="sample">
+  <div class="wrap">
+    <div class="section-eyebrow">Sample first post</div>
+    <h2>What Week 2 Monday looks like</h2>
+    <p class="section-lead">Concrete preview. This is the kind of carousel that goes out two weeks after Shoot 01 — drafted from material we'll capture on the floor, voice and credit lines lifted from your interview record.</p>
+
+    <div class="sample-grid">
+      <div>
+        <div class="phone-frame">
+          <div class="phone-screen">
+            <div class="post-cover">
+              <div class="eyebrow-tag">Slide 1 of 9 · The Craft</div>
+              <div>
+                <div class="cover-headline">How to read<br/>a <em>wood library.</em></div>
+                <div class="cover-sub">Five species, one bench.</div>
+              </div>
+              <div class="cover-foot">
+                <div>@radiusmillwork</div>
+                <div>Swipe →</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="post-meta"><strong>Publishes Mon May 11 · 9:00 AM PT</strong></div>
+      </div>
+
+      <div class="caption-block">
+        <div class="lbl">Caption draft</div>
+        <div class="draft">Anigre, walnut, oak, sapele, alder. Five species side by side, all working in the shop this month. Each one tells a different story when slip-matched across a panel — grain runs, figure, how they take a finish.
+
+Swipe through to see how a wood library actually reads at the bench: the cuts we look for, what gets used where, and why the species we pick at the start of a job sets the tone for the whole piece.
+
+Photography @mattanthonyphoto</div>
+        <div class="tags">#millwork #joinery #vancouverdesign #cabinetmaker #customhomes</div>
+      </div>
     </div>
   </div>
 </section>
 
 <section id="calendar">
   <div class="wrap">
-    <div class="section-eyebrow">Step Three</div>
+    <div class="section-eyebrow">Sample 90-day shape</div>
     <h2>The 12-week calendar</h2>
-    <p class="section-lead">Click any week to see what gets posted. May is the foundation, June banks runway, July builds the architect graph.</p>
+    <p class="section-lead">A starting shape for what each week could look like. We reshape this every month on the strategy call — installs, completions, and shop priorities take precedence over the calendar shown here.</p>
+
+    <div class="calendar-disclaimer">
+      <strong>This is a sample, not a contract.</strong> The contract guarantees the deliverable totals (above). The week-by-week themes below shift to whatever's actually happening in the shop and on jobsites. Click any week to see the suggested mix.
+    </div>
 
     <div class="month-tabs">
       <button class="month-tab active" data-month="may">May<span class="count">Wks 1–4</span></button>
@@ -1514,9 +1634,9 @@
 
 <section id="tags">
   <div class="wrap">
-    <div class="section-eyebrow">Amplification</div>
-    <h2>The priority eight</h2>
-    <p class="section-lead">When a design partner re-shares a tagged post, the reach compounds. These are our first eight to focus on.</p>
+    <div class="section-eyebrow">Conversation Starter</div>
+    <h2>Eight firms to discuss at kickoff</h2>
+    <p class="section-lead">A starting list of active design partners in your service area. Some you've worked with, some you haven't, some you may want to skip entirely. We'll talk through which to prioritize on the kickoff call — your read on each firm matters more than ours.</p>
 
     <div class="tag-grid">
       <a class="tag-card" href="https://www.instagram.com/jamiebanfielddesign/" target="_blank" rel="noopener">
@@ -1575,60 +1695,6 @@
   </div>
 </section>
 
-<section class="dark">
-  <div class="narrow">
-    <div class="section-eyebrow">What we won't do</div>
-    <h2>Dead formats</h2>
-    <p class="section-lead">Just as important. The 2026 data is clear on what no longer carries its weight.</p>
-
-    <div class="dont-grid">
-      <div class="dont-item"><strong>Silent music-only B-roll reels</strong><span>Voiceover beats music by a wide margin on completion.</span></div>
-      <div class="dont-item"><strong>Aesthetic-only carousels</strong><span>Pretty photos with no narrative collapsed in 2026.</span></div>
-      <div class="dont-item"><strong>20–30 hashtag stacks</strong><span>Meta capped tags at 5 in Dec 2025. More now reduces reach.</span></div>
-      <div class="dont-item"><strong>Motivational LinkedIn posts</strong><span>Engagement floor since LinkedIn's 2026 shift.</span></div>
-      <div class="dont-item"><strong>Trend-chasing reels</strong><span>Transitions, dance audio. Never landed for craft niches.</span></div>
-      <div class="dont-item"><strong>Archive content without whitelist</strong><span>Photo rights and stale collaborator relationships make it risky.</span></div>
-    </div>
-  </div>
-</section>
-
-<section id="why">
-  <div class="narrow">
-    <div class="section-eyebrow">The Research</div>
-    <h2>Why this approach</h2>
-    <p class="section-lead">The plan above isn't built on instinct. It's built on what the field is actually doing, and what's actually working in 2026.</p>
-
-    <button class="research-toggle" id="researchToggle">Show the research →</button>
-
-    <div class="research-content" id="researchContent">
-      <h3 style="margin: 8px 0 16px; font-family: 'Cormorant Garamond', serif; font-size: 22px;">The numbers shaping the plan</h3>
-      <div class="research-stats">
-        <div class="stat-tile"><div class="n">10×</div><div class="l">Carousels beat single images on engagement (10.15% vs 0.55%, SocialInsider 2026).</div></div>
-        <div class="stat-tile"><div class="n">5×</div><div class="l">Personal LinkedIn beats company page on reach for the same content (Refine Labs 2026).</div></div>
-        <div class="stat-tile"><div class="n">5</div><div class="l">Hashtag cap. Meta enforced this Dec 2025. 10+ now reduces reach.</div></div>
-        <div class="stat-tile"><div class="n">Voice</div><div class="l">Reel formula in 2026 — founder voiceover over process B-roll. Voice-led, no scripts, captured live during the shoot day.</div></div>
-      </div>
-
-      <h3 style="margin: 32px 0 16px; font-family: 'Cormorant Garamond', serif; font-size: 22px;">References we studied</h3>
-      <div class="ref-pair">
-        <div class="ref-tile">
-          <div class="where">Reference · Seattle</div>
-          <div class="who">Henrybuilt</div>
-          <p>~10K followers. Documented in a Shorty Awards case study: every project post credits architect, designer, builder by handle. That single discipline drove repeat-business growth. The playbook for tagging.</p>
-        </div>
-        <div class="ref-tile">
-          <div class="where">Reference · USA</div>
-          <div class="who">Blacktail Studio</div>
-          <p>408K Instagram. Built on one reel formula: 30–90 sec, voiceover over tight process cuts, stakes hook in first 3 sec. The format we want Rick fluent in.</p>
-        </div>
-      </div>
-
-      <h3 style="margin: 32px 0 16px; font-family: 'Cormorant Garamond', serif; font-size: 22px;">The local field</h3>
-      <p style="color: var(--stone); font-size: 14px; line-height: 1.65;">We studied eight peer luxury millwork shops — local (Soma, Pacific Rim, Uppercase, Ingrain) and North American (Henrybuilt, Lanserring, Lancaster Customs, BH Woodturning). Local shops post 2–4 times a week, mostly single hero shots with short captions and inconsistent designer tagging. None are using founder voice. None are running material-education series. <strong style="color: var(--ink);">The field is wide open.</strong></p>
-    </div>
-  </div>
-</section>
-
 <section id="faq">
   <div class="narrow">
     <div class="section-eyebrow">Questions you'll probably have</div>
@@ -1679,12 +1745,14 @@
   </div>
 </section>
 
-<section class="cta">
+<section class="cta" id="cta">
   <div class="narrow">
-    <h2>Ready to start the engine</h2>
-    <p>Three approvals and we're in the shop on May 5, 6, or 7.</p>
-    <a id="ctaReply" href="mailto:info@mattanthonyphoto.com?subject=Approving%20the%2090-day%20roadmap&body=Hi%20Matt%2C%0A%0AApproving%20the%2090-day%20roadmap%20%E2%80%94%20looks%20good.%0A%0AFor%20Shoot%2001%2C%20can%20you%20send%20me%20a%20few%20proposed%20start%20times%20for%20the%20day%20we%20agreed%20on%20so%20we%20can%20lock%20the%20schedule%3F%20Anything%20that%20lets%20the%20shop%20run%20at%20normal%20pace%20works%20on%20my%20end.%0A%0ATalk%20soon%2C%0ARick" class="cta-btn">Reply to approve</a>
-    <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+    <h2>Reply, and we're in motion</h2>
+    <p>Pick a date above, click below. The reply pre-fills with your shoot date and a quick ask for proposed times + a 20-minute kickoff call.</p>
+    <div class="cta-row">
+      <a id="ctaReply" href="mailto:info@mattanthonyphoto.com?subject=Approving%20the%2090-day%20roadmap&body=Hi%20Matt%2C%0A%0AApproving%20the%2090-day%20roadmap%20%E2%80%94%20looks%20good.%0A%0AFor%20Shoot%2001%2C%20can%20you%20send%20me%20a%20few%20proposed%20start%20times%20for%20the%20day%20we%20agreed%20on%3F%20Let%27s%20also%20book%20a%20quick%20kickoff%20call%20to%20walk%20through%20the%20first%20month.%0A%0ATalk%20soon%2C%0ARick" class="cta-btn">Reply to approve →</a>
+      <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
+    </div>
   </div>
 </section>
 
@@ -1734,7 +1802,7 @@
       '',
       datePart,
       '',
-      'Can you send me a few proposed start times for that day so we can lock the schedule? Anything that lets the shop run at normal pace works on my end.',
+      "Can you send me a few proposed start times for that day? Let's also book a quick 20-minute kickoff call to walk through the first month.",
       '',
       'Talk soon,',
       'Rick'
@@ -1743,8 +1811,11 @@
   }
 
   const ctaReply = document.getElementById('ctaReply');
+  const ctaReplyTop = document.getElementById('ctaReplyTop');
   function updateCta(pickedDate) {
-    if (ctaReply) ctaReply.href = buildReplyLink(pickedDate);
+    const link = buildReplyLink(pickedDate);
+    if (ctaReply) ctaReply.href = link;
+    if (ctaReplyTop) ctaReplyTop.href = link;
   }
 
   const saved = localStorage.getItem(STORAGE_KEY);
@@ -1805,13 +1876,6 @@
     });
   });
 
-  // research toggle
-  const resBtn = document.getElementById('researchToggle');
-  const resContent = document.getElementById('researchContent');
-  resBtn.addEventListener('click', () => {
-    const open = resContent.classList.toggle('open');
-    resBtn.textContent = open ? 'Hide the research ↑' : 'Show the research →';
-  });
 </script>
 
 </body>
