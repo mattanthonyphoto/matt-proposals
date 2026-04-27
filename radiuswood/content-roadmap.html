@@ -1067,43 +1067,8 @@
   <div class="narrow">
     <div class="eyebrow">90-Day Roadmap</div>
     <h1>Radius × Matt Anthony.<br/><em>May 1 → July 31.</em></h1>
-    <p class="sub">Built directly against your signed Social &amp; Content agreement. Three quick approvals to start the engine.</p>
-
-    <div class="approval-grid hero-approvals">
-      <div class="approval-card">
-        <div class="num-tag">01</div>
-        <h3>Approve the plan</h3>
-        <p>Read through. If anything reads off — voice, projects, weight — flag it and we redraft before publishing.</p>
-      </div>
-      <div class="approval-card">
-        <div class="num-tag">02</div>
-        <h3>Pick Shoot 01</h3>
-        <p>Half-day, 3 hrs. Mic'd while you work — no scripts, no camera-direct.</p>
-        <div class="dates">
-          <div class="date-pick" data-date="Monday May 4">
-            <div class="day">Mon</div>
-            <div class="date">May 4</div>
-          </div>
-          <div class="date-pick" data-date="Tuesday May 5">
-            <div class="day">Tue</div>
-            <div class="date">May 5</div>
-          </div>
-          <div class="date-pick" data-date="Friday May 9">
-            <div class="day">Fri</div>
-            <div class="date">May 9</div>
-          </div>
-        </div>
-        <div class="date-note" id="dateNote">Click to lock in</div>
-      </div>
-      <div class="approval-card">
-        <div class="num-tag">03</div>
-        <h3>The credits list</h3>
-        <p>Past-project architects / designers / builders we should tag. We'll send a short form.</p>
-      </div>
-    </div>
-
-    <a id="ctaReplyTop" href="mailto:info@mattanthonyphoto.com?subject=Approving%20the%2090-day%20roadmap&body=Hi%20Matt%2C%0A%0AApproving%20the%2090-day%20roadmap%20%E2%80%94%20looks%20good.%0A%0AFor%20Shoot%2001%2C%20can%20you%20send%20me%20a%20few%20proposed%20start%20times%20for%20the%20day%20we%20agreed%20on%3F%20Let%27s%20also%20book%20a%20quick%20kickoff%20call%20to%20walk%20through%20the%20first%20month.%0A%0ATalk%20soon%2C%0ARick" class="cta-btn primary-cta">Reply to approve →</a>
-    <a href="#deliverables" class="secondary-link">See the plan</a>
+    <p class="sub">Built directly against your signed Social &amp; Content agreement. Read through, then sign off at the bottom.</p>
+    <a href="#deliverables" class="secondary-link">Start with the deliverables</a>
   </div>
 </header>
 
@@ -1679,10 +1644,45 @@
 </section>
 
 <section class="cta" id="cta">
-  <div class="narrow">
-    <h2>Reply, and we're in motion</h2>
-    <p>Pick a date above (May 4, 5, or 9), click below. The reply pre-fills with your shoot date and a quick ask for proposed times + a 20-minute kickoff call.</p>
-    <div class="cta-row">
+  <div class="narrow" style="text-align: left;">
+    <div class="section-eyebrow" style="text-align: left;">The next step</div>
+    <h2 style="text-align: left;">Three approvals to start the engine</h2>
+    <p class="section-lead" style="text-align: left;">Pick a date, click reply. The email pre-fills with your shoot date and a quick ask for proposed times plus a 20-minute kickoff call.</p>
+
+    <div class="approval-grid" style="margin-top: 32px;">
+      <div class="approval-card">
+        <div class="num-tag">01</div>
+        <h3>Approve the plan</h3>
+        <p>Read through. If anything reads off — voice, projects, weight — flag it and we redraft before publishing.</p>
+      </div>
+      <div class="approval-card">
+        <div class="num-tag">02</div>
+        <h3>Pick Shoot 01</h3>
+        <p>Half-day, 3 hrs. Mic'd while you work — no scripts, no camera-direct.</p>
+        <div class="dates">
+          <div class="date-pick" data-date="Monday May 4">
+            <div class="day">Mon</div>
+            <div class="date">May 4</div>
+          </div>
+          <div class="date-pick" data-date="Tuesday May 5">
+            <div class="day">Tue</div>
+            <div class="date">May 5</div>
+          </div>
+          <div class="date-pick" data-date="Friday May 9">
+            <div class="day">Fri</div>
+            <div class="date">May 9</div>
+          </div>
+        </div>
+        <div class="date-note" id="dateNote">Click to lock in</div>
+      </div>
+      <div class="approval-card">
+        <div class="num-tag">03</div>
+        <h3>The credits list</h3>
+        <p>Past-project architects / designers / builders we should tag. We'll send a short form.</p>
+      </div>
+    </div>
+
+    <div class="cta-row" style="justify-content: flex-start; margin-top: 40px;">
       <a id="ctaReply" href="mailto:info@mattanthonyphoto.com?subject=Approving%20the%2090-day%20roadmap&body=Hi%20Matt%2C%0A%0AApproving%20the%2090-day%20roadmap%20%E2%80%94%20looks%20good.%0A%0AFor%20Shoot%2001%2C%20can%20you%20send%20me%20a%20few%20proposed%20start%20times%20for%20the%20day%20we%20agreed%20on%3F%20Let%27s%20also%20book%20a%20quick%20kickoff%20call%20to%20walk%20through%20the%20first%20month.%0A%0ATalk%20soon%2C%0ARick" class="cta-btn">Reply to approve →</a>
       <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
     </div>
@@ -1745,11 +1745,8 @@
   }
 
   const ctaReply = document.getElementById('ctaReply');
-  const ctaReplyTop = document.getElementById('ctaReplyTop');
   function updateCta(pickedDate) {
-    const link = buildReplyLink(pickedDate);
-    if (ctaReply) ctaReply.href = link;
-    if (ctaReplyTop) ctaReplyTop.href = link;
+    if (ctaReply) ctaReply.href = buildReplyLink(pickedDate);
   }
 
   const saved = localStorage.getItem(STORAGE_KEY);
