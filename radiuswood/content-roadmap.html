@@ -347,6 +347,82 @@
   }
   .week-card:hover { box-shadow: var(--shadow); }
   .week-card.has-shoot { border-left: 3px solid var(--gold); }
+
+  .month-totals {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--stone);
+    padding: 8px 0 16px;
+    margin-bottom: 4px;
+  }
+  .month-totals::before {
+    content: '◆';
+    color: var(--gold);
+    margin-right: 10px;
+    font-size: 8px;
+    vertical-align: 1px;
+  }
+
+  .deliverables-table {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 16px;
+  }
+  .deliverables-row {
+    display: grid;
+    grid-template-columns: 1fr 100px 100px;
+    gap: 16px;
+    padding: 12px 18px;
+    border-bottom: 1px solid var(--rule);
+    font-size: 13px;
+    align-items: center;
+  }
+  .deliverables-row:last-child { border-bottom: none; }
+  .deliverables-row.head {
+    background: var(--ink);
+    color: var(--paper);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 9px;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+  }
+  .deliverables-row.total {
+    background: var(--warm);
+    font-weight: 600;
+  }
+  .deliverables-row .qcol {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    color: var(--ink);
+  }
+  .deliverables-row .pcol {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .deliverables-row.head .qcol, .deliverables-row.head .pcol {
+    color: var(--paper);
+  }
+  @media (max-width: 720px) {
+    .deliverables-row { grid-template-columns: 1fr 70px 70px; gap: 8px; padding: 10px 14px; font-size: 12px; }
+  }
+
+  .pill-source {
+    margin-top: 24px;
+    padding: 18px 22px;
+    background: var(--warm);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 3px 3px 0;
+    font-size: 13.5px;
+    color: var(--stone);
+    line-height: 1.6;
+  }
+  .pill-source strong { color: var(--ink); }
   .week-head {
     display: flex; align-items: center;
     padding: 18px 22px;
@@ -814,7 +890,8 @@
   <div class="wrap">
     <div class="brand">Radius × Matt Anthony</div>
     <a href="#approve">Approve</a>
-    <a href="#plan">The plan</a>
+    <a href="#plan">Plan</a>
+    <a href="#deliverables">Deliverables</a>
     <a href="#shootday">Shoot day</a>
     <a href="#calendar">Calendar</a>
     <a href="#tags">Tags</a>
@@ -837,7 +914,7 @@
         <div class="lbl">Shoot Days</div>
       </div>
       <div class="hero-stat">
-        <div class="num">~50</div>
+        <div class="num">42–48</div>
         <div class="lbl">Posts</div>
       </div>
       <div class="hero-stat">
@@ -911,7 +988,7 @@
           </div>
           <div class="rhythm-row">
             <div class="d">Wed</div>
-            <div class="desc">IG Reel <em>(30–90 sec, voiceover)</em></div>
+            <div class="desc">IG Reel <em>(week 1 only)</em> or Single</div>
             <div class="time">9:00</div>
           </div>
           <div class="rhythm-row">
@@ -921,7 +998,7 @@
           </div>
           <div class="rhythm-row">
             <div class="d">Daily</div>
-            <div class="desc">Stories <em>(5–8/week, ad hoc)</em></div>
+            <div class="desc">Stories <em>(5–8/month, ad hoc)</em></div>
             <div class="time">—</div>
           </div>
         </div>
@@ -974,11 +1051,81 @@
   </div>
 </section>
 
+<section id="deliverables">
+  <div class="wrap">
+    <div class="section-eyebrow">Aligned to Contract</div>
+    <h2>Monthly deliverables</h2>
+    <p class="section-lead">This roadmap is built directly against what we signed in April. Every number below matches Section 3.4 of the Social &amp; Content agreement.</p>
+
+    <div class="deliverables-table">
+      <div class="deliverables-row head">
+        <div>Deliverable</div>
+        <div class="qcol">Contract</div>
+        <div class="pcol">Plan</div>
+      </div>
+      <div class="deliverables-row">
+        <div>Shoot day</div>
+        <div class="qcol">1 (2–3 hrs)</div>
+        <div class="pcol">1</div>
+      </div>
+      <div class="deliverables-row">
+        <div>Edited editorial stills <em>(within 7 business days)</em></div>
+        <div class="qcol">15–20</div>
+        <div class="pcol">15–20</div>
+      </div>
+      <div class="deliverables-row">
+        <div>B-roll / motion <em>(within 10 business days)</em></div>
+        <div class="qcol">30–60 sec</div>
+        <div class="pcol">30–60 sec</div>
+      </div>
+      <div class="deliverables-row">
+        <div>Instagram carousels</div>
+        <div class="qcol">3–4</div>
+        <div class="pcol">4</div>
+      </div>
+      <div class="deliverables-row">
+        <div>Instagram single posts</div>
+        <div class="qcol">6–8</div>
+        <div class="pcol">6</div>
+      </div>
+      <div class="deliverables-row">
+        <div>Reels / short-form video</div>
+        <div class="qcol">1–2</div>
+        <div class="pcol">1</div>
+      </div>
+      <div class="deliverables-row">
+        <div>LinkedIn posts</div>
+        <div class="qcol">3–4</div>
+        <div class="pcol">4</div>
+      </div>
+      <div class="deliverables-row">
+        <div>Story frames</div>
+        <div class="qcol">5–8</div>
+        <div class="pcol">5–8</div>
+      </div>
+      <div class="deliverables-row total">
+        <div>Total published posts / month</div>
+        <div class="qcol">14–16</div>
+        <div class="pcol">15</div>
+      </div>
+      <div class="deliverables-row">
+        <div>Monthly strategy call</div>
+        <div class="qcol">1 (20 min)</div>
+        <div class="pcol">1</div>
+      </div>
+    </div>
+
+    <div class="pill-source">
+      <strong>Where the content comes from:</strong> per the contract, posts are sourced from four pools — (1) the monthly shoot day, (2) previous months' deliverables, (3) existing Radius archive imagery that meets quality standards, (4) archive remixes (carousels, before/after, material spotlights). The roadmap leans on pool 1 in May, then layers in pools 2–4 as the library grows.
+    </div>
+  </div>
+</section>
+
 <section>
   <div class="wrap">
     <div class="section-eyebrow">Three Shoots</div>
     <h2>The shoot days</h2>
-    <p class="section-lead">One half-day each month. Each one banks weeks of content.</p>
+    <p class="section-lead">One half-day each month. Each one banks weeks of content. Per the contract, you can elect any of: shop capture, install capture, completion capture, or a people-focused day.</p>
 
     <div class="shoots-grid">
       <div class="shoot-tile">
@@ -1071,19 +1218,21 @@
     </div>
 
     <div class="month-panel active" data-month="may">
+      <div class="month-totals">15 posts · 1 reel · 4 carousels · 6 singles · 4 LinkedIn · 5–8 stories</div>
+
       <div class="week-card has-shoot">
         <div class="week-head">
           <div class="week-num">Week 01</div>
-          <div class="week-title">Shop Overview Shoot Week</div>
+          <div class="week-title">Shop Overview · Shoot Week</div>
           <div class="week-dates">May 4–10</div>
           <div class="shoot-badge">Shoot</div>
           <div class="chevron"></div>
         </div>
         <div class="week-body"><div class="week-body-inner">
-          <div class="week-line"><div class="lbl">Reel</div><div class="val">"Twenty hands. Zero CNC." — 45 sec, Rick voiceover over bench-in-motion B-roll.</div></div>
-          <div class="week-line"><div class="lbl">Carousel</div><div class="val">"The Shop, in five stations." 8 slides — re-saw, vacuum press, finishing, hand tools, install crew.</div></div>
-          <div class="week-line"><div class="lbl">Single</div><div class="val">Rick portrait at the bench · re-saw close-up.</div></div>
-          <div class="week-line"><div class="lbl">LinkedIn</div><div class="val">Rick's origin story, 250 words. Twig furniture → one-car garage → 5,000 sq ft. Tag @BCIT.</div></div>
+          <div class="week-line"><div class="lbl">Mon · Carousel</div><div class="val">"The Shop, in five stations." 8 slides — re-saw, vacuum press, finishing, hand tools, install crew.</div></div>
+          <div class="week-line"><div class="lbl">Tue · LinkedIn</div><div class="val">Rick's origin story, 250 words. Twig furniture → one-car garage → 5,000 sq ft. Tag @BCIT.</div></div>
+          <div class="week-line"><div class="lbl">Wed · Reel</div><div class="val">"Twenty hands. Zero CNC." — 45 sec, voiceover over bench-in-motion B-roll. <em>(The month's only reel.)</em></div></div>
+          <div class="week-line"><div class="lbl">Fri · Single</div><div class="val">Rick portrait at the bench.</div></div>
           <div class="week-line"><div class="lbl">Stories</div><div class="val">Shop walk B-roll, "guess the species" poll, Friday wrap.</div></div>
         </div></div>
       </div>
@@ -1096,10 +1245,10 @@
           <div class="chevron"></div>
         </div>
         <div class="week-body"><div class="week-body-inner">
-          <div class="week-line"><div class="lbl">Reel</div><div class="val">"Three slices from one log." — 30 sec, Rick voice over re-saw cutting book-matched veneer.</div></div>
-          <div class="week-line"><div class="lbl">Carousel</div><div class="val">"How to read a wood library" — 9 slides, anigre / walnut / oak / sapele / alder side-by-side.</div></div>
-          <div class="week-line"><div class="lbl">Single</div><div class="val">Vacuum press in action.</div></div>
-          <div class="week-line"><div class="lbl">LinkedIn</div><div class="val">Rick on the BCIT apprenticeship and what top-of-class meant in 1987.</div></div>
+          <div class="week-line"><div class="lbl">Mon · Carousel</div><div class="val">"How to read a wood library." 9 slides — anigre / walnut / oak / sapele / alder side-by-side.</div></div>
+          <div class="week-line"><div class="lbl">Tue · LinkedIn</div><div class="val">Rick on the BCIT apprenticeship and what top-of-class meant in 1987.</div></div>
+          <div class="week-line"><div class="lbl">Wed · Single</div><div class="val">Vacuum press in action.</div></div>
+          <div class="week-line"><div class="lbl">Fri · Single</div><div class="val">Book-matched panel detail, raking light.</div></div>
           <div class="week-line"><div class="lbl">Stories</div><div class="val">Shop sounds, species-guess poll round two.</div></div>
         </div></div>
       </div>
@@ -1112,10 +1261,10 @@
           <div class="chevron"></div>
         </div>
         <div class="week-body"><div class="week-body-inner">
-          <div class="week-line"><div class="lbl">Reel</div><div class="val">"One eighth of an inch." — 45 sec, Rick voiceover on install precision.</div></div>
-          <div class="week-line"><div class="lbl">Carousel</div><div class="val">"Install day, in nine slides." Truck → site walk → scribe → set.</div></div>
-          <div class="week-line"><div class="lbl">Single</div><div class="val">Story stick close-up.</div></div>
-          <div class="week-line"><div class="lbl">LinkedIn</div><div class="val">"A 3 mm error on Tuesday is a 30 mm problem on Friday." 250 words.</div></div>
+          <div class="week-line"><div class="lbl">Mon · Carousel</div><div class="val">"Install day, in nine slides." Truck → site walk → scribe → set.</div></div>
+          <div class="week-line"><div class="lbl">Tue · LinkedIn</div><div class="val">"A 3 mm error on Tuesday is a 30 mm problem on Friday." 250 words on installation precision.</div></div>
+          <div class="week-line"><div class="lbl">Wed · Single</div><div class="val">Story stick close-up.</div></div>
+          <div class="week-line"><div class="lbl">Fri · Single</div><div class="val">Finished cabinet on the truck, ready for site.</div></div>
           <div class="week-line"><div class="lbl">Stories</div><div class="val">On-site BTS, install sequence.</div></div>
         </div></div>
       </div>
@@ -1128,16 +1277,18 @@
           <div class="chevron"></div>
         </div>
         <div class="week-body"><div class="week-body-inner">
-          <div class="week-line"><div class="lbl">Reel</div><div class="val">"Hand-rubbed, three coats." — 60 sec, finish layering.</div></div>
-          <div class="week-line"><div class="lbl">Carousel</div><div class="val">"How a finish schedule actually works." 8 slides, sample boards across species.</div></div>
-          <div class="week-line"><div class="lbl">Single</div><div class="val">Sheen test boards, late afternoon light.</div></div>
-          <div class="week-line"><div class="lbl">LinkedIn</div><div class="val">"Finishing is where a piece either earns the wood or wastes it."</div></div>
+          <div class="week-line"><div class="lbl">Mon · Carousel</div><div class="val">"How a finish schedule actually works." 8 slides — sample boards across species.</div></div>
+          <div class="week-line"><div class="lbl">Tue · LinkedIn</div><div class="val">"Finishing is where a piece either earns the wood or wastes it."</div></div>
+          <div class="week-line"><div class="lbl">Wed · Single</div><div class="val">Sheen test boards, late afternoon light.</div></div>
+          <div class="week-line"><div class="lbl">Fri · Single</div><div class="val">Rick + finisher in the room.</div></div>
           <div class="week-line"><div class="lbl">Stories</div><div class="val">Finishing room tour, weekend wrap.</div></div>
         </div></div>
       </div>
     </div>
 
     <div class="month-panel" data-month="jun">
+      <div class="month-totals">15 posts · 1 reel · 4 carousels · 6 singles · 4 LinkedIn · 5–8 stories</div>
+
       <div class="week-card">
         <div class="week-head">
           <div class="week-num">Week 05</div>
@@ -1146,10 +1297,10 @@
           <div class="chevron"></div>
         </div>
         <div class="week-body"><div class="week-body-inner">
-          <div class="week-line"><div class="lbl">Reel</div><div class="val">"Eighteen months. One kitchen." — 60 sec, the AWMAC Gold project.</div></div>
-          <div class="week-line"><div class="lbl">Carousel</div><div class="val">Rosebery archive walk-through, 9 slides <em>(only if photo rights are clear)</em>. Tag @lamoureuxarchitect.</div></div>
-          <div class="week-line"><div class="lbl">Single</div><div class="val">Coffered ceiling close-up.</div></div>
-          <div class="week-line"><div class="lbl">LinkedIn</div><div class="val">"The Lamoureux project, 15 years ago this month, taught us spring-back the hard way."</div></div>
+          <div class="week-line"><div class="lbl">Mon · Carousel</div><div class="val">Rosebery archive walk-through, 9 slides <em>(if photo rights are clear)</em>. Tag @lamoureuxarchitect.</div></div>
+          <div class="week-line"><div class="lbl">Tue · LinkedIn</div><div class="val">"The Lamoureux project, 15 years ago this month, taught us spring-back the hard way. We won AWMAC Gold for it."</div></div>
+          <div class="week-line"><div class="lbl">Wed · Single</div><div class="val">Coffered ceiling close-up (archive).</div></div>
+          <div class="week-line"><div class="lbl">Fri · Single</div><div class="val">Alder paneling detail (archive).</div></div>
           <div class="week-line"><div class="lbl">Stories</div><div class="val">Archive teasers.</div></div>
         </div></div>
       </div>
@@ -1157,16 +1308,16 @@
       <div class="week-card has-shoot">
         <div class="week-head">
           <div class="week-num">Week 06</div>
-          <div class="week-title">Furniture &amp; Wine Cellar</div>
+          <div class="week-title">Furniture &amp; Wine Cellar · Shoot Week</div>
           <div class="week-dates">Jun 8–14</div>
           <div class="shoot-badge">Shoot</div>
           <div class="chevron"></div>
         </div>
         <div class="week-body"><div class="week-body-inner">
-          <div class="week-line"><div class="lbl">Reel</div><div class="val">"Eighteen hundred bottles." — 45 sec, voiceover over wine cellar build.</div></div>
-          <div class="week-line"><div class="lbl">Carousel</div><div class="val">"How a wine cellar gets built." 8 slides, drawing → shop → install.</div></div>
-          <div class="week-line"><div class="lbl">Single</div><div class="val">Joinery close-up.</div></div>
-          <div class="week-line"><div class="lbl">LinkedIn</div><div class="val">Rick on growing without losing quality.</div></div>
+          <div class="week-line"><div class="lbl">Mon · Carousel</div><div class="val">"How a wine cellar gets built." 8 slides — drawing → shop → install.</div></div>
+          <div class="week-line"><div class="lbl">Tue · LinkedIn</div><div class="val">Rick on growing without losing quality.</div></div>
+          <div class="week-line"><div class="lbl">Wed · Reel</div><div class="val">"Eighteen hundred bottles." — 45 sec, voiceover over wine cellar build. <em>(The month's only reel.)</em></div></div>
+          <div class="week-line"><div class="lbl">Fri · Single</div><div class="val">Joinery close-up.</div></div>
           <div class="week-line"><div class="lbl">Stories</div><div class="val">Live polls, Friday team shot.</div></div>
         </div></div>
       </div>
@@ -1179,10 +1330,10 @@
           <div class="chevron"></div>
         </div>
         <div class="week-body"><div class="week-body-inner">
-          <div class="week-line"><div class="lbl">Reel</div><div class="val">"European trained." — 30 sec, journeymen at the bench.</div></div>
-          <div class="week-line"><div class="lbl">Carousel</div><div class="val">"Meet the bench." 9 slides — five journeymen with one-line bios + the tools they run.</div></div>
-          <div class="week-line"><div class="lbl">Single</div><div class="val">Bench-by-bench detail.</div></div>
-          <div class="week-line"><div class="lbl">LinkedIn</div><div class="val">Rick on the team. Tag @BCIT, BC Trades.</div></div>
+          <div class="week-line"><div class="lbl">Mon · Carousel</div><div class="val">"Meet the bench." 9 slides — five journeyman portraits with one-line bios + the tools they run.</div></div>
+          <div class="week-line"><div class="lbl">Tue · LinkedIn</div><div class="val">Rick on the team. Tag @BCIT, BC Trades.</div></div>
+          <div class="week-line"><div class="lbl">Wed · Single</div><div class="val">Bench-by-bench detail.</div></div>
+          <div class="week-line"><div class="lbl">Fri · Single</div><div class="val">Hands at work, macro.</div></div>
           <div class="week-line"><div class="lbl">Stories</div><div class="val">"Meet the team" mini-series, day-in-the-life.</div></div>
         </div></div>
       </div>
@@ -1195,16 +1346,18 @@
           <div class="chevron"></div>
         </div>
         <div class="week-body"><div class="week-body-inner">
-          <div class="week-line"><div class="lbl">Reel</div><div class="val">"The re-saw." — 45 sec, the machine that defines the shop.</div></div>
-          <div class="week-line"><div class="lbl">Carousel</div><div class="val">"Why we don't have a CNC." 8 slides, hand-tool wall, traditional joinery, the case for the bench.</div></div>
-          <div class="week-line"><div class="lbl">Single</div><div class="val">Chip pile, end of day.</div></div>
-          <div class="week-line"><div class="lbl">LinkedIn</div><div class="val">"We don't have a CNC. People ask why. The answer is the same one I'd give in 2003."</div></div>
+          <div class="week-line"><div class="lbl">Mon · Carousel</div><div class="val">"Why we don't have a CNC." 8 slides — hand-tool wall, traditional joinery, the case for the bench.</div></div>
+          <div class="week-line"><div class="lbl">Tue · LinkedIn</div><div class="val">"We don't have a CNC. People ask why. The answer is the same one I'd give in 2003."</div></div>
+          <div class="week-line"><div class="lbl">Wed · Single</div><div class="val">Hand tool wall.</div></div>
+          <div class="week-line"><div class="lbl">Fri · Single</div><div class="val">Chip pile, end of day.</div></div>
           <div class="week-line"><div class="lbl">Stories</div><div class="val">Tool-of-the-day series.</div></div>
         </div></div>
       </div>
     </div>
 
     <div class="month-panel" data-month="jul">
+      <div class="month-totals">15 posts · 1 reel · 4 carousels · 6 singles · 4 LinkedIn · 5–8 stories</div>
+
       <div class="week-card">
         <div class="week-head">
           <div class="week-num">Week 09</div>
@@ -1213,10 +1366,10 @@
           <div class="chevron"></div>
         </div>
         <div class="week-body"><div class="week-body-inner">
-          <div class="week-line"><div class="lbl">Reel</div><div class="val">"Knife ground in-house." — 30 sec, voiceover over moulding profile work.</div></div>
-          <div class="week-line"><div class="lbl">Carousel</div><div class="val">"The moulding profile library." 8 slides.</div></div>
-          <div class="week-line"><div class="lbl">Single</div><div class="val">Doug fir feature.</div></div>
-          <div class="week-line"><div class="lbl">LinkedIn</div><div class="val">Rick on traditional joinery in Canadian residential.</div></div>
+          <div class="week-line"><div class="lbl">Mon · Carousel</div><div class="val">"The moulding profile library." 8 slides.</div></div>
+          <div class="week-line"><div class="lbl">Tue · LinkedIn</div><div class="val">Rick on traditional joinery in Canadian residential.</div></div>
+          <div class="week-line"><div class="lbl">Wed · Single</div><div class="val">Doug fir feature.</div></div>
+          <div class="week-line"><div class="lbl">Fri · Single</div><div class="val">Knife ground in-house, macro.</div></div>
           <div class="week-line"><div class="lbl">Stories</div><div class="val">Canada Day shop wrap.</div></div>
         </div></div>
       </div>
@@ -1224,16 +1377,16 @@
       <div class="week-card has-shoot">
         <div class="week-head">
           <div class="week-num">Week 10</div>
-          <div class="week-title">Architect Partner Shoot</div>
+          <div class="week-title">Architect Partner · Shoot Week</div>
           <div class="week-dates">Jul 6–12</div>
           <div class="shoot-badge">Shoot</div>
           <div class="chevron"></div>
         </div>
         <div class="week-body"><div class="week-body-inner">
-          <div class="week-line"><div class="lbl">Reel</div><div class="val">"Templating a radius corner." — 45 sec, dual-voice (Rick + architect) over process.</div></div>
-          <div class="week-line"><div class="lbl">Carousel</div><div class="val">"Drawing → shop → finished." 9 slides, the architect's hand to the install. Tag the partner.</div></div>
-          <div class="week-line"><div class="lbl">Single</div><div class="val">Collaboration moment on site.</div></div>
-          <div class="week-line"><div class="lbl">LinkedIn</div><div class="val">"What it means to build for an architect who draws coffers like Brad Lamoureux does."</div></div>
+          <div class="week-line"><div class="lbl">Mon · Carousel</div><div class="val">"Drawing → shop → finished." 9 slides, the architect's hand to the install. Tag the partner.</div></div>
+          <div class="week-line"><div class="lbl">Tue · LinkedIn</div><div class="val">"What it means to build for an architect who draws coffers like Brad Lamoureux does."</div></div>
+          <div class="week-line"><div class="lbl">Wed · Reel</div><div class="val">"Templating a radius corner." — 45 sec, dual-voice (Rick + architect) over process. <em>(The month's only reel.)</em></div></div>
+          <div class="week-line"><div class="lbl">Fri · Single</div><div class="val">Collaboration moment on site.</div></div>
           <div class="week-line"><div class="lbl">Stories</div><div class="val">On-site B-roll.</div></div>
         </div></div>
       </div>
@@ -1246,10 +1399,10 @@
           <div class="chevron"></div>
         </div>
         <div class="week-body"><div class="week-body-inner">
-          <div class="week-line"><div class="lbl">Reel</div><div class="val">"Spring-back." — 60 sec, Rick voiceover on the lesson nobody teaches you.</div></div>
-          <div class="week-line"><div class="lbl">Carousel</div><div class="val">"How a curve gets built." 9 slides, bent-lam form to finished island.</div></div>
-          <div class="week-line"><div class="lbl">Single</div><div class="val">Bent-lam form on the bench.</div></div>
-          <div class="week-line"><div class="lbl">LinkedIn</div><div class="val">Rick on spring-back, in long form.</div></div>
+          <div class="week-line"><div class="lbl">Mon · Carousel</div><div class="val">"How a curve gets built." 9 slides — bent-lam form to finished island.</div></div>
+          <div class="week-line"><div class="lbl">Tue · LinkedIn</div><div class="val">Rick on spring-back, in long form.</div></div>
+          <div class="week-line"><div class="lbl">Wed · Single</div><div class="val">Bent-lam form on the bench.</div></div>
+          <div class="week-line"><div class="lbl">Fri · Single</div><div class="val">Finished curved island.</div></div>
           <div class="week-line"><div class="lbl">Stories</div><div class="val">"Ask Rick" Q&amp;A teaser.</div></div>
         </div></div>
       </div>
@@ -1262,10 +1415,10 @@
           <div class="chevron"></div>
         </div>
         <div class="week-body"><div class="week-body-inner">
-          <div class="week-line"><div class="lbl">Reel</div><div class="val">"What twelve weeks looks like." — 60 sec, Rick reflection over best B-roll.</div></div>
-          <div class="week-line"><div class="lbl">Carousel</div><div class="val">"Twelve weeks, ten frames." 10-slide recap of the strongest images.</div></div>
-          <div class="week-line"><div class="lbl">Single</div><div class="val">Staff group photo.</div></div>
-          <div class="week-line"><div class="lbl">LinkedIn</div><div class="val">"Twelve weeks back at this. What we built, who we built it for, what we learned."</div></div>
+          <div class="week-line"><div class="lbl">Mon · Carousel</div><div class="val">"Twelve weeks, ten frames." 10-slide recap of the strongest images.</div></div>
+          <div class="week-line"><div class="lbl">Tue · LinkedIn</div><div class="val">"Twelve weeks back at this. What we built, who we built it for, what we learned." Founder reflection.</div></div>
+          <div class="week-line"><div class="lbl">Wed · Single</div><div class="val">Staff group photo.</div></div>
+          <div class="week-line"><div class="lbl">Fri · Single</div><div class="val">Hero project tease for Q3.</div></div>
           <div class="week-line"><div class="lbl">Stories</div><div class="val">End-of-quarter wrap.</div></div>
         </div></div>
       </div>
@@ -1285,7 +1438,7 @@
           <div class="icon">▶</div>
           <div class="meta">
             <h3>Reels</h3>
-            <div class="qty">4–5 / month · 30–60 sec</div>
+            <div class="qty">1 / month · 30–60 sec</div>
           </div>
           <div class="chevron"></div>
         </div>
@@ -1304,7 +1457,7 @@
           <div class="icon">⬛</div>
           <div class="meta">
             <h3>Carousels</h3>
-            <div class="qty">5–6 / month · 8–10 slides</div>
+            <div class="qty">3–4 / month · 8–10 slides</div>
           </div>
           <div class="chevron"></div>
         </div>
@@ -1324,7 +1477,7 @@
           <div class="icon">▢</div>
           <div class="meta">
             <h3>Single images</h3>
-            <div class="qty">5–6 / month · macro / hero</div>
+            <div class="qty">6–8 / month · macro / hero</div>
           </div>
           <div class="chevron"></div>
         </div>
@@ -1342,7 +1495,7 @@
           <div class="icon">in</div>
           <div class="meta">
             <h3>LinkedIn</h3>
-            <div class="qty">4–5 / month · Rick's profile</div>
+            <div class="qty">3–4 / month · Rick's profile</div>
           </div>
           <div class="chevron"></div>
         </div>
@@ -1453,7 +1606,7 @@
         <div class="stat-tile"><div class="n">10×</div><div class="l">Carousels beat single images on engagement (10.15% vs 0.55%, SocialInsider 2026).</div></div>
         <div class="stat-tile"><div class="n">5×</div><div class="l">Personal LinkedIn beats company page on reach for the same content (Refine Labs 2026).</div></div>
         <div class="stat-tile"><div class="n">5</div><div class="l">Hashtag cap. Meta enforced this Dec 2025. 10+ now reduces reach.</div></div>
-        <div class="stat-tile"><div class="n">70/30</div><div class="l">Reel formula. Founder face/voice 70%, process B-roll 30%. Voiceover-over-process is dominant.</div></div>
+        <div class="stat-tile"><div class="n">Voice</div><div class="l">Reel formula in 2026 — founder voiceover over process B-roll. Voice-led, no scripts, captured live during the shoot day.</div></div>
       </div>
 
       <h3 style="margin: 32px 0 16px; font-family: 'Cormorant Garamond', serif; font-size: 22px;">References we studied</h3>
@@ -1492,23 +1645,35 @@
       </div>
       <div class="faq-card">
         <button class="faq-q">What if I don't like a post before it goes out?<span class="plus"></span></button>
-        <div class="faq-a"><p>Everything queues in your Notion approval board first. You give a thumbs up before publish. Nothing posts without you signing off.</p></div>
+        <div class="faq-a"><p>Per the contract (Section 3.2), a review link goes to you ahead of each week's posts for quick sign-off. Nothing publishes without your thumbs up. To keep cadence, please respond within 3 business days — that's the contracted approval window in Section 9.</p></div>
       </div>
       <div class="faq-card">
         <button class="faq-q">Who writes the LinkedIn and the captions?<span class="plus"></span></button>
         <div class="faq-a"><p>We do, drafted from your voice and your existing quotes (we have eight strong ones from your Woodworking Canada interview). You read every draft before it goes live. If a sentence sounds like marketing rather than you, you flag it and we redraft.</p></div>
       </div>
       <div class="faq-card">
+        <button class="faq-q">Who handles DMs, comments, and replies?<span class="plus"></span></button>
+        <div class="faq-a"><p>You do. Per Section 3.2, day-to-day community management, DMs, and direct replies stay on Radius's side. We supply the assets, captions, and cadence; the engagement layer is yours. We'll flag anything we think needs your attention.</p></div>
+      </div>
+      <div class="faq-card">
         <button class="faq-q">Can we use photos from old projects?<span class="plus"></span></button>
-        <div class="faq-a"><p>Only ones you specifically whitelist. Photo rights and old collaborator relationships make defaults risky. Send us a list of past projects that are clear to use, and we'll work them in.</p></div>
+        <div class="faq-a"><p>Yes — the contract (Section 3.2) names existing Radius archive imagery and archive remixes as two of the four sourcing pools. We'll review the archive together at kickoff: anything that meets quality standards and has clear photo rights is fair game. For projects with sensitive design-partner relationships, you whitelist on a case-by-case basis.</p></div>
       </div>
       <div class="faq-card">
         <button class="faq-q">What if a shoot date has to move?<span class="plus"></span></button>
-        <div class="faq-a"><p>24 hours notice and we shift, no charge. Shop runs on its own schedule — we work around it.</p></div>
+        <div class="faq-a"><p>Per Section 7, either party can reschedule with 48 hours notice at no charge. Weather or access issues on the shoot day are also no-charge. One reschedule per month is included; additional reschedules in the same month run $250. The shoot can roll forward one month if needed.</p></div>
+      </div>
+      <div class="faq-card">
+        <button class="faq-q">When do I get the photos and B-roll?<span class="plus"></span></button>
+        <div class="faq-a"><p>Per Section 5: web-optimized contact gallery within 3 business days, 15–20 final edited stills within 7 business days, and the 30–60 sec B-roll within 10 business days. All delivered via your Dropbox folder. One round of light retouching included per image.</p></div>
+      </div>
+      <div class="faq-card">
+        <button class="faq-q">Is awards / publication / website work included?<span class="plus"></span></button>
+        <div class="faq-a"><p>No — those sit at the Creative Partner tier. Section 3.5 lists what's out of scope at $1,500/mo: website rebuild, SEO, blog content, AWMAC and Georgie submission support, and publication pitch campaigns. If we want to layer them in, the upgrade path is available at Month 3.</p></div>
       </div>
       <div class="faq-card">
         <button class="faq-q">What happens at Month 3?<span class="plus"></span></button>
-        <div class="faq-a"><p>Decision point. We look at engagement, inbound, and how it feels. Three options: continue at $1,500/mo, upgrade to Creative Partner ($3,500/mo) if we want to add the website, awards submissions, and publication outreach, or end. No pressure either way.</p></div>
+        <div class="faq-a"><p>Decision point. We look at engagement, inbound, and how it feels. Three options: continue at $1,575/mo (incl. GST) month-to-month, upgrade to Creative Partner if we want to add the website, awards submissions, and publication outreach, or end with 30 days written notice. No pressure either way.</p></div>
       </div>
     </div>
   </div>
