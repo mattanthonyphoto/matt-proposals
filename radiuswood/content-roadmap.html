@@ -1080,17 +1080,17 @@
         <h3>Pick Shoot 01</h3>
         <p>Half-day, 3 hrs. Mic'd while you work — no scripts, no camera-direct.</p>
         <div class="dates">
+          <div class="date-pick" data-date="Monday May 4">
+            <div class="day">Mon</div>
+            <div class="date">May 4</div>
+          </div>
           <div class="date-pick" data-date="Tuesday May 5">
             <div class="day">Tue</div>
             <div class="date">May 5</div>
           </div>
-          <div class="date-pick" data-date="Wednesday May 6">
-            <div class="day">Wed</div>
-            <div class="date">May 6</div>
-          </div>
-          <div class="date-pick" data-date="Thursday May 7">
-            <div class="day">Thu</div>
-            <div class="date">May 7</div>
+          <div class="date-pick" data-date="Friday May 9">
+            <div class="day">Fri</div>
+            <div class="date">May 9</div>
           </div>
         </div>
         <div class="date-note" id="dateNote">Click to lock in</div>
@@ -1203,7 +1203,7 @@
       <div class="shoot-tile">
         <div class="shoot-num">Shoot 01 · May · Recommended</div>
         <h3>Shop capture</h3>
-        <div class="when">Tue May 5 · Wed May 6 · Thu May 7</div>
+        <div class="when">Mon May 4 · Tue May 5 · Fri May 9</div>
         <p>The foundation. We mic you while you work — no scripts. Talk through what you're doing as you'd brief a journeyman. That natural audio plus 30–60 sec B-roll and 15–20 stills sets up the next 6 weeks of content.</p>
       </div>
       <div class="shoot-tile">
@@ -1681,7 +1681,7 @@
 <section class="cta" id="cta">
   <div class="narrow">
     <h2>Reply, and we're in motion</h2>
-    <p>Pick a date above, click below. The reply pre-fills with your shoot date and a quick ask for proposed times + a 20-minute kickoff call.</p>
+    <p>Pick a date above (May 4, 5, or 9), click below. The reply pre-fills with your shoot date and a quick ask for proposed times + a 20-minute kickoff call.</p>
     <div class="cta-row">
       <a id="ctaReply" href="mailto:info@mattanthonyphoto.com?subject=Approving%20the%2090-day%20roadmap&body=Hi%20Matt%2C%0A%0AApproving%20the%2090-day%20roadmap%20%E2%80%94%20looks%20good.%0A%0AFor%20Shoot%2001%2C%20can%20you%20send%20me%20a%20few%20proposed%20start%20times%20for%20the%20day%20we%20agreed%20on%3F%20Let%27s%20also%20book%20a%20quick%20kickoff%20call%20to%20walk%20through%20the%20first%20month.%0A%0ATalk%20soon%2C%0ARick" class="cta-btn">Reply to approve →</a>
       <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
@@ -1753,7 +1753,8 @@
   }
 
   const saved = localStorage.getItem(STORAGE_KEY);
-  if (saved) {
+  const validDates = Array.from(datePicks).map(p => p.dataset.date);
+  if (saved && validDates.includes(saved)) {
     datePicks.forEach(p => {
       if (p.dataset.date === saved) {
         p.classList.add('selected');
@@ -1762,6 +1763,7 @@
     });
     updateCta(saved);
   } else {
+    if (saved) localStorage.removeItem(STORAGE_KEY);
     updateCta(null);
   }
 
