@@ -667,6 +667,143 @@
     font-size: 10px; letter-spacing: 0.2em;
     color: var(--stone); text-transform: uppercase;
   }
+
+  /* shoot-day timeline */
+  .timeline {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1px;
+    background: var(--rule);
+    border-radius: 4px;
+    overflow: hidden;
+    margin-top: 8px;
+  }
+  @media (max-width: 860px) { .timeline { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .timeline { grid-template-columns: 1fr; } }
+  .tl-cell {
+    background: var(--white);
+    padding: 22px 22px 24px;
+    position: relative;
+  }
+  .tl-cell .step {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 10px; letter-spacing: 0.22em;
+    color: var(--gold); text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .tl-cell h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; font-weight: 500;
+    margin-bottom: 10px;
+  }
+  .tl-cell ul {
+    list-style: none; padding: 0; margin: 0;
+    font-size: 13px; color: var(--stone);
+    line-height: 1.55;
+  }
+  .tl-cell li {
+    padding-left: 14px; position: relative;
+    margin-bottom: 6px;
+  }
+  .tl-cell li::before {
+    content: ''; position: absolute;
+    left: 0; top: 8px;
+    width: 5px; height: 1px;
+    background: var(--gold);
+  }
+  .tl-summary {
+    margin-top: 28px;
+    padding: 20px 24px;
+    background: var(--warm);
+    border-left: 3px solid var(--gold);
+    border-radius: 0 3px 3px 0;
+  }
+  .tl-summary strong { color: var(--ink); }
+  .tl-summary p {
+    font-size: 14px; color: var(--stone);
+    margin: 0; line-height: 1.6;
+  }
+
+  /* FAQ */
+  .faq-list {
+    margin-top: 8px;
+  }
+  .faq-card {
+    border-bottom: 1px solid var(--rule);
+    padding: 0;
+  }
+  .faq-card:first-child { border-top: 1px solid var(--rule); }
+  .faq-q {
+    width: 100%;
+    background: none; border: none;
+    text-align: left;
+    padding: 22px 4px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 19px; font-weight: 500;
+    color: var(--ink);
+    transition: color 0.2s;
+  }
+  .faq-q:hover { color: var(--gold); }
+  .faq-q .plus {
+    width: 24px; height: 24px;
+    flex-shrink: 0;
+    position: relative;
+    margin-left: auto;
+  }
+  .faq-q .plus::before, .faq-q .plus::after {
+    content: ''; position: absolute;
+    background: var(--gold);
+    transition: transform 0.3s;
+  }
+  .faq-q .plus::before {
+    top: 50%; left: 0; right: 0;
+    height: 1px;
+  }
+  .faq-q .plus::after {
+    left: 50%; top: 0; bottom: 0;
+    width: 1px;
+  }
+  .faq-card.open .faq-q .plus::after { transform: rotate(90deg); }
+  .faq-a {
+    max-height: 0; overflow: hidden;
+    transition: max-height 0.4s ease-out;
+  }
+  .faq-card.open .faq-a { max-height: 400px; }
+  .faq-a p {
+    padding: 0 4px 22px;
+    color: var(--stone);
+    font-size: 14.5px; line-height: 1.65;
+    max-width: 640px;
+  }
+
+  /* print button */
+  .print-btn {
+    background: var(--white);
+    border: 1px solid var(--rule);
+    color: var(--ink);
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 11px; letter-spacing: 0.22em;
+    text-transform: uppercase;
+    padding: 12px 22px;
+    border-radius: 3px;
+    cursor: pointer;
+    margin-left: 12px;
+    transition: all 0.2s;
+  }
+  .print-btn:hover { background: var(--paper); border-color: var(--gold); }
+
+  @media print {
+    nav.top, .progress, .cta, .print-btn { display: none !important; }
+    .week-card .week-body, .format-card .format-body, .faq-a, .research-content { max-height: none !important; }
+    .week-card .chevron, .format-card .chevron { display: none; }
+    section { padding: 32px 0; page-break-inside: avoid; }
+    .hero { padding: 30px 0; }
+    body { font-size: 11pt; }
+  }
 </style>
 </head>
 <body>
@@ -678,9 +815,10 @@
     <div class="brand">Radius × Matt Anthony</div>
     <a href="#approve">Approve</a>
     <a href="#plan">The plan</a>
+    <a href="#shootday">Shoot day</a>
     <a href="#calendar">Calendar</a>
     <a href="#tags">Tags</a>
-    <a href="#why">Why</a>
+    <a href="#faq">FAQ</a>
   </div>
 </nav>
 
@@ -725,7 +863,7 @@
       <div class="approval-card">
         <div class="num-tag">02</div>
         <h3>Pick Shoot 01</h3>
-        <p>Half-day, 2–3 hrs. Pick the day the bench is at full pace.</p>
+        <p>Half-day, 3 hrs. We mic you while you work — no scripts, no camera-direct. Pick the day the bench is at full pace.</p>
         <div class="dates">
           <div class="date-pick" data-date="Tuesday May 5">
             <div class="day">Tue</div>
@@ -845,22 +983,77 @@
     <div class="shoots-grid">
       <div class="shoot-tile">
         <div class="shoot-num">Shoot 01 · May</div>
-        <h3>Shop overview + Rick on camera</h3>
+        <h3>Shop overview + live audio</h3>
         <div class="when">Tue May 5 / Wed May 6 / Thu May 7</div>
-        <p>The foundation. 30–45 min of you on camera (5 voiceover takes), 20 min B-roll, 50+ stills. These takes carry 5–7 weeks of reels.</p>
+        <p>The foundation. We mic you while you work — no scripts, no staged takes, just you talking through what you're doing as you'd talk a journeyman through it. That natural audio becomes voiceover for 5–7 weeks of reels. Plus 20 min B-roll, 50+ stills.</p>
       </div>
       <div class="shoot-tile">
         <div class="shoot-num">Shoot 02 · June</div>
         <h3>Install or finishing room</h3>
         <div class="when">Week of Jun 8 – 12</div>
-        <p>If a current install lands in the window, we shoot on-site. If not, the finishing room — sample boards, sheen tests, finisher portraits.</p>
+        <p>If a current install lands in the window, we shoot on-site (templating, scribe-fitting, first piece in). If not, the finishing room — sample boards, sheen tests, finisher portraits. More live audio as you work.</p>
       </div>
       <div class="shoot-tile">
         <div class="shoot-num">Shoot 03 · July</div>
         <h3>Architect partner site visit</h3>
         <div class="when">Week of Jul 13 – 17</div>
-        <p>The amplification shoot. Co-create with one design partner — they tag, you tag, the work shows up where it needs to.</p>
+        <p>The amplification shoot. Co-create with one design partner — they tag, you tag, the work shows up where it needs to. Audio captured from the conversation between you and the architect.</p>
       </div>
+    </div>
+  </div>
+</section>
+
+<section id="shootday">
+  <div class="wrap">
+    <div class="section-eyebrow">How a shoot day works</div>
+    <h2>Three hours, no scripts</h2>
+    <p class="section-lead">The whole point: you keep working. We capture what's already happening — the sound, the bench, the details — and turn that into the next month of content.</p>
+
+    <div class="timeline">
+      <div class="tl-cell">
+        <div class="step">Before</div>
+        <h3>What you wear</h3>
+        <ul>
+          <li>Whatever you'd wear on a normal Tuesday</li>
+          <li>Shop apron is a yes</li>
+          <li>No glamour shots, no styling — that reads false</li>
+          <li>We bring the lapel mic and clip it on when you arrive</li>
+        </ul>
+      </div>
+      <div class="tl-cell">
+        <div class="step">Hour 1</div>
+        <h3>Shop walk + audio</h3>
+        <ul>
+          <li>You take Matt around the bench</li>
+          <li>Talk through what's on each station — like you'd brief a journeyman</li>
+          <li>Lapel mic catches everything</li>
+          <li>That's the entire founder voice ask. Done in an hour</li>
+        </ul>
+      </div>
+      <div class="tl-cell">
+        <div class="step">Hour 2</div>
+        <h3>Stills + macro</h3>
+        <ul>
+          <li>Matt shoots details — joinery, grain, hardware, finish</li>
+          <li>You go back to whatever was on the bench</li>
+          <li>No interruption needed</li>
+          <li>50+ stills banked here</li>
+        </ul>
+      </div>
+      <div class="tl-cell">
+        <div class="step">Hour 3</div>
+        <h3>B-roll + finish</h3>
+        <ul>
+          <li>Re-saw running, vacuum press, finishing room</li>
+          <li>Install crew shots if a truck is loading</li>
+          <li>20 min B-roll for reels</li>
+          <li>We're out by lunch</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="tl-summary">
+      <p><strong>What we leave with:</strong> 50+ stills, 20 min of B-roll, 30+ min of natural shop audio. <strong>What you give up:</strong> roughly 60 focused minutes, mostly walking the floor talking like you already do. The other two hours, you're working.</p>
     </div>
   </div>
 </section>
@@ -1099,7 +1292,7 @@
         <div class="format-body"><div class="format-body-inner">
           <ul>
             <li><strong>Length:</strong> 30–60 sec default. Hook in first 3 sec.</li>
-            <li><strong>Formula:</strong> 70% Rick on camera (face + voice) + 30% process B-roll cut underneath voiceover.</li>
+            <li><strong>Formula:</strong> Process B-roll with your bench audio over the top. Captured live during shoot day — no scripts, no camera-direct. Voice-led. Face on camera optional later, when it feels right.</li>
             <li><strong>Hook example:</strong> "Three slices from one log. Same grain, four doors."</li>
             <li><strong>Caption:</strong> 80–150 chars. Front-loaded. One material, one technique, one credit.</li>
           </ul>
@@ -1156,8 +1349,8 @@
         <div class="format-body"><div class="format-body-inner">
           <ul>
             <li><strong>Where:</strong> Rick's personal profile, not the company page (5× the reach).</li>
-            <li><strong>Format:</strong> 200–400 word founder posts. Occasional native video under 30 sec.</li>
-            <li><strong>Voice:</strong> lessons from 25 years on the bench, opinions on industry shifts, project teardowns.</li>
+            <li><strong>Who writes:</strong> we draft from your voice and your existing quotes (we have eight from your Woodworking Canada interview). You read and approve before anything posts.</li>
+            <li><strong>Format:</strong> 200–400 word posts. Native video optional — audio-led, shot from the bench, no studio setup.</li>
             <li><strong>Frequency:</strong> 1/week floor, 2/week ceiling.</li>
           </ul>
         </div></div>
@@ -1283,11 +1476,50 @@
   </div>
 </section>
 
+<section id="faq">
+  <div class="narrow">
+    <div class="section-eyebrow">Questions you'll probably have</div>
+    <h2>FAQ</h2>
+
+    <div class="faq-list">
+      <div class="faq-card">
+        <button class="faq-q">Do I have to be on camera?<span class="plus"></span></button>
+        <div class="faq-a"><p>Not at all. We mic you while you work — voiceover over process B-roll is the format. No scripts, no posed takes. If face-on-camera ever feels right down the line, we can layer it in. Not Month 1.</p></div>
+      </div>
+      <div class="faq-card">
+        <button class="faq-q">How much of my time does this actually take?<span class="plus"></span></button>
+        <div class="faq-a"><p>One half-day shoot per month — 3 hours, ~1 of those focused on you. One 20-minute strategy call. Roughly 10 minutes a week reviewing the next batch of posts in the approval board. That's it.</p></div>
+      </div>
+      <div class="faq-card">
+        <button class="faq-q">What if I don't like a post before it goes out?<span class="plus"></span></button>
+        <div class="faq-a"><p>Everything queues in your Notion approval board first. You give a thumbs up before publish. Nothing posts without you signing off.</p></div>
+      </div>
+      <div class="faq-card">
+        <button class="faq-q">Who writes the LinkedIn and the captions?<span class="plus"></span></button>
+        <div class="faq-a"><p>We do, drafted from your voice and your existing quotes (we have eight strong ones from your Woodworking Canada interview). You read every draft before it goes live. If a sentence sounds like marketing rather than you, you flag it and we redraft.</p></div>
+      </div>
+      <div class="faq-card">
+        <button class="faq-q">Can we use photos from old projects?<span class="plus"></span></button>
+        <div class="faq-a"><p>Only ones you specifically whitelist. Photo rights and old collaborator relationships make defaults risky. Send us a list of past projects that are clear to use, and we'll work them in.</p></div>
+      </div>
+      <div class="faq-card">
+        <button class="faq-q">What if a shoot date has to move?<span class="plus"></span></button>
+        <div class="faq-a"><p>24 hours notice and we shift, no charge. Shop runs on its own schedule — we work around it.</p></div>
+      </div>
+      <div class="faq-card">
+        <button class="faq-q">What happens at Month 3?<span class="plus"></span></button>
+        <div class="faq-a"><p>Decision point. We look at engagement, inbound, and how it feels. Three options: continue at $1,500/mo, upgrade to Creative Partner ($3,500/mo) if we want to add the website, awards submissions, and publication outreach, or end. No pressure either way.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="cta">
   <div class="narrow">
     <h2>Ready to start the engine</h2>
     <p>Three approvals and we're in the shop on May 5, 6, or 7.</p>
-    <a href="mailto:rick@radiuswood.com?subject=Approving%20the%2090-day%20roadmap" class="cta-btn">Reply to approve</a>
+    <a href="mailto:info@mattanthonyphoto.com?subject=Approving%20the%2090-day%20roadmap" class="cta-btn">Reply to approve</a>
+    <button class="print-btn" onclick="window.print()">Print / Save PDF</button>
   </div>
 </section>
 
@@ -1320,14 +1552,32 @@
   window.addEventListener('scroll', setActive);
   setActive();
 
-  // date picker
+  // date picker (with localStorage persistence)
   const datePicks = document.querySelectorAll('.date-pick');
   const dateNote = document.getElementById('dateNote');
+  const STORAGE_KEY = 'radius-shoot-date';
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    datePicks.forEach(p => {
+      if (p.dataset.date === saved) {
+        p.classList.add('selected');
+        dateNote.textContent = 'Saved: ' + saved + ' — confirm by reply when ready.';
+      }
+    });
+  }
   datePicks.forEach(p => {
     p.addEventListener('click', () => {
       datePicks.forEach(o => o.classList.remove('selected'));
       p.classList.add('selected');
       dateNote.textContent = 'Picked: ' + p.dataset.date + ' — confirm by reply.';
+      localStorage.setItem(STORAGE_KEY, p.dataset.date);
+    });
+  });
+
+  // FAQ accordion
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      q.parentElement.classList.toggle('open');
     });
   });
 
