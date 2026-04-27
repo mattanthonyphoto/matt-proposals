@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agency Partner Proposal · Spaces Uncovered × Matt Anthony</title>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1A1A18;
+    --paper: #F6F4F0;
+    --gold: #C9A96E;
+    --gold-soft: rgba(201,169,110,0.18);
+    --gold-line: rgba(201,169,110,0.30);
+    --stone: #8A8579;
+    --light-stone: #D9D5CD;
+    --off-white: #EEECE6;
+    --white: #FFFFFF;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { font-size:16px; scroll-behavior:smooth; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body { background:var(--white); color:var(--ink); font-family:'DM Sans',sans-serif; font-weight:300; line-height:1.75; overflow-x:hidden; }
+
+  /* COVER */
+  .cover {
+    min-height:100vh; background:var(--ink); color:var(--paper);
+    display:flex; flex-direction:column; justify-content:flex-end;
+    position:relative; overflow:hidden;
+  }
+  .cover-image {
+    position:absolute; inset:0;
+    background-image:url("https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/23aedb76-4c10-4a31-ba9c-9ebd434a25bc/5322-backhouse-web-2.jpg");
+    background-size:cover; background-position:center 40%;
+  }
+  .cover-image::after {
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(to bottom,
+      rgba(26,26,24,0.35) 0%,
+      rgba(26,26,24,0.15) 30%,
+      rgba(26,26,24,0.45) 60%,
+      rgba(26,26,24,0.92) 88%,
+      rgba(26,26,24,0.99) 100%);
+  }
+  .cover-top {
+    position:absolute; top:0; left:0; right:0; z-index:3;
+    padding:36px 60px; display:flex; justify-content:space-between; align-items:center;
+  }
+  .cover-logo {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.35em; text-transform:uppercase; color:rgba(246,244,240,0.65);
+  }
+  .cover-date {
+    font-family:'Josefin Sans',sans-serif; font-size:0.65rem;
+    letter-spacing:0.2em; color:rgba(246,244,240,0.4);
+  }
+  .cover-content { position:relative; z-index:2; padding:0 60px 80px; max-width:780px; }
+  .cover-eyebrow {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.4em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:24px; display:flex; align-items:center; gap:16px;
+  }
+  .cover-eyebrow::before { content:''; width:32px; height:1px; background:var(--gold); }
+  .cover h1 {
+    font-family:'Cormorant Garamond',serif; font-weight:400;
+    font-size:clamp(3rem,6vw,5rem); line-height:1.05; margin-bottom:24px;
+    letter-spacing:-0.01em;
+  }
+  .cover h1 em { font-style:italic; font-weight:500; color:var(--gold); }
+  .cover-sub {
+    font-size:1rem; color:rgba(246,244,240,0.6); max-width:520px;
+    line-height:1.85; margin-bottom:56px;
+  }
+  .cover-meta-bar {
+    display:flex; gap:56px; padding-top:32px;
+    border-top:1px solid rgba(201,169,110,0.18);
+  }
+  .cover-meta-item { font-size:0.78rem; color:rgba(246,244,240,0.4); line-height:1.8; }
+  .cover-meta-item strong {
+    display:block; color:rgba(246,244,240,0.75); font-weight:400;
+    font-family:'Josefin Sans',sans-serif; font-size:0.6rem;
+    letter-spacing:0.18em; text-transform:uppercase; margin-bottom:4px;
+  }
+
+  /* SECTION SHELL */
+  section { padding:120px 60px; max-width:1180px; margin:0 auto; }
+  .eyebrow {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.4em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:20px; display:flex; align-items:center; gap:14px;
+  }
+  .eyebrow::before { content:''; width:28px; height:1px; background:var(--gold); }
+  h2 {
+    font-family:'Cormorant Garamond',serif; font-weight:400;
+    font-size:clamp(2.2rem,4vw,3.4rem); line-height:1.15;
+    letter-spacing:-0.005em; margin-bottom:32px; max-width:780px;
+  }
+  h2 em { font-style:italic; font-weight:500; color:var(--gold); }
+  h3 {
+    font-family:'Cormorant Garamond',serif; font-weight:500;
+    font-size:1.85rem; line-height:1.25; margin-bottom:14px; letter-spacing:-0.005em;
+  }
+  p { color:#2C2C28; max-width:680px; margin-bottom:18px; }
+  p.lead { font-size:1.08rem; color:#3A3A35; max-width:720px; }
+
+  /* LETTER */
+  .letter { background:var(--paper); padding:120px 60px; }
+  .letter-inner { max-width:780px; margin:0 auto; }
+  .letter p { color:#2C2C28; font-size:1.02rem; line-height:1.9; }
+  .letter-sign {
+    margin-top:48px; font-family:'Cormorant Garamond',serif;
+    font-style:italic; font-size:1.4rem; color:var(--ink);
+  }
+  .letter-sign-meta {
+    margin-top:6px; font-family:'Josefin Sans',sans-serif;
+    font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--stone);
+  }
+
+  /* RATE CARD */
+  .ratecard {
+    background:var(--white);
+  }
+  .ratecard-table {
+    width:100%; border-collapse:collapse; margin-top:48px;
+    font-family:'DM Sans',sans-serif;
+  }
+  .ratecard-table thead th {
+    text-align:left; padding:18px 20px; background:var(--ink); color:var(--paper);
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.62rem;
+    letter-spacing:0.28em; text-transform:uppercase;
+  }
+  .ratecard-table thead th:nth-child(2),
+  .ratecard-table thead th:nth-child(3),
+  .ratecard-table thead th:nth-child(4) { text-align:right; }
+  .ratecard-table tbody td {
+    padding:22px 20px; border-bottom:1px solid var(--light-stone);
+    font-size:0.96rem; color:#2C2C28; vertical-align:top;
+  }
+  .ratecard-table tbody td:nth-child(2),
+  .ratecard-table tbody td:nth-child(3),
+  .ratecard-table tbody td:nth-child(4) {
+    text-align:right; font-family:'Cormorant Garamond',serif; font-size:1.3rem;
+    color:var(--ink); font-variant-numeric:tabular-nums;
+  }
+  .ratecard-table tbody td:nth-child(3) { color:var(--stone); font-size:1.05rem; }
+  .ratecard-table .item-name { display:block; font-weight:400; margin-bottom:4px; }
+  .ratecard-table .item-detail {
+    display:block; font-size:0.82rem; color:var(--stone);
+    font-family:'DM Sans',sans-serif; font-weight:300; line-height:1.6;
+  }
+  .ratecard-divider td {
+    background:var(--off-white); padding:8px 20px;
+    font-family:'Josefin Sans',sans-serif; font-size:0.6rem;
+    letter-spacing:0.3em; text-transform:uppercase; color:var(--stone);
+  }
+  .ratecard-note {
+    margin-top:28px; padding:24px 28px; background:var(--off-white);
+    border-left:2px solid var(--gold); font-size:0.92rem; color:#3A3A35;
+    line-height:1.75;
+  }
+
+  /* TIER BUNDLES */
+  .bundles { background:var(--paper); }
+  .bundle {
+    background:var(--white); margin-top:60px; padding:60px;
+    border-top:2px solid var(--ink);
+  }
+  .bundle-head {
+    display:flex; justify-content:space-between; align-items:flex-end;
+    flex-wrap:wrap; gap:24px; padding-bottom:32px;
+    border-bottom:1px solid var(--light-stone); margin-bottom:40px;
+  }
+  .bundle-name { flex:1; min-width:280px; }
+  .bundle-tag {
+    font-family:'Josefin Sans',sans-serif; font-size:0.6rem;
+    letter-spacing:0.32em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:10px;
+  }
+  .bundle-name h3 { margin-bottom:0; font-size:2.2rem; }
+  .bundle-price { text-align:right; }
+  .bundle-price-num {
+    font-family:'Cormorant Garamond',serif; font-weight:400;
+    font-size:2.6rem; line-height:1; color:var(--ink);
+  }
+  .bundle-price-label {
+    font-family:'Josefin Sans',sans-serif; font-size:0.6rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:var(--stone);
+    margin-top:6px;
+  }
+  .bundle-formula {
+    background:var(--off-white); padding:20px 24px; margin-bottom:32px;
+    font-family:'DM Sans',sans-serif; font-size:0.92rem; color:#3A3A35;
+    line-height:1.85;
+  }
+  .bundle-formula strong {
+    font-family:'Josefin Sans',sans-serif; font-size:0.6rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:var(--gold);
+    display:block; margin-bottom:8px; font-weight:400;
+  }
+  .bundle-foot {
+    margin-top:32px; padding-top:24px; border-top:1px solid var(--light-stone);
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:16px;
+    font-size:0.92rem;
+  }
+  .bundle-foot-item strong {
+    display:block; font-family:'Josefin Sans',sans-serif; font-size:0.6rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:var(--stone);
+    margin-bottom:6px; font-weight:400;
+  }
+  .bundle-foot-item span {
+    font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:var(--ink);
+  }
+
+  /* CINEMATIC CALLOUT */
+  .cinematic-callout {
+    background:var(--off-white); padding:32px 36px; margin-top:24px;
+    border-left:3px solid var(--gold);
+  }
+  .cinematic-callout h5 {
+    font-family:'Josefin Sans',sans-serif; font-size:0.62rem;
+    letter-spacing:0.28em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:12px;
+  }
+  .cinematic-callout p {
+    font-size:0.94rem; color:#2C2C28; margin-bottom:0; line-height:1.85;
+  }
+
+  /* PORTFOLIO / AWARDS */
+  .portfolio {
+    background:var(--ink); color:var(--paper); padding:120px 60px;
+    position:relative; overflow:hidden;
+  }
+  .portfolio-bg {
+    position:absolute; inset:0; opacity:0.18;
+    background-image:url("https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/8a674d33-4176-43dd-89c1-a565c1c3df48/5322-backhouse-web-24.jpg");
+    background-size:cover; background-position:center;
+  }
+  .portfolio-inner { max-width:1180px; margin:0 auto; position:relative; z-index:2; }
+  .portfolio h2 { color:var(--paper); }
+  .portfolio p { color:rgba(246,244,240,0.75); }
+  .portfolio .eyebrow { color:var(--gold); }
+  .portfolio-block {
+    margin-top:56px; padding:48px;
+    background:rgba(246,244,240,0.03); border:1px solid rgba(201,169,110,0.22);
+  }
+  .portfolio-block h3 { color:var(--paper); }
+  .portfolio-block .bundle-formula {
+    background:rgba(246,244,240,0.04); color:rgba(246,244,240,0.78);
+  }
+  .portfolio-block .bundle-foot { border-top-color:rgba(246,244,240,0.12); }
+  .portfolio-block .bundle-foot-item strong { color:rgba(246,244,240,0.5); }
+  .portfolio-block .bundle-foot-item span { color:var(--paper); }
+
+  /* CREATIVE DIRECTION */
+  .creative {
+    background:var(--white);
+  }
+  .creative-grid {
+    display:grid; grid-template-columns:1fr 1fr; gap:56px; margin-top:48px;
+    align-items:flex-start;
+  }
+  .creative-list { list-style:none; padding:0; }
+  .creative-list li {
+    padding:18px 0 18px 40px; border-bottom:1px solid var(--off-white);
+    position:relative; font-size:0.96rem; color:#2C2C28; line-height:1.7;
+  }
+  .creative-list li::before {
+    content:counter(step,decimal-leading-zero);
+    counter-increment:step;
+    position:absolute; left:0; top:18px;
+    font-family:'Cormorant Garamond',serif; font-style:italic;
+    color:var(--gold); font-size:1rem;
+  }
+  .creative-list { counter-reset:step; }
+  .creative-list strong {
+    display:block; margin-bottom:4px; font-weight:500; color:var(--ink);
+  }
+  .creative-refs {
+    background:var(--off-white); padding:36px;
+  }
+  .creative-refs h5 {
+    font-family:'Josefin Sans',sans-serif; font-size:0.62rem;
+    letter-spacing:0.28em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:18px;
+  }
+  .creative-refs p { font-size:0.94rem; color:#3A3A35; line-height:1.8; }
+  .creative-refs ul { list-style:none; padding:0; margin-top:18px; }
+  .creative-refs li {
+    padding:10px 0; border-bottom:1px solid var(--light-stone);
+    font-size:0.86rem; color:var(--stone); font-family:'DM Sans',sans-serif;
+  }
+  .creative-refs li a { color:var(--ink); text-decoration:none; }
+  .creative-refs li a:hover { color:var(--gold); }
+  .creative-refs li:last-child { border-bottom:none; }
+
+  /* SUMMARY */
+  .summary { background:var(--paper); }
+  .summary-table {
+    width:100%; margin-top:48px; border-collapse:collapse;
+    font-family:'DM Sans',sans-serif;
+  }
+  .summary-table th {
+    text-align:left; padding:18px 24px; background:var(--ink); color:var(--paper);
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.7rem;
+    letter-spacing:0.28em; text-transform:uppercase;
+  }
+  .summary-table th:nth-child(2),
+  .summary-table th:nth-child(3),
+  .summary-table th:nth-child(4) { text-align:right; }
+  .summary-table td {
+    padding:22px 24px; border-bottom:1px solid var(--light-stone);
+    font-size:1rem; color:#2C2C28; vertical-align:middle;
+  }
+  .summary-table td:nth-child(2),
+  .summary-table td:nth-child(3),
+  .summary-table td:nth-child(4) {
+    text-align:right; font-family:'Cormorant Garamond',serif; font-size:1.35rem;
+    color:var(--ink); font-variant-numeric:tabular-nums;
+  }
+  .summary-table tr.divider td {
+    padding:8px 0; background:var(--off-white); border:none;
+    font-family:'Josefin Sans',sans-serif; font-size:0.6rem;
+    letter-spacing:0.3em; text-transform:uppercase; color:var(--stone);
+    padding-left:24px;
+  }
+  .summary-note {
+    margin-top:36px; padding:24px 28px; background:var(--white);
+    border-left:2px solid var(--gold); font-size:0.92rem; color:#3A3A35;
+    line-height:1.75;
+  }
+
+  /* TERMS */
+  .terms { background:var(--white); }
+  .terms-grid {
+    display:grid; grid-template-columns:repeat(2,1fr); gap:36px 56px; margin-top:48px;
+  }
+  .terms-item h5 {
+    font-family:'Josefin Sans',sans-serif; font-size:0.62rem;
+    letter-spacing:0.28em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:10px;
+  }
+  .terms-item p { font-size:0.95rem; color:#3A3A35; margin-bottom:0; line-height:1.75; }
+
+  /* CLOSE */
+  .close {
+    background:var(--ink); color:var(--paper); padding:140px 60px;
+    text-align:center; position:relative;
+  }
+  .close-eyebrow {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.4em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:24px;
+  }
+  .close h2 {
+    color:var(--paper); margin:0 auto 32px; max-width:780px;
+  }
+  .close h2 em { color:var(--gold); }
+  .close p { color:rgba(246,244,240,0.65); margin:0 auto 48px; max-width:560px; }
+  .close-meta {
+    display:inline-flex; gap:48px; padding:32px 48px;
+    border-top:1px solid rgba(201,169,110,0.25);
+    border-bottom:1px solid rgba(201,169,110,0.25);
+    margin-top:24px;
+  }
+  .close-meta-item { font-size:0.85rem; color:rgba(246,244,240,0.7); }
+  .close-meta-item strong {
+    display:block; font-family:'Josefin Sans',sans-serif; font-size:0.58rem;
+    letter-spacing:0.3em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:6px; font-weight:400;
+  }
+  .footer-mark {
+    margin-top:80px; font-family:'Josefin Sans',sans-serif;
+    font-size:0.6rem; letter-spacing:0.4em; text-transform:uppercase;
+    color:rgba(246,244,240,0.3);
+  }
+
+  @media (max-width:780px) {
+    section, .letter, .portfolio, .close { padding:80px 28px; }
+    .cover-top { padding:24px 28px; }
+    .cover-content { padding:0 28px 60px; }
+    .bundle { padding:36px 28px; }
+    .creative-grid { grid-template-columns:1fr; gap:32px; }
+    .terms-grid { grid-template-columns:1fr; gap:28px; }
+    .cover-meta-bar { gap:28px; flex-wrap:wrap; }
+    .close-meta { flex-direction:column; gap:24px; }
+    .ratecard-table tbody td:nth-child(3) { display:none; }
+    .ratecard-table thead th:nth-child(3) { display:none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- COVER -->
+<section class="cover" style="padding:0; max-width:none;">
+  <div class="cover-image"></div>
+  <div class="cover-top">
+    <div class="cover-logo">Matt Anthony · Architectural Photography</div>
+    <div class="cover-date">April 2026</div>
+  </div>
+  <div class="cover-content">
+    <div class="cover-eyebrow">Prepared for Spaces Uncovered</div>
+    <h1>An <em>agency partnership</em><br>for content and craft.</h1>
+    <p class="cover-sub">A transparent rate card, three quarterly bundles built from it, and portfolio-grade work delivered under my brand with a referral fee back to you.</p>
+    <div class="cover-meta-bar">
+      <div class="cover-meta-item"><strong>Prepared For</strong>Alexa Bustamante<br>Spaces Uncovered</div>
+      <div class="cover-meta-item"><strong>Prepared By</strong>Matt Anthony<br>Architectural Photography</div>
+      <div class="cover-meta-item"><strong>Valid Through</strong>30 days from issue<br>April 2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- LETTER -->
+<section class="letter" style="padding:120px 60px; max-width:none;">
+  <div class="letter-inner">
+    <div class="eyebrow">Hello Alexa</div>
+    <h2>Built around how your<br>agency actually works.</h2>
+    <p>Thanks for the meeting and for sending the scope through. Yes, all of it is clear. I've put this together as an agency partnership rather than a strict white-label arrangement, because the structure works better for both of us when the production credit lives with me and the client relationship lives with you.</p>
+    <p>I structured the proposal differently than a typical quote. Up front is a transparent rate card with every line item I'd bill, the unit rate, and the hours behind it. Beneath that, your three tiers are assembled from those same line items so you can see exactly what makes up each quarterly number, swap pieces in or out, or quote your client directly off the rate card when a project doesn't fit a tier cleanly.</p>
+    <p>Content rates sit at a 10 percent partner discount off my standard direct rates. You handle client communication, briefing, scheduling, revisions, and invoicing. Capture is delivered by me or by a vetted second shooter on my production team, depending on availability and scope. Either way, I own the edit, QA, and brand consistency on every deliverable that ships to you. Lav-mic capture for talking-head clips is built into every photo+video shoot, no add-on. The cinematic 2-min landscape film is included as its own line item and assembles the completed-project transformation cut for the website. All content work can be displayed on my website, journal, and case studies. Your agency handles the social posting on the client's behalf.</p>
+    <p>Portfolio and Awards work sits at standard rate, delivered under my brand and credited publicly under Matt Anthony Photography. You receive a 10 percent referral fee on every awards shoot you bring me. That keeps the work portfolio-grade for both sides and aligns the partnership long-term.</p>
+    <p>I can have everything finalized and contracts ready within 48 hours of your go-ahead. The numbers in here hold for 30 days.</p>
+    <div class="letter-sign">Matt Anthony</div>
+    <div class="letter-sign-meta">Architectural Photography · Squamish, BC</div>
+  </div>
+</section>
+
+<!-- RATE CARD -->
+<section class="ratecard">
+  <div class="eyebrow">Section one · Rate card</div>
+  <h2>The line items.<br><em>Mix and match.</em></h2>
+  <p class="lead">Every tier below is assembled from these atomic line items. You can also quote any combination directly off this card. Partner rates (10 percent off standard) apply to all content lines. Portfolio and Awards is held at standard rate, with a 10 percent referral fee paid back to your agency on awards shoots brought to me.</p>
+
+  <table class="ratecard-table">
+    <thead>
+      <tr>
+        <th>Service</th>
+        <th>Partner Rate</th>
+        <th>Std Rate</th>
+        <th>Hours</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr class="ratecard-divider"><td colspan="4">Photo capture</td></tr>
+      <tr>
+        <td>
+          <span class="item-name">Half-day photo shoot</span>
+          <span class="item-detail">1 to 2 hours on-site, 15 to 20 fully edited frames, single revision round. Second-shooter eligible.</span>
+        </td>
+        <td>$1,350</td>
+        <td>$1,500</td>
+        <td>~4 capture / ~2.5 edit</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="item-name">Half-day photo + video shoot</span>
+          <span class="item-detail">1 to 2 hours on-site, 10 to 15 photos, 10 to 15 video clips, lav-mic talking-head capture included.</span>
+        </td>
+        <td>$2,025</td>
+        <td>$2,250</td>
+        <td>~4 capture / ~7 edit</td>
+      </tr>
+
+      <tr class="ratecard-divider"><td colspan="4">Edit deliverables</td></tr>
+      <tr>
+        <td>
+          <span class="item-name">Reel from stills</span>
+          <span class="item-detail">Motion graphics, music, captions, 9:16 vertical, 15 to 30 seconds</span>
+        </td>
+        <td>$360</td>
+        <td>$400</td>
+        <td>~2</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="item-name">Video reel edit</span>
+          <span class="item-detail">Lav-mic synced, color, music, captions, 9:16 vertical, 30 to 45 seconds. Coming Soon, Project Complete, or Team Culture cut.</span>
+        </td>
+        <td>$630</td>
+        <td>$700</td>
+        <td>~4</td>
+      </tr>
+      <tr>
+        <td>
+          <span class="item-name">Cinematic project film, 2 minutes, 4K landscape</span>
+          <span class="item-detail">Compiled from Coming Soon + Project Complete + Team Culture footage. Color graded, sound designed, music licensed. Web-ready 16:9 4K.</span>
+        </td>
+        <td>$2,700</td>
+        <td>$3,000</td>
+        <td>~14 edit</td>
+      </tr>
+
+      <tr class="ratecard-divider"><td colspan="4">Portfolio and awards · Standard rate · Matt Anthony brand · 10% referral fee to Spaces Uncovered</td></tr>
+      <tr>
+        <td>
+          <span class="item-name">Full-day portfolio / awards shoot</span>
+          <span class="item-detail">8 to 10 hours on-site, scout pass, 25 to 35 publication-grade retouched frames, 4 to 6 week edit window, awards-spec file delivery (TIFF + JPG). Delivered under Matt Anthony brand. Spaces Uncovered receives 10% referral fee.</span>
+        </td>
+        <td>$3,500</td>
+        <td>$3,500</td>
+        <td>~27</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="ratecard-note">
+    <strong style="font-family:'Josefin Sans',sans-serif; font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:8px;">À la carte add-ons</strong>
+    Extra retouched photo beyond scope: $40/frame. Additional revision round beyond the one included: $150/hour. Travel beyond Sea-to-Sky and Lower Mainland: $0.70/km plus accommodation where required. All prices CAD, exclusive of GST.
+  </div>
+</section>
+
+<!-- TIER BUNDLES -->
+<section class="bundles" style="padding:120px 60px; max-width:none;">
+  <div style="max-width:1180px; margin:0 auto;">
+    <div class="eyebrow">Section two · Tier bundles</div>
+    <h2>Your three tiers,<br>assembled.</h2>
+    <p class="lead">Each tier maps directly to the scope you sent through. You'll see the math underneath, built from the rate card. Per-extra-shoot pricing is listed at the bottom of each tier so you can scale within a quarter without renegotiating.</p>
+
+    <!-- TIER 1 -->
+    <div class="bundle">
+      <div class="bundle-head">
+        <div class="bundle-name">
+          <div class="bundle-tag">Tier One · Per Quarter</div>
+          <h3>Photo + reel from stills</h3>
+        </div>
+        <div class="bundle-price">
+          <div class="bundle-price-num">$1,710</div>
+          <div class="bundle-price-label">per quarter</div>
+        </div>
+      </div>
+      <div class="bundle-formula">
+        <strong>How the number is built</strong>
+        1× Half-day photo shoot ($1,350) + 1× Reel from stills ($360) = <strong style="color:var(--ink); font-family:'Cormorant Garamond',serif; font-size:1.15rem; letter-spacing:0; text-transform:none;">$1,710 per quarter</strong>
+      </div>
+      <div class="bundle-foot">
+        <div class="bundle-foot-item"><strong>Annual (4 quarters)</strong><span>$6,840</span></div>
+        <div class="bundle-foot-item"><strong>Extra shoot + reel</strong><span>$1,710</span></div>
+        <div class="bundle-foot-item"><strong>Capture / Edit hours</strong><span>~4 / ~4.5</span></div>
+      </div>
+    </div>
+
+    <!-- TIER 2 -->
+    <div class="bundle">
+      <div class="bundle-head">
+        <div class="bundle-name">
+          <div class="bundle-tag">Tier Two · Per Quarter</div>
+          <h3>Photo + video hybrid</h3>
+        </div>
+        <div class="bundle-price">
+          <div class="bundle-price-num">$5,310</div>
+          <div class="bundle-price-label">per quarter</div>
+        </div>
+      </div>
+      <div class="bundle-formula">
+        <strong>How the number is built</strong>
+        2× Half-day photo+video shoots ($2,025 ea = $4,050) + 2× Video reel edits ($630 ea = $1,260) = <strong style="color:var(--ink); font-family:'Cormorant Garamond',serif; font-size:1.15rem; letter-spacing:0; text-transform:none;">$5,310 per quarter</strong>. Lav-mic talking-head capture included on every shoot.
+      </div>
+      <div class="bundle-foot">
+        <div class="bundle-foot-item"><strong>Annual (4 quarters)</strong><span>$21,240</span></div>
+        <div class="bundle-foot-item"><strong>Extra shoot + reel</strong><span>$2,655</span></div>
+        <div class="bundle-foot-item"><strong>Capture / Edit hours</strong><span>~8 / ~22</span></div>
+      </div>
+    </div>
+
+    <!-- TIER 3 -->
+    <div class="bundle">
+      <div class="bundle-head">
+        <div class="bundle-name">
+          <div class="bundle-tag">Tier Three · Per Quarter</div>
+          <h3>Full content engine + cinematic</h3>
+        </div>
+        <div class="bundle-price">
+          <div class="bundle-price-num">$10,665</div>
+          <div class="bundle-price-label">per quarter</div>
+        </div>
+      </div>
+      <div class="bundle-formula">
+        <strong>How the number is built</strong>
+        3× Half-day photo+video shoots ($2,025 ea = $6,075) + 3× Video reel edits ($630 ea = $1,890, structured as Coming Soon + Project Complete + Team Culture) + 1× Cinematic 2-min 4K landscape film ($2,700) = <strong style="color:var(--ink); font-family:'Cormorant Garamond',serif; font-size:1.15rem; letter-spacing:0; text-transform:none;">$10,665 per quarter</strong>
+      </div>
+      <div class="cinematic-callout">
+        <h5>About the cinematic 2-min film</h5>
+        <p>This is the completed-project transformation video for the client's website. I take the best moments from the three quarterly cuts (Coming Soon, Project Complete, Team Culture) and recut them as a single 16:9 landscape narrative film in 4K, color graded and sound designed. Edit timeline is approximately 14 hours; revisions beyond round one billed at $150/hr. Commercial-use music license included.</p>
+      </div>
+      <div class="bundle-foot">
+        <div class="bundle-foot-item"><strong>Annual (4 quarters)</strong><span>$42,660</span></div>
+        <div class="bundle-foot-item"><strong>Extra shoot + reel</strong><span>$2,655</span></div>
+        <div class="bundle-foot-item"><strong>Capture / Edit hours</strong><span>~12 / ~47</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PORTFOLIO / AWARDS -->
+<section class="portfolio" style="padding:120px 60px; max-width:none;">
+  <div class="portfolio-bg"></div>
+  <div class="portfolio-inner">
+    <div class="eyebrow">Section three · Portfolio + awards</div>
+    <h2>Delivered under <em>my brand,</em><br>with a referral fee back to you.</h2>
+    <p class="lead" style="color:rgba(246,244,240,0.78);">For the 1 to 3 projects per year that warrant publication-grade craft, whether submitted to awards juries (Georgie, Western Living, NKBA), pitched to magazines, or anchored as portfolio hero work for the client. These shoots are credited under Matt Anthony Photography in all public-facing channels, awards entries, and publications. In exchange, Spaces Uncovered receives a 10 percent referral fee on every project you bring to me. That keeps the work portfolio-grade and the partnership compounding over time.</p>
+
+    <div class="portfolio-block">
+      <div class="bundle-head" style="border-bottom-color:rgba(246,244,240,0.15);">
+        <div class="bundle-name">
+          <div class="bundle-tag" style="color:var(--gold);">Portfolio · Awards · Matt Brand</div>
+          <h3>Full-day shoot</h3>
+        </div>
+        <div class="bundle-price">
+          <div class="bundle-price-num" style="color:var(--paper);">$3,500</div>
+          <div class="bundle-price-label" style="color:rgba(246,244,240,0.5);">per project</div>
+        </div>
+      </div>
+      <div class="bundle-formula">
+        <strong style="color:var(--gold);">What's included</strong>
+        Full day on-site (8 to 10 hours), pre-shoot scout and styling pass, 25 to 35 fully retouched architectural images at publication grade, 4 to 6 week edit window for proper craft, submission-ready file delivery (high-res TIFF plus web JPG, awards-spec). Credited publicly under Matt Anthony Photography. Spaces Uncovered receives a 10 percent referral fee per project ($350 single, $950 on the 3-pack).
+      </div>
+      <div class="bundle-foot">
+        <div class="bundle-foot-item"><strong>Per project</strong><span>$3,500</span></div>
+        <div class="bundle-foot-item"><strong>3-pack pre-paid (annual block)</strong><span>$9,500</span></div>
+        <div class="bundle-foot-item"><strong>Your referral fee</strong><span>10%</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREATIVE DIRECTION -->
+<section class="creative">
+  <div class="eyebrow">Section four · Creative direction</div>
+  <h2>How a shoot runs<br>without you on-site.</h2>
+  <p class="lead">You said you'd send a one-page brief per project with the story angle and talking points, and that I'd guide the client through it on the day. Here's the workflow that makes that work cleanly, plus the reference reels you sent and what I took from them.</p>
+
+  <div class="creative-grid">
+    <ol class="creative-list">
+      <li><strong>Brief lands 5 to 7 days before shoot.</strong> One page from your team, story angle plus 3 to 5 talking points and any must-have visual moments.</li>
+      <li><strong>I send a 30-min pre-shoot call invite to the project lead.</strong> Walk them through the talking points, set expectations, get them comfortable.</li>
+      <li><strong>On-site, I run the shoot.</strong> Lav-mic setup, multiple takes per talking point, broll captured around the dialogue. Client doesn't need media training, I guide cuts as we go.</li>
+      <li><strong>Selects sent within 5 to 7 business days.</strong> You review, mark cuts you want emphasized, I deliver final reel within 7 to 10 business days from selects approval.</li>
+      <li><strong>One revision round per deliverable, included.</strong> Additional rounds at $150/hr, scoped before work begins.</li>
+    </ol>
+
+    <div class="creative-refs">
+      <h5>Your reference reels</h5>
+      <p>I went through every reel you sent. The thread across them is the same: tight pacing, clean lav audio, founder-as-narrator anchoring the story, b-roll cut to breathing room rather than music drops. Landscape architecture, build process, and team culture all sit comfortably in this register.</p>
+      <p style="margin-top:14px;">My take: the Coming Soon and Project Complete cuts work best when the founder talks directly about a constraint or surprise on the project (not generic "we love what we do" energy). The Team Culture cuts read warmest when they're shot during real working moments, not staged B-roll. I'd suggest filming culture cuts during the same shoot day as Project Complete to keep continuity.</p>
+      <ul>
+        <li>Six reels reviewed and noted</li>
+        <li>Founder-narrator anchoring across all six</li>
+        <li>Mid-tempo cuts, lav audio carries the pacing</li>
+        <li>Landscape and build-process register matches the work</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SUMMARY -->
+<section class="summary" style="padding:120px 60px; max-width:none;">
+  <div style="max-width:1180px; margin:0 auto;">
+    <div class="eyebrow">Section five · Annual summary</div>
+    <h2>The whole picture,<br>on one page.</h2>
+
+    <table class="summary-table">
+      <thead>
+        <tr>
+          <th>Service</th>
+          <th>Quarterly</th>
+          <th>Annual</th>
+          <th>Extra Shoot</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="divider"><td colspan="4">Content tiers · Partner rate (10% off standard)</td></tr>
+        <tr><td>Tier One · Photo + reel from stills</td><td>$1,710</td><td>$6,840</td><td>$1,710</td></tr>
+        <tr><td>Tier Two · Photo + video hybrid</td><td>$5,310</td><td>$21,240</td><td>$2,655</td></tr>
+        <tr><td>Tier Three · Full content engine + cinematic</td><td>$10,665</td><td>$42,660</td><td>$2,655</td></tr>
+        <tr class="divider"><td colspan="4">Portfolio · Awards · Standard rate · Matt Brand · 10% referral fee to Spaces Uncovered</td></tr>
+        <tr><td>Portfolio · Awards full-day shoot, per project</td><td>—</td><td>$3,500</td><td>—</td></tr>
+        <tr><td>Portfolio · Awards 3-pack pre-paid (annual block, saves $1,000)</td><td>—</td><td>$9,500</td><td>—</td></tr>
+      </tbody>
+    </table>
+
+    <div class="summary-note">
+      <strong style="font-family:'Josefin Sans',sans-serif; font-size:0.65rem; letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); display:block; margin-bottom:8px;">Notes on pricing</strong>
+      All prices CAD, exclusive of GST. Six-month minimum on retainer tiers, then month-to-month with 30 days notice. Travel beyond Sea-to-Sky and Lower Mainland billed separately at $0.70 per kilometre, plus accommodation where required.
+    </div>
+  </div>
+</section>
+
+<!-- TERMS -->
+<section class="terms">
+  <div class="eyebrow">Section six · Working terms</div>
+  <h2>How the partnership runs.</h2>
+  <div class="terms-grid">
+    <div class="terms-item">
+      <h5>Credits · Content tiers</h5>
+      <p>Spaces Uncovered handles client-facing social posting on the client's own channels. I retain the right to display all content work on my website, journal, and case studies, with project name credited. No exclusivity restrictions on my own portfolio use.</p>
+    </div>
+    <div class="terms-item">
+      <h5>Credits · Portfolio + Awards</h5>
+      <p>Awards and portfolio shoots are credited publicly under Matt Anthony Photography across awards entries, magazine pitches, and my website. Spaces Uncovered receives a 10 percent referral fee on every awards project brought to me.</p>
+    </div>
+    <div class="terms-item">
+      <h5>Image rights</h5>
+      <p>I retain copyright across all work. The agency receives unlimited usage license for client deliverables on content shoots. Sub-licensing to publications, awards juries, or third parties routes through me for approval.</p>
+    </div>
+    <div class="terms-item">
+      <h5>Payment</h5>
+      <p>Fifty percent on shoot booking, fifty percent on delivery. Net-15 from invoice date. Quarterly retainers billed at the start of each quarter. Awards referral fees paid out within 14 days of project final delivery.</p>
+    </div>
+    <div class="terms-item">
+      <h5>Turnaround</h5>
+      <p>Photo delivery 5 to 7 business days. Reel edits 7 to 10 business days. Cinematic film 3 to 4 weeks. Portfolio and Awards shoots 4 to 6 weeks for full retouch.</p>
+    </div>
+    <div class="terms-item">
+      <h5>Revisions</h5>
+      <p>One round included per deliverable. Additional rounds at $150 per hour, scoped before work begins.</p>
+    </div>
+    <div class="terms-item">
+      <h5>Cancellation</h5>
+      <p>Forty-eight hours notice on shoot reschedules. Inside that window, fifty percent of the shoot fee applies. Weather reschedules are no charge.</p>
+    </div>
+    <div class="terms-item">
+      <h5>Term</h5>
+      <p>Six-month minimum on retainer tiers, then month-to-month with thirty days notice. Either side can exit with 30 days notice after the minimum.</p>
+    </div>
+    <div class="terms-item">
+      <h5>Production team</h5>
+      <p>Capture is delivered by me directly or by a vetted second shooter on my production team, depending on tier and availability. I own edit, QA, and final delivery on every project. Tier 1 photo sessions are second-shooter eligible. Tier 2 and 3 video work runs through me unless otherwise agreed. Portfolio and Awards shoots are always delivered by me personally.</p>
+    </div>
+    <div class="terms-item">
+      <h5>Creative direction</h5>
+      <p>Per-project briefs from your side (one-pager with story angle and talking points) drive each shoot. I run the on-site capture and guide the talent through the cuts you've outlined, no agency presence required.</p>
+    </div>
+    <div class="terms-item">
+      <h5>Right of refusal</h5>
+      <p>If a Spaces Uncovered booking conflicts with a direct-client commitment in my calendar, I reserve the right to propose alternate dates. No breach if direct work is already scheduled for the same window.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section class="close" style="padding:140px 60px; max-width:none;">
+  <div class="close-eyebrow">Next step</div>
+  <h2>Pick a tier, send the first brief,<br>and we get to work.</h2>
+  <p>If anything in here needs reshaping, scope, sequencing, or rate-card adjustments, just reply. Happy to jump on a call too. Contracts ready within 48 hours of your go-ahead.</p>
+  <div class="close-meta">
+    <div class="close-meta-item"><strong>Direct</strong>info@mattanthonyphoto.com<br>604.765.9270</div>
+    <div class="close-meta-item"><strong>Studio</strong>Squamish, British Columbia<br>mattanthonyphoto.com</div>
+    <div class="close-meta-item"><strong>Quote valid</strong>30 days from issue<br>April 2026</div>
+  </div>
+  <div class="footer-mark">Prepared for Spaces Uncovered · Matt Anthony Architectural Photography</div>
+</section>
+
+</body>
+</html>
