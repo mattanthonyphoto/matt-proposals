@@ -88,8 +88,33 @@
 
   /* hero */
   .hero {
-    padding: 110px 0 80px;
+    padding: 160px 0 130px;
     border-bottom: 1px solid var(--rule);
+    background-image: url('https://radiuswood.com/wp-content/uploads/sites/1403/2021/04/new-slider1.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(180deg, rgba(20, 16, 13, 0.55) 0%, rgba(20, 16, 13, 0.78) 100%);
+    z-index: 1;
+  }
+  .hero-content {
+    position: relative;
+    z-index: 2;
+  }
+  .hero .eyebrow { color: var(--gold-light); }
+  .hero h1 { color: var(--paper); }
+  .hero h1 em { color: var(--gold-light); font-style: italic; }
+  .hero .sub { color: var(--paper); opacity: 0.92; }
+  .hero .secondary-link { color: var(--paper); opacity: 0.85; }
+  .hero .secondary-link:hover { color: var(--gold-light); opacity: 1; }
+  .hero .secondary-link::after { color: var(--gold-light); }
+  @media (max-width: 720px) {
+    .hero { padding: 100px 0 80px; }
   }
   .eyebrow {
     font-family: 'Josefin Sans', sans-serif;
@@ -386,7 +411,7 @@
   }
   .deliverables-row {
     display: grid;
-    grid-template-columns: 1fr 100px 100px;
+    grid-template-columns: 1fr 140px;
     gap: 16px;
     padding: 12px 18px;
     border-bottom: 1px solid var(--rule);
@@ -421,7 +446,7 @@
     color: var(--paper);
   }
   @media (max-width: 720px) {
-    .deliverables-row { grid-template-columns: 1fr 70px 70px; gap: 8px; padding: 10px 14px; font-size: 12px; }
+    .deliverables-row { grid-template-columns: 1fr 100px; gap: 10px; padding: 10px 14px; font-size: 12px; }
   }
 
   .pill-source {
@@ -1076,80 +1101,70 @@
 </nav>
 
 <header class="hero" id="approve">
-  <div class="narrow">
-    <div class="eyebrow">90-Day Roadmap</div>
-    <h1>Radius × Matt Anthony.<br/><em>May 1 → July 31.</em></h1>
-    <p class="sub">Built directly against your signed Social &amp; Content agreement. Read through, then sign off at the bottom.</p>
+  <div class="hero-overlay"></div>
+  <div class="narrow hero-content">
+    <div class="eyebrow">Radius Architectural Millwork</div>
+    <h1>Three-month <em>roadmap.</em></h1>
+    <p class="sub">Read through, then sign off at the bottom.</p>
     <a href="#deliverables" class="secondary-link">Start with the deliverables</a>
   </div>
 </header>
 
 <section id="deliverables">
   <div class="wrap">
-    <div class="section-eyebrow">Aligned to Contract</div>
+    <div class="section-eyebrow">What you get every month</div>
     <h2>Monthly deliverables</h2>
-    <p class="section-lead">This roadmap is built directly against what we signed in April. Every number below matches Section 3.4 of the Social &amp; Content agreement.</p>
+    <p class="section-lead">A clean breakdown of what lands in your Dropbox and what publishes across Instagram and LinkedIn each month.</p>
 
     <div class="deliverables-table">
       <div class="deliverables-row head">
         <div>Deliverable</div>
-        <div class="qcol">Contract</div>
-        <div class="pcol">Plan</div>
+        <div class="qcol">Monthly</div>
       </div>
       <div class="deliverables-row">
         <div>Shoot day</div>
         <div class="qcol">1 (2–3 hrs)</div>
-        <div class="pcol">1</div>
       </div>
       <div class="deliverables-row">
         <div>Edited editorial stills <em>(within 7 business days)</em></div>
         <div class="qcol">15–20</div>
-        <div class="pcol">15–20</div>
       </div>
       <div class="deliverables-row">
         <div>B-roll / motion <em>(within 10 business days)</em></div>
         <div class="qcol">30–60 sec</div>
-        <div class="pcol">30–60 sec</div>
       </div>
       <div class="deliverables-row">
         <div>Instagram carousels</div>
         <div class="qcol">3–4</div>
-        <div class="pcol">4</div>
       </div>
       <div class="deliverables-row">
         <div>Instagram single posts</div>
         <div class="qcol">6–8</div>
-        <div class="pcol">6</div>
       </div>
       <div class="deliverables-row">
         <div>Reels / short-form video</div>
-        <div class="qcol">1–2</div>
-        <div class="pcol">1</div>
+        <div class="qcol">1</div>
       </div>
       <div class="deliverables-row">
         <div>LinkedIn posts</div>
         <div class="qcol">3–4</div>
-        <div class="pcol">4</div>
       </div>
       <div class="deliverables-row">
         <div>Story frames</div>
         <div class="qcol">5–8</div>
-        <div class="pcol">5–8</div>
       </div>
       <div class="deliverables-row total">
-        <div>Total published posts / month</div>
+        <div>Total published posts</div>
         <div class="qcol">14–16</div>
-        <div class="pcol">15</div>
       </div>
       <div class="deliverables-row">
         <div>Monthly strategy call</div>
         <div class="qcol">1 (20 min)</div>
-        <div class="pcol">1</div>
       </div>
     </div>
 
     <div class="pill-source">
-      <strong>Where the content comes from:</strong> per the contract, posts are sourced from four pools — (1) the monthly shoot day, (2) previous months' deliverables, (3) existing Radius archive imagery that meets quality standards, (4) archive remixes (carousels, before/after, material spotlights). The roadmap leans on pool 1 in May, then layers in pools 2–4 as the library grows.
+      <strong>Where the content comes from:</strong> four pools — (1) the monthly shoot day, (2) previous months' deliverables, (3) existing Radius archive imagery that meets quality standards, (4) archive remixes (carousels, before/after, material spotlights). May leans on pool 1; pools 2–4 layer in as the library grows.
     </div>
 
     <div style="margin-top: 40px;">
@@ -1162,7 +1177,7 @@
         <div class="rhythm-row"><div class="d">Ad hoc</div><div class="desc">Stories <em>(5–8/month)</em></div><div class="time">—</div></div>
       </div>
 
-      <h3 style="margin: 32px 0 12px;">Pillar mix <em style="font-weight: 400; color: var(--stone); font-size: 13px;">(per Section 3.2)</em></h3>
+      <h3 style="margin: 32px 0 12px;">Pillar mix</h3>
       <p style="font-size: 14px; color: var(--stone); margin: 0;">
         <strong style="color: var(--ink);">The Craft</strong> 30% · <strong style="color: var(--ink);">The Finished</strong> 25% · <strong style="color: var(--ink);">The Team</strong> 20% · <strong style="color: var(--ink);">The Shop</strong> 15% · <strong style="color: var(--ink);">The Install</strong> 10%
       </p>
@@ -1174,7 +1189,7 @@
   <div class="wrap">
     <div class="section-eyebrow">Three Shoots</div>
     <h2>The shoot days</h2>
-    <p class="section-lead">One half-day each month. Per Section 3.1 of your contract, you elect each shoot month-by-month from four types: <strong>shop capture</strong>, <strong>install capture</strong>, <strong>completion capture</strong>, or a <strong>people-focused day</strong>. The recommendations below are starting points — we lock the type on the prior month's strategy call.</p>
+    <p class="section-lead">One half-day each month. You elect each shoot month-by-month from four types: <strong>shop capture</strong>, <strong>install capture</strong>, <strong>completion capture</strong>, or a <strong>people-focused day</strong>. The recommendations below are starting points — we lock the type on the prior month's strategy call.</p>
 
     <div class="shoots-grid">
       <div class="shoot-tile">
@@ -1193,7 +1208,7 @@
         <div class="shoot-num">Shoot 03 · July · Recommended</div>
         <h3>People-focused day</h3>
         <div class="when">Week of Jul 13 – 17</div>
-        <p>Per Section 3.1 — founder and team profiles, behind-the-scenes at the bench, LinkedIn-first content. Rick portraits with live audio, journeyman portraits, the rhythm of a working day. This is the shoot that powers the founder voice arc and the Q3 quarter-wrap.</p>
+        <p>Founder and team profiles, behind-the-scenes at the bench, LinkedIn-first content. Rick portraits with live audio, journeyman portraits, the rhythm of a working day. This is the shoot that powers the founder voice arc and the Q3 quarter-wrap.</p>
       </div>
     </div>
   </div>
@@ -1261,7 +1276,7 @@
     <p class="section-lead">The slot structure (which format goes out which day) and the source pool that feeds each week. Specific themes and captions get drafted from actual shoot deliverables on each month's strategy call — not invented in advance.</p>
 
     <div class="calendar-disclaimer">
-      <strong>How themes get made:</strong> the contract guarantees the slot structure and totals. Themes come from what we actually capture. Stills land 7 business days after each shoot, reels at 10. That means Week 1 (the shoot week) publishes from archive + Rick voice, while Weeks 2–4 publish from fresh deliverables. Each month's strategy call locks the themes ahead of publish.
+      <strong>How themes get made:</strong> themes come from what we actually capture. Stills land 7 business days after each shoot, reels at 10. That means Week 1 (the shoot week) publishes from archive + Rick voice, while Weeks 2–4 publish from fresh deliverables. Each month's strategy call locks the themes ahead of publish.
     </div>
 
     <div class="month-tabs">
@@ -1431,7 +1446,7 @@
           <div class="week-line"><div class="lbl">Mon · Carousel</div><div class="val">From Shoot 02 leftovers — completion frames.</div></div>
           <div class="week-line"><div class="lbl">Tue · LinkedIn</div><div class="val">Founder voice — handoff into the people-focused arc.</div></div>
           <div class="week-line"><div class="lbl">Wed · Single</div><div class="val">From Shoot 02 leftovers.</div></div>
-          <div class="week-line"><div class="lbl">Fri · Single</div><div class="val">Archive remix (Section 3.2 pool 4).</div></div>
+          <div class="week-line"><div class="lbl">Fri · Single</div><div class="val">Archive remix.</div></div>
           <div class="week-line"><div class="lbl">Stories</div><div class="val">Shoot 03 prep.</div></div>
         </div></div>
       </div>
