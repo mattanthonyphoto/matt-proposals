@@ -414,148 +414,6 @@
   }
   .week-source strong { color: var(--stone); margin-right: 8px; font-weight: 400; }
 
-  /* org chart calendar */
-  .org-chart {
-    margin: 8px 0 0;
-  }
-  .org-root {
-    background: var(--ink);
-    color: var(--paper);
-    padding: 22px 28px;
-    border-radius: 4px;
-    text-align: center;
-    max-width: 380px;
-    margin: 0 auto;
-    position: relative;
-  }
-  .org-root .lbl {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 10px;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: var(--gold-light);
-    margin-bottom: 8px;
-  }
-  .org-root .meta {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 18px;
-    font-weight: 500;
-  }
-  .org-root::after {
-    content: '';
-    position: absolute;
-    bottom: -32px;
-    left: 50%;
-    width: 1px;
-    height: 32px;
-    background: var(--rule);
-  }
-
-  .org-cols {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 28px;
-    margin-top: 32px;
-    position: relative;
-  }
-  .org-cols::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: calc(16.67% - 14px);
-    right: calc(16.67% - 14px);
-    height: 1px;
-    background: var(--rule);
-  }
-  @media (max-width: 860px) {
-    .org-cols { grid-template-columns: 1fr; gap: 36px; }
-    .org-cols::before { display: none; }
-  }
-
-  .org-col {
-    position: relative;
-  }
-  .org-col::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 50%;
-    width: 1px;
-    height: 18px;
-    background: var(--rule);
-  }
-  @media (max-width: 860px) { .org-col::before { display: none; } }
-
-  .org-month {
-    background: var(--white);
-    border: 1px solid var(--rule);
-    border-top: 3px solid var(--gold);
-    border-radius: 4px;
-    padding: 18px 20px;
-    margin-top: 18px;
-    position: relative;
-    text-align: center;
-  }
-  .org-month .num {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 9px;
-    letter-spacing: 0.24em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 6px;
-  }
-  .org-month .name {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 22px;
-    font-weight: 500;
-    margin-bottom: 6px;
-  }
-  .org-month .shoot {
-    font-size: 11px;
-    color: var(--stone);
-    line-height: 1.4;
-  }
-  .org-month .shoot strong { color: var(--ink); }
-  .org-month::after {
-    content: '';
-    position: absolute;
-    bottom: -22px;
-    left: 50%;
-    width: 1px;
-    height: 22px;
-    background: var(--rule);
-  }
-  @media (max-width: 860px) { .org-month::after { display: none; } }
-
-  .org-weeks {
-    margin-top: 22px;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-  .org-weeks .week-card { margin-bottom: 0; }
-  .org-weeks .week-head {
-    padding: 14px 16px;
-  }
-  .org-weeks .week-num {
-    width: 60px;
-    font-size: 9px;
-  }
-  .org-weeks .week-title {
-    font-size: 14px;
-    line-height: 1.3;
-  }
-  .org-weeks .week-dates {
-    font-size: 9px;
-    margin-right: 10px;
-  }
-  .org-weeks .shoot-badge {
-    font-size: 8px;
-    padding: 3px 7px;
-    margin-right: 8px;
-  }
-  .org-weeks .week-card.open .week-body { max-height: 1200px; }
-
   .deliverables-table {
     background: var(--white);
     border: 1px solid var(--rule);
@@ -1433,20 +1291,14 @@
       <strong>How themes get made:</strong> themes come from what we actually capture. Stills land 7 business days after each shoot, reels at 10. That means Week 1 (the shoot week) publishes from archive + Rick voice, while Weeks 2–4 publish from fresh deliverables. Each month's strategy call locks the themes ahead of publish.
     </div>
 
-    <div class="org-chart">
-      <div class="org-root">
-        <div class="lbl">The 90 days</div>
-        <div class="meta">3 shoots · 12 weeks · ~45 posts</div>
-      </div>
+    <div class="month-tabs">
+      <button class="month-tab active" data-month="may">May<span class="count">Wks 1–4</span></button>
+      <button class="month-tab" data-month="jun">June<span class="count">Wks 5–8</span></button>
+      <button class="month-tab" data-month="jul">July<span class="count">Wks 9–12</span></button>
+    </div>
 
-      <div class="org-cols">
-        <div class="org-col">
-          <div class="org-month">
-            <div class="num">Month 01</div>
-            <div class="name">May</div>
-            <div class="shoot"><strong>Shoot 01</strong> · Shop capture</div>
-          </div>
-          <div class="org-weeks">
+    <div class="month-panel active" data-month="may">
+      <div class="month-totals">15 posts · 1 reel · 4 carousels · 6 singles · 4 LinkedIn · 5–8 stories</div>
 
       <div class="week-card has-shoot">
         <div class="week-head">
@@ -1516,16 +1368,10 @@
           <div class="week-line"><div class="lbl">Stories</div><div class="val">Shop frames + month-end wrap.</div></div>
         </div></div>
       </div>
-          </div>
-        </div>
+    </div>
 
-        <div class="org-col">
-          <div class="org-month">
-            <div class="num">Month 02</div>
-            <div class="name">June</div>
-            <div class="shoot"><strong>Shoot 02</strong> · Install or completion</div>
-          </div>
-          <div class="org-weeks">
+    <div class="month-panel" data-month="jun">
+      <div class="month-totals">15 posts · 1 reel · 4 carousels · 6 singles · 4 LinkedIn · 5–8 stories</div>
 
       <div class="week-card">
         <div class="week-head">
@@ -1595,16 +1441,10 @@
           <div class="week-line"><div class="lbl">Stories</div><div class="val">Reel teasers + shop / site polls.</div></div>
         </div></div>
       </div>
-          </div>
-        </div>
+    </div>
 
-        <div class="org-col">
-          <div class="org-month">
-            <div class="num">Month 03</div>
-            <div class="name">July</div>
-            <div class="shoot"><strong>Shoot 03</strong> · People-focused day</div>
-          </div>
-          <div class="org-weeks">
+    <div class="month-panel" data-month="jul">
+      <div class="month-totals">15 posts · 1 reel · 4 carousels · 6 singles · 4 LinkedIn · 5–8 stories</div>
 
       <div class="week-card">
         <div class="week-head">
@@ -1673,9 +1513,6 @@
           <div class="week-line"><div class="lbl">Fri · Single</div><div class="val">Hero frame, strongest unposted across all three shoots.</div></div>
           <div class="week-line"><div class="lbl">Stories</div><div class="val">End-of-quarter wrap.</div></div>
         </div></div>
-      </div>
-          </div>
-        </div>
       </div>
     </div>
   </div>
@@ -2004,6 +1841,17 @@
   }, { threshold: 0.4 });
   pillarBars.forEach(b => pillarObs.observe(b));
 
+  // calendar tabs
+  const monthTabs = document.querySelectorAll('.month-tab');
+  const monthPanels = document.querySelectorAll('.month-panel');
+  monthTabs.forEach(t => {
+    t.addEventListener('click', () => {
+      monthTabs.forEach(o => o.classList.remove('active'));
+      monthPanels.forEach(o => o.classList.remove('active'));
+      t.classList.add('active');
+      document.querySelector('.month-panel[data-month="' + t.dataset.month + '"]').classList.add('active');
+    });
+  });
 
   // week + format card toggles
   document.querySelectorAll('.week-head, .format-head').forEach(h => {
