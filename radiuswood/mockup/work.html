@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Selected work from Radius Architectural Millwork — residential and architectural millwork projects across British Columbia.">
+<title>Work — Radius Architectural Millwork</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1A1A18;
+    --paper: #F6F4F0;
+    --paper-dim: #EEECE6;
+    --gold: #C9A96E;
+    --gold-line: rgba(201,169,110,0.3);
+    --stone: #8A8579;
+    --light-stone: #D9D5CD;
+    --char: #2A2926;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body { background: var(--paper); color: var(--ink); font-family: 'DM Sans',sans-serif; font-weight: 300; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+  ::selection { background: var(--gold); color: var(--ink); }
+
+  .eyebrow { font-family: 'Josefin Sans',sans-serif; font-size: 0.65rem; font-weight: 400; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); display: inline-flex; align-items: center; gap: 14px; }
+  .eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--gold); }
+  .eyebrow.center::before { display: none; }
+  h1, h2, h3 { font-family: 'Cormorant Garamond',serif; font-weight: 400; line-height: 1.1; letter-spacing: -0.01em; }
+  h1 em, h2 em { font-style: italic; color: var(--gold); }
+
+  /* NAV */
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 22px 56px; display: flex; justify-content: space-between; align-items: center; background: rgba(246,244,240,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--light-stone); transition: padding 0.4s ease; }
+  nav.scrolled { padding: 14px 56px; }
+  .brand { font-family: 'Cormorant Garamond',serif; font-size: 1.5rem; letter-spacing: 0.04em; color: var(--ink); text-decoration: none; }
+  .brand small { font-family: 'Josefin Sans',sans-serif; font-size: 0.55rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-left: 12px; display: inline-block; transform: translateY(-3px); }
+  .nav-links { display: flex; gap: 44px; list-style: none; }
+  .nav-links a { font-family: 'Josefin Sans',sans-serif; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ink); text-decoration: none; transition: color 0.3s ease; }
+  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
+  .nav-cta { display: inline-flex; align-items: center; gap: 10px; font-family: 'Josefin Sans',sans-serif; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); border: 1px solid var(--ink); padding: 10px 22px; text-decoration: none; transition: all 0.3s ease; }
+  .nav-cta:hover { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+
+  /* HERO */
+  .hero { padding: 200px 56px 110px; background: var(--paper); border-bottom: 1px solid var(--light-stone); }
+  .hero-inner { max-width: 1240px; margin: 0 auto; }
+  .hero .eyebrow { margin-bottom: 28px; }
+  .hero h1 { font-size: clamp(2.8rem, 6vw, 4.6rem); margin-bottom: 32px; max-width: 920px; }
+  .hero .lead { font-size: 1.05rem; color: var(--char); max-width: 620px; line-height: 1.85; }
+
+  /* FILTERS */
+  .filters { background: var(--paper); padding: 0 56px 30px; }
+  .filter-bar { max-width: 1240px; margin: 0 auto; display: flex; gap: 12px; flex-wrap: wrap; padding-top: 30px; border-top: 1px solid var(--light-stone); }
+  .filter-chip { font-family: 'Josefin Sans',sans-serif; font-size: 0.62rem; letter-spacing: 0.22em; text-transform: uppercase; padding: 9px 18px; border: 1px solid var(--light-stone); color: var(--stone); background: transparent; cursor: pointer; transition: all 0.3s ease; }
+  .filter-chip:hover { border-color: var(--ink); color: var(--ink); }
+  .filter-chip.active { background: var(--ink); border-color: var(--ink); color: var(--paper); }
+
+  /* GRID */
+  section.work { background: var(--paper); padding: 60px 56px 130px; }
+  .work-inner { max-width: 1240px; margin: 0 auto; }
+  .work-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 30px; }
+  .pcard { position: relative; overflow: hidden; background: var(--ink); cursor: pointer; transition: transform 0.5s cubic-bezier(0.16,1,0.3,1); aspect-ratio: 4/5; display: block; text-decoration: none; }
+  .pcard:hover { transform: translateY(-4px); }
+  .pcard .img { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 0.7s cubic-bezier(0.16,1,0.3,1); }
+  .pcard:hover .img { transform: scale(1.04); }
+  .pcard .img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, transparent 40%, rgba(26,26,24,0.88)); }
+  .pcard .info { position: absolute; bottom: 0; left: 0; right: 0; padding: 32px 30px 30px; color: var(--paper); z-index: 1; }
+  .pcard .meta { font-family: 'Josefin Sans',sans-serif; font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+  .pcard h3 { font-size: 1.5rem; line-height: 1.15; color: var(--paper); margin-bottom: 10px; }
+  .pcard .desc { font-size: 0.85rem; color: rgba(246,244,240,0.78); line-height: 1.65; }
+  .pcard .credits { margin-top: 14px; font-family: 'Josefin Sans',sans-serif; font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: rgba(246,244,240,0.5); }
+
+  /* CTA */
+  .cta { background: var(--paper-dim); padding: 130px 56px; text-align: center; }
+  .cta .eyebrow { margin: 0 auto 30px; }
+  .cta h2 { font-size: clamp(2.2rem, 4.5vw, 3.2rem); margin-bottom: 30px; max-width: 760px; margin-left: auto; margin-right: auto; }
+  .cta p { color: var(--char); max-width: 540px; margin: 0 auto 50px; }
+  .btn { display: inline-flex; align-items: center; gap: 12px; font-family: 'Josefin Sans',sans-serif; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; padding: 14px 28px; text-decoration: none; transition: all 0.4s ease; border: 1px solid; }
+  .btn-primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn-primary:hover { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+  .btn-arrow { transition: transform 0.3s ease; }
+  .btn:hover .btn-arrow { transform: translateX(4px); }
+
+  /* FOOTER */
+  footer { background: var(--char); color: rgba(246,244,240,0.7); padding: 80px 56px 36px; }
+  .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 60px; max-width: 1240px; margin: 0 auto; }
+  .footer-brand h3 { font-family: 'Cormorant Garamond',serif; font-size: 1.6rem; color: var(--paper); margin-bottom: 18px; }
+  .footer-brand p { font-size: 0.85rem; line-height: 1.8; max-width: 280px; }
+  .footer-col h5 { font-family: 'Josefin Sans',sans-serif; font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 22px; font-weight: 400; }
+  .footer-col a, .footer-col li { display: block; color: rgba(246,244,240,0.65); text-decoration: none; font-size: 0.85rem; line-height: 2.1; list-style: none; transition: color 0.3s ease; }
+  .footer-col a:hover { color: var(--gold); }
+  .footer-bottom { margin: 70px auto 0; padding-top: 30px; border-top: 1px solid rgba(246,244,240,0.12); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; max-width: 1240px; font-family: 'Josefin Sans',sans-serif; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(246,244,240,0.4); }
+
+  @media (max-width: 980px) {
+    nav { padding: 18px 26px; }
+    .nav-links { display: none; }
+    .hero, .filters, section.work, .cta { padding-left: 26px; padding-right: 26px; }
+    .hero { padding-top: 160px; padding-bottom: 60px; }
+    .work-grid { grid-template-columns: 1fr; gap: 20px; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+  }
+  @media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr; } }
+</style>
+</head>
+<body>
+
+<nav id="nav">
+  <a href="index.html" class="brand">Radius<small>Architectural Millwork</small></a>
+  <ul class="nav-links">
+    <li><a href="work.html" class="active">Work</a></li>
+    <li><a href="index.html#process">Process</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+  </ul>
+  <a href="index.html#contact" class="nav-cta">Talk to Rick →</a>
+</nav>
+
+<header class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">Selected Work</span>
+    <h1>Twenty-five years <em>of residential and architectural millwork</em> across British Columbia.</h1>
+    <p class="lead">
+      Three projects on the bench right now. A handful from the archive going back to the AWMAC
+      Gold Rosebery Estate in 2011. Each one named by location, species, and the technique that
+      asked the most of the shop.
+    </p>
+  </div>
+</header>
+
+<section class="filters">
+  <div class="filter-bar">
+    <button class="filter-chip active">All</button>
+    <button class="filter-chip">Residential</button>
+    <button class="filter-chip">Estate</button>
+    <button class="filter-chip">Wine + Bar</button>
+    <button class="filter-chip">In Progress</button>
+    <button class="filter-chip">Awarded</button>
+  </div>
+</section>
+
+<section class="work">
+  <div class="work-inner">
+    <div class="work-grid">
+
+      <a href="cigar-lounge.html" class="pcard">
+        <div class="img" style="background-image: url('photos/_DSC7460.jpg');"></div>
+        <div class="info">
+          <div class="meta">In Progress · West Vancouver · 2026</div>
+          <h3>Cigar Lounge</h3>
+          <p class="desc">Slip-matched Eastern maple cladding and a coffee table with ebonized pear-wood inlay.</p>
+          <div class="credits">Architect · Forthcoming</div>
+        </div>
+      </a>
+
+      <a href="#" class="pcard">
+        <div class="img" style="background-image: url('photos/_DSC7400.jpg');"></div>
+        <div class="info">
+          <div class="meta">In Progress · Whistler · 2026</div>
+          <h3>Old Gravel Road</h3>
+          <p class="desc">Eight thousand square feet. Sixty solid Eastern maple dovetail drawer boxes. Furniture-grade interiors.</p>
+          <div class="credits">Builder · Forthcoming</div>
+        </div>
+      </a>
+
+      <a href="#" class="pcard">
+        <div class="img" style="background-image: url('photos/_DSC7540.jpg');"></div>
+        <div class="info">
+          <div class="meta">In Progress · Whistler · 2026</div>
+          <h3>Smoked Oak Slat Wall</h3>
+          <p class="desc">Three thousand slats of ammonia-cured European oak. Custom finger-pocket pulls, no visible handles.</p>
+          <div class="credits">Architect · Forthcoming</div>
+        </div>
+      </a>
+
+      <a href="#" class="pcard">
+        <div class="img" style="background-image: url('photos/_DSC7300.jpg');"></div>
+        <div class="info">
+          <div class="meta">In Progress · Whistler · 2026</div>
+          <h3>Rift White Oak Closet</h3>
+          <p class="desc">Three doors, slip-matched, sequence-matched. All touch-latch, no visible hardware.</p>
+          <div class="credits">Architect · Forthcoming</div>
+        </div>
+      </a>
+
+      <a href="#" class="pcard">
+        <div class="img" style="background-image: url('photos/_DSC7440.jpg');"></div>
+        <div class="info">
+          <div class="meta">Completed · Vancouver · 2011</div>
+          <h3>Rosebery Estate</h3>
+          <p class="desc">$1.5M millwork scope. 18 months. Laminated curves, coffered ceilings, alder-primary with walnut furniture.</p>
+          <div class="credits">Architect · Lamoureux Architects · AWMAC Gold</div>
+        </div>
+      </a>
+
+      <a href="#" class="pcard">
+        <div class="img" style="background-image: url('photos/_DSC7720.jpg');"></div>
+        <div class="info">
+          <div class="meta">Completed · Vancouver Area</div>
+          <h3>Walnut Estate</h3>
+          <p class="desc">Solid stock walnut throughout. Slip-matched panel runs across multiple rooms. Hand-finished case goods.</p>
+          <div class="credits">Architect · Forthcoming</div>
+        </div>
+      </a>
+
+      <a href="#" class="pcard">
+        <div class="img" style="background-image: url('photos/_DSC7270.jpg');"></div>
+        <div class="info">
+          <div class="meta">Completed · Lion's Bay</div>
+          <h3>Lion's Bay Contemporary</h3>
+          <p class="desc">Walnut estate work. Architectural millwork integrated with contemporary residential design.</p>
+          <div class="credits">Architect · Forthcoming</div>
+        </div>
+      </a>
+
+      <a href="#" class="pcard">
+        <div class="img" style="background-image: url('photos/_DSC7350.jpg');"></div>
+        <div class="info">
+          <div class="meta">Completed · Vancouver</div>
+          <h3>Waterfront Anigre Penthouse</h3>
+          <p class="desc">Anigre veneer-laid throughout. A rare African species used in restrained, refined application.</p>
+          <div class="credits">Architect · Forthcoming</div>
+        </div>
+      </a>
+
+      <a href="#" class="pcard">
+        <div class="img" style="background-image: url('photos/_DSC7430.jpg');"></div>
+        <div class="info">
+          <div class="meta">Completed · West Vancouver</div>
+          <h3>West Van Modern Luxury Estate</h3>
+          <p class="desc">Full-house architectural millwork. Touch-latch hardware, slip-matched veneer panels, integrated cabinetry.</p>
+          <div class="credits">Architect · Forthcoming</div>
+        </div>
+      </a>
+
+    </div>
+  </div>
+</section>
+
+<section class="cta">
+  <span class="eyebrow center">Get In Touch</span>
+  <h2>Working on a project that asks something of the bench?</h2>
+  <p>Send drawings, specs, or a phone number. Rick will be the one calling back.</p>
+  <a href="index.html#contact" class="btn btn-primary">Talk to Rick <span class="btn-arrow">→</span></a>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>Radius Architectural Millwork</h3>
+      <p>Custom architectural millwork, cabinetry, and furniture built in Burnaby for residential and estate work across British Columbia.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Visit</h5>
+      <ul>
+        <li>8575 Government Street</li>
+        <li>Burnaby, BC V3N 4V1</li>
+        <li>Mon–Fri · 6:30am–2:30pm</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="tel:6044441175">(604) 444-1175</a></li>
+        <li><a href="mailto:info@radiuswood.com">info@radiuswood.com</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Follow</h5>
+      <ul>
+        <li><a href="#">Instagram · @radiusmillwork</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Houzz</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Radius Architectural Millwork Ltd</span>
+    <span>Site by Matt Anthony Photography</span>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+  document.querySelectorAll('.filter-chip').forEach(b => {
+    b.addEventListener('click', () => {
+      document.querySelectorAll('.filter-chip').forEach(x => x.classList.remove('active'));
+      b.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>

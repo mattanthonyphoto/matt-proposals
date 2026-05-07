@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Cigar lounge in slip-matched Eastern maple with ebonized pear-wood inlay. Custom architectural millwork by Radius Architectural Millwork.">
+<title>Cigar Lounge — Slip-Matched Eastern Maple — Radius Architectural Millwork</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --ink: #1A1A18;
+    --paper: #F6F4F0;
+    --paper-dim: #EEECE6;
+    --paper-deep: #E5E1D8;
+    --gold: #C9A96E;
+    --gold-soft: rgba(201,169,110,0.15);
+    --gold-line: rgba(201,169,110,0.3);
+    --stone: #8A8579;
+    --light-stone: #D9D5CD;
+    --char: #2A2926;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+
+  body {
+    background: var(--paper);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.75;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+  ::selection { background: var(--gold); color: var(--ink); }
+
+  .eyebrow {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 400;
+    letter-spacing: 0.4em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .eyebrow::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--gold);
+  }
+  .eyebrow.center::before { display: none; }
+  .eyebrow.no-line::before { display: none; }
+
+  h1, h2, h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+  }
+  h1 em, h2 em { font-style: italic; color: var(--gold); }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    padding: 22px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(26,26,24,0);
+    backdrop-filter: blur(0px);
+    transition: all 0.4s ease;
+    border-bottom: 1px solid transparent;
+  }
+  nav.scrolled {
+    background: rgba(246,244,240,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom-color: var(--light-stone);
+    padding: 14px 56px;
+  }
+  .brand {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.5rem;
+    letter-spacing: 0.04em;
+    color: var(--paper);
+    text-decoration: none;
+    transition: color 0.4s ease;
+  }
+  .brand small {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.55rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-left: 12px;
+    display: inline-block;
+    transform: translateY(-3px);
+  }
+  nav.scrolled .brand { color: var(--ink); }
+  .nav-links { display: flex; gap: 44px; list-style: none; }
+  .nav-links a {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.7rem;
+    font-weight: 400;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--paper);
+    text-decoration: none;
+    transition: color 0.3s ease;
+  }
+  nav.scrolled .nav-links a { color: var(--ink); }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--paper);
+    border: 1px solid rgba(246,244,240,0.4);
+    padding: 10px 22px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+  }
+  nav.scrolled .nav-cta { color: var(--ink); border-color: var(--ink); }
+
+  /* HERO */
+  .hero {
+    position: relative;
+    min-height: 92vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 56px 80px;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background-image: url('photos/_DSC7460.jpg');
+    background-size: cover;
+    background-position: center;
+    filter: brightness(0.65) saturate(0.9);
+  }
+  .hero-bg::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(26,26,24,0.5) 0%, rgba(26,26,24,0.25) 40%, rgba(26,26,24,0.85) 100%);
+  }
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    max-width: 980px;
+    color: var(--paper);
+  }
+  .hero .breadcrumb {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: rgba(246,244,240,0.55);
+    margin-bottom: 36px;
+  }
+  .hero .breadcrumb a {
+    color: rgba(246,244,240,0.55);
+    text-decoration: none;
+  }
+  .hero .breadcrumb a:hover { color: var(--gold); }
+  .hero .breadcrumb .sep { margin: 0 12px; color: var(--gold); }
+
+  .hero h1 {
+    font-size: clamp(2.6rem, 6vw, 4.6rem);
+    margin-bottom: 24px;
+    text-shadow: 0 2px 30px rgba(0,0,0,0.35);
+  }
+  .hero-sub {
+    font-size: 1.1rem;
+    color: rgba(246,244,240,0.8);
+    max-width: 620px;
+    line-height: 1.85;
+  }
+
+  /* QUICK FACTS */
+  .facts {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 70px 56px;
+    border-bottom: 1px solid rgba(246,244,240,0.08);
+  }
+  .facts-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 50px;
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+  .fact-label {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 14px;
+  }
+  .fact-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    color: var(--paper);
+    line-height: 1.3;
+  }
+
+  /* SECTIONS */
+  section { padding: 130px 56px; }
+  .inner { max-width: 1100px; margin: 0 auto; }
+  .inner-narrow { max-width: 780px; margin: 0 auto; }
+
+  /* NARRATIVE */
+  .narrative { background: var(--paper); }
+  .narrative .eyebrow { margin-bottom: 24px; }
+  .narrative h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 50px;
+    line-height: 1.1;
+  }
+  .narrative-body p {
+    font-size: 1.05rem;
+    line-height: 2;
+    color: var(--char);
+    margin-bottom: 28px;
+  }
+  .narrative-body p.first::first-letter {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 4rem;
+    color: var(--gold);
+    float: left;
+    line-height: 0.85;
+    padding: 8px 16px 0 0;
+  }
+
+  /* SPECS BLOCK */
+  .specs {
+    background: var(--paper-dim);
+    padding: 130px 56px;
+  }
+  .specs .eyebrow { margin-bottom: 24px; }
+  .specs h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 70px;
+    max-width: 720px;
+  }
+  .specs-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1px;
+    background: var(--light-stone);
+  }
+  .spec-item {
+    background: var(--paper-dim);
+    padding: 38px 32px;
+    transition: background 0.4s ease;
+  }
+  .spec-item:hover { background: var(--paper); }
+  .spec-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 2rem;
+    color: var(--gold);
+    margin-bottom: 14px;
+    line-height: 1;
+  }
+  .spec-h {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .spec-item p {
+    font-size: 0.9rem;
+    color: var(--stone);
+    line-height: 1.7;
+  }
+
+  /* GALLERY */
+  .gallery {
+    background: var(--paper);
+    padding: 130px 56px;
+  }
+  .gallery .eyebrow { margin-bottom: 24px; }
+  .gallery h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 70px;
+    max-width: 600px;
+  }
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-rows: 100px;
+    gap: 16px;
+  }
+  .gallery-grid > div {
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    transition: transform 0.5s cubic-bezier(0.16,1,0.3,1);
+  }
+  .gallery-grid > div:hover { transform: scale(1.01); }
+  .g1 { grid-column: 1 / 8; grid-row: span 5; }
+  .g2 { grid-column: 8 / 13; grid-row: span 3; }
+  .g3 { grid-column: 8 / 13; grid-row: span 2; }
+  .g4 { grid-column: 1 / 5; grid-row: span 4; }
+  .g5 { grid-column: 5 / 9; grid-row: span 4; }
+  .g6 { grid-column: 9 / 13; grid-row: span 4; }
+  .g7 { grid-column: 1 / 7; grid-row: span 3; }
+  .g8 { grid-column: 7 / 13; grid-row: span 3; }
+
+  /* PULL QUOTE */
+  .quote-section {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 130px 56px;
+    text-align: center;
+    background-image: url('photos/_DSC7440.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    position: relative;
+  }
+  .quote-section::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(26,26,24,0.92), rgba(26,26,24,0.96));
+  }
+  .quote-section .inner-narrow { position: relative; z-index: 1; }
+  .quote-mark {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 4rem;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 24px;
+  }
+  .quote-section blockquote {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: clamp(1.6rem, 3.4vw, 2.4rem);
+    line-height: 1.4;
+    color: var(--paper);
+    margin-bottom: 32px;
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .quote-section cite {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-style: normal;
+  }
+
+  /* RELATED */
+  .related {
+    background: var(--paper-dim);
+    padding: 130px 56px;
+  }
+  .related .eyebrow { margin-bottom: 24px; }
+  .related h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
+    margin-bottom: 60px;
+  }
+  .related-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+  }
+  .related-card {
+    position: relative;
+    overflow: hidden;
+    background: var(--ink);
+    cursor: pointer;
+    aspect-ratio: 4 / 5;
+  }
+  .related-card .img {
+    position: absolute;
+    inset: 0;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .related-card:hover .img { transform: scale(1.04); }
+  .related-card .img::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, transparent 50%, rgba(26,26,24,0.85));
+  }
+  .related-card .info {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    padding: 28px 26px 26px;
+    color: var(--paper);
+  }
+  .related-card .meta {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .related-card h3 {
+    font-size: 1.4rem;
+    margin-bottom: 8px;
+    line-height: 1.2;
+  }
+  .related-card p {
+    font-size: 0.82rem;
+    color: rgba(246,244,240,0.75);
+  }
+
+  /* CTA */
+  .cta {
+    background: var(--paper);
+    padding: 130px 56px;
+    text-align: center;
+  }
+  .cta .eyebrow { margin: 0 auto 30px; }
+  .cta h2 {
+    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
+    margin-bottom: 30px;
+    max-width: 760px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .cta p { color: var(--char); max-width: 540px; margin: 0 auto 50px; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    padding: 14px 28px;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    border: 1px solid;
+  }
+  .btn-primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .btn-primary:hover { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+  .btn-arrow { transition: transform 0.3s ease; }
+  .btn:hover .btn-arrow { transform: translateX(4px); }
+
+  /* FOOTER */
+  footer { background: var(--char); color: rgba(246,244,240,0.7); padding: 80px 56px 36px; }
+  .footer-grid {
+    display: grid;
+    grid-template-columns: 1.4fr 1fr 1fr 1fr;
+    gap: 60px;
+    max-width: 1240px;
+    margin: 0 auto;
+  }
+  .footer-brand h3 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; color: var(--paper); margin-bottom: 18px; }
+  .footer-brand p { font-size: 0.85rem; line-height: 1.8; max-width: 280px; }
+  .footer-col h5 {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 22px;
+  }
+  .footer-col a, .footer-col li {
+    display: block;
+    color: rgba(246,244,240,0.65);
+    text-decoration: none;
+    font-size: 0.85rem;
+    line-height: 2.1;
+    list-style: none;
+    transition: color 0.3s ease;
+  }
+  .footer-col a:hover { color: var(--gold); }
+  .footer-bottom {
+    margin: 70px auto 0;
+    padding-top: 30px;
+    border-top: 1px solid rgba(246,244,240,0.12);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    max-width: 1240px;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 0.6rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: rgba(246,244,240,0.4);
+  }
+
+  @media (max-width: 980px) {
+    nav { padding: 18px 26px; }
+    .nav-links { display: none; }
+    .hero, section { padding-left: 26px; padding-right: 26px; }
+    .hero { padding-bottom: 60px; }
+    .gallery-grid { grid-template-columns: 1fr 1fr; grid-auto-rows: 220px; }
+    .gallery-grid > div { grid-column: auto !important; grid-row: span 1 !important; }
+    .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    section { padding-top: 80px; padding-bottom: 80px; }
+    .quote-section { background-attachment: scroll; }
+  }
+  @media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr; } }
+
+  .fade-up {
+    opacity: 0;
+    transform: translateY(28px);
+    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
+                transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .fade-up.visible { opacity: 1; transform: translateY(0); }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav id="nav">
+  <a href="index.html" class="brand">Radius<small>Architectural Millwork</small></a>
+  <ul class="nav-links">
+    <li><a href="work.html" class="active">Work</a></li>
+    <li><a href="index.html#process">Process</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="services.html">Services</a></li>
+  </ul>
+  <a href="index.html#contact" class="nav-cta">Talk to Rick →</a>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-content">
+    <div class="breadcrumb">
+      <a href="index.html#work">Work</a><span class="sep">/</span><a href="#">Residential</a><span class="sep">/</span>Cigar Lounge
+    </div>
+    <h1>Cigar Lounge in <em>slip-matched maple.</em></h1>
+    <p class="hero-sub">
+      Five hundred square feet of slip-matched Eastern maple cladding the full interior of a
+      private cigar room. Coffee table centerpiece in the same species, with an ebonized
+      pear-wood inlay and a glass top.
+    </p>
+  </div>
+</header>
+
+<!-- QUICK FACTS -->
+<section class="facts">
+  <div class="facts-grid">
+    <div>
+      <div class="fact-label">Location</div>
+      <div class="fact-value">West Vancouver</div>
+    </div>
+    <div>
+      <div class="fact-label">Year</div>
+      <div class="fact-value">2026</div>
+    </div>
+    <div>
+      <div class="fact-label">Scope</div>
+      <div class="fact-value">~600 sq ft cladding<br>+ centerpiece table</div>
+    </div>
+    <div>
+      <div class="fact-label">Primary Species</div>
+      <div class="fact-value">Eastern Maple<br>Slip-matched</div>
+    </div>
+    <div>
+      <div class="fact-label">Inlay</div>
+      <div class="fact-value">Pear, Ebonized<br>Aniline Dye</div>
+    </div>
+    <div>
+      <div class="fact-label">Photography</div>
+      <div class="fact-value">Matt Anthony<br>2026</div>
+    </div>
+  </div>
+</section>
+
+<!-- NARRATIVE -->
+<section class="narrative">
+  <div class="inner-narrow">
+    <span class="eyebrow">The Brief</span>
+    <h2>A room for a cigar collection. Five hundred square feet of slip-matched Eastern maple. One coffee table.</h2>
+
+    <div class="narrative-body">
+      <p class="first">
+        The brief was a quiet room in a home that's anything but quiet. Slip-matched Eastern
+        maple cladding the full interior. A recessed television. A coffee table at the centre.
+        Climate control underneath everything.
+      </p>
+
+      <p>
+        We started with the maple. Slip-matched panels mean the figure runs in continuous
+        sequence across the room. We milled the stock ourselves, kept the run-of-grain in
+        consecutive boards, and laid the panels up so the eye reads a single piece of timber
+        across the long wall.
+      </p>
+
+      <p>
+        The coffee table sits in the centre. Slip-matched Eastern maple top, with an
+        ebonized inlay running through its length. We didn't use real ebony. Real ebony
+        comes from Africa and we don't bring it into the country. Instead we ebonized pear
+        wood with an aniline dye, dark enough to read black, dimensionally stable, and
+        sourced without controversy.
+      </p>
+
+      <p>
+        The finish is a water-based natural-effect topcoat. Historically the trade has used
+        nitrocellulose lacquer for clear-over-light-wood work. Nitrocellulose ambers yellow
+        with age — beautiful on walnut, less so on maple. The natural-effect product holds
+        the colour of the raw wood while protecting the surface. Up to six coats, between-coat
+        sanded, consistent sheen across the room.
+      </p>
+
+      <p>
+        Pull-out drawers under the coffee table for the smoking accessories. Tectus hinges
+        on the cigar humidor. Recessed touch-latch on the door panels so nothing breaks the
+        plane of the wall.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- SPECS -->
+<section class="specs">
+  <div class="inner">
+    <span class="eyebrow">Material + Method</span>
+    <h2>Five things on the bench for this one.</h2>
+    <div class="specs-grid">
+      <div class="spec-item">
+        <div class="spec-num">01</div>
+        <div class="spec-h">Slip-Matched Eastern Maple</div>
+        <p>Run-of-grain milled in sequence so the figure flows continuously across the long wall. Panels laid up consecutively, no jumps.</p>
+      </div>
+      <div class="spec-item">
+        <div class="spec-num">02</div>
+        <div class="spec-h">Ebonized Pear-Wood Inlay</div>
+        <p>Pear ebonized with aniline dye, used in place of real ebony for ethical and supply-chain reasons. Dark, stable, beautiful on the maple.</p>
+      </div>
+      <div class="spec-item">
+        <div class="spec-num">03</div>
+        <div class="spec-h">Natural-Effect Topcoat</div>
+        <p>Water-based, six coats, between-coat sanded. No ambering of the maple. Consistent sheen on every panel face.</p>
+      </div>
+      <div class="spec-item">
+        <div class="spec-num">04</div>
+        <div class="spec-h">Recessed Television Box</div>
+        <p>Wall-paneling encapsulates the television edge. No bracket visible, no frame proud of the panel face. The TV reads as part of the wall.</p>
+      </div>
+      <div class="spec-item">
+        <div class="spec-num">05</div>
+        <div class="spec-h">Touch-Latch Hardware</div>
+        <p>Tectus hinges on cigar storage doors, recessed touch latches on the room's panel doors. No knobs. No pulls. The plane stays clean.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section class="gallery">
+  <div class="inner">
+    <span class="eyebrow">Process Documentation</span>
+    <h2>From mock-up to finishing booth.</h2>
+    <div class="gallery-grid fade-up">
+      <div class="g1" style="background-image: url('photos/_DSC7460.jpg');"></div>
+      <div class="g2" style="background-image: url('photos/_DSC7380.jpg');"></div>
+      <div class="g3" style="background-image: url('photos/_DSC7440.jpg');"></div>
+      <div class="g4" style="background-image: url('photos/_DSC7770.jpg');"></div>
+      <div class="g5" style="background-image: url('photos/_DSC7620.jpg');"></div>
+      <div class="g6" style="background-image: url('photos/_DSC7800.jpg');"></div>
+      <div class="g7" style="background-image: url('photos/_DSC7600.jpg');"></div>
+      <div class="g8" style="background-image: url('photos/_DSC7500.jpg');"></div>
+    </div>
+  </div>
+</section>
+
+<!-- PULL QUOTE -->
+<section class="quote-section">
+  <div class="inner-narrow">
+    <div class="quote-mark">"</div>
+    <blockquote>
+      You don't notice when reveals are right. You notice from forty feet when they aren't.
+      If you do everything well, then it just harmonizes and things work.
+    </blockquote>
+    <cite>— Rick Wilson · Master Joiner</cite>
+  </div>
+</section>
+
+<!-- RELATED -->
+<section class="related">
+  <div class="inner">
+    <span class="eyebrow">More Work</span>
+    <h2>Related projects on the bench.</h2>
+
+    <div class="related-grid">
+      <a class="related-card" href="#">
+        <div class="img" style="background-image: url('photos/_DSC7400.jpg');"></div>
+        <div class="info">
+          <div class="meta">In Progress · Whistler</div>
+          <h3>Old Gravel Road</h3>
+          <p>60 dovetail drawers in solid Eastern maple.</p>
+        </div>
+      </a>
+      <a class="related-card" href="#">
+        <div class="img" style="background-image: url('photos/_DSC7540.jpg');"></div>
+        <div class="info">
+          <div class="meta">In Progress · Whistler</div>
+          <h3>Smoked Oak Slat Wall</h3>
+          <p>3,000 slats of ammonia-cured European oak.</p>
+        </div>
+      </a>
+      <a class="related-card" href="#">
+        <div class="img" style="background-image: url('photos/_DSC7300.jpg');"></div>
+        <div class="info">
+          <div class="meta">In Progress · Whistler</div>
+          <h3>Rift White Oak Closet</h3>
+          <p>Slip-matched, sequence-matched, all touch-latch.</p>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <span class="eyebrow center">Get In Touch</span>
+  <h2>Working on a project that asks something of the bench?</h2>
+  <p>Send drawings, specs, or a phone number. Rick will be the one calling back.</p>
+  <a href="index.html#contact" class="btn btn-primary">Talk to Rick <span class="btn-arrow">→</span></a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <h3>Radius Architectural Millwork</h3>
+      <p>Custom architectural millwork, cabinetry, and furniture built in Burnaby for residential and estate work across British Columbia.</p>
+    </div>
+    <div class="footer-col">
+      <h5>Visit</h5>
+      <ul>
+        <li>8575 Government Street</li>
+        <li>Burnaby, BC V3N 4V1</li>
+        <li>Mon–Fri · 6:30am–2:30pm</li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Contact</h5>
+      <ul>
+        <li><a href="tel:6044441175">(604) 444-1175</a></li>
+        <li><a href="mailto:info@radiuswood.com">info@radiuswood.com</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h5>Follow</h5>
+      <ul>
+        <li><a href="#">Instagram · @radiusmillwork</a></li>
+        <li><a href="#">LinkedIn</a></li>
+        <li><a href="#">Houzz</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Radius Architectural Millwork Ltd</span>
+    <span>Site by Matt Anthony Photography</span>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 80) nav.classList.add('scrolled');
+    else nav.classList.remove('scrolled');
+  });
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('visible');
+    });
+  }, { threshold: 0.15 });
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
