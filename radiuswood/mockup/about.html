@@ -3,783 +3,281 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="The story of Radius Architectural Millwork — Rick Wilson's path from BCIT to running a 5,000 sq ft custom millwork shop in Burnaby. Twenty-five years on the bench.">
+<meta name="description" content="The story of Radius Architectural Millwork — Rick Wilson's path from BCIT to running a 5,000 sq ft custom millwork shop in Burnaby. Twenty-five years.">
 <title>About — Radius Architectural Millwork</title>
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
-
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="shared.css">
 <style>
+  /* Inline shared design tokens (no external file used) */
   :root {
+    --red: #A6252D;
+    --red-deep: #8B1F25;
+    --cream: #F5ECDD;
+    --paper: #FAF6EE;
     --ink: #1A1A18;
-    --paper: #F6F4F0;
-    --paper-dim: #EEECE6;
-    --paper-deep: #E5E1D8;
-    --gold: #C9A96E;
-    --gold-soft: rgba(201,169,110,0.15);
-    --gold-line: rgba(201,169,110,0.3);
-    --stone: #8A8579;
-    --light-stone: #D9D5CD;
-    --char: #2A2926;
+    --gray: #8A8579;
+    --gray-light: #C9C2B5;
+    --line: rgba(26,26,24,0.08);
   }
-
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { font-size: 16px; scroll-behavior: smooth; }
-
-  body {
-    background: var(--paper);
-    color: var(--ink);
-    font-family: 'DM Sans', sans-serif;
-    font-weight: 300;
-    line-height: 1.75;
-    -webkit-font-smoothing: antialiased;
-    overflow-x: hidden;
-  }
-  ::selection { background: var(--gold); color: var(--ink); }
-
-  .eyebrow {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 0.65rem;
-    font-weight: 400;
-    letter-spacing: 0.4em;
-    text-transform: uppercase;
-    color: var(--gold);
-    display: inline-flex;
-    align-items: center;
-    gap: 14px;
-  }
-  .eyebrow::before {
-    content: '';
-    width: 32px;
-    height: 1px;
-    background: var(--gold);
-  }
-  .eyebrow.center::before { display: none; }
-
-  h1, h2, h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 400;
-    line-height: 1.1;
-    letter-spacing: -0.01em;
-  }
-  h1 em, h2 em { font-style: italic; color: var(--gold); }
+  body { background: var(--paper); color: var(--ink); font-family: 'Inter', sans-serif; font-weight: 300; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; font-size: 0.95rem; }
+  ::selection { background: var(--red); color: var(--paper); }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.1; letter-spacing: -0.005em; color: var(--ink); }
 
   /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    padding: 22px 56px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(246,244,240,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--light-stone);
-    transition: padding 0.4s ease;
-  }
-  nav.scrolled { padding: 14px 56px; }
-  .brand {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
-    letter-spacing: 0.04em;
-    color: var(--ink);
-    text-decoration: none;
-  }
-  .brand small {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 0.55rem;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-left: 12px;
-    display: inline-block;
-    transform: translateY(-3px);
-  }
-  .nav-links { display: flex; gap: 44px; list-style: none; }
-  .nav-links a {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 400;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--ink);
-    text-decoration: none;
-    transition: color 0.3s ease;
-  }
-  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
-  .nav-cta {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 0.65rem;
-    font-weight: 400;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: var(--ink);
-    border: 1px solid var(--ink);
-    padding: 10px 22px;
-    text-decoration: none;
-    transition: all 0.3s ease;
-  }
-  .nav-cta:hover { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 28px 56px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; background: rgba(250,246,238,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); transition: padding 0.4s ease; }
+  nav.scrolled { padding: 18px 56px; }
+  .brand { display: flex; flex-direction: column; gap: 1px; line-height: 1; }
+  .brand-mark { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 1.6rem; letter-spacing: 0.18em; color: var(--red); }
+  nav.scrolled .brand-mark { font-size: 1.4rem; }
+  .brand-sub { font-size: 0.55rem; font-weight: 400; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gray); }
+  .nav-links { display: flex; gap: 36px; list-style: none; justify-content: center; }
+  .nav-links a { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); transition: color 0.3s ease; padding: 4px 0; }
+  .nav-links a:hover, .nav-links a.active { color: var(--red); }
+  .nav-right { display: flex; justify-content: flex-end; align-items: center; gap: 18px; }
+  .nav-phone { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); }
+  .nav-phone:hover { color: var(--red); }
 
-  /* HERO */
-  .hero-about {
-    padding: 220px 56px 120px;
-    background: var(--paper);
-    border-bottom: 1px solid var(--light-stone);
-  }
-  .hero-inner { max-width: 1240px; margin: 0 auto; }
-  .hero-grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 90px;
-    align-items: end;
-  }
-  .hero-text .eyebrow { margin-bottom: 28px; }
-  .hero-text h1 {
-    font-size: clamp(2.8rem, 6vw, 4.8rem);
-    margin-bottom: 36px;
-  }
-  .hero-text .lead {
-    font-size: 1.05rem;
-    color: var(--char);
-    max-width: 480px;
-    line-height: 1.85;
-  }
-  .hero-portrait {
-    aspect-ratio: 4 / 5;
-    background-image: url('photos/_DSC7510.jpg');
-    background-size: cover;
-    background-position: center;
-    position: relative;
-  }
-  .hero-portrait .caption {
-    position: absolute;
-    bottom: -22px;
-    left: -22px;
-    background: var(--paper);
-    padding: 14px 22px;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.22em;
-    text-transform: uppercase;
-    color: var(--gold);
-    border: 1px solid var(--gold-line);
-  }
+  /* PAGE HERO — uses slide image, smaller than home hero */
+  .page-hero { position: relative; height: 70vh; min-height: 500px; display: flex; align-items: flex-end; padding: 0 56px 80px; overflow: hidden; margin-top: 0; }
+  .page-hero-bg { position: absolute; inset: 0; background-image: url('photos/slide-2.jpg'); background-size: cover; background-position: center; }
+  .page-hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,26,24,0.4) 0%, rgba(26,26,24,0.15) 30%, rgba(26,26,24,0.7) 100%); }
+  .page-hero-content { position: relative; z-index: 1; color: var(--cream); max-width: 800px; }
+  .page-hero-label { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.36em; text-transform: uppercase; color: rgba(245,236,221,0.7); margin-bottom: 28px; }
+  .page-hero h1 { font-size: clamp(2.4rem, 5vw, 4rem); color: var(--cream); font-weight: 400; line-height: 1.05; }
 
   /* SECTIONS */
-  section { padding: 130px 56px; }
-  .inner { max-width: 1100px; margin: 0 auto; }
+  section { padding: 160px 56px; }
+  .inner { max-width: 1320px; margin: 0 auto; }
+  .inner-narrow { max-width: 780px; margin: 0 auto; }
+
+  .section-label { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.36em; text-transform: uppercase; color: var(--red); margin-bottom: 30px; display: block; }
+  h2.display { font-size: clamp(2.2rem, 4.6vw, 3.4rem); line-height: 1.05; margin-bottom: 30px; max-width: 880px; font-weight: 400; }
+  h2.display em { font-style: italic; }
 
   /* STORY */
   .story { background: var(--paper); }
-  .story .eyebrow { margin-bottom: 24px; }
-  .story-h {
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin-bottom: 60px;
-    max-width: 720px;
-    line-height: 1.1;
-  }
-  .story-body {
-    max-width: 720px;
-    font-size: 1.05rem;
-    line-height: 2;
-    color: var(--char);
-  }
-  .story-body p { margin-bottom: 26px; }
-  .story-body p.first::first-letter {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-weight: 500;
-    font-size: 4rem;
-    color: var(--gold);
-    float: left;
-    line-height: 0.85;
-    padding: 8px 16px 0 0;
-  }
-  .pull-quote {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 1.55rem;
-    line-height: 1.5;
-    color: var(--ink);
-    padding: 36px 0 36px 36px;
-    border-left: 2px solid var(--gold);
-    margin: 50px 0;
-    max-width: 720px;
-  }
+  .story-grid { display: grid; grid-template-columns: 1fr 1.6fr; gap: 100px; align-items: start; }
+  .story-text p { color: var(--gray); font-size: 1rem; line-height: 1.95; margin-bottom: 28px; font-weight: 300; }
+  .story-text p:first-child::first-letter { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 500; font-size: 4rem; color: var(--red); float: left; line-height: 0.85; padding: 8px 16px 0 0; }
+  .pull-quote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.55rem; line-height: 1.5; color: var(--ink); padding: 36px 0 36px 32px; border-left: 2px solid var(--red); margin: 50px 0; max-width: 700px; }
 
   /* TIMELINE */
-  .timeline {
-    background: var(--paper-dim);
-    padding: 130px 56px;
-  }
-  .timeline .eyebrow { margin-bottom: 24px; }
-  .timeline h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin-bottom: 70px;
-    max-width: 700px;
-  }
-  .timeline-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 1px;
-    background: var(--light-stone);
-  }
-  .tl-item {
-    background: var(--paper-dim);
-    padding: 36px 28px;
-    transition: background 0.4s ease;
-  }
-  .tl-item:hover { background: var(--paper); }
-  .tl-year {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 2.2rem;
-    color: var(--gold);
-    margin-bottom: 12px;
-    line-height: 1;
-  }
-  .tl-event {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 0.7rem;
-    font-weight: 600;
-    letter-spacing: 0.18em;
-    text-transform: uppercase;
-    color: var(--ink);
-    margin-bottom: 12px;
-  }
-  .tl-detail {
-    font-size: 0.86rem;
-    color: var(--stone);
-    line-height: 1.65;
-  }
+  .timeline { background: var(--paper); border-top: 1px solid var(--line); }
+  .timeline-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 50px; margin-top: 80px; }
+  .tl-item { border-top: 1px solid var(--ink); padding-top: 22px; }
+  .tl-year { font-family: 'Cormorant Garamond', serif; font-size: 2rem; line-height: 1; color: var(--ink); margin-bottom: 14px; font-weight: 400; }
+  .tl-year em { font-style: italic; color: var(--red); }
+  .tl-event { font-size: 0.62rem; font-weight: 600; letter-spacing: 0.26em; text-transform: uppercase; color: var(--ink); margin-bottom: 12px; }
+  .tl-detail { font-size: 0.82rem; color: var(--gray); line-height: 1.7; font-weight: 300; }
 
   /* TEAM */
-  .team {
-    background: var(--ink);
-    color: var(--paper);
-    padding: 130px 56px;
-  }
-  .team .eyebrow { color: var(--gold); margin-bottom: 24px; }
-  .team h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin-bottom: 24px;
-    color: var(--paper);
-    max-width: 720px;
-  }
-  .team-lead {
-    color: rgba(246,244,240,0.7);
-    max-width: 580px;
-    margin-bottom: 70px;
-    font-size: 1rem;
-  }
-  .team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 36px;
-  }
-  .team-card {
-    border: 1px solid rgba(246,244,240,0.12);
-    padding: 36px 30px;
-    background: var(--char);
-    transition: border-color 0.4s ease;
-  }
-  .team-card:hover { border-color: var(--gold); }
-  .team-role {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 14px;
-  }
-  .team-card h4 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.7rem;
-    color: var(--paper);
-    margin-bottom: 14px;
-  }
-  .team-card .tenure {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 0.62rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(246,244,240,0.5);
-    margin-bottom: 20px;
-  }
-  .team-card p {
-    font-size: 0.86rem;
-    color: rgba(246,244,240,0.78);
-    line-height: 1.75;
-  }
-
-  /* PRINCIPLES */
-  .principles {
-    background: var(--paper);
-    padding: 130px 56px;
-  }
-  .principles .eyebrow { margin-bottom: 24px; }
-  .principles h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
-    margin-bottom: 70px;
-    max-width: 720px;
-  }
-  .principle-list {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 50px;
-  }
-  .principle-num {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 2.4rem;
-    color: var(--gold);
-    margin-bottom: 18px;
-    line-height: 1;
-  }
-  .principle h4 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.5rem;
-    margin-bottom: 14px;
-    color: var(--ink);
-  }
-  .principle p {
-    font-size: 0.95rem;
-    line-height: 1.8;
-    color: var(--char);
-  }
+  .team { background: var(--paper); border-top: 1px solid var(--line); }
+  .team-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; margin-top: 80px; }
+  .team-card { border-top: 1px solid var(--ink); padding-top: 22px; }
+  .team-role { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.26em; text-transform: uppercase; color: var(--red); margin-bottom: 18px; }
+  .team-card h4 { font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; margin-bottom: 6px; font-weight: 400; }
+  .tenure { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gray); margin-bottom: 22px; }
+  .team-card p { font-size: 0.86rem; color: var(--gray); line-height: 1.75; font-weight: 300; }
 
   /* CTA */
-  .cta {
-    background: var(--paper-dim);
-    padding: 130px 56px;
-    text-align: center;
-  }
-  .cta .eyebrow { margin: 0 auto 30px; }
-  .cta h2 {
-    font-size: clamp(2.2rem, 4.5vw, 3.2rem);
-    margin-bottom: 30px;
-    max-width: 760px;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  .cta p {
-    color: var(--char);
-    max-width: 540px;
-    margin: 0 auto 50px;
-  }
-  .btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 12px;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 0.65rem;
-    font-weight: 400;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    padding: 14px 28px;
-    text-decoration: none;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    border: 1px solid;
-  }
-  .btn-primary {
-    background: var(--ink);
-    color: var(--paper);
-    border-color: var(--ink);
-  }
-  .btn-primary:hover { background: var(--gold); border-color: var(--gold); color: var(--ink); }
-  .btn-arrow { transition: transform 0.3s ease; }
-  .btn:hover .btn-arrow { transform: translateX(4px); }
+  .cta { background: var(--paper); padding: 200px 56px; text-align: center; border-top: 1px solid var(--line); }
+  .cta h2 { font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1.05; margin-bottom: 36px; max-width: 800px; margin-left: auto; margin-right: auto; font-weight: 400; }
+  .cta h2 em { font-style: italic; }
+  .cta p { color: var(--gray); max-width: 540px; margin: 0 auto 56px; font-size: 1rem; line-height: 1.85; }
+  .cta-actions { display: flex; gap: 36px; justify-content: center; flex-wrap: wrap; }
+  .link-btn { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; border-bottom: 1px solid var(--ink); padding-bottom: 8px; transition: color 0.3s ease, border-color 0.3s ease; display: inline-flex; align-items: center; gap: 12px; }
+  .link-btn.red { color: var(--red); border-color: var(--red); }
+  .link-btn:hover { color: var(--red); border-color: var(--red); }
+  .link-arrow { transition: transform 0.3s ease; }
+  .link-btn:hover .link-arrow { transform: translateX(5px); }
 
   /* FOOTER */
-  footer {
-    background: var(--char);
-    color: rgba(246,244,240,0.7);
-    padding: 80px 56px 36px;
-  }
-  .footer-grid {
-    display: grid;
-    grid-template-columns: 1.4fr 1fr 1fr 1fr;
-    gap: 60px;
-    max-width: 1240px;
-    margin: 0 auto;
-  }
-  .footer-brand h3 {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 1.6rem;
-    color: var(--paper);
-    margin-bottom: 18px;
-  }
-  .footer-brand p { font-size: 0.85rem; line-height: 1.8; max-width: 280px; }
-  .footer-col h5 {
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 0.6rem;
-    font-weight: 400;
-    letter-spacing: 0.25em;
-    text-transform: uppercase;
-    color: var(--gold);
-    margin-bottom: 22px;
-  }
-  .footer-col a, .footer-col li {
-    display: block;
-    color: rgba(246,244,240,0.65);
-    text-decoration: none;
-    font-size: 0.85rem;
-    line-height: 2.1;
-    list-style: none;
-    transition: color 0.3s ease;
-  }
-  .footer-col a:hover { color: var(--gold); }
-  .footer-bottom {
-    margin-top: 70px;
-    padding-top: 30px;
-    border-top: 1px solid rgba(246,244,240,0.12);
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    gap: 20px;
-    max-width: 1240px;
-    margin: 70px auto 0;
-    font-family: 'Josefin Sans', sans-serif;
-    font-size: 0.6rem;
-    letter-spacing: 0.2em;
-    text-transform: uppercase;
-    color: rgba(246,244,240,0.4);
-  }
+  footer { background: var(--paper); border-top: 1px solid var(--line); padding: 80px 56px 36px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 70px; max-width: 1320px; margin: 0 auto; }
+  .footer-brand .brand-mark { font-size: 1.6rem; }
+  .footer-brand p { margin-top: 24px; font-size: 0.86rem; line-height: 1.85; max-width: 320px; color: var(--gray); }
+  .footer-col h5 { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: var(--ink); margin-bottom: 22px; }
+  .footer-col a, .footer-col li { display: block; color: var(--gray); font-size: 0.86rem; line-height: 2.1; list-style: none; }
+  .footer-col a:hover { color: var(--red); }
+  .footer-bottom { margin: 80px auto 0; padding-top: 28px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; max-width: 1320px; font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gray); font-weight: 500; }
 
-  @media (max-width: 980px) {
-    nav { padding: 18px 26px; }
+  @media (max-width: 1100px) {
+    .story-grid { grid-template-columns: 1fr; gap: 50px; }
+    .timeline-grid { grid-template-columns: repeat(2, 1fr); }
+    .team-grid { grid-template-columns: 1fr; gap: 40px; }
+  }
+  @media (max-width: 700px) {
+    nav, .page-hero, section, footer { padding-left: 26px; padding-right: 26px; }
+    nav { grid-template-columns: 1fr auto; padding: 18px 26px; }
     .nav-links { display: none; }
-    section, .hero-about { padding-left: 26px; padding-right: 26px; }
-    .hero-about { padding-top: 160px; padding-bottom: 70px; }
-    .hero-grid { grid-template-columns: 1fr; gap: 50px; }
-    .hero-portrait { max-width: 80%; }
+    .nav-right .nav-phone { display: none; }
+    section { padding-top: 100px; padding-bottom: 100px; }
+    .page-hero { padding-bottom: 60px; height: 55vh; }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
-    section { padding-top: 80px; padding-bottom: 80px; }
+    .timeline-grid { grid-template-columns: 1fr; }
   }
-  @media (max-width: 600px) {
-    .footer-grid { grid-template-columns: 1fr; }
-  }
-
-  .fade-up {
-    opacity: 0;
-    transform: translateY(28px);
-    transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1),
-                transform 0.9s cubic-bezier(0.16, 1, 0.3, 1);
-  }
+  @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } }
+  .fade-up { opacity: 0; transform: translateY(28px); transition: opacity 0.9s cubic-bezier(0.16, 1, 0.3, 1), transform 0.9s cubic-bezier(0.16, 1, 0.3, 1); }
   .fade-up.visible { opacity: 1; transform: translateY(0); }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav id="nav">
-  <a href="index.html" class="brand">Radius<small>Architectural Millwork</small></a>
+  <a href="index.html" class="brand">
+    <span class="brand-mark">RADIUS</span>
+    <span class="brand-sub">Architectural Millwork</span>
+  </a>
   <ul class="nav-links">
-    <li><a href="work.html">Work</a></li>
-    <li><a href="index.html#process">Process</a></li>
+    <li><a href="index.html">Home</a></li>
     <li><a href="about.html" class="active">About</a></li>
+    <li><a href="work.html">Work</a></li>
     <li><a href="services.html">Services</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
   </ul>
-  <a href="index.html#contact" class="nav-cta">Talk to Rick →</a>
+  <div class="nav-right">
+    <a href="tel:6044441175" class="nav-phone">604.444.1175</a>
+  </div>
 </nav>
 
-<!-- HERO -->
-<header class="hero-about">
-  <div class="hero-inner">
-    <div class="hero-grid">
-      <div class="hero-text">
-        <span class="eyebrow">About</span>
-        <h1>The shop the hardest <em>projects get sent to.</em></h1>
-        <p class="lead">
-          Rick Wilson founded Radius in Burnaby in 2000 after apprenticing under a Scandinavian
-          master cabinetmaker. Twenty-five years later, twenty craftspeople still work the same
-          way: traditional joinery, solid stock, no CNC.
-        </p>
-      </div>
-      <div class="hero-portrait">
-        <span class="caption">At the bench · 2026</span>
-      </div>
-    </div>
+<header class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-label">About Radius</div>
+    <h1>Twenty-five years at the bench.</h1>
   </div>
 </header>
 
-<!-- STORY -->
 <section class="story">
   <div class="inner">
-    <span class="eyebrow">The Story</span>
-    <h2 class="story-h fade-up">It started with a twig basket and a machete.</h2>
-
-    <div class="story-body fade-up">
-      <p class="first">
-        Rick was nineteen, working a summer painting job to pay for university. The paychecks
-        stopped showing up. Around the same time his mother brought home a forty-dollar twig
-        planter from the local nursery. He told her if she wanted one, he'd make her one
-        tomorrow. She didn't believe him. He went out behind the house with a machete, cut
-        some cedar twigs, and built one in fifteen minutes. A bit bigger. A bit nicer.
-      </p>
-
-      <p>
-        That summer he built a bentwood loveseat from a photograph in a day and a half. When
-        it was time to go back to school, he went to BCIT for carpentry. They told him
-        carpentry was full and joinery was open. He asked what joinery was. They said cabinet
-        making. He said okay.
-      </p>
-
-      <p>
-        He finished the curriculum six weeks early, top of his class. A third-year apprentice
-        named Chris came in looking for a hire and the teacher pointed at Rick. That hire was
-        Wilms Architectural Millwork — a three-person shop run by a Scandinavian master
-        cabinetmaker who was passionate about Stickley arts-and-crafts. More solid wood than
-        most shops in town. Quartersawn oak. Hand-finished furniture.
-      </p>
-
-      <p>
-        Rick was the Benchman. He did all the assembly. Jim drew. Chris broke out solid wood.
-        He learned a wide gamut.
-      </p>
-
-      <p>
-        After the apprenticeship he took a whole house in North Van. The deposit bought him
-        rudimentary tools at Summit Tools and KMS, and he set up in a one-car garage with a
-        drill press and a table saw. When he needed Jim's edge sander, he rented Jim's shop
-        at night.
-      </p>
-
-      <blockquote class="pull-quote">
-        "Mitchell Island. Eleven hundred square feet, spray booth, self-contained. Worked
-        alone. That's still one of my favorite times in my career. When you work by yourself,
-        you put a tool down and it's there when you reach for it."
-      </blockquote>
-
-      <p>
-        A few years later the inside-sales manager at PJ White Hardwoods connected him to a
-        Whistler developer running some of the nicest residential work in the corridor. Rick
-        joined the partnership and ran their millwork shop. After a couple of years he
-        convinced the partner to move the shop down to Burnaby — Vancouver clients didn't
-        call when you were operating out of Pemberton. The partnership broke down. Rick
-        bought him out around 2002. He's been a sole proprietor ever since.
-      </p>
-
-      <p>
-        Radius grew slowly. At one point there were twenty-three people on the bench. The
-        work didn't get better. Sleep got worse.
-      </p>
-
-      <blockquote class="pull-quote">
-        "We trimmed back. Narrowed who we work for. Got more particular about what leaves the
-        shop. The phone has been busier ever since."
-      </blockquote>
-
-      <p>
-        Today the shop runs at twenty craftspeople in five thousand square feet of bench
-        space in Burnaby. Half of the team trained in Europe. The phone keeps ringing. The
-        biggest challenge isn't finding work. It's finding good people.
-      </p>
+    <div class="story-grid">
+      <div>
+        <span class="section-label">The Story</span>
+        <h2 class="display">It started with <em>a twig basket</em> and a machete.</h2>
+      </div>
+      <div class="story-text">
+        <p>
+          Rick was nineteen, working a summer painting job to pay for university. The paychecks
+          stopped showing up. Around the same time his mother brought home a forty-dollar twig
+          planter from the local nursery. He told her if she wanted one, he'd make her one
+          tomorrow. She didn't believe him. He went out behind the house with a machete, cut
+          some cedar twigs, and built one in fifteen minutes. A bit bigger. A bit nicer.
+        </p>
+        <p>
+          That summer he built a bentwood loveseat from a photograph in a day and a half. When
+          it was time to go back to school, he went to BCIT for carpentry. They told him
+          carpentry was full and joinery was open. He asked what joinery was. They said cabinet
+          making. He said okay.
+        </p>
+        <p>
+          He finished the curriculum six weeks early, top of his class. A third-year apprentice
+          named Chris came in looking for a hire and the teacher pointed at Rick. That hire was
+          Wilms Architectural Millwork — a three-person shop run by a Scandinavian master
+          cabinetmaker passionate about Stickley arts-and-crafts.
+        </p>
+        <blockquote class="pull-quote">
+          "Mitchell Island. Eleven hundred square feet, spray booth, self-contained. Worked
+          alone. That's still one of my favorite times in my career. When you work by yourself,
+          you put a tool down and it's there when you reach for it."
+        </blockquote>
+        <p>
+          A few years later the inside-sales manager at PJ White Hardwoods connected him to a
+          Whistler developer running some of the nicest residential work in the corridor. Rick
+          joined the partnership, and after a couple of years, convinced the partner to move
+          the shop to Burnaby for Vancouver-client access. The partnership broke down. Rick
+          bought him out around 2002. He's been a sole proprietor ever since.
+        </p>
+        <p>
+          Radius grew slowly. At one point there were twenty-three people on the bench. The
+          work didn't get better. Sleep got worse.
+        </p>
+        <blockquote class="pull-quote">
+          "We trimmed back. Narrowed who we work for. Got more particular about what leaves the
+          shop. The phone has been busier ever since."
+        </blockquote>
+        <p>
+          Today the shop runs at twenty craftspeople in five thousand square feet of bench
+          space in Burnaby. Half of the team trained in Europe. The phone keeps ringing.
+        </p>
+      </div>
     </div>
   </div>
 </section>
 
-<!-- TIMELINE -->
 <section class="timeline">
   <div class="inner">
-    <span class="eyebrow">Twenty-Five Years</span>
-    <h2 class="fade-up">From a one-car garage to the AWMAC Gold bench.</h2>
+    <span class="section-label">Twenty-Five Years</span>
+    <h2 class="display">From a one-car garage to the AWMAC Gold bench.</h2>
+
     <div class="timeline-grid fade-up">
-      <div class="tl-item">
-        <div class="tl-year">'95</div>
-        <div class="tl-event">BCIT Joinery</div>
-        <div class="tl-detail">Top of class, ELTT seven-month program. First-year apprenticeship credit.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-year">'96</div>
-        <div class="tl-event">Wilms Apprenticeship</div>
-        <div class="tl-detail">Four years under Jim Wilms, Scandinavian master cabinetmaker. Stickley arts-and-crafts focus.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-year">'00</div>
-        <div class="tl-event">Mitchell Island Shop</div>
-        <div class="tl-detail">Eleven hundred square feet. Spray booth. Working alone. The first solo years.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-year">'02</div>
-        <div class="tl-event">Burnaby + Sole Proprietor</div>
-        <div class="tl-detail">Bought out the Whistler partnership. Moved the shop to Burnaby for Vancouver access.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-year">'11</div>
-        <div class="tl-event">AWMAC Gold</div>
-        <div class="tl-detail">Best in Quality + Best in Service. Lamoureux Architects, Rosebery Estate. $1.5M scope, eighteen months, fifteen craftspeople.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-year">'13–'17</div>
-        <div class="tl-event">5× Best of Houzz</div>
-        <div class="tl-detail">Five consecutive years on the platform. Houzz Influencer designation.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-year">'20</div>
-        <div class="tl-event">The Trim Back</div>
-        <div class="tl-detail">Reduced from twenty-three to twenty craftspeople to protect quality and pace.</div>
-      </div>
-      <div class="tl-item">
-        <div class="tl-year">'26</div>
-        <div class="tl-event">Returning to the Awards</div>
-        <div class="tl-detail">Targeting AWMAC 2027 with current residential work. Documenting projects with full archival photography.</div>
-      </div>
+      <div class="tl-item"><div class="tl-year"><em>'95</em></div><div class="tl-event">BCIT Joinery</div><div class="tl-detail">Top of class, ELTT seven-month program. First-year apprenticeship credit.</div></div>
+      <div class="tl-item"><div class="tl-year"><em>'96</em></div><div class="tl-event">Wilms Apprenticeship</div><div class="tl-detail">Four years under Jim Wilms, Scandinavian master cabinetmaker. Stickley arts-and-crafts focus.</div></div>
+      <div class="tl-item"><div class="tl-year"><em>'00</em></div><div class="tl-event">Mitchell Island Shop</div><div class="tl-detail">Eleven hundred square feet. Spray booth. Working alone. The first solo years.</div></div>
+      <div class="tl-item"><div class="tl-year"><em>'02</em></div><div class="tl-event">Burnaby + Sole Proprietor</div><div class="tl-detail">Bought out the Whistler partnership. Moved the shop to Burnaby for Vancouver access.</div></div>
+      <div class="tl-item"><div class="tl-year"><em>'11</em></div><div class="tl-event">AWMAC Gold</div><div class="tl-detail">Best in Quality + Best in Service. Lamoureux Architects, Rosebery Estate. $1.5M scope, eighteen months, fifteen craftspeople.</div></div>
+      <div class="tl-item"><div class="tl-year"><em>'13–'17</em></div><div class="tl-event">5× Best of Houzz</div><div class="tl-detail">Five consecutive years on the platform. Houzz Influencer designation.</div></div>
+      <div class="tl-item"><div class="tl-year"><em>'20</em></div><div class="tl-event">The Trim Back</div><div class="tl-detail">Reduced from twenty-three to twenty craftspeople to protect quality and pace.</div></div>
+      <div class="tl-item"><div class="tl-year"><em>'26</em></div><div class="tl-event">Returning to Awards</div><div class="tl-detail">Targeting AWMAC 2027 with current residential work. Documenting projects with full archival photography.</div></div>
     </div>
   </div>
 </section>
 
-<!-- TEAM -->
 <section class="team">
   <div class="inner">
-    <span class="eyebrow">The Bench</span>
-    <h2>Twenty craftspeople. Half European-trained.</h2>
-    <p class="team-lead">
-      Production runs out of one room. Drawings, breakout, joinery, finish, install. Same roof,
-      same conversation. The unfair advantage of building a shop slowly.
-    </p>
+    <span class="section-label">The Bench</span>
+    <h2 class="display">Twenty craftspeople. Half European-trained.</h2>
 
-    <div class="team-grid">
+    <div class="team-grid fade-up">
       <div class="team-card">
         <div class="team-role">Owner · Master Joiner</div>
         <h4>Rick Wilson</h4>
         <div class="tenure">Founder · 25 Years</div>
-        <p>
-          BCIT cabinet-making, top of class. Apprenticed at Wilms under a Scandinavian master.
-          Has run Radius solo since 2002. Writes the quote, walks the bench, signs every job.
-        </p>
+        <p>BCIT cabinet-making, top of class. Apprenticed at Wilms under a Scandinavian master. Has run Radius solo since 2002. Writes the quote, walks the bench, signs every job.</p>
       </div>
-
       <div class="team-card">
         <div class="team-role">Lead Designer / Drawings</div>
         <h4>Sheldon</h4>
         <div class="tenure">Engineer · 18 Years</div>
-        <p>
-          Runs the drawing desk and the shop drawings. Resolves the section detail before the
-          panel meets the saw. Eighteen years at Rick's side. Same wavelength.
-        </p>
+        <p>Runs the drawing desk and the shop drawings. Resolves the section detail before the panel meets the saw. Eighteen years at Rick's side. Same wavelength.</p>
       </div>
-
       <div class="team-card">
         <div class="team-role">The Bench</div>
         <h4>The Joiners</h4>
         <div class="tenure">European Trained · Many</div>
-        <p>
-          Half the bench arrived from European apprenticeship programs. Different level of
-          training. Different patience for the joint. Solid stock, veneer-laid, hand-finished.
-        </p>
+        <p>Half the bench arrived from European apprenticeship programs. Different level of training. Different patience for the joint. Solid stock, veneer-laid, hand-finished.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- PRINCIPLES -->
-<section class="principles">
-  <div class="inner">
-    <span class="eyebrow">How We Work</span>
-    <h2 class="fade-up">Five things we hold to.</h2>
-
-    <div class="principle-list fade-up">
-      <div class="principle">
-        <div class="principle-num">01</div>
-        <h4>Service is the differentiator.</h4>
-        <p>
-          A lot of shops will put out a quality product. Where we stand out is the relationship.
-          We don't make the contractor babysit the millwork package. We solve problems on
-          their behalf and only call when we really need to.
-        </p>
-      </div>
-      <div class="principle">
-        <div class="principle-num">02</div>
-        <h4>The reveals are the room.</h4>
-        <p>
-          Modern design uses fewer layers. Each layer that's there has to work. Reveals,
-          tone, grain. If they're wonky, you read it from forty feet. If they're right, you
-          notice the room.
-        </p>
-      </div>
-      <div class="principle">
-        <div class="principle-num">03</div>
-        <h4>Flush has to actually be flush.</h4>
-        <p>
-          An old shop foreman told Rick that years ago. It's stuck. Flush can look flush but
-          not be flush. Run a hand across it. The hand decides.
-        </p>
-      </div>
-      <div class="principle">
-        <div class="principle-num">04</div>
-        <h4>Buy the best tool you can.</h4>
-        <p>
-          The cheapest line item is the most expensive one to fix. We bought the German edge
-          bander. We use a Kremlin AAA pump. We pay for the conversion varnish that yields
-          the cleanest finish. It saves on labor, on issues, on warranty.
-        </p>
-      </div>
-      <div class="principle">
-        <div class="principle-num">05</div>
-        <h4>The story matters.</h4>
-        <p>
-          Smoked European oak that ammonia-cures to depth. Pear wood ebonized with aniline
-          dye, used in place of ebony for ethical reasons. Slip-matched veneer that runs
-          continuously across four doors. Material with a story to tell, every time.
-        </p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA -->
 <section class="cta">
-  <span class="eyebrow center">Get In Touch</span>
-  <h2>Working on a project that asks something of the bench?</h2>
-  <p>
-    Send drawings, specs, or a phone number. Rick will be the one calling back.
-  </p>
-  <a href="index.html#contact" class="btn btn-primary">Talk to Rick <span class="btn-arrow">→</span></a>
+  <span class="section-label">Get In Touch</span>
+  <h2>Working on a project that asks something of <em>the bench?</em></h2>
+  <p>Send drawings, specs, or a phone number. Rick is the one who calls back.</p>
+  <div class="cta-actions">
+    <a href="mailto:rick@radiuswood.com" class="link-btn red">Email Rick <span class="link-arrow">→</span></a>
+    <a href="tel:6044441175" class="link-btn">604.444.1175</a>
+  </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <h3>Radius Architectural Millwork</h3>
-      <p>
-        Custom architectural millwork, cabinetry, and furniture built in Burnaby for residential
-        and estate work across British Columbia.
-      </p>
+      <span class="brand-mark">RADIUS</span>
+      <span class="brand-sub">Architectural Millwork</span>
+      <p>Custom architectural millwork, cabinetry, and furniture built in Burnaby for residential and estate work across British Columbia. Founded 2000.</p>
     </div>
-    <div class="footer-col">
-      <h5>Visit</h5>
-      <ul>
-        <li>8575 Government Street</li>
-        <li>Burnaby, BC V3N 4V1</li>
-        <li>Mon–Fri · 6:30am–2:30pm</li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Contact</h5>
-      <ul>
-        <li><a href="tel:6044441175">(604) 444-1175</a></li>
-        <li><a href="mailto:info@radiuswood.com">info@radiuswood.com</a></li>
-      </ul>
-    </div>
-    <div class="footer-col">
-      <h5>Follow</h5>
-      <ul>
-        <li><a href="#">Instagram · @radiusmillwork</a></li>
-        <li><a href="#">LinkedIn</a></li>
-        <li><a href="#">Houzz</a></li>
-      </ul>
-    </div>
+    <div class="footer-col"><h5>Visit</h5><ul><li>8575 Government Street</li><li>Burnaby, BC V3N 4V1</li><li>Mon–Fri 6:30am–2:30pm</li></ul></div>
+    <div class="footer-col"><h5>Contact</h5><ul><li><a href="tel:6044441175">604.444.1175</a></li><li><a href="mailto:info@radiuswood.com">info@radiuswood.com</a></li></ul></div>
+    <div class="footer-col"><h5>Follow</h5><ul><li><a href="#">Instagram</a></li><li><a href="#">LinkedIn</a></li><li><a href="#">Houzz</a></li></ul></div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Radius Architectural Millwork Ltd</span>
+    <span>© 2026 Radius Architectural Millwork Ltd · License BUS05-01768</span>
     <span>Site by Matt Anthony Photography</span>
   </div>
 </footer>
@@ -787,15 +285,11 @@
 <script>
   const nav = document.getElementById('nav');
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 80) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
+    if (window.scrollY > 80) nav.classList.add('scrolled'); else nav.classList.remove('scrolled');
   });
-
   const observer = new IntersectionObserver(entries => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('visible');
-    });
-  }, { threshold: 0.15 });
+    entries.forEach(entry => { if (entry.isIntersecting) entry.target.classList.add('visible'); });
+  }, { threshold: 0.1 });
   document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
 </script>
 

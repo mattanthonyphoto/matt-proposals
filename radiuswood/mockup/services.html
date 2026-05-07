@@ -3,153 +3,150 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Services from Radius Architectural Millwork — custom cabinetry, kitchens, wine rooms, paneling, coffered ceilings, furniture, and architectural millwork in Burnaby, British Columbia.">
+<meta name="description" content="Services from Radius Architectural Millwork — architectural millwork, custom kitchens, wine cellars, bars, built-ins, and furniture in Burnaby, BC.">
 <title>Services — Radius Architectural Millwork</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500&family=Josefin+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --ink: #1A1A18;
-    --paper: #F6F4F0;
-    --paper-dim: #EEECE6;
-    --gold: #C9A96E;
-    --gold-line: rgba(201,169,110,0.3);
-    --stone: #8A8579;
-    --light-stone: #D9D5CD;
-    --char: #2A2926;
-  }
+  :root { --red:#A6252D; --red-deep:#8B1F25; --cream:#F5ECDD; --paper:#FAF6EE; --ink:#1A1A18; --gray:#8A8579; --gray-light:#C9C2B5; --line:rgba(26,26,24,0.08); }
   * { margin: 0; padding: 0; box-sizing: border-box; }
   html { font-size: 16px; scroll-behavior: smooth; }
-  body { background: var(--paper); color: var(--ink); font-family: 'DM Sans',sans-serif; font-weight: 300; line-height: 1.75; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-  ::selection { background: var(--gold); color: var(--ink); }
+  body { background: var(--paper); color: var(--ink); font-family: 'Inter', sans-serif; font-weight: 300; line-height: 1.7; -webkit-font-smoothing: antialiased; overflow-x: hidden; font-size: 0.95rem; }
+  ::selection { background: var(--red); color: var(--paper); }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.1; letter-spacing: -0.005em; color: var(--ink); }
+  h2 em { font-style: italic; }
 
-  .eyebrow { font-family: 'Josefin Sans',sans-serif; font-size: 0.65rem; letter-spacing: 0.4em; text-transform: uppercase; color: var(--gold); display: inline-flex; align-items: center; gap: 14px; }
-  .eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--gold); }
-  .eyebrow.center::before { display: none; }
-  h1, h2, h3, h4 { font-family: 'Cormorant Garamond',serif; font-weight: 400; line-height: 1.1; letter-spacing: -0.01em; }
-  h1 em, h2 em { font-style: italic; color: var(--gold); }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 28px 56px; display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; background: rgba(250,246,238,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); transition: padding 0.4s ease; }
+  nav.scrolled { padding: 18px 56px; }
+  .brand { display: flex; flex-direction: column; gap: 1px; line-height: 1; }
+  .brand-mark { font-family: 'Cormorant Garamond', serif; font-weight: 500; font-size: 1.6rem; letter-spacing: 0.18em; color: var(--red); }
+  nav.scrolled .brand-mark { font-size: 1.4rem; }
+  .brand-sub { font-size: 0.55rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--gray); }
+  .nav-links { display: flex; gap: 36px; list-style: none; justify-content: center; }
+  .nav-links a { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); transition: color 0.3s ease; padding: 4px 0; }
+  .nav-links a:hover, .nav-links a.active { color: var(--red); }
+  .nav-right { display: flex; justify-content: flex-end; }
+  .nav-phone { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); }
+  .nav-phone:hover { color: var(--red); }
 
-  /* NAV */
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 22px 56px; display: flex; justify-content: space-between; align-items: center; background: rgba(246,244,240,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--light-stone); transition: padding 0.4s ease; }
-  nav.scrolled { padding: 14px 56px; }
-  .brand { font-family: 'Cormorant Garamond',serif; font-size: 1.5rem; letter-spacing: 0.04em; color: var(--ink); text-decoration: none; }
-  .brand small { font-family: 'Josefin Sans',sans-serif; font-size: 0.55rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--gold); margin-left: 12px; display: inline-block; transform: translateY(-3px); }
-  .nav-links { display: flex; gap: 44px; list-style: none; }
-  .nav-links a { font-family: 'Josefin Sans',sans-serif; font-size: 0.7rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--ink); text-decoration: none; transition: color 0.3s ease; }
-  .nav-links a:hover, .nav-links a.active { color: var(--gold); }
-  .nav-cta { display: inline-flex; align-items: center; gap: 10px; font-family: 'Josefin Sans',sans-serif; font-size: 0.65rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--ink); border: 1px solid var(--ink); padding: 10px 22px; text-decoration: none; transition: all 0.3s ease; }
-  .nav-cta:hover { background: var(--gold); border-color: var(--gold); color: var(--ink); }
+  .page-hero { position: relative; height: 70vh; min-height: 500px; display: flex; align-items: flex-end; padding: 0 56px 80px; overflow: hidden; }
+  .page-hero-bg { position: absolute; inset: 0; background-image: url('photos/slide-3.jpg'); background-size: cover; background-position: center; }
+  .page-hero-bg::after { content: ''; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(26,26,24,0.4) 0%, rgba(26,26,24,0.15) 30%, rgba(26,26,24,0.7) 100%); }
+  .page-hero-content { position: relative; z-index: 1; color: var(--cream); max-width: 800px; }
+  .page-hero-label { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.36em; text-transform: uppercase; color: rgba(245,236,221,0.7); margin-bottom: 28px; }
+  .page-hero h1 { font-size: clamp(2.4rem, 5vw, 4rem); color: var(--cream); font-weight: 400; line-height: 1.05; }
 
-  /* HERO */
-  .hero { padding: 200px 56px 110px; background: var(--paper); border-bottom: 1px solid var(--light-stone); }
-  .hero-inner { max-width: 1240px; margin: 0 auto; }
-  .hero .eyebrow { margin-bottom: 28px; }
-  .hero h1 { font-size: clamp(2.8rem, 6vw, 4.6rem); margin-bottom: 32px; max-width: 920px; }
-  .hero .lead { font-size: 1.05rem; color: var(--char); max-width: 620px; line-height: 1.85; }
+  section { padding: 160px 56px; }
+  .inner { max-width: 1320px; margin: 0 auto; }
+  .section-label { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.36em; text-transform: uppercase; color: var(--red); margin-bottom: 30px; display: block; }
+  h2.display { font-size: clamp(2.2rem, 4.6vw, 3.4rem); line-height: 1.05; margin-bottom: 30px; max-width: 880px; font-weight: 400; }
+  .lead { color: var(--gray); font-size: 1rem; max-width: 600px; line-height: 1.95; font-weight: 300; }
 
-  /* SERVICES GRID */
-  section.services { background: var(--paper); padding: 120px 56px; }
-  .services-inner { max-width: 1240px; margin: 0 auto; }
-  .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(360px, 1fr)); gap: 30px; }
-  .scard { background: var(--paper-dim); padding: 50px 44px; border: 1px solid transparent; transition: border-color 0.4s ease; }
-  .scard:hover { border-color: var(--gold-line); }
-  .scard .eyebrow { font-size: 0.58rem; margin-bottom: 22px; }
-  .scard h3 { font-size: 1.7rem; margin-bottom: 20px; }
-  .scard p { color: var(--char); font-size: 0.95rem; line-height: 1.85; margin-bottom: 22px; }
-  .scard ul { list-style: none; padding: 0; margin: 0 0 0 0; }
-  .scard ul li { font-size: 0.85rem; color: var(--stone); padding: 4px 0 4px 18px; position: relative; line-height: 1.7; }
-  .scard ul li::before { content: '·'; position: absolute; left: 0; color: var(--gold); font-weight: bold; }
+  /* SERVICES */
+  .services { background: var(--paper); }
+  .services-head { margin-bottom: 100px; }
+  .svc-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px 60px; }
+  .svc { border-top: 1px solid var(--ink); padding-top: 28px; }
+  .svc-num { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.32em; color: var(--red); margin-bottom: 22px; }
+  .svc h3 { font-size: 1.7rem; margin-bottom: 18px; font-weight: 400; }
+  .svc p { color: var(--gray); font-size: 0.94rem; line-height: 1.85; margin-bottom: 22px; font-weight: 300; }
+  .svc ul { list-style: none; padding: 0; margin: 0; padding-top: 18px; border-top: 1px solid var(--line); }
+  .svc ul li { font-size: 0.82rem; color: var(--gray); padding: 5px 0; font-weight: 300; }
 
   /* PROCESS */
-  .process { background: var(--ink); color: var(--paper); padding: 130px 56px; }
-  .process-inner { max-width: 1240px; margin: 0 auto; }
-  .process .eyebrow { color: var(--gold); margin-bottom: 22px; }
-  .process h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 22px; color: var(--paper); }
-  .process-lead { color: rgba(246,244,240,0.7); max-width: 580px; font-size: 1rem; margin-bottom: 70px; }
-  .pgrid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 1px; background: rgba(246,244,240,0.1); }
-  .pstep { background: var(--ink); padding: 44px 30px; transition: background 0.4s ease; }
-  .pstep:hover { background: var(--char); }
-  .pstep .num { font-family: 'Cormorant Garamond',serif; font-style: italic; font-size: 2.4rem; color: var(--gold); display: block; margin-bottom: 14px; line-height: 1; }
-  .pstep h4 { font-size: 1.5rem; color: var(--paper); margin-bottom: 14px; font-weight: 400; }
-  .pstep p { color: rgba(246,244,240,0.72); font-size: 0.86rem; line-height: 1.75; }
+  .process { background: var(--paper); border-top: 1px solid var(--line); }
+  .process-grid { display: grid; grid-template-columns: repeat(6, 1fr); gap: 40px; margin-top: 80px; }
+  .pstep { border-top: 1px solid var(--ink); padding-top: 22px; }
+  .pstep-num { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.32em; color: var(--red); margin-bottom: 28px; }
+  .pstep h4 { font-size: 1.05rem; line-height: 1.3; margin-bottom: 14px; font-family: 'Inter', sans-serif; font-weight: 500; letter-spacing: -0.01em; color: var(--ink); }
+  .pstep p { font-size: 0.82rem; color: var(--gray); line-height: 1.7; font-weight: 300; }
 
   /* TIERS */
-  .tiers { background: var(--paper-dim); padding: 130px 56px; }
-  .tiers-inner { max-width: 1180px; margin: 0 auto; }
-  .tiers .eyebrow { margin-bottom: 22px; }
-  .tiers h2 { font-size: clamp(2rem, 4vw, 3rem); margin-bottom: 22px; max-width: 720px; }
-  .tiers-lead { color: var(--char); max-width: 600px; margin-bottom: 70px; font-size: 1rem; }
-  .tier-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 28px; }
-  .tier-card { background: var(--paper); padding: 44px 36px; border-top: 3px solid var(--gold); }
-  .tier-tag { font-family: 'Josefin Sans',sans-serif; font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
-  .tier-card h3 { font-size: 1.6rem; margin-bottom: 16px; }
-  .tier-amount { font-family: 'Cormorant Garamond',serif; font-style: italic; font-size: 1.5rem; color: var(--gold); margin-bottom: 24px; line-height: 1; }
-  .tier-card p { color: var(--char); font-size: 0.92rem; line-height: 1.8; }
-  .tier-detail { font-size: 0.78rem; color: var(--stone); margin-top: 10px; }
+  .tiers { background: var(--paper); border-top: 1px solid var(--line); }
+  .tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 50px; margin-top: 80px; }
+  .tier { border-top: 1px solid var(--ink); padding-top: 28px; }
+  .tier-tag { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.32em; color: var(--red); margin-bottom: 22px; }
+  .tier h3 { font-size: 1.7rem; margin-bottom: 14px; font-weight: 400; }
+  .tier-amount { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.4rem; color: var(--gray); margin-bottom: 24px; line-height: 1; }
+  .tier p { color: var(--gray); font-size: 0.88rem; line-height: 1.85; margin-bottom: 16px; font-weight: 300; }
 
   /* CTA */
-  .cta { background: var(--paper); padding: 130px 56px; text-align: center; }
-  .cta .eyebrow { margin: 0 auto 30px; }
-  .cta h2 { font-size: clamp(2.2rem, 4.5vw, 3.2rem); margin-bottom: 30px; max-width: 760px; margin-left: auto; margin-right: auto; }
-  .cta p { color: var(--char); max-width: 540px; margin: 0 auto 50px; }
-  .btn { display: inline-flex; align-items: center; gap: 12px; font-family: 'Josefin Sans',sans-serif; font-size: 0.65rem; letter-spacing: 0.25em; text-transform: uppercase; padding: 14px 28px; text-decoration: none; transition: all 0.4s ease; border: 1px solid; }
-  .btn-primary { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-  .btn-primary:hover { background: var(--gold); border-color: var(--gold); color: var(--ink); }
-  .btn-arrow { transition: transform 0.3s ease; }
-  .btn:hover .btn-arrow { transform: translateX(4px); }
+  .cta { background: var(--paper); padding: 200px 56px; text-align: center; border-top: 1px solid var(--line); }
+  .cta h2 { font-size: clamp(2.4rem, 5vw, 3.8rem); line-height: 1.05; margin-bottom: 36px; max-width: 800px; margin-left: auto; margin-right: auto; font-weight: 400; }
+  .cta p { color: var(--gray); max-width: 540px; margin: 0 auto 56px; font-size: 1rem; line-height: 1.85; }
+  .cta-actions { display: flex; gap: 36px; justify-content: center; flex-wrap: wrap; }
+  .link-btn { font-size: 0.7rem; font-weight: 500; letter-spacing: 0.24em; text-transform: uppercase; border-bottom: 1px solid var(--ink); padding-bottom: 8px; transition: color 0.3s ease, border-color 0.3s ease; display: inline-flex; align-items: center; gap: 12px; }
+  .link-btn.red { color: var(--red); border-color: var(--red); }
+  .link-btn:hover { color: var(--red); border-color: var(--red); }
+  .link-arrow { transition: transform 0.3s ease; }
+  .link-btn:hover .link-arrow { transform: translateX(5px); }
 
   /* FOOTER */
-  footer { background: var(--char); color: rgba(246,244,240,0.7); padding: 80px 56px 36px; }
-  .footer-grid { display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 60px; max-width: 1240px; margin: 0 auto; }
-  .footer-brand h3 { font-family: 'Cormorant Garamond',serif; font-size: 1.6rem; color: var(--paper); margin-bottom: 18px; }
-  .footer-brand p { font-size: 0.85rem; line-height: 1.8; max-width: 280px; }
-  .footer-col h5 { font-family: 'Josefin Sans',sans-serif; font-size: 0.6rem; letter-spacing: 0.25em; text-transform: uppercase; color: var(--gold); margin-bottom: 22px; font-weight: 400; }
-  .footer-col a, .footer-col li { display: block; color: rgba(246,244,240,0.65); text-decoration: none; font-size: 0.85rem; line-height: 2.1; list-style: none; transition: color 0.3s ease; }
-  .footer-col a:hover { color: var(--gold); }
-  .footer-bottom { margin: 70px auto 0; padding-top: 30px; border-top: 1px solid rgba(246,244,240,0.12); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 20px; max-width: 1240px; font-family: 'Josefin Sans',sans-serif; font-size: 0.6rem; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(246,244,240,0.4); }
+  footer { background: var(--paper); border-top: 1px solid var(--line); padding: 80px 56px 36px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 70px; max-width: 1320px; margin: 0 auto; }
+  .footer-brand .brand-mark { font-size: 1.6rem; }
+  .footer-brand p { margin-top: 24px; font-size: 0.86rem; line-height: 1.85; max-width: 320px; color: var(--gray); }
+  .footer-col h5 { font-size: 0.6rem; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: var(--ink); margin-bottom: 22px; }
+  .footer-col a, .footer-col li { display: block; color: var(--gray); font-size: 0.86rem; line-height: 2.1; list-style: none; }
+  .footer-col a:hover { color: var(--red); }
+  .footer-bottom { margin: 80px auto 0; padding-top: 28px; border-top: 1px solid var(--line); display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; max-width: 1320px; font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--gray); font-weight: 500; }
 
-  @media (max-width: 980px) {
-    nav { padding: 18px 26px; }
+  @media (max-width: 1100px) { .svc-grid { grid-template-columns: 1fr; gap: 60px; } .process-grid { grid-template-columns: repeat(3, 1fr); gap: 50px 30px; } .tier-grid { grid-template-columns: 1fr; gap: 40px; } }
+  @media (max-width: 700px) {
+    nav, .page-hero, section, footer { padding-left: 26px; padding-right: 26px; }
+    nav { grid-template-columns: 1fr auto; padding: 18px 26px; }
     .nav-links { display: none; }
-    .hero, section.services, .process, .tiers, .cta { padding-left: 26px; padding-right: 26px; }
-    .hero { padding-top: 160px; padding-bottom: 60px; }
+    .nav-right .nav-phone { display: none; }
+    .page-hero { padding-bottom: 60px; height: 55vh; }
+    .process-grid { grid-template-columns: 1fr 1fr; }
     .footer-grid { grid-template-columns: 1fr 1fr; gap: 40px; }
+    section { padding-top: 100px; padding-bottom: 100px; }
   }
-  @media (max-width: 600px) { .footer-grid { grid-template-columns: 1fr; } }
+  @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; } .process-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
 
 <nav id="nav">
-  <a href="index.html" class="brand">Radius<small>Architectural Millwork</small></a>
+  <a href="index.html" class="brand">
+    <span class="brand-mark">RADIUS</span>
+    <span class="brand-sub">Architectural Millwork</span>
+  </a>
   <ul class="nav-links">
-    <li><a href="work.html">Work</a></li>
-    <li><a href="index.html#process">Process</a></li>
+    <li><a href="index.html">Home</a></li>
     <li><a href="about.html">About</a></li>
+    <li><a href="work.html">Work</a></li>
     <li><a href="services.html" class="active">Services</a></li>
+    <li><a href="index.html#contact">Contact</a></li>
   </ul>
-  <a href="index.html#contact" class="nav-cta">Talk to Rick →</a>
+  <div class="nav-right"><a href="tel:6044441175" class="nav-phone">604.444.1175</a></div>
 </nav>
 
-<header class="hero">
-  <div class="hero-inner">
-    <span class="eyebrow">Services</span>
-    <h1>Architectural millwork. <em>Cabinetry, paneling, furniture.</em></h1>
-    <p class="lead">
-      We work residential and estate across British Columbia. Solid stock and veneer-laid. Traditional
-      joinery throughout. The same six-step process from a single coffee table to eighteen months of
-      integrated millwork.
-    </p>
+<header class="page-hero">
+  <div class="page-hero-bg"></div>
+  <div class="page-hero-content">
+    <div class="page-hero-label">Services</div>
+    <h1>Architectural millwork. <em>Cabinetry. Furniture.</em></h1>
   </div>
 </header>
 
 <section class="services">
-  <div class="services-inner">
-    <div class="services-grid">
+  <div class="inner">
+    <div class="services-head">
+      <span class="section-label">What We Build</span>
+      <h2 class="display">Six categories. One bench. Same standard.</h2>
+      <p class="lead">
+        We work residential and estate across British Columbia. Solid stock and veneer-laid.
+        Traditional joinery throughout. The same six-step process from a single coffee table to
+        eighteen months of integrated millwork.
+      </p>
+    </div>
 
-      <div class="scard">
-        <div class="eyebrow">01</div>
+    <div class="svc-grid">
+      <div class="svc">
+        <div class="svc-num">01</div>
         <h3>Architectural Millwork</h3>
         <p>Wall paneling, coffered ceilings, slat walls, integrated case goods. The work that runs continuously across rooms and asks the most of figure-matching and reveals.</p>
         <ul>
@@ -159,9 +156,8 @@
           <li>Built-ins, libraries, full-room cladding</li>
         </ul>
       </div>
-
-      <div class="scard">
-        <div class="eyebrow">02</div>
+      <div class="svc">
+        <div class="svc-num">02</div>
         <h3>Custom Kitchens</h3>
         <p>Full kitchens from drawing set to install day. Solid stock and veneer-laid. Conversion-varnish or hand-rubbed-oil finishes. The shop's highest-volume category.</p>
         <ul>
@@ -171,9 +167,8 @@
           <li>Furniture-grade interiors</li>
         </ul>
       </div>
-
-      <div class="scard">
-        <div class="eyebrow">03</div>
+      <div class="svc">
+        <div class="svc-num">03</div>
         <h3>Wine Cellars</h3>
         <p>Climate-controlled cellars in cedar, quarter-sawn oak, or species to spec. Templated on site over multiple visits before the first piece comes out of the shop.</p>
         <ul>
@@ -183,9 +178,8 @@
           <li>Single-bottle and case-rack mixes</li>
         </ul>
       </div>
-
-      <div class="scard">
-        <div class="eyebrow">04</div>
+      <div class="svc">
+        <div class="svc-num">04</div>
         <h3>Bars + Built-Ins</h3>
         <p>Home bars, libraries, office built-ins. Often with laminated curves and matched-veneer back walls. Detail-heavy work where the joinery has to do the talking.</p>
         <ul>
@@ -195,11 +189,10 @@
           <li>Office case goods, book-matched</li>
         </ul>
       </div>
-
-      <div class="scard">
-        <div class="eyebrow">05</div>
+      <div class="svc">
+        <div class="svc-num">05</div>
         <h3>Custom Furniture</h3>
-        <p>Dining tables, cabinets, single-piece furniture. Walnut, oak, maple, anigre, and figured species on request. The pieces clients commission once and keep.</p>
+        <p>Dining tables, cabinets, single-piece furniture. Walnut, oak, maple, anigre, and figured species. The pieces clients commission once and keep.</p>
         <ul>
           <li>Solid-stock dining tables</li>
           <li>Single-piece cabinetry</li>
@@ -207,9 +200,8 @@
           <li>Heirloom-grade joinery</li>
         </ul>
       </div>
-
-      <div class="scard">
-        <div class="eyebrow">06</div>
+      <div class="svc">
+        <div class="svc-num">06</div>
         <h3>Project Consultation</h3>
         <p>Pre-design value engineering, mockup work, finish-schedule development. The conversations that happen before a project becomes a quote.</p>
         <ul>
@@ -219,102 +211,92 @@
           <li>Finish samples + color development</li>
         </ul>
       </div>
-
     </div>
   </div>
 </section>
 
 <section class="process">
-  <div class="process-inner">
-    <span class="eyebrow">How We Work</span>
-    <h2>Six steps. Every project.</h2>
-    <p class="process-lead">
-      The same process for a single coffee table or eighteen months of integrated estate work. What
-      changes is how many full-scale mock-ups we build before we cut.
+  <div class="inner">
+    <span class="section-label">How We Work</span>
+    <h2 class="display">Six steps from drawing to install.</h2>
+    <p class="lead">
+      The same process for a single coffee table or eighteen months of integrated estate work.
+      What changes is how many full-scale mock-ups we build before we cut.
     </p>
-    <div class="pgrid">
-      <div class="pstep"><span class="num">01</span><h4>Design</h4><p>We work from your drawings or develop the millwork strategy from scratch. CAD shop drawings, 3D renders where they help.</p></div>
-      <div class="pstep"><span class="num">02</span><h4>Planning</h4><p>Lead times, species sourcing, mock-up scheduling. The schedule we ship from. The schedule we hold to.</p></div>
-      <div class="pstep"><span class="num">03</span><h4>Production</h4><p>Twenty craftspeople. Solid stock and veneer-laid work. Traditional joinery throughout. Zero CNC.</p></div>
-      <div class="pstep"><span class="num">04</span><h4>Mock-up</h4><p>On novel joinery, we build a full-scale piece first. The client visits the shop and sees it at scale before we commit.</p></div>
-      <div class="pstep"><span class="num">05</span><h4>Finishing</h4><p>Up to six coats of conversion varnish, between-coat sanded. Finish schedules to two pages where they need to be.</p></div>
-      <div class="pstep"><span class="num">06</span><h4>Installation</h4><p>In-house installers. Site-measure, template, scribe-fit, punch list. We don't leave until it's flush.</p></div>
+    <div class="process-grid">
+      <div class="pstep"><div class="pstep-num">01</div><h4>Design</h4><p>From your drawing set or developed in-house. CAD shop drawings, 3D renders where they help.</p></div>
+      <div class="pstep"><div class="pstep-num">02</div><h4>Planning</h4><p>Lead times, species sourcing, mock-up scheduling. The schedule we ship from.</p></div>
+      <div class="pstep"><div class="pstep-num">03</div><h4>Production</h4><p>Twenty craftspeople. Solid stock and veneer-laid. Traditional joinery. Zero CNC.</p></div>
+      <div class="pstep"><div class="pstep-num">04</div><h4>Mock-up</h4><p>On novel joinery, a full-scale piece comes first. The client sees it before we commit.</p></div>
+      <div class="pstep"><div class="pstep-num">05</div><h4>Finishing</h4><p>Up to six coats of conversion varnish, between-coat sanded.</p></div>
+      <div class="pstep"><div class="pstep-num">06</div><h4>Installation</h4><p>In-house installers. Site-measure, template, scribe-fit, punch list.</p></div>
     </div>
   </div>
 </section>
 
 <section class="tiers">
-  <div class="tiers-inner">
-    <span class="eyebrow">Project Scale</span>
-    <h2>From a single piece to a full estate.</h2>
-    <p class="tiers-lead">
+  <div class="inner">
+    <span class="section-label">Project Scale</span>
+    <h2 class="display">From a single piece to a full estate.</h2>
+    <p class="lead">
       Most of our work falls into one of these scales. Quotes are project-specific, scoped after a shop visit.
     </p>
     <div class="tier-grid">
-      <div class="tier-card">
+      <div class="tier">
         <div class="tier-tag">Single Piece</div>
         <h3>Furniture + Inlay</h3>
         <div class="tier-amount">From $10,000</div>
         <p>Coffee tables, cabinets, dining tables. Single-piece custom commissions. Material and joinery to spec.</p>
-        <p class="tier-detail">Walnut, oak, anigre, maple. Inlay and ebonized work. Two to six weeks at the bench depending on the joint.</p>
+        <p>Walnut, oak, anigre, maple. Two to six weeks at the bench depending on the joint.</p>
       </div>
-      <div class="tier-card">
+      <div class="tier">
         <div class="tier-tag">Residential</div>
         <h3>Kitchen + Built-Ins</h3>
         <div class="tier-amount">From $80,000</div>
         <p>Custom kitchens, libraries, primary built-ins. Mid-scale residential work, four to twelve weeks at the bench.</p>
-        <p class="tier-detail">Solid stock and veneer-laid. Touch-latch hardware. Furniture-grade interiors. Conversion-varnish or natural-effect finishes.</p>
+        <p>Solid stock and veneer-laid. Touch-latch hardware. Furniture-grade interiors.</p>
       </div>
-      <div class="tier-card">
+      <div class="tier">
         <div class="tier-tag">Estate</div>
         <h3>Full-House Millwork</h3>
-        <div class="tier-amount">$250K – $1.5M+</div>
+        <div class="tier-amount">$250K — $1.5M+</div>
         <p>Integrated millwork packages across primary residences. Twelve to eighteen months. The work the shop is built for.</p>
-        <p class="tier-detail">Wall paneling, coffered ceilings, kitchen, bars, libraries, wine rooms, bath, closets. AWMAC Gold-tier scope.</p>
+        <p>Wall paneling, coffered ceilings, kitchen, bars, libraries, wine rooms, bath, closets. AWMAC Gold-tier scope.</p>
       </div>
     </div>
   </div>
 </section>
 
 <section class="cta">
-  <span class="eyebrow center">Get In Touch</span>
-  <h2>Working on a project that asks something of the bench?</h2>
-  <p>Send drawings, specs, or a phone number. Rick will be the one calling back.</p>
-  <a href="index.html#contact" class="btn btn-primary">Talk to Rick <span class="btn-arrow">→</span></a>
+  <span class="section-label">Get In Touch</span>
+  <h2>Working on a project that asks something of <em>the bench?</em></h2>
+  <p>Send drawings, specs, or a phone number. Rick is the one who calls back.</p>
+  <div class="cta-actions">
+    <a href="mailto:rick@radiuswood.com" class="link-btn red">Email Rick <span class="link-arrow">→</span></a>
+    <a href="tel:6044441175" class="link-btn">604.444.1175</a>
+  </div>
 </section>
 
 <footer>
   <div class="footer-grid">
     <div class="footer-brand">
-      <h3>Radius Architectural Millwork</h3>
-      <p>Custom architectural millwork, cabinetry, and furniture built in Burnaby for residential and estate work across British Columbia.</p>
+      <span class="brand-mark">RADIUS</span>
+      <span class="brand-sub">Architectural Millwork</span>
+      <p>Custom architectural millwork, cabinetry, and furniture built in Burnaby for residential and estate work across British Columbia. Founded 2000.</p>
     </div>
-    <div class="footer-col">
-      <h5>Visit</h5>
-      <ul><li>8575 Government Street</li><li>Burnaby, BC V3N 4V1</li><li>Mon–Fri · 6:30am–2:30pm</li></ul>
-    </div>
-    <div class="footer-col">
-      <h5>Contact</h5>
-      <ul><li><a href="tel:6044441175">(604) 444-1175</a></li><li><a href="mailto:info@radiuswood.com">info@radiuswood.com</a></li></ul>
-    </div>
-    <div class="footer-col">
-      <h5>Follow</h5>
-      <ul><li><a href="#">Instagram · @radiusmillwork</a></li><li><a href="#">LinkedIn</a></li><li><a href="#">Houzz</a></li></ul>
-    </div>
+    <div class="footer-col"><h5>Visit</h5><ul><li>8575 Government Street</li><li>Burnaby, BC V3N 4V1</li><li>Mon–Fri 6:30am–2:30pm</li></ul></div>
+    <div class="footer-col"><h5>Contact</h5><ul><li><a href="tel:6044441175">604.444.1175</a></li><li><a href="mailto:info@radiuswood.com">info@radiuswood.com</a></li></ul></div>
+    <div class="footer-col"><h5>Follow</h5><ul><li><a href="#">Instagram</a></li><li><a href="#">LinkedIn</a></li><li><a href="#">Houzz</a></li></ul></div>
   </div>
   <div class="footer-bottom">
-    <span>© 2026 Radius Architectural Millwork Ltd</span>
+    <span>© 2026 Radius Architectural Millwork Ltd · License BUS05-01768</span>
     <span>Site by Matt Anthony Photography</span>
   </div>
 </footer>
 
 <script>
   const nav = document.getElementById('nav');
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 80) nav.classList.add('scrolled');
-    else nav.classList.remove('scrolled');
-  });
+  window.addEventListener('scroll', () => { if (window.scrollY > 80) nav.classList.add('scrolled'); else nav.classList.remove('scrolled'); });
 </script>
-
 </body>
 </html>
