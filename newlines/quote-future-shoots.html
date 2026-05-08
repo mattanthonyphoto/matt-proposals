@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Future Shoots Quote — Newlines</title>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1A1A18;
+    --paper: #F6F4F0;
+    --off: #EEECE6;
+    --gold: #C9A96E;
+    --gold-line: rgba(201,169,110,0.25);
+    --stone: #8A8579;
+    --light-stone: #D9D5CD;
+    --white: #FFFFFF;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { font-size:16px; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body { background:var(--white); color:var(--ink); font-family:'DM Sans',sans-serif; font-weight:300; line-height:1.7; }
+
+  .wrap { max-width:780px; margin:0 auto; padding:0 48px; }
+
+  /* HEADER */
+  header.top {
+    padding:48px 0 36px;
+    border-bottom:1px solid var(--light-stone);
+  }
+  header.top .wrap {
+    display:flex; justify-content:space-between; align-items:flex-start; gap:48px;
+  }
+  .brand-block .label {
+    font-family:'Josefin Sans',sans-serif; font-size:0.6rem; letter-spacing:0.32em;
+    text-transform:uppercase; color:var(--gold); margin-bottom:10px;
+  }
+  .brand-block h1 {
+    font-family:'Cormorant Garamond',serif; font-weight:500;
+    font-size:1.6rem; line-height:1.15; margin-bottom:6px;
+  }
+  .brand-block .tag {
+    font-family:'Cormorant Garamond',serif; font-style:italic;
+    font-size:0.95rem; color:var(--stone);
+  }
+  .meta-block { text-align:right; font-size:0.78rem; color:var(--stone); line-height:1.7; }
+  .meta-block .label {
+    font-family:'Josefin Sans',sans-serif; font-size:0.55rem; letter-spacing:0.22em;
+    text-transform:uppercase; color:var(--gold); margin-bottom:4px;
+  }
+  .meta-block .val {
+    font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--ink); margin-bottom:10px;
+  }
+
+  /* TITLE */
+  section.title { padding:64px 0 32px; }
+  section.title h2 {
+    font-family:'Cormorant Garamond',serif; font-weight:400;
+    font-size:2.4rem; line-height:1.1; letter-spacing:-0.01em; margin-bottom:18px;
+  }
+  section.title h2 em { font-style:italic; color:var(--gold); }
+  section.title p {
+    font-size:1rem; line-height:1.85; color:#3A3A36; max-width:640px;
+  }
+
+  /* APPROACH */
+  section.approach { padding:32px 0 56px; }
+  .approach-row {
+    padding:20px 0; border-bottom:1px solid var(--light-stone);
+  }
+  .approach-row:last-child { border-bottom:none; }
+  .approach-row .h {
+    font-family:'Cormorant Garamond',serif; font-size:1.15rem; color:var(--ink); margin-bottom:6px;
+  }
+  .approach-row .d {
+    font-size:0.92rem; color:#3A3A36; line-height:1.7;
+  }
+
+  /* PRICING TABLE */
+  section.pricing { padding:48px 0; background:var(--off); }
+  section.pricing .sec-label {
+    font-family:'Josefin Sans',sans-serif; font-size:0.6rem; letter-spacing:0.3em;
+    text-transform:uppercase; color:var(--gold); margin-bottom:14px;
+    display:flex; align-items:center; gap:14px;
+  }
+  section.pricing .sec-label::before { content:''; width:28px; height:1px; background:var(--gold); }
+  section.pricing h2 {
+    font-family:'Cormorant Garamond',serif; font-weight:400;
+    font-size:1.9rem; margin-bottom:32px;
+  }
+  section.pricing h2 em { font-style:italic; color:var(--gold); }
+
+  .price-table {
+    background:var(--white); border:1px solid var(--light-stone);
+  }
+  .price-row {
+    display:grid; grid-template-columns:1.5fr 0.7fr 1fr; gap:24px;
+    padding:22px 28px; border-bottom:1px solid var(--light-stone); align-items:center;
+  }
+  .price-row.head {
+    background:var(--ink); color:var(--paper);
+    font-family:'Josefin Sans',sans-serif; font-size:0.6rem; letter-spacing:0.22em; text-transform:uppercase;
+  }
+  .price-row.head > div { color:rgba(246,244,240,0.6); }
+  .price-row:last-child { border-bottom:none; }
+
+  .price-row.bundle {
+    background:#FBFAF7; border-top:2px solid var(--gold);
+  }
+
+  .pkg-name {
+    font-family:'Cormorant Garamond',serif; font-size:1.15rem; color:var(--ink); margin-bottom:3px;
+  }
+  .pkg-sub { font-size:0.8rem; color:var(--stone); line-height:1.55; }
+  .price-amt {
+    font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:var(--ink); line-height:1;
+  }
+  .price-sub-amt { font-size:0.72rem; color:var(--stone); margin-top:3px; }
+  .scope-text { font-size:0.85rem; color:#3A3A36; line-height:1.6; }
+
+  /* NOTES */
+  section.notes { padding:48px 0; }
+  section.notes .sec-label {
+    font-family:'Josefin Sans',sans-serif; font-size:0.6rem; letter-spacing:0.3em;
+    text-transform:uppercase; color:var(--gold); margin-bottom:14px;
+    display:flex; align-items:center; gap:14px;
+  }
+  section.notes .sec-label::before { content:''; width:28px; height:1px; background:var(--gold); }
+  section.notes h2 {
+    font-family:'Cormorant Garamond',serif; font-weight:400; font-size:1.7rem; margin-bottom:24px;
+  }
+  section.notes h2 em { font-style:italic; color:var(--gold); }
+  section.notes ul { list-style:none; padding:0; }
+  section.notes li {
+    font-size:0.92rem; line-height:1.85; color:#3A3A36; padding:6px 0 6px 22px; position:relative;
+  }
+  section.notes li::before {
+    content:''; position:absolute; left:0; top:18px; width:10px; height:1px; background:var(--gold);
+  }
+
+  /* CLOSE */
+  section.close {
+    background:var(--ink); color:var(--paper); padding:56px 0;
+  }
+  section.close .sec-label { color:var(--gold); margin-bottom:14px;
+    font-family:'Josefin Sans',sans-serif; font-size:0.6rem; letter-spacing:0.3em; text-transform:uppercase;
+    display:flex; align-items:center; gap:14px;
+  }
+  section.close .sec-label::before { content:''; width:28px; height:1px; background:var(--gold); }
+  section.close h2 {
+    font-family:'Cormorant Garamond',serif; font-weight:400; font-size:1.9rem;
+    color:var(--paper); line-height:1.2; margin-bottom:18px;
+  }
+  section.close h2 em { font-style:italic; color:var(--gold); }
+  section.close p {
+    color:rgba(246,244,240,0.78); font-size:0.95rem; line-height:1.8; max-width:580px; margin-bottom:14px;
+  }
+  .signoff {
+    margin-top:32px; padding-top:24px; border-top:1px solid rgba(201,169,110,0.25);
+    font-family:'Cormorant Garamond',serif; font-size:1rem; color:rgba(246,244,240,0.85); line-height:1.7;
+  }
+  .signoff strong { color:var(--paper); display:block; font-weight:500; margin-bottom:4px; }
+
+  footer {
+    padding:36px 0; text-align:center; background:var(--ink); color:rgba(246,244,240,0.45);
+    font-family:'Josefin Sans',sans-serif; font-size:0.6rem; letter-spacing:0.28em; text-transform:uppercase;
+    border-top:1px solid rgba(201,169,110,0.15);
+  }
+
+  @media (max-width:680px) {
+    .wrap { padding:0 24px; }
+    header.top .wrap { flex-direction:column; gap:24px; }
+    .meta-block { text-align:left; }
+    .price-row { grid-template-columns:1fr; gap:8px; padding:18px 22px; }
+    section.title h2 { font-size:1.9rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="top">
+  <div class="wrap">
+    <div class="brand-block">
+      <div class="label">Photography Quote</div>
+      <h1>Matt Anthony Photography</h1>
+      <div class="tag">Documenting design intent</div>
+    </div>
+    <div class="meta-block">
+      <div class="label">Prepared for</div>
+      <div class="val">Gabriel Viel-Cote · Newlines</div>
+      <div class="label">Date</div>
+      <div class="val">May 7, 2026</div>
+      <div class="label">Reference</div>
+      <div>Email thread, May 7</div>
+    </div>
+  </div>
+</header>
+
+<!-- TITLE -->
+<section class="title">
+  <div class="wrap">
+    <h2>Future shoots, <em>horizontal and vertical.</em></h2>
+    <p>Per your note, every shoot from here forward is captured for both desktop and mobile. Below is how I'll be doing it, what's included, and what it costs.</p>
+  </div>
+</section>
+
+<!-- APPROACH -->
+<section class="approach">
+  <div class="wrap">
+    <div class="approach-row">
+      <div class="h">Video · shoot wide, dual-crop in post</div>
+      <div class="d">Every video setup is framed for both 16:9 and 9:16 in the same take. Trades won't repeat for a second pass, and the camera has enough headroom that the vertical cut doesn't lose quality. You get a horizontal master and a vertical cut from the same coverage.</div>
+    </div>
+    <div class="approach-row">
+      <div class="h">Stills · double takes on hero scenes</div>
+      <div class="d">Composition is the entire point of a still, so hero scenes get captured twice. Once horizontal for desktop banners and proposals, once vertical or 4:5 for mobile and social. Walk-around documentation stays single-format.</div>
+    </div>
+    <div class="approach-row">
+      <div class="h">Voice · mic'd interview b-roll</div>
+      <div class="d">Lavalier mics on you, the trades, and the homeowner where consent allows. Captured as ambient, not staged talking heads. Short real-voice clips you can drop into reels, sales calls, and lead nurture.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section class="pricing">
+  <div class="wrap">
+    <div class="sec-label">Pricing for future shoots</div>
+    <h2>Per-visit, <em>plus a bundle option.</em></h2>
+
+    <div class="price-table">
+      <div class="price-row head">
+        <div>Visit type</div>
+        <div>Fee</div>
+        <div>What's included</div>
+      </div>
+
+      <div class="price-row">
+        <div>
+          <div class="pkg-name">Servicing</div>
+          <div class="pkg-sub">2-hour single mobilization</div>
+        </div>
+        <div>
+          <div class="price-amt">$850</div>
+          <div class="price-sub-amt">plus GST</div>
+        </div>
+        <div class="scope-text">Screw pile, trenching, services. Dual-format video, bundled stills.</div>
+      </div>
+
+      <div class="price-row">
+        <div>
+          <div class="pkg-name">Install / crane day</div>
+          <div class="pkg-sub">Half-day coverage</div>
+        </div>
+        <div>
+          <div class="price-amt">$1,750</div>
+          <div class="price-sub-amt">plus GST</div>
+        </div>
+        <div class="scope-text">Aux Box drop, modular set, or framing. Dual-format video and stills, mic'd voice clips.</div>
+      </div>
+
+      <div class="price-row">
+        <div>
+          <div class="pkg-name">Finished walkthrough</div>
+          <div class="pkg-sub">Full architectural shoot</div>
+        </div>
+        <div>
+          <div class="price-amt">$2,500</div>
+          <div class="price-sub-amt">plus GST</div>
+        </div>
+        <div class="scope-text">Hero stills (dual-format), atmospheric video, optional homeowner interview.</div>
+      </div>
+
+      <div class="price-row bundle">
+        <div>
+          <div class="pkg-name">Full build bundle</div>
+          <div class="pkg-sub">All three visits, booked together</div>
+        </div>
+        <div>
+          <div class="price-amt">$4,500</div>
+          <div class="price-sub-amt">plus GST · saves $600</div>
+        </div>
+        <div class="scope-text">Servicing + install + finished, captured as one continuous build story.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NOTES -->
+<section class="notes">
+  <div class="wrap">
+    <div class="sec-label">A few notes</div>
+    <h2>What this <em>does and doesn't</em> change.</h2>
+    <ul>
+      <li>The two shoots already on the books (Aux Box install, servicing) hold their existing pricing. New rates apply to bookings from here forward.</li>
+      <li>No travel fees within the Sea-to-Sky corridor.</li>
+      <li>Net 15 from final delivery, e-Transfer or invoice link.</li>
+      <li>One round of light revisions per piece included. Additional revisions at $75/hr.</li>
+      <li>Files delivered via Dropbox. Web-optimized JPEG plus print-ready 300 DPI Adobe RGB on stills. Video as 16:9 master plus 9:16 vertical cut, 1080p or 4K where source permits.</li>
+      <li>Aerial coverage where airspace and conditions permit. Transport Canada Advanced licensed, aviation liability insured.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CLOSE -->
+<section class="close">
+  <div class="wrap">
+    <div class="sec-label">Next</div>
+    <h2>Reply with which you want booked, <em>and I'll send a contract.</em></h2>
+    <p>If you'd rather talk it through, a 20-minute call works. I can walk through the approach in more detail or look at specific upcoming builds together.</p>
+    <div class="signoff">
+      <strong>Matt Anthony</strong>
+      Matt Anthony Photography · Squamish, BC<br>
+      info@mattanthonyphoto.com · 604.765.9270
+    </div>
+  </div>
+</section>
+
+<footer>
+  Matt Anthony Photography · GST# 79115 0261 RT0001
+</footer>
+
+</body>
+</html>
