@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Updated Rates — Newlines</title>
+<title>Future Shoots · Rate Sheet — Newlines</title>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=DM+Sans:wght@300;400;500&family=Josefin+Sans:wght@300;400&display=swap" rel="stylesheet">
 <style>
   :root {
@@ -67,7 +67,7 @@
     margin-top:32px; border-top:1px solid var(--light-stone);
   }
   .rate-row {
-    display:grid; grid-template-columns:1fr 110px;
+    display:grid; grid-template-columns:1fr 90px;
     padding:18px 0; border-bottom:1px solid var(--light-stone);
     align-items:center; gap:24px;
   }
@@ -77,10 +77,36 @@
   .rate-row .scope {
     font-size:0.8rem; color:var(--stone); margin-top:3px; line-height:1.55;
   }
+  .rate-row .deliv {
+    font-size:0.78rem; color:#3A3A36; margin-top:6px; line-height:1.55;
+  }
+  .rate-row .deliv strong {
+    font-weight:500; color:var(--ink);
+  }
   .rate-row .price {
     font-family:'Cormorant Garamond',serif; font-size:1.4rem; color:var(--ink); text-align:right; line-height:1;
   }
-  .rate-row .price-sub {
+
+  /* ADD-ON */
+  .addon {
+    margin-top:18px; padding:16px 20px; background:var(--paper);
+    border:1px solid var(--light-stone); border-radius:2px;
+    display:grid; grid-template-columns:1fr 90px; gap:24px; align-items:center;
+  }
+  .addon .lbl {
+    font-family:'Josefin Sans',sans-serif; font-size:0.55rem; letter-spacing:0.22em;
+    text-transform:uppercase; color:var(--gold); margin-bottom:4px;
+  }
+  .addon .name {
+    font-family:'Cormorant Garamond',serif; font-size:1.05rem; color:var(--ink); margin-bottom:3px;
+  }
+  .addon .desc {
+    font-size:0.78rem; color:var(--stone); line-height:1.55;
+  }
+  .addon .price {
+    font-family:'Cormorant Garamond',serif; font-size:1.2rem; color:var(--ink); text-align:right; line-height:1;
+  }
+  .addon .price-sub {
     font-size:0.7rem; color:var(--stone); text-align:right; margin-top:3px;
   }
 
@@ -93,7 +119,7 @@
 
   /* FOOT */
   .foot {
-    margin-top:36px; padding-top:24px; border-top:1px solid var(--light-stone);
+    margin-top:28px; padding-top:24px; border-top:1px solid var(--light-stone);
     display:flex; justify-content:space-between; align-items:flex-end; gap:24px;
   }
   .foot .signoff {
@@ -105,7 +131,7 @@
   }
   .foot .gst {
     font-family:'Josefin Sans',sans-serif; font-size:0.55rem; letter-spacing:0.22em;
-    text-transform:uppercase; color:var(--stone); text-align:right;
+    text-transform:uppercase; color:var(--stone); text-align:right; line-height:1.7;
   }
 
   @media (max-width:560px) {
@@ -116,6 +142,8 @@
     .foot { flex-direction:column; align-items:flex-start; }
     .foot .gst { text-align:left; }
     .title h2 { font-size:1.55rem; }
+    .rate-row, .addon { grid-template-columns:1fr; gap:8px; }
+    .rate-row .price, .addon .price { text-align:left; }
   }
 </style>
 </head>
@@ -125,9 +153,9 @@
 
   <div class="head">
     <div class="left">
-      <div class="eyebrow">Updated Rates</div>
+      <div class="eyebrow">Future Shoots · Rate Sheet</div>
       <h1>Matt Anthony Photography</h1>
-      <div class="tag">Future shoots, Newlines</div>
+      <div class="tag">For Newlines</div>
     </div>
     <div class="right">
       <div class="meta-label">Date</div>
@@ -138,47 +166,61 @@
   </div>
 
   <div class="title">
-    <h2>Both formats, <em>built into every shoot.</em></h2>
-    <p>Going forward, every visit captures horizontal and vertical, video and stills, with mic'd voice on the build. The added on-set time and edit work bumps the per-visit rates a touch. Here's the new sheet.</p>
+    <h2>Both formats, <em>captured intentionally.</em></h2>
+    <p>Each rate now includes 16:9 and 9:16 framed on set from the start, plus dual-crop deliverables. Modest premium over previous pricing reflects the additional edit pass.</p>
   </div>
 
   <div class="rates">
+
     <div class="rate-row">
       <div>
         <div class="name">Servicing visit</div>
-        <div class="scope">2-hour single mobilization. Screw pile, trenching, services. Dual-format video plus bundled stills.</div>
+        <div class="scope">2-hour single mobilization. Screw pile, trenching, services.</div>
+        <div class="deliv"><strong>Delivers:</strong> 30s edited reel (16:9 + 9:16), 6 to 8 edited stills, multi-format exports.</div>
       </div>
       <div>
         <div class="price">$850</div>
-        <div class="price-sub">plus GST</div>
       </div>
     </div>
 
     <div class="rate-row">
       <div>
         <div class="name">Install or crane day</div>
-        <div class="scope">Half-day coverage. Aux Box drop, modular set, or framing day. Dual-format video and stills, mic'd voice clips.</div>
+        <div class="scope">Half-day coverage. Aux Box drop, modular set, framing day.</div>
+        <div class="deliv"><strong>Delivers:</strong> 60 to 90s edited reel (16:9 + 9:16), 12 to 15 edited stills, 4K drone aerials where airspace permits.</div>
       </div>
       <div>
-        <div class="price">$1,750</div>
-        <div class="price-sub">plus GST</div>
+        <div class="price">$1,600</div>
       </div>
     </div>
 
     <div class="rate-row">
       <div>
         <div class="name">Finished walkthrough</div>
-        <div class="scope">Half-day architectural shoot. Hero stills (dual-format), atmospheric video, optional homeowner interview.</div>
+        <div class="scope">Half-day architectural shoot, interior and exterior.</div>
+        <div class="deliv"><strong>Delivers:</strong> 60 to 90s atmospheric video (16:9 + 9:16), 15 to 20 hero stills (dual-format on hero scenes), drone where conditions allow.</div>
       </div>
       <div>
         <div class="price">$2,000</div>
-        <div class="price-sub">plus GST</div>
       </div>
+    </div>
+
+  </div>
+
+  <div class="addon">
+    <div>
+      <div class="lbl">Optional add-on</div>
+      <div class="name">Mic'd voice capture</div>
+      <div class="desc">Lavalier on you, trades, or homeowner where consent allows. 5 to 10 short ambient clips per visit, ready to drop into reels and sales sequences.</div>
+    </div>
+    <div>
+      <div class="price">+$200</div>
+      <div class="price-sub">per visit</div>
     </div>
   </div>
 
   <div class="note">
-    The two shoots already on the books (Aux Box install, servicing) hold their existing pricing. New rates apply to anything booked from here forward. No travel inside the Sea-to-Sky corridor. Net 15 from final delivery, e-Transfer or invoice link.
+    The two shoots already on the books (Aux Box install, servicing) hold their existing pricing. New rates apply to anything booked from here forward. No travel inside the Sea-to-Sky corridor. Net 15 from final delivery, e-Transfer or invoice link. All rates plus 5% GST.
   </div>
 
   <div class="foot">
@@ -186,7 +228,7 @@
       <strong>Matt</strong>
       <div class="contact">info@mattanthonyphoto.com · 604.765.9270</div>
     </div>
-    <div class="gst">GST# 79115 0261 RT0001</div>
+    <div class="gst">GST# 79115 0261<br>RT0001</div>
   </div>
 
 </div>
