@@ -1,0 +1,1250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salt Spring Residence, Photography Proposal for Vince Iameo Architect</title>
+<meta name="description" content="A one-day architectural photography shoot on Salt Spring Island. Prepared by Matt Anthony Photography for Vince Iameo Architect.">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1A1A18;
+    --paper: #F6F4F0;
+    --gold: #C9A96E;
+    --gold-dim: rgba(201,169,110,0.12);
+    --gold-border: rgba(201,169,110,0.25);
+    --gold-glow: rgba(201,169,110,0.06);
+    --stone: #8A8579;
+    --white: #FFFFFF;
+    --light: #FAFAF8;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { font-size:16px; -webkit-print-color-adjust:exact; print-color-adjust:exact; scroll-behavior:smooth; }
+  body { background:var(--white); color:var(--ink); font-family:'DM Sans',sans-serif; font-weight:300; line-height:1.75; overflow-x:hidden; }
+  ::selection { background:var(--gold); color:var(--ink); }
+
+  /* PROGRESS BAR */
+  .progress {
+    position:fixed; top:0; left:0; height:2px; width:0;
+    background:var(--gold); z-index:200; transition:width 0.1s linear;
+  }
+
+  /* COVER */
+  .cover {
+    min-height:100vh; background:var(--ink); color:var(--paper);
+    display:flex; flex-direction:column; justify-content:flex-end;
+    position:relative; page-break-after:always; overflow:hidden;
+  }
+  .cover-image {
+    position:absolute; top:0; left:0; width:100%; height:100%;
+    background-image:url("https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/8a674d33-4176-43dd-89c1-a565c1c3df48/5322-backhouse-web-24.jpg");
+    background-size:cover; background-position:center 50%;
+    will-change:transform; transition:transform 0.1s linear;
+  }
+  .cover-image::after {
+    content:''; position:absolute; top:0; left:0; width:100%; height:100%;
+    background:linear-gradient(to bottom, rgba(26,26,24,0.4) 0%, rgba(26,26,24,0.2) 30%, rgba(26,26,24,0.5) 60%, rgba(26,26,24,0.94) 85%, rgba(26,26,24,0.99) 100%);
+  }
+  .cover-top {
+    position:absolute; top:0; left:0; right:0; z-index:3;
+    padding:40px 60px; display:flex; justify-content:space-between; align-items:center;
+  }
+  .cover-logo {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.35em; text-transform:uppercase; color:rgba(246,244,240,0.7);
+  }
+  .cover-date {
+    font-family:'Josefin Sans',sans-serif; font-size:0.65rem;
+    letter-spacing:0.2em; color:rgba(246,244,240,0.45);
+  }
+  .cover-content {
+    position:relative; z-index:2; padding:0 60px 80px;
+    max-width:760px;
+  }
+  .cover-eyebrow {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.4em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:22px; display:flex; align-items:center; gap:16px;
+  }
+  .cover-eyebrow::before {
+    content:''; width:32px; height:1px; background:var(--gold);
+  }
+  .cover h1 {
+    font-family:'Cormorant Garamond',serif; font-weight:400;
+    font-size:clamp(2.6rem,5.5vw,4.6rem); line-height:1.08; margin-bottom:24px;
+    letter-spacing:-0.01em;
+  }
+  .cover h1 em {
+    font-style:italic; font-weight:500; color:var(--gold);
+  }
+  .cover-sub {
+    font-size:1rem; color:rgba(246,244,240,0.78); max-width:520px;
+    line-height:1.85; margin-bottom:56px;
+  }
+  .cover-meta-bar {
+    display:flex; gap:48px; padding-top:32px; flex-wrap:wrap;
+    border-top:1px solid rgba(201,169,110,0.18);
+  }
+  .cover-meta-item {
+    font-size:0.75rem; color:rgba(246,244,240,0.45); line-height:1.8;
+  }
+  .cover-meta-item strong {
+    display:block; color:rgba(246,244,240,0.78); font-weight:400;
+    font-family:'Josefin Sans',sans-serif; font-size:0.6rem;
+    letter-spacing:0.18em; text-transform:uppercase; margin-bottom:4px;
+  }
+
+  /* SECTIONS */
+  .section { padding:120px 60px; max-width:1000px; margin:0 auto; }
+  .section.dark { background:var(--ink); color:var(--paper); max-width:none; }
+  .section.dark .inner { max-width:1000px; margin:0 auto; }
+  .section.cream { background:var(--paper); max-width:none; }
+  .section.cream .inner { max-width:1000px; margin:0 auto; }
+
+  .eyebrow {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.6rem;
+    letter-spacing:0.35em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:18px; display:flex; align-items:center; gap:14px;
+  }
+  .eyebrow::before { content:''; width:24px; height:1px; background:var(--gold); }
+
+  h2 {
+    font-family:'Cormorant Garamond',serif; font-weight:400;
+    font-size:2.6rem; line-height:1.14; margin-bottom:32px;
+    letter-spacing:-0.01em;
+  }
+  h2 em { font-style:italic; font-weight:500; color:var(--gold); }
+  .section.dark h2 em { color:var(--gold); }
+
+  h3 {
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.7rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:var(--gold);
+    margin:48px 0 18px;
+  }
+  p { margin-bottom:20px; font-size:0.95rem; }
+  .lead { font-size:1.05rem; line-height:1.9; color:var(--stone); max-width:680px; }
+  .section.dark .lead { color:rgba(246,244,240,0.7); }
+
+  /* DAY BREAKDOWN GRID */
+  .day-grid {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    margin:56px 0; background:var(--gold-dim);
+  }
+  .day-cell {
+    background:var(--white); padding:40px 32px; position:relative;
+  }
+  .day-cell-num {
+    font-family:'Cormorant Garamond',serif; font-style:italic;
+    font-size:2.4rem; color:var(--gold); line-height:1; margin-bottom:18px;
+  }
+  .day-cell-label {
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.65rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:var(--ink);
+    margin-bottom:14px;
+  }
+  .day-cell-desc {
+    font-size:0.88rem; color:var(--stone); line-height:1.7;
+  }
+
+  /* DELIVERABLES LIST */
+  .deliverables {
+    list-style:none; margin:40px 0 0; padding:0;
+  }
+  .deliverables li {
+    font-size:0.95rem; padding:18px 0 18px 32px; position:relative;
+    border-bottom:1px solid rgba(26,26,24,0.06); color:var(--ink);
+  }
+  .deliverables li:last-child { border-bottom:none; }
+  .deliverables li::before {
+    content:''; position:absolute; left:0; top:28px;
+    width:18px; height:1px; background:var(--gold);
+  }
+  .deliverables li strong {
+    font-weight:500; color:var(--ink); display:block; margin-bottom:4px;
+    font-family:'Josefin Sans',sans-serif; font-size:0.7rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--gold);
+  }
+
+  /* INVESTMENT TABLE */
+  /* INVESTMENT TABLE (editorial) */
+  .invest-table {
+    margin:0 0 32px; border-top:1px solid var(--ink);
+  }
+  .invest-row {
+    display:grid; grid-template-columns:1fr auto;
+    padding:24px 0; border-bottom:1px solid rgba(26,26,24,0.08);
+    align-items:baseline; gap:24px;
+  }
+  .invest-label { font-size:0.95rem; color:var(--ink); }
+  .invest-label small {
+    display:block; color:rgba(26,26,24,0.55); font-size:0.78rem;
+    margin-top:4px; line-height:1.55; font-weight:300;
+  }
+  .invest-amount {
+    font-family:'Cormorant Garamond',serif; font-style:italic;
+    font-size:1.3rem; font-weight:400; color:var(--ink);
+    white-space:nowrap; letter-spacing:-0.005em;
+  }
+  .invest-row.subtotal {
+    border-top:1px solid rgba(26,26,24,0.15); margin-top:12px;
+    padding-top:24px;
+  }
+  .invest-row.subtotal .invest-label {
+    font-family:'Josefin Sans',sans-serif; font-weight:500;
+    font-size:0.62rem; letter-spacing:0.22em;
+    text-transform:uppercase; color:rgba(26,26,24,0.55);
+  }
+  .invest-row.subtotal .invest-amount {
+    font-size:1.4rem;
+  }
+  .invest-row.total {
+    border-top:1px solid var(--ink) !important;
+    border-bottom:none !important;
+    padding:36px 0 !important; margin-top:24px;
+  }
+  .invest-row.total .invest-label {
+    font-family:'Cormorant Garamond',serif; font-weight:400;
+    font-size:1.4rem; color:var(--ink); font-style:italic;
+  }
+  .invest-row.total .invest-amount {
+    font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400;
+    font-size:2.6rem; color:var(--ink); letter-spacing:-0.015em;
+  }
+
+  /* ADDONS */
+  .addons {
+    margin:32px 0 0; border-top:1px solid rgba(26,26,24,0.06);
+  }
+  .addon-row {
+    display:grid; grid-template-columns:1fr auto;
+    padding:18px 0; border-bottom:1px solid rgba(26,26,24,0.06);
+    gap:20px;
+  }
+  .addon-label {
+    font-size:0.92rem;
+  }
+  .addon-label small {
+    display:block; color:var(--stone); font-size:0.78rem;
+    margin-top:4px; line-height:1.5;
+  }
+  .addon-price {
+    font-family:'Cormorant Garamond',serif; font-size:1.2rem;
+    color:var(--gold); white-space:nowrap;
+  }
+
+  /* INSIGHT CALLOUT */
+  .insight {
+    background:var(--light); padding:48px 56px; margin:48px 0;
+    position:relative;
+  }
+  .insight::before {
+    content:''; position:absolute; top:0; left:0; bottom:0;
+    width:3px; background:var(--gold);
+  }
+  .insight h4 {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:var(--gold); margin-bottom:18px;
+  }
+  .insight p { font-size:0.92rem; margin-bottom:14px; line-height:1.75; }
+  .insight p:last-child { margin-bottom:0; }
+
+  /* TERMS */
+  .terms {
+    display:grid; grid-template-columns:repeat(2,1fr); gap:48px;
+    margin:48px 0 0;
+  }
+  .term-block h4 {
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.65rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:14px;
+  }
+  .term-block p {
+    font-size:0.88rem; color:var(--stone); line-height:1.75;
+  }
+  .section.dark .term-block p { color:rgba(246,244,240,0.65); }
+
+  /* CTA */
+  .cta-block {
+    text-align:center; padding:72px 0 0;
+  }
+  .cta-line {
+    font-family:'Cormorant Garamond',serif; font-style:italic;
+    font-size:1.5rem; color:var(--ink); margin-bottom:32px;
+  }
+  .section.dark .cta-line { color:var(--paper); }
+  .cta-btn {
+    display:inline-block; padding:18px 42px;
+    background:var(--gold); color:var(--ink);
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.7rem;
+    letter-spacing:0.3em; text-transform:uppercase;
+    text-decoration:none; transition:background 0.3s ease;
+  }
+  .cta-btn:hover { background:#B8975A; }
+  .cta-meta {
+    margin-top:28px; font-size:0.82rem; color:var(--stone);
+  }
+  .section.dark .cta-meta { color:rgba(246,244,240,0.55); }
+  .cta-meta a { color:var(--gold); text-decoration:none; }
+
+  /* FOOTER */
+  .footer {
+    background:var(--ink); color:rgba(246,244,240,0.5);
+    padding:56px 60px; text-align:center;
+    font-family:'Josefin Sans',sans-serif; font-size:0.6rem;
+    letter-spacing:0.25em; text-transform:uppercase;
+  }
+  .footer span { color:var(--gold); }
+  .footer .gst { display:block; margin-top:10px; font-size:0.55rem; letter-spacing:0.2em; color:rgba(246,244,240,0.3); }
+
+  /* PROCESS PILLARS */
+  .pillars {
+    display:grid; grid-template-columns:repeat(3,1fr); gap:1px;
+    margin:48px 0 0; background:var(--gold-dim);
+  }
+  .pillar {
+    background:var(--white); padding:44px 34px;
+  }
+  .section.dark .pillar { background:var(--ink); }
+  .section.cream .pillar { background:var(--paper); }
+  .pillar-num {
+    font-family:'Cormorant Garamond',serif; font-style:italic;
+    font-size:1.6rem; color:var(--gold); line-height:1; margin-bottom:18px;
+  }
+  .pillar-label {
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.65rem;
+    letter-spacing:0.25em; text-transform:uppercase; color:var(--ink);
+    margin-bottom:22px;
+  }
+  .section.dark .pillar-label { color:var(--paper); }
+  .pillar ul { list-style:none; padding:0; margin:0; }
+  .pillar li {
+    font-size:0.86rem; color:var(--stone); padding:9px 0 9px 20px;
+    position:relative; line-height:1.65;
+  }
+  .section.dark .pillar li { color:rgba(246,244,240,0.65); }
+  .pillar li::before {
+    content:''; position:absolute; left:0; top:16px;
+    width:10px; height:1px; background:var(--gold);
+  }
+
+  /* SHOOT-DAY FLOW (hour-by-hour) */
+  .flow { margin:56px 0 0; }
+  .flow-row {
+    display:grid; grid-template-columns:160px 1fr;
+    gap:36px; padding:34px 0;
+    border-bottom:1px solid rgba(26,26,24,0.07);
+  }
+  .flow-row:last-child { border-bottom:none; }
+  .flow-time {
+    font-family:'Josefin Sans',sans-serif; font-weight:400;
+    font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase;
+    color:var(--gold); padding-top:6px;
+  }
+  .flow-content h4 {
+    font-family:'Cormorant Garamond',serif; font-weight:500; font-style:italic;
+    font-size:1.45rem; color:var(--ink); margin-bottom:10px; line-height:1.3;
+  }
+  .flow-content p {
+    font-size:0.93rem; color:var(--stone); margin-bottom:0; line-height:1.75;
+  }
+
+  /* GEAR LINE */
+  .gear-line {
+    display:flex; flex-wrap:wrap; gap:14px 28px;
+    margin:32px 0 0; padding-top:32px;
+    border-top:1px solid rgba(26,26,24,0.08);
+  }
+  .gear-line span {
+    font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.62rem;
+    letter-spacing:0.2em; text-transform:uppercase; color:var(--stone);
+  }
+  .gear-line span strong {
+    color:var(--gold); font-weight:500;
+  }
+
+  /* EDITORIAL SYSTEM (Summerhill / Ema Peters register) */
+  .ed-spread {
+    display:grid; grid-template-columns:80px 1fr; gap:32px;
+  }
+  .ed-num {
+    font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400;
+    font-size:1.6rem; color:rgba(26,26,24,0.3); padding-top:6px;
+  }
+  .ed-eyebrow {
+    font-family:'Josefin Sans',sans-serif; font-weight:500;
+    font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase;
+    color:rgba(26,26,24,0.5); margin-bottom:14px;
+  }
+  .ed-eyebrow.gold { color:var(--gold); }
+  .ed-title {
+    font-family:'Cormorant Garamond',serif; font-weight:400;
+    font-size:clamp(2.2rem,3.6vw,3rem);
+    line-height:1.1; letter-spacing:-0.02em;
+    margin-bottom:0;
+  }
+  .ed-title em { font-style:italic; color:var(--ink); }
+  .ed-lede {
+    font-family:'Cormorant Garamond',serif; font-weight:300;
+    font-size:1.2rem; line-height:1.6;
+    color:rgba(26,26,24,0.78); font-style:italic;
+    max-width:680px; margin-bottom:0;
+  }
+  .ed-body {
+    max-width:720px;
+  }
+  .ed-body p {
+    font-size:0.95rem; line-height:1.8;
+    color:rgba(26,26,24,0.85); margin-bottom:18px;
+  }
+  .ed-body p:last-child { margin-bottom:0; }
+  .ed-body p.lead {
+    font-family:'Cormorant Garamond',serif; font-weight:300;
+    font-size:1.2rem; line-height:1.6; font-style:italic;
+    color:rgba(26,26,24,0.78);
+  }
+  .ed-list {
+    list-style:none; padding:0; margin:0;
+  }
+  .ed-list li {
+    font-size:0.95rem; line-height:1.75;
+    padding:16px 0 16px 24px; position:relative;
+    border-bottom:1px solid rgba(26,26,24,0.08);
+    color:rgba(26,26,24,0.78);
+  }
+  .ed-list li:last-child { border-bottom:none; }
+  .ed-list li::before {
+    content:''; position:absolute; left:0; top:23px;
+    width:12px; height:1px; background:rgba(26,26,24,0.3);
+  }
+  .ed-list li strong {
+    color:var(--ink); font-weight:500;
+  }
+  .ed-rule { border-top:1px solid var(--ink); }
+  .ed-rule-thin { border-top:1px solid rgba(26,26,24,0.15); }
+  .ed-section {
+    background:var(--white);
+    padding:140px 60px 120px;
+    max-width:none;
+  }
+  .ed-section.alt { background:#FAFAF8; }
+  .ed-inner {
+    max-width:1100px; margin:0 auto;
+  }
+  .ed-block { padding:48px 0; }
+  .ed-block-tight { padding:32px 0; }
+
+  /* RESPONSIVE */
+  @media (max-width:768px) {
+    .cover-top, .cover-content { padding-left:30px; padding-right:30px; }
+    .cover-meta-bar { gap:24px; }
+    .section { padding:80px 30px; }
+    .day-grid { grid-template-columns:1fr; }
+    .pillars { grid-template-columns:1fr; }
+    .flow-row { grid-template-columns:1fr; gap:8px; }
+    .terms { grid-template-columns:1fr; gap:32px; }
+    .invest-row { grid-template-columns:1fr; }
+    .invest-amount { padding-top:6px; }
+    .insight { padding:32px 28px; }
+    /* Cost share diagram: collapse 4-col grids to 2-col on mobile */
+    [style*="grid-template-columns:repeat(4,1fr)"] {
+      grid-template-columns:repeat(2,1fr) !important;
+    }
+    /* Cost share 3-step flow: stack on mobile */
+    [style*="grid-template-columns:1fr 24px 1fr 24px 1fr"] {
+      grid-template-columns:1fr !important;
+      gap:14px !important;
+    }
+    /* Cost share tier table: handled via overflow-x:auto wrapper, no grid override needed */
+    /* Editorial 80/1fr grids: stack on mobile */
+    [style*="grid-template-columns:80px 1fr"], .ed-spread {
+      grid-template-columns:1fr !important;
+      gap:14px !important;
+    }
+    /* Three-step typographic flow: stack on mobile */
+    [style*="grid-template-columns:1fr auto 1fr auto 1fr"] {
+      grid-template-columns:1fr !important;
+      gap:24px !important;
+      text-align:center !important;
+    }
+    .ed-section { padding:80px 30px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover-image"></div>
+  <div class="cover-top">
+    <div class="cover-logo">Matt Anthony Photography</div>
+    <div class="cover-date">May 2026</div>
+  </div>
+  <div class="cover-content">
+    <div class="cover-eyebrow">Photography Proposal</div>
+    <h1>A residence on <em>Salt Spring</em>, captured across one full day of light.</h1>
+    <p class="cover-sub">Prepared for Vince Iameo Architect AIBC. Scope, deliverables, and fees for the late June or early July shoot.</p>
+    <div class="cover-meta-bar">
+      <div class="cover-meta-item">
+        <strong>Prepared For</strong>
+        Vince Iameo Architect, AIBC
+      </div>
+      <div class="cover-meta-item">
+        <strong>Project</strong>
+        Salt Spring Island residence
+      </div>
+      <div class="cover-meta-item">
+        <strong>Target Window</strong>
+        June 24 to 28, 2026
+      </div>
+      <div class="cover-meta-item">
+        <strong>Valid Through</strong>
+        June 5, 2026
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="ed-section">
+  <div class="ed-inner">
+
+    <div class="ed-spread ed-rule" style="padding-top:24px; margin-bottom:48px;">
+      <div class="ed-num">01</div>
+      <div>
+        <div class="ed-eyebrow gold">Overview</div>
+        <h2 class="ed-title">A residence read in <em>plan, elevation, section,</em> and light.</h2>
+      </div>
+    </div>
+
+    <div class="ed-spread" style="margin-bottom:48px;">
+      <div></div>
+      <div class="ed-body">
+        <p class="lead">Thanks for the note, Vince. The shape you outlined is right. Half day of travel out, a full day on site working through varying light, half day of travel back. Your team handles ferries and accommodation, with everything reviewed together before booking.</p>
+        <p>What follows is how I work the shoot day, what arrives at the end, and how the cost breaks down. The frame underneath all of it is documenting design intent. Architecture is read four ways, and on a single shoot day the job is to honour all of them. Geometry has to stay true. Material has to look like itself. Light has to do the work it's meant to do at each elevation. The site has to read.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESS / HOW I WORK -->
+<section class="ed-section alt">
+  <div class="ed-inner">
+
+    <div class="ed-spread ed-rule" style="padding-top:24px; margin-bottom:48px;">
+      <div class="ed-num">02</div>
+      <div>
+        <div class="ed-eyebrow gold">How I Work</div>
+        <h2 class="ed-title">Pre-production, on-site, and post, <em>treated as one piece</em>.</h2>
+      </div>
+    </div>
+
+    <div class="ed-spread" style="margin-bottom:64px;">
+      <div></div>
+      <div class="ed-body">
+        <p class="lead">Architectural photography lives or dies in preparation. By the time the shoot day arrives, we already know what we're shooting and why. The day itself is execution against a plan we've built together.</p>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin ed-block">
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:rgba(26,26,24,0.3); margin-bottom:10px;">i</div>
+        <div class="ed-eyebrow" style="margin-bottom:0;">Before the Day</div>
+      </div>
+      <div class="ed-body">
+        <ul class="ed-list">
+          <li><strong>Onboarding questionnaire.</strong> The primary tool. It captures the site's narrative, what matters in each space, why specific design moves were made, and which moments need to read in the imagery.</li>
+          <li><strong>Drawings and reference material.</strong> Plans, elevations, sections, renderings, mood images. Anything you can share so I know what the building is before I see it.</li>
+          <li><strong>Sun-path study</strong> against the site orientation, so we know which elevation gets which light at which hour.</li>
+          <li><strong>Optional alignment call.</strong> Welcome but not required. The questionnaire usually does the work. A call is for projects with unusual constraints or tight timing.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin ed-block">
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:rgba(26,26,24,0.3); margin-bottom:10px;">ii</div>
+        <div class="ed-eyebrow" style="margin-bottom:0;">On the Day</div>
+      </div>
+      <div class="ed-body">
+        <ul class="ed-list">
+          <li><strong>Tilt-shift workflow</strong> for vertical perspective control. Lines stay true at the camera, not in post. The building's geometry is preserved.</li>
+          <li><strong>Tethered capture</strong> for color-critical interior work. What you see on the laptop is what arrives in the final file.</li>
+          <li><strong>Off-camera light shaping</strong> where interior conditions need filling, applied so the image still reads as natural light.</li>
+          <li><strong>Drone work</strong> for site context and roof plane. Transport Canada Advanced certified, regulations and weather permitting.</li>
+          <li><strong>Quiet on site.</strong> Trades, owners, or your client team accommodated, not directed.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin ed-block">
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:rgba(26,26,24,0.3); margin-bottom:10px;">iii</div>
+        <div class="ed-eyebrow" style="margin-bottom:0;">After the Day</div>
+      </div>
+      <div class="ed-body">
+        <ul class="ed-list">
+          <li><strong>Each frame processed individually.</strong> Color, tone, and contrast set per image, not against a global preset.</li>
+          <li><strong>Verticals, horizons, and cropping</strong> checked frame-by-frame.</li>
+          <li><strong>Custom crops</strong> prepared on request for any platform or use case with specific aspect requirements.</li>
+          <li><strong>Final delivery</strong> in 10 to 15 business days. Selects available within 72 hours if a deadline is in play.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:32px; margin-top:32px;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">Tools</div>
+      <div class="ed-body" style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:1rem; color:rgba(26,26,24,0.7); line-height:1.8;">
+        Tilt-shift lenses, tethered capture, studio strobes, Transport Canada Advanced drone certification, calibrated end-to-end colour workflow.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- THROUGH THE DAY -->
+<section class="ed-section">
+  <div class="ed-inner">
+
+    <div class="ed-spread ed-rule" style="padding-top:24px; margin-bottom:48px;">
+      <div class="ed-num">03</div>
+      <div>
+        <div class="ed-eyebrow gold">Through the Day</div>
+        <h2 class="ed-title">How a Salt Spring shoot day <em>actually unfolds</em>.</h2>
+      </div>
+    </div>
+
+    <div class="ed-spread" style="margin-bottom:48px;">
+      <div></div>
+      <div class="ed-body">
+        <p class="lead">Late June and early July give roughly sixteen hours of usable light on the south coast. Times below are approximate and adjust to the residence's specific orientation, which we lock during the pre-shoot questionnaire.</p>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:24px; padding-bottom:24px; align-items:baseline;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">05:30 to 07:00</div>
+      <div class="ed-body">
+        <h4 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:var(--ink); line-height:1.3; margin-bottom:8px;">First light, walk-through, east elevations.</h4>
+        <p style="font-size:0.93rem; color:rgba(26,26,24,0.75); margin-bottom:0; line-height:1.7;">Gear set, walk the residence with you or your team to confirm the day's order. East and south-east facing elevations as the sun comes up. The building's quietest face, often its strongest.</p>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:24px; padding-bottom:24px; align-items:baseline;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">07:00 to 10:00</div>
+      <div class="ed-body">
+        <h4 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:var(--ink); line-height:1.3; margin-bottom:8px;">Morning interiors with east exposure.</h4>
+        <p style="font-size:0.93rem; color:rgba(26,26,24,0.75); margin-bottom:0; line-height:1.7;">Interior spaces that take morning light directly. The softest natural-light window of the day. Tethered capture so we can read color and tone live.</p>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:24px; padding-bottom:24px; align-items:baseline;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">10:00 to 14:00</div>
+      <div class="ed-body">
+        <h4 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:var(--ink); line-height:1.3; margin-bottom:8px;">Detail, material, and aerials.</h4>
+        <p style="font-size:0.93rem; color:rgba(26,26,24,0.75); margin-bottom:0; line-height:1.7;">Interior detail studies and material moments. Joinery, transitions, hardware, surface. Drone work mid-window when sun height gives a clean read on roof planes and site context, conditions allowing.</p>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:24px; padding-bottom:24px; align-items:baseline;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">14:00 to 17:30</div>
+      <div class="ed-body">
+        <h4 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:var(--ink); line-height:1.3; margin-bottom:8px;">West elevations and second-pass interiors.</h4>
+        <p style="font-size:0.93rem; color:rgba(26,26,24,0.75); margin-bottom:0; line-height:1.7;">West-facing elevations as light begins to direct. Second pass on key interior spaces with afternoon light, often a different read than the morning frame of the same room.</p>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:24px; padding-bottom:24px; align-items:baseline;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">17:30 to 20:00</div>
+      <div class="ed-body">
+        <h4 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:var(--ink); line-height:1.3; margin-bottom:8px;">Golden hour, hero exteriors.</h4>
+        <p style="font-size:0.93rem; color:rgba(26,26,24,0.75); margin-bottom:0; line-height:1.7;">The angles that need warm directional light. Long-shadow elevations, approach and threshold frames, the building reading against late-afternoon sky.</p>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:24px; padding-bottom:24px; align-items:baseline; border-top:1px solid var(--gold); border-bottom:1px solid var(--gold);">
+      <div class="ed-eyebrow" style="margin-bottom:0; color:var(--gold);">20:00 to 21:30</div>
+      <div class="ed-body">
+        <h4 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.5rem; color:var(--ink); line-height:1.3; margin-bottom:8px;">Twilight, the strongest exterior frame.</h4>
+        <p style="font-size:0.93rem; color:rgba(26,26,24,0.78); margin-bottom:0; line-height:1.7;">Interior lights on, exteriors against deep blue sky. We hold for the four to eight minutes when ambient and interior brightness balance, and we work fast. The building reads in a way it doesn't at any other hour.</p>
+      </div>
+    </div>
+
+    <div class="ed-spread" style="padding-top:24px; padding-bottom:24px; align-items:baseline;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">21:30 onward</div>
+      <div class="ed-body">
+        <h4 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:var(--ink); line-height:1.3; margin-bottom:8px;">Backup, cull notes, wrap.</h4>
+        <p style="font-size:0.93rem; color:rgba(26,26,24,0.75); margin-bottom:0; line-height:1.7;">Files backed to two drives on site before gear is packed. Cull notes captured while the day is still fresh, so the morning culling session is already half-done.</p>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:48px; margin-top:32px;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">Note</div>
+      <div class="ed-body">
+        <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:1.1rem; color:rgba(26,26,24,0.78); line-height:1.7; margin-bottom:0;">Twilight is the only window when interior light and exterior architecture can be read in the same frame. We'll plan the day to protect it, weather pending.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section class="ed-section alt">
+  <div class="ed-inner">
+
+    <div class="ed-spread ed-rule" style="padding-top:24px; margin-bottom:48px;">
+      <div class="ed-num">04</div>
+      <div>
+        <div class="ed-eyebrow gold">Deliverables</div>
+        <h2 class="ed-title">What <em>arrives at the end</em>.</h2>
+      </div>
+    </div>
+
+    <div class="ed-spread" style="margin-bottom:48px;">
+      <div></div>
+      <div class="ed-body">
+        <p class="lead">Final selects are processed one at a time, frame by frame. Below is what gets delivered.</p>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:32px;">
+      <div></div>
+      <div class="ed-body">
+        <ul class="ed-list">
+          <li><strong>Final image count.</strong> 25 to 35 finished images, fully retouched and color-balanced. Coverage spans exteriors at multiple times of day, interiors, material detail, site context, and twilight.</li>
+          <li><strong>File formats.</strong> High-resolution print files (uncompressed JPEG) and web-optimized files for digital use, delivered side by side.</li>
+          <li><strong>Custom crops.</strong> Specific aspect ratios prepared on request for any platform or use case where you need them.</li>
+          <li><strong>Drone captures.</strong> Site context aerials and roof plane reads where regulations and weather allow. Delivered as part of the final set, no separate fee.</li>
+          <li><strong>Delivery.</strong> Dropbox folder, organized for direct hand-off to your team. Available indefinitely.</li>
+          <li><strong>Turnaround.</strong> 10 to 15 business days from shoot date. Selects within 72 hours if a deadline requires it.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- INVESTMENT -->
+<section class="ed-section">
+  <div class="ed-inner">
+
+    <div class="ed-spread ed-rule" style="padding-top:24px; margin-bottom:48px;">
+      <div class="ed-num">05</div>
+      <div>
+        <div class="ed-eyebrow gold">Investment</div>
+        <h2 class="ed-title">The cost, <em>line by line</em>.</h2>
+      </div>
+    </div>
+
+    <div class="ed-spread" style="margin-bottom:48px;">
+      <div></div>
+      <div class="ed-body">
+        <p class="lead">Everything below is itemized so there are no surprises. Travel costs are estimated and billed at actuals against receipts. Accommodation is coordinated and paid directly by your team, as discussed.</p>
+      </div>
+    </div>
+
+    <div class="ed-spread" style="margin-bottom:0;">
+      <div></div>
+      <div class="ed-body" style="max-width:820px;">
+
+    <div class="invest-table">
+      <div class="invest-row">
+        <div class="invest-label">
+          Photography, Salt Spring residence
+          <small>Full shoot day, varying light from morning through twilight. Drone, exteriors, interiors, detail, site context. 25 to 35 finished images delivered.</small>
+        </div>
+        <div class="invest-amount">$2,000</div>
+      </div>
+      <div class="invest-row">
+        <div class="invest-label">
+          Travel day, Squamish to Salt Spring
+          <small>Half-day travel, outbound. BC Ferries route via Tsawwassen to Long Harbour.</small>
+        </div>
+        <div class="invest-amount">$500</div>
+      </div>
+      <div class="invest-row">
+        <div class="invest-label">
+          Travel day, Salt Spring to Squamish
+          <small>Half-day travel, return.</small>
+        </div>
+        <div class="invest-amount">$500</div>
+      </div>
+      <div class="invest-row subtotal">
+        <div class="invest-label">Photography subtotal</div>
+        <div class="invest-amount">$3,000</div>
+      </div>
+
+      <div class="invest-row" style="margin-top:24px;">
+        <div class="invest-label">
+          Travel costs (estimated, billed at actuals)
+          <small>BC Ferries vehicle round-trip, fuel, and per diem for three days on the road. Final amount tracked against receipts and invoiced as actuals.</small>
+        </div>
+        <div class="invest-amount">~$400</div>
+      </div>
+      <div class="invest-row" style="border-bottom:none;">
+        <div class="invest-label">
+          Accommodation
+          <small>Coordinated and paid directly by your team. Reviewed together before booking.</small>
+        </div>
+        <div class="invest-amount" style="color:rgba(26,26,24,0.45); font-size:0.95rem;">By client</div>
+      </div>
+
+      <div class="invest-row" style="border-top:1px solid rgba(26,26,24,0.15); margin-top:12px; padding-top:24px; border-bottom:1px solid rgba(26,26,24,0.08);">
+        <div class="invest-label" style="font-family:'Josefin Sans',sans-serif; font-weight:500; font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(26,26,24,0.55);">Subtotal, before GST</div>
+        <div class="invest-amount" style="font-size:1.4rem;">$3,400</div>
+      </div>
+
+      <div class="invest-row" style="padding:18px 0; border-bottom:1px solid rgba(26,26,24,0.08);">
+        <div class="invest-label" style="color:rgba(26,26,24,0.65);">GST (5%)</div>
+        <div class="invest-amount" style="font-size:1.15rem; color:rgba(26,26,24,0.7);">$170</div>
+      </div>
+
+      <div class="invest-row total">
+        <div class="invest-label">Grand total</div>
+        <div class="invest-amount" style="color:var(--gold);">$3,570</div>
+      </div>
+    </div>
+
+    <p style="margin-top:24px; font-size:0.78rem; color:rgba(26,26,24,0.5); line-height:1.7; max-width:560px;">Travel costs are estimated at $400 and billed at actuals against receipts. The grand total adjusts to actual travel spend. GST# 79115 0261 RT0001.</p>
+
+    <!-- COST SHARE, editorial monochromatic -->
+    <div style="margin-top:120px; padding-top:60px; border-top:1px solid var(--ink);">
+
+      <!-- Title block -->
+      <div style="display:grid; grid-template-columns:80px 1fr; gap:32px; margin-bottom:48px;">
+        <div></div>
+        <div>
+          <div style="font-family:'Josefin Sans',sans-serif; font-weight:500; font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-bottom:14px;">Worth Knowing</div>
+          <h2 style="font-family:'Cormorant Garamond',serif; font-weight:400; font-size:clamp(2rem,3.2vw,2.6rem); line-height:1.1; letter-spacing:-0.02em; margin-bottom:0;">A note on <em style="font-style:italic; color:var(--ink);">cost share</em>.</h2>
+        </div>
+      </div>
+
+      <!-- Lead body, in editorial column -->
+      <div style="display:grid; grid-template-columns:80px 1fr; gap:32px; margin-bottom:64px;">
+        <div></div>
+        <div style="max-width:680px;">
+          <p style="font-family:'Cormorant Garamond',serif; font-weight:300; font-size:1.2rem; line-height:1.6; color:rgba(26,26,24,0.78); margin-bottom:18px; font-style:italic;">Most projects like this get structured as a cost share. The shoot fee is split between parties with a shared interest in the imagery, typically the architect, the interior designer, and the sub-trades whose work shows up in the building.</p>
+          <p style="font-size:0.95rem; line-height:1.8; color:rgba(26,26,24,0.78); margin-bottom:0;">Matt invoices the architect the full grand total. The architect distributes the cost-share to each contributing vendor. The architect's net out-of-pocket is the difference. The math, the worked example, and the billing flow are all below.</p>
+        </div>
+      </div>
+
+      <!-- The math, as typographic flow -->
+      <div style="display:grid; grid-template-columns:80px 1fr; gap:32px; margin-bottom:64px;">
+        <div style="font-family:'Josefin Sans',sans-serif; font-weight:500; font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(26,26,24,0.5); padding-top:4px;">The Math</div>
+        <div style="max-width:760px;">
+          <p style="font-size:0.95rem; line-height:1.8; color:rgba(26,26,24,0.78); margin-bottom:48px; max-width:600px;">A 30% uplift is added to the photography fee for each vendor added. The new total is divided across all parties. Travel days and travel costs sit outside the cost share, billed to the architect.</p>
+
+          <!-- Three-step typographic flow, no boxes -->
+          <div style="display:grid; grid-template-columns:1fr auto 1fr auto 1fr; gap:32px; align-items:end; padding:32px 0; border-top:1px solid rgba(26,26,24,0.15); border-bottom:1px solid rgba(26,26,24,0.15);">
+            <div>
+              <div style="font-family:'Josefin Sans',sans-serif; font-weight:500; font-size:0.55rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-bottom:10px;">Photography fee</div>
+              <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:2.4rem; color:var(--ink); line-height:1; letter-spacing:-0.01em;">$2,000</div>
+            </div>
+            <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:1.6rem; color:rgba(26,26,24,0.3); padding-bottom:4px;">&rarr;</div>
+            <div>
+              <div style="font-family:'Josefin Sans',sans-serif; font-weight:500; font-size:0.55rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-bottom:10px;">+ 90% uplift, four parties</div>
+              <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:2.4rem; color:var(--ink); line-height:1; letter-spacing:-0.01em;">$3,800</div>
+            </div>
+            <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:1.6rem; color:rgba(26,26,24,0.3); padding-bottom:4px;">&rarr;</div>
+            <div>
+              <div style="font-family:'Josefin Sans',sans-serif; font-weight:500; font-size:0.55rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); margin-bottom:10px;">Per party, four ways</div>
+              <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:2.6rem; color:var(--gold); line-height:1; letter-spacing:-0.01em;">$950</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Four-party tile grid, grand totals -->
+      <div style="display:grid; grid-template-columns:80px 1fr; gap:32px; margin-bottom:64px;">
+        <div style="font-family:'Josefin Sans',sans-serif; font-weight:500; font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(26,26,24,0.5); padding-top:4px;">Four Parties</div>
+        <div style="max-width:760px;">
+          <p style="font-size:0.95rem; line-height:1.8; color:rgba(26,26,24,0.78); margin-bottom:32px; max-width:620px;">A typical four-party split puts the architect alongside the interior designer and two trades whose work shows up in the imagery. Matt invoices the architect the full grand total ($5,460 in this scenario). The architect collects the per-vendor amount from each contributor. Net cost per party is below.</p>
+
+          <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:0; border-top:1px solid rgba(26,26,24,0.5); border-bottom:1px solid rgba(26,26,24,0.5);">
+            <div style="padding:28px 16px 28px 0; border-right:1px solid rgba(26,26,24,0.1); background:rgba(201,169,110,0.06);">
+              <div style="font-family:'Josefin Sans',sans-serif; font-weight:500; font-size:0.55rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); margin-bottom:14px; line-height:1.4; min-height:30px; padding-left:16px;">Architect</div>
+              <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:1.7rem; color:var(--ink); line-height:1; letter-spacing:-0.01em; padding-left:16px;">$2,468</div>
+              <div style="font-size:0.7rem; color:rgba(26,26,24,0.55); margin-top:8px; line-height:1.4; padding-left:16px;">net out of pocket</div>
+            </div>
+            <div style="padding:28px 16px; border-right:1px solid rgba(26,26,24,0.1);">
+              <div style="font-family:'Josefin Sans',sans-serif; font-weight:500; font-size:0.55rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(26,26,24,0.55); margin-bottom:14px; line-height:1.4; min-height:30px;">Interior Designer</div>
+              <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:1.7rem; color:var(--ink); line-height:1; letter-spacing:-0.01em;">$998</div>
+              <div style="font-size:0.7rem; color:rgba(26,26,24,0.5); margin-top:8px; line-height:1.4;">paid to architect</div>
+            </div>
+            <div style="padding:28px 16px; border-right:1px solid rgba(26,26,24,0.1);">
+              <div style="font-family:'Josefin Sans',sans-serif; font-weight:500; font-size:0.55rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(26,26,24,0.55); margin-bottom:14px; line-height:1.4; min-height:30px;">Millwork</div>
+              <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:1.7rem; color:var(--ink); line-height:1; letter-spacing:-0.01em;">$998</div>
+              <div style="font-size:0.7rem; color:rgba(26,26,24,0.5); margin-top:8px; line-height:1.4;">paid to architect</div>
+            </div>
+            <div style="padding:28px 0 28px 16px;">
+              <div style="font-family:'Josefin Sans',sans-serif; font-weight:500; font-size:0.55rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(26,26,24,0.55); margin-bottom:14px; line-height:1.4; min-height:30px;">Windows / Glazing</div>
+              <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:1.7rem; color:var(--ink); line-height:1; letter-spacing:-0.01em;">$998</div>
+              <div style="font-size:0.7rem; color:rgba(26,26,24,0.5); margin-top:8px; line-height:1.4;">paid to architect</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Tier table, editorial hairline style -->
+      <div style="display:grid; grid-template-columns:80px 1fr; gap:32px; margin-bottom:48px;">
+        <div style="font-family:'Josefin Sans',sans-serif; font-weight:500; font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(26,26,24,0.5); padding-top:4px;">How it Scales</div>
+        <div style="max-width:820px;">
+
+          <!-- Tier table wrapper, scrolls horizontally on mobile -->
+          <div style="overflow-x:auto;">
+
+          <!-- Table -->
+          <div style="border-top:1px solid var(--ink); min-width:560px;">
+
+            <!-- Header row -->
+            <div style="display:grid; grid-template-columns:1.5fr 0.5fr 1fr 1fr 1.1fr; gap:20px; padding:14px 0; border-bottom:1px solid rgba(26,26,24,0.15); min-width:680px;">
+              <div style="font-family:'Josefin Sans',sans-serif; font-weight:500; font-size:0.55rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(26,26,24,0.5);">Parties</div>
+              <div style="font-family:'Josefin Sans',sans-serif; font-weight:500; font-size:0.55rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(26,26,24,0.5); text-align:right;">Uplift</div>
+              <div style="font-family:'Josefin Sans',sans-serif; font-weight:500; font-size:0.55rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(26,26,24,0.5); text-align:right;">Matt Invoices<br><span style="font-size:0.5rem; color:rgba(26,26,24,0.35); letter-spacing:0.18em;">to architect, GST inc.</span></div>
+              <div style="font-family:'Josefin Sans',sans-serif; font-weight:500; font-size:0.55rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(26,26,24,0.5); text-align:right;">Each Vendor<br><span style="font-size:0.5rem; color:rgba(26,26,24,0.35); letter-spacing:0.18em;">collected by architect</span></div>
+              <div style="font-family:'Josefin Sans',sans-serif; font-weight:500; font-size:0.55rem; letter-spacing:0.2em; text-transform:uppercase; color:rgba(26,26,24,0.5); text-align:right;">Architect Net<br><span style="font-size:0.5rem; color:rgba(26,26,24,0.35); letter-spacing:0.18em;">out of pocket</span></div>
+            </div>
+
+            <!-- Solo -->
+            <div style="display:grid; grid-template-columns:1.5fr 0.5fr 1fr 1fr 1.1fr; gap:20px; padding:20px 0; border-bottom:1px solid rgba(26,26,24,0.08); align-items:baseline; min-width:680px;">
+              <div style="font-size:0.92rem; color:rgba(26,26,24,0.78);">Architect alone</div>
+              <div style="font-size:0.88rem; color:rgba(26,26,24,0.4); text-align:right;">none</div>
+              <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.2rem; color:var(--ink); text-align:right;">$3,570</div>
+              <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.4rem; color:rgba(26,26,24,0.2); text-align:right; line-height:1;">&middot;</div>
+              <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.2rem; color:var(--ink); text-align:right;">$3,570</div>
+            </div>
+            <!-- 2 -->
+            <div style="display:grid; grid-template-columns:1.5fr 0.5fr 1fr 1fr 1.1fr; gap:20px; padding:20px 0; border-bottom:1px solid rgba(26,26,24,0.08); align-items:baseline; min-width:680px;">
+              <div style="font-size:0.92rem; color:rgba(26,26,24,0.78);">+ 1 vendor (2 total)</div>
+              <div style="font-size:0.88rem; color:rgba(26,26,24,0.55); text-align:right;">+30%</div>
+              <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.2rem; color:var(--ink); text-align:right;">$4,200</div>
+              <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:1.15rem; color:rgba(26,26,24,0.78); text-align:right;">$1,365</div>
+              <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.2rem; color:var(--ink); text-align:right;">$2,835</div>
+            </div>
+            <!-- 3 -->
+            <div style="display:grid; grid-template-columns:1.5fr 0.5fr 1fr 1fr 1.1fr; gap:20px; padding:20px 0; border-bottom:1px solid rgba(26,26,24,0.08); align-items:baseline; min-width:680px;">
+              <div style="font-size:0.92rem; color:rgba(26,26,24,0.78);">+ 2 vendors (3 total)</div>
+              <div style="font-size:0.88rem; color:rgba(26,26,24,0.55); text-align:right;">+60%</div>
+              <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.2rem; color:var(--ink); text-align:right;">$4,830</div>
+              <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:1.15rem; color:rgba(26,26,24,0.78); text-align:right;">$1,120</div>
+              <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.2rem; color:var(--ink); text-align:right;">$2,590</div>
+            </div>
+            <!-- 4 typical, italic emphasis with gold hairlines -->
+            <div style="display:grid; grid-template-columns:1.5fr 0.5fr 1fr 1fr 1.1fr; gap:20px; padding:26px 0; border-top:1px solid var(--gold); border-bottom:1px solid var(--gold); align-items:baseline; margin:-1px 0; min-width:680px;">
+              <div style="font-size:0.95rem; color:var(--ink);"><em style="font-style:italic;">+ 3 vendors (4 total)</em> <span style="font-family:'Josefin Sans',sans-serif; font-weight:500; font-size:0.58rem; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-left:8px;">typical</span></div>
+              <div style="font-size:0.88rem; color:rgba(26,26,24,0.7); text-align:right;">+90%</div>
+              <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.3rem; color:var(--ink); text-align:right;">$5,460</div>
+              <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.3rem; color:var(--ink); text-align:right;">$998</div>
+              <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:500; font-size:1.55rem; color:var(--gold); text-align:right; letter-spacing:-0.01em;">$2,468</div>
+            </div>
+            <!-- 5 -->
+            <div style="display:grid; grid-template-columns:1.5fr 0.5fr 1fr 1fr 1.1fr; gap:20px; padding:20px 0; align-items:baseline; min-width:680px;">
+              <div style="font-size:0.92rem; color:rgba(26,26,24,0.78);">+ 4 vendors (5 total)</div>
+              <div style="font-size:0.88rem; color:rgba(26,26,24,0.55); text-align:right;">+120%</div>
+              <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.2rem; color:var(--ink); text-align:right;">$6,090</div>
+              <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:1.15rem; color:rgba(26,26,24,0.78); text-align:right;">$924</div>
+              <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.2rem; color:var(--ink); text-align:right;">$2,394</div>
+            </div>
+
+          </div>
+
+          </div>
+
+          <p style="font-size:0.78rem; color:rgba(26,26,24,0.6); margin-top:24px; line-height:1.75; max-width:640px;"><strong style="font-weight:500; color:var(--ink);">How the billing flows:</strong> Matt invoices the architect the full grand total (Matt Invoices column). The architect collects the per-vendor amount (Each Vendor column) from each contributing vendor. The Architect Net column is what the architect actually pays out of pocket after collecting. All figures GST-inclusive. In a typical four-party split, your bill from Matt is $5,460, you collect $2,994 from three vendors, and your net cost lands at $2,468.</p>
+        </div>
+      </div>
+
+      <!-- Closing paragraphs -->
+      <div style="display:grid; grid-template-columns:80px 1fr; gap:32px;">
+        <div></div>
+        <div style="max-width:680px;">
+          <p style="font-size:0.95rem; line-height:1.8; color:rgba(26,26,24,0.78); margin-bottom:16px;">Roughly nine out of ten projects I work on are structured this way. It reduces the cost for any single party, and it's how the strongest collaborations tend to come together.</p>
+          <p style="font-size:0.95rem; line-height:1.8; color:rgba(26,26,24,0.78); margin-bottom:0;">If a cost share path makes sense here, I'm happy to reach out to the design and trade team before the contract goes out and see who wants in.</p>
+        </div>
+      </div>
+
+    </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO ADD-ONS -->
+<section class="ed-section alt">
+  <div class="ed-inner">
+
+    <div class="ed-spread ed-rule" style="padding-top:24px; margin-bottom:48px;">
+      <div class="ed-num">06</div>
+      <div>
+        <div class="ed-eyebrow gold">Optional Add-ons</div>
+        <h2 class="ed-title">If you want <em>motion</em> alongside the stills.</h2>
+      </div>
+    </div>
+
+    <div class="ed-spread" style="margin-bottom:48px;">
+      <div></div>
+      <div class="ed-body">
+        <p class="lead">Video can be captured during the same shoot day, no second visit required. These are optional and only added if you want them. Pricing is on top of the photography fee.</p>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:32px;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">Reel</div>
+      <div class="ed-body" style="display:grid; grid-template-columns:1fr auto; gap:32px; align-items:baseline;">
+        <div>
+          <h4 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:var(--ink); margin-bottom:8px; line-height:1.3;">60-second walkthrough reel.</h4>
+          <p style="font-size:0.92rem; color:rgba(26,26,24,0.72); margin-bottom:0; line-height:1.7;">Vertical or horizontal, single sequence, clean cuts and ambient sound. Best for Instagram, LinkedIn, and architect site headers.</p>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.6rem; color:var(--ink); white-space:nowrap;">$1,000</div>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:32px; padding-bottom:32px;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">Cinematic Short</div>
+      <div class="ed-body" style="display:grid; grid-template-columns:1fr auto; gap:32px; align-items:baseline;">
+        <div>
+          <h4 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:var(--ink); margin-bottom:8px; line-height:1.3;">2 to 3 minute cinematic short.</h4>
+          <p style="font-size:0.92rem; color:rgba(26,26,24,0.72); margin-bottom:0; line-height:1.7;">Layered edit with drone, exterior motion, and interior detail. Music licensed. Delivered in 4K.</p>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.6rem; color:var(--ink); white-space:nowrap;">$2,500</div>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:32px; padding-bottom:32px;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">Documentary</div>
+      <div class="ed-body" style="display:grid; grid-template-columns:1fr auto; gap:32px; align-items:baseline;">
+        <div>
+          <h4 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:var(--ink); margin-bottom:8px; line-height:1.3;">Documentary film with architect interview.</h4>
+          <p style="font-size:0.92rem; color:rgba(26,26,24,0.72); margin-bottom:0; line-height:1.7;">Includes a sit-down interview capturing design intent. Cuts to 2 to 5 minutes for any pitch or marketing use. Drone, exteriors, interiors, and narrative.</p>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:var(--ink); white-space:nowrap;">$3,000 to $4,500</div>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:48px;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">Note</div>
+      <div class="ed-body">
+        <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:1.1rem; color:rgba(26,26,24,0.78); line-height:1.7; margin-bottom:14px;">The cleanest path is to commit to video at the same time as photography. Capturing both in the same day means I can plan light and movement for both at once, and the unit cost on travel doesn't get duplicated by a second trip.</p>
+        <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:1.1rem; color:rgba(26,26,24,0.78); line-height:1.7; margin-bottom:0;">If video isn't right for this project, that's fine. The photography stands on its own.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- RIGHTS & TERMS -->
+<section class="ed-section">
+  <div class="ed-inner">
+
+    <div class="ed-spread ed-rule" style="padding-top:24px; margin-bottom:64px;">
+      <div class="ed-num">07</div>
+      <div>
+        <div class="ed-eyebrow gold">Rights &amp; Terms</div>
+        <h2 class="ed-title">How the imagery <em>gets used</em>.</h2>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:32px; padding-bottom:32px;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">Image Rights</div>
+      <div class="ed-body">
+        <p style="font-size:0.95rem; color:rgba(26,26,24,0.85); line-height:1.8; margin-bottom:0;">Rights are extended for agreed purposes: your firm's website, marketing, and any submissions or pitches you control directly. Third-party use by other vendors or collaborators routes through me for approval and licensing on a per-use basis. I retain copyright on the underlying work.</p>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:32px; padding-bottom:32px;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">Booking &amp; Payment</div>
+      <div class="ed-body">
+        <p style="font-size:0.95rem; color:rgba(26,26,24,0.85); line-height:1.8; margin-bottom:0;">50% deposit on signing to hold the date. Balance plus travel actuals invoiced on delivery, net 15. Payment via e-transfer or direct deposit to Matt Anthony Photography.</p>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:32px; padding-bottom:32px;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">Weather &amp; Reschedule</div>
+      <div class="ed-body">
+        <p style="font-size:0.95rem; color:rgba(26,26,24,0.85); line-height:1.8; margin-bottom:0;">Salt Spring weather in late June and early July is generally workable, but conditions can shift. We'll confirm go/no-go 48 hours out. If we reschedule for weather, the deposit rolls to the new date with no penalty.</p>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:32px; padding-bottom:32px;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">Coordination Window</div>
+      <div class="ed-body">
+        <p style="font-size:0.95rem; color:rgba(26,26,24,0.85); line-height:1.8; margin-bottom:0;">Once the date is locked, I block the surrounding days for travel and weather buffer. I ask for at least three weeks of lead time on confirmed shoot dates so the schedule and ferries align.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- NEXT STEPS / APPROVAL -->
+<section class="ed-section alt">
+  <div class="ed-inner">
+
+    <div class="ed-spread ed-rule" style="padding-top:24px; margin-bottom:48px;">
+      <div class="ed-num">08</div>
+      <div>
+        <div class="ed-eyebrow gold">Next Steps</div>
+        <h2 class="ed-title">Lock in <em>the date</em>.</h2>
+      </div>
+    </div>
+
+    <div class="ed-spread" style="margin-bottom:64px;">
+      <div></div>
+      <div class="ed-body">
+        <p class="lead">If the scope reads right, approve below and I'll send the contract and deposit invoice the same day. The call is open whenever, happy to walk through anything before you sign.</p>
+      </div>
+    </div>
+
+    <!-- APPROVAL FORM -->
+    <div class="ed-spread ed-rule-thin" style="padding-top:48px;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">Approve</div>
+      <div class="ed-body" style="max-width:760px;">
+
+        <div id="approvalForm">
+
+          <p style="font-size:0.95rem; color:rgba(26,26,24,0.85); margin-bottom:36px; line-height:1.8;">Photography scope as outlined: <strong style="color:var(--ink); font-weight:500;">$3,570 grand total, GST included</strong> for the architect-only scenario. Travel costs billed at actuals against receipts. Accommodation booked directly by your team. Add video below if you'd like motion alongside the stills, or pursue a cost-share path to reduce the architect's grand total.</p>
+
+          <!-- Optional video add-ons -->
+          <div style="margin-bottom:36px;">
+            <div style="font-family:'Josefin Sans',sans-serif; font-weight:500; font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(26,26,24,0.55); margin-bottom:16px;">Optional Video (select if interested)</div>
+
+            <label id="labelReel" style="display:flex; align-items:center; gap:20px; padding:22px 4px; border-top:1px solid rgba(26,26,24,0.15); cursor:pointer; transition:background 0.3s ease;" onmouseover="this.style.background='rgba(201,169,110,0.04)'" onmouseout="if(!document.getElementById('addReel').checked)this.style.background='transparent'">
+              <input type="checkbox" id="addReel" onchange="updateAddonStyle()" style="width:16px; height:16px; accent-color:var(--gold); cursor:pointer; flex-shrink:0;">
+              <div style="flex:1;">
+                <h4 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.25rem; color:var(--ink); margin-bottom:4px; line-height:1.3;">60-second walkthrough reel.</h4>
+                <div style="font-size:0.85rem; color:rgba(26,26,24,0.65); line-height:1.55;">Single sequence, ambient sound, vertical or horizontal.</div>
+              </div>
+              <strong style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:var(--ink); white-space:nowrap;">+$1,000</strong>
+            </label>
+
+            <label id="labelCinematic" style="display:flex; align-items:center; gap:20px; padding:22px 4px; border-top:1px solid rgba(26,26,24,0.15); cursor:pointer; transition:background 0.3s ease;" onmouseover="this.style.background='rgba(201,169,110,0.04)'" onmouseout="if(!document.getElementById('addCinematic').checked)this.style.background='transparent'">
+              <input type="checkbox" id="addCinematic" onchange="updateAddonStyle()" style="width:16px; height:16px; accent-color:var(--gold); cursor:pointer; flex-shrink:0;">
+              <div style="flex:1;">
+                <h4 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.25rem; color:var(--ink); margin-bottom:4px; line-height:1.3;">Cinematic short, 2 to 3 min.</h4>
+                <div style="font-size:0.85rem; color:rgba(26,26,24,0.65); line-height:1.55;">Layered edit with drone, exterior motion, interior detail. 4K, music licensed.</div>
+              </div>
+              <strong style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:var(--ink); white-space:nowrap;">+$2,500</strong>
+            </label>
+
+            <label id="labelDoc" style="display:flex; align-items:center; gap:20px; padding:22px 4px; border-top:1px solid rgba(26,26,24,0.15); border-bottom:1px solid rgba(26,26,24,0.15); cursor:pointer; transition:background 0.3s ease;" onmouseover="this.style.background='rgba(201,169,110,0.04)'" onmouseout="if(!document.getElementById('addDoc').checked)this.style.background='transparent'">
+              <input type="checkbox" id="addDoc" onchange="updateAddonStyle()" style="width:16px; height:16px; accent-color:var(--gold); cursor:pointer; flex-shrink:0;">
+              <div style="flex:1;">
+                <h4 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.25rem; color:var(--ink); margin-bottom:4px; line-height:1.3;">Documentary film with architect interview.</h4>
+                <div style="font-size:0.85rem; color:rgba(26,26,24,0.65); line-height:1.55;">Sit-down interview, narrative cut, drone, exteriors, interiors. Final scope and price confirmed before contract.</div>
+              </div>
+              <strong style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.3rem; color:var(--ink); white-space:nowrap;">+$3,000 to $4,500</strong>
+            </label>
+          </div>
+
+          <!-- Notes -->
+          <div style="margin-bottom:32px;">
+            <div style="font-family:'Josefin Sans',sans-serif; font-weight:500; font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(26,26,24,0.55); margin-bottom:12px;">Notes or Questions (optional)</div>
+            <textarea id="approvalNotes" rows="3" placeholder="Anything you'd like to flag before the contract goes out..." style="width:100%; padding:14px 18px; border:1px solid rgba(26,26,24,0.15); background:rgba(255,255,255,0.6); font-family:'DM Sans',sans-serif; font-size:0.9rem; color:var(--ink); resize:vertical; line-height:1.7; outline:none; transition:border-color 0.3s;" onfocus="this.style.borderColor='var(--gold)'" onblur="this.style.borderColor='rgba(26,26,24,0.15)'"></textarea>
+          </div>
+
+          <!-- Approve button -->
+          <button id="approveBtn" onclick="submitApproval()" style="display:inline-flex; align-items:center; gap:14px; padding:18px 44px; background:var(--ink); color:var(--paper); border:none; font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.72rem; letter-spacing:0.25em; text-transform:uppercase; cursor:pointer; transition:all 0.4s cubic-bezier(0.16,1,0.3,1);" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--ink)'" onmouseout="this.style.background='var(--ink)'; this.style.color='var(--paper)'">
+            <span>Approve &amp; Send to Matt</span>
+            <span style="font-size:1.1rem;">&rarr;</span>
+          </button>
+
+          <p style="margin-top:18px; font-size:0.78rem; color:rgba(26,26,24,0.55); line-height:1.6;">Opens your email client with your approval pre-filled to info@mattanthonyphoto.com. Nothing is binding until the contract is signed.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <p style="margin-top:48px; font-size:0.85rem; color:rgba(26,26,24,0.6); text-align:center;">Or reply to this email directly. <a href="mailto:info@mattanthonyphoto.com" style="color:var(--gold); text-decoration:none;">info@mattanthonyphoto.com</a> &nbsp;|&nbsp; 604.765.9270</p>
+  </div>
+</section>
+
+<!-- CLOSING IMAGE -->
+<div style="position:relative; height:70vh; min-height:480px; max-height:720px; overflow:hidden; background:var(--ink);">
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/9d699cdf-a6ac-442f-b234-97b0aba24035/5322-backhouse-web-5.jpg" alt="Architectural photography by Matt Anthony" style="width:100%; height:100%; object-fit:cover; filter:brightness(0.32);">
+  <div style="position:absolute; top:0; left:0; right:0; bottom:0; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:40px;">
+    <p style="font-family:'Cormorant Garamond',serif; font-size:clamp(1.7rem,3.6vw,2.6rem); font-weight:400; font-style:italic; color:var(--paper); max-width:600px; line-height:1.35; margin-bottom:36px;">A residence on Salt Spring,<br>read across one day of light.</p>
+    <div style="font-family:'Josefin Sans',sans-serif; font-size:0.7rem; letter-spacing:0.4em; text-transform:uppercase; color:var(--paper); margin-bottom:22px;">Matt Anthony Photography</div>
+    <div style="font-size:0.82rem; color:rgba(246,244,240,0.55); line-height:2.2;">
+      <a href="https://mattanthonyphoto.com" style="color:var(--gold); text-decoration:none;">mattanthonyphoto.com</a><br>
+      <a href="mailto:info@mattanthonyphoto.com" style="color:var(--gold); text-decoration:none;">info@mattanthonyphoto.com</a> &nbsp;&middot;&nbsp; 604.765.9270<br>
+      Squamish, BC
+    </div>
+    <div style="margin-top:36px; font-family:'Josefin Sans',sans-serif; font-size:0.5rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(246,244,240,0.18);">This proposal is confidential and prepared for Vince Iameo Architect.</div>
+  </div>
+</div>
+
+<footer class="footer">
+  Matt Anthony Photography &nbsp;<span>&middot;</span>&nbsp; Squamish, BC
+  <span class="gst">GST# 79115 0261 RT0001</span>
+</footer>
+
+<script>
+  // Progress bar
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var b = document.body;
+    var st = 'scrollTop';
+    var sh = 'scrollHeight';
+    var progress = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
+    document.getElementById('progress').style.width = progress + '%';
+  });
+
+  // Add-on selector visual feedback (editorial light register)
+  window.updateAddonStyle = function(){
+    var reel = document.getElementById('addReel');
+    var cinematic = document.getElementById('addCinematic');
+    var doc = document.getElementById('addDoc');
+    var labelReel = document.getElementById('labelReel');
+    var labelCinematic = document.getElementById('labelCinematic');
+    var labelDoc = document.getElementById('labelDoc');
+    labelReel.style.background = reel.checked ? 'rgba(201,169,110,0.12)' : 'transparent';
+    labelCinematic.style.background = cinematic.checked ? 'rgba(201,169,110,0.12)' : 'transparent';
+    labelDoc.style.background = doc.checked ? 'rgba(201,169,110,0.12)' : 'transparent';
+  };
+
+  // Approval submission via mailto
+  window.submitApproval = function(){
+    var addReel = document.getElementById('addReel').checked;
+    var addCinematic = document.getElementById('addCinematic').checked;
+    var addDoc = document.getElementById('addDoc').checked;
+    var notes = document.getElementById('approvalNotes').value.trim();
+
+    // Base: $3,400 subtotal + 5% GST = $3,570 grand total (architect-only scenario)
+    var subtotal = 3400;
+    var addons = [];
+    if(addReel){ subtotal += 1000; addons.push('60-second walkthrough reel ($1,000)'); }
+    if(addCinematic){ subtotal += 2500; addons.push('Cinematic short, 2 to 3 min ($2,500)'); }
+    if(addDoc){ addons.push('Documentary film with architect interview ($3,000 to $4,500, scope and price to confirm)'); }
+    var grandTotal = Math.round(subtotal * 1.05);
+
+    var subject = encodeURIComponent('Salt Spring Proposal Approved, Vince Iameo Architect');
+    var body = 'Hi Matt,%0D%0A%0D%0A'
+      + 'I%27m approving the proposal for the Salt Spring residence shoot. Please send the contract and deposit invoice when you have a moment.%0D%0A%0D%0A'
+      + 'Confirmed scope: Photography ($3,570 grand total, GST included, architect-only scenario)%0D%0A';
+    if(addons.length){
+      body += 'Add-ons selected: ' + encodeURIComponent(addons.join(', ')) + '%0D%0A';
+      if(!addDoc){
+        body += 'Updated grand total: $' + grandTotal + ' GST included%0D%0A';
+      } else {
+        body += 'Updated grand total: $' + grandTotal + '+ GST included (documentary scope to confirm)%0D%0A';
+      }
+    }
+    body += 'Travel costs billed at actuals. Accommodation booked directly by our team.%0D%0A';
+    if(notes){
+      body += '%0D%0ANotes: ' + encodeURIComponent(notes) + '%0D%0A';
+    }
+    body += '%0D%0ABest,%0D%0AVince';
+
+    window.location.href = 'mailto:info@mattanthonyphoto.com?subject=' + subject + '&body=' + body;
+
+    var btn = document.getElementById('approveBtn');
+    btn.innerHTML = '<span>Sent, check your email client</span> <span style="font-size:1.1rem;">&check;</span>';
+    btn.style.background = 'rgba(201,169,110,0.4)';
+    btn.style.color = 'var(--paper)';
+    btn.onmouseover = null;
+    btn.onmouseout = null;
+  };
+</script>
+
+</body>
+</html>
