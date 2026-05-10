@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radius — Slide Library v3.2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Cinzel:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #A82838;
+    --red-deep: #7E1E2A;
+    --paper: #FAFAF5;
+    --paper-warm: #F7F4EC;
+    --peach: #E7D9CD;
+    --ink: #1F1B17;
+    --gray: #6E5F50;
+    --gray-light: #A89A89;
+    --line: rgba(31,27,23,0.10);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body { background: var(--paper); color: var(--ink); font-family: 'Inter', sans-serif; font-weight: 300; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.05; letter-spacing: -0.005em; }
+  h2 em, h1 em { font-style: italic; color: var(--red); }
+  ::selection { background: var(--red); color: var(--paper); }
+
+  /* HEADER */
+  header { padding: 70px 56px 60px; border-bottom: 1px solid var(--line); }
+  .h-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.4em; text-transform: uppercase; color: var(--red); margin-bottom: 24px; display: inline-flex; align-items: center; gap: 14px; }
+  .h-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--red); }
+  h1 { font-size: clamp(2.4rem, 5vw, 3.4rem); margin-bottom: 22px; }
+  .h-sub { color: var(--gray); max-width: 720px; font-size: 0.96rem; line-height: 1.85; margin-bottom: 36px; }
+  .meta-row { display: flex; flex-wrap: wrap; gap: 50px; padding-top: 30px; border-top: 1px solid var(--line); }
+  .meta-item { font-size: 0.78rem; color: var(--gray); }
+  .meta-item strong { display: block; font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--ink); margin-bottom: 4px; font-weight: 500; }
+
+  /* SIDE NAV / TOC */
+  .toc { background: var(--paper-warm); padding: 28px 56px; border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; }
+  .toc-inner { display: flex; gap: 32px; flex-wrap: wrap; align-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 0.66rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; }
+  .toc-inner .label { color: var(--red); }
+  .toc-inner a { color: var(--ink); text-decoration: none; padding: 4px 0; border-bottom: 1px solid transparent; transition: border-color 0.2s; }
+  .toc-inner a:hover { border-bottom-color: var(--red); }
+
+  /* SECTIONS */
+  section { padding: 80px 56px; border-bottom: 1px solid var(--line); }
+  .section-num { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.4rem; color: var(--red); margin-bottom: 8px; }
+  .section-title { font-size: clamp(1.8rem, 3.6vw, 2.6rem); margin-bottom: 14px; line-height: 1.05; }
+  .section-sub { color: var(--gray); max-width: 600px; font-size: 0.94rem; line-height: 1.85; margin-bottom: 60px; }
+
+  /* GRID */
+  .slide-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 32px; }
+  .slide-card { display: flex; flex-direction: column; gap: 14px; }
+  .slide-img-wrap { aspect-ratio: 4/5; overflow: hidden; border: 1px solid var(--line); background: var(--paper-warm); }
+  .slide-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+  .slide-meta { display: flex; justify-content: space-between; align-items: baseline; }
+  .slide-id { font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--red); }
+  .slide-tag { font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem; font-weight: 500; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gray); padding: 3px 8px; background: var(--paper-warm); border: 1px solid var(--line); }
+  .slide-title { font-family: 'Cormorant Garamond', serif; font-size: 1.2rem; color: var(--ink); font-weight: 400; line-height: 1.2; }
+  .slide-title em { font-style: italic; color: var(--red); }
+  .slide-use { font-size: 0.82rem; color: var(--gray); line-height: 1.55; font-weight: 300; }
+
+  footer { padding: 50px 56px; text-align: center; color: var(--gray); font-size: 0.78rem; line-height: 1.85; }
+  footer code { font-family: 'IBM Plex Mono', monospace; font-size: 0.74rem; background: var(--paper-warm); padding: 2px 6px; }
+
+  @media (max-width: 700px) {
+    header, .toc, section, footer { padding-left: 26px; padding-right: 26px; }
+    .toc-inner { gap: 18px; font-size: 0.6rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="h-eyebrow">v3.2 · Slide Library · 51 variations</div>
+  <h1>Radius · <em>Slide Library</em></h1>
+  <p class="h-sub">
+    Every designed slide in the Radius template system, organized by category. Mix and match across future
+    posts. Each slide is 1080×1350 (4:5 Instagram feed format), built on the v3.2 design language —
+    off-white paper with grid texture, dark mode for impact moments, IBM Plex Mono for technical labels,
+    Cormorant Garamond italic for accents, peach band at the top of every slide.
+  </p>
+  <div class="meta-row">
+    <div class="meta-item"><strong>Total Slides</strong>51 (22 in-use · 29 library)</div>
+    <div class="meta-item"><strong>Categories</strong>9 (Cover, Photo, Quote, Number, Material, Process, Team, Award, Stats)</div>
+    <div class="meta-item"><strong>Format</strong>1080×1350 PNG (Instagram 4:5)</div>
+    <div class="meta-item"><strong>Reusable</strong>All templates re-runnable</div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="toc-inner">
+    <span class="label">Jump to</span>
+    <a href="#quotes">Quotes</a>
+    <a href="#numbers">Numbers</a>
+    <a href="#materials">Materials</a>
+    <a href="#process">Process</a>
+    <a href="#team">Team</a>
+    <a href="#awards">Awards</a>
+    <a href="#stats">Stats</a>
+    <a href="#covers">Covers</a>
+    <a href="#cta">CTA</a>
+    <a href="#photos">Photo Overlays</a>
+  </div>
+</nav>
+
+<!-- QUOTES -->
+<section id="quotes">
+  <div class="section-num">01</div>
+  <h2 class="section-title">Quote slides <em>(8)</em></h2>
+  <p class="section-sub">
+    Dark slides for impact. Pull directly from Rick's 21-quote bank. Use one per carousel — ideally
+    near the close to land the take.
+  </p>
+  <div class="slide-grid">
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/p4_s2_quote.png" alt="Flush quote"></div>
+      <div class="slide-meta"><span class="slide-id">p4_s2_quote</span><span class="slide-tag">In Use</span></div>
+      <div class="slide-title">Flush can look flush, <em>but is it flush?</em></div>
+      <div class="slide-use">The strongest quote in the corpus. Use sparingly. Pair with hand-on-panel photo.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/p1_s2_quote.png" alt="Heirloom quote"></div>
+      <div class="slide-meta"><span class="slide-id">p1_s2_quote</span><span class="slide-tag">In Use</span></div>
+      <div class="slide-title">It's an <em>heirloom-quality drawer.</em></div>
+      <div class="slide-use">For dovetail / joinery / heirloom content. The 100-year claim.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/p2_s8_close.png" alt="Box makers quote"></div>
+      <div class="slide-meta"><span class="slide-id">p2_s8_close</span><span class="slide-tag">In Use</span></div>
+      <div class="slide-title">We don't want to <em>be box makers.</em></div>
+      <div class="slide-use">For positioning content. Differentiates against volume shops.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/lib_q_trim.png" alt="Twenty-three quote"></div>
+      <div class="slide-meta"><span class="slide-id">lib_q_trim</span><span class="slide-tag">Library</span></div>
+      <div class="slide-title">We grew to <em>twenty-three.</em></div>
+      <div class="slide-use">For founder/philosophy posts. The "quality over scale" story.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/lib_q_springback.png" alt="Spring-back quote"></div>
+      <div class="slide-meta"><span class="slide-id">lib_q_springback</span><span class="slide-tag">Library</span></div>
+      <div class="slide-title">Take spring-back. <em>Down to a science.</em></div>
+      <div class="slide-use">For technical / Rosebery / laminated-curves content. AWMAC Gold story.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/lib_q_zerocnc.png" alt="Zero CNC quote"></div>
+      <div class="slide-meta"><span class="slide-id">lib_q_zerocnc</span><span class="slide-tag">Library</span></div>
+      <div class="slide-title">CNCs don't come <em>into play.</em></div>
+      <div class="slide-use">For positioning. Traditional joinery differentiator. NEEDS Rick reconfirm.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/lib_q_european.png" alt="European training quote"></div>
+      <div class="slide-meta"><span class="slide-id">lib_q_european</span><span class="slide-tag">Library</span></div>
+      <div class="slide-title">Trained in Europe. <em>A different level.</em></div>
+      <div class="slide-use">For The Team pillar. Highlights European-trained bench.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/lib_q_origin.png" alt="Parents tools quote"></div>
+      <div class="slide-meta"><span class="slide-id">lib_q_origin</span><span class="slide-tag">Library</span></div>
+      <div class="slide-title">My parents bought me <em>some tools.</em></div>
+      <div class="slide-use">Origin story. Use for "how Radius started" content arc.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/lib_q_lastjob.png" alt="Last job quote"></div>
+      <div class="slide-meta"><span class="slide-id">lib_q_lastjob</span><span class="slide-tag">Library</span></div>
+      <div class="slide-title">Only as good as <em>your last job.</em></div>
+      <div class="slide-use">Operating principle. Strong LinkedIn close.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/lib_q_pushenvelope.png" alt="Push envelope quote"></div>
+      <div class="slide-meta"><span class="slide-id">lib_q_pushenvelope</span><span class="slide-tag">Library</span></div>
+      <div class="slide-title">We like to <em>push the envelope.</em></div>
+      <div class="slide-use">For ambitious / complex project content. Use with technical project posts.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/p6_s7_close.png" alt="Story material quote"></div>
+      <div class="slide-meta"><span class="slide-id">p6_s7_close</span><span class="slide-tag">In Use</span></div>
+      <div class="slide-title">Story to tell <em>for the client.</em></div>
+      <div class="slide-use">For material-driven posts. Closes the "across the bench" carousel.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/p9_s7_quote.png" alt="Sheldon quote"></div>
+      <div class="slide-meta"><span class="slide-id">p9_s7_quote</span><span class="slide-tag">In Use</span></div>
+      <div class="slide-title">Eighteen years at <em>the desk next to mine.</em></div>
+      <div class="slide-use">For The Team / Sheldon content. The unfair-advantage line.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section id="numbers">
+  <div class="section-num">02</div>
+  <h2 class="section-title">Number punch <em>(10)</em></h2>
+  <p class="section-sub">
+    Asymmetric layout — big italic numeral on the left, specifications grid on the right. Each tells a single
+    fact about the business. Use as a hero slide in carousels or as a story hook.
+  </p>
+  <div class="slide-grid">
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/p1_s3_number.png" alt="60 drawer boxes"></div>
+      <div class="slide-meta"><span class="slide-id">p1_s3_number</span><span class="slide-tag">In Use</span></div>
+      <div class="slide-title">60 <em>· drawer boxes</em></div>
+      <div class="slide-use">Old Gravel Road dovetail batch. Currently in Post 1.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/lib_n_25.png" alt="25 years"></div>
+      <div class="slide-meta"><span class="slide-id">lib_n_25</span><span class="slide-tag">Library</span></div>
+      <div class="slide-title">25 <em>· years at the bench</em></div>
+      <div class="slide-use">For anniversary / heritage content. Founder-positioning hero.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/lib_n_20.png" alt="20 craftspeople"></div>
+      <div class="slide-meta"><span class="slide-id">lib_n_20</span><span class="slide-tag">Library</span></div>
+      <div class="slide-title">20 <em>· craftspeople</em></div>
+      <div class="slide-use">For The Team / The Shop content. The "after the trim back" stat.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/lib_n_5000.png" alt="5000 sq ft"></div>
+      <div class="slide-meta"><span class="slide-id">lib_n_5000</span><span class="slide-tag">Library</span></div>
+      <div class="slide-title">5,000 <em>· square feet</em></div>
+      <div class="slide-use">Shop scale. Use in opening shop-tour carousels.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/lib_n_zero.png" alt="Zero CNC"></div>
+      <div class="slide-meta"><span class="slide-id">lib_n_zero</span><span class="slide-tag">Library</span></div>
+      <div class="slide-title">0 <em>· CNC machines</em></div>
+      <div class="slide-use">The positioning stat. NEEDS Rick reconfirm before using.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/lib_n_15m.png" alt="$1.5M scope"></div>
+      <div class="slide-meta"><span class="slide-id">lib_n_15m</span><span class="slide-tag">Library</span></div>
+      <div class="slide-title">$1.5M <em>· millwork scope</em></div>
+      <div class="slide-use">Rosebery / AWMAC Gold context. Use with award content.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/lib_n_18.png" alt="18 months"></div>
+      <div class="slide-meta"><span class="slide-id">lib_n_18</span><span class="slide-tag">Library</span></div>
+      <div class="slide-title">18 <em>· months on Rosebery</em></div>
+      <div class="slide-use">Duration scale. The "18 months on one house" claim.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/lib_n_3000.png" alt="3000 slats"></div>
+      <div class="slide-meta"><span class="slide-id">lib_n_3000</span><span class="slide-tag">Library</span></div>
+      <div class="slide-title">3,000 <em>· smoked oak slats</em></div>
+      <div class="slide-use">For smoked oak / Whistler residence content.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/lib_n_100.png" alt="100 years"></div>
+      <div class="slide-meta"><span class="slide-id">lib_n_100</span><span class="slide-tag">Library</span></div>
+      <div class="slide-title">100 <em>· years per drawer</em></div>
+      <div class="slide-use">Heirloom claim. Pair with dovetail photography.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/lib_n_43.png" alt="43 sheets"></div>
+      <div class="slide-meta"><span class="slide-id">lib_n_43</span><span class="slide-tag">Library</span></div>
+      <div class="slide-title">43 <em>· sheets of drawings</em></div>
+      <div class="slide-use">Sheldon's six-month phase. Pair with shop-drawing photos.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- MATERIALS -->
+<section id="materials">
+  <div class="section-num">03</div>
+  <h2 class="section-title">Material specs <em>(6)</em></h2>
+  <p class="section-sub">
+    Dark slides with photo column on left, spec data on right. Magazine-grade material identification.
+    Use as slide 2 or 3 of a material-driven post.
+  </p>
+  <div class="slide-grid">
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/p8_s2_spec.png" alt="Smoked Arabica"></div>
+      <div class="slide-meta"><span class="slide-id">p8_s2_spec</span><span class="slide-tag">In Use</span></div>
+      <div class="slide-title">Smoked <em>Arabica</em></div>
+      <div class="slide-use">European oak from Norway. Ammonia-cured. Currently in Post 8.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/p4_s3_material.png" alt="Slip-matched maple"></div>
+      <div class="slide-meta"><span class="slide-id">p4_s3_material</span><span class="slide-tag">In Use</span></div>
+      <div class="slide-title">Slip-matched <em>Eastern maple</em></div>
+      <div class="slide-use">Cigar lounge cladding. Currently in Post 4.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/lib_m_riftoak.png" alt="Rift white oak"></div>
+      <div class="slide-meta"><span class="slide-id">lib_m_riftoak</span><span class="slide-tag">Library</span></div>
+      <div class="slide-title">Rift <em>White Oak</em></div>
+      <div class="slide-use">Quercus alba, rift sawn. For sequence-matched closet content.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/lib_m_anigre.png" alt="Anigre veneer"></div>
+      <div class="slide-meta"><span class="slide-id">lib_m_anigre</span><span class="slide-tag">Library</span></div>
+      <div class="slide-title">Veneer-Laid <em>Anigre</em></div>
+      <div class="slide-use">West African species. For Waterfront Anigre Penthouse content.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/lib_m_walnut.png" alt="Solid walnut"></div>
+      <div class="slide-meta"><span class="slide-id">lib_m_walnut</span><span class="slide-tag">Library</span></div>
+      <div class="slide-title">Solid Stock <em>Black Walnut</em></div>
+      <div class="slide-use">For Walnut Estate or estate-furniture content.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/lib_m_ebonized.png" alt="Ebonized pear"></div>
+      <div class="slide-meta"><span class="slide-id">lib_m_ebonized</span><span class="slide-tag">Library</span></div>
+      <div class="slide-title">Ebonized <em>Pear</em></div>
+      <div class="slide-use">Ethical substitute for African ebony. The ethics + inlay story.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-num">04</div>
+  <h2 class="section-title">Process steps <em>(4)</em></h2>
+  <p class="section-sub">
+    Cream slides with numbered hairline-divided rows. Technical depth for architects and designers.
+  </p>
+  <div class="slide-grid">
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/p5_s3_process.png" alt="Six coats"></div>
+      <div class="slide-meta"><span class="slide-id">p5_s3_process</span><span class="slide-tag">In Use</span></div>
+      <div class="slide-title">Six coats. <em>Between-coat sanded.</em></div>
+      <div class="slide-use">Finishing process. Currently in Post 5.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/p9_s8_pipeline.png" alt="Six months at desk"></div>
+      <div class="slide-meta"><span class="slide-id">p9_s8_pipeline</span><span class="slide-tag">In Use</span></div>
+      <div class="slide-title">Six months <em>at the desk.</em></div>
+      <div class="slide-use">Drawings-to-install pipeline. Currently in Post 9.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/lib_proc_springback.png" alt="Spring-back"></div>
+      <div class="slide-meta"><span class="slide-id">lib_proc_springback</span><span class="slide-tag">Library</span></div>
+      <div class="slide-title">Spring-back. <em>Down to a science.</em></div>
+      <div class="slide-use">Laminated curves testing protocol. The AWMAC Gold technical claim.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/lib_proc_install.png" alt="Install workflow"></div>
+      <div class="slide-meta"><span class="slide-id">lib_proc_install</span><span class="slide-tag">Library</span></div>
+      <div class="slide-title">Site to room. <em>Install workflow.</em></div>
+      <div class="slide-use">For The Install pillar content (once we capture an install shoot).</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="section-num">05</div>
+  <h2 class="section-title">Team portraits <em>(4)</em></h2>
+  <p class="section-sub">
+    Two-column magazine layout — name + role on left, context + quote on right. Use for The Team pillar.
+    Each requires consent before naming the individual publicly.
+  </p>
+  <div class="slide-grid">
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/lib_t_sheldon.png" alt="Sheldon"></div>
+      <div class="slide-meta"><span class="slide-id">lib_t_sheldon</span><span class="slide-tag">Library</span></div>
+      <div class="slide-title">Sheldon <em>· Lead Designer</em></div>
+      <div class="slide-use">18 years at the drawing desk. NEEDS Sheldon's tagging consent.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/lib_t_sydney.png" alt="Sydney"></div>
+      <div class="slide-meta"><span class="slide-id">lib_t_sydney</span><span class="slide-tag">Library</span></div>
+      <div class="slide-title">Sydney <em>· Bench / Dovetails</em></div>
+      <div class="slide-use">On the bench cutting sixty dovetail boxes. NEEDS Sydney's tagging consent.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/lib_t_jc.png" alt="JC"></div>
+      <div class="slide-meta"><span class="slide-id">lib_t_jc</span><span class="slide-tag">Library</span></div>
+      <div class="slide-title">JC <em>· Finishing / Color</em></div>
+      <div class="slide-use">Bleach + pigment workflow. NEEDS JC's tagging consent.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/lib_t_bench.png" alt="The bench"></div>
+      <div class="slide-meta"><span class="slide-id">lib_t_bench</span><span class="slide-tag">Library</span></div>
+      <div class="slide-title">The Bench <em>· European-trained</em></div>
+      <div class="slide-use">No individuals named — describes the half-European-trained team collectively.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- AWARDS -->
+<section id="awards">
+  <div class="section-num">06</div>
+  <h2 class="section-title">Awards + recognition <em>(2)</em></h2>
+  <p class="section-sub">
+    Center-aligned with year + award name + categories + project + spec grid. Use for credibility moments.
+  </p>
+  <div class="slide-grid">
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/lib_a_awmacgold.png" alt="AWMAC Gold"></div>
+      <div class="slide-meta"><span class="slide-id">lib_a_awmacgold</span><span class="slide-tag">Library</span></div>
+      <div class="slide-title">2011 AWMAC <em>BC Gold</em></div>
+      <div class="slide-use">Rosebery Estate. Two medals. The hero credential.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/lib_a_houzz.png" alt="Houzz"></div>
+      <div class="slide-meta"><span class="slide-id">lib_a_houzz</span><span class="slide-tag">Library</span></div>
+      <div class="slide-title">'13–'17 Best <em>of Houzz</em></div>
+      <div class="slide-use">5x consecutive years. Houzz Influencer status.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="section-num">07</div>
+  <h2 class="section-title">Stats grid <em>(1)</em></h2>
+  <p class="section-sub">
+    4-cell grid summarizing the business. Use as a closing slide on broad founder/positioning carousels.
+  </p>
+  <div class="slide-grid">
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/lib_stats_grid.png" alt="Stats grid"></div>
+      <div class="slide-meta"><span class="slide-id">lib_stats_grid</span><span class="slide-tag">Library</span></div>
+      <div class="slide-title">25 years. <em>Same bench.</em></div>
+      <div class="slide-use">25 / 20 / 5,000 / 0 grid. The business at a glance.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- COVERS -->
+<section id="covers">
+  <div class="section-num">08</div>
+  <h2 class="section-title">Covers <em>(3)</em></h2>
+  <p class="section-sub">
+    Carousel opening slides. Two dark cover variants with full-bleed photo, one cream-list variant for
+    text-driven openings.
+  </p>
+  <div class="slide-grid">
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/p2_s1_cover.png" alt="Burnaby cover"></div>
+      <div class="slide-meta"><span class="slide-id">p2_s1_cover</span><span class="slide-tag">In Use</span></div>
+      <div class="slide-title">Burnaby · <em>twenty-five years</em></div>
+      <div class="slide-use">Shop walkthrough cover. Dark with shop photo background.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/p9_s1_cover.png" alt="Drawings cover"></div>
+      <div class="slide-meta"><span class="slide-id">p9_s1_cover</span><span class="slide-tag">In Use</span></div>
+      <div class="slide-title">From drawings <em>to install</em></div>
+      <div class="slide-use">Drawings-to-execution cover. Dark with elevation drawing background.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/p6_s1_cover.png" alt="Five materials"></div>
+      <div class="slide-meta"><span class="slide-id">p6_s1_cover</span><span class="slide-tag">In Use</span></div>
+      <div class="slide-title">Five materials. <em>Five projects.</em></div>
+      <div class="slide-use">List cover for material-driven posts. Cream with itemized table.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section id="cta">
+  <div class="section-num">09</div>
+  <h2 class="section-title">Closing CTAs <em>(2)</em></h2>
+  <p class="section-sub">
+    Dark slides with email + phone for carousel closes. Two contextual variants.
+  </p>
+  <div class="slide-grid">
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/p1_s4_cta.png" alt="CTA 1"></div>
+      <div class="slide-meta"><span class="slide-id">p1_s4_cta</span><span class="slide-tag">In Use</span></div>
+      <div class="slide-title">Asks something <em>of the bench?</em></div>
+      <div class="slide-use">Generic project-inquiry CTA. The bench-craft positioning.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/p2_s9_cta.png" alt="CTA 2"></div>
+      <div class="slide-meta"><span class="slide-id">p2_s9_cta</span><span class="slide-tag">In Use</span></div>
+      <div class="slide-title">Twenty-five years <em>in Burnaby.</em></div>
+      <div class="slide-use">Architect/designer/builder-focused CTA. Used after shop walkthrough.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/p5_s2_sheen.png" alt="Sheen scale"></div>
+      <div class="slide-meta"><span class="slide-id">p5_s2_sheen</span><span class="slide-tag">In Use</span></div>
+      <div class="slide-title">Sheen is <em>a number.</em></div>
+      <div class="slide-use">Technical chart slide. The 6-degree sheen scale (FLAT to PIANO).</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/p8_s3_chemistry.png" alt="Ammonia tannins"></div>
+      <div class="slide-meta"><span class="slide-id">p8_s3_chemistry</span><span class="slide-tag">In Use</span></div>
+      <div class="slide-title">Ammonia + <em>tannins.</em></div>
+      <div class="slide-use">2x2 chemistry diagram. Smoked oak material process.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PHOTO OVERLAYS -->
+<section id="photos">
+  <div class="section-num">10</div>
+  <h2 class="section-title">Photo overlays <em>(5)</em></h2>
+  <p class="section-sub">
+    Full-bleed project photography with material-name label at bottom-left. The "material series" treatment
+    for Post 6.
+  </p>
+  <div class="slide-grid">
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/p6_s2_overlay.png" alt="Slip-matched maple"></div>
+      <div class="slide-meta"><span class="slide-id">p6_s2_overlay</span><span class="slide-tag">In Use</span></div>
+      <div class="slide-title">01 · <em>Slip-matched maple</em></div>
+      <div class="slide-use">Cigar lounge corner mock-up.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/p6_s3_overlay.png" alt="Smoked oak"></div>
+      <div class="slide-meta"><span class="slide-id">p6_s3_overlay</span><span class="slide-tag">In Use</span></div>
+      <div class="slide-title">02 · <em>Smoked European oak</em></div>
+      <div class="slide-use">Smoked Arabica finger-pocket detail.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/p6_s4_overlay.png" alt="Solid maple"></div>
+      <div class="slide-meta"><span class="slide-id">p6_s4_overlay</span><span class="slide-tag">In Use</span></div>
+      <div class="slide-title">03 · <em>Solid Eastern maple</em></div>
+      <div class="slide-use">Dovetail joint hero shot.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/p6_s5_overlay.png" alt="Rift white oak"></div>
+      <div class="slide-meta"><span class="slide-id">p6_s5_overlay</span><span class="slide-tag">In Use</span></div>
+      <div class="slide-title">04 · <em>Rift white oak</em></div>
+      <div class="slide-use">Cabinet runs with marker notations.</div>
+    </div>
+
+    <div class="slide-card">
+      <div class="slide-img-wrap"><img src="slides/p6_s6_overlay.png" alt="Cabinet box"></div>
+      <div class="slide-meta"><span class="slide-id">p6_s6_overlay</span><span class="slide-tag">In Use</span></div>
+      <div class="slide-title">05 · <em>Cabinet box assembly</em></div>
+      <div class="slide-use">Pipe clamp + glue setting up.</div>
+    </div>
+
+  </div>
+</section>
+
+<footer>
+  <p>
+    Renderer: <code>tools/render_radius_carousel_slides.py</code> · Output: <code>slides/</code> (51 PNGs)<br>
+    Add new slides by appending a dict to <code>SLIDES</code> with the appropriate <code>type</code> and content fields, then re-run.
+  </p>
+</footer>
+
+</body>
+</html>

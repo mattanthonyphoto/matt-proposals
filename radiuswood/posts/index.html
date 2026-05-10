@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radius — May 2026 Posts Preview v2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #A82838;
+    --red-deep: #7E1E2A;
+    --paper: #FAFAF5;
+    --paper-warm: #F7F4EC;
+    --peach: #E7D9CD;
+    --ink: #1F1B17;
+    --gray: #6E5F50;
+    --line: rgba(31,27,23,0.08);
+    --warn: #B8702C;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { font-size: 16px; scroll-behavior: smooth; }
+  body { background: var(--paper); color: var(--ink); font-family: 'Inter', sans-serif; font-weight: 300; line-height: 1.7; -webkit-font-smoothing: antialiased; }
+  header, .gates { background: var(--paper); }
+  .caption { background: var(--paper-warm); }
+  h1, h2, h3, h4 { font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.1; letter-spacing: -0.005em; }
+  h1 em, h2 em, h3 em { font-style: italic; color: var(--red); }
+  ::selection { background: var(--red); color: var(--cream); }
+
+  /* HEADER */
+  header { padding: 90px 56px 70px; border-bottom: 1px solid var(--line); background: var(--cream); }
+  .h-eyebrow { font-size: 0.62rem; font-weight: 500; letter-spacing: 0.4em; text-transform: uppercase; color: var(--red); margin-bottom: 28px; display: inline-flex; align-items: center; gap: 14px; }
+  .h-eyebrow::before { content: ''; width: 32px; height: 1px; background: var(--red); }
+  h1 { font-size: clamp(2.6rem, 5.6vw, 3.8rem); margin-bottom: 22px; }
+  .h-sub { color: var(--gray); max-width: 720px; font-size: 1rem; line-height: 1.85; margin-bottom: 36px; }
+  .meta-row { display: flex; flex-wrap: wrap; gap: 50px; padding-top: 30px; border-top: 1px solid var(--line); }
+  .meta-item { font-size: 0.78rem; color: var(--gray); }
+  .meta-item strong { display: block; font-size: 0.6rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink); margin-bottom: 4px; font-weight: 600; }
+
+  /* WEEK SECTIONS */
+  .week { padding: 90px 56px 30px; }
+  .week-label { font-family: 'Cormorant Garamond', serif; font-size: 1.8rem; color: var(--ink); margin-bottom: 8px; font-weight: 500; }
+  .week-label em { font-style: italic; color: var(--red); }
+  .week-sub { font-size: 0.7rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gray); font-weight: 500; }
+
+  /* POSTS */
+  .posts { padding: 0 56px 80px; max-width: 1500px; margin: 0 auto; }
+  .post { padding: 70px 0; border-top: 1px solid var(--line); }
+  .post:first-child { border-top: none; padding-top: 30px; }
+
+  .post-head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 36px; flex-wrap: wrap; gap: 20px; }
+  .post-num { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.2rem; color: var(--red); }
+  .post-when { font-family: 'Cormorant Garamond', serif; font-size: 1.5rem; color: var(--gray); font-weight: 400; }
+  .post-when em { font-style: italic; color: var(--red); }
+
+  .post-meta { display: flex; gap: 10px; margin-bottom: 22px; flex-wrap: wrap; }
+  .badge { font-size: 0.58rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; padding: 6px 12px; border: 1px solid var(--line); }
+  .badge.platform { color: var(--ink); border-color: var(--ink); }
+  .badge.pillar { color: var(--red); border-color: var(--red); }
+  .badge.type { color: var(--gray); }
+
+  .post h3 { font-size: 2.2rem; margin-bottom: 26px; line-height: 1.1; max-width: 880px; }
+
+  /* CAROUSEL */
+  .carousel-wrap { margin-bottom: 36px; }
+  .carousel-label { font-size: 0.58rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--ink); margin-bottom: 14px; }
+  .carousel { display: flex; gap: 14px; overflow-x: auto; padding-bottom: 16px; scroll-snap-type: x mandatory; }
+  .carousel::-webkit-scrollbar { height: 8px; }
+  .carousel::-webkit-scrollbar-track { background: var(--line); }
+  .carousel::-webkit-scrollbar-thumb { background: var(--red); }
+  .slide-wrap { flex: 0 0 auto; scroll-snap-align: start; position: relative; }
+  .slide-wrap img { width: 320px; height: 400px; object-fit: cover; display: block; border: 1px solid var(--line); }
+  .slide-wrap .designed { width: 320px; height: 400px; }
+  .slide-num { position: absolute; top: 8px; left: 8px; background: rgba(26,26,24,0.85); color: var(--cream); font-size: 0.55rem; font-weight: 500; letter-spacing: 0.22em; padding: 5px 10px; }
+  .slide-tag { position: absolute; bottom: 8px; left: 8px; background: var(--red); color: var(--cream); font-size: 0.55rem; font-weight: 600; letter-spacing: 0.18em; padding: 5px 10px; text-transform: uppercase; }
+
+  .post-grid { display: grid; grid-template-columns: 1.4fr 1fr; gap: 50px; align-items: start; }
+  @media (max-width: 1100px) { .post-grid { grid-template-columns: 1fr; } }
+
+  /* CAPTION */
+  .caption-label { font-size: 0.58rem; font-weight: 600; letter-spacing: 0.28em; text-transform: uppercase; color: var(--ink); margin-bottom: 14px; margin-top: 0; }
+  .caption { font-size: 0.94rem; color: var(--ink); line-height: 1.85; white-space: pre-line; padding: 26px 30px; background: var(--cream); border-left: 3px solid var(--red); margin-bottom: 24px; font-weight: 400; }
+  .caption .quote-line { font-style: italic; color: var(--red); }
+
+  .hashtags { font-family: 'JetBrains Mono', monospace; font-size: 0.74rem; color: var(--gray); padding: 14px 18px; background: rgba(26,26,24,0.04); border: 1px dashed var(--line); margin-bottom: 22px; line-height: 1.7; }
+
+  .voice-check { padding: 16px 20px; background: rgba(184,112,44,0.1); border-left: 3px solid var(--warn); font-size: 0.84rem; color: var(--warn); margin-bottom: 12px; line-height: 1.6; }
+  .voice-check strong { font-weight: 600; }
+
+  /* GATES */
+  .gates { background: var(--cream); padding: 90px 56px; border-top: 1px solid var(--line); }
+  .gates-inner { max-width: 1500px; margin: 0 auto; }
+  .gate-list { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-top: 36px; }
+  .gate { background: var(--paper); border: 1px solid var(--line); padding: 24px 28px; border-left: 3px solid var(--warn); }
+  .gate-num { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.24em; text-transform: uppercase; color: var(--warn); margin-bottom: 10px; }
+  .gate h4 { font-family: 'Inter', sans-serif; font-size: 0.96rem; font-weight: 600; margin-bottom: 10px; letter-spacing: -0.005em; }
+  .gate p { font-size: 0.86rem; color: var(--gray); line-height: 1.7; }
+
+  /* FOOTER */
+  footer { padding: 60px 56px 50px; text-align: center; color: var(--gray); border-top: 1px solid var(--line); font-size: 0.78rem; line-height: 1.85; }
+
+  @media (max-width: 800px) {
+    header, .week, .posts, .gates, footer { padding-left: 26px; padding-right: 26px; }
+    .gate-list { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="h-eyebrow">Posts Preview · v3 · Architectural Editorial</div>
+  <h1>Radius · May 2026 <em>Content Lineup</em></h1>
+  <p class="h-sub">
+    Slides redesigned to break out of generic-luxury template. Dark and cream slides alternate for visual rhythm.
+    Peach band as recurring brand motif at the top of every slide. IBM Plex Mono for technical labels (instead of
+    Inter all-caps) makes specs feel architectural, not bridal. Asymmetric layouts replace centered-italic where
+    impact matters.
+  </p>
+  <div class="meta-row">
+    <div class="meta-item"><strong>Source Shoot</strong>May 5, 2026</div>
+    <div class="meta-item"><strong>Edited Frames</strong>55 delivered</div>
+    <div class="meta-item"><strong>Designed Slides</strong>22 rendered (1080×1350)</div>
+    <div class="meta-item"><strong>Plan Drawings</strong>4 in feed (Posts 1, 2, 9)</div>
+    <div class="meta-item"><strong>Posts</strong>9 (Wk 1 + Wk 2 + Wk 3 lead)</div>
+    <div class="meta-item"><strong>Total Slides</strong>48 across 9 posts</div>
+    <div class="meta-item"><strong>Design</strong>v3.1 — off-white paper + dark/light rhythm + peach band motif</div>
+  </div>
+</header>
+
+<!-- WEEK 1 -->
+<section class="week">
+  <div class="week-label">Week <em>One</em></div>
+  <div class="week-sub">May 11–17 · Mon · Wed · Fri · Sat</div>
+</section>
+
+<section class="posts">
+
+  <!-- POST 1 -->
+  <article class="post">
+    <div class="post-head">
+      <span class="post-num">Post 01 / 08</span>
+      <span class="post-when">Mon · <em>May 11</em></span>
+    </div>
+    <div class="post-meta">
+      <span class="badge platform">Instagram</span>
+      <span class="badge type">Carousel · 5 slides</span>
+      <span class="badge pillar">The Craft</span>
+    </div>
+    <h3>From drawing <em>to drawer.</em></h3>
+
+    <div class="carousel-wrap">
+      <div class="carousel-label">Carousel sequence — drawings → execution</div>
+      <div class="carousel">
+        <div class="slide-wrap"><span class="slide-num">01</span><span class="slide-tag">Drawing</span><img src="photos/_DSC7263.jpg" alt="OGR plan drawing"></div>
+        <div class="slide-wrap"><span class="slide-num">02</span><img src="photos/_DSC7400.jpg" alt="dovetail"></div>
+        <div class="slide-wrap"><span class="slide-num">03</span><span class="slide-tag">Quote</span><img class="designed" src="slides/p1_s2_quote.png" alt="quote"></div>
+        <div class="slide-wrap"><span class="slide-num">04</span><span class="slide-tag">Number</span><img class="designed" src="slides/p1_s3_number.png" alt="60"></div>
+        <div class="slide-wrap"><span class="slide-num">05</span><span class="slide-tag">CTA</span><img class="designed" src="slides/p1_s4_cta.png" alt="cta"></div>
+      </div>
+    </div>
+
+    <div class="post-grid">
+      <div>
+        <div class="caption-label">Caption</div>
+        <div class="caption">From drawing to drawer.
+
+Sixty boxes for one Whistler residence. Solid Eastern maple. Dovetail joinery, pin and tail, traditional cut. No fasteners. The geometry of the joint is what holds it together.
+
+"It's an heirloom-quality drawer. A hundred years from now it'll still be tight." Rick Wilson, owner.
+
+Photography @mattanthonyphoto</div>
+      </div>
+      <div>
+        <div class="caption-label">Hashtags</div>
+        <div class="hashtags">#joinery #dovetail #handmade #vancouvercraftsmen #architecturalmillwork #finewoodworking #cabinetmaking #burnabymade #thecraft</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- POST 2 -->
+  <article class="post">
+    <div class="post-head">
+      <span class="post-num">Post 02 / 08</span>
+      <span class="post-when">Wed · <em>May 13</em></span>
+    </div>
+    <div class="post-meta">
+      <span class="badge platform">Instagram</span>
+      <span class="badge type">Carousel · 10 slides</span>
+      <span class="badge pillar">The Shop</span>
+    </div>
+    <h3>What twenty-five years of <em>bench work</em> looks like.</h3>
+
+    <div class="carousel-wrap">
+      <div class="carousel-label">Carousel sequence (drawings + production + finishing)</div>
+      <div class="carousel">
+        <div class="slide-wrap"><span class="slide-num">01</span><span class="slide-tag">Cover</span><img class="designed" src="slides/p2_s1_cover.png" alt="cover"></div>
+        <div class="slide-wrap"><span class="slide-num">02</span><span class="slide-tag">Drawing</span><img src="photos/_DSC7820.jpg" alt="OGR Bedroom 2 elevation"></div>
+        <div class="slide-wrap"><span class="slide-num">03</span><img src="photos/_DSC7422.jpg" alt="7422"></div>
+        <div class="slide-wrap"><span class="slide-num">04</span><img src="photos/_DSC7271.jpg" alt="7271"></div>
+        <div class="slide-wrap"><span class="slide-num">05</span><img src="photos/_DSC7344.jpg" alt="7344"></div>
+        <div class="slide-wrap"><span class="slide-num">06</span><img src="photos/_DSC7491.jpg" alt="7491"></div>
+        <div class="slide-wrap"><span class="slide-num">07</span><img src="photos/_DSC7741.jpg" alt="7741"></div>
+        <div class="slide-wrap"><span class="slide-num">08</span><img src="photos/_DSC7750.jpg" alt="7750"></div>
+        <div class="slide-wrap"><span class="slide-num">09</span><span class="slide-tag">Quote</span><img class="designed" src="slides/p2_s8_close.png" alt="close"></div>
+        <div class="slide-wrap"><span class="slide-num">10</span><span class="slide-tag">CTA</span><img class="designed" src="slides/p2_s9_cta.png" alt="cta"></div>
+      </div>
+    </div>
+
+    <div class="post-grid">
+      <div>
+        <div class="caption-label">Caption</div>
+        <div class="caption">What twenty-five years of bench work looks like.
+
+Five thousand square feet, twenty craftspeople, traditional joinery throughout. Table saws. Jointers. Shapers. A wide-belt sander. A re-saw. An edge bander out of Germany.
+
+Swipe through. The trade has been built this way for two centuries. The only thing that's changed is the dust collection.
+
+Photography @mattanthonyphoto</div>
+        <div class="voice-check"><strong>Voice gate:</strong> "zero CNC by choice" only appears on the designed cover slide (visual claim) and not in caption prose. If Rick reconfirms zero-CNC, we can promote it into the caption too.</div>
+      </div>
+      <div>
+        <div class="caption-label">Hashtags</div>
+        <div class="hashtags">#millworkshop #craftsmanship #vancouvermillwork #burnabymade #behindthebench #customcabinetry #shoptour #woodworking #thecraft</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- POST 3 -->
+  <article class="post">
+    <div class="post-head">
+      <span class="post-num">Post 03 / 08</span>
+      <span class="post-when">Fri · <em>May 15</em></span>
+    </div>
+    <div class="post-meta">
+      <span class="badge platform">LinkedIn</span>
+      <span class="badge type">Long-form · 2 photos</span>
+      <span class="badge pillar">The Team</span>
+    </div>
+    <h3>The founder reset.</h3>
+
+    <div class="carousel-wrap">
+      <div class="carousel-label">Photos</div>
+      <div class="carousel">
+        <div class="slide-wrap"><span class="slide-num">01</span><img src="photos/_DSC7422.jpg" alt="7422"></div>
+        <div class="slide-wrap"><span class="slide-num">02</span><img src="photos/_DSC7491.jpg" alt="7491"></div>
+      </div>
+    </div>
+
+    <div class="post-grid">
+      <div>
+        <div class="caption-label">Caption (Rick first-person)</div>
+        <div class="caption">We grew to twenty-three people once. The work didn't get better. My sleep got worse.
+
+So we trimmed back. Twenty people now. Half European-trained. Sheldon, who runs the drawing desk, eighteen years at my side. Sydney is on the bench cutting dovetails this week.
+
+The phone has been busier ever since.
+
+If that's the shop you're looking for, good. Come find us.
+
+Rick Wilson, Owner + Master Joiner. Photography by @mattanthonyphoto</div>
+        <div class="voice-check"><strong>Voice gate:</strong> Names Sheldon + Sydney. Rick to confirm both team members are okay being identified by first name on LinkedIn.</div>
+      </div>
+      <div>
+        <div class="caption-label">Notes</div>
+        <div class="hashtags">LinkedIn page is at 9 followers. This is the inaugural founder reset. No hashtags on LinkedIn.</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- POST 4 -->
+  <article class="post">
+    <div class="post-head">
+      <span class="post-num">Post 04 / 08</span>
+      <span class="post-when">Sat · <em>May 17</em></span>
+    </div>
+    <div class="post-meta">
+      <span class="badge platform">Instagram</span>
+      <span class="badge type">Carousel · 3 slides</span>
+      <span class="badge pillar">The Craft</span>
+    </div>
+    <h3>Forty feet.</h3>
+
+    <div class="carousel-wrap">
+      <div class="carousel-label">Carousel sequence</div>
+      <div class="carousel">
+        <div class="slide-wrap"><span class="slide-num">01</span><img src="photos/_DSC7470.jpg" alt="7470"></div>
+        <div class="slide-wrap"><span class="slide-num">02</span><span class="slide-tag">Quote</span><img class="designed" src="slides/p4_s2_quote.png" alt="quote"></div>
+        <div class="slide-wrap"><span class="slide-num">03</span><span class="slide-tag">Spec</span><img class="designed" src="slides/p4_s3_material.png" alt="material spec"></div>
+      </div>
+    </div>
+
+    <div class="post-grid">
+      <div>
+        <div class="caption-label">Caption</div>
+        <div class="caption">Forty feet.
+
+That's the distance from which a wonky reveal reads. Your eye picks it up. You can't say what's wrong. Something just doesn't fit. When the reveal is right, you don't see it. You see the room.
+
+Slip-matched Eastern maple. Ebonized pear-wood inlay running through the panel face. Pear, not ebony. Real ebony comes from Africa, and we don't use it.
+
+Photography @mattanthonyphoto</div>
+      </div>
+      <div>
+        <div class="caption-label">Hashtags</div>
+        <div class="hashtags">#detailmatters #joinery #ebonized #slipmatched #millworkshop #craftsmanship #vancouverdesign #thecraft #thefinishedroom</div>
+      </div>
+    </div>
+  </article>
+
+</section>
+
+<!-- WEEK 2 -->
+<section class="week">
+  <div class="week-label">Week <em>Two</em></div>
+  <div class="week-sub">May 18–24 · Mon · Wed · Fri · Sat</div>
+</section>
+
+<section class="posts">
+
+  <!-- POST 5 -->
+  <article class="post">
+    <div class="post-head">
+      <span class="post-num">Post 05 / 08</span>
+      <span class="post-when">Mon · <em>May 18</em></span>
+    </div>
+    <div class="post-meta">
+      <span class="badge platform">Instagram</span>
+      <span class="badge type">Carousel · 3 slides</span>
+      <span class="badge pillar">The Team</span>
+    </div>
+    <h3>Sheen is <em>a number.</em></h3>
+
+    <div class="carousel-wrap">
+      <div class="carousel-label">Carousel sequence</div>
+      <div class="carousel">
+        <div class="slide-wrap"><span class="slide-num">01</span><img src="photos/_DSC7665.jpg" alt="7665"></div>
+        <div class="slide-wrap"><span class="slide-num">02</span><span class="slide-tag">Scale</span><img class="designed" src="slides/p5_s2_sheen.png" alt="sheen scale"></div>
+        <div class="slide-wrap"><span class="slide-num">03</span><span class="slide-tag">Process</span><img class="designed" src="slides/p5_s3_process.png" alt="process steps"></div>
+      </div>
+    </div>
+
+    <div class="post-grid">
+      <div>
+        <div class="caption-label">Caption</div>
+        <div class="caption">Sheen is a number.
+
+Zero. Ten. Twenty-five. Thirty-five. Fifty. Ninety. The higher the number, the more the surface shows every flaw. Above ninety, you can't gun-finish. You cut polish.
+
+A piece of dust that landed four coats ago is still visible.
+
+JC has been doing this longer than most people have been doing anything.
+
+Photography @mattanthonyphoto</div>
+        <div class="voice-check"><strong>Voice gate:</strong> JC named in caption. Needs his tagging consent. If he prefers anonymity, replace with "Our finisher has been doing this..."</div>
+      </div>
+      <div>
+        <div class="caption-label">Hashtags</div>
+        <div class="hashtags">#finishingroom #conversionvarnish #handfinished #millworkshop #thecraft #customcabinetry #thefinishingroom</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- POST 6 -->
+  <article class="post">
+    <div class="post-head">
+      <span class="post-num">Post 06 / 08</span>
+      <span class="post-when">Wed · <em>May 20</em></span>
+    </div>
+    <div class="post-meta">
+      <span class="badge platform">Instagram</span>
+      <span class="badge type">Carousel · 7 slides</span>
+      <span class="badge pillar">The Finished</span>
+    </div>
+    <h3>Five materials. <em>Five projects.</em></h3>
+
+    <div class="carousel-wrap">
+      <div class="carousel-label">Carousel sequence</div>
+      <div class="carousel">
+        <div class="slide-wrap"><span class="slide-num">01</span><span class="slide-tag">Cover</span><img class="designed" src="slides/p6_s1_cover.png" alt="cover"></div>
+        <div class="slide-wrap"><span class="slide-num">02</span><span class="slide-tag">Material</span><img class="designed" src="slides/p6_s2_overlay.png" alt="slip maple"></div>
+        <div class="slide-wrap"><span class="slide-num">03</span><span class="slide-tag">Material</span><img class="designed" src="slides/p6_s3_overlay.png" alt="smoked oak"></div>
+        <div class="slide-wrap"><span class="slide-num">04</span><span class="slide-tag">Material</span><img class="designed" src="slides/p6_s4_overlay.png" alt="solid maple"></div>
+        <div class="slide-wrap"><span class="slide-num">05</span><span class="slide-tag">Material</span><img class="designed" src="slides/p6_s5_overlay.png" alt="rift oak"></div>
+        <div class="slide-wrap"><span class="slide-num">06</span><span class="slide-tag">Material</span><img class="designed" src="slides/p6_s6_overlay.png" alt="cabinet box"></div>
+        <div class="slide-wrap"><span class="slide-num">07</span><span class="slide-tag">Quote</span><img class="designed" src="slides/p6_s7_close.png" alt="close"></div>
+      </div>
+    </div>
+
+    <div class="post-grid">
+      <div>
+        <div class="caption-label">Caption</div>
+        <div class="caption">Five materials. Five projects. None for the same client.
+
+Slip-matched Eastern maple, headed for a cigar lounge. Smoked European oak with a finger-pocket pull, three thousand slats in one house. Solid Eastern maple, sixty dovetail drawer boxes. Rift white oak case runs, sequence-matched across three doors. A cabinet box mid-assembly, glue setting up.
+
+Material is the start of the story.
+
+Photography @mattanthonyphoto</div>
+        <div class="voice-check"><strong>Voice gate:</strong> "one Whistler residence" anonymized 2x. If Old Gravel Road can be named, sharpen the slat-wall reference and dovetail reference.</div>
+      </div>
+      <div>
+        <div class="caption-label">Hashtags</div>
+        <div class="hashtags">#archmillwork #customcabinetry #vancouverbuilds #joinery #craftsmanship #thecraft #millworkshop #materialfirst</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- POST 7 -->
+  <article class="post">
+    <div class="post-head">
+      <span class="post-num">Post 07 / 08</span>
+      <span class="post-when">Fri · <em>May 22</em></span>
+    </div>
+    <div class="post-meta">
+      <span class="badge platform">LinkedIn</span>
+      <span class="badge type">Long-form · 2 photos</span>
+      <span class="badge pillar">The Craft</span>
+    </div>
+    <h3>Service is <em>the differentiator.</em></h3>
+
+    <div class="carousel-wrap">
+      <div class="carousel-label">Photos</div>
+      <div class="carousel">
+        <div class="slide-wrap"><span class="slide-num">01</span><img src="photos/_DSC7271.jpg" alt="7271"></div>
+        <div class="slide-wrap"><span class="slide-num">02</span><img src="photos/_DSC7491.jpg" alt="7491"></div>
+      </div>
+    </div>
+
+    <div class="post-grid">
+      <div>
+        <div class="caption-label">Caption (Studio "we")</div>
+        <div class="caption">Every shop in the trade puts out a quality product. The differentiator is service.
+
+The contractor we want to work for is the one who hands us a complicated, high-profile package and doesn't think about it again until install day.
+
+Self-reliant. Problem-solving. On schedule.
+
+Twenty-five years on this end of the trade. Twenty people on the bench in Burnaby. The phone keeps ringing.
+
+Rick Wilson, Owner + Master Joiner. Photography by @mattanthonyphoto</div>
+      </div>
+      <div>
+        <div class="caption-label">Notes</div>
+        <div class="hashtags">Targets architects + contractors. No voice gates. The mission statement, tightened.</div>
+      </div>
+    </div>
+  </article>
+
+  <!-- POST 8 -->
+  <article class="post">
+    <div class="post-head">
+      <span class="post-num">Post 08 / 08</span>
+      <span class="post-when">Sat · <em>May 24</em></span>
+    </div>
+    <div class="post-meta">
+      <span class="badge platform">Instagram</span>
+      <span class="badge type">Carousel · 3 slides</span>
+      <span class="badge pillar">The Craft</span>
+    </div>
+    <h3>It's not <em>a stain.</em></h3>
+
+    <div class="carousel-wrap">
+      <div class="carousel-label">Carousel sequence</div>
+      <div class="carousel">
+        <div class="slide-wrap"><span class="slide-num">01</span><img src="photos/_DSC7542.jpg" alt="7542"></div>
+        <div class="slide-wrap"><span class="slide-num">02</span><span class="slide-tag">Spec</span><img class="designed" src="slides/p8_s2_spec.png" alt="material spec"></div>
+        <div class="slide-wrap"><span class="slide-num">03</span><span class="slide-tag">Process</span><img class="designed" src="slides/p8_s3_chemistry.png" alt="chemistry"></div>
+      </div>
+    </div>
+
+    <div class="post-grid">
+      <div>
+        <div class="caption-label">Caption</div>
+        <div class="caption">It's not a stain.
+
+Smoked Arabica oak goes into an environment high in ammonia gas. The gas reacts with the tannins in the wood. Boards with more tannins go darker. So you get tonal variation slot to slot, even within a single piece. Pigment stains give you uniformity. This gives you character.
+
+No handle on this slat door. The pull is a back-cut on the slat with a rabbet underneath. Hook a finger and pull. Roller catch closes it.
+
+About three thousand slats in this house.
+
+Photography @mattanthonyphoto</div>
+      </div>
+      <div>
+        <div class="caption-label">Hashtags</div>
+        <div class="hashtags">#smokedoak #europeanoak #thecraft #customjoinery #millworkshop #archmillwork #thefinishedroom #materialstory</div>
+      </div>
+    </div>
+  </article>
+
+</section>
+
+<!-- WEEK 3 -->
+<section class="week">
+  <div class="week-label">Week <em>Three</em></div>
+  <div class="week-sub">May 25–31 · Mon · drawings → install</div>
+</section>
+
+<section class="posts">
+
+  <!-- POST 9 -->
+  <article class="post">
+    <div class="post-head">
+      <span class="post-num">Post 09 / 12 (Wk 3)</span>
+      <span class="post-when">Mon · <em>May 25</em></span>
+    </div>
+    <div class="post-meta">
+      <span class="badge platform">Instagram</span>
+      <span class="badge type">Carousel · 8 slides</span>
+      <span class="badge pillar">The Team</span>
+    </div>
+    <h3>From drawings <em>to install.</em></h3>
+
+    <div class="carousel-wrap">
+      <div class="carousel-label">Carousel sequence — drawings → marker → execution → process</div>
+      <div class="carousel">
+        <div class="slide-wrap"><span class="slide-num">01</span><span class="slide-tag">Cover</span><img class="designed" src="slides/p9_s1_cover.png" alt="cover"></div>
+        <div class="slide-wrap"><span class="slide-num">02</span><span class="slide-tag">Drawing</span><img src="photos/_DSC7263.jpg" alt="OGR plan"></div>
+        <div class="slide-wrap"><span class="slide-num">03</span><span class="slide-tag">Drawing</span><img src="photos/_DSC7820.jpg" alt="OGR elevation"></div>
+        <div class="slide-wrap"><span class="slide-num">04</span><span class="slide-tag">Marker</span><img src="photos/_DSC7281.jpg" alt="B1 panel"></div>
+        <div class="slide-wrap"><span class="slide-num">05</span><span class="slide-tag">Marker</span><img src="photos/_DSC7816.jpg" alt="panel back markings"></div>
+        <div class="slide-wrap"><span class="slide-num">06</span><span class="slide-tag">Production</span><img src="photos/_DSC7271.jpg" alt="cabinet runs"></div>
+        <div class="slide-wrap"><span class="slide-num">07</span><span class="slide-tag">Quote</span><img class="designed" src="slides/p9_s7_quote.png" alt="Sheldon quote"></div>
+        <div class="slide-wrap"><span class="slide-num">08</span><span class="slide-tag">Process</span><img class="designed" src="slides/p9_s8_pipeline.png" alt="six steps"></div>
+      </div>
+    </div>
+
+    <div class="post-grid">
+      <div>
+        <div class="caption-label">Caption (Rick first-person)</div>
+        <div class="caption">Eighteen years at the drawing desk.
+
+Sheldon runs our shop drawings. Every panel, every reveal, every section detail goes through him before it gets cut. Old Gravel Road, Whistler. Forty-three sheets. Six months at the desk. Eighteen months on the bench.
+
+The drawings travel from his desk to the saw. The marker on the panel face is a callback to the elevation he drew six months ago.
+
+We've been at the desk next to each other for eighteen years. Same wavelength. When I'm stuck I ask him. When he's stuck he asks me.
+
+That's the unfair advantage of building a shop slowly.
+
+Rick Wilson, Owner + Master Joiner. Photography @mattanthonyphoto.</div>
+        <div class="voice-check"><strong>Voice gate:</strong> Names Sheldon (3x) and Old Gravel Road, Whistler. Both pending Rick's go-ahead per unblock email. If Sheldon prefers anonymity, replace with "Our lead designer" and reduce mentions to 1.</div>
+      </div>
+      <div>
+        <div class="caption-label">Hashtags</div>
+        <div class="hashtags">#shopdrawings #archmillwork #thebench #thedrawingdesk #joinery #craftsmanship #vancouvermillwork #fromdrawingstoinstall #thecraft #theteam</div>
+      </div>
+    </div>
+  </article>
+
+</section>
+
+<!-- GATES -->
+<section class="gates">
+  <div class="gates-inner">
+    <div class="h-eyebrow" style="margin-bottom: 18px;">Approval Gates</div>
+    <h2 style="font-size: 2.4rem; margin-bottom: 14px;">Four things to confirm <em>before publishing.</em></h2>
+    <p style="color: var(--gray); max-width: 620px; font-size: 0.95rem;">Per the unblock email already drafted to Rick. Each gates one specific post.</p>
+
+    <div class="gate-list">
+      <div class="gate">
+        <div class="gate-num">Gate 1 · Wed May 13</div>
+        <h4>"Zero CNC" appears on cover slide</h4>
+        <p>Designed cover slide says "5,000 sq ft · 20 craftspeople · zero CNC by choice." If Rick can't reconfirm the literal claim, swap to "5,000 sq ft · 20 craftspeople · traditional joinery throughout."</p>
+      </div>
+      <div class="gate">
+        <div class="gate-num">Gate 2 · Mon May 18</div>
+        <h4>JC tagging consent</h4>
+        <p>Post 5 names JC in the caption. Rick to confirm JC is comfortable being publicly tagged on Instagram.</p>
+      </div>
+      <div class="gate">
+        <div class="gate-num">Gate 3 · Fri May 15</div>
+        <h4>Sheldon + Sydney named</h4>
+        <p>Post 3 LinkedIn names both team members. Rick to confirm comfort with first-name use on the LinkedIn page reset.</p>
+      </div>
+      <div class="gate">
+        <div class="gate-num">Gate 4 · Wed May 20</div>
+        <h4>Old Gravel Road / Whistler residence naming</h4>
+        <p>Post 6 references "one Whistler residence" anonymously. If Old Gravel Road can be named, the slat-wall and dovetail references can be sharpened.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <p>
+    Schedule: <code>clients/radius-wood/may2026-content-schedule.md</code><br>
+    Edits: <code>/Volumes/T9/Radius/Shop/May 5th/Deliverables/First Round/</code><br>
+    Designed slides: <code>clients/radius-wood/may-posts-preview/slides/</code><br>
+    Notion: <code>https://www.notion.so/34986897dca28194bb9fca05537b9adf</code>
+  </p>
+</footer>
+
+</body>
+</html>
