@@ -70,7 +70,7 @@ body{background:#F6F4F0!important}
 .lrd-has-banner .lrd-nav.lrd-scrolled .lrd-nav-links a.lrd-nav-cta:hover { background: var(--ink); color: white !important; }
 .lrd-has-banner .lrd-nav.lrd-scrolled .lrd-nav-toggle span { background: var(--ink); }
 
-/* Light-page nav (no banner — dark logo/links from top) */
+/* Light-page nav (no banner, dark logo/links from top) */
 .lrd-no-banner .lrd-nav-logo { filter: invert(1); }
 .lrd-no-banner .lrd-nav-links a { color: var(--stone); }
 .lrd-no-banner .lrd-nav-links a:hover { color: var(--ink); }
@@ -104,32 +104,17 @@ body{background:#F6F4F0!important}
   .lrd-banner-hero-sub { margin-top: 20px; }
 }
 
-/* Page header (no banner — for utility pages) */
+/* Page header (no banner, for utility pages) */
 .lrd-page-head { padding: clamp(140px, 16vw, 220px) clamp(32px, 8vw, 120px) clamp(60px, 8vw, 100px); max-width: 1200px; margin: 0 auto; }
 .lrd-page-head-label { font-weight: 300; font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--stone); margin-bottom: 22px; }
 .lrd-page-head h1 { font-weight: 300; font-size: clamp(34px, 5vw, 68px); line-height: 1.05; letter-spacing: -0.02em; max-width: 900px; }
 .lrd-page-head-sub { font-weight: 300; font-size: clamp(14px, 1.1vw, 16px); color: var(--body); line-height: 1.9; margin-top: clamp(24px, 3vw, 36px); max-width: 640px; }
 
 
-.lrd-post { max-width: 720px; margin: 0 auto; padding: clamp(60px, 8vw, 100px) clamp(28px, 6vw, 48px) clamp(40px, 5vw, 72px); }
-.lrd-post-meta { display: flex; gap: 18px; align-items: baseline; flex-wrap: wrap; margin-bottom: 28px; }
-.lrd-post-meta span { font-weight: 400; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--stone); }
-.lrd-post-meta .lrd-post-kicker { color: var(--stone); }
-.lrd-post-meta .lrd-post-divider { color: var(--stone-lt); }
-.lrd-post p { font-weight: 300; font-size: clamp(15px, 1.1vw, 17px); color: var(--body); line-height: 1.95; margin-bottom: 24px; }
-.lrd-post-related { max-width: 1200px; margin: 0 auto; padding: clamp(60px, 8vw, 100px) clamp(32px, 8vw, 120px); border-top: 1px solid var(--rule); }
-.lrd-post-related-label { font-weight: 400; font-size: 10px; letter-spacing: 0.32em; text-transform: uppercase; color: var(--stone); margin-bottom: 28px; text-align: center; }
-.lrd-post-related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(20px, 3vw, 40px); }
-@media(max-width:700px) { .lrd-post-related-grid { grid-template-columns: 1fr; } }
-.lrd-post-related-card { padding: clamp(24px, 3vw, 32px); border: 1px solid var(--rule); transition: border-color 0.3s, transform 0.4s var(--ease); }
-.lrd-post-related-card:hover { border-color: var(--stone); transform: translateY(-2px); }
-.lrd-post-related-card .lrd-j-kicker { font-weight: 400; font-size: 10px; letter-spacing: 0.3em; text-transform: uppercase; color: var(--stone); margin-bottom: 12px; display: block; }
-.lrd-post-related-card h3 { font-weight: 300; font-size: clamp(16px, 1.4vw, 20px); line-height: 1.3; }
-.lrd-crumbs { max-width: 1200px; margin: 0 auto; padding: 24px clamp(28px, 6vw, 48px) 0; font-weight: 300; font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase; color: var(--stone); }
-.lrd-crumbs a { color: var(--stone); border-bottom: 1px solid transparent; transition: border-color 0.3s, color 0.3s; }
-.lrd-crumbs a:hover { color: var(--ink); border-color: var(--rule); }
-.lrd-crumbs-sep { margin: 0 10px; opacity: 0.5; }
-.lrd-crumbs-current { color: var(--ink); }
+.lrd-careers { max-width: 760px; margin: 0 auto; padding: clamp(40px, 6vw, 80px) clamp(28px, 6vw, 48px) clamp(80px, 10vw, 140px); }
+.lrd-careers p { font-weight: 300; font-size: 15px; color: var(--body); line-height: 1.95; margin-bottom: 18px; }
+.lrd-careers a { color: var(--ink); border-bottom: 1px solid var(--rule); }
+.lrd-careers a:hover { border-color: var(--ink); }
 
 .lrd-cta { position: relative; overflow: hidden; padding: clamp(60px, 8vw, 110px) clamp(28px, 6vw, 80px); text-align: center; }
 .lrd-cta-bg { position: absolute; inset: 0; background-size: cover; background-position: center; background-image: url('https://images.squarespace-cdn.com/content/v1/63dc0dfc345ed25a7efd5c5d/efa7f649-329a-41c1-a913-5920bc7ef3ed/Copyright-Darby-Magill-7114.jpg?format=2500w&auto=format'); }
@@ -172,64 +157,41 @@ body{background:#F6F4F0!important}
 
 </style>
 
-<div class="lrd-wrap lrd-has-banner">
+<div class="lrd-wrap lrd-no-banner">
 
 <a href="#lrd-main" class="lrd-skip-link">Skip to main content</a>
 
 <nav class="lrd-nav" id="lrdNav" role="navigation" aria-label="Primary">
-  <a href="/matt-proposals/lrd/preview/" aria-label="LRD Studio — home"><img src="https://images.squarespace-cdn.com/content/v1/63dc0dfc345ed25a7efd5c5d/d3571741-4823-46bd-aff3-64f24925ac00/LRD-STUDIO-LOGO-WHITE.png" alt="LRD Studio" class="lrd-nav-logo"></a>
+  <a href="/matt-proposals/lrd/preview/" aria-label="LRD Studio, home"><img src="https://images.squarespace-cdn.com/content/v1/63dc0dfc345ed25a7efd5c5d/d3571741-4823-46bd-aff3-64f24925ac00/LRD-STUDIO-LOGO-WHITE.png" alt="LRD Studio" class="lrd-nav-logo"></a>
   <div class="lrd-nav-links" id="lrdNavLinks">
     <a href="/matt-proposals/lrd/preview/projects/">Projects</a>
+    <a href="/matt-proposals/lrd/preview/about/">About</a>
     <a href="/matt-proposals/lrd/preview/services/">Services</a>
-    <a href="/matt-proposals/lrd/preview/studio/">Studio</a>
-    <a href="/matt-proposals/lrd/preview/journal/">Journal</a>
+    <a href="/matt-proposals/lrd/preview/studio-notes/">Studio Notes</a>
     <a href="/matt-proposals/lrd/preview/contact/">Contact</a>
-    <a href="/matt-proposals/lrd/preview/contact/" class="lrd-nav-cta">Book a Call</a>
+    <a href="/matt-proposals/lrd/preview/contact/" class="lrd-nav-cta">Get in touch</a>
   </div>
   <button class="lrd-nav-toggle" id="lrdNavToggle" aria-label="Open menu" aria-expanded="false" aria-controls="lrdNavLinks"><span></span><span></span><span></span></button>
 </nav>
 
-<section class="lrd-banner-hero" id="lrd-main" role="img" aria-label="Cypress — West Coast Modern new-build interior design in Whistler, BC by LRD Studio. Cedar, horizontal lines, material honesty — the Pacific Northwest architectural lineage applied today.">
-  <div class="lrd-banner-hero-img" style="background-image: url('https://images.squarespace-cdn.com/content/v1/63dc0dfc345ed25a7efd5c5d/6e92625a-0cf3-4363-983a-d4cc10429ebe/4-LRD-DESIGNS-CYPRESS.jpg?format=2500w&auto=format');"></div>
-  <div class="lrd-banner-hero-content">
-    <div class="lrd-banner-hero-text">
-      <div class="lrd-banner-hero-label">Style</div>
-      <h1>What Is West Coast Modern?.</h1>
-      <p class="lrd-banner-hero-sub">Light stretching across the floor. Cedar soffits glowing gold. The ocean a faint shimmer through evergreens. A style, yes — but more than that, a feeling, and a way of living that’s deeply connected to the natural world.</p>
-    </div>
-  </div>
+<section class="lrd-page-head" id="lrd-main">
+  <div class="lrd-page-head-label">Careers</div>
+  <h1>Careers.</h1>
+  <p class="lrd-page-head-sub">On growing the studio.</p>
 </section>
-<nav class="lrd-crumbs" aria-label="Breadcrumb">
-  <a href="/matt-proposals/lrd/preview/">Home</a><span class="lrd-crumbs-sep">/</span><a href="/matt-proposals/lrd/preview/journal/">Journal</a><span class="lrd-crumbs-sep">/</span><span class="lrd-crumbs-current">What Is West Coast Modern?</span>
-</nav>
-<article class="lrd-post lrd-reveal">
-  <div class="lrd-post-meta">
-    <span class="lrd-post-kicker">Style</span>
-    <span class="lrd-post-divider">·</span>
-    <span>By Lauren Ritz</span>
-    <span class="lrd-post-divider">·</span>
-    <span>6 min read</span>
-  </div>
-  <p>West Coast Modern began on the Pacific shore in the mid-twentieth century — a regional response to the alpine forests, the rain, the mountain light, and the modernist ideas drifting up the coast from California. Architects like Arthur Erickson, Ron Thom, and Barry Downs translated International-style minimalism into something that belonged here: timber instead of steel, deep eaves for the rain, big glass for the borrowed light, restraint as a posture toward the landscape.</p>
-  <p>Today, West Coast Modern is less a strict architectural style and more a sensibility. It values material honesty — cedar that ages, stone that’s heavy, glass that disappears. It favours horizontal lines that echo the long views. It treats the landscape as the most important room. And it tends toward warm, restrained interiors that don’t compete with the cedar soffits or the granite outside the window.</p>
-  <p>When we work in this register — most of our <a href="/matt-proposals/lrd/preview/projects/" style="color:var(--ink);border-bottom:1px solid var(--rule);">Sea to Sky projects</a> do — we’re reaching for that same balance. Spaces that feel quiet, but are full of small choices. Materials that warm with use. A connection to outside that isn’t literal but is unmistakable. See it most clearly at <a href="/matt-proposals/lrd/preview/projects/residential/sunstone/" style="color:var(--ink);border-bottom:1px solid var(--rule);">Sunstone</a> and <a href="/matt-proposals/lrd/preview/projects/residential/balsam/" style="color:var(--ink);border-bottom:1px solid var(--rule);">Balsam</a>.</p>
-</article><section class="lrd-post-related"><div class="lrd-post-related-label">More from the journal</div><div class="lrd-post-related-grid">
-  <a href="/matt-proposals/lrd/preview/journal/why-its-worth-hiring-an-interior-designer/" class="lrd-post-related-card">
-    <span class="lrd-j-kicker">Practice</span>
-    <h3>Why It’s Worth Hiring an Interior Designer</h3>
-  </a>
-  <a href="/matt-proposals/lrd/preview/journal/contractors-and-designers/" class="lrd-post-related-card">
-    <span class="lrd-j-kicker">Collaboration</span>
-    <h3>Contractors & Designers Make a Great Team</h3>
-  </a></div></section>
+<section class="lrd-careers">
+  <p>We grow slowly and deliberately. Most of our team finds us through working with us on a project, trades, photographers, suppliers, fellow designers who&rsquo;ve sat across the table from us on a shared build.</p>
+  <p>If you&rsquo;re an interior designer, junior designer, or studio coordinator with a feel for material-led, people-first work in the Sea to Sky, and you&rsquo;d like to be on our radar when something opens, send a note and a portfolio or CV to <a href="mailto:hello@lrdstudio.ca">hello@lrdstudio.ca</a>.</p>
+  <p>We answer every message personally.</p>
+</section>
 
 <section class="lrd-cta">
-  <div class="lrd-cta-bg" role="img" aria-label="Sunstone — Mountain Modern new-build interior design in Pemberton, BC by LRD Studio. Western Living Design 25 Winner. Photography by Darby Magill."></div>
+  <div class="lrd-cta-bg" role="img" aria-label="Sunstone, new-build interior design in Pemberton, BC by LRD Studio. Western Living Design 25 Winner. Photography by Darby Magill."></div>
   <div class="lrd-cta-inner lrd-reveal">
     <h2>Let&rsquo;s talk about how your family lives.</h2>
     <p>Every project starts with a conversation about who you are and how you actually live.</p>
     <div class="lrd-cta-actions">
-      <a href="/matt-proposals/lrd/preview/contact/" class="lrd-cta-btn">Start a Project</a>
+      <a href="/matt-proposals/lrd/preview/contact/" class="lrd-cta-btn">Get in touch</a>
       <span class="lrd-cta-or">or email <a href="mailto:hello@lrdstudio.ca">hello@lrdstudio.ca</a></span>
     </div>
   </div>
@@ -239,20 +201,18 @@ body{background:#F6F4F0!important}
   <div class="lrd-ft-inner">
     <div class="lrd-ft-statement">
       <img src="https://images.squarespace-cdn.com/content/v1/63dc0dfc345ed25a7efd5c5d/d3571741-4823-46bd-aff3-64f24925ac00/LRD-STUDIO-LOGO-WHITE.png" alt="LRD Studio" class="lrd-ft-logo">
-      <p class="lrd-ft-tagline">Designed around how you actually live.<br><span>Mountain Modern interior design across the Sea to Sky.</span></p>
+      <p class="lrd-ft-tagline">Designed around how you actually live.</p>
     </div>
     <div class="lrd-ft-cols">
-      <div class="lrd-ft-col"><h4>Explore</h4><a href="/matt-proposals/lrd/preview/projects/">Projects</a><a href="/matt-proposals/lrd/preview/services/">Services</a><a href="/matt-proposals/lrd/preview/journal/">Journal</a><a href="/matt-proposals/lrd/preview/studio/">Studio</a><a href="/matt-proposals/lrd/preview/contact/">Contact</a><a href="/matt-proposals/lrd/preview/awards/">Awards</a><a href="/matt-proposals/lrd/preview/press/">Press</a><a href="/matt-proposals/lrd/preview/testimonials/">Client notes</a></div>
-      <div class="lrd-ft-col"><h4>What we design</h4><a href="/matt-proposals/lrd/preview/mountain-modern-interior-design/">Mountain Modern</a><a href="/matt-proposals/lrd/preview/west-coast-modern-design/">West Coast Modern</a><a href="/matt-proposals/lrd/preview/kitchen-design-whistler/">Kitchen design</a><a href="/matt-proposals/lrd/preview/legacy-renovations-whistler/">Legacy renovations</a><a href="/matt-proposals/lrd/preview/new-build-interior-design/">New build interiors</a><a href="/matt-proposals/lrd/preview/commercial-interior-design/">Commercial</a><a href="/matt-proposals/lrd/preview/sustainable-interior-design/">Sustainable &amp; Passive House</a><a href="/matt-proposals/lrd/preview/interior-design-cost-guide/">Cost &amp; process</a></div>
-      <div class="lrd-ft-col"><h4>Where we work</h4><a href="/matt-proposals/lrd/preview/sea-to-sky-interior-design/">Sea-to-Sky corridor</a><a href="/matt-proposals/lrd/preview/whistler-interior-design/">Whistler</a><a href="/matt-proposals/lrd/preview/squamish-interior-design/">Squamish</a><a href="/matt-proposals/lrd/preview/pemberton-interior-design/">Pemberton</a><a href="/matt-proposals/lrd/preview/vancouver-interior-design/">Vancouver</a><a href="/matt-proposals/lrd/preview/kitchen-design-whistler/">Kitchens · Whistler</a><a href="/matt-proposals/lrd/preview/kitchen-design-squamish/">Kitchens · Squamish</a><a href="/matt-proposals/lrd/preview/kitchen-design-pemberton/">Kitchens · Pemberton</a></div>
-      <div class="lrd-ft-col"><h4>Connect</h4><a href="/matt-proposals/lrd/preview/contact/">Start a project</a><a href="mailto:hello@lrdstudio.ca">hello@lrdstudio.ca</a><a href="https://www.instagram.com/lrdstudio_interiors/" target="_blank" rel="noopener">Instagram</a><a href="/matt-proposals/lrd/preview/client-portal/">Client portal</a></div>
+      <div class="lrd-ft-col"><h4>Explore</h4><a href="/matt-proposals/lrd/preview/projects/">Projects</a><a href="/matt-proposals/lrd/preview/about/">About</a><a href="/matt-proposals/lrd/preview/services/">Services</a><a href="/matt-proposals/lrd/preview/studio-notes/">Studio Notes</a><a href="/matt-proposals/lrd/preview/press/">Press</a><a href="/matt-proposals/lrd/preview/testimonials/">Client notes</a><a href="/matt-proposals/lrd/preview/careers/">Careers</a><a href="/matt-proposals/lrd/preview/contact/">Contact</a></div>
+      <div class="lrd-ft-col"><h4>Connect</h4><a href="/matt-proposals/lrd/preview/contact/">Get in touch</a><a href="mailto:hello@lrdstudio.ca">hello@lrdstudio.ca</a><a href="https://www.instagram.com/lrdstudio_interiors/" target="_blank" rel="noopener">Instagram</a><a href="/matt-proposals/lrd/preview/client-portal/">Client portal</a></div>
     </div>
     <div class="lrd-ft-bottom">
       <div class="lrd-ft-copy">
         <div>&copy; <span id="lrdCurrentYear">2026</span> LRD Studio Ltd. &middot; Est. 2017 &middot; Squamish, BC</div>
         <div class="lrd-ft-credit">Designed &amp; managed by <a href="https://www.mattanthonyphoto.com" target="_blank" rel="noopener">Matt Anthony Photography</a></div>
       </div>
-      <div class="lrd-ft-land">We work on the unceded Indigenous land of the Coast Salish peoples &mdash; the Lil&rsquo;wat and Squamish Nations.</div>
+      <div class="lrd-ft-land">We acknowledge that we are privileged to work and play on the unceded Indigenous land belonging to the Coast Salish peoples, including the territories of the Lil&rsquo;wat Nation and Squamish Nation.</div>
     </div>
   </div>
 </footer>
@@ -295,80 +255,24 @@ body{background:#F6F4F0!important}
 })();
 </script>
 
-<title>What Is West Coast Modern? — LRD Studio Journal</title>
-<meta name="description" content="Light stretching across the floor. Cedar soffits glowing gold. The ocean a faint shimmer through evergreens. A style, yes — but more than that, a feeling, ...">
+<title>Careers, LRD Studio</title>
+<meta name="description" content="On growing the studio.">
 <meta name="robots" content="noindex, nofollow">
 <meta name="theme-color" content="#F6F4F0">
-<link rel="canonical" href="https://www.lrdstudio.ca/journal/what-is-west-coast-modern">
-<meta property="og:title" content="What Is West Coast Modern? — LRD Studio Journal">
-<meta property="og:description" content="Light stretching across the floor. Cedar soffits glowing gold. The ocean a faint shimmer through evergreens. A style, yes — but more than that, a feeling, ...">
-<meta property="og:url" content="https://www.lrdstudio.ca/journal/what-is-west-coast-modern">
-<meta property="og:type" content="article">
+<link rel="canonical" href="https://www.lrdstudio.ca/careers">
+<meta property="og:title" content="Careers, LRD Studio">
+<meta property="og:description" content="On growing the studio.">
+<meta property="og:url" content="https://www.lrdstudio.ca/careers">
+<meta property="og:type" content="website">
 <meta property="og:site_name" content="LRD Studio">
 <meta property="og:locale" content="en_CA">
-<meta property="og:image" content="https://images.squarespace-cdn.com/content/v1/63dc0dfc345ed25a7efd5c5d/6e92625a-0cf3-4363-983a-d4cc10429ebe/4-LRD-DESIGNS-CYPRESS.jpg?format=1500w&auto=format">
+<meta property="og:image" content="https://images.squarespace-cdn.com/content/v1/63dc0dfc345ed25a7efd5c5d/901fe1e7-bb04-47e4-9fc8-b873fa951d2f/Copyright-Darby-Magill-7156.jpg?format=1500w">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="What Is West Coast Modern? — LRD Studio Journal">
-<meta name="twitter:description" content="Light stretching across the floor. Cedar soffits glowing gold. The ocean a faint shimmer through evergreens. A style, yes — but more than that, a feeling, ...">
-<meta name="twitter:image" content="https://images.squarespace-cdn.com/content/v1/63dc0dfc345ed25a7efd5c5d/6e92625a-0cf3-4363-983a-d4cc10429ebe/4-LRD-DESIGNS-CYPRESS.jpg?format=1500w&auto=format">
+<meta name="twitter:title" content="Careers, LRD Studio">
+<meta name="twitter:description" content="On growing the studio.">
+<meta name="twitter:image" content="https://images.squarespace-cdn.com/content/v1/63dc0dfc345ed25a7efd5c5d/901fe1e7-bb04-47e4-9fc8-b873fa951d2f/Copyright-Darby-Magill-7156.jpg?format=1500w">
 <link rel="preconnect" href="https://images.squarespace-cdn.com" crossorigin>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,700;1,200;1,300;1,400;1,700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,500&display=swap" rel="stylesheet">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "BlogPosting",
-  "@id": "https://www.lrdstudio.ca/journal/what-is-west-coast-modern",
-  "headline": "What Is West Coast Modern?",
-  "description": "Light stretching across the floor. Cedar soffits glowing gold. The ocean a faint shimmer through evergreens. A style, yes \u2014 but more than that, a feeling, and a way of living that\u2019s deeply connected to the natural world.",
-  "url": "https://www.lrdstudio.ca/journal/what-is-west-coast-modern",
-  "datePublished": "2026-02-18",
-  "image": {
-    "@type": "ImageObject",
-    "contentUrl": "https://images.squarespace-cdn.com/content/v1/63dc0dfc345ed25a7efd5c5d/6e92625a-0cf3-4363-983a-d4cc10429ebe/4-LRD-DESIGNS-CYPRESS.jpg",
-    "creditText": "Darby Magill",
-    "creator": {
-      "@type": "Person",
-      "name": "Darby Magill"
-    }
-  },
-  "author": {
-    "@type": "Person",
-    "@id": "https://www.lrdstudio.ca/#lauren-ritz",
-    "name": "Lauren Ritz"
-  },
-  "publisher": {
-    "@id": "https://www.lrdstudio.ca/#studio"
-  },
-  "articleSection": "Style",
-  "inLanguage": "en-CA",
-  "mainEntityOfPage": {
-    "@type": "WebPage",
-    "@id": "https://www.lrdstudio.ca/journal/what-is-west-coast-modern"
-  },
-  "breadcrumb": {
-    "@type": "BreadcrumbList",
-    "itemListElement": [
-      {
-        "@type": "ListItem",
-        "position": 1,
-        "name": "Home",
-        "item": "https://www.lrdstudio.ca/"
-      },
-      {
-        "@type": "ListItem",
-        "position": 2,
-        "name": "Journal",
-        "item": "https://www.lrdstudio.ca/journal"
-      },
-      {
-        "@type": "ListItem",
-        "position": 3,
-        "name": "What Is West Coast Modern?",
-        "item": "https://www.lrdstudio.ca/journal/what-is-west-coast-modern"
-      }
-    ]
-  }
-}
-</script>
+
