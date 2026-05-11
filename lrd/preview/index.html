@@ -31,7 +31,7 @@ body{background:#F6F4F0!important}
   --fs: 'Cormorant Garamond', 'Times New Roman', serif;
   --ease: cubic-bezier(0.16, 1, 0.3, 1);
 }
-/* Serif headings throughout — matches the mockup direction Lauren liked.
+/* Serif headings throughout, matches the mockup direction Lauren liked.
    Body stays in Poppins; only h1/h2/h3 get the serif treatment. */
 .lrd-wrap h1, .lrd-wrap h2, .lrd-wrap h3 { font-family: var(--f); font-weight: 300; letter-spacing: -0.02em; }
 .lrd-wrap h1 em, .lrd-wrap h2 em, .lrd-wrap h3 em { font-family: var(--f); font-style: italic; font-weight: 300; letter-spacing: -0.02em; }
@@ -47,7 +47,7 @@ body{background:#F6F4F0!important}
 .lrd-wrap a { text-decoration: none; color: inherit; }
 .lrd-wrap ::selection { background: rgba(138,133,121,0.12); }
 
-/* Section numbering — editorial chapter markers (I · II · III · IV) */
+/* Section numbering, editorial chapter markers (I · II · III · IV) */
 .lrd-section-num {
   display: inline-block;
   font-family: var(--fs);
@@ -65,7 +65,7 @@ h2 .lrd-section-num {
 }
 
 /* ═══ ACCESSIBILITY ═══ */
-/* Skip to content — only visible on keyboard focus */
+/* Skip to content, only visible on keyboard focus */
 .lrd-skip-link {
   position: absolute; top: -48px; left: 16px;
   z-index: 999;
@@ -108,7 +108,7 @@ h2 .lrd-section-num {
   background: rgba(246,244,240,0.98);
   padding: 20px clamp(32px, 6vw, 80px);
 }
-.lrd-nav-logo { height: clamp(24px, 2.5vw, 32px); transition: filter 0.5s var(--ease); }
+.lrd-nav-logo { height: clamp(32px, 3.2vw, 44px); transition: filter 0.5s var(--ease); }
 .lrd-nav.lrd-scrolled .lrd-nav-logo { filter: invert(1); }
 .lrd-nav-links { display: flex; gap: clamp(24px, 3.5vw, 48px); align-items: center; }
 .lrd-nav-links a {
@@ -119,7 +119,7 @@ h2 .lrd-section-num {
 .lrd-nav.lrd-scrolled .lrd-nav-links a { color: var(--stone); }
 .lrd-nav.lrd-scrolled .lrd-nav-links a:hover { color: var(--ink); }
 
-/* Nav CTA button — accented against both scroll states */
+/* Nav CTA button, accented against both scroll states */
 .lrd-nav-links a.lrd-nav-cta {
   border: 1px solid rgba(255,255,255,0.42);
   color: white !important;
@@ -154,7 +154,7 @@ h2 .lrd-section-num {
     opacity: 0; visibility: hidden; transition: all 0.5s var(--ease);
   }
   .lrd-nav-links.lrd-open { opacity: 1; visibility: visible; }
-  .lrd-nav-links a { color: rgba(255,255,255,0.85) !important; font-size: 14px; letter-spacing: 0.2em; }
+  .lrd-nav-links a { color: rgba(255,255,255,0.85) !important; font-size: 16px; letter-spacing: 0.2em; }
   .lrd-nav-links a:hover { color: white !important; }
 }
 
@@ -271,7 +271,7 @@ h2 .lrd-section-num {
 /* ═══ RULE ═══ */
 .lrd-rule { border: none; border-top: 1px solid var(--rule); margin: 0; }
 
-/* ═══ SCROLL REVEAL — GPU-accelerated, no text jitter ═══ */
+/* ═══ SCROLL REVEAL, GPU-accelerated, no text jitter ═══ */
 .lrd-reveal {
   opacity: 0;
   transform: translate3d(0, 24px, 0);
@@ -281,7 +281,7 @@ h2 .lrd-section-num {
   opacity: 1;
   transform: translate3d(0, 0, 0);
 }
-/* Release GPU layer after reveal — prevents text subpixel repaint on scroll */
+/* Release GPU layer after reveal, prevents text subpixel repaint on scroll */
 .lrd-reveal.lrd-revealed {
   transform: none;
 }
@@ -289,7 +289,7 @@ h2 .lrd-section-num {
 .lrd-reveal-delay-2 { transition-delay: 0.2s; }
 .lrd-reveal-delay-3 { transition-delay: 0.3s; }
 
-/* Image reveal — soft mask slide */
+/* Image reveal, soft mask slide */
 .lrd-img-reveal { position: relative; overflow: hidden; }
 .lrd-img-reveal::before {
   content: ''; position: absolute; inset: 0; z-index: 2;
@@ -345,7 +345,7 @@ h2 .lrd-section-num {
 }
 .lrd-view-all:hover { color: var(--ink); border-color: var(--ink); }
 
-/* Project stack — uniform 3-col grid (architectural) */
+/* Project stack, uniform 3-col grid (architectural) */
 .lrd-proj-stack {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -366,7 +366,7 @@ h2 .lrd-section-num {
   transform: scale(1.04);
   filter: brightness(0.88);
 }
-/* Gallery spotlight — when hovering one tile, other tiles dim */
+/* Gallery spotlight, when hovering one tile, other tiles dim */
 .lrd-proj-stack .lrd-proj-item {
   transition: opacity 0.5s var(--ease);
 }
@@ -374,7 +374,7 @@ h2 .lrd-section-num {
 .lrd-proj-stack:hover .lrd-proj-item:hover { opacity: 1; }
 @media(max-width:900px) { .lrd-proj-stack { grid-template-columns: repeat(2, 1fr); } }
 @media(max-width:550px) { .lrd-proj-stack { grid-template-columns: 1fr; } }
-/* Hover gradient mask — creates depth for the overlay text */
+/* Hover gradient mask, creates depth for the overlay text */
 .lrd-proj-item-img::after {
   content: '';
   position: absolute; inset: 0;
@@ -385,7 +385,7 @@ h2 .lrd-section-num {
   z-index: 1;
 }
 .lrd-proj-item a:hover .lrd-proj-item-img::after { opacity: 1; }
-/* "View project" overlay — minimal architectural label, no box */
+/* "View project" overlay, minimal architectural label, no box */
 .lrd-proj-item-overlay {
   position: absolute;
   bottom: clamp(24px, 3vw, 44px);
@@ -508,7 +508,7 @@ h2 .lrd-section-num {
   mix-blend-mode: normal;
 }
 
-/* ═══ CTA — compact final close ═══ */
+/* ═══ CTA, compact final close ═══ */
 .lrd-cta {
   position: relative; overflow: hidden;
   padding: clamp(60px, 8vw, 110px) clamp(28px, 6vw, 80px);
@@ -649,7 +649,7 @@ a.lrd-proof-item:hover strong { color: var(--stone); }
   text-transform: uppercase; color: rgba(255,255,255,0.7);
 }
 
-/* ═══ TESTIMONIALS (magazine spread — sticky title + quote stack) ═══ */
+/* ═══ TESTIMONIALS (magazine spread, sticky title + quote stack) ═══ */
 .lrd-testimonials {
   padding: clamp(120px, 16vw, 220px) clamp(32px, 8vw, 120px);
 }
@@ -661,7 +661,7 @@ a.lrd-proof-item:hover strong { color: var(--stone); }
 }
 .lrd-testimonials-header {
   position: sticky; top: clamp(80px, 12vh, 140px);
-  /* Force GPU compositing on sticky — prevents Safari/Chrome jitter on scroll */
+  /* Force GPU compositing on sticky, prevents Safari/Chrome jitter on scroll */
   transform: translate3d(0, 0, 0);
   will-change: transform;
 }
@@ -728,7 +728,7 @@ a.lrd-proof-item:hover strong { color: var(--stone); }
 }
 
 
-/* View Transitions API — progressive enhancement for hero slide crossfade */
+/* View Transitions API, progressive enhancement for hero slide crossfade */
 ::view-transition-old(root),
 ::view-transition-new(root) {
   animation-duration: 0.9s;
@@ -760,7 +760,7 @@ a.lrd-proof-item:hover strong { color: var(--stone); }
 }
 .lrd-ft-inner { max-width: 1200px; margin: 0 auto; }
 
-/* Brand statement — large, editorial, sets the tone */
+/* Brand statement, large, editorial, sets the tone */
 .lrd-ft-statement {
   display: flex; flex-direction: column; gap: 28px;
   padding-bottom: clamp(56px, 7vw, 88px);
@@ -846,7 +846,7 @@ a.lrd-proof-item:hover strong { color: var(--stone); }
 
 <div class="lrd-wrap">
 
-<!-- Accessibility skip link — visible only on keyboard focus -->
+<!-- Accessibility skip link, visible only on keyboard focus -->
 <a href="#lrd-main" class="lrd-skip-link">Skip to main content</a>
 
 <!-- Nav -->
@@ -863,7 +863,7 @@ a.lrd-proof-item:hover strong { color: var(--stone); }
   <button class="lrd-nav-toggle" id="lrdNavToggle" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
-<!-- Hero — 6-image crossfade slideshow with ken burns
+<!-- Hero, 6-image crossfade slideshow with ken burns
      Order: Sunstone → Sunridge → Balsam → SRAM → Panorama → Tapleys -->
 <section class="lrd-hero" id="lrd-main">
   <div class="lrd-hero-slides" id="lrdHeroSlides">
@@ -911,7 +911,7 @@ a.lrd-proof-item:hover strong { color: var(--stone); }
 
 <hr class="lrd-rule">
 
-<!-- Projects — stacked, full-width images, text below -->
+<!-- Projects, stacked, full-width images, text below -->
 <section class="lrd-projects">
   <div class="lrd-projects-header lrd-reveal">
     <h2><span class="lrd-section-num">II</span>Discover our interior design projects</h2>
@@ -919,7 +919,7 @@ a.lrd-proof-item:hover strong { color: var(--stone); }
   </div>
   <div class="lrd-proj-stack">
 
-    <!-- Sunstone — with Western Living Design 25 badge overlay -->
+    <!-- Sunstone, with Western Living Design 25 badge overlay -->
     <div class="lrd-proj-item lrd-reveal" itemscope itemtype="https://schema.org/CreativeWork">
       <a href="/matt-proposals/lrd/preview/projects/residential/sunstone/" itemprop="url">
         <div class="lrd-proj-item-img lrd-proj-item-award">
@@ -986,7 +986,7 @@ a.lrd-proof-item:hover strong { color: var(--stone); }
         </a>
       </div>
 
-    <!-- SRAM — commercial -->
+    <!-- SRAM, commercial -->
     <div class="lrd-proj-item lrd-reveal" itemscope itemtype="https://schema.org/CreativeWork">
       <a href="/matt-proposals/lrd/preview/projects/commercial/sram/" itemprop="url">
         <div class="lrd-proj-item-img">
@@ -1003,7 +1003,7 @@ a.lrd-proof-item:hover strong { color: var(--stone); }
   </div>
 </section>
 
-<!-- Approach — combined narrative + services in a magazine 2-column layout -->
+<!-- Approach, combined narrative + services in a magazine 2-column layout -->
 <section class="lrd-approach">
   <div class="lrd-approach-inner">
     <div class="lrd-approach-narrative lrd-reveal">
@@ -1048,7 +1048,7 @@ a.lrd-proof-item:hover strong { color: var(--stone); }
   </div>
 </section>
 
-<!-- Banner break — full-bleed image with Lauren-voice quote overlay -->
+<!-- Banner break, full-bleed image with Lauren-voice quote overlay -->
 <section class="lrd-banner">
   <div class="lrd-banner-bg" role="img" aria-label="Sunstone, new-build interior design in Pemberton, BC by LRD Studio. Western Living Design 25 Winner. Photography by Darby Magill." style="background-image: url('https://images.squarespace-cdn.com/content/v1/63dc0dfc345ed25a7efd5c5d/9fa4c71a-275d-40da-b6e3-e6160056d060/Copyright-Darby-Magill-7297.jpg?format=2500w&auto=format');"></div>
   <div class="lrd-banner-inner lrd-reveal">
@@ -1059,7 +1059,7 @@ a.lrd-proof-item:hover strong { color: var(--stone); }
   </div>
 </section>
 
-<!-- Testimonials — magazine spread, sticky title left, quotes right -->
+<!-- Testimonials, magazine spread, sticky title left, quotes right -->
 <section class="lrd-testimonials">
   <div class="lrd-testimonials-inner">
     <aside class="lrd-testimonials-header lrd-reveal">
@@ -1109,7 +1109,7 @@ a.lrd-proof-item:hover strong { color: var(--stone); }
   </div>
 </section>
 
-<!-- CTA — focused single-action close -->
+<!-- CTA, focused single-action close -->
 <section class="lrd-cta">
   <div class="lrd-cta-bg" role="img" aria-label="Sunstone, new-build interior design in Pemberton, BC by LRD Studio. Western Living Design 25 Winner. Photography by Darby Magill."></div>
   <div class="lrd-cta-inner lrd-reveal">
@@ -1122,7 +1122,7 @@ a.lrd-proof-item:hover strong { color: var(--stone); }
   </div>
 </section>
 
-<!-- Footer — editorial brand statement on top, 3-col nav below, legal at bottom -->
+<!-- Footer, editorial brand statement on top, 3-col nav below, legal at bottom -->
 <footer class="lrd-ft">
   <div class="lrd-ft-inner">
     <div class="lrd-ft-statement">
@@ -1130,9 +1130,10 @@ a.lrd-proof-item:hover strong { color: var(--stone); }
       <p class="lrd-ft-tagline">Designed around how you actually live.</p>
     </div>
     <div class="lrd-ft-cols">
-      <div class="lrd-ft-col"><h4>Explore</h4><a href="/matt-proposals/lrd/preview/projects/">Projects</a><a href="/matt-proposals/lrd/preview/about/">About</a><a href="/matt-proposals/lrd/preview/services/">Services</a><a href="/matt-proposals/lrd/preview/studio-notes/">Studio Notes</a><a href="/matt-proposals/lrd/preview/press/">Press</a><a href="/matt-proposals/lrd/preview/testimonials/">Client notes</a><a href="/matt-proposals/lrd/preview/careers/">Careers</a><a href="/matt-proposals/lrd/preview/contact/">Contact</a></div>
-      <div class="lrd-ft-col"><h4>Connect</h4><a href="/matt-proposals/lrd/preview/contact/">Get in touch</a><a href="mailto:hello@lrdstudio.ca">hello@lrdstudio.ca</a><a href="https://www.instagram.com/lrdstudio_interiors/" target="_blank" rel="noopener">Instagram</a><a href="/matt-proposals/lrd/preview/client-portal/">Client portal</a></div>
-      <div class="lrd-ft-col"><h4>Recognition</h4><span>Western Living Design 25 &middot; Winner</span><span>WL Home of the Year &middot; Top 5</span><span>Featured in West Coast North</span><span>Featured in Elio Magazine</span></div>
+      <div class="lrd-ft-col"><h4>Explore</h4><a href="/matt-proposals/lrd/preview/projects/">Projects</a><a href="/matt-proposals/lrd/preview/about/">About</a><a href="/matt-proposals/lrd/preview/services/">Services</a><a href="/matt-proposals/lrd/preview/studio-notes/">Studio Notes</a></div>
+      <div class="lrd-ft-col"><h4>Studio</h4><a href="/matt-proposals/lrd/preview/press/">Press</a><a href="/matt-proposals/lrd/preview/testimonials/">Testimonials</a><a href="/matt-proposals/lrd/preview/careers/">Careers</a><a href="/matt-proposals/lrd/preview/contact/">Contact</a></div>
+      <div class="lrd-ft-col"><h4>Connect</h4><a href="mailto:hello@lrdstudio.ca">hello@lrdstudio.ca</a><a href="https://www.instagram.com/lrdstudio_interiors/" target="_blank" rel="noopener">Instagram</a><a href="/matt-proposals/lrd/preview/client-portal/">Client portal</a><span class="lrd-ft-addr">37758 3rd Avenue, Squamish BC</span></div>
+      <div class="lrd-ft-col"><h4>Recognition</h4><span>Western Living Design 25 Winner</span><span>WL Home of the Year Top 5</span><span>Featured in West Coast North</span><span>Featured in Elio Magazine</span></div>
     </div>
     <div class="lrd-ft-bottom">
       <div class="lrd-ft-copy">
@@ -1157,11 +1158,11 @@ a.lrd-proof-item:hover strong { color: var(--stone); }
     document.getElementById('lrdNavLinks').classList.toggle('lrd-open');
   });
 
-  /* Dynamic footer year — stays accurate forever */
+  /* Dynamic footer year, stays accurate forever */
   var yearEl = document.getElementById('lrdCurrentYear');
   if (yearEl) yearEl.textContent = new Date().getFullYear();
 
-  /* Hero slideshow — crossfade + ken burns */
+  /* Hero slideshow, crossfade + ken burns */
   var slides = document.querySelectorAll('.lrd-hero-slide');
   var dots = document.querySelectorAll('.lrd-hero-dot');
   var caption = document.getElementById('lrdHeroCaption');
@@ -1241,7 +1242,7 @@ a.lrd-proof-item:hover strong { color: var(--stone); }
     }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
     revealEls.forEach(function(el) { observer.observe(el); });
   } else {
-    /* Fallback — show everything immediately */
+    /* Fallback, show everything immediately */
     revealEls.forEach(function(el) { el.classList.add('lrd-visible'); });
   }
 })();
@@ -1382,7 +1383,7 @@ a.lrd-proof-item:hover strong { color: var(--stone); }
 }
 </script>
 
-<!-- WebSite schema — enables Google sitelinks search + speakable for voice assistants -->
+<!-- WebSite schema, enables Google sitelinks search + speakable for voice assistants -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1408,7 +1409,7 @@ a.lrd-proof-item:hover strong { color: var(--stone); }
 }
 </script>
 
-<!-- Person schema — Lauren Ritz as standalone entity referenced from the studio -->
+<!-- Person schema, Lauren Ritz as standalone entity referenced from the studio -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1440,7 +1441,7 @@ a.lrd-proof-item:hover strong { color: var(--stone); }
 }
 </script>
 
-<!-- CreativeWork — featured projects with photographer credit for AI search visibility -->
+<!-- CreativeWork, featured projects with photographer credit for AI search visibility -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1541,7 +1542,7 @@ a.lrd-proof-item:hover strong { color: var(--stone); }
 }
 </script>
 
-<!-- FAQPage schema — optimized for Google AI Overviews, ChatGPT, Perplexity answer extraction -->
+<!-- FAQPage schema, optimized for Google AI Overviews, ChatGPT, Perplexity answer extraction -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",

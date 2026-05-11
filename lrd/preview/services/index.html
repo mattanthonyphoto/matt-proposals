@@ -39,11 +39,11 @@ body{background:#F6F4F0!important}
 /* Nav (light variant) */
 .lrd-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 36px clamp(32px, 6vw, 80px); display: flex; align-items: center; justify-content: space-between; transition: all 0.6s var(--ease); }
 .lrd-nav.lrd-scrolled { background: rgba(246,244,240,0.95); backdrop-filter: blur(20px); padding: 20px clamp(32px, 6vw, 80px); }
-.lrd-nav-logo { height: clamp(24px, 2.5vw, 32px); filter: invert(1); }
+.lrd-nav-logo { height: clamp(32px, 3.2vw, 44px); filter: invert(1); }
 .lrd-nav-links { display: flex; gap: clamp(24px, 3.5vw, 48px); align-items: center; }
-.lrd-nav-links a { font-weight: 300; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--stone); transition: color 0.3s; }
+.lrd-nav-links a { font-weight: 300; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--stone); transition: color 0.3s; }
 .lrd-nav-links a:hover { color: var(--ink); }
-.lrd-nav-links a.lrd-nav-cta { border: 1px solid var(--ink); color: var(--ink) !important; padding: 10px 22px; letter-spacing: 0.14em; transition: all 0.4s var(--ease); }
+.lrd-nav-links a.lrd-nav-cta { border: 1px solid var(--ink); color: var(--ink) !important; padding: 12px 26px; font-size: 12.5px; letter-spacing: 0.16em; transition: all 0.4s var(--ease); }
 .lrd-nav-links a.lrd-nav-cta:hover { background: var(--ink); color: white !important; }
 .lrd-nav-toggle { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 101; background: none; border: none; padding: 8px; }
 .lrd-nav-toggle span { width: 20px; height: 1px; background: var(--ink); transition: all 0.4s; display: block; }
@@ -51,7 +51,7 @@ body{background:#F6F4F0!important}
   .lrd-nav-toggle { display: flex; }
   .lrd-nav-links { position: fixed; inset: 0; background: var(--ink); flex-direction: column; justify-content: center; gap: 36px; opacity: 0; visibility: hidden; transition: all 0.5s var(--ease); }
   .lrd-nav-links.lrd-open { opacity: 1; visibility: visible; }
-  .lrd-nav-links a { color: rgba(255,255,255,0.85) !important; font-size: 14px; letter-spacing: 0.2em; }
+  .lrd-nav-links a { color: rgba(255,255,255,0.85) !important; font-size: 16px; letter-spacing: 0.2em; }
   .lrd-nav-links a.lrd-nav-cta { border: 1px solid rgba(255,255,255,0.55) !important; padding: 14px 30px !important; margin-top: 12px; }
 }
 
@@ -121,6 +121,19 @@ body{background:#F6F4F0!important}
 .lrd-faq-item summary:hover { color: var(--stone); }
 .lrd-faq-item-body { font-weight: 300; font-size: 14px; color: var(--body); line-height: 1.9; padding-top: 18px; max-width: 700px; }
 
+/* Testimonials on Services */
+.lrd-svc-testimonials { padding: clamp(80px, 10vw, 140px) clamp(32px, 8vw, 120px); max-width: 1300px; margin: 0 auto; }
+.lrd-svc-testimonials-inner { max-width: 1200px; margin: 0 auto; }
+.lrd-svc-testimonials-label { font-weight: 300; font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--stone); margin-bottom: 22px; }
+.lrd-svc-testimonials h2 { font-weight: 400; font-size: clamp(26px, 3.2vw, 42px); line-height: 1.15; margin-bottom: clamp(48px, 6vw, 72px); max-width: 760px; }
+.lrd-svc-testimonials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: clamp(28px, 4vw, 56px); margin-bottom: clamp(40px, 5vw, 64px); }
+@media(max-width:900px) { .lrd-svc-testimonials-grid { grid-template-columns: 1fr; gap: 36px; } }
+.lrd-svc-testimonial-quote { padding-left: 24px; border-left: 1px solid var(--stone-lt); }
+.lrd-svc-testimonial-quote p { font-family: var(--fs); font-style: italic; font-weight: 400; font-size: clamp(16px, 1.5vw, 19px); line-height: 1.5; color: var(--ink); margin-bottom: 18px; }
+.lrd-svc-testimonial-quote cite { display: block; font-style: normal; font-weight: 400; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--stone); }
+.lrd-svc-testimonials-all { display: inline-block; font-weight: 400; font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase; color: var(--ink); border-bottom: 1px solid var(--stone-lt); padding-bottom: 4px; transition: border-color 0.3s; }
+.lrd-svc-testimonials-all:hover { border-color: var(--ink); }
+
 /* CTA */
 .lrd-cta { position: relative; overflow: hidden; padding: clamp(60px, 8vw, 110px) clamp(28px, 6vw, 80px); text-align: center; }
 .lrd-cta-bg { position: absolute; inset: 0; background-size: cover; background-position: center; background-image: url('https://images.squarespace-cdn.com/content/v1/63dc0dfc345ed25a7efd5c5d/efa7f649-329a-41c1-a913-5920bc7ef3ed/Copyright-Darby-Magill-7114.jpg?format=2500w&auto=format'); }
@@ -162,7 +175,7 @@ body{background:#F6F4F0!important}
   .lrd-img-reveal::before { display: none !important; }
 }
 
-/* Page banner — full-bleed hero image for non-homepage pages */
+/* Page banner, full-bleed hero image for non-homepage pages */
 .lrd-banner-hero {
   position: relative;
   height: clamp(380px, 55vw, 620px);
@@ -406,6 +419,29 @@ body{background:#F6F4F0!important}
   </div>
 </section>
 
+<!-- Testimonials -->
+<section class="lrd-svc-testimonials">
+  <div class="lrd-svc-testimonials-inner">
+    <div class="lrd-svc-testimonials-label"><span class="lrd-section-num">IV</span>In their words</div>
+    <h2>Clients on the experience of designing with our studio.</h2>
+    <div class="lrd-svc-testimonials-grid">
+      <blockquote class="lrd-svc-testimonial-quote lrd-reveal">
+        <p>&ldquo;The LRD Studio team led the design for our dream home. An absolute pleasure to work with. From day one, the process was positive and collaborative.&rdquo;</p>
+        <cite>Lindsey &amp; Andy M., Whistler, BC</cite>
+      </blockquote>
+      <blockquote class="lrd-svc-testimonial-quote lrd-reveal">
+        <p>&ldquo;When I walked in to our home for the first time, I had an experience that I cannot truly describe. Our colour palette and texture choices came to life with such beauty that it stopped me in my tracks.&rdquo;</p>
+        <cite>Carolyn S., Vancouver, BC</cite>
+      </blockquote>
+      <blockquote class="lrd-svc-testimonial-quote lrd-reveal">
+        <p>&ldquo;Her ability to pull together beautiful palettes of colours, textures and materials from ideas we brought her, into a cohesive design plan was amazing.&rdquo;</p>
+        <cite>Karen &amp; Richard P., Whistler, BC</cite>
+      </blockquote>
+    </div>
+    <a href="/matt-proposals/lrd/preview/testimonials/" class="lrd-svc-testimonials-all">Read more client notes &rarr;</a>
+  </div>
+</section>
+
 <!-- CTA -->
 <section class="lrd-cta">
   <div class="lrd-cta-bg" role="img" aria-label="Sunstone, new-build interior design in Pemberton, BC by LRD Studio. Western Living Design 25 Winner. Photography by Darby Magill."></div>
@@ -427,9 +463,10 @@ body{background:#F6F4F0!important}
       <p class="lrd-ft-tagline">Designed around how you actually live.</p>
     </div>
     <div class="lrd-ft-cols">
-      <div class="lrd-ft-col"><h4>Explore</h4><a href="/matt-proposals/lrd/preview/projects/">Projects</a><a href="/matt-proposals/lrd/preview/about/">About</a><a href="/matt-proposals/lrd/preview/services/">Services</a><a href="/matt-proposals/lrd/preview/studio-notes/">Studio Notes</a><a href="/matt-proposals/lrd/preview/press/">Press</a><a href="/matt-proposals/lrd/preview/testimonials/">Client notes</a><a href="/matt-proposals/lrd/preview/careers/">Careers</a><a href="/matt-proposals/lrd/preview/contact/">Contact</a></div>
-      <div class="lrd-ft-col"><h4>Connect</h4><a href="/matt-proposals/lrd/preview/contact/">Get in touch</a><a href="mailto:hello@lrdstudio.ca">hello@lrdstudio.ca</a><a href="https://www.instagram.com/lrdstudio_interiors/" target="_blank" rel="noopener">Instagram</a><a href="/matt-proposals/lrd/preview/client-portal/">Client portal</a></div>
-      <div class="lrd-ft-col"><h4>Recognition</h4><span>Western Living Design 25 &middot; Winner</span><span>WL Home of the Year &middot; Top 5</span><span>Featured in West Coast North</span><span>Featured in Elio Magazine</span></div>
+      <div class="lrd-ft-col"><h4>Explore</h4><a href="/matt-proposals/lrd/preview/projects/">Projects</a><a href="/matt-proposals/lrd/preview/about/">About</a><a href="/matt-proposals/lrd/preview/services/">Services</a><a href="/matt-proposals/lrd/preview/studio-notes/">Studio Notes</a></div>
+      <div class="lrd-ft-col"><h4>Studio</h4><a href="/matt-proposals/lrd/preview/press/">Press</a><a href="/matt-proposals/lrd/preview/testimonials/">Testimonials</a><a href="/matt-proposals/lrd/preview/careers/">Careers</a><a href="/matt-proposals/lrd/preview/contact/">Contact</a></div>
+      <div class="lrd-ft-col"><h4>Connect</h4><a href="mailto:hello@lrdstudio.ca">hello@lrdstudio.ca</a><a href="https://www.instagram.com/lrdstudio_interiors/" target="_blank" rel="noopener">Instagram</a><a href="/matt-proposals/lrd/preview/client-portal/">Client portal</a><span class="lrd-ft-addr">37758 3rd Avenue, Squamish BC</span></div>
+      <div class="lrd-ft-col"><h4>Recognition</h4><span>Western Living Design 25 Winner</span><span>WL Home of the Year Top 5</span><span>Featured in West Coast North</span><span>Featured in Elio Magazine</span></div>
     </div>
     <div class="lrd-ft-bottom">
       <div class="lrd-ft-copy">
