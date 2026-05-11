@@ -1,0 +1,979 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kickoff Workshop — GD Nielsen Homes</title>
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1A1A18;
+    --paper: #F6F4F0;
+    --gold: #C9A96E;
+    --gold-dim: rgba(201,169,110,0.12);
+    --gold-border: rgba(201,169,110,0.30);
+    --gold-soft: rgba(201,169,110,0.06);
+    --stone: #8A8579;
+    --line: rgba(26,26,24,0.10);
+    --line-strong: rgba(26,26,24,0.18);
+    --white: #FFFFFF;
+    --light: #FAFAF8;
+    --shadow-sm: 0 1px 2px rgba(26,26,24,0.04);
+    --shadow-md: 0 4px 12px rgba(26,26,24,0.06);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { font-size:16px; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  body {
+    background:var(--light); color:var(--ink);
+    font-family:'DM Sans',sans-serif; font-weight:300; line-height:1.65;
+    padding-bottom:80px;
+  }
+
+  /* ─── COVER ─── */
+  .cover {
+    background:var(--ink); color:var(--paper);
+    padding:80px 60px 60px;
+    position:relative;
+  }
+  .cover-meta {
+    font-family:'Josefin Sans',sans-serif; font-weight:300;
+    font-size:0.65rem; letter-spacing:0.35em; text-transform:uppercase;
+    color:rgba(246,244,240,0.5); margin-bottom:40px;
+    display:flex; justify-content:space-between;
+  }
+  .cover-eyebrow {
+    font-family:'Josefin Sans',sans-serif; font-weight:300;
+    font-size:0.65rem; letter-spacing:0.4em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:24px;
+    display:flex; align-items:center; gap:16px;
+  }
+  .cover-eyebrow::before { content:''; width:32px; height:1px; background:var(--gold); }
+  .cover h1 {
+    font-family:'Cormorant Garamond',serif; font-weight:400;
+    font-size:clamp(2.5rem,5vw,4rem); line-height:1.08;
+    margin-bottom:24px; letter-spacing:-0.01em; max-width:780px;
+  }
+  .cover h1 em { font-style:italic; font-weight:500; color:var(--gold); }
+  .cover-sub {
+    font-size:1rem; color:rgba(246,244,240,0.72); max-width:620px;
+    line-height:1.8; margin-bottom:48px;
+  }
+  .cover-grid {
+    display:grid; grid-template-columns:repeat(4,1fr); gap:32px;
+    padding-top:32px; border-top:1px solid rgba(201,169,110,0.20);
+    max-width:840px;
+  }
+  .cover-grid div {
+    font-size:0.8rem; color:rgba(246,244,240,0.5); line-height:1.7;
+  }
+  .cover-grid div strong {
+    display:block; font-family:'Josefin Sans',sans-serif; font-weight:400;
+    font-size:0.6rem; letter-spacing:0.18em; text-transform:uppercase;
+    color:rgba(246,244,240,0.85); margin-bottom:6px;
+  }
+
+  /* ─── TOOLBAR ─── */
+  .toolbar {
+    position:sticky; top:0; z-index:50;
+    background:var(--ink); color:var(--paper);
+    padding:14px 60px; display:flex; justify-content:space-between;
+    align-items:center; gap:24px; border-top:1px solid rgba(201,169,110,0.20);
+    box-shadow:0 2px 16px rgba(0,0,0,0.15);
+  }
+  .toolbar-status {
+    font-family:'Josefin Sans',sans-serif; font-size:0.65rem;
+    letter-spacing:0.18em; text-transform:uppercase;
+    color:rgba(246,244,240,0.55);
+    display:flex; align-items:center; gap:10px;
+  }
+  .toolbar-status .dot {
+    width:6px; height:6px; border-radius:50%; background:var(--gold);
+    box-shadow:0 0 8px var(--gold);
+  }
+  .toolbar-actions { display:flex; gap:12px; }
+  .btn {
+    font-family:'Josefin Sans',sans-serif; font-weight:400;
+    font-size:0.62rem; letter-spacing:0.2em; text-transform:uppercase;
+    padding:10px 22px; cursor:pointer;
+    border:1px solid rgba(246,244,240,0.20);
+    background:transparent; color:rgba(246,244,240,0.85);
+    transition:all 0.25s ease;
+  }
+  .btn:hover { border-color:var(--gold); color:var(--gold); }
+  .btn-primary { background:var(--gold); border-color:var(--gold); color:var(--ink); }
+  .btn-primary:hover { background:transparent; color:var(--gold); }
+
+  /* ─── BODY ─── */
+  .doc {
+    max-width:920px; margin:0 auto; padding:60px 60px;
+    background:var(--white); box-shadow:var(--shadow-md);
+  }
+  .segment { margin-bottom:64px; scroll-margin-top:80px; }
+  .segment + .segment { padding-top:48px; border-top:1px solid var(--line); }
+  .segment-meta {
+    font-family:'Josefin Sans',sans-serif; font-size:0.6rem;
+    letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--gold); margin-bottom:10px;
+    display:flex; align-items:center; gap:14px;
+  }
+  .segment-meta::before {
+    content:''; width:24px; height:1px; background:var(--gold);
+  }
+  .segment h2 {
+    font-family:'Cormorant Garamond',serif; font-weight:400;
+    font-size:2.2rem; line-height:1.15; margin-bottom:8px;
+    letter-spacing:-0.01em;
+  }
+  .segment h2 em { font-style:italic; color:var(--gold); }
+  .segment-dur {
+    font-family:'Josefin Sans',sans-serif; font-size:0.62rem;
+    letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--stone); margin-bottom:24px;
+  }
+  .segment p { margin-bottom:14px; font-size:0.95rem; color:#2a2925; }
+  .segment p.lead { font-size:1.02rem; color:var(--ink); margin-bottom:20px; }
+  .segment ul, .segment ol { margin:14px 0 18px 22px; }
+  .segment li { margin-bottom:6px; font-size:0.93rem; }
+  .segment h3 {
+    font-family:'Cormorant Garamond',serif; font-weight:500;
+    font-size:1.25rem; margin:28px 0 10px;
+    letter-spacing:-0.005em;
+  }
+  .segment h4 {
+    font-family:'Josefin Sans',sans-serif; font-weight:400;
+    font-size:0.75rem; letter-spacing:0.18em; text-transform:uppercase;
+    margin:24px 0 10px; color:var(--ink);
+  }
+  blockquote {
+    margin:18px 0; padding:14px 22px;
+    border-left:2px solid var(--gold);
+    background:var(--gold-soft);
+    font-family:'Cormorant Garamond',serif; font-style:italic;
+    font-size:1.05rem; line-height:1.55; color:#3a382f;
+  }
+
+  /* ─── FILL FIELDS ─── */
+  .fill {
+    display:block; width:100%;
+    font-family:'DM Sans',sans-serif; font-weight:300; font-size:0.93rem;
+    color:var(--ink); background:var(--light);
+    border:1px solid var(--line);
+    border-bottom:1px solid var(--line-strong);
+    padding:9px 12px; margin:6px 0 12px;
+    transition:border-color 0.2s ease, background 0.2s ease;
+    line-height:1.55;
+    resize:vertical;
+  }
+  .fill:hover { background:var(--white); }
+  .fill:focus {
+    outline:none; background:var(--white);
+    border-color:var(--gold); box-shadow:0 0 0 3px var(--gold-soft);
+  }
+  textarea.fill { min-height:62px; }
+  textarea.fill.lg { min-height:120px; }
+  .fill-label {
+    font-family:'Josefin Sans',sans-serif; font-size:0.62rem;
+    letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--stone); margin-top:8px; margin-bottom:4px;
+    display:block;
+  }
+
+  /* ─── TABLES ─── */
+  table {
+    width:100%; border-collapse:collapse; margin:14px 0 22px;
+    font-size:0.88rem;
+  }
+  th, td {
+    text-align:left; vertical-align:top;
+    padding:10px 10px; border-bottom:1px solid var(--line);
+  }
+  th {
+    font-family:'Josefin Sans',sans-serif; font-weight:400;
+    font-size:0.62rem; letter-spacing:0.16em; text-transform:uppercase;
+    color:var(--stone); background:var(--light);
+    border-bottom:1px solid var(--line-strong);
+  }
+  td { color:#2a2925; }
+  td.num {
+    font-family:'Josefin Sans',sans-serif; color:var(--gold);
+    font-size:0.78rem; width:32px; text-align:center; padding-top:14px;
+  }
+  td .fill { margin:0; padding:6px 8px; font-size:0.85rem; min-height:32px; }
+  td textarea.fill { min-height:48px; }
+
+  /* ─── CHECKBOXES ─── */
+  .checklist { margin:12px 0 18px; }
+  .checklist label {
+    display:flex; align-items:flex-start; gap:12px;
+    padding:8px 12px; margin-bottom:4px;
+    border-left:2px solid transparent;
+    cursor:pointer; transition:all 0.2s ease;
+    font-size:0.93rem; line-height:1.5;
+  }
+  .checklist label:hover { background:var(--light); border-left-color:var(--gold-border); }
+  .checklist input[type="checkbox"] {
+    appearance:none; -webkit-appearance:none;
+    width:16px; height:16px; min-width:16px;
+    border:1px solid var(--line-strong); background:var(--white);
+    cursor:pointer; margin-top:3px;
+    position:relative; transition:all 0.15s ease;
+  }
+  .checklist input[type="checkbox"]:checked {
+    background:var(--gold); border-color:var(--gold);
+  }
+  .checklist input[type="checkbox"]:checked::after {
+    content:''; position:absolute; left:4px; top:0;
+    width:5px; height:10px; border:solid var(--ink);
+    border-width:0 1.5px 1.5px 0;
+    transform:rotate(45deg);
+  }
+
+  /* ─── RADIO GROUPS ─── */
+  .radios { display:flex; flex-direction:column; gap:4px; margin:8px 0 14px; }
+  .radios label {
+    display:flex; align-items:center; gap:10px;
+    padding:7px 10px; cursor:pointer;
+    border-left:2px solid transparent;
+    font-size:0.92rem; transition:all 0.2s ease;
+  }
+  .radios label:hover { background:var(--light); border-left-color:var(--gold-border); }
+  .radios input[type="radio"] {
+    appearance:none; -webkit-appearance:none;
+    width:14px; height:14px; min-width:14px;
+    border:1px solid var(--line-strong); background:var(--white);
+    cursor:pointer; border-radius:50%;
+    position:relative; transition:all 0.15s ease;
+  }
+  .radios input[type="radio"]:checked { border-color:var(--gold); }
+  .radios input[type="radio"]:checked::after {
+    content:''; position:absolute; left:3px; top:3px;
+    width:6px; height:6px; border-radius:50%; background:var(--gold);
+  }
+
+  /* ─── VERDICT BUTTONS (project triage) ─── */
+  .verdict-group { display:inline-flex; gap:6px; }
+  .verdict-group label {
+    cursor:pointer; user-select:none;
+    width:26px; height:26px; border-radius:50%;
+    border:1.5px solid var(--line-strong);
+    display:flex; align-items:center; justify-content:center;
+    font-size:0; transition:all 0.15s ease;
+  }
+  .verdict-group input { display:none; }
+  .verdict-group label[data-v="green"] { border-color:#7CA47A; }
+  .verdict-group label[data-v="yellow"] { border-color:#D4B85F; }
+  .verdict-group label[data-v="red"] { border-color:#B85C5C; }
+  .verdict-group input:checked + label[data-v="green"] { background:#7CA47A; box-shadow:0 0 0 3px rgba(124,164,122,0.18); }
+  .verdict-group input:checked + label[data-v="yellow"] { background:#D4B85F; box-shadow:0 0 0 3px rgba(212,184,95,0.18); }
+  .verdict-group input:checked + label[data-v="red"] { background:#B85C5C; box-shadow:0 0 0 3px rgba(184,92,92,0.18); }
+
+  /* ─── CALLOUTS ─── */
+  .callout {
+    background:var(--gold-soft);
+    border:1px solid var(--gold-border);
+    padding:18px 22px; margin:18px 0; border-radius:2px;
+  }
+  .callout h4 { margin-top:0; color:var(--gold); }
+  .callout-warn {
+    background:rgba(184,92,92,0.06);
+    border-color:rgba(184,92,92,0.25);
+  }
+  .callout-warn h4 { color:#A04848; }
+
+  /* ─── PILL TAGS ─── */
+  .pill {
+    display:inline-block; padding:3px 10px; margin:0 4px 0 0;
+    font-family:'Josefin Sans',sans-serif; font-size:0.58rem;
+    letter-spacing:0.16em; text-transform:uppercase;
+    background:var(--gold-soft); color:var(--gold);
+    border:1px solid var(--gold-border);
+    border-radius:2px;
+  }
+
+  /* ─── PRINT STYLES ─── */
+  @media print {
+    @page { size:Letter; margin:0.5in 0.6in; }
+    html, body { background:var(--white); }
+    .toolbar, .no-print { display:none !important; }
+    .doc {
+      box-shadow:none; max-width:100%; padding:0;
+    }
+    .cover {
+      padding:32px 0 28px; page-break-after:avoid;
+    }
+    .cover h1 { font-size:2.4rem; }
+    .cover-sub { margin-bottom:20px; }
+    .cover-grid { gap:18px; padding-top:18px; }
+    .segment {
+      page-break-inside:avoid; margin-bottom:32px;
+      break-inside:avoid;
+    }
+    .segment + .segment { padding-top:24px; }
+    .segment h2 { font-size:1.65rem; }
+    table { page-break-inside:auto; }
+    tr { page-break-inside:avoid; page-break-after:auto; }
+    th, td { padding:6px 8px; }
+
+    /* Form fields → readable filled state */
+    .fill {
+      background:transparent !important;
+      border:none !important;
+      border-bottom:1px solid #999 !important;
+      box-shadow:none !important;
+      padding:2px 0 !important;
+      font-size:0.85rem !important;
+      color:#000 !important;
+      min-height:auto !important;
+    }
+    textarea.fill {
+      border:1px solid #ccc !important;
+      padding:6px 8px !important;
+      min-height:auto !important;
+      height:auto !important;
+      overflow:visible !important;
+    }
+    input[type="text"].fill, input:not([type]).fill {
+      height:auto !important;
+    }
+    .checklist label, .radios label {
+      padding:3px 0 !important; border-left:none !important;
+      background:transparent !important;
+    }
+    .checklist input[type="checkbox"], .radios input[type="radio"] {
+      width:12px !important; height:12px !important;
+    }
+    .verdict-group label { width:18px; height:18px; }
+    blockquote { background:transparent; padding:8px 14px; }
+    .callout { background:transparent; padding:10px 14px; }
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width:768px) {
+    .cover { padding:48px 24px 36px; }
+    .cover-grid { grid-template-columns:repeat(2,1fr); }
+    .toolbar { padding:12px 24px; flex-wrap:wrap; }
+    .doc { padding:36px 24px; }
+    .segment h2 { font-size:1.7rem; }
+    table { font-size:0.82rem; }
+    th, td { padding:7px 6px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ═══ COVER ═══ -->
+<section class="cover">
+  <div class="cover-meta">
+    <span>Matt Anthony Photography</span>
+    <span>Creative Partner · Kickoff Workshop</span>
+  </div>
+  <div class="cover-eyebrow">Workshop Document</div>
+  <h1>The kickoff workshop for <em>GD Nielsen Homes</em></h1>
+  <p class="cover-sub">A working session to extract everything we need to ship the website by May&nbsp;21 and launch the social system in month one. Fill it in together at the table — your progress autosaves in this browser, and you can save the whole thing as a PDF at the end.</p>
+  <div class="cover-grid">
+    <div><strong>Date</strong><input type="text" class="fill" data-key="meta-date" placeholder="May __, 2026" style="background:transparent;border:none;border-bottom:1px solid rgba(246,244,240,0.25);color:#F6F4F0;padding:4px 0;margin:0;font-size:0.85rem;"></div>
+    <div><strong>Location</strong><input type="text" class="fill" data-key="meta-loc" placeholder="1305 Welch St" style="background:transparent;border:none;border-bottom:1px solid rgba(246,244,240,0.25);color:#F6F4F0;padding:4px 0;margin:0;font-size:0.85rem;"></div>
+    <div><strong>Attendees</strong><input type="text" class="fill" data-key="meta-attend" placeholder="DK, Greg, Matt" style="background:transparent;border:none;border-bottom:1px solid rgba(246,244,240,0.25);color:#F6F4F0;padding:4px 0;margin:0;font-size:0.85rem;"></div>
+    <div><strong>Duration</strong><input type="text" class="fill" data-key="meta-dur" placeholder="~90 min" style="background:transparent;border:none;border-bottom:1px solid rgba(246,244,240,0.25);color:#F6F4F0;padding:4px 0;margin:0;font-size:0.85rem;"></div>
+  </div>
+</section>
+
+<!-- ═══ TOOLBAR ═══ -->
+<div class="toolbar no-print">
+  <div class="toolbar-status">
+    <span class="dot"></span>
+    <span id="save-status">Autosaving locally</span>
+  </div>
+  <div class="toolbar-actions">
+    <button class="btn" onclick="clearAll()">Clear</button>
+    <button class="btn btn-primary" onclick="window.print()">Save as PDF</button>
+  </div>
+</div>
+
+<!-- ═══ DOC ═══ -->
+<main class="doc">
+
+<!-- ─── 0. FRAMING ─── -->
+<section class="segment" id="s0">
+  <div class="segment-meta">Segment 00</div>
+  <h2>The <em>framing</em></h2>
+  <div class="segment-dur">3 min · open warm, not heavy</div>
+  <p class="lead">Open with where we are, not what's still ahead. They've already signed and paid — momentum matters. Land this line out loud:</p>
+  <blockquote>You've been quiet about a lot of what you've actually done for 40 years. The site never told that story. This rebuild fixes that. I'm not inventing anything — I'm just extracting what you already know and turning it into a website that compounds for you.</blockquote>
+
+  <h4>What I've already done</h4>
+  <ul>
+    <li>Audited the live site — 22 of 26 project pages have ~4 words of body copy, every page ships with empty meta descriptions</li>
+    <li>Pulled public-records data for all 26 addresses (year, sqft, neighbourhood)</li>
+    <li>Verified 24 awards year-by-year — including two not on the current /awards page (<span class="pill">2018 CHBA</span><span class="pill">2024 HAVAN</span>)</li>
+    <li>Cross-referenced 9 architect / designer / landscape firms across the portfolio</li>
+    <li>Drafted 30 production pages (homepage, all 26 project pages, awards, testimonials, projects index)</li>
+    <li>Pre-filled the intake sheet so DK has ~15 min of verification, not 30 min of typing</li>
+  </ul>
+</section>
+
+<!-- ─── 1. AUDIT CONFIRMS ─── -->
+<section class="segment" id="s1">
+  <div class="segment-meta">Segment 01</div>
+  <h2>Four facts I can't verify <em>without you</em></h2>
+  <div class="segment-dur">10 min · these block the launch</div>
+  <p>Pull this up first while energy is fresh. These four answers unblock the rebuild.</p>
+
+  <table>
+    <thead><tr><th style="width:32px">#</th><th style="width:32%">Question</th><th style="width:28%">What I know</th><th>Answer</th></tr></thead>
+    <tbody>
+      <tr>
+        <td class="num">1</td>
+        <td><strong>Gisby 2247</strong> — Soprovich's site attributes the build to North&nbsp;Eleven Developments. Did GDN build it originally and renovate in 2021, or is this not a GDN project?</td>
+        <td>Listed on current /projects</td>
+        <td><textarea class="fill" data-key="audit-1"></textarea></td>
+      </tr>
+      <tr>
+        <td class="num">2</td>
+        <td><strong>The Highway 4768</strong> — No 4768 Marine Drive exists. Closest hit is 4768 Pilot House Rd (Fremar Construction). Actual address?</td>
+        <td>Listed on current /projects</td>
+        <td><textarea class="fill" data-key="audit-2"></textarea></td>
+      </tr>
+      <tr>
+        <td class="num">3</td>
+        <td><strong>Cammeray 1352 #2</strong> — Is this a duplicate of Cammeray 1352, or a phase-2 / addition?</td>
+        <td>Two entries with the same address</td>
+        <td><textarea class="fill" data-key="audit-3"></textarea></td>
+      </tr>
+      <tr>
+        <td class="num">4</td>
+        <td><strong>Seaside Serenity</strong> — 2024 HAVAN finalist. Separate 27th project or alias for one of the 26?</td>
+        <td>Surfaced from HAVAN search</td>
+        <td><textarea class="fill" data-key="audit-4"></textarea></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>Also confirm at the same time</h4>
+  <table>
+    <tbody>
+      <tr><td style="width:38%">Phone number on the footer — 4211 or 4210? <em>(both appear on the live site)</em></td><td><input type="text" class="fill" data-key="audit-phone"></td></tr>
+      <tr><td>Service area (cities to claim). West Van + North Van + Vancouver. Add Burnaby? Squamish?</td><td><input type="text" class="fill" data-key="audit-area"></td></tr>
+      <tr><td>Hours of operation (not currently published)</td><td><input type="text" class="fill" data-key="audit-hours"></td></tr>
+      <tr><td>Accepting new inquiries in 2026, or fully booked? <em>(pivots the homepage CTA)</em></td><td><input type="text" class="fill" data-key="audit-booking"></td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ─── 2. BRAND STORY ─── -->
+<section class="segment" id="s2">
+  <div class="segment-meta">Segment 02</div>
+  <h2>The <em>brand story</em></h2>
+  <div class="segment-dur">20 min · Greg leads · recorded</div>
+  <p>This is the longest segment. If Greg is in the room, lean on him here. DK fills the gaps; Greg has the 40-year memory.</p>
+  <blockquote>Permission to record: <em>"Mind if I record this so I don't have to scribble? I'll transcribe it and pull quotes for the site — you'll see every quote before it goes live."</em></blockquote>
+
+  <h3>Topic 1 — Origin <span style="font-family:'Josefin Sans',sans-serif;font-size:0.62rem;letter-spacing:0.18em;color:var(--stone);font-weight:400;">· 5 min</span></h3>
+  <blockquote>Walk me through 1986. How did the first build happen?</blockquote>
+  <span class="fill-label">Listen for: the first crew, the mentor, the project budget, the original office at 2405 Bellevue, the original name (G.D. Nielsen Developments Ltd.)</span>
+  <textarea class="fill lg" data-key="story-origin"></textarea>
+
+  <h3>Topic 2 — The signature move <span style="font-family:'Josefin Sans',sans-serif;font-size:0.62rem;letter-spacing:0.18em;color:var(--stone);font-weight:400;">· 5 min</span></h3>
+  <blockquote>When an architect calls and says "I have a tough one," why do they call you?</blockquote>
+  <span class="fill-label">Listen for: technical chops on waterfront / sloped sites, view-protection bylaw navigation, direct trade relationships, in-house crew vs. broker model</span>
+  <textarea class="fill lg" data-key="story-signature"></textarea>
+
+  <h3>Topic 3 — The hard one <span style="font-family:'Josefin Sans',sans-serif;font-size:0.62rem;letter-spacing:0.18em;color:var(--stone);font-weight:400;">· 3 min</span></h3>
+  <blockquote>Tell me about the most difficult project you ever finished. The one that almost didn't happen.</blockquote>
+  <span class="fill-label">This generates the war-story that makes the /story page feel alive.</span>
+  <textarea class="fill lg" data-key="story-hard"></textarea>
+
+  <h3>Topic 4 — The repeat clients <span style="font-family:'Josefin Sans',sans-serif;font-size:0.62rem;letter-spacing:0.18em;color:var(--stone);font-weight:400;">· 3 min</span></h3>
+  <blockquote>Who has hired you twice? Three times? Generationally?</blockquote>
+  <span class="fill-label">Listen for family-compound stories, kids hiring you for their first home, multi-decade trust.</span>
+  <textarea class="fill lg" data-key="story-repeat"></textarea>
+
+  <h3>Topic 5 — Why only 1–2 builds a year <span style="font-family:'Josefin Sans',sans-serif;font-size:0.62rem;letter-spacing:0.18em;color:var(--stone);font-weight:400;">· 2 min</span></h3>
+  <blockquote>Small Volume Builder of the Year — Georgie 2005. That's a deliberate choice. Why?</blockquote>
+  <span class="fill-label">Frame it as scarcity-of-craft, not capacity ceiling.</span>
+  <textarea class="fill" data-key="story-volume"></textarea>
+
+  <h3>Topic 6 — The future <span style="font-family:'Josefin Sans',sans-serif;font-size:0.62rem;letter-spacing:0.18em;color:var(--stone);font-weight:400;">· 2 min</span></h3>
+  <blockquote>What does GDN look like in 2035? Is the family carrying it? The team?</blockquote>
+  <span class="fill-label">Sensitive. Don't push if Greg shifts uncomfortably. But the answer is gold for the /story page closer.</span>
+  <textarea class="fill" data-key="story-future"></textarea>
+</section>
+
+<!-- ─── 3. SERVICES ─── -->
+<section class="segment" id="s3">
+  <div class="segment-meta">Segment 03</div>
+  <h2>Services & <em>signature plays</em></h2>
+  <div class="segment-dur">10 min · sign off or course-correct</div>
+  <p>Walk these proposed five services. DK or Greg confirms — or we change the list together.</p>
+
+  <table>
+    <thead><tr><th style="width:30%">Service</th><th style="width:30%">Hero project (proposed)</th><th>Confirm / change</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Custom Home Construction</strong><br><span style="font-size:0.78rem;color:var(--stone);">$3M–$10M+, anchor</span></td>
+        <td>Marine Manor or Casa at the Cove</td>
+        <td><textarea class="fill" data-key="svc-1"></textarea></td>
+      </tr>
+      <tr>
+        <td><strong>Luxury Renovations</strong><br><span style="font-size:0.78rem;color:var(--stone);">$500K–$3M, volume</span></td>
+        <td>Forested Family Estate (Georgie '12 kitchen)</td>
+        <td><textarea class="fill" data-key="svc-2"></textarea></td>
+      </tr>
+      <tr>
+        <td><strong>Tear-Down & Rebuild</strong><br><span style="font-size:0.78rem;color:var(--stone);">high-intent SEO</span></td>
+        <td>TBD — recent teardown?</td>
+        <td><textarea class="fill" data-key="svc-3"></textarea></td>
+      </tr>
+      <tr>
+        <td><strong>Additions & Second Stories</strong><br><span style="font-size:0.78rem;color:var(--stone);">$250K–$1.5M</span></td>
+        <td>TBD — addition project?</td>
+        <td><textarea class="fill" data-key="svc-4"></textarea></td>
+      </tr>
+      <tr>
+        <td><strong>Outdoor Living Construction</strong><br><span style="font-size:0.78rem;color:var(--stone);">own the SERP</span></td>
+        <td>Lions Gate Vista (Ovation '19)</td>
+        <td><textarea class="fill" data-key="svc-5"></textarea></td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h4>What we deliberately do <em>not</em> offer — confirm each</h4>
+  <div class="checklist">
+    <label><input type="checkbox" data-key="not-spec"><span>Spec building → confirmed no</span></label>
+    <label><input type="checkbox" data-key="not-multi"><span>Multi-family / townhomes → confirmed no</span></label>
+    <label><input type="checkbox" data-key="not-designbuild"><span>Pure design-build (architect on staff) → confirmed no</span></label>
+    <label><input type="checkbox" data-key="not-laneway"><span>Laneway / coach houses → HAVAN directory lists this; site implies otherwise. Keep or drop?</span></label>
+    <label><input type="checkbox" data-key="not-passive"><span>High-performance / Passive House → mention as capability or stay quiet?</span></label>
+    <label><input type="checkbox" data-key="not-heritage"><span>Heritage restoration as a primary service → fold into Renovations or break out?</span></label>
+  </div>
+  <span class="fill-label">Notes on the open ones (laneway, Passive House, heritage)</span>
+  <textarea class="fill" data-key="svc-open"></textarea>
+
+  <h4>The four signature plays (proposed)</h4>
+  <ol>
+    <li>Award-grade kitchens (Georgie '12 win)</li>
+    <li>View-property + waterfront expertise (half the portfolio)</li>
+    <li>Outdoor living (Ovation '19 win)</li>
+    <li>Multi-decade trust / repeat business (Avid 100% recommend, BBB A+ since '92)</li>
+  </ol>
+  <span class="fill-label">Anything to add or drop?</span>
+  <textarea class="fill" data-key="plays-edit"></textarea>
+</section>
+
+<!-- ─── 4. PROJECTS TRIAGE ─── -->
+<section class="segment" id="s4">
+  <div class="segment-meta">Segment 04</div>
+  <h2>Projects — <em>feature or quiet down</em></h2>
+  <div class="segment-dur">15 min · rapid pass</div>
+  <p>All 26 are pre-loaded. Three calls per project — feature, hold, hide. Add a quick note where relevant (NDA, photo-rights issue, client sensitivity, hero-tier).</p>
+
+  <table>
+    <thead><tr><th style="width:32px">#</th><th>Project</th><th style="width:18%">Neighbourhood</th><th style="width:130px">Verdict</th><th>Note</th></tr></thead>
+    <tbody id="projects-table"></tbody>
+  </table>
+
+  <h4>Three synthesis questions at the end</h4>
+  <span class="fill-label">1. Looking at all 26, what are your top 5 — the ones you'd show a $5M prospective client first?</span>
+  <textarea class="fill" data-key="proj-top5"></textarea>
+  <span class="fill-label">2. Any projects not on the list that should be? (Older work, in-progress, the Seaside Serenity question above)</span>
+  <textarea class="fill" data-key="proj-missing"></textarea>
+  <span class="fill-label">3. Any of these you've already pitched to Western Living, Vancouver Magazine, BC Home, House & Home, Dwell — so we don't double-pitch?</span>
+  <textarea class="fill" data-key="proj-pitched"></textarea>
+</section>
+
+<!-- ─── 5. TEAM ─── -->
+<section class="segment" id="s5">
+  <div class="segment-meta">Segment 05</div>
+  <h2>The <em>team page</em></h2>
+  <div class="segment-dur">10 min · DK leads</div>
+  <p>Current site shows 4 portraits labeled "Rita &amp; Greg, Georges, Jeff, Lauren &amp; Ang" with no clarity on who's family vs. team. HAVAN says 11–50 employees. Let's untangle it.</p>
+
+  <table>
+    <thead><tr><th>Name</th><th>Title</th><th>What they own</th><th style="width:64px">Bio?</th><th style="width:80px">Headshot?</th></tr></thead>
+    <tbody>
+      <tr><td>Greg Nielsen</td><td>Owner / Founder</td><td><input type="text" class="fill" data-key="team-greg-own"></td><td><input type="text" class="fill" data-key="team-greg-bio" placeholder="y/n"></td><td><input type="text" class="fill" data-key="team-greg-head" placeholder="y/n"></td></tr>
+      <tr><td>DK Cheng</td><td>Operations</td><td><input type="text" class="fill" data-key="team-dk-own"></td><td><input type="text" class="fill" data-key="team-dk-bio"></td><td><input type="text" class="fill" data-key="team-dk-head"></td></tr>
+      <tr><td>Derrick Cheung</td><td><input type="text" class="fill" data-key="team-derrick-title"></td><td><input type="text" class="fill" data-key="team-derrick-own"></td><td><input type="text" class="fill" data-key="team-derrick-bio"></td><td><input type="text" class="fill" data-key="team-derrick-head"></td></tr>
+      <tr><td>Diane</td><td><input type="text" class="fill" data-key="team-diane-title"></td><td><input type="text" class="fill" data-key="team-diane-own"></td><td><input type="text" class="fill" data-key="team-diane-bio"></td><td><input type="text" class="fill" data-key="team-diane-head"></td></tr>
+      <tr><td>Wes</td><td><input type="text" class="fill" data-key="team-wes-title"></td><td><input type="text" class="fill" data-key="team-wes-own"></td><td><input type="text" class="fill" data-key="team-wes-bio"></td><td><input type="text" class="fill" data-key="team-wes-head"></td></tr>
+      <tr><td>Rita Nielsen</td><td><em>family or team?</em></td><td><input type="text" class="fill" data-key="team-rita-own"></td><td><input type="text" class="fill" data-key="team-rita-bio"></td><td><input type="text" class="fill" data-key="team-rita-head"></td></tr>
+      <tr><td>Georges</td><td><em>family or team?</em></td><td><input type="text" class="fill" data-key="team-georges-own"></td><td><input type="text" class="fill" data-key="team-georges-bio"></td><td><input type="text" class="fill" data-key="team-georges-head"></td></tr>
+      <tr><td>Jeff</td><td><em>family or team?</em></td><td><input type="text" class="fill" data-key="team-jeff-own"></td><td><input type="text" class="fill" data-key="team-jeff-bio"></td><td><input type="text" class="fill" data-key="team-jeff-head"></td></tr>
+      <tr><td>Lauren &amp; Ang</td><td><em>family or team?</em></td><td><input type="text" class="fill" data-key="team-la-own"></td><td><input type="text" class="fill" data-key="team-la-bio"></td><td><input type="text" class="fill" data-key="team-la-head"></td></tr>
+      <tr><td><input type="text" class="fill" data-key="team-add1-name" placeholder="add"></td><td><input type="text" class="fill" data-key="team-add1-title"></td><td><input type="text" class="fill" data-key="team-add1-own"></td><td><input type="text" class="fill" data-key="team-add1-bio"></td><td><input type="text" class="fill" data-key="team-add1-head"></td></tr>
+      <tr><td><input type="text" class="fill" data-key="team-add2-name" placeholder="add"></td><td><input type="text" class="fill" data-key="team-add2-title"></td><td><input type="text" class="fill" data-key="team-add2-own"></td><td><input type="text" class="fill" data-key="team-add2-bio"></td><td><input type="text" class="fill" data-key="team-add2-head"></td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <h4>Headshot session</h4>
+    <p style="margin:0;">If we need fresh team photos, roll them into the Day-1 shoot at Forested Family Estate — block a 45-min window before the kitchen shoot starts.</p>
+    <div style="margin-top:10px;" class="radios">
+      <label><input type="radio" name="headshot-window" data-key="head-yes"><span>Yes, block headshot window</span></label>
+      <label><input type="radio" name="headshot-window" data-key="head-no"><span>No, headshots happen another day</span></label>
+    </div>
+  </div>
+</section>
+
+<!-- ─── 6. TRADE PARTNERS ─── -->
+<section class="segment" id="s6">
+  <div class="segment-meta">Segment 06</div>
+  <h2>Trade <em>partners</em></h2>
+  <div class="segment-dur">10 min · DK leads</div>
+  <p>One of the biggest under-told stories at GDN. Most builders don't list trades. The ones that do read as established. List the anchor trades you've worked with for 5+ years — architects, designers, landscape, millwork, finishing, glazing, structural.</p>
+
+  <table>
+    <thead><tr><th>Firm</th><th>Type</th><th style="width:14%">Years</th><th style="width:90px">Feature?</th><th>Contact</th></tr></thead>
+    <tbody>
+      <tr><td>Craig Chevalier Designs</td><td>Architect / Designer</td><td><input type="text" class="fill" data-key="tp-1-years"></td><td><input type="text" class="fill" data-key="tp-1-feat" placeholder="y/n"></td><td><input type="text" class="fill" data-key="tp-1-contact"></td></tr>
+      <tr><td>Kallweit Graham Architecture</td><td>Architect</td><td><input type="text" class="fill" data-key="tp-2-years"></td><td><input type="text" class="fill" data-key="tp-2-feat"></td><td><input type="text" class="fill" data-key="tp-2-contact"></td></tr>
+      <tr><td>Alex Voth Design</td><td>Architect / Designer</td><td><input type="text" class="fill" data-key="tp-3-years"></td><td><input type="text" class="fill" data-key="tp-3-feat"></td><td><input type="text" class="fill" data-key="tp-3-contact"></td></tr>
+      <tr><td>Oy Christopher Design</td><td>Designer (no web)</td><td><input type="text" class="fill" data-key="tp-4-years"></td><td><input type="text" class="fill" data-key="tp-4-feat"></td><td><input type="text" class="fill" data-key="tp-4-contact"></td></tr>
+      <tr><td>Living Radius</td><td>Designer</td><td><input type="text" class="fill" data-key="tp-5-years"></td><td><input type="text" class="fill" data-key="tp-5-feat"></td><td><input type="text" class="fill" data-key="tp-5-contact"></td></tr>
+      <tr><td>Rommel Design</td><td>Designer</td><td><input type="text" class="fill" data-key="tp-6-years"></td><td><input type="text" class="fill" data-key="tp-6-feat"></td><td><input type="text" class="fill" data-key="tp-6-contact"></td></tr>
+      <tr><td>John Medland Architect</td><td>Architect (Creekside Oasis)</td><td><input type="text" class="fill" data-key="tp-7-years"></td><td><input type="text" class="fill" data-key="tp-7-feat"></td><td><input type="text" class="fill" data-key="tp-7-contact"></td></tr>
+      <tr><td>Design Marque</td><td>Designer (Park Lane 2976)</td><td><input type="text" class="fill" data-key="tp-8-years"></td><td><input type="text" class="fill" data-key="tp-8-feat"></td><td><input type="text" class="fill" data-key="tp-8-contact"></td></tr>
+      <tr><td>Sierra Landscaping</td><td>Landscape (Cherbourg 4635)</td><td><input type="text" class="fill" data-key="tp-9-years"></td><td><input type="text" class="fill" data-key="tp-9-feat"></td><td><input type="text" class="fill" data-key="tp-9-contact"></td></tr>
+      <tr><td><input type="text" class="fill" data-key="tp-10-name" placeholder="Millwork"></td><td>Millwork</td><td><input type="text" class="fill" data-key="tp-10-years"></td><td><input type="text" class="fill" data-key="tp-10-feat"></td><td><input type="text" class="fill" data-key="tp-10-contact"></td></tr>
+      <tr><td><input type="text" class="fill" data-key="tp-11-name" placeholder="Finishing"></td><td>Finishing</td><td><input type="text" class="fill" data-key="tp-11-years"></td><td><input type="text" class="fill" data-key="tp-11-feat"></td><td><input type="text" class="fill" data-key="tp-11-contact"></td></tr>
+      <tr><td><input type="text" class="fill" data-key="tp-12-name" placeholder="Glazing / windows"></td><td>Glazing</td><td><input type="text" class="fill" data-key="tp-12-years"></td><td><input type="text" class="fill" data-key="tp-12-feat"></td><td><input type="text" class="fill" data-key="tp-12-contact"></td></tr>
+      <tr><td><input type="text" class="fill" data-key="tp-13-name" placeholder="Structural"></td><td>Structural</td><td><input type="text" class="fill" data-key="tp-13-years"></td><td><input type="text" class="fill" data-key="tp-13-feat"></td><td><input type="text" class="fill" data-key="tp-13-contact"></td></tr>
+      <tr><td><input type="text" class="fill" data-key="tp-14-name" placeholder="Add another"></td><td><input type="text" class="fill" data-key="tp-14-type"></td><td><input type="text" class="fill" data-key="tp-14-years"></td><td><input type="text" class="fill" data-key="tp-14-feat"></td><td><input type="text" class="fill" data-key="tp-14-contact"></td></tr>
+      <tr><td><input type="text" class="fill" data-key="tp-15-name" placeholder="Add another"></td><td><input type="text" class="fill" data-key="tp-15-type"></td><td><input type="text" class="fill" data-key="tp-15-years"></td><td><input type="text" class="fill" data-key="tp-15-feat"></td><td><input type="text" class="fill" data-key="tp-15-contact"></td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:0.85rem;color:var(--stone);"><em>Why this matters:</em> Each one is a reciprocal link, a project-page credit, and a trust signal. Names get added to project pages where they worked.</p>
+</section>
+
+<!-- ─── 7. AWARDS & PRESS ─── -->
+<section class="segment" id="s7">
+  <div class="segment-meta">Segment 07</div>
+  <h2>Awards &amp; <em>press</em></h2>
+  <div class="segment-dur">5 min</div>
+  <p>The 24 awards are already verified and pre-loaded. Two findings DK needs to confirm.</p>
+  <div class="checklist">
+    <label><input type="checkbox" data-key="award-chba"><span><strong>2018 CHBA National Finalist — Creekside Oasis.</strong> Not on the current /awards page. Confirm and we add it.</span></label>
+    <label><input type="checkbox" data-key="award-havan"><span><strong>2024 HAVAN finalist — Seaside Serenity.</strong> Not currently on /projects or /awards. Confirm whether it's a separate project or an alias.</span></label>
+  </div>
+
+  <h4>Press / publications</h4>
+  <span class="fill-label">Featured in Western Living, Vancouver Magazine, BC Home, Robb Report Canada, Modern Home Builder, North Shore News, or HAVAN editorial? When, which project, can we link / scan / embed?</span>
+  <textarea class="fill lg" data-key="press-features"></textarea>
+  <span class="fill-label">Any architect or designer firm that featured GDN-built work on their own site (Soprovich, Chevalier, Kallweit, etc.)?</span>
+  <textarea class="fill" data-key="press-thirdparty"></textarea>
+</section>
+
+<!-- ─── 8. BRAND VOICE ─── -->
+<section class="segment" id="s8">
+  <div class="segment-meta">Segment 08</div>
+  <h2>Brand <em>voice</em></h2>
+  <div class="segment-dur">10 min · capture verbatim</div>
+  <p>We need the vocabulary you actually use when describing your work. Builders rarely write down their own voice — this is where most builder websites sound like every other builder.</p>
+
+  <span class="fill-label">1. Describe a GD Nielsen home in one sentence. Not marketing — what would you tell a friend at a barbecue?</span>
+  <textarea class="fill lg" data-key="voice-bbq"></textarea>
+
+  <span class="fill-label">2a. Three words you reach for when describing your work</span>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
+    <input type="text" class="fill" data-key="voice-reach-1" placeholder="Word 1">
+    <input type="text" class="fill" data-key="voice-reach-2" placeholder="Word 2">
+    <input type="text" class="fill" data-key="voice-reach-3" placeholder="Word 3">
+  </div>
+  <span class="fill-label">2b. Three words you actively avoid</span>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
+    <input type="text" class="fill" data-key="voice-avoid-1" placeholder="Word 1">
+    <input type="text" class="fill" data-key="voice-avoid-2" placeholder="Word 2">
+    <input type="text" class="fill" data-key="voice-avoid-3" placeholder="Word 3">
+  </div>
+
+  <span class="fill-label">3. When a client refers you to a friend, what do they say about you?</span>
+  <textarea class="fill lg" data-key="voice-referral"></textarea>
+
+  <div class="callout">
+    <h4>Voice direction (proposed)</h4>
+    <ul style="margin:6px 0 0 18px;">
+      <li>Quiet confidence, not bombast. "We build homes that last" not "we craft masterpieces."</li>
+      <li>40 years of evidence does the bragging — copy stays under-stated.</li>
+      <li>First person plural ("we") not third person ("GD Nielsen Homes Ltd. constructs…").</li>
+      <li>No "luxury" in every sentence. Use it once, where it matters.</li>
+    </ul>
+    <span class="fill-label">Adjust this direction</span>
+    <textarea class="fill" data-key="voice-adjust"></textarea>
+  </div>
+</section>
+
+<!-- ─── 9. SOCIAL ─── -->
+<section class="segment" id="s9">
+  <div class="segment-meta">Segment 09</div>
+  <h2>Social — <em>pillars, cadence, voice</em></h2>
+  <div class="segment-dur">10 min</div>
+  <p>GDN's IG / FB / LinkedIn presence is currently minimal. The Creative Partner social pillar fixes that with 50+ assets per quarter, organized around content pillars built collaboratively from your projects.</p>
+
+  <h4>Proposed builder content mix — adjust</h4>
+  <table>
+    <thead><tr><th>Pillar</th><th style="width:18%">Default weight</th><th style="width:24%">Adjust weight</th><th>Purpose</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Project Showcase</strong></td><td>40%</td><td><input type="text" class="fill" data-key="pillar-1-w"></td><td>Hero finished spaces — your award-grade work</td></tr>
+      <tr><td><strong>Process / Build Quality</strong></td><td>25%</td><td><input type="text" class="fill" data-key="pillar-2-w"></td><td>Framing, millwork, detailing in progress — "how we actually build"</td></tr>
+      <tr><td><strong>Trades &amp; Team</strong></td><td>15%</td><td><input type="text" class="fill" data-key="pillar-3-w"></td><td>Crew on site, architect handoffs, trade-partner spotlights</td></tr>
+      <tr><td><strong>Awards &amp; Press</strong></td><td>10%</td><td><input type="text" class="fill" data-key="pillar-4-w"></td><td>Georgie, Ovation, HAVAN, CHBA wins (year by year)</td></tr>
+      <tr><td><strong>Heritage / Legacy</strong></td><td>10%</td><td><input type="text" class="fill" data-key="pillar-5-w"></td><td>40-year stories, repeat clients, historical context, the original 1986 build</td></tr>
+    </tbody>
+  </table>
+
+  <h4>Cadence</h4>
+  <p>3× / week IG, mirrored to Facebook, monthly LinkedIn long-form. Pinterest as passive SEO engine, pulled from existing project photos.</p>
+  <span class="fill-label">Confirm or adjust</span>
+  <input type="text" class="fill" data-key="cadence-adjust">
+
+  <h4>Approval workflow</h4>
+  <div class="radios">
+    <label><input type="radio" name="approval" data-key="appr-sameday"><span>Same-day — drafts in the morning, DK approves by noon</span></label>
+    <label><input type="radio" name="approval" data-key="appr-48"><span>48-hour — drafts Monday, approved Wednesday, scheduled Friday</span></label>
+    <label><input type="radio" name="approval" data-key="appr-weekly"><span>Weekly batch — a week's worth every Friday for Sunday approval <em>(recommended for builders)</em></span></label>
+    <label><input type="radio" name="approval" data-key="appr-ramp"><span>Ramp-up — pre-approval for the first 30 days, trust-based after voice is dialed</span></label>
+  </div>
+
+  <span class="fill-label">Who else posts to GDN's accounts? Conflicts to watch for?</span>
+  <input type="text" class="fill" data-key="social-others">
+
+  <span class="fill-label">Cross-tagging — when we feature an architect / designer / landscape partner, do we tag them on every post, or only with explicit yes?</span>
+  <textarea class="fill" data-key="social-tagging"></textarea>
+</section>
+
+<!-- ─── 10. DAY-1 SHOOT ─── -->
+<section class="segment" id="s10">
+  <div class="segment-meta">Segment 10</div>
+  <h2>Day-1 shoot — <em>Forested Family Estate kitchen</em></h2>
+  <div class="segment-dur">5 min</div>
+  <p>The 2012 Georgie kitchen win is currently invisible on the site. We re-shoot it in early May as the Day-1 shoot.</p>
+  <div class="checklist">
+    <label><input type="checkbox" data-key="ffe-intro"><span>DK contacts the homeowner for access</span></label>
+    <label><input type="checkbox" data-key="ffe-kitchen-orig"><span>Confirm the kitchen is still in original Georgie-winning state (any post-2012 changes?)</span></label>
+    <label><input type="checkbox" data-key="ffe-headshots"><span>Add team-headshot 45-min window before the kitchen shoot starts</span></label>
+  </div>
+  <span class="fill-label">Date window</span>
+  <input type="text" class="fill" data-key="ffe-window">
+
+  <h4>Other 2026 shoots — pencil placeholders</h4>
+  <span class="fill-label">Q2 (Jul / Aug)</span>
+  <input type="text" class="fill" data-key="shoot-q2">
+  <span class="fill-label">Q3 (Oct / Nov) — coordinate with fall publication outreach</span>
+  <input type="text" class="fill" data-key="shoot-q3">
+</section>
+
+<!-- ─── 11. ACCESS ─── -->
+<section class="segment" id="s11">
+  <div class="segment-meta">Segment 11</div>
+  <h2>Access &amp; <em>operational setup</em></h2>
+  <div class="segment-dur">5 min</div>
+  <p>What I need from DK before end of week so we can build.</p>
+  <div class="checklist">
+    <label><input type="checkbox" data-key="acc-sq"><span><strong>Squarespace</strong> — Matt added as contributor (or owner if migrating from WordPress to Squarespace 7.1 fresh)</span></label>
+    <label><input type="checkbox" data-key="acc-gbp"><span><strong>Google Business Profile</strong> — owner access transferred to Matt, or co-managed</span></label>
+    <label><input type="checkbox" data-key="acc-meta"><span><strong>Meta Business Manager</strong> — admin (unlocks IG → scheduler connection)</span></label>
+    <label><input type="checkbox" data-key="acc-linkedin"><span><strong>LinkedIn Company Page</strong> — admin access granted</span></label>
+    <label><input type="checkbox" data-key="acc-ga"><span><strong>Google Analytics 4 + Search Console</strong> — access granted (for portal + monthly SEO reporting)</span></label>
+    <label><input type="checkbox" data-key="acc-logo"><span><strong>Logo files</strong> — vector if available (.ai, .svg, .pdf)</span></label>
+    <label><input type="checkbox" data-key="acc-photos"><span><strong>Existing photography library</strong> — Dropbox / Drive folder shared</span></label>
+    <label><input type="checkbox" data-key="acc-houzz"><span><strong>Houzz Pro</strong> — confirm access for project intake / handoff (DK uses this)</span></label>
+  </div>
+  <span class="fill-label">Best contact channel for fast questions — text / email / Notion / Slack?</span>
+  <input type="text" class="fill" data-key="contact-channel">
+</section>
+
+<!-- ─── 12. 30-DAY SEQUENCE ─── -->
+<section class="segment" id="s12">
+  <div class="segment-meta">Segment 12</div>
+  <h2>The <em>30-day</em> production sequence</h2>
+  <div class="segment-dur">5 min</div>
+  <div class="callout callout-warn">
+    <h4>Today is May 11. The website is live May 21. That's 10 days.</h4>
+  </div>
+
+  <table>
+    <thead><tr><th style="width:18%">Days</th><th>Milestone</th><th style="width:20%">Owner</th><th style="width:18%">Status</th></tr></thead>
+    <tbody>
+      <tr><td>May 11–13</td><td>This workshop + 4 audit confirmations + brand-story interview transcribed</td><td>Matt + DK + Greg</td><td><input type="text" class="fill" data-key="prod-1"></td></tr>
+      <tr><td>May 11–14</td><td>Forested Family Estate shoot booked + executed</td><td>Matt + DK</td><td><input type="text" class="fill" data-key="prod-2"></td></tr>
+      <tr><td>May 13–17</td><td>All 26 project pages finished from intake sheet + research + new photos</td><td>Matt</td><td><input type="text" class="fill" data-key="prod-3"></td></tr>
+      <tr><td>May 13–18</td><td>/story, /team, /process, /services × 5, /awards, /testimonials drafted</td><td>Matt</td><td><input type="text" class="fill" data-key="prod-4"></td></tr>
+      <tr><td>May 17–19</td><td>Staging review — DK walks the full staging site, flags everything</td><td>DK</td><td><input type="text" class="fill" data-key="prod-5"></td></tr>
+      <tr><td>May 19–20</td><td>Final fixes, schema validation, 301 redirects, sitemap submit</td><td>Matt</td><td><input type="text" class="fill" data-key="prod-6"></td></tr>
+      <tr><td><strong>May 21</strong></td><td><strong>Live launch.</strong> GBP refreshed, llms.txt deployed, robots.txt deployed.</td><td>Matt</td><td><input type="text" class="fill" data-key="prod-7"></td></tr>
+      <tr><td>May 22 →</td><td>Phase 2 — location pages, neighbourhood sub-pages, journal posts, lead magnets</td><td>Matt</td><td><input type="text" class="fill" data-key="prod-8"></td></tr>
+    </tbody>
+  </table>
+
+  <span class="fill-label">Staging review window — DK available May 17–19 for a 30-min walkthrough? Block it now.</span>
+  <input type="text" class="fill" data-key="staging-window">
+</section>
+
+<!-- ─── 13. CLOSING ─── -->
+<section class="segment" id="s13">
+  <div class="segment-meta">Segment 13</div>
+  <h2>Closing — <em>what each side owns this week</em></h2>
+  <div class="segment-dur">3 min</div>
+
+  <h4>Matt's side</h4>
+  <div class="checklist">
+    <label><input type="checkbox" data-key="m-1" checked><span>Transcribe the brand-story recording, send DK the relevant quotes for sign-off</span></label>
+    <label><input type="checkbox" data-key="m-2" checked><span>Push 4 audit confirmations into the master research doc</span></label>
+    <label><input type="checkbox" data-key="m-3" checked><span>Finalize the 5 services pages, send DK a preview link</span></label>
+    <label><input type="checkbox" data-key="m-4" checked><span>Book the Forested Family Estate kitchen shoot</span></label>
+    <label><input type="checkbox" data-key="m-5" checked><span>Wire up GBP, GA4, GSC, Late.dev, Meta Business as access lands</span></label>
+    <label><input type="checkbox" data-key="m-6" checked><span>Send DK a recap email by EOD same-day with the artifacts from this session</span></label>
+  </div>
+
+  <h4>DK / Greg's side</h4>
+  <div class="checklist">
+    <label><input type="checkbox" data-key="dk-1"><span>Confirm the 4 audit questions (Gisby, Highway, Cammeray, Seaside Serenity)</span></label>
+    <label><input type="checkbox" data-key="dk-2"><span>Resolve the phone number question (4211 or 4210)</span></label>
+    <label><input type="checkbox" data-key="dk-3"><span>Pull together team bios + headshots (or schedule them into Day-1 shoot)</span></label>
+    <label><input type="checkbox" data-key="dk-4"><span>Fill the trade-partner list (Segment 06, ~30 min)</span></label>
+    <label><input type="checkbox" data-key="dk-5"><span>Send the homeowner intro for Forested Family Estate access</span></label>
+    <label><input type="checkbox" data-key="dk-6"><span>Grant all access listed in Segment 11</span></label>
+    <label><input type="checkbox" data-key="dk-7"><span>Confirm staging review window May 17–19</span></label>
+  </div>
+
+  <h4>Anything else surfaced in this session</h4>
+  <textarea class="fill lg" data-key="closing-notes"></textarea>
+</section>
+
+<!-- ─── FOOTER ─── -->
+<section class="segment" style="border-top:1px solid var(--line-strong);padding-top:32px;margin-top:48px;">
+  <p style="font-size:0.82rem;color:var(--stone);text-align:center;line-height:1.7;">
+    <em>This is a relationship, not an interview. GDN has been around for 40 years. The job in this room is to confirm, refine, and unblock — not to start from scratch. Energy should feel collaborative, not extractive.</em>
+  </p>
+  <p style="font-size:0.7rem;color:var(--stone);text-align:center;margin-top:18px;font-family:'Josefin Sans',sans-serif;letter-spacing:0.18em;text-transform:uppercase;">
+    Matt Anthony Photography · Creative Partner · GD Nielsen Homes
+  </p>
+</section>
+
+</main>
+
+<script>
+  // ─── PROJECT LIST (26) ───
+  const PROJECTS = [
+    ["Marine Manor","West Van"],
+    ["Casa at the Cove","West Van"],
+    ["Forested Family Estate","West Van"],
+    ["Lions Gate Vista","West Van"],
+    ["Creekside Oasis","West Van"],
+    ["Cammeray Heights","West Van"],
+    ["Cammeray 1352","West Van"],
+    ["Cammeray 1352 #2","West Van"],
+    ["Kerrisdale Zen","Kerrisdale"],
+    ["Sentinel","West Van"],
+    ["Ocean Front Estate","West Van"],
+    ["Vista Estate","West Van"],
+    ["Howe Sound Haven","West Van"],
+    ["Gisby 2247","West Van"],
+    ["The Highway 4768","West Van"],
+    ["Whelen 7475","Burnaby"],
+    ["McCleery 2962","Kerrisdale"],
+    ["Park Lane 2976","West Van"],
+    ["Cherbourg 4635","West Van"],
+    ["Altamont (project A)","West Van"],
+    ["Altamont (project B)","West Van"],
+    ["Caulfeild (project A)","West Van"],
+    ["British Properties (project A)","West Van"],
+    ["Chartwell / Cammeray","West Van"],
+    ["Cypress Park","West Van"],
+    ["Dundarave","West Van"]
+  ];
+  const tbody = document.getElementById('projects-table');
+  PROJECTS.forEach((p, i) => {
+    const n = i + 1;
+    const id = `p-${n}`;
+    tbody.insertAdjacentHTML('beforeend', `
+      <tr>
+        <td class="num">${n}</td>
+        <td>${p[0]}</td>
+        <td>${p[1]}</td>
+        <td>
+          <div class="verdict-group">
+            <input type="radio" name="${id}-v" id="${id}-g" data-key="${id}-v" value="green">
+            <label for="${id}-g" data-v="green" title="Feature"></label>
+            <input type="radio" name="${id}-v" id="${id}-y" data-key="${id}-v" value="yellow">
+            <label for="${id}-y" data-v="yellow" title="Hold"></label>
+            <input type="radio" name="${id}-v" id="${id}-r" data-key="${id}-v" value="red">
+            <label for="${id}-r" data-v="red" title="Hide"></label>
+          </div>
+        </td>
+        <td><input type="text" class="fill" data-key="${id}-note"></td>
+      </tr>
+    `);
+  });
+
+  // ─── LOCALSTORAGE PERSIST ───
+  const STORAGE_KEY = 'gdn-kickoff-workshop-v1';
+  const status = document.getElementById('save-status');
+  let saveTimer;
+
+  function save() {
+    const data = {};
+    document.querySelectorAll('[data-key]').forEach(el => {
+      const k = el.dataset.key;
+      if (el.type === 'checkbox') {
+        data[k] = el.checked;
+      } else if (el.type === 'radio') {
+        if (el.checked) data[k] = el.value || true;
+      } else {
+        data[k] = el.value;
+      }
+    });
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+      status.textContent = 'Saved ' + new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'});
+    } catch(e) {
+      status.textContent = 'Storage error';
+    }
+  }
+
+  function load() {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      const data = JSON.parse(raw);
+      document.querySelectorAll('[data-key]').forEach(el => {
+        const k = el.dataset.key;
+        if (!(k in data)) return;
+        if (el.type === 'checkbox') {
+          el.checked = !!data[k];
+        } else if (el.type === 'radio') {
+          if (data[k] && (data[k] === el.value || data[k] === true)) el.checked = true;
+        } else {
+          el.value = data[k] || '';
+        }
+      });
+      status.textContent = 'Restored';
+    } catch(e) {}
+  }
+
+  function queueSave() {
+    clearTimeout(saveTimer);
+    status.textContent = 'Saving…';
+    saveTimer = setTimeout(save, 400);
+  }
+
+  function clearAll() {
+    if (!confirm('Clear all entries? This cannot be undone.')) return;
+    localStorage.removeItem(STORAGE_KEY);
+    document.querySelectorAll('[data-key]').forEach(el => {
+      if (el.type === 'checkbox' || el.type === 'radio') {
+        el.checked = el.hasAttribute('checked');
+      } else {
+        el.value = '';
+      }
+    });
+    status.textContent = 'Cleared';
+  }
+
+  document.addEventListener('input', queueSave);
+  document.addEventListener('change', queueSave);
+  load();
+</script>
+
+</body>
+</html>
