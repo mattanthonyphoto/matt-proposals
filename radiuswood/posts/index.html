@@ -72,6 +72,16 @@
   .slide-wrap { flex: 0 0 auto; scroll-snap-align: start; position: relative; }
   .slide-wrap img { width: 320px; height: 400px; object-fit: cover; display: block; border: 1px solid var(--line); }
   .slide-wrap .designed { width: 320px; height: 400px; }
+  /* Horizontal-photo variant — shows landscape source photos in their native orientation.
+     For IG publishing these would crop to 4:5 portrait; preview honours native shape. */
+  .slide-wrap.horizontal img { width: 500px; height: 400px; }
+  .slide-wrap.horizontal::after {
+    content: 'H · crops to 4:5';
+    position: absolute; top: 8px; right: 8px;
+    background: rgba(168,40,56,0.92); color: #FAFAF5;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.5rem; font-weight: 500;
+    letter-spacing: 0.18em; padding: 4px 8px; text-transform: uppercase;
+  }
   .slide-num { position: absolute; top: 8px; left: 8px; background: rgba(26,26,24,0.85); color: var(--cream); font-size: 0.55rem; font-weight: 500; letter-spacing: 0.22em; padding: 5px 10px; }
   .slide-tag { position: absolute; bottom: 8px; left: 8px; background: var(--red); color: var(--cream); font-size: 0.55rem; font-weight: 600; letter-spacing: 0.18em; padding: 5px 10px; text-transform: uppercase; }
 
@@ -152,7 +162,7 @@
     <div class="carousel-wrap">
       <div class="carousel-label">Carousel sequence — drawings → execution</div>
       <div class="carousel">
-        <div class="slide-wrap"><span class="slide-num">01</span><span class="slide-tag">Drawing</span><img src="photos/_DSC7263.jpg" alt="OGR plan drawing"></div>
+        <div class="slide-wrap horizontal"><span class="slide-num">01</span><span class="slide-tag">Drawing</span><img src="photos/_DSC7263.jpg" alt="OGR plan drawing"></div>
         <div class="slide-wrap"><span class="slide-num">02</span><img src="photos/_DSC7400.jpg" alt="dovetail"></div>
         <div class="slide-wrap"><span class="slide-num">03</span><span class="slide-tag">Quote</span><img class="designed" src="slides/p1_s2_quote.png" alt="quote"></div>
         <div class="slide-wrap"><span class="slide-num">04</span><span class="slide-tag">Number</span><img class="designed" src="slides/p1_s3_number.png" alt="60"></div>
@@ -195,13 +205,13 @@ Photography @mattanthonyphoto</div>
       <div class="carousel-label">Carousel sequence (drawings + production + finishing)</div>
       <div class="carousel">
         <div class="slide-wrap"><span class="slide-num">01</span><span class="slide-tag">Cover</span><img class="designed" src="slides/p2_s1_cover.png" alt="cover"></div>
-        <div class="slide-wrap"><span class="slide-num">02</span><span class="slide-tag">Drawing</span><img src="photos/_DSC7820.jpg" alt="OGR Bedroom 2 elevation"></div>
-        <div class="slide-wrap"><span class="slide-num">03</span><img src="photos/_DSC7422.jpg" alt="7422"></div>
-        <div class="slide-wrap"><span class="slide-num">04</span><img src="photos/_DSC7271.jpg" alt="7271"></div>
-        <div class="slide-wrap"><span class="slide-num">05</span><img src="photos/_DSC7344.jpg" alt="7344"></div>
+        <div class="slide-wrap horizontal"><span class="slide-num">02</span><span class="slide-tag">Drawing</span><img src="photos/_DSC7820.jpg" alt="OGR Bedroom 2 elevation"></div>
+        <div class="slide-wrap horizontal"><span class="slide-num">03</span><img src="photos/_DSC7422.jpg" alt="7422"></div>
+        <div class="slide-wrap horizontal"><span class="slide-num">04</span><img src="photos/_DSC7271.jpg" alt="7271"></div>
+        <div class="slide-wrap horizontal"><span class="slide-num">05</span><img src="photos/_DSC7344.jpg" alt="7344"></div>
         <div class="slide-wrap"><span class="slide-num">06</span><img src="photos/_DSC7491.jpg" alt="7491"></div>
         <div class="slide-wrap"><span class="slide-num">07</span><img src="photos/_DSC7741.jpg" alt="7741"></div>
-        <div class="slide-wrap"><span class="slide-num">08</span><img src="photos/_DSC7750.jpg" alt="7750"></div>
+        <div class="slide-wrap horizontal"><span class="slide-num">08</span><img src="photos/_DSC7750.jpg" alt="7750"></div>
         <div class="slide-wrap"><span class="slide-num">09</span><span class="slide-tag">Quote</span><img class="designed" src="slides/p2_s8_close.png" alt="close"></div>
       </div>
     </div>
@@ -241,7 +251,7 @@ Photography @mattanthonyphoto</div>
     <div class="carousel-wrap">
       <div class="carousel-label">Photos</div>
       <div class="carousel">
-        <div class="slide-wrap"><span class="slide-num">01</span><img src="photos/_DSC7422.jpg" alt="7422"></div>
+        <div class="slide-wrap horizontal"><span class="slide-num">01</span><img src="photos/_DSC7422.jpg" alt="7422"></div>
         <div class="slide-wrap"><span class="slide-num">02</span><img src="photos/_DSC7491.jpg" alt="7491"></div>
       </div>
     </div>
@@ -421,7 +431,7 @@ Photography @mattanthonyphoto</div>
     <div class="carousel-wrap">
       <div class="carousel-label">Photos</div>
       <div class="carousel">
-        <div class="slide-wrap"><span class="slide-num">01</span><img src="photos/_DSC7271.jpg" alt="7271"></div>
+        <div class="slide-wrap horizontal"><span class="slide-num">01</span><img src="photos/_DSC7271.jpg" alt="7271"></div>
         <div class="slide-wrap"><span class="slide-num">02</span><img src="photos/_DSC7491.jpg" alt="7491"></div>
       </div>
     </div>
@@ -463,7 +473,7 @@ Rick Wilson, Owner + Master Joiner. Photography by @mattanthonyphoto</div>
     <div class="carousel-wrap">
       <div class="carousel-label">Carousel sequence</div>
       <div class="carousel">
-        <div class="slide-wrap"><span class="slide-num">01</span><img src="photos/_DSC7542.jpg" alt="7542"></div>
+        <div class="slide-wrap horizontal"><span class="slide-num">01</span><img src="photos/_DSC7542.jpg" alt="7542"></div>
         <div class="slide-wrap"><span class="slide-num">02</span><span class="slide-tag">Spec</span><img class="designed" src="slides/p8_s2_spec.png" alt="material spec"></div>
         <div class="slide-wrap"><span class="slide-num">03</span><span class="slide-tag">Process</span><img class="designed" src="slides/p8_s3_chemistry.png" alt="chemistry"></div>
       </div>
@@ -516,11 +526,11 @@ Photography @mattanthonyphoto</div>
       <div class="carousel-label">Carousel sequence — drawings → marker → execution → process</div>
       <div class="carousel">
         <div class="slide-wrap"><span class="slide-num">01</span><span class="slide-tag">Cover</span><img class="designed" src="slides/p9_s1_cover.png" alt="cover"></div>
-        <div class="slide-wrap"><span class="slide-num">02</span><span class="slide-tag">Drawing</span><img src="photos/_DSC7263.jpg" alt="OGR plan"></div>
-        <div class="slide-wrap"><span class="slide-num">03</span><span class="slide-tag">Drawing</span><img src="photos/_DSC7820.jpg" alt="OGR elevation"></div>
+        <div class="slide-wrap horizontal"><span class="slide-num">02</span><span class="slide-tag">Drawing</span><img src="photos/_DSC7263.jpg" alt="OGR plan"></div>
+        <div class="slide-wrap horizontal"><span class="slide-num">03</span><span class="slide-tag">Drawing</span><img src="photos/_DSC7820.jpg" alt="OGR elevation"></div>
         <div class="slide-wrap"><span class="slide-num">04</span><span class="slide-tag">Marker</span><img src="photos/_DSC7281.jpg" alt="B1 panel"></div>
-        <div class="slide-wrap"><span class="slide-num">05</span><span class="slide-tag">Marker</span><img src="photos/_DSC7816.jpg" alt="panel back markings"></div>
-        <div class="slide-wrap"><span class="slide-num">06</span><span class="slide-tag">Production</span><img src="photos/_DSC7271.jpg" alt="cabinet runs"></div>
+        <div class="slide-wrap horizontal"><span class="slide-num">05</span><span class="slide-tag">Marker</span><img src="photos/_DSC7816.jpg" alt="panel back markings"></div>
+        <div class="slide-wrap horizontal"><span class="slide-num">06</span><span class="slide-tag">Production</span><img src="photos/_DSC7271.jpg" alt="cabinet runs"></div>
         <div class="slide-wrap"><span class="slide-num">07</span><span class="slide-tag">Quote</span><img class="designed" src="slides/p9_s7_quote.png" alt="Sheldon quote"></div>
         <div class="slide-wrap"><span class="slide-num">08</span><span class="slide-tag">Process</span><img class="designed" src="slides/p9_s8_pipeline.png" alt="six steps"></div>
       </div>
@@ -658,8 +668,8 @@ Rick Wilson, Owner + Master Joiner. Photography @mattanthonyphoto</div>
       <div class="carousel-label">Carousel sequence — Sheldon spotlight</div>
       <div class="carousel">
         <div class="slide-wrap"><span class="slide-num">01</span><span class="slide-tag">Cover</span><img class="designed" src="slides/p12_s1_cover.png" alt="cover"></div>
-        <div class="slide-wrap"><span class="slide-num">02</span><span class="slide-tag">Drawing</span><img src="photos/_DSC7263.jpg" alt="OGR plan"></div>
-        <div class="slide-wrap"><span class="slide-num">03</span><span class="slide-tag">Drawing</span><img src="photos/_DSC7820.jpg" alt="OGR elevation"></div>
+        <div class="slide-wrap horizontal"><span class="slide-num">02</span><span class="slide-tag">Drawing</span><img src="photos/_DSC7263.jpg" alt="OGR plan"></div>
+        <div class="slide-wrap horizontal"><span class="slide-num">03</span><span class="slide-tag">Drawing</span><img src="photos/_DSC7820.jpg" alt="OGR elevation"></div>
         <div class="slide-wrap"><span class="slide-num">04</span><span class="slide-tag">Portrait</span><img class="designed" src="slides/lib_t_sheldon.png" alt="Sheldon"></div>
         <div class="slide-wrap"><span class="slide-num">05</span><span class="slide-tag">Quote</span><img class="designed" src="slides/p9_s7_quote.png" alt="quote"></div>
       </div>
@@ -718,9 +728,9 @@ Rick Wilson, Owner + Master Joiner. Photography @mattanthonyphoto</div>
       <div class="carousel-label">The inverted pitch — clarity through nos</div>
       <div class="carousel">
         <div class="slide-wrap"><span class="slide-num">01</span><span class="slide-tag">Cover</span><img class="designed" src="slides/lib_cv_dontdo.png" alt="Things we don't do cover"></div>
-        <div class="slide-wrap"><span class="slide-num">02</span><img src="photos/_DSC7422.jpg" alt="wide shop"></div>
+        <div class="slide-wrap horizontal"><span class="slide-num">02</span><img src="photos/_DSC7422.jpg" alt="wide shop"></div>
         <div class="slide-wrap"><span class="slide-num">03</span><span class="slide-tag">Quote</span><img class="designed" src="slides/lib_q_sketch.png" alt="not napkin sketches"></div>
-        <div class="slide-wrap"><span class="slide-num">04</span><img src="photos/_DSC7344.jpg" alt="clamps + band saw"></div>
+        <div class="slide-wrap horizontal"><span class="slide-num">04</span><img src="photos/_DSC7344.jpg" alt="clamps + band saw"></div>
         <div class="slide-wrap"><span class="slide-num">05</span><span class="slide-tag">Quote</span><img class="designed" src="slides/lib_q_listsays.png" alt="the list keeps the work good"></div>
       </div>
     </div>
@@ -803,8 +813,8 @@ Rick Wilson, Owner + Master Joiner. Photography @mattanthonyphoto</div>
     <div class="carousel-wrap">
       <div class="carousel-label">Industry critique — defends bench-cut, in-house workflow</div>
       <div class="carousel">
-        <div class="slide-wrap"><span class="slide-num">01</span><img src="photos/_DSC7271.jpg" alt="cabinet runs"></div>
-        <div class="slide-wrap"><span class="slide-num">02</span><img src="photos/_DSC7422.jpg" alt="wide shop"></div>
+        <div class="slide-wrap horizontal"><span class="slide-num">01</span><img src="photos/_DSC7271.jpg" alt="cabinet runs"></div>
+        <div class="slide-wrap horizontal"><span class="slide-num">02</span><img src="photos/_DSC7422.jpg" alt="wide shop"></div>
       </div>
     </div>
 
@@ -846,7 +856,7 @@ Rick Wilson, Owner + Master Joiner. Photography @mattanthonyphoto</div>
       <div class="carousel-label">Why zero-CNC isn't slower for one-offs</div>
       <div class="carousel">
         <div class="slide-wrap"><span class="slide-num">01</span><span class="slide-tag">Cover</span><img class="designed" src="slides/lib_cv_twodays.png" alt="two days vs two hours"></div>
-        <div class="slide-wrap"><span class="slide-num">02</span><img src="photos/_DSC7344.jpg" alt="clamps"></div>
+        <div class="slide-wrap horizontal"><span class="slide-num">02</span><img src="photos/_DSC7344.jpg" alt="clamps"></div>
         <div class="slide-wrap"><span class="slide-num">03</span><img src="photos/_DSC7491.jpg" alt="craftsperson at router"></div>
         <div class="slide-wrap"><span class="slide-num">04</span><span class="slide-tag">Quote</span><img class="designed" src="slides/lib_q_drawingislaw.png" alt="drawing is the law"></div>
       </div>
@@ -980,8 +990,8 @@ Photography @mattanthonyphoto</div>
       <div class="carousel-label">Practical pre-spec — helps architects do their job better, builds trust</div>
       <div class="carousel">
         <div class="slide-wrap"><span class="slide-num">01</span><span class="slide-tag">Cover</span><img class="designed" src="slides/lib_cv_yourset.png" alt="your set needs"></div>
-        <div class="slide-wrap"><span class="slide-num">02</span><img src="photos/_DSC7263.jpg" alt="OGR plan drawing"></div>
-        <div class="slide-wrap"><span class="slide-num">03</span><img src="photos/_DSC7820.jpg" alt="OGR elevation"></div>
+        <div class="slide-wrap horizontal"><span class="slide-num">02</span><img src="photos/_DSC7263.jpg" alt="OGR plan drawing"></div>
+        <div class="slide-wrap horizontal"><span class="slide-num">03</span><img src="photos/_DSC7820.jpg" alt="OGR elevation"></div>
         <div class="slide-wrap"><span class="slide-num">04</span><img src="photos/_DSC7281.jpg" alt="B1 panel markings"></div>
         <div class="slide-wrap"><span class="slide-num">05</span><span class="slide-tag">Quote</span><img class="designed" src="slides/lib_q_sketch.png" alt="not napkin sketches"></div>
       </div>
@@ -1027,7 +1037,7 @@ Rick Wilson, Owner + Master Joiner. Photography @mattanthonyphoto</div>
       <div class="carousel-label">Locality / trades-district context — for Vancouver-aware audience</div>
       <div class="carousel">
         <div class="slide-wrap"><span class="slide-num">01</span><span class="slide-tag">Cover</span><img class="designed" src="slides/lib_cv_burnaby.png" alt="Burnaby cover"></div>
-        <div class="slide-wrap"><span class="slide-num">02</span><img src="photos/_DSC7422.jpg" alt="wide shop"></div>
+        <div class="slide-wrap horizontal"><span class="slide-num">02</span><img src="photos/_DSC7422.jpg" alt="wide shop"></div>
         <div class="slide-wrap"><span class="slide-num">03</span><img src="photos/_DSC7665.jpg" alt="finishing room"></div>
         <div class="slide-wrap"><span class="slide-num">04</span><span class="slide-tag">Quote</span><img class="designed" src="slides/lib_q_burnaby25.png" alt="trees got taller"></div>
       </div>
