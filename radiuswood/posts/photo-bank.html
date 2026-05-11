@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Radius Photo Bank — May 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Cinzel:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #A82838; --paper: #FAFAF5; --paper-warm: #F2E9DC;
+    --peach: #E7D9CD; --ink: #1F1B17; --gray: #6E5F50; --line: #D9CDB8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--paper); line-height: 1.55; font-weight: 400; }
+  header { padding: 60px 56px 30px; border-bottom: 1px solid var(--line); }
+  .h-eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; font-weight: 500; letter-spacing: 0.4em; text-transform: uppercase; color: var(--red); margin-bottom: 24px; display: inline-flex; align-items: center; gap: 14px; }
+  .h-eyebrow::before, .h-eyebrow::after { content: ''; display: inline-block; width: 28px; height: 1px; background: var(--red); }
+  h1 { font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; font-weight: 400; color: var(--ink); margin-bottom: 8px; }
+  h1 em { font-style: italic; color: var(--red); }
+  .h-sub { font-size: 0.95rem; color: var(--gray); max-width: 720px; margin-bottom: 32px; }
+  .meta-row { display: flex; flex-wrap: wrap; gap: 50px; padding-top: 30px; border-top: 1px solid var(--line); }
+  .meta-item { font-size: 0.78rem; color: var(--gray); }
+  .meta-item strong { display: block; font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--ink); margin-bottom: 4px; font-weight: 500; }
+  nav.toc { padding: 20px 56px; background: var(--paper-warm); border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 10; }
+  .toc-inner { display: flex; gap: 32px; flex-wrap: wrap; align-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 0.66rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; }
+  nav.toc a { color: var(--ink); text-decoration: none; padding: 6px 10px; border: 1px solid transparent; transition: border-color .15s ease; }
+  nav.toc a:hover { border-color: var(--red); color: var(--red); }
+  section.cat { padding: 48px 56px; border-bottom: 1px solid var(--line); }
+  .cat-num { font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; font-weight: 500; letter-spacing: 0.32em; color: var(--red); margin-bottom: 8px; }
+  .cat-title { font-family: 'Cormorant Garamond', serif; font-size: 2rem; font-weight: 400; color: var(--ink); margin-bottom: 6px; }
+  .cat-title em { font-style: italic; color: var(--red); font-size: 1.4rem; }
+  .cat-sub { font-size: 0.85rem; color: var(--gray); max-width: 700px; margin-bottom: 28px; }
+  .photo-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
+  .photo-card { background: white; border: 1px solid var(--line); display: flex; flex-direction: column; }
+  .photo-wrap { position: relative; overflow: hidden; background: var(--paper-warm); }
+  .photo-wrap img { width: 100%; display: block; }
+  .photo-wrap.h img { aspect-ratio: 3/2; object-fit: cover; }
+  .photo-wrap.v img { aspect-ratio: 4/5; object-fit: cover; }
+  .orient-tag { position: absolute; top: 8px; left: 8px; background: rgba(31,27,23,0.85); color: var(--paper); font-family: 'IBM Plex Mono', monospace; font-size: 0.5rem; font-weight: 500; letter-spacing: 0.22em; padding: 4px 8px; text-transform: uppercase; }
+  .usage-tag { position: absolute; top: 8px; right: 8px; background: rgba(168,40,56,0.92); color: var(--paper); font-family: 'IBM Plex Mono', monospace; font-size: 0.5rem; font-weight: 500; letter-spacing: 0.18em; padding: 4px 8px; text-transform: uppercase; }
+  .usage-tag.unused { background: rgba(110,95,80,0.9); }
+  .photo-meta { padding: 12px 14px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
+  .photo-id { font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; font-weight: 500; letter-spacing: 0.18em; color: var(--red); text-transform: uppercase; }
+  .photo-note { font-size: 0.85rem; color: var(--ink); line-height: 1.45; }
+  .photo-uses { font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; color: var(--gray); margin-top: auto; padding-top: 8px; border-top: 1px solid var(--line); }
+  .photo-uses strong { font-weight: 500; color: var(--ink); }
+  footer { padding: 50px 56px; text-align: center; color: var(--gray); font-size: 0.78rem; line-height: 1.85; }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="h-eyebrow">Radius · Photo Bank · v1.0</div>
+  <h1>Photo bank — <em>61 frames, organized.</em></h1>
+  <p class="h-sub">Every photo in the May 5 shoot deliverables plus archive frames, grouped by subject. Each photo shows aspect ratio (H or V) and where it's currently used. Unused photos float to the top of each section.</p>
+  <div class="meta-row">
+    <div class="meta-item"><strong>Total photos</strong>61</div>
+    <div class="meta-item"><strong>Unused</strong>46 (surface these first)</div>
+    <div class="meta-item"><strong>Categories</strong>7</div>
+    <div class="meta-item"><strong>Source</strong>May 5 shop shoot + archive</div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="toc-inner">
+    <a href="#drawings">Drawings (4)</a>
+    <a href="#joinery">Joinery (6)</a>
+    <a href="#shop">Shop (39)</a>
+    <a href="#material">Material (3)</a>
+    <a href="#people">People (2)</a>
+    <a href="#finishing">Finishing (1)</a>
+    <a href="#archive">Archive (6)</a>
+    <a href="index.html">← Posts preview</a>
+    <a href="slide-library.html">Slide library →</a>
+  </div>
+</nav>
+
+<section class="cat" id="drawings">
+  <div class="cat-num">01</div>
+  <h2 class="cat-title">Drawings <em>(4)</em></h2>
+  <p class="cat-sub">Shop drawings, elevations, plan views, panel markings. The architect's contract surface.</p>
+  <div class="photo-grid">
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag">Used 1×</span>
+        <img src="photos/_DSC7816.jpg" alt="Panel back markings · cross-reference to elevations" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7816.jpg</span>
+        <div class="photo-note">Panel back markings · cross-reference to elevations</div>
+        <div class="photo-uses"><strong>Used in:</strong> Post 09 / 12 (Wk 3)</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap v">
+        <span class="orient-tag">V</span>
+        <span class="usage-tag">Used 2×</span>
+        <img src="photos/_DSC7281.jpg" alt="B1 panel marker · matches elevation callout" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7281.jpg</span>
+        <div class="photo-note">B1 panel marker · matches elevation callout</div>
+        <div class="photo-uses"><strong>Used in:</strong> Post 09 / 12 (Wk 3) · Variant 07practical / pre-spec</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag">Used 4×</span>
+        <img src="photos/_DSC7263.jpg" alt="OGR plan view · forty-three sheets reference" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7263.jpg</span>
+        <div class="photo-note">OGR plan view · forty-three sheets reference</div>
+        <div class="photo-uses"><strong>Used in:</strong> Post 01 / 08 · Post 09 / 12 (Wk 3) · Post 12 / 12 (Wk 3) · Variant 07practical / pre-spec</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag">Used 4×</span>
+        <img src="photos/_DSC7820.jpg" alt="OGR Bedroom 2 elevation · panel callouts" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7820.jpg</span>
+        <div class="photo-note">OGR Bedroom 2 elevation · panel callouts</div>
+        <div class="photo-uses"><strong>Used in:</strong> Post 02 / 08 · Post 09 / 12 (Wk 3) · Post 12 / 12 (Wk 3) · Variant 07practical / pre-spec</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cat" id="joinery">
+  <div class="cat-num">02</div>
+  <h2 class="cat-title">Joinery <em>(6)</em></h2>
+  <p class="cat-sub">Dovetail, mortise, mitre, reveal details. The craft-axis content.</p>
+  <div class="photo-grid">
+    <div class="photo-card">
+      <div class="photo-wrap v">
+        <span class="orient-tag">V</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7404.jpg" alt="Dovetail detail variation" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7404.jpg</span>
+        <div class="photo-note">Dovetail detail variation</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7405.jpg" alt="Cutting dovetail at the bench" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7405.jpg</span>
+        <div class="photo-note">Cutting dovetail at the bench</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap v">
+        <span class="orient-tag">V</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7448.jpg" alt="Cigar lounge reveal/seam detail · flush flush" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7448.jpg</span>
+        <div class="photo-note">Cigar lounge reveal/seam detail · flush flush</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap v">
+        <span class="orient-tag">V</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7456.jpg" alt="Joint fit-up close" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7456.jpg</span>
+        <div class="photo-note">Joint fit-up close</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7462.jpg" alt="Reveal detail · slip-matched maple" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7462.jpg</span>
+        <div class="photo-note">Reveal detail · slip-matched maple</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap v">
+        <span class="orient-tag">V</span>
+        <span class="usage-tag">Used 3×</span>
+        <img src="photos/_DSC7400.jpg" alt="Pin-and-tail dovetail close · solid Eastern maple" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7400.jpg</span>
+        <div class="photo-note">Pin-and-tail dovetail close · solid Eastern maple</div>
+        <div class="photo-uses"><strong>Used in:</strong> Post 01 / 08 · Variant 02cost transparency · Variant 05apprentice voice</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cat" id="shop">
+  <div class="cat-num">03</div>
+  <h2 class="cat-title">Shop <em>(39)</em></h2>
+  <p class="cat-sub">Wide shots, equipment, the bench, clamps, racks. The 5,000 sq ft engine.</p>
+  <div class="photo-grid">
+    <div class="photo-card">
+      <div class="photo-wrap v">
+        <span class="orient-tag">V</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7278.jpg" alt="Shop floor general" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7278.jpg</span>
+        <div class="photo-note">Shop floor general</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7282.jpg" alt="Bench station detail" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7282.jpg</span>
+        <div class="photo-note">Bench station detail</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7292.jpg" alt="Blum minipress · hardware station" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7292.jpg</span>
+        <div class="photo-note">Blum minipress · hardware station</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap v">
+        <span class="orient-tag">V</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7303.jpg" alt="Shop interior, finishing-side view" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7303.jpg</span>
+        <div class="photo-note">Shop interior, finishing-side view</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap v">
+        <span class="orient-tag">V</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7309.jpg" alt="Tool wall / bench tools" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7309.jpg</span>
+        <div class="photo-note">Tool wall / bench tools</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap v">
+        <span class="orient-tag">V</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7326.jpg" alt="Shop layout, mid-floor" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7326.jpg</span>
+        <div class="photo-note">Shop layout, mid-floor</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap v">
+        <span class="orient-tag">V</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7332.jpg" alt="Production floor with stock" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7332.jpg</span>
+        <div class="photo-note">Production floor with stock</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7355.jpg" alt="Wide bench station" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7355.jpg</span>
+        <div class="photo-note">Wide bench station</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7360.jpg" alt="Mid-shop view" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7360.jpg</span>
+        <div class="photo-note">Mid-shop view</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap v">
+        <span class="orient-tag">V</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7380.jpg" alt="Stock storage / racks" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7380.jpg</span>
+        <div class="photo-note">Stock storage / racks</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7420.jpg" alt="Bench close, working surface" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7420.jpg</span>
+        <div class="photo-note">Bench close, working surface</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap v">
+        <span class="orient-tag">V</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7433.jpg" alt="Production area, lower wide" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7433.jpg</span>
+        <div class="photo-note">Production area, lower wide</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap v">
+        <span class="orient-tag">V</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7436.jpg" alt="Bench tools detail" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7436.jpg</span>
+        <div class="photo-note">Bench tools detail</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7445.jpg" alt="Equipment + raw stock" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7445.jpg</span>
+        <div class="photo-note">Equipment + raw stock</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap v">
+        <span class="orient-tag">V</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7446.jpg" alt="Bench station angled" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7446.jpg</span>
+        <div class="photo-note">Bench station angled</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7480.jpg" alt="Bench corner detail" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7480.jpg</span>
+        <div class="photo-note">Bench corner detail</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7494.jpg" alt="Wide working shot" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7494.jpg</span>
+        <div class="photo-note">Wide working shot</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7499.jpg" alt="Equipment / saw station" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7499.jpg</span>
+        <div class="photo-note">Equipment / saw station</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap v">
+        <span class="orient-tag">V</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7513.jpg" alt="Shop floor view" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7513.jpg</span>
+        <div class="photo-note">Shop floor view</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7516.jpg" alt="Bench overview" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7516.jpg</span>
+        <div class="photo-note">Bench overview</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7529.jpg" alt="Stock racks" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7529.jpg</span>
+        <div class="photo-note">Stock racks</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7533.jpg" alt="Equipment + stock" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7533.jpg</span>
+        <div class="photo-note">Equipment + stock</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap v">
+        <span class="orient-tag">V</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7539.jpg" alt="Bench detail" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7539.jpg</span>
+        <div class="photo-note">Bench detail</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap v">
+        <span class="orient-tag">V</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7550.jpg" alt="Production area" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7550.jpg</span>
+        <div class="photo-note">Production area</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7559.jpg" alt="Shop equipment wide" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7559.jpg</span>
+        <div class="photo-note">Shop equipment wide</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7598.jpg" alt="Bench floor view" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7598.jpg</span>
+        <div class="photo-note">Bench floor view</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap v">
+        <span class="orient-tag">V</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7650.jpg" alt="Shop architecture view" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7650.jpg</span>
+        <div class="photo-note">Shop architecture view</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7661.jpg" alt="Bench station" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7661.jpg</span>
+        <div class="photo-note">Bench station</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7738.jpg" alt="Production area" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7738.jpg</span>
+        <div class="photo-note">Production area</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap v">
+        <span class="orient-tag">V</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7747.jpg" alt="Bench / stock view" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7747.jpg</span>
+        <div class="photo-note">Bench / stock view</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap v">
+        <span class="orient-tag">V</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7749.jpg" alt="Equipment area" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7749.jpg</span>
+        <div class="photo-note">Equipment area</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7751.jpg" alt="Production floor" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7751.jpg</span>
+        <div class="photo-note">Production floor</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7756.jpg" alt="Bench corner" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7756.jpg</span>
+        <div class="photo-note">Bench corner</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7824.jpg" alt="Shop wide angle" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7824.jpg</span>
+        <div class="photo-note">Shop wide angle</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap v">
+        <span class="orient-tag">V</span>
+        <span class="usage-tag">Used 1×</span>
+        <img src="photos/_DSC7741.jpg" alt="Vertical bench detail" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7741.jpg</span>
+        <div class="photo-note">Vertical bench detail</div>
+        <div class="photo-uses"><strong>Used in:</strong> Post 02 / 08</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag">Used 1×</span>
+        <img src="photos/_DSC7750.jpg" alt="Wide shop overview" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7750.jpg</span>
+        <div class="photo-note">Wide shop overview</div>
+        <div class="photo-uses"><strong>Used in:</strong> Post 02 / 08</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag">Used 3×</span>
+        <img src="photos/_DSC7344.jpg" alt="Clamp rack + edge bander · traditional bench" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7344.jpg</span>
+        <div class="photo-note">Clamp rack + edge bander · traditional bench</div>
+        <div class="photo-uses"><strong>Used in:</strong> Post 02 / 08 · Variant 01anti-marketing · Variant 04myth-busting</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag">Used 4×</span>
+        <img src="photos/_DSC7271.jpg" alt="Cabinet runs in production · mid-assembly" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7271.jpg</span>
+        <div class="photo-note">Cabinet runs in production · mid-assembly</div>
+        <div class="photo-uses"><strong>Used in:</strong> Post 02 / 08 · Post 07 / 08 · Post 09 / 12 (Wk 3) · Variant 03hot take</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag">Used 5×</span>
+        <img src="photos/_DSC7422.jpg" alt="Wide shop with workers · the team in motion" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7422.jpg</span>
+        <div class="photo-note">Wide shop with workers · the team in motion</div>
+        <div class="photo-uses"><strong>Used in:</strong> Post 02 / 08 · Post 03 / 08 · Variant 01anti-marketing · Variant 03hot take · Variant 08locality</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cat" id="material">
+  <div class="cat-num">04</div>
+  <h2 class="cat-title">Material <em>(3)</em></h2>
+  <p class="cat-sub">Panel faces, species, finished surfaces. Slip-match, smoked oak, walnut.</p>
+  <div class="photo-grid">
+    <div class="photo-card">
+      <div class="photo-wrap v">
+        <span class="orient-tag">V</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7546.jpg" alt="Material face detail · vertical" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7546.jpg</span>
+        <div class="photo-note">Material face detail · vertical</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap v">
+        <span class="orient-tag">V</span>
+        <span class="usage-tag">Used 1×</span>
+        <img src="photos/_DSC7470.jpg" alt="Slip-matched Eastern maple panel face · cigar lounge" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7470.jpg</span>
+        <div class="photo-note">Slip-matched Eastern maple panel face · cigar lounge</div>
+        <div class="photo-uses"><strong>Used in:</strong> Post 04 / 08</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag">Used 1×</span>
+        <img src="photos/_DSC7542.jpg" alt="Smoked Arabica oak slats · three thousand in one house" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7542.jpg</span>
+        <div class="photo-note">Smoked Arabica oak slats · three thousand in one house</div>
+        <div class="photo-uses"><strong>Used in:</strong> Post 08 / 08</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cat" id="people">
+  <div class="cat-num">05</div>
+  <h2 class="cat-title">People <em>(2)</em></h2>
+  <p class="cat-sub">Team portraits and craftspeople at work. Sheldon, Sydney, JC, the bench.</p>
+  <div class="photo-grid">
+    <div class="photo-card">
+      <div class="photo-wrap v">
+        <span class="orient-tag">V</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/_DSC7679.jpg" alt="Team member at bench" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7679.jpg</span>
+        <div class="photo-note">Team member at bench</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap v">
+        <span class="orient-tag">V</span>
+        <span class="usage-tag">Used 5×</span>
+        <img src="photos/_DSC7491.jpg" alt="Sydney at the router · cutting work" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7491.jpg</span>
+        <div class="photo-note">Sydney at the router · cutting work</div>
+        <div class="photo-uses"><strong>Used in:</strong> Post 02 / 08 · Post 03 / 08 · Post 07 / 08 · Variant 04myth-busting · Variant 05apprentice voice</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cat" id="finishing">
+  <div class="cat-num">06</div>
+  <h2 class="cat-title">Finishing <em>(1)</em></h2>
+  <p class="cat-sub">Spray booth, sheen, conversion varnish. The last touch.</p>
+  <div class="photo-grid">
+    <div class="photo-card">
+      <div class="photo-wrap v">
+        <span class="orient-tag">V</span>
+        <span class="usage-tag">Used 2×</span>
+        <img src="photos/_DSC7665.jpg" alt="Finishing room close · conversion varnish" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">_DSC7665.jpg</span>
+        <div class="photo-note">Finishing room close · conversion varnish</div>
+        <div class="photo-uses"><strong>Used in:</strong> Post 05 / 08 · Variant 08locality</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cat" id="archive">
+  <div class="cat-num">07</div>
+  <h2 class="cat-title">Archive <em>(6)</em></h2>
+  <p class="cat-sub">Existing project photography from prior work. Walnut Estate, Rosebery, Lion's Bay, etc.</p>
+  <div class="photo-grid">
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/lion-3.jpg" alt="Lion's Bay project · archive" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">lion-3.jpg</span>
+        <div class="photo-note">Lion's Bay project · archive</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap v">
+        <span class="orient-tag">V</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/luxury-1.jpg" alt="Curved alder staircase · archive" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">luxury-1.jpg</span>
+        <div class="photo-note">Curved alder staircase · archive</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap v">
+        <span class="orient-tag">V</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/luxury-41.jpg" alt="Rosebery Estate curved staircase · AWMAC Gold 2011 · archive" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">luxury-41.jpg</span>
+        <div class="photo-note">Rosebery Estate curved staircase · AWMAC Gold 2011 · archive</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/walnut-3.jpg" alt="Walnut Estate project · archive" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">walnut-3.jpg</span>
+        <div class="photo-note">Walnut Estate project · archive</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap h">
+        <span class="orient-tag">H</span>
+        <span class="usage-tag unused">Unused</span>
+        <img src="photos/waterfront-3.jpg" alt="Waterfront residence · archive" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">waterfront-3.jpg</span>
+        <div class="photo-note">Waterfront residence · archive</div>
+        <div class="photo-uses"><strong>Used in:</strong> —</div>
+      </div>
+    </div>
+    <div class="photo-card">
+      <div class="photo-wrap v">
+        <span class="orient-tag">V</span>
+        <span class="usage-tag">Used 2×</span>
+        <img src="photos/luxury-22.jpg" alt="Walnut display cabinet · archive" loading="lazy">
+      </div>
+      <div class="photo-meta">
+        <span class="photo-id">luxury-22.jpg</span>
+        <div class="photo-note">Walnut display cabinet · archive</div>
+        <div class="photo-uses"><strong>Used in:</strong> Variant 02cost transparency · Variant 06material philosophy</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  Radius Architectural Millwork · Photo Bank · v1.0<br>
+  Generated from /clients/radius-wood/may-posts-preview/photos/
+</footer>
+
+</body>
+</html>
