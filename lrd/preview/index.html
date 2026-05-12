@@ -366,12 +366,6 @@ h2 .lrd-section-num {
   transform: scale(1.04);
   filter: brightness(0.88);
 }
-/* Gallery spotlight, when hovering one tile, other tiles dim */
-.lrd-proj-stack .lrd-proj-item {
-  transition: opacity 0.5s var(--ease);
-}
-.lrd-proj-stack:hover .lrd-proj-item { opacity: 0.45; }
-.lrd-proj-stack:hover .lrd-proj-item:hover { opacity: 1; }
 @media(max-width:900px) { .lrd-proj-stack { grid-template-columns: repeat(2, 1fr); } }
 @media(max-width:550px) { .lrd-proj-stack { grid-template-columns: 1fr; } }
 /* Hover gradient mask, creates depth for the overlay text */
