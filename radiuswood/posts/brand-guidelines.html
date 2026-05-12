@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Radius — Brand Guidelines v1.0</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;1,400&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Cinzel:wght@500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --red: #A82838;
+    --paper: #FAFAF5;
+    --paper-warm: #F2E9DC;
+    --peach: #E7D9CD;
+    --ink: #1F1B17;
+    --gray: #6E5F50;
+    --line: #D9CDB8;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--paper); line-height: 1.6; font-weight: 400; }
+
+  /* DRAFTING GRID TEXTURE — global page background */
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(31,27,23,0.025) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(31,27,23,0.025) 1px, transparent 1px);
+    background-size: 27px 27px;
+    pointer-events: none; z-index: 0;
+  }
+  body > * { position: relative; z-index: 1; }
+
+  /* HEADER */
+  header { padding: 90px 64px 50px; border-bottom: 1px solid var(--line); }
+  .h-eyebrow {
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.66rem; font-weight: 500; letter-spacing: 0.4em;
+    text-transform: uppercase; color: var(--red);
+    margin-bottom: 28px; display: inline-flex; align-items: center; gap: 14px;
+  }
+  .h-eyebrow::before, .h-eyebrow::after {
+    content: ''; display: inline-block; width: 32px; height: 1px; background: var(--red);
+  }
+  h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 4.2rem; font-weight: 400; line-height: 1.05;
+    color: var(--ink); margin-bottom: 18px;
+  }
+  h1 em { font-style: italic; color: var(--red); }
+  .h-sub { font-size: 1.08rem; color: var(--gray); max-width: 720px; line-height: 1.75; margin-bottom: 44px; }
+  .meta-row { display: flex; flex-wrap: wrap; gap: 56px; padding-top: 32px; border-top: 1px solid var(--line); }
+  .meta-item { font-size: 0.84rem; color: var(--gray); }
+  .meta-item strong {
+    display: block; font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem;
+    letter-spacing: 0.28em; text-transform: uppercase; color: var(--ink);
+    margin-bottom: 6px; font-weight: 500;
+  }
+
+  /* NAV */
+  nav.toc {
+    padding: 18px 64px; background: var(--paper-warm);
+    border-bottom: 1px solid var(--line); position: sticky; top: 0; z-index: 20;
+  }
+  .toc-inner {
+    display: flex; gap: 24px; flex-wrap: wrap; align-items: center;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; font-weight: 500;
+    letter-spacing: 0.22em; text-transform: uppercase;
+  }
+  nav.toc a {
+    color: var(--ink); text-decoration: none; padding: 6px 10px;
+    border: 1px solid transparent; transition: border-color .15s ease;
+  }
+  nav.toc a:hover { border-color: var(--red); color: var(--red); }
+  nav.toc a.external { color: var(--red); }
+
+  /* SECTIONS */
+  section.s { padding: 80px 64px; border-bottom: 1px solid var(--line); }
+  .s-num {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; font-weight: 500;
+    letter-spacing: 0.32em; color: var(--red); margin-bottom: 10px;
+  }
+  h2 {
+    font-family: 'Cormorant Garamond', serif; font-size: 2.6rem; font-weight: 400;
+    line-height: 1.1; color: var(--ink); margin-bottom: 8px;
+  }
+  h2 em { font-style: italic; color: var(--red); font-size: 1.8rem; }
+  .s-sub { font-size: 1rem; color: var(--gray); max-width: 720px; margin-bottom: 44px; line-height: 1.75; }
+
+  h3 {
+    font-family: 'Cormorant Garamond', serif; font-size: 1.6rem; font-weight: 400;
+    color: var(--ink); margin-bottom: 8px; margin-top: 36px;
+  }
+  h3 em { font-style: italic; color: var(--red); }
+  h4 {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.66rem; font-weight: 500;
+    letter-spacing: 0.28em; color: var(--ink); margin-bottom: 14px;
+    text-transform: uppercase; margin-top: 28px;
+  }
+  p { font-size: 0.95rem; color: var(--ink); line-height: 1.75; max-width: 720px; margin-bottom: 14px; }
+  p.note { font-size: 0.85rem; color: var(--gray); font-style: italic; }
+  ul { padding-left: 22px; margin-bottom: 18px; max-width: 720px; }
+  li { font-size: 0.95rem; color: var(--ink); line-height: 1.75; margin-bottom: 4px; }
+  hr.hairline { border: none; border-top: 1px solid var(--line); margin: 36px 0; max-width: 720px; }
+
+  /* WORDMARK BLOCK */
+  .wordmark-block {
+    display: flex; align-items: center; justify-content: center;
+    padding: 80px 40px; background: var(--paper-warm); border: 1px solid var(--line);
+    margin-bottom: 32px;
+  }
+  .wordmark {
+    font-family: 'Cinzel', serif; font-weight: 600;
+    font-size: 4rem; letter-spacing: 0.18em; color: var(--red);
+    text-transform: uppercase;
+  }
+  .wordmark-ink { color: var(--ink); }
+  .wordmark-dark-bg { background: var(--ink); border: 1px solid var(--ink); }
+  .wordmark-dark-bg .wordmark { color: var(--paper); }
+  .wordmark-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-bottom: 18px; }
+  .wordmark-detail {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    color: var(--gray); font-size: 0.95rem; max-width: 600px;
+  }
+
+  /* COLOR PALETTE */
+  .color-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 16px; margin-top: 24px;
+  }
+  .color-card { background: white; border: 1px solid var(--line); overflow: hidden; }
+  .color-swatch { height: 140px; position: relative; }
+  .color-swatch::after {
+    content: attr(data-hex);
+    position: absolute; bottom: 8px; right: 10px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem;
+    letter-spacing: 0.18em; color: white; background: rgba(0,0,0,0.55);
+    padding: 4px 8px; text-transform: uppercase;
+  }
+  .color-swatch.light::after { color: var(--ink); background: rgba(255,255,255,0.85); }
+  .color-meta { padding: 14px 16px; }
+  .color-name {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--red);
+    margin-bottom: 8px;
+  }
+  .color-use { font-size: 0.85rem; color: var(--gray); line-height: 1.55; }
+  .color-vals { font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; color: var(--gray); margin-top: 8px; line-height: 1.6; }
+
+  /* TYPE SPECIMEN */
+  .type-spec { background: white; border: 1px solid var(--line); padding: 36px 40px; margin-bottom: 18px; }
+  .type-meta {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--red);
+    margin-bottom: 14px;
+  }
+  .type-cinzel { font-family: 'Cinzel', serif; font-weight: 600; font-size: 2.6rem; letter-spacing: 0.18em; }
+  .type-cormorant { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 2.6rem; line-height: 1.15; }
+  .type-inter { font-family: 'Inter', sans-serif; font-size: 1.05rem; line-height: 1.75; }
+  .type-plex { font-family: 'IBM Plex Mono', monospace; font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; }
+  .type-rules {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem;
+    color: var(--gray); margin-top: 16px; line-height: 1.7;
+  }
+  .type-rules code { color: var(--ink); }
+
+  /* SLIDE EXAMPLES */
+  .slides-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 18px; margin-top: 24px;
+  }
+  .slide-card { background: white; border: 1px solid var(--line); }
+  .slide-card img { width: 100%; aspect-ratio: 4/5; object-fit: cover; display: block; }
+  .slide-meta { padding: 14px 16px; }
+  .slide-type {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--red); margin-bottom: 6px;
+  }
+  .slide-desc { font-size: 0.85rem; color: var(--ink); line-height: 1.55; }
+
+  /* PHOTO TREATMENT */
+  .photo-grid {
+    display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 16px; margin-top: 24px;
+  }
+  .photo-card { background: white; border: 1px solid var(--line); }
+  .photo-card .ph-wrap { background: var(--paper-warm); }
+  .photo-card.h img { aspect-ratio: 3/2; object-fit: cover; width: 100%; display: block; }
+  .photo-card.v img { aspect-ratio: 4/5; object-fit: cover; width: 100%; display: block; }
+  .photo-card .ph-meta { padding: 12px 14px; }
+  .photo-card .ph-id {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem;
+    letter-spacing: 0.18em; text-transform: uppercase; color: var(--red);
+    margin-bottom: 6px;
+  }
+  .photo-card .ph-desc { font-size: 0.82rem; color: var(--ink); line-height: 1.5; }
+
+  /* DO / DON'T */
+  .do-dont-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 24px; }
+  .dd-card { background: white; border: 1px solid var(--line); padding: 26px 28px; }
+  .dd-card.do { border-left: 4px solid var(--red); }
+  .dd-card.dont { border-left: 4px solid var(--gray); opacity: 0.95; }
+  .dd-label {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    margin-bottom: 12px; display: inline-block; padding: 4px 10px;
+  }
+  .do .dd-label { color: var(--paper); background: var(--red); }
+  .dont .dd-label { color: var(--paper); background: var(--gray); }
+  .dd-quote {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 1.15rem; color: var(--ink); margin-bottom: 10px; line-height: 1.55;
+  }
+  .dd-note { font-size: 0.85rem; color: var(--gray); line-height: 1.65; }
+
+  /* GRID DEMO */
+  .grid-demo { background: white; border: 1px solid var(--line); padding: 0; margin-top: 24px; aspect-ratio: 4/5; max-width: 540px; position: relative; }
+  .grid-demo::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(31,27,23,0.06) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(31,27,23,0.06) 1px, transparent 1px);
+    background-size: 27px 27px;
+  }
+  .grid-demo::after {
+    content: '';
+    position: absolute; inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(31,27,23,0.18) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(31,27,23,0.18) 1px, transparent 1px);
+    background-size: 135px 135px;
+  }
+  .grid-demo-peach {
+    position: absolute; top: 0; left: 0; right: 0; height: 14px;
+    background: var(--peach); z-index: 2;
+  }
+  .grid-demo-label {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 1.4rem; color: var(--red); z-index: 3; text-align: center;
+  }
+  .grid-demo-page {
+    position: absolute; bottom: 14px; right: 14px;
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.55rem;
+    letter-spacing: 0.22em; color: var(--ink); z-index: 3;
+  }
+  .grid-demo-brand {
+    position: absolute; bottom: 14px; left: 14px; z-index: 3;
+  }
+  .grid-demo-brand .wm-line {
+    font-family: 'Cinzel', serif; font-weight: 600;
+    font-size: 0.85rem; letter-spacing: 0.22em; color: var(--ink);
+  }
+  .grid-demo-brand .wm-sub {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.45rem;
+    letter-spacing: 0.18em; color: var(--gray); text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  /* VOICE TABLE */
+  .voice-table { background: white; border: 1px solid var(--line); margin-top: 24px; }
+  .voice-row { display: grid; grid-template-columns: 1fr 1.5fr; border-bottom: 1px solid var(--line); }
+  .voice-row:last-child { border-bottom: none; }
+  .voice-row > div { padding: 18px 22px; }
+  .voice-row > div:first-child {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem;
+    letter-spacing: 0.22em; text-transform: uppercase; color: var(--red);
+    border-right: 1px solid var(--line); background: var(--paper-warm);
+  }
+  .voice-row > div:last-child {
+    font-family: 'Cormorant Garamond', serif; font-style: italic;
+    font-size: 1.05rem; color: var(--ink); line-height: 1.55;
+  }
+
+  /* VOCABULARY TABLE */
+  .vocab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 24px; }
+  .vocab-card { background: white; border: 1px solid var(--line); padding: 24px 28px; }
+  .vocab-card.use { border-left: 4px solid var(--red); }
+  .vocab-card.avoid { border-left: 4px solid var(--gray); }
+  .vocab-label {
+    font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    margin-bottom: 14px; padding: 4px 10px; display: inline-block;
+  }
+  .vocab-card.use .vocab-label { color: var(--paper); background: var(--red); }
+  .vocab-card.avoid .vocab-label { color: var(--paper); background: var(--gray); }
+  .vocab-list { font-size: 0.85rem; color: var(--ink); line-height: 1.9; }
+  .vocab-list code {
+    font-family: 'IBM Plex Mono', monospace; background: var(--paper-warm);
+    padding: 1px 6px; font-size: 0.78rem; color: var(--ink);
+  }
+
+  /* CAPTION EXAMPLE */
+  .caption-example { background: white; border: 1px solid var(--line); padding: 28px 32px; margin-top: 24px; max-width: 680px; }
+  .caption-example pre {
+    font-family: 'Inter', sans-serif; font-size: 0.95rem; line-height: 1.85;
+    color: var(--ink); white-space: pre-wrap; margin-bottom: 20px;
+  }
+  .caption-annot { font-size: 0.82rem; color: var(--red); font-family: 'IBM Plex Mono', monospace; letter-spacing: 0.14em; text-transform: uppercase; margin-top: 14px; padding-top: 14px; border-top: 1px solid var(--line); }
+
+  /* FOOTER */
+  footer { padding: 60px 64px; text-align: center; color: var(--gray); font-size: 0.82rem; line-height: 1.9; }
+  footer .wm { font-family: 'Cinzel', serif; font-weight: 600; color: var(--red); letter-spacing: 0.22em; font-size: 1rem; margin-bottom: 6px; display: block; }
+
+  @media print {
+    nav.toc { display: none; }
+    body::before { display: none; }
+    section.s { page-break-inside: avoid; padding: 40px 30px; }
+    header { padding: 40px 30px 30px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="h-eyebrow">Radius Architectural Millwork · Brand Guidelines v1.0</div>
+  <h1>How <em>Radius</em> shows up<br>in print, screen, and on the bench.</h1>
+  <p class="h-sub">A working brand system — wordmark, colour palette, type hierarchy, drafting grid, photography treatment, and Rick's voice. Built from the May 2026 content system and the editorial register established for architects, designers, and luxury-home owners.</p>
+  <div class="meta-row">
+    <div class="meta-item"><strong>Issued</strong>May 2026</div>
+    <div class="meta-item"><strong>Version</strong>v1.0</div>
+    <div class="meta-item"><strong>For</strong>Rick Wilson · Owner + Master Joiner</div>
+    <div class="meta-item"><strong>Audience</strong>Architects · Designers · Owners</div>
+    <div class="meta-item"><strong>Pages</strong>One · long-form</div>
+  </div>
+</header>
+
+<nav class="toc">
+  <div class="toc-inner">
+    <a href="#brand">01 Brand</a>
+    <a href="#wordmark">02 Wordmark</a>
+    <a href="#colour">03 Colour</a>
+    <a href="#type">04 Type</a>
+    <a href="#grid">05 Grid</a>
+    <a href="#slides">06 Slides</a>
+    <a href="#photo">07 Photo</a>
+    <a href="#voice">08 Voice</a>
+    <a href="#post">09 Post in practice</a>
+    <a href="#donts">10 Don'ts</a>
+    <a href="index.html" class="external">← Posts preview</a>
+  </div>
+</nav>
+
+<!-- 01 BRAND POSITIONING -->
+<section class="s" id="brand">
+  <div class="s-num">01</div>
+  <h2>The brand <em>in one paragraph.</em></h2>
+  <p class="s-sub">Radius makes custom architectural millwork in Burnaby, BC. Twenty-five years on the bench. Twenty craftspeople, half European-trained. Zero CNC. Drawings, cuts, finishing, install support — all under one roof.</p>
+
+  <h3>What we promise <em>visually.</em></h3>
+  <p>Radius is a working shop, not a marketing studio. The brand reads like the drawings the architect ships us: <strong>paper-pale, dimensionally precise, hairline-ruled, and red where it matters.</strong> No stock photography. No generic "luxury." No words Rick wouldn't say at the bench.</p>
+
+  <h3>What this guide <em>is for.</em></h3>
+  <p>So that anyone working on a Radius asset — a social post, a one-pager, a proposal cover, an email signature — can produce something on-brand without guessing. The system is opinionated by design: pick from the palette below, use the type hierarchy as written, follow Rick's voice rules, ship.</p>
+</section>
+
+<!-- 02 WORDMARK -->
+<section class="s" id="wordmark">
+  <div class="s-num">02</div>
+  <h2>Wordmark <em>· RADIUS</em></h2>
+  <p class="s-sub">Cinzel SemiBold, all caps, +0.18em letter-spacing. The wordmark is set, not drawn — its strength is consistency, not customisation.</p>
+
+  <div class="wordmark-pair">
+    <div class="wordmark-block">
+      <span class="wordmark">RADIUS</span>
+    </div>
+    <div class="wordmark-block wordmark-dark-bg">
+      <span class="wordmark">RADIUS</span>
+    </div>
+  </div>
+  <p class="note">Red on paper · Paper on ink. Two acceptable lockups. Both use the same letter-spacing and weight.</p>
+
+  <h3>Rules</h3>
+  <ul>
+    <li><strong>Letter-spacing</strong> is always +0.18em. Never tighter.</li>
+    <li><strong>Weight</strong> is Cinzel SemiBold (600). Never Regular, never Bold.</li>
+    <li><strong>Colour</strong> on paper background: <code style="font-family: 'IBM Plex Mono', monospace; background: var(--paper-warm); padding: 1px 6px; font-size: 0.85em;">#A82838</code> (Radius Red).</li>
+    <li><strong>Colour</strong> on dark/ink background: <code style="font-family: 'IBM Plex Mono', monospace; background: var(--paper-warm); padding: 1px 6px; font-size: 0.85em;">#FAFAF5</code> (Paper). Never red-on-ink — too vibrating.</li>
+    <li><strong>Minimum size</strong> in print: 14pt. On screen: 16px. Smaller than that, the spacing breaks down.</li>
+    <li><strong>Clear space</strong> on every side equals the height of the cap "R."</li>
+  </ul>
+
+  <h3>The recurring brand block</h3>
+  <p>On slides, the wordmark pairs with a single descriptor line in IBM Plex Mono. Used in the lower-left of carousel slides.</p>
+  <div style="background: white; border: 1px solid var(--line); padding: 28px; display: inline-block; margin-top: 14px;">
+    <div style="font-family: 'Cinzel', serif; font-weight: 600; font-size: 1.1rem; letter-spacing: 0.22em; color: var(--ink);">RADIUS</div>
+    <div style="font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; letter-spacing: 0.22em; color: var(--gray); text-transform: uppercase; margin-top: 4px;">Architectural Millwork</div>
+    <div style="width: 32px; height: 1px; background: var(--red); margin-top: 8px;"></div>
+  </div>
+</section>
+
+<!-- 03 COLOUR -->
+<section class="s" id="colour">
+  <div class="s-num">03</div>
+  <h2>Colour <em>· seven values.</em></h2>
+  <p class="s-sub">A small palette by choice. Red is the only saturated colour in the system — everything else is paper, ink, or earth tones. The drafting-grid aesthetic depends on this restraint.</p>
+
+  <div class="color-grid">
+    <div class="color-card">
+      <div class="color-swatch" style="background: #A82838;" data-hex="#A82838"></div>
+      <div class="color-meta">
+        <div class="color-name">Radius Red</div>
+        <div class="color-use">The single saturated colour. Wordmark, accents, callouts, eyebrows, hairline rules where signal is needed.</div>
+        <div class="color-vals">RGB 168 · 40 · 56<br>CMYK 18 · 92 · 70 · 8<br>HSL 352° · 62% · 41%</div>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch light" style="background: #FAFAF5;" data-hex="#FAFAF5"></div>
+      <div class="color-meta">
+        <div class="color-name">Paper</div>
+        <div class="color-use">Primary background. Off-white, slight warm cast. Replaces the beige of v2 — cooler, more architectural.</div>
+        <div class="color-vals">RGB 250 · 250 · 245<br>CMYK 1 · 0 · 3 · 0</div>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch light" style="background: #F2E9DC;" data-hex="#F2E9DC"></div>
+      <div class="color-meta">
+        <div class="color-name">Paper Warm</div>
+        <div class="color-use">Alternate background for nav bars, sticky sections, card surfaces.</div>
+        <div class="color-vals">RGB 242 · 233 · 220</div>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch light" style="background: #E7D9CD;" data-hex="#E7D9CD"></div>
+      <div class="color-meta">
+        <div class="color-name">Peach</div>
+        <div class="color-use">14px band at the top of every slide. The single warm motif that ties carousels together. Never larger than 14px.</div>
+        <div class="color-vals">RGB 231 · 217 · 205</div>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background: #1F1B17;" data-hex="#1F1B17"></div>
+      <div class="color-meta">
+        <div class="color-name">Ink</div>
+        <div class="color-use">Primary text. Dark slide backgrounds. Almost-black with warm cast — never pure #000.</div>
+        <div class="color-vals">RGB 31 · 27 · 23<br>HSL 30° · 15% · 11%</div>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch" style="background: #6E5F50;" data-hex="#6E5F50"></div>
+      <div class="color-meta">
+        <div class="color-name">Gray</div>
+        <div class="color-use">Secondary text, body copy notes, "Used in" tags, metadata.</div>
+        <div class="color-vals">RGB 110 · 95 · 80</div>
+      </div>
+    </div>
+    <div class="color-card">
+      <div class="color-swatch light" style="background: #D9CDB8;" data-hex="#D9CDB8"></div>
+      <div class="color-meta">
+        <div class="color-name">Line</div>
+        <div class="color-use">Hairline rules, dividers, card borders. Sits between Paper and Gray.</div>
+        <div class="color-vals">RGB 217 · 205 · 184</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Rules</h3>
+  <ul>
+    <li>Red appears <strong>only as accent</strong> — never as a fill behind text, never as a colour block bigger than 60px square.</li>
+    <li>Backgrounds are <strong>Paper or Ink</strong>. Never a coloured fill outside those two.</li>
+    <li>Peach is reserved for <strong>the 14px slide band</strong> and nothing else.</li>
+    <li>No gradients. No drop shadows. No glow.</li>
+  </ul>
+</section>
+
+<!-- 04 TYPE -->
+<section class="s" id="type">
+  <div class="s-num">04</div>
+  <h2>Type <em>· four families.</em></h2>
+  <p class="s-sub">Each family has a single job. Don't blur the roles — that's where the editorial register breaks.</p>
+
+  <div class="type-spec">
+    <div class="type-meta">01 · Cinzel SemiBold · The wordmark, only.</div>
+    <div class="type-cinzel">RADIUS</div>
+    <div class="type-rules">
+      Use: <code>RADIUS</code> wordmark · Section openers in the brand-block treatment<br>
+      Size: 14pt+ in print, 16px+ on screen<br>
+      Letter-spacing: <code>0.18em</code> always · weight: <code>600</code><br>
+      Never: body copy, headlines, captions
+    </div>
+  </div>
+
+  <div class="type-spec">
+    <div class="type-meta">02 · Cormorant Garamond Italic · Display + headlines.</div>
+    <div class="type-cormorant">Story to tell <em style="color: var(--red);">for the client.</em></div>
+    <div class="type-rules">
+      Use: Headlines, slide titles, quote pull-outs, section openers<br>
+      Style: Italic primarily · roman for occasional anchor word<br>
+      Italics carry the warmth — the architectural counterpoint to the technical monospace<br>
+      Pair with Red for the second clause: <code>title-em</code> pattern
+    </div>
+  </div>
+
+  <div class="type-spec">
+    <div class="type-meta">03 · Inter · Body copy.</div>
+    <div class="type-inter">Solid Eastern maple. Pin-and-tail dovetail, traditional cut. No fasteners — the geometry of the joint is what holds it. Twenty hours per drawer. Material is the cheap part — about thirty dollars in wood.</div>
+    <div class="type-rules">
+      Use: All body copy · captions · paragraph text · metadata<br>
+      Sizes: 0.85rem (small), 1rem (default), 1.08rem (lede)<br>
+      Weights: 300, 400, 500 · never 600+ in body<br>
+      Line-height: <code>1.6</code> minimum, <code>1.75</code> preferred for long-form
+    </div>
+  </div>
+
+  <div class="type-spec">
+    <div class="type-meta">04 · IBM Plex Mono · Technical labels.</div>
+    <div class="type-plex">Burnaby · BC · Twenty-Five Years</div>
+    <div class="type-rules">
+      Use: Eyebrow labels · page indicators · technical specs · metadata strong-tags · footers<br>
+      Size: 0.55rem – 0.85rem<br>
+      Letter-spacing: <code>0.18em</code> – <code>0.4em</code> · always uppercase<br>
+      Weight: 400 or 500<br>
+      Colour: Red for eyebrows · Ink or Gray elsewhere
+    </div>
+  </div>
+</section>
+
+<!-- 05 GRID -->
+<section class="s" id="grid">
+  <div class="s-num">05</div>
+  <h2>The drafting grid <em>· quiet texture.</em></h2>
+  <p class="s-sub">Every Radius surface — slide, page, proposal — carries a subtle architectural grid. References the architect's drawing set. Sits under content, never on top. Loud grids fight the type; ours is whisper-quiet.</p>
+
+  <h3>Specifications</h3>
+  <ul>
+    <li><strong>Minor grid:</strong> 27px squares · 1px hairlines at 2.5% opacity ink</li>
+    <li><strong>Major grid:</strong> 135px squares · 1px hairlines at 18% opacity ink</li>
+    <li>On a 1080×1350 slide that's 40×50 minor cells, 8×10 major cells</li>
+    <li>The peach band sits in the top 14px — above the grid</li>
+    <li>The brand block + page indicator sit at the bottom — above the grid</li>
+  </ul>
+
+  <h3>Live example</h3>
+  <p class="note">A 4:5 slide canvas with the full chrome: peach band top, drafting grid behind, brand block bottom-left, page indicator bottom-right, italic display centred.</p>
+  <div class="grid-demo">
+    <div class="grid-demo-peach"></div>
+    <div class="grid-demo-label">"Flush can look flush,<br>but is it flush?"</div>
+    <div class="grid-demo-page">03 / 05</div>
+    <div class="grid-demo-brand">
+      <div class="wm-line">RADIUS</div>
+      <div class="wm-sub">Architectural Millwork</div>
+    </div>
+  </div>
+</section>
+
+<!-- 06 SLIDES -->
+<section class="s" id="slides">
+  <div class="s-num">06</div>
+  <h2>Slide system <em>· eight templates.</em></h2>
+  <p class="s-sub">Every Instagram carousel is built from these eight. They're not free-form — pick from the set, fill it with content, ship. The constraint is what makes the feed feel like one shop talking, not a portfolio of unrelated posts.</p>
+
+  <div class="slides-grid">
+    <div class="slide-card">
+      <img src="slides/p2_s1_cover.png" alt="Cover Dark">
+      <div class="slide-meta">
+        <div class="slide-type">01 · Cover Dark</div>
+        <div class="slide-desc">Photo background + ink-gradient overlay. Eyebrow + italic title + subtitle + footer. The carousel opener.</div>
+      </div>
+    </div>
+    <div class="slide-card">
+      <img src="slides/p1_s2_quote.png" alt="Quote Dark">
+      <div class="slide-meta">
+        <div class="slide-type">02 · Quote Dark</div>
+        <div class="slide-desc">Contextual photo behind, dark gradient over. Italic pull-quote, attribution, footer. Rick's voice surface.</div>
+      </div>
+    </div>
+    <div class="slide-card">
+      <img src="slides/p1_s3_number.png" alt="Number Punch">
+      <div class="slide-meta">
+        <div class="slide-type">03 · Number Punch</div>
+        <div class="slide-desc">Large numeral + label + three spec rows. The "what twenty-five years means" surface.</div>
+      </div>
+    </div>
+    <div class="slide-card">
+      <img src="slides/p4_s3_material.png" alt="Spec Material Dark">
+      <div class="slide-meta">
+        <div class="slide-type">04 · Spec Material Dark</div>
+        <div class="slide-desc">Species + cut + properties. Material literacy in slide form. For designers and material-spec audience.</div>
+      </div>
+    </div>
+    <div class="slide-card">
+      <img src="slides/p6_s2_overlay.png" alt="Photo Overlay">
+      <div class="slide-meta">
+        <div class="slide-type">05 · Photo Overlay</div>
+        <div class="slide-desc">Full-bleed photo with material label in the lower band. The "material series" treatment.</div>
+      </div>
+    </div>
+    <div class="slide-card">
+      <img src="slides/p9_s8_pipeline.png" alt="Process Steps">
+      <div class="slide-meta">
+        <div class="slide-type">06 · Process Steps</div>
+        <div class="slide-desc">Six numbered rows with hairline dividers. For drawings-to-install pipelines, finishing process, etc.</div>
+      </div>
+    </div>
+    <div class="slide-card">
+      <img src="slides/lib_t_sheldon.png" alt="Team Portrait">
+      <div class="slide-meta">
+        <div class="slide-type">07 · Team Portrait</div>
+        <div class="slide-desc">Name + role + tenure detail. Used for Sheldon, Sydney, JC, Rick.</div>
+      </div>
+    </div>
+    <div class="slide-card">
+      <img src="slides/lib_a_awmacgold.png" alt="Award Callout">
+      <div class="slide-meta">
+        <div class="slide-type">08 · Award Callout</div>
+        <div class="slide-desc">Year + award name + project + context. AWMAC Gold, Best of Houzz. Credibility surface.</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Rules across <em>every</em> template</h3>
+  <ul>
+    <li><strong>Canvas:</strong> 1080×1350 (4:5 portrait). IG carousel native.</li>
+    <li><strong>Peach band:</strong> 14px at top, every slide, no exceptions.</li>
+    <li><strong>Brand block:</strong> Lower-left — RADIUS + Architectural Millwork + 32px red hairline.</li>
+    <li><strong>Page indicator:</strong> Lower-right — "03 / 05" in IBM Plex Mono.</li>
+    <li><strong>Drafting grid:</strong> Always present, always whisper-quiet.</li>
+    <li><strong>Two surfaces only:</strong> Paper (#FAFAF5) or Ink (#1F1B17). Mix templates in a carousel for rhythm.</li>
+  </ul>
+</section>
+
+<!-- 07 PHOTO TREATMENT -->
+<section class="s" id="photo">
+  <div class="s-num">07</div>
+  <h2>Photography <em>· what we shoot, how we show it.</em></h2>
+  <p class="s-sub">Material literacy in the camera. Specificity over coverage. Available light when possible. Warm and considered — never clinical-shop fluorescent.</p>
+
+  <h3>Subject hierarchy</h3>
+  <ul>
+    <li><strong>Joinery close-ups</strong> — dovetail, ebonised reveal, mitre, hinge. The craft axis.</li>
+    <li><strong>Shop drawings</strong> — plan views, elevations, panel callouts, finish notes. The architect's contract surface.</li>
+    <li><strong>People at the bench</strong> — Sheldon, Sydney, JC, Rick. Hands at work, not posed portraits.</li>
+    <li><strong>Material faces</strong> — slip-matched, fumed, fluted, sequence-matched panels.</li>
+    <li><strong>Wide shop</strong> — context shots showing the 5,000 sq ft engine. Used sparingly.</li>
+  </ul>
+
+  <h3>Reference frames from the May 5 shoot</h3>
+  <div class="photo-grid">
+    <div class="photo-card v">
+      <div class="ph-wrap"><img src="photos/joinery/dovetail-pin-tail-maple-close.jpg" alt="Dovetail"></div>
+      <div class="ph-meta">
+        <div class="ph-id">Joinery · Vertical</div>
+        <div class="ph-desc">Pin-and-tail dovetail · solid Eastern maple, hand-fitted</div>
+      </div>
+    </div>
+    <div class="photo-card v">
+      <div class="ph-wrap"><img src="photos/joinery/ebonised-reveal-line-corner.jpg" alt="Ebonised reveal"></div>
+      <div class="ph-meta">
+        <div class="ph-id">Joinery · Vertical</div>
+        <div class="ph-desc">Ebonised reveal carried clean through the corner — sycamore-pale carcass</div>
+      </div>
+    </div>
+    <div class="photo-card h">
+      <div class="ph-wrap"><img src="photos/drawings/ogr-shop-drawing-primary-ensuite.jpg" alt="Shop drawing"></div>
+      <div class="ph-meta">
+        <div class="ph-id">Drawings · Horizontal</div>
+        <div class="ph-desc">Radius shop drawing · OGR Primary Ensuite, forty-three-sheet set</div>
+      </div>
+    </div>
+    <div class="photo-card h">
+      <div class="ph-wrap"><img src="photos/drawings/drawing-notes-rift-oak-spec.jpg" alt="Spec notes"></div>
+      <div class="ph-meta">
+        <div class="ph-id">Drawings · Horizontal</div>
+        <div class="ph-desc">Finish notes · WD-01 rift white oak, dovetail maple drawers, Blumotion soft-close</div>
+      </div>
+    </div>
+    <div class="photo-card v">
+      <div class="ph-wrap"><img src="photos/people/sydney-at-bench-vertical.jpg" alt="Sydney"></div>
+      <div class="ph-meta">
+        <div class="ph-id">People · Vertical</div>
+        <div class="ph-desc">Sydney at the bench · Radius tee, tape on the belt, drawer-box work</div>
+      </div>
+    </div>
+    <div class="photo-card h">
+      <div class="ph-wrap"><img src="photos/finishing/jc-finisher-conversion-varnish-pass.jpg" alt="JC finishing"></div>
+      <div class="ph-meta">
+        <div class="ph-id">Finishing · Horizontal</div>
+        <div class="ph-desc">JC at the cup gun · conversion-varnish pass on a primed panel</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>Rules</h3>
+  <ul>
+    <li><strong>No stock photography.</strong> Ever. Even for placeholders. Radius shows up with its own frames or not at all.</li>
+    <li><strong>4:5 portrait</strong> for IG carousel native. Horizontals get cropped — choose horizontals knowing this.</li>
+    <li><strong>Warm cast</strong> in colour grade. The shop has warm light; don't neutralise it.</li>
+    <li><strong>Available light</strong> when possible. The finishing-room frames are an exception — keep the booth's softboxes visible.</li>
+    <li><strong>Photo bank:</strong> 62 frames organised at <code style="background: var(--paper-warm); padding: 1px 6px; font-family: 'IBM Plex Mono', monospace; font-size: 0.85em;">photo-bank.html</code>. Surface unused ones before recycling.</li>
+  </ul>
+</section>
+
+<!-- 08 VOICE -->
+<section class="s" id="voice">
+  <div class="s-num">08</div>
+  <h2>Voice <em>· Rick at the bench.</em></h2>
+  <p class="s-sub">The voice is Rick's. Specific, material-literate, matter-of-fact. Self-deprecating about scale, unsentimental about craft, direct in address. No corporate words. Numbers when they matter. Always concrete.</p>
+
+  <h3>The cadence</h3>
+  <div class="voice-table">
+    <div class="voice-row">
+      <div>Short sentences</div>
+      <div>"Sixty drawer boxes. One Whistler house. Solid Eastern maple."</div>
+    </div>
+    <div class="voice-row">
+      <div>Then one ruminative line</div>
+      <div>"You're not paying for wood. You're paying for hours that won't come back."</div>
+    </div>
+    <div class="voice-row">
+      <div>Material specificity</div>
+      <div>Never "wood" — always <em>solid Eastern maple, slip-matched, rift white oak, fumed European oak</em>.</div>
+    </div>
+    <div class="voice-row">
+      <div>Numbers when meaningful</div>
+      <div>"Twenty-five years. Twenty craftspeople. Five thousand square feet. Zero CNC."</div>
+    </div>
+    <div class="voice-row">
+      <div>Self-deprecating</div>
+      <div>"We grew to twenty-three people once. The work didn't get better. My sleep got worse."</div>
+    </div>
+    <div class="voice-row">
+      <div>Direct address</div>
+      <div>"What your set needs to make the saw move."</div>
+    </div>
+    <div class="voice-row">
+      <div>Vulnerable when earned</div>
+      <div>"If the install crew is calling at eleven at night, we've already failed."</div>
+    </div>
+  </div>
+
+  <h3>Vocabulary</h3>
+  <div class="vocab-grid">
+    <div class="vocab-card use">
+      <span class="vocab-label">Use</span>
+      <div class="vocab-list">
+        <code>slip-matched</code> · <code>sequence-matched</code> · <code>book-matched</code><br>
+        <code>fumed</code> · <code>quartersawn</code> · <code>rift</code> · <code>ebonised</code><br>
+        <code>pin-and-tail</code> · <code>mortise-and-tenon</code> · <code>mitre</code><br>
+        <code>spring-back</code> · <code>bent-lamination</code><br>
+        <code>conversion varnish</code> · <code>cup gun</code> · <code>between-coat sanded</code><br>
+        <code>bench-cut</code> · <code>hand-fit</code> · <code>the bench</code><br>
+        <code>the set</code> (= architect's drawing package)<br>
+        <code>finish schedule</code> · <code>panel callouts</code> · <code>reveal</code>
+      </div>
+    </div>
+    <div class="vocab-card avoid">
+      <span class="vocab-label">Avoid</span>
+      <div class="vocab-list">
+        <code>differentiator</code> · <code>value proposition</code> · <code>ROI</code><br>
+        <code>best-in-class</code> · <code>world-class</code> · <code>second-to-none</code><br>
+        <code>premier</code> · <code>premium</code> · <code>elevated</code><br>
+        <code>bespoke</code> · <code>artisanal</code> · <code>handcrafted</code><br>
+        <code>luxury</code> (generic — say <em>estate-scale</em> or name the project)<br>
+        <code>beautiful</code> · <code>stunning</code> · <code>gorgeous</code> · <code>amazing</code><br>
+        <code>passion</code> · <code>journey</code> · <code>quality</code> (bare)<br>
+        <code>solutions</code> · <code>synergy</code> · <code>leverage</code>
+      </div>
+    </div>
+  </div>
+
+  <h3>The "Rick filter"</h3>
+  <p>Before publishing any caption, read it aloud. If it doesn't sound like Rick at the bench — if it sounds like a marketing person trying to sound like Rick — rewrite. The test isn't elegance, it's recognition.</p>
+</section>
+
+<!-- 09 POST IN PRACTICE -->
+<section class="s" id="post">
+  <div class="s-num">09</div>
+  <h2>A post <em>in practice.</em></h2>
+  <p class="s-sub">Worked example — how the system produces a single Instagram carousel from cover to caption. All the rules above, applied at once.</p>
+
+  <h3>Post 01 · From drawing to drawer.</h3>
+
+  <div class="slides-grid" style="grid-template-columns: repeat(4, 1fr); max-width: 1080px;">
+    <div class="slide-card">
+      <img src="photos/drawings/ogr-shop-drawing-primary-ensuite.jpg" alt="Plan">
+      <div class="slide-meta">
+        <div class="slide-type">01 · Drawing</div>
+        <div class="slide-desc">Native horizontal · OGR plan view</div>
+      </div>
+    </div>
+    <div class="slide-card">
+      <img src="photos/joinery/dovetail-pin-tail-maple-close.jpg" alt="Dovetail">
+      <div class="slide-meta">
+        <div class="slide-type">02 · Photo</div>
+        <div class="slide-desc">Vertical · pin-and-tail dovetail close</div>
+      </div>
+    </div>
+    <div class="slide-card">
+      <img src="slides/p1_s2_quote.png" alt="Quote">
+      <div class="slide-meta">
+        <div class="slide-type">03 · Quote</div>
+        <div class="slide-desc">Heirloom quote · dovetail photo behind</div>
+      </div>
+    </div>
+    <div class="slide-card">
+      <img src="slides/p1_s3_number.png" alt="60">
+      <div class="slide-meta">
+        <div class="slide-type">04 · Number</div>
+        <div class="slide-desc">60 drawer boxes · the closing fact</div>
+      </div>
+    </div>
+  </div>
+
+  <h3>The caption</h3>
+  <div class="caption-example">
+<pre>Sixty drawer boxes. One Whistler house.
+
+Solid Eastern maple. Pin-and-tail dovetail, traditional cut. No fasteners — the geometry of the joint is what holds it.
+
+"It's an heirloom-quality drawer. A hundred years from now it'll still be tight."
+— Rick Wilson, Owner + Master Joiner
+
+Photography @mattanthonyphoto</pre>
+    <div class="caption-annot">Hashtag stack: #joinery #dovetail #vancouverarchitect #residentialarchitecture #customhomes #architecturalmillwork #thecraft</div>
+  </div>
+
+  <h3>Why it lands</h3>
+  <ul>
+    <li>Cover opens on the architect's own drawing — speaks their language first.</li>
+    <li>Photo 2 pays off the drawing with the executed joint. Drawings-to-bench.</li>
+    <li>Quote slide gives Rick first-person space without making him do all the work.</li>
+    <li>Number-punch slide closes on a concrete fact ("60") — memorable.</li>
+    <li>Caption is short. No "thrilled to share." No hashtag spam.</li>
+    <li>Hashtags reach architects and homeowners, not just other tradespeople.</li>
+  </ul>
+</section>
+
+<!-- 10 DON'TS -->
+<section class="s" id="donts">
+  <div class="s-num">10</div>
+  <h2>Don'ts <em>· the anti-patterns.</em></h2>
+  <p class="s-sub">Things that have happened before and shouldn't happen again. If you find yourself reaching for one of these, stop and check the rest of the guide.</p>
+
+  <div class="do-dont-grid">
+    <div class="dd-card do">
+      <span class="dd-label">Do</span>
+      <div class="dd-quote">"Sixty drawer boxes. One Whistler house."</div>
+      <div class="dd-note">Specific, material-literate, no overstatement. Rick voice.</div>
+    </div>
+    <div class="dd-card dont">
+      <span class="dd-label">Don't</span>
+      <div class="dd-quote">"Elevate your space with our premier custom millwork solutions."</div>
+      <div class="dd-note">Every word in this sentence is wrong: "elevate", "premier", "solutions", and the entire posture.</div>
+    </div>
+    <div class="dd-card do">
+      <span class="dd-label">Do</span>
+      <div class="dd-quote">Eight-template slide system, two surfaces (paper or ink), restrained palette.</div>
+      <div class="dd-note">Constraint is what makes the feed feel like one shop.</div>
+    </div>
+    <div class="dd-card dont">
+      <span class="dd-label">Don't</span>
+      <div class="dd-quote">Coloured backgrounds outside the palette. Gradient fills. Drop-shadowed type. Pure-black ink.</div>
+      <div class="dd-note">Every additional visual element competes with the drawings the architect already sent us.</div>
+    </div>
+    <div class="dd-card do">
+      <span class="dd-label">Do</span>
+      <div class="dd-quote">Architect-targeted hashtags. ICP vocabulary in body copy.</div>
+      <div class="dd-note">#vancouverarchitect, #residentialarchitecture — the people who write specs.</div>
+    </div>
+    <div class="dd-card dont">
+      <span class="dd-label">Don't</span>
+      <div class="dd-quote">#luxury #handmade #passionforcraft #woodlife #shoplife</div>
+      <div class="dd-note">Trade-internal or generic. Reaches other tradespeople, not the people who hire Rick.</div>
+    </div>
+    <div class="dd-card do">
+      <span class="dd-label">Do</span>
+      <div class="dd-quote">Photos from the bank. Inspect before you compose.</div>
+      <div class="dd-note">62 frames organised by subject. Surface unused ones first.</div>
+    </div>
+    <div class="dd-card dont">
+      <span class="dd-label">Don't</span>
+      <div class="dd-quote">Reach for <code style="font-family: 'IBM Plex Mono', monospace; font-size: 0.95em;">shop-floor-wide-bench-view.jpg</code> for the fifth time.</div>
+      <div class="dd-note">If a photo's appeared in 3+ posts, it's burned. Use the bank.</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <span class="wm">RADIUS</span>
+  Architectural Millwork · Burnaby BC · Twenty-five years on the bench<br>
+  Brand Guidelines v1.0 · Issued May 2026 · Maintained alongside the posts preview, slide library, and photo bank.<br>
+  <a href="index.html" style="color: var(--red);">Posts preview</a> · <a href="photo-bank.html" style="color: var(--red);">Photo bank</a> · <a href="slide-library.html" style="color: var(--red);">Slide library</a>
+</footer>
+
+</body>
+</html>
