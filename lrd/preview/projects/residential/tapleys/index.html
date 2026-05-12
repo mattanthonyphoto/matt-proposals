@@ -49,10 +49,10 @@ body{background:#F6F4F0!important}
 
 .lrd-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 36px clamp(32px, 6vw, 80px); display: flex; align-items: center; justify-content: space-between; transition: all 0.6s var(--ease); }
 .lrd-nav.lrd-scrolled { background: rgba(246,244,240,0.95); backdrop-filter: blur(20px); padding: 20px clamp(32px, 6vw, 80px); }
-.lrd-nav-logo { height: clamp(24px, 2.5vw, 32px); }
+.lrd-nav-logo { height: clamp(32px, 3.2vw, 44px); }
 .lrd-nav-links { display: flex; gap: clamp(24px, 3.5vw, 48px); align-items: center; }
-.lrd-nav-links a { font-weight: 300; font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; transition: color 0.3s; }
-.lrd-nav-links a.lrd-nav-cta { padding: 10px 22px; letter-spacing: 0.14em; transition: all 0.4s var(--ease); }
+.lrd-nav-links a { font-weight: 300; font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; transition: color 0.3s; }
+.lrd-nav-links a.lrd-nav-cta { padding: 12px 26px; font-size: 12.5px; letter-spacing: 0.16em; transition: all 0.4s var(--ease); }
 .lrd-nav-toggle { display: none; flex-direction: column; gap: 6px; cursor: pointer; z-index: 101; background: none; border: none; padding: 8px; }
 .lrd-nav-toggle span { width: 20px; height: 1px; transition: all 0.4s; display: block; }
 
@@ -195,8 +195,8 @@ body{background:#F6F4F0!important}
 
 <a href="#lrd-main" class="lrd-skip-link">Skip to main content</a>
 
-<nav class="lrd-nav" id="lrdNav" role="navigation" aria-label="Primary">
-  <a href="/matt-proposals/lrd/preview/" aria-label="LRD Studio, home"><img src="https://images.squarespace-cdn.com/content/v1/63dc0dfc345ed25a7efd5c5d/d3571741-4823-46bd-aff3-64f24925ac00/LRD-STUDIO-LOGO-WHITE.png" alt="LRD Studio" class="lrd-nav-logo"></a>
+<nav class="lrd-nav" id="lrdNav">
+  <a href="/matt-proposals/lrd/preview/" class="lrd-nav-brand" aria-label="LRD Studio, home"><img src="https://images.squarespace-cdn.com/content/v1/63dc0dfc345ed25a7efd5c5d/d3571741-4823-46bd-aff3-64f24925ac00/LRD-STUDIO-LOGO-WHITE.png" alt="LRD Studio" class="lrd-nav-logo"></a>
   <div class="lrd-nav-links" id="lrdNavLinks">
     <a href="/matt-proposals/lrd/preview/projects/">Projects</a>
     <a href="/matt-proposals/lrd/preview/about/">About</a>
@@ -205,7 +205,7 @@ body{background:#F6F4F0!important}
     <a href="/matt-proposals/lrd/preview/contact/">Contact</a>
     <a href="/matt-proposals/lrd/preview/contact/" class="lrd-nav-cta">Get in touch</a>
   </div>
-  <button class="lrd-nav-toggle" id="lrdNavToggle" aria-label="Open menu" aria-expanded="false" aria-controls="lrdNavLinks"><span></span><span></span><span></span></button>
+  <button class="lrd-nav-toggle" id="lrdNavToggle" aria-label="Menu"><span></span><span></span><span></span></button>
 </nav>
 
 <section class="lrd-banner-hero" id="lrd-main" role="img" aria-label="Tapleys, full renovation interior design in Whistler, BC by LRD Studio. Photography by Matt Anthony.">
@@ -241,10 +241,6 @@ body{background:#F6F4F0!important}
     <div class="lrd-proj-meta-item">
       <div class="lrd-proj-meta-label">Photographer</div>
       <div class="lrd-proj-meta-value">Matt Anthony</div>
-    </div>
-    <div class="lrd-proj-meta-item">
-      <div class="lrd-proj-meta-label">Additional Credits</div>
-      <div class="lrd-proj-meta-value">Styling: LRD Studio</div>
     </div>
   </div>
 </section><section class="lrd-proj-gallery"><div class="lrd-proj-gallery-grid">
@@ -306,15 +302,17 @@ body{background:#F6F4F0!important}
   </div>
 </section>
 
-<footer class="lrd-ft" role="contentinfo">
+<footer class="lrd-ft">
   <div class="lrd-ft-inner">
     <div class="lrd-ft-statement">
       <img src="https://images.squarespace-cdn.com/content/v1/63dc0dfc345ed25a7efd5c5d/d3571741-4823-46bd-aff3-64f24925ac00/LRD-STUDIO-LOGO-WHITE.png" alt="LRD Studio" class="lrd-ft-logo">
       <p class="lrd-ft-tagline">Designed around how you actually live.</p>
     </div>
     <div class="lrd-ft-cols">
-      <div class="lrd-ft-col"><h4>Explore</h4><a href="/matt-proposals/lrd/preview/projects/">Projects</a><a href="/matt-proposals/lrd/preview/about/">About</a><a href="/matt-proposals/lrd/preview/services/">Services</a><a href="/matt-proposals/lrd/preview/studio-notes/">Studio Notes</a><a href="/matt-proposals/lrd/preview/press/">Press</a><a href="/matt-proposals/lrd/preview/testimonials/">Client notes</a><a href="/matt-proposals/lrd/preview/careers/">Careers</a><a href="/matt-proposals/lrd/preview/contact/">Contact</a></div>
-      <div class="lrd-ft-col"><h4>Connect</h4><a href="/matt-proposals/lrd/preview/contact/">Get in touch</a><a href="mailto:hello@lrdstudio.ca">hello@lrdstudio.ca</a><a href="https://www.instagram.com/lrdstudio_interiors/" target="_blank" rel="noopener">Instagram</a><a href="/matt-proposals/lrd/preview/client-portal/">Client portal</a></div>
+      <div class="lrd-ft-col"><h4>Explore</h4><a href="/matt-proposals/lrd/preview/projects/">Projects</a><a href="/matt-proposals/lrd/preview/about/">About</a><a href="/matt-proposals/lrd/preview/services/">Services</a><a href="/matt-proposals/lrd/preview/studio-notes/">Studio Notes</a></div>
+      <div class="lrd-ft-col"><h4>Studio</h4><a href="/matt-proposals/lrd/preview/press/">Press</a><a href="/matt-proposals/lrd/preview/testimonials/">Testimonials</a><a href="/matt-proposals/lrd/preview/careers/">Careers</a><a href="/matt-proposals/lrd/preview/contact/">Contact</a></div>
+      <div class="lrd-ft-col"><h4>Connect</h4><a href="mailto:hello@lrdstudio.ca">hello@lrdstudio.ca</a><a href="https://www.instagram.com/lrdstudio_interiors/" target="_blank" rel="noopener">Instagram</a><a href="/matt-proposals/lrd/preview/client-portal/">Client portal</a><span class="lrd-ft-addr">37758 3rd Avenue, Squamish BC</span></div>
+      <div class="lrd-ft-col"><h4>Recognition</h4><span>Western Living Design 25 Winner</span><span>WL Home of the Year Top 5</span><span>Featured in West Coast North</span><span>Featured in Elio Magazine</span></div>
     </div>
     <div class="lrd-ft-bottom">
       <div class="lrd-ft-copy">
