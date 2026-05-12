@@ -275,8 +275,8 @@ h2 .lrd-section-num {
 /* ═══ SCROLL REVEAL, GPU-accelerated, no text jitter ═══ */
 .lrd-reveal {
   opacity: 0;
-  transform: translate3d(0, 24px, 0);
-  transition: opacity 0.9s var(--ease), transform 0.9s var(--ease);
+  transform: translate3d(0, 16px, 0);
+  transition: opacity 0.5s var(--ease), transform 0.5s var(--ease);
 }
 .lrd-reveal.lrd-visible {
   opacity: 1;
@@ -1219,6 +1219,22 @@ a.lrd-proof-item:hover strong { color: var(--stone); }
   }
   var prefersReduced = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   if (slides.length > 1 && !prefersReduced) startSlideshow();
+
+  /* Pause slideshow when hero is scrolled out of view - saves continuous GPU work */
+  var hero = document.querySelector('.lrd-hero');
+  if (hero && 'IntersectionObserver' in window) {
+    var heroObserver = new IntersectionObserver(function(entries) {
+      entries.forEach(function(entry) {
+        if (entry.isIntersecting) {
+          if (slides.length > 1 && !prefersReduced && !slideInterval) startSlideshow();
+        } else {
+          clearInterval(slideInterval);
+          slideInterval = null;
+        }
+      });
+    }, { threshold: 0.05 });
+    heroObserver.observe(hero);
+  }
 
   /* Scroll reveal via IntersectionObserver */
   var revealEls = document.querySelectorAll('.lrd-reveal, .lrd-img-reveal');
