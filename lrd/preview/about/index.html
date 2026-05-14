@@ -77,15 +77,12 @@ body{background:#F6F4F0!important}
 .lrd-page-head-sub { font-weight: 300; font-size: clamp(14px, 1.1vw, 16px); color: var(--body); line-height: 1.9; margin-top: clamp(24px, 3vw, 36px); max-width: 640px; }
 
 /* Studio intro */
-.lrd-studio-intro { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(40px, 6vw, 100px); max-width: 1400px; margin: 0 auto; padding: clamp(60px, 8vw, 100px) clamp(32px, 8vw, 120px); align-items: start; }
-.lrd-studio-portrait { aspect-ratio: 4/5; overflow: hidden; }
-.lrd-studio-portrait img { width: 100%; height: 100%; object-fit: cover; }
+.lrd-studio-intro { max-width: 760px; margin: 0 auto; padding: clamp(60px, 8vw, 100px) clamp(32px, 8vw, 120px); }
 .lrd-studio-intro-text h2 { font-weight: 400; font-size: clamp(26px, 3.2vw, 42px); line-height: 1.15; margin-bottom: clamp(24px, 3vw, 36px); }
-.lrd-studio-intro-text p { font-weight: 300; font-size: clamp(14px, 1.05vw, 16px); color: var(--body); line-height: 1.95; margin-bottom: 20px; max-width: 560px; }
-.lrd-studio-quote { font-family: var(--fs); font-style: italic; font-weight: 400; font-size: clamp(18px, 1.7vw, 22px); line-height: 1.5; color: var(--ink); border-left: 1px solid var(--stone-lt); padding-left: 24px; margin: clamp(32px, 4vw, 48px) 0 0; max-width: 560px; }
+.lrd-studio-intro-text p { font-weight: 300; font-size: clamp(14px, 1.05vw, 16px); color: var(--body); line-height: 1.95; margin-bottom: 20px; }
+.lrd-studio-quote { font-family: var(--fs); font-style: italic; font-weight: 400; font-size: clamp(18px, 1.7vw, 22px); line-height: 1.5; color: var(--ink); border-left: 1px solid var(--stone-lt); padding-left: 24px; margin: clamp(32px, 4vw, 48px) 0 0; }
 .lrd-studio-quote cite { display: block; margin-top: 16px; font-family: var(--f); font-style: normal; font-weight: 400; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--stone); }
 .lrd-studio-quote cite em { font-family: var(--fs); font-style: italic; text-transform: none; letter-spacing: 0; font-size: 13px; color: var(--ink); }
-@media(max-width:900px) { .lrd-studio-intro { grid-template-columns: 1fr; gap: 48px; } .lrd-studio-portrait { max-width: 500px; } }
 
 /* Timeline */
 .lrd-timeline { max-width: 1100px; margin: 0 auto; padding: clamp(80px, 10vw, 140px) clamp(32px, 8vw, 120px); }
@@ -280,9 +277,6 @@ body{background:#F6F4F0!important}
 
 <!-- Studio intro -->
 <section class="lrd-studio-intro">
-  <div class="lrd-studio-portrait lrd-img-reveal">
-    <img src="https://images.squarespace-cdn.com/content/v1/63dc0dfc345ed25a7efd5c5d/38bbb967-0808-40e3-839a-6e50fa3308f1/Copyright-Darby-Magill-2630+cropped.jpg?format=1500w&auto=format" alt="Lauren Ritz, Principal Interior Designer and founder of LRD Studio. Squamish, BC. Portrait photography by Darby Magill." loading="lazy" width="1200" height="1500">
-  </div>
   <div class="lrd-studio-intro-text lrd-reveal">
     <div class="lrd-page-head-label" style="margin-bottom: 18px;">The Studio</div>
     <h2>Designing for life.</h2>
