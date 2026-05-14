@@ -96,6 +96,24 @@ body{background:#F6F4F0!important}
 .lrd-timeline-body p { font-weight: 300; font-size: 13.5px; color: var(--body); line-height: 1.9; max-width: 560px; }
 @media(max-width:700px) { .lrd-timeline-item { grid-template-columns: 1fr; gap: 8px; } }
 
+/* The team */
+.lrd-team { max-width: 1200px; margin: 0 auto; padding: clamp(80px, 10vw, 140px) clamp(32px, 8vw, 120px); border-top: 1px solid var(--rule); }
+.lrd-team-header { margin-bottom: clamp(48px, 6vw, 80px); max-width: 720px; }
+.lrd-team-label { font-weight: 300; font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--stone); margin-bottom: 22px; }
+.lrd-team h2 { font-weight: 400; font-size: clamp(26px, 3.2vw, 42px); line-height: 1.15; }
+.lrd-team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(56px, 6vw, 88px) clamp(32px, 4vw, 60px); }
+.lrd-team-member { display: flex; flex-direction: column; gap: clamp(20px, 2.5vw, 32px); }
+.lrd-team-portrait { aspect-ratio: 4/5; overflow: hidden; }
+.lrd-team-portrait img { width: 100%; height: 100%; object-fit: cover; }
+.lrd-team-meta { display: flex; flex-direction: column; gap: 6px; padding-bottom: 18px; border-bottom: 1px solid var(--rule); }
+.lrd-team-name { font-weight: 400; font-size: clamp(20px, 2vw, 26px); line-height: 1.2; letter-spacing: -0.01em; }
+.lrd-team-name em { font-family: var(--fs); font-style: italic; font-weight: 400; }
+.lrd-team-role { font-weight: 400; font-size: 10px; letter-spacing: 0.28em; text-transform: uppercase; color: var(--stone); margin-top: 4px; }
+.lrd-team-creds { font-family: var(--fs); font-style: italic; font-weight: 400; font-size: 14px; color: var(--stone); margin-top: 2px; }
+.lrd-team-bio p { font-weight: 300; font-size: 13.5px; color: var(--body); line-height: 1.9; margin-bottom: 14px; }
+.lrd-team-bio p:last-child { margin-bottom: 0; }
+@media(max-width:780px) { .lrd-team-grid { grid-template-columns: 1fr; gap: 64px; } .lrd-team-portrait { max-width: 480px; } }
+
 /* Credentials */
 .lrd-creds { background: var(--cream); border-top: 1px solid var(--rule); padding: clamp(80px, 10vw, 140px) clamp(32px, 8vw, 120px); }
 .lrd-creds-inner { max-width: 1100px; margin: 0 auto; }
@@ -302,11 +320,81 @@ body{background:#F6F4F0!important}
   </div>
 </section>
 
+<!-- The team -->
+<section class="lrd-team">
+  <div class="lrd-team-header lrd-reveal">
+    <div class="lrd-team-label"><span class="lrd-section-num">III</span>The Team</div>
+    <h2>The studio behind every project.</h2>
+  </div>
+  <div class="lrd-team-grid">
+    <div class="lrd-team-member lrd-reveal">
+      <div class="lrd-team-portrait lrd-img-reveal">
+        <img src="https://images.squarespace-cdn.com/content/v1/63dc0dfc345ed25a7efd5c5d/b3cc1732-7d42-4157-a685-9e1e749ca536/Copyright-Darby-Magill-2834.jpg?format=1500w&auto=format" alt="Charlie Wilson, Associate Designer at LRD Studio. Squamish, BC. Portrait photography by Darby Magill." loading="lazy" width="1200" height="1500">
+      </div>
+      <div class="lrd-team-meta">
+        <div class="lrd-team-name">Charlie <em>Wilson</em></div>
+        <div class="lrd-team-role">Associate Designer</div>
+        <div class="lrd-team-creds">BSCH DID</div>
+      </div>
+      <div class="lrd-team-bio">
+        <p>Originally from England, she began her design journey with a Foundation Diploma from the prestigious Leeds College of Art &amp; Design, followed by an Honours Degree from the Manchester Fashion Institute, which led her into the fast&#x2011;paced world of fashion buying. After several years in the industry, she made the bold decision to step away and travel through South America, an experience that broadened her perspective and planted the seeds for a deeper connection to design.</p>
+        <p>Settling in Vancouver, she moved from rental to rental before purchasing and redesigning her own home, a process that reawakened a long&#x2011;standing passion for interiors and clarified a new creative path. Returning to school, she earned a Diploma with Distinction in Interior Design from BCIT. She now brings her background in fashion, travel, and interior design to her role at LRD Studio. Inspired by the Pacific West Coast, her work is grounded in a desire to help people create homes they love: spaces that feel like sanctuary and serve as the backdrop for life's most meaningful memories.</p>
+      </div>
+    </div>
+
+    <div class="lrd-team-member lrd-reveal">
+      <div class="lrd-team-portrait lrd-img-reveal">
+        <img src="https://images.squarespace-cdn.com/content/v1/63dc0dfc345ed25a7efd5c5d/6bad23b4-22a4-403f-81e6-6c7d82f71545/Copyright-Darby-Magill-3835.jpg?format=1500w&auto=format" alt="Mayara Benedetti, Associate Designer at LRD Studio. Squamish, BC. Portrait photography by Darby Magill." loading="lazy" width="1200" height="1500">
+      </div>
+      <div class="lrd-team-meta">
+        <div class="lrd-team-name">Mayara <em>Benedetti</em></div>
+        <div class="lrd-team-role">Associate Designer</div>
+        <div class="lrd-team-creds">BENDS DID</div>
+      </div>
+      <div class="lrd-team-bio">
+        <p>Mayara is driven by the belief that residential spaces are among the most meaningful environments we shape: intimate, personal, and layered with the rhythms of everyday life. Deeply shaped by contrasts, Mayara grew up in a Japanese Italian family in Brazil, and having lived in Ecuador, Colombia, and Switzerland before landing in (and falling in love with) Canada, she developed an attentiveness to how different people live, and how place, through culture, climate, and material, shapes those lives.</p>
+        <p>Having relocated to Squamish to join the LRD Studio team, Mayara is eager to contribute to the ever evolving design dialogue of the Sea to Sky region, a place so iconic and emblematic of the West Coast lifestyle, as inspiring as it is beautiful.</p>
+        <p>Mayara approaches each project as an opportunity to thoughtfully support and extend the studio's design vision, balancing spatial clarity with materiality, proportion, and detail, while emphasizing context.</p>
+      </div>
+    </div>
+
+    <div class="lrd-team-member lrd-reveal">
+      <div class="lrd-team-portrait lrd-img-reveal">
+        <img src="https://images.squarespace-cdn.com/content/v1/63dc0dfc345ed25a7efd5c5d/6a5624ca-ca8b-493f-a939-e76a3f6c1db9/Copyright-Darby-Magill-3731.jpg?format=1500w&auto=format" alt="Ella Quinton, Associate Designer at LRD Studio. Squamish, BC. Portrait photography by Darby Magill." loading="lazy" width="1200" height="1500">
+      </div>
+      <div class="lrd-team-meta">
+        <div class="lrd-team-name">Ella <em>Quinton</em></div>
+        <div class="lrd-team-role">Associate Designer</div>
+        <div class="lrd-team-creds">BA Arch &middot; MA Arch</div>
+      </div>
+      <div class="lrd-team-bio">
+        <p>Ella Quinton comes to us with a background in bespoke residential and commercial projects. She holds a BA and Master's degree in Architecture, beginning her career within English architecture, where she developed a strong appreciation for proportion, heritage, and thoughtful detailing. This foundation continues to shape her work, bringing a sense of balance and restraint to each project. She later transitioned into interior design, focusing more closely on the experience of living within the spaces she creates.</p>
+        <p>Ella has led high&#x2011;end residential projects from concept through to completion, working closely with clients, consultants, and trades at every stage. Her approach is collaborative and considered, combining creative intuition with technical clarity to guide projects with care and precision.</p>
+        <p>Her design perspective is influenced by a passion for mid&#x2011;century modern and West Coast design. She is drawn to the warmth, simplicity, and connection to natural materials in her work. With a strong focus on craftsmanship, materiality and context, Ella's attention to detail and thoughtful approach result in spaces that feel warm, functional, and enduring, designed to support and reflect the way people live.</p>
+      </div>
+    </div>
+
+    <div class="lrd-team-member lrd-reveal">
+      <div class="lrd-team-portrait lrd-img-reveal">
+        <img src="https://images.squarespace-cdn.com/content/v1/63dc0dfc345ed25a7efd5c5d/ca74e458-4b7a-4c28-8f2c-13291e571979/Copyright-Darby-Magill-2947.jpg?format=1500w&auto=format" alt="Marketa Tobiasova, Operations Manager at LRD Studio. Squamish, BC. Portrait photography by Darby Magill." loading="lazy" width="1200" height="1500">
+      </div>
+      <div class="lrd-team-meta">
+        <div class="lrd-team-name">Marketa <em>Tobiasova</em></div>
+        <div class="lrd-team-role">Operations Manager</div>
+        <div class="lrd-team-creds">LLM</div>
+      </div>
+      <div class="lrd-team-bio">
+        <p>Marketa Tobiasova graduated at West Bohemia University with a master's degree in law. After two years of pursuing a law career, she decided to take a break and move Canada to explore nature, culture and to learn English where she immediately fell in love with the land and people. Her passion for outdoor adventures brought her to the beautiful British Columbia. Growing up, Marketa was very much influenced by her mom, who is an Interior Designer, so it was only natural that she magnetically was attracted to working at LRD. We are so fortunate to have Marketa as our Operations manager. She is involved in many different tasks in an environment that is very close to her and reminds her of home. If she's not behind the computer, you'll probably find her running, skiing, climbing, biking and generally adventuring in the mountains.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- Credentials -->
 <section class="lrd-creds">
   <div class="lrd-creds-inner">
     <div class="lrd-creds-header lrd-reveal">
-      <div class="lrd-creds-label"><span class="lrd-section-num">III</span>Credentials</div>
+      <div class="lrd-creds-label"><span class="lrd-section-num">IV</span>Credentials</div>
       <h2>Registered. Certified. Accountable.</h2>
     </div>
     <div class="lrd-creds-grid">
