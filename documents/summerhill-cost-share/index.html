@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Summerhill Fine Homes — Photography cost-share for vendors</title>
+<meta name="description" content="How the photography cost-share works for vendors participating in a Summerhill Fine Homes shoot. May 2026.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&family=Newsreader:ital,opsz,wght@0,6..72,300;0,6..72,400;1,6..72,300;1,6..72,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #111111;
+    --ink-70: rgba(17,17,17,0.72);
+    --ink-50: rgba(17,17,17,0.5);
+    --ink-30: rgba(17,17,17,0.3);
+    --ink-15: rgba(17,17,17,0.15);
+    --ink-08: rgba(17,17,17,0.08);
+    --paper: #FAFAF8;
+    --white: #FFFFFF;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { font-size:16px; -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale; }
+  body {
+    background:var(--paper); color:var(--ink);
+    font-family:'Inter',sans-serif; font-weight:300;
+    font-size:0.92rem; line-height:1.65;
+    letter-spacing:-0.005em;
+  }
+
+  /* Top bar */
+  .topbar {
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    display:flex; justify-content:space-between; align-items:center;
+    padding:18px 40px; background:rgba(250,250,248,0.92);
+    backdrop-filter:blur(12px); -webkit-backdrop-filter:blur(12px);
+    border-bottom:1px solid var(--ink-08);
+  }
+  .topbar-item {
+    font-family:'Inter',sans-serif; font-weight:500;
+    font-size:0.66rem; letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--ink-70);
+  }
+  .topbar-item.muted { color:var(--ink-30); font-weight:400; }
+
+  /* Title block */
+  .title-block {
+    padding:180px 40px 100px; max-width:1100px; margin:0 auto;
+  }
+  .doc-meta {
+    display:flex; gap:48px; margin-bottom:80px;
+    border-top:1px solid var(--ink); padding-top:20px;
+    flex-wrap:wrap;
+  }
+  .doc-meta-item {
+    font-size:0.7rem; letter-spacing:0.04em;
+    color:var(--ink-70); line-height:1.55;
+    font-weight:400;
+  }
+  .doc-meta-item .label {
+    display:block; font-weight:500; font-size:0.62rem;
+    letter-spacing:0.18em; text-transform:uppercase;
+    color:var(--ink-50); margin-bottom:6px;
+  }
+  .doc-title {
+    font-family:'Newsreader',serif; font-weight:300;
+    font-size:clamp(2.6rem,5vw,4.2rem);
+    line-height:1.05; letter-spacing:-0.025em;
+    max-width:880px; margin-bottom:28px;
+  }
+  .doc-title em { font-style:italic; font-weight:300; color:var(--ink-70); }
+  .doc-lede {
+    font-family:'Newsreader',serif; font-weight:300;
+    font-size:1.2rem; line-height:1.55;
+    color:var(--ink-70); max-width:680px;
+  }
+
+  /* Section */
+  section.spread {
+    max-width:1100px; margin:0 auto;
+    padding:90px 40px;
+    border-top:1px solid var(--ink-08);
+  }
+  section.spread.first { border-top:1px solid var(--ink); }
+  .spread-head {
+    display:grid; grid-template-columns:80px 1fr;
+    gap:32px; margin-bottom:48px;
+  }
+  .spread-num {
+    font-family:'Newsreader',serif; font-style:italic; font-weight:300;
+    font-size:1.6rem; color:var(--ink-30);
+    padding-top:6px;
+  }
+  .spread-title {
+    font-family:'Newsreader',serif; font-weight:300;
+    font-size:clamp(1.9rem,3.2vw,2.6rem);
+    line-height:1.15; letter-spacing:-0.02em;
+  }
+  .spread-title em { font-style:italic; color:var(--ink-70); }
+  .cols {
+    display:grid; grid-template-columns:80px 1fr;
+    gap:32px;
+  }
+  .col-label {
+    font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--ink-50); font-weight:500;
+    padding-top:2px;
+  }
+  .col-body { max-width:760px; }
+  .spread p {
+    font-size:0.95rem; line-height:1.75;
+    color:var(--ink); margin-bottom:16px;
+    font-weight:300;
+  }
+  .spread p.lede {
+    font-family:'Newsreader',serif; font-weight:300;
+    font-size:1.2rem; line-height:1.55;
+    color:var(--ink-70); margin-bottom:32px;
+  }
+  .spread ul {
+    list-style:none; margin:8px 0 16px;
+  }
+  .spread li {
+    font-size:0.93rem; line-height:1.7;
+    padding:12px 0 12px 24px; position:relative;
+    color:var(--ink); border-bottom:1px solid var(--ink-08);
+    font-weight:300;
+  }
+  .spread li:last-child { border-bottom:none; }
+  .spread li::before {
+    content:''; position:absolute; left:0; top:22px;
+    width:12px; height:1px; background:var(--ink-30);
+  }
+  .spread li strong { font-weight:500; color:var(--ink); }
+
+  /* Mechanism flow */
+  .flow {
+    margin:28px 0 16px;
+    padding:32px 0;
+    border-top:1px solid var(--ink-15);
+    border-bottom:1px solid var(--ink-15);
+    display:grid;
+    grid-template-columns:1fr auto 1fr auto 1fr;
+    gap:24px; align-items:center;
+  }
+  .flow-cell { text-align:center; }
+  .flow-cell .fl-label {
+    font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--ink-50); font-weight:500; margin-bottom:10px;
+  }
+  .flow-cell .fl-amount {
+    font-family:'Newsreader',serif; font-style:italic; font-weight:300;
+    font-size:2.2rem; line-height:1; letter-spacing:-0.01em;
+    color:var(--ink);
+  }
+  .flow-cell .fl-note {
+    font-size:0.72rem; color:var(--ink-50); margin-top:8px;
+    letter-spacing:0.02em;
+  }
+  .flow-arrow {
+    font-family:'Newsreader',serif; font-style:italic; font-weight:300;
+    font-size:1.4rem; color:var(--ink-30);
+  }
+
+  /* Tier table */
+  .tier {
+    margin:32px 0 0;
+    border-top:1px solid var(--ink);
+  }
+  .tier-head, .tier-row {
+    display:grid;
+    grid-template-columns:1.2fr 0.8fr 1fr 1fr;
+    gap:24px; padding:18px 0;
+    border-bottom:1px solid var(--ink-08);
+    align-items:baseline;
+  }
+  .tier-head {
+    border-bottom:1px solid var(--ink-15);
+  }
+  .tier-head .th {
+    font-size:0.6rem; letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--ink-50); font-weight:500;
+  }
+  .tier-head .th small {
+    display:block; font-weight:400; font-size:0.58rem;
+    color:var(--ink-30); margin-top:4px; letter-spacing:0.18em;
+  }
+  .tier-row .tr-parties {
+    font-size:0.92rem; color:var(--ink); font-weight:400;
+  }
+  .tier-row .tr-parties small {
+    display:block; color:var(--ink-50); font-weight:300;
+    font-size:0.74rem; margin-top:4px; letter-spacing:0.02em;
+  }
+  .tier-row .tr-uplift {
+    font-family:'Newsreader',serif; font-style:italic; font-weight:300;
+    font-size:1.1rem; color:var(--ink-70);
+  }
+  .tier-row .tr-amount {
+    font-family:'Newsreader',serif; font-style:italic; font-weight:300;
+    font-size:1.3rem; color:var(--ink); letter-spacing:-0.005em;
+  }
+  .tier-row .tr-amount small {
+    display:block; font-family:'Inter',sans-serif; font-style:normal;
+    font-weight:400; font-size:0.66rem; letter-spacing:0.18em;
+    color:var(--ink-50); text-transform:uppercase; margin-top:4px;
+  }
+  .tier-row.typical {
+    border-top:1px solid var(--ink-30);
+    border-bottom:1px solid var(--ink-30);
+    background:rgba(17,17,17,0.02);
+  }
+  .tier-row.typical .tr-parties strong {
+    font-weight:500;
+  }
+
+  /* Colophon */
+  .colophon {
+    max-width:1100px; margin:0 auto;
+    padding:90px 40px 80px;
+    border-top:1px solid var(--ink);
+    display:grid; grid-template-columns:80px 1fr;
+    gap:32px;
+  }
+  .colophon .co-label {
+    font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--ink-50); font-weight:500;
+    padding-top:6px;
+  }
+  .colophon h2 {
+    font-family:'Newsreader',serif; font-weight:300;
+    font-size:2rem; line-height:1.15; letter-spacing:-0.02em;
+    margin-bottom:24px; max-width:640px;
+  }
+  .colophon h2 em { font-style:italic; color:var(--ink-70); }
+  .colophon p {
+    font-size:0.95rem; line-height:1.75;
+    color:var(--ink-70); margin-bottom:14px; max-width:620px;
+    font-weight:300;
+  }
+  .colophon .contact {
+    margin-top:32px; padding-top:24px;
+    border-top:1px solid var(--ink-08);
+    font-size:0.78rem; color:var(--ink); font-weight:400;
+    letter-spacing:0.02em;
+  }
+  .colophon .contact div { margin-bottom:4px; }
+  .colophon .contact a { color:var(--ink); text-decoration:none; border-bottom:1px solid var(--ink-30); }
+  .colophon .contact a:hover { border-bottom-color:var(--ink); }
+
+  @media (max-width:768px) {
+    .topbar { padding:14px 20px; }
+    .topbar-item { font-size:0.58rem; }
+    .title-block { padding:140px 20px 60px; }
+    .doc-meta { gap:24px; }
+    section.spread { padding:60px 20px; }
+    .spread-head, .cols, .colophon, .bleed-caption { grid-template-columns:1fr; gap:14px; }
+    .flow { grid-template-columns:1fr; gap:14px; padding:24px 0; }
+    .flow-arrow { transform:rotate(90deg); }
+    .tier-head, .tier-row { grid-template-columns:1fr 1fr; gap:12px; }
+    .tier-head .th.uplift, .tier-row .tr-uplift { display:none; }
+    .colophon { padding:60px 20px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <span class="topbar-item">Summerhill Fine Homes</span>
+  <span class="topbar-item muted">Photography cost-share / Vendor brief</span>
+</div>
+
+<div class="title-block">
+  <div class="doc-meta">
+    <div class="doc-meta-item">
+      <span class="label">Prepared for</span>
+      Project vendors and trade partners
+    </div>
+    <div class="doc-meta-item">
+      <span class="label">Coordinated by</span>
+      Kyle Paisley, Summerhill Fine Homes
+    </div>
+    <div class="doc-meta-item">
+      <span class="label">Photography</span>
+      Matt Anthony
+    </div>
+    <div class="doc-meta-item">
+      <span class="label">Issued</span>
+      May 2026
+    </div>
+  </div>
+
+  <h1 class="doc-title">How the photography <em>cost-share</em> works, and what it costs.</h1>
+  <p class="doc-lede">A short brief for vendors and trade partners deciding whether to participate in the upcoming Summerhill shoot. Three pages of plain math, no surprises.</p>
+</div>
+
+<section class="spread first">
+  <div class="spread-head">
+    <div class="spread-num">01</div>
+    <div>
+      <h2 class="spread-title">What you receive when you <em>opt in</em>.</h2>
+    </div>
+  </div>
+  <div class="cols">
+    <div class="col-label">Deliverables</div>
+    <div class="col-body">
+      <p class="lede">Each participating vendor gets the full image set, not a partial selection. The same files Summerhill receives are the files you receive.</p>
+      <ul>
+        <li><strong>Full image set.</strong> High-resolution files of the residence, web-ready and print-ready. Delivered together when the shoot is processed.</li>
+        <li><strong>Full usage rights.</strong> Marketing, portfolio, website, social, print, awards, sales decks, manufacturer co-op submissions. Used wherever you'd use any other portfolio image.</li>
+        <li><strong>Credit at your discretion.</strong> Credit photography to Matt Anthony where credit is given. No requirement to credit on every use.</li>
+        <li><strong>One licensing relationship.</strong> Your participation covers your team's use in perpetuity. No re-licensing fees later for the same imagery.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="spread">
+  <div class="spread-head">
+    <div class="spread-num">02</div>
+    <div>
+      <h2 class="spread-title">The math, in <em>one sentence</em>.</h2>
+    </div>
+  </div>
+  <div class="cols">
+    <div class="col-label">Mechanism</div>
+    <div class="col-body">
+      <p class="lede">Each additional vendor adds 30% to the photography fee. The new total is divided equally across everyone participating. The result, every time, is that adding more participants makes it cheaper for everyone already in.</p>
+
+      <div class="flow">
+        <div class="flow-cell">
+          <div class="fl-label">Base photo fee</div>
+          <div class="fl-amount">$2,000</div>
+          <div class="fl-note">per residence</div>
+        </div>
+        <div class="flow-arrow">×</div>
+        <div class="flow-cell">
+          <div class="fl-label">Plus 30% per vendor</div>
+          <div class="fl-amount">1.30, 1.60, 1.90&hellip;</div>
+          <div class="fl-note">scales with the group</div>
+        </div>
+        <div class="flow-arrow">÷</div>
+        <div class="flow-cell">
+          <div class="fl-label">Divided across parties</div>
+          <div class="fl-amount">= your share</div>
+          <div class="fl-note">equal split</div>
+        </div>
+      </div>
+
+      <p>The uplift exists because each additional vendor means additional licensing, additional file delivery, and additional coordination. The 30% covers that work. The benefit, for everyone in the group, is that the per-vendor cost still drops as the group grows.</p>
+    </div>
+  </div>
+</section>
+
+<section class="spread">
+  <div class="spread-head">
+    <div class="spread-num">03</div>
+    <div>
+      <h2 class="spread-title">What you'd actually <em>pay</em>.</h2>
+    </div>
+  </div>
+  <div class="cols">
+    <div class="col-label">At $2,000 base</div>
+    <div class="col-body">
+      <p class="lede">The Summerhill base photography fee is $2,000 per residence. Here is what your share looks like as more vendors confirm. The two middle scenarios are the most common.</p>
+
+      <div class="tier">
+        <div class="tier-head">
+          <div class="th">Participants</div>
+          <div class="th uplift">Photo pool</div>
+          <div class="th">Per vendor<small>before GST</small></div>
+          <div class="th">Per vendor<small>GST inclusive</small></div>
+        </div>
+
+        <div class="tier-row">
+          <div class="tr-parties">Summerhill + 1 vendor<small>two parties</small></div>
+          <div class="tr-uplift">$2,600</div>
+          <div class="tr-amount">$1,300.00</div>
+          <div class="tr-amount">$1,365.00</div>
+        </div>
+
+        <div class="tier-row typical">
+          <div class="tr-parties"><strong>Summerhill + 2 vendors</strong><small>three parties &middot; typical</small></div>
+          <div class="tr-uplift">$3,200</div>
+          <div class="tr-amount">$1,066.67</div>
+          <div class="tr-amount">$1,120.00</div>
+        </div>
+
+        <div class="tier-row typical">
+          <div class="tr-parties"><strong>Summerhill + 3 vendors</strong><small>four parties &middot; typical</small></div>
+          <div class="tr-uplift">$3,800</div>
+          <div class="tr-amount">$950.00</div>
+          <div class="tr-amount">$997.50</div>
+        </div>
+
+        <div class="tier-row">
+          <div class="tr-parties">Summerhill + 4 vendors<small>five parties</small></div>
+          <div class="tr-uplift">$4,400</div>
+          <div class="tr-amount">$880.00</div>
+          <div class="tr-amount">$924.00</div>
+        </div>
+
+        <div class="tier-row">
+          <div class="tr-parties">Summerhill + 5 vendors<small>six parties</small></div>
+          <div class="tr-uplift">$5,000</div>
+          <div class="tr-amount">$833.33</div>
+          <div class="tr-amount">$875.00</div>
+        </div>
+      </div>
+
+      <p style="margin-top:32px;">Each row is for one residence. If a vendor's product appears in both upcoming residences and they want imagery from both, the math runs once per residence.</p>
+    </div>
+  </div>
+</section>
+
+<section class="spread">
+  <div class="spread-head">
+    <div class="spread-num">04</div>
+    <div>
+      <h2 class="spread-title">How <em>billing</em> works.</h2>
+    </div>
+  </div>
+  <div class="cols">
+    <div class="col-label">Flow</div>
+    <div class="col-body">
+      <p class="lede">Summerhill is the single point of contact for money. Licensing runs on a parallel track, directly between you and me.</p>
+      <ul>
+        <li><strong>Step one.</strong> Summerhill confirms the participant list before the shoot. That fixes your per-vendor share.</li>
+        <li><strong>Step two.</strong> I send a short licensing agreement directly to each participating vendor for signature. It covers image usage, term, and credit. Standard one-page document.</li>
+        <li><strong>Step three.</strong> Shoot happens. After delivery, I invoice Summerhill for the full grand total.</li>
+        <li><strong>Step four.</strong> Summerhill invoices each participating vendor for their share plus 5% GST. Payment terms run through Summerhill on their standard schedule.</li>
+        <li><strong>Step five.</strong> Once your license is signed and your invoice is settled with Summerhill, your team has full usage of the image set as described in section 01.</li>
+      </ul>
+      <p>Travel time and travel costs sit outside the cost-share. Those are carried by Summerhill on the project side. Your share covers the photography pool only.</p>
+    </div>
+  </div>
+</section>
+
+<section class="spread">
+  <div class="spread-head">
+    <div class="spread-num">05</div>
+    <div>
+      <h2 class="spread-title">What we need from <em>you</em>.</h2>
+    </div>
+  </div>
+  <div class="cols">
+    <div class="col-label">To confirm</div>
+    <div class="col-body">
+      <p class="lede">Three things from your side, all short.</p>
+      <ul>
+        <li><strong>Confirm participation</strong> with Kyle by reply, before the participant list is locked. Earlier confirmations help everyone, since each added vendor lowers the per-vendor share.</li>
+        <li><strong>Send a short product or scope list</strong> for the residence. The specific windows, the millwork rooms, the tile installs, the finish areas. One paragraph or a quick list is enough. This tells me what to feature so the imagery serves your portfolio as well as Summerhill's.</li>
+        <li><strong>Sign the licensing agreement.</strong> I'll send a short standard document once Summerhill confirms the participant list. It covers image usage rights for your team's marketing, portfolio, awards, and sales material. Signed copy back by email is all that's needed.</li>
+      </ul>
+      <p>That's the full ask. Once the participant list closes, Summerhill issues the participation confirmation with the final per-vendor number, and the shoot proceeds on the scheduled date.</p>
+    </div>
+  </div>
+</section>
+
+<div class="colophon">
+  <div class="co-label">Questions</div>
+  <div>
+    <h2>If anything in this brief is unclear, <em>ask Kyle</em>. He's coordinating the participant list and holds the timeline.</h2>
+    <p>For questions about the imagery itself, the shoot day logistics, or licensing language, Kyle can loop me in directly.</p>
+    <div class="contact">
+      <div><strong>Kyle Paisley</strong>, Summerhill Fine Homes</div>
+      <div><a href="mailto:kyle@summerhill.build">kyle@summerhill.build</a> &middot; 778.288.1696</div>
+      <div style="margin-top:14px; color:var(--ink-50);">Photography &mdash; <a href="mailto:info@mattanthonyphoto.com">Matt Anthony</a></div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
