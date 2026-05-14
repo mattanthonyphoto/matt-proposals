@@ -102,7 +102,19 @@ body{background:#F6F4F0!important}
 .lrd-team-header { margin-bottom: clamp(48px, 6vw, 80px); max-width: 720px; }
 .lrd-team-label { font-weight: 300; font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--stone); margin-bottom: 22px; }
 .lrd-team h2 { font-weight: 400; font-size: clamp(26px, 3.2vw, 42px); line-height: 1.15; }
-.lrd-team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(56px, 6vw, 88px) clamp(32px, 4vw, 60px); }
+
+/* Featured principal card */
+.lrd-team-featured { display: grid; grid-template-columns: 1fr 1.4fr; gap: clamp(40px, 5vw, 80px); padding-bottom: clamp(64px, 7vw, 100px); margin-bottom: clamp(64px, 7vw, 100px); border-bottom: 1px solid var(--rule); align-items: start; }
+.lrd-team-featured-portrait { aspect-ratio: 4/5; overflow: hidden; }
+.lrd-team-featured-portrait img { width: 100%; height: 100%; object-fit: cover; }
+.lrd-team-featured-body { display: flex; flex-direction: column; gap: clamp(20px, 2.5vw, 32px); }
+@media(max-width:780px) { .lrd-team-featured { grid-template-columns: 1fr; gap: 32px; } .lrd-team-featured-portrait { max-width: 480px; } }
+
+/* Associate sub-header */
+.lrd-team-sub-label { font-weight: 300; font-size: 10px; letter-spacing: 0.4em; text-transform: uppercase; color: var(--stone); margin-bottom: clamp(36px, 4vw, 56px); }
+
+/* Associate grid (2x2) */
+.lrd-team-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: clamp(56px, 6vw, 88px) clamp(32px, 4vw, 60px); align-items: start; }
 .lrd-team-member { display: flex; flex-direction: column; gap: clamp(20px, 2.5vw, 32px); }
 .lrd-team-portrait { aspect-ratio: 4/5; overflow: hidden; }
 .lrd-team-portrait img { width: 100%; height: 100%; object-fit: cover; }
@@ -299,11 +311,12 @@ body{background:#F6F4F0!important}
     <div class="lrd-team-label"><span class="lrd-section-num">II</span>The Team</div>
     <h2>The studio behind every project.</h2>
   </div>
-  <div class="lrd-team-grid">
-    <div class="lrd-team-member lrd-reveal">
-      <div class="lrd-team-portrait lrd-img-reveal">
-        <img src="https://images.squarespace-cdn.com/content/v1/63dc0dfc345ed25a7efd5c5d/38bbb967-0808-40e3-839a-6e50fa3308f1/Copyright-Darby-Magill-2630+cropped.jpg?format=1500w&auto=format" alt="Lauren Ritz, Principal Designer and Owner of LRD Studio. Squamish, BC. Portrait photography by Darby Magill." loading="lazy" width="1200" height="1500">
-      </div>
+  <!-- Lauren as featured principal -->
+  <div class="lrd-team-featured lrd-reveal">
+    <div class="lrd-team-featured-portrait lrd-img-reveal">
+      <img src="https://images.squarespace-cdn.com/content/v1/63dc0dfc345ed25a7efd5c5d/38bbb967-0808-40e3-839a-6e50fa3308f1/Copyright-Darby-Magill-2630+cropped.jpg?format=1500w&auto=format" alt="Lauren Ritz, Principal Designer and Owner of LRD Studio. Squamish, BC. Portrait photography by Darby Magill." loading="lazy" width="1200" height="1500">
+    </div>
+    <div class="lrd-team-featured-body">
       <div class="lrd-team-meta">
         <div class="lrd-team-name">Lauren <em>Ritz</em></div>
         <div class="lrd-team-role">Principal Designer &middot; Owner</div>
@@ -315,7 +328,11 @@ body{background:#F6F4F0!important}
         <p>Lauren believes in leading a team that feels elevated and collaborative, encouraging mutual respect within the dynamic of all parties involved, from the architect to the build team and everyone in between. Today, having their studio located in Squamish reflects an honest ethos that Lauren holds in high regard. In a location rich with nature, where the ocean meets mountains, her team is continually inspired to design locally and encourage an engagement with the landscape.</p>
       </div>
     </div>
+  </div>
 
+  <div class="lrd-team-sub-label lrd-reveal">Associate Designers &amp; Operations</div>
+
+  <div class="lrd-team-grid">
     <div class="lrd-team-member lrd-reveal">
       <div class="lrd-team-portrait lrd-img-reveal">
         <img src="https://images.squarespace-cdn.com/content/v1/63dc0dfc345ed25a7efd5c5d/b3cc1732-7d42-4157-a685-9e1e749ca536/Copyright-Darby-Magill-2834.jpg?format=1500w&auto=format" alt="Charlie Wilson, Associate Designer at LRD Studio. Squamish, BC. Portrait photography by Darby Magill." loading="lazy" width="1200" height="1500">
