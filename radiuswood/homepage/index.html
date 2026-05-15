@@ -381,6 +381,12 @@
     grid-template-columns: repeat(3, 1fr);
     gap: clamp(20px, 2.4vw, 38px) clamp(16px, 2vw, 28px);
   }
+  .proj-feature { grid-column: span 2; }
+  .proj-feature .proj-img-wrap { aspect-ratio: 16/10; }
+  .proj-medium { grid-column: span 2; }
+  .proj-medium .proj-img-wrap { aspect-ratio: 16/10; }
+  .proj-wide { grid-column: span 3; }
+  .proj-wide .proj-img-wrap { aspect-ratio: 21/9; }
   .proj-item { display: block; }
   .proj-img-wrap {
     position: relative; overflow: hidden;
@@ -439,8 +445,18 @@
     text-transform: uppercase; color: var(--stone-lt);
     font-weight: 400;
   }
-  @media (max-width: 900px) { .proj-stack { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 560px) { .proj-stack { grid-template-columns: 1fr; } }
+  @media (max-width: 900px) {
+    .proj-stack { grid-template-columns: 1fr 1fr; }
+    .proj-feature, .proj-medium { grid-column: span 2; }
+    .proj-wide { grid-column: span 2; }
+    .proj-feature .proj-img-wrap, .proj-medium .proj-img-wrap { aspect-ratio: 16/9; }
+    .proj-wide .proj-img-wrap { aspect-ratio: 16/9; }
+  }
+  @media (max-width: 560px) {
+    .proj-stack { grid-template-columns: 1fr; }
+    .proj-feature, .proj-medium, .proj-wide { grid-column: span 1; }
+    .proj-feature .proj-img-wrap, .proj-medium .proj-img-wrap, .proj-wide .proj-img-wrap { aspect-ratio: 4/3; }
+  }
 
   /* ─── APPROACH (narrative + service list) ─── */
   .approach {
@@ -754,7 +770,7 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-image" style="background-image: url('projects/indian-river-the-point.jpg');"></div>
+  <div class="hero-image" style="background-image: url('projects/hero-whistler.jpg');"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">Burnaby · British Columbia · Est. 2002</div>
     <h1>Architectural millwork, <em>built at the bench.</em></h1>
@@ -765,7 +781,7 @@
       <a href="#contact" class="arrow-link on-dark">Start a Project</a>
     </div>
   </div>
-  <div class="hero-meta">First Frame <em>Indian River — The Point</em> &nbsp;·&nbsp; Photo · Andrew Latreille</div>
+  <div class="hero-meta">First Frame <em>Whistler Mountain Residence</em></div>
 </section>
 
 <!-- PROOF BAND -->
@@ -809,9 +825,9 @@
 
   <div class="proj-stack reveal">
 
-    <a href="work/" class="proj-item">
+    <a href="work/" class="proj-item proj-feature">
       <div class="proj-img-wrap">
-        <img loading="lazy" decoding="async" src="projects/svc-millwork-rift-oak.jpg" alt="Indian River — The Point. Rift-sawn white oak floor-to-ceiling cabinetry">
+        <img loading="lazy" decoding="async" src="projects/indian-river-the-point.jpg" alt="Indian River — The Point. Dark rift-oak kitchen with black globe pendants and sage-green range">
         <div class="proj-overlay">View Project</div>
       </div>
       <div class="proj-text">
@@ -823,29 +839,7 @@
 
     <a href="work/" class="proj-item">
       <div class="proj-img-wrap">
-        <img loading="lazy" decoding="async" src="projects/whistler-slip-matched-oak.jpg" alt="Whistler Slip-Matched Oak. Slat ceiling kitchen, exterior dusk">
-        <div class="proj-overlay">View Project</div>
-      </div>
-      <div class="proj-text">
-        <div class="proj-name">Whistler <em>Slip-Matched Oak</em></div>
-        <div class="proj-loc">Sea-to-Sky</div>
-      </div>
-    </a>
-
-    <a href="work/" class="proj-item">
-      <div class="proj-img-wrap">
-        <img loading="lazy" decoding="async" src="projects/vancouverhouse-penthouse.jpg" alt="Vancouverhouse Penthouse. Walnut slats framing interior garden">
-        <div class="proj-overlay">View Project</div>
-      </div>
-      <div class="proj-text">
-        <div class="proj-name">Vancouverhouse <em>Penthouse</em></div>
-        <div class="proj-loc">Downtown Vancouver</div>
-      </div>
-    </a>
-
-    <a href="work/" class="proj-item">
-      <div class="proj-img-wrap">
-        <img loading="lazy" decoding="async" src="projects/waterfront-anigre-penthouse.jpg" alt="Waterfront Anigre Penthouse. Coffered ceiling, glass-globe chandelier">
+        <img loading="lazy" decoding="async" src="projects/waterfront-anigre-penthouse.jpg" alt="Waterfront Anigre Penthouse. Coffered anigre ceiling, glass-globe chandelier, ocean view">
         <div class="proj-overlay">View Project</div>
       </div>
       <div class="proj-text">
@@ -856,23 +850,34 @@
 
     <a href="work/" class="proj-item">
       <div class="proj-img-wrap">
-        <img loading="lazy" decoding="async" src="projects/indian-arm-woodlands.jpg" alt="Indian Arm Study at Woodlands. Cedar walls and ceiling, stone, globe lights">
+        <img loading="lazy" decoding="async" src="projects/indian-arm-study.jpg" alt="Indian Arm Study. Cedar plank walls and stone fireplace, hanging globe pendants on red cable">
         <div class="proj-overlay">View Project</div>
       </div>
       <div class="proj-text">
-        <div class="proj-name">Indian Arm Study <em>— Woodlands</em></div>
+        <div class="proj-name">Indian Arm <em>Study</em></div>
         <div class="proj-loc">Indian Arm</div>
       </div>
     </a>
 
-    <a href="work/" class="proj-item">
+    <a href="work/" class="proj-item proj-medium">
       <div class="proj-img-wrap">
-        <img loading="lazy" decoding="async" src="projects/whitby-estates-walnut.jpg" alt="Whitby Estates — solid American black walnut display cabinetry">
+        <img loading="lazy" decoding="async" src="projects/vancouverhouse-penthouse.jpg" alt="Vancouverhouse Penthouse. Walnut slat ceiling, dark stone island, dark backsplash">
         <div class="proj-overlay">View Project</div>
       </div>
       <div class="proj-text">
-        <div class="proj-name">Whitby <em>Estates Walnut</em></div>
-        <div class="proj-loc">West Vancouver</div>
+        <div class="proj-name">Vancouverhouse <em>Penthouse</em></div>
+        <div class="proj-loc">Downtown Vancouver</div>
+      </div>
+    </a>
+
+    <a href="work/" class="proj-item proj-wide">
+      <div class="proj-img-wrap">
+        <img loading="lazy" decoding="async" src="projects/lakeside-a-frame.jpg" alt="Lakeside residence. A-frame gable framing lake view, custom Bocci pendants, walnut media wall">
+        <div class="proj-overlay">View Project</div>
+      </div>
+      <div class="proj-text">
+        <div class="proj-name">Lakeside <em>A-Frame</em></div>
+        <div class="proj-loc">Sea-to-Sky</div>
       </div>
     </a>
 
