@@ -14,7 +14,7 @@
 <meta property="og:type" content="website">
 <meta property="og:title" content="Radius Architectural Millwork · Burnaby BC">
 <meta property="og:description" content="A Master Joiner-led millwork shop. Twenty-five years on the same bench. AWMAC Gold 2011.">
-<meta property="og:image" content="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/homepage/banners/new-slider3.jpg">
+<meta property="og:image" content="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/homepage/projects/hero-whistler.jpg">
 <meta property="og:url" content="https://radiuswood.com/">
 
 <script type="application/ld+json">
@@ -70,13 +70,22 @@
     },
     {
       "@type": "CreativeWork",
-      "name": "Rosebery Estate",
+      "name": "Indian River — The Point",
+      "creator": {"@id": "https://radiuswood.com/#org"},
+      "photographer": {"@type": "Person", "name": "Andrew Latreille", "url": "https://latreille.ca/"},
+      "locationCreated": {"@type": "Place", "address": {"@type": "PostalAddress", "addressRegion": "BC", "addressCountry": "CA"}},
+      "image": "https://mattanthonyphoto.github.io/matt-proposals/radiuswood/homepage/projects/indian-river-the-point.jpg",
+      "url": "https://radiuswood.com/work/indian-river/",
+      "description": "Modernist residence at Indian River. Rift-sawn white oak floor-to-ceiling cabinetry, dark accent millwork, restrained material palette. Photography by Andrew Latreille."
+    },
+    {
+      "@type": "CreativeWork",
+      "name": "AWMAC BC Gold 2011 Residence",
       "creator": {"@id": "https://radiuswood.com/#org"},
       "sourceOrganization": {"@type": "Organization", "name": "Lamoureux Architects"},
       "dateCreated": "2011",
       "award": ["AWMAC BC Gold — Best in Quality (2011)", "AWMAC BC Gold — Best in Service (2011)"],
-      "image": "https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/archive/luxury-41.jpg",
-      "url": "https://radiuswood.com/work/rosebery-estate/"
+      "description": "Private Vancouver residence. $1.5M millwork scope. Eighteen months on the bench, fifteen craftspeople full-time. Bent-laminated structural alder, slip-matched panelling, walnut furniture, ammonia-cured oak detailing."
     },
     {
       "@type": "FAQPage",
@@ -89,7 +98,7 @@
         {
           "@type": "Question",
           "name": "Who founded Radius and what are their credentials?",
-          "acceptedAnswer": {"@type": "Answer", "text": "Founded by Rick Wilson in 2002. BCIT-trained Master Joiner. The shop operates with twenty craftspeople in a 5,000 sq ft facility in Burnaby. AWMAC BC Gold winner in 2011 with Lamoureux Architects on the Rosebery Estate."}
+          "acceptedAnswer": {"@type": "Answer", "text": "Founded by Rick Wilson in 2002. BCIT-trained Master Joiner. The shop operates with twenty craftspeople in a 5,000 sq ft facility in Burnaby. AWMAC BC Gold winner in 2011 with Lamoureux Architects on a private Vancouver residence."}
         },
         {
           "@type": "Question",
@@ -99,7 +108,7 @@
         {
           "@type": "Question",
           "name": "Which architects and designers has Radius worked with?",
-          "acceptedAnswer": {"@type": "Answer", "text": "Twenty-five years of collaborations with leading BC architects and designers, including Lamoureux Architects on the AWMAC Gold-winning Rosebery Estate. Project credits are available on the Work page and on request."}
+          "acceptedAnswer": {"@type": "Answer", "text": "Twenty-five years of collaborations with leading BC architects and designers, including Lamoureux Architects on the AWMAC Gold-winning private Vancouver residence. Project credits are available on the Work page and on request."}
         },
         {
           "@type": "Question",
@@ -473,6 +482,13 @@
     margin-top: 6px;
     font-size: 0.62rem; letter-spacing: 0.32em; text-transform: uppercase;
     color: var(--ink); font-weight: 400;
+  }
+  .pcard-caption .photo-credit,
+  .scard-caption .photo-credit {
+    grid-column: 1 / -1;
+    margin-top: 6px;
+    font-size: 0.6rem; letter-spacing: 0.30em; text-transform: uppercase;
+    color: var(--stone-light); font-weight: 400;
   }
   /* Bento sizing */
   .pcard.lg { grid-column: span 7; }
@@ -941,13 +957,13 @@
 
 <!-- HERO -->
 <section class="hero" id="top">
-  <div class="hero-image active" style="background-image: url('banners/new-slider1.jpg');"></div>
+  <div class="hero-image active" style="background-image: url('projects/hero-whistler.jpg');"></div>
   <div class="hero-text">
     <div class="lockup">
       <div class="marker">Burnaby · British Columbia · Est. 2002</div>
       <h1>Architectural millwork, <em>built at the bench.</em></h1>
     </div>
-    <div class="credit">First Frame<br><em>Modern Residence · Lion's Bay</em></div>
+    <div class="credit">First Frame<br><em>Whistler Slip-Matched Oak</em></div>
   </div>
 </section>
 
@@ -964,7 +980,7 @@
     <div class="cred">
       <div class="cred-num"><em>AWMAC</em></div>
       <div class="cred-label">BC Gold · 2011</div>
-      <div class="cred-detail">Best in Quality + Best in Service. Rosebery Estate with Lamoureux Architects.</div>
+      <div class="cred-detail">Best in Quality + Best in Service. Private Vancouver residence with Lamoureux Architects.</div>
     </div>
     <div class="cred">
       <div class="cred-num"><em>Houzz</em></div>
@@ -997,34 +1013,35 @@
 
     <a href="services/custom-millwork.html" class="scard">
       <div class="scard-image-wrap">
-        <img loading="lazy" decoding="async" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/archive/waterfront-3.jpg?v=20260513-logo" alt="Custom millwork — mahogany display wall with integrated staircase">
+        <img loading="lazy" decoding="async" src="projects/svc-millwork-rift-oak.jpg" alt="Custom architectural millwork — rift-sawn white oak floor-to-ceiling cabinetry at Indian River">
       </div>
       <div class="scard-caption">
         <h3>Custom <em>Millwork</em></h3>
         <span class="num-marker"><em>i</em></span>
-        <div class="specs">Architectural cabinetry, panelling, built-ins. Slip-matched veneers, hand-cut joinery, scribed-fit install.</div>
+        <div class="specs">Architectural cabinetry, panelling, built-ins. Slip-matched and sequence-matched veneers, hand-cut joinery, scribed-fit install.</div>
+        <div class="photo-credit">Photo · Andrew Latreille</div>
       </div>
     </a>
 
     <a href="services/custom-millwork.html" class="scard">
       <div class="scard-image-wrap">
-        <img loading="lazy" decoding="async" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/joinery/dovetail-pin-tail-maple-stacked.jpg?v=20260513-logo" alt="Custom furniture — Eastern maple dovetail boxes">
+        <img loading="lazy" decoding="async" src="projects/svc-furniture-slat-pull.jpg" alt="Custom furniture — vertical walnut slat door with integrated black pull">
       </div>
       <div class="scard-caption">
         <h3>Custom <em>Furniture</em></h3>
         <span class="num-marker"><em>ii</em></span>
-        <div class="specs">Tables, casework, signature one-off pieces. Solid stock, traditional joinery, hand-rubbed oil finish.</div>
+        <div class="specs">Tables, casework, signature one-off pieces. Solid stock, traditional joinery, hand-rubbed oil finishes, integrated metal hardware.</div>
       </div>
     </a>
 
     <a href="services/custom-millwork.html" class="scard">
       <div class="scard-image-wrap">
-        <img loading="lazy" decoding="async" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/archive/walnut-3.jpg?v=20260513-logo" alt="Walnut wine room with bottle racks">
+        <img loading="lazy" decoding="async" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/archive/walnut-3.jpg?v=20260513-logo" alt="Walnut wine room — bottle inset with stone column">
       </div>
       <div class="scard-caption">
         <h3>Wine <em>Cellars</em></h3>
         <span class="num-marker"><em>iii</em></span>
-        <div class="specs">Climate-control integration, bottle racks, full-room packages. Walnut and oak species.</div>
+        <div class="specs">Climate-controlled enclosures, bottle racks, full-room packages. Walnut, white oak, and rift-sawn species.</div>
       </div>
     </a>
 
@@ -1045,70 +1062,59 @@
 
   <div class="work-grid fade-up">
 
-    <a href="work/rosebery-estate.html" class="pcard lg">
+    <a href="work/" class="pcard lg">
       <div class="pcard-image-wrap">
-        <img loading="lazy" decoding="async" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/archive/luxury-41.jpg?v=20260513-logo" alt="Rosebery Estate — bent-laminated curved alder rotunda, Vancouver West">
+        <img loading="lazy" decoding="async" src="projects/indian-river-the-point.jpg" alt="Indian River — The Point. Dark rift-oak kitchen with black globe pendants and sage-green range">
       </div>
       <div class="pcard-caption">
-        <h3>Rosebery <em>Estate</em></h3>
-        <span class="num-marker"><em>I</em> · Vancouver West</span>
-        <div class="specs">Lamoureux Architects · Bent-laminated alder rotunda · Coffered ceilings · 18 months at the bench · $1.5M millwork scope</div>
-        <div class="award">AWMAC BC Gold · 2011 · Best in Quality + Best in Service</div>
+        <h3>Indian River <em>— The Point</em></h3>
+        <span class="num-marker"><em>I</em> · North Shore</span>
+        <div class="specs">Rift-sawn white oak floor-to-ceiling cabinetry · Black oak feature wall and range surround · Sage-green steel range · Restrained material palette throughout</div>
+        <div class="photo-credit">Photo · Andrew Latreille</div>
       </div>
     </a>
 
     <a href="work/" class="pcard md">
       <div class="pcard-image-wrap">
-        <img loading="lazy" decoding="async" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/archive/luxury-22.jpg?v=20260513-logo" alt="Walnut Estate — slip-matched American walnut cabinetry">
+        <img loading="lazy" decoding="async" src="projects/whistler-slip-matched-oak.jpg" alt="Whistler Slip-Matched Oak residence — slat-ceiling kitchen and deck at dusk">
       </div>
       <div class="pcard-caption">
-        <h3>Walnut <em>Estate</em></h3>
-        <span class="num-marker"><em>II</em> · Vancouver</span>
-        <div class="specs">American black walnut · Slip-matched primary panels · Library + display + integrated cabinetry</div>
+        <h3>Whistler <em>Slip-Matched Oak</em></h3>
+        <span class="num-marker"><em>II</em> · Sea-to-Sky</span>
+        <div class="specs">Slip-matched white oak panelling · Cedar slat ceiling · Concrete column + integrated kitchen run · Folding glass to the deck</div>
       </div>
     </a>
 
     <a href="work/" class="pcard col6">
       <div class="pcard-image-wrap">
-        <img loading="lazy" decoding="async" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/archive/luxury-1.jpg?v=20260513-logo" alt="Two-storey curved alder foyer with grand stair">
+        <img loading="lazy" decoding="async" src="projects/vancouverhouse-penthouse.jpg" alt="Vancouverhouse Penthouse — walnut-slat ceiling and panelled walls framing an interior garden">
       </div>
       <div class="pcard-caption">
-        <h3>Curved <em>Foyer</em></h3>
-        <span class="num-marker"><em>III</em> · West Vancouver</span>
-        <div class="specs">Two-storey curved alder · Hand-fit panelled walls · Bent-laminated handrail · Grand stair</div>
+        <h3>Vancouverhouse <em>Penthouse</em></h3>
+        <span class="num-marker"><em>III</em> · Downtown Vancouver</span>
+        <div class="specs">American walnut slat ceiling · Slip-matched walnut volume · Integrated interior garden glazing · Full-floor millwork package</div>
       </div>
     </a>
 
     <a href="work/" class="pcard col6">
       <div class="pcard-image-wrap">
-        <img loading="lazy" decoding="async" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/material/sequence-matched-rift-oak-doors.jpg?v=20260513-logo" alt="Sequence-matched rift white oak doors — Sea-to-Sky residence">
+        <img loading="lazy" decoding="async" src="projects/waterfront-anigre-penthouse.jpg" alt="Waterfront Anigre Penthouse — geometric coffered ceiling, glass-globe chandelier over dining">
       </div>
       <div class="pcard-caption">
-        <h3>Sequence-Matched <em>Rift Oak</em></h3>
-        <span class="num-marker"><em>IV</em> · Sea-to-Sky</span>
-        <div class="specs">Sequence-matched rift white oak · Continuous grain across a wardrobe-wall package · Integrated handle pulls</div>
+        <h3>Waterfront <em>Anigre Penthouse</em></h3>
+        <span class="num-marker"><em>IV</em> · West Vancouver</span>
+        <div class="specs">Anigre veneer-laid throughout · Geometric coffered ceiling · Built-in display and fireplace surround · Penthouse-scale millwork package</div>
       </div>
     </a>
 
-    <a href="work/" class="pcard col4">
+    <a href="work/" class="pcard col12">
       <div class="pcard-image-wrap">
-        <img loading="lazy" decoding="async" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/archive/lion-3.jpg?v=20260513-logo" alt="Lion's Bay Contemporary — kitchen island with raised-panel doors">
+        <img loading="lazy" decoding="async" src="projects/indian-arm-woodlands.jpg" alt="Indian Arm Study at Woodlands — cedar plank walls and ceiling, hanging globe lights, stone fireplace wall">
       </div>
       <div class="pcard-caption">
-        <h3>Lion's Bay <em>Contemporary</em></h3>
-        <span class="num-marker"><em>V</em> · Sea-to-Sky</span>
-        <div class="specs">Glaze-finished island · Raised-panel doors · Architectural kitchen package</div>
-      </div>
-    </a>
-
-    <a href="work/" class="pcard col8">
-      <div class="pcard-image-wrap">
-        <img loading="lazy" decoding="async" src="banners/new-slider2.jpg" alt="Penthouse kitchen — walnut and dark stone">
-      </div>
-      <div class="pcard-caption">
-        <h3>Penthouse <em>Kitchen</em></h3>
-        <span class="num-marker"><em>VI</em> · Downtown Vancouver</span>
-        <div class="specs">American walnut · Dark stone island · Integrated slat ceiling · Run as a single uninterrupted plane</div>
+        <h3>Indian Arm Study <em>— Woodlands</em></h3>
+        <span class="num-marker"><em>V</em> · Indian Arm</span>
+        <div class="specs">Vertical-grain western red cedar walls and ceiling · Custom built-in desk and shelving · Hanging globe pendant cluster · Lakefront retreat scope</div>
       </div>
     </a>
 
@@ -1219,7 +1225,7 @@
     <div class="award">
       <div class="award-year"><em>2011</em></div>
       <div class="award-name">AWMAC Gold</div>
-      <div class="award-detail">Best in Quality + Best in Service. The Rosebery Estate, with Lamoureux Architects.</div>
+      <div class="award-detail">Best in Quality + Best in Service. Private Vancouver residence, with Lamoureux Architects.</div>
     </div>
     <div class="award">
       <div class="award-year"><em>'13–'17</em></div>
