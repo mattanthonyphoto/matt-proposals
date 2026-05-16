@@ -136,6 +136,22 @@
     font-family: var(--f); font-weight: 300;
     font-size: 10px; letter-spacing: 0.4em;
     text-transform: uppercase; color: var(--stone);
+    display: inline-flex; align-items: center; gap: 14px;
+  }
+  /* Drafting dimension tick: horizontal hairline + vertical end-tick */
+  .eyebrow::before {
+    content: ''; display: inline-block;
+    width: 28px; height: 6px;
+    border-bottom: 1px solid var(--stone-lt);
+    border-right: 1px solid var(--stone-lt);
+    box-sizing: border-box;
+    position: relative; top: -2px;
+  }
+  /* Sections sitting on dark backgrounds (hero, quote, cta) — lighter ticks */
+  .hero .eyebrow::before,
+  .quote .eyebrow::before {
+    border-bottom-color: rgba(255,255,255,0.45);
+    border-right-color: rgba(255,255,255,0.45);
   }
   .label-link {
     font-family: var(--f); font-weight: 300;
@@ -184,11 +200,11 @@
     border-bottom: 1px solid var(--rule);
   }
   nav.site .logo {
-    height: clamp(26px, 2.4vw, 36px); width: auto;
+    height: clamp(40px, 3.4vw, 56px); width: auto;
     transition: filter .5s var(--ease);
     filter: brightness(0) invert(1);
   }
-  nav.site.scrolled .logo { filter: none; }
+  nav.site.scrolled .logo { filter: none; height: clamp(36px, 3vw, 48px); }
   nav.site .links { display: flex; gap: clamp(20px, 3vw, 44px); align-items: center; }
   nav.site .links a {
     font-family: var(--f); font-weight: 300;
@@ -248,8 +264,17 @@
     text-transform: uppercase;
     color: rgba(255,255,255,0.75);
     margin-bottom: 32px;
+    display: inline-flex; align-items: center; gap: 14px;
     opacity: 0; transform: translateY(16px);
     animation: fadeUp 1.2s var(--ease) 0.2s forwards;
+  }
+  .hero-eyebrow::before {
+    content: ''; display: inline-block;
+    width: 28px; height: 6px;
+    border-bottom: 1px solid rgba(255,255,255,0.55);
+    border-right: 1px solid rgba(255,255,255,0.55);
+    box-sizing: border-box;
+    position: relative; top: -2px;
   }
   .hero h1 {
     font-family: var(--fd); font-weight: 300;
@@ -358,23 +383,7 @@
     -webkit-mask-image: radial-gradient(ellipse at center, black 60%, transparent 88%);
   }
   .philosophy > * { position: relative; z-index: 1; }
-  /* Drafting dimension tick marks at the start of the philosophy eyebrow */
-  .philosophy .eyebrow::before {
-    content: ''; display: inline-block;
-    width: 32px; height: 1px;
-    background: var(--stone-lt);
-    vertical-align: middle;
-    margin-right: 14px;
-    position: relative; top: -1px;
-  }
-  .philosophy .eyebrow::after {
-    content: ''; display: inline-block;
-    width: 1px; height: 7px;
-    background: var(--stone-lt);
-    vertical-align: middle;
-    margin-left: -1px; margin-right: 14px;
-    position: relative; top: -2px;
-  }
+  /* Philosophy eyebrow uses the shared drafting tick from .eyebrow::before */
   .philosophy .eyebrow { margin-bottom: 30px; display: block; }
   .philosophy h2 {
     font-weight: 200;
@@ -390,8 +399,27 @@
 
   /* ─── PROJECTS ─── */
   .projects {
+    position: relative;
     padding: clamp(72px, 9vw, 140px) clamp(20px, 3vw, 48px);
     max-width: 1640px; margin: 0 auto;
+  }
+  /* Drafting corner crop marks on the Projects section */
+  .projects::before,
+  .projects::after,
+  .projects .crop-tl,
+  .projects .crop-tr {
+    content: ''; position: absolute;
+    width: 22px; height: 22px;
+    border-color: var(--rule-strong);
+    border-style: solid;
+    pointer-events: none;
+  }
+  .projects .crop-tl { top: 28px; left: 28px; border-width: 1px 0 0 1px; }
+  .projects .crop-tr { top: 28px; right: 28px; border-width: 1px 1px 0 0; }
+  .projects::before { bottom: 28px; left: 28px; border-width: 0 0 1px 1px; }
+  .projects::after { bottom: 28px; right: 28px; border-width: 0 1px 1px 0; }
+  @media (max-width: 700px) {
+    .projects::before, .projects::after, .projects .crop-tl, .projects .crop-tr { display: none; }
   }
   .projects-head {
     display: flex; justify-content: space-between; align-items: flex-end;
@@ -486,7 +514,22 @@
 
   /* ─── APPROACH (narrative + service list) ─── */
   .approach {
+    position: relative;
     padding: clamp(80px, 10vw, 160px) clamp(28px, 8vw, 120px);
+  }
+  /* Mock elevation drawing as decorative element */
+  .approach .elevation-drawing {
+    margin: 36px 0 0;
+    max-width: 360px;
+    opacity: 0.6;
+  }
+  .approach .elevation-drawing svg { width: 100%; height: auto; display: block; }
+  .approach .elevation-label {
+    margin-top: 8px;
+    font-size: 9px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--stone-lt);
+    font-weight: 400;
+    display: flex; justify-content: space-between;
   }
   .approach-inner {
     max-width: 1240px; margin: 0 auto;
@@ -640,14 +683,15 @@
   .cta-avail {
     font-family: var(--f); font-weight: 400;
     font-size: 10px; letter-spacing: 0.4em;
-    text-transform: uppercase; color: rgba(255,255,255,0.7);
+    text-transform: uppercase; color: rgba(255,255,255,0.72);
     margin-bottom: 22px;
+    display: inline-flex; align-items: center; gap: 12px;
   }
   .cta-avail::before {
     content: ''; display: inline-block;
     width: 6px; height: 6px; border-radius: 50%;
-    background: var(--gold); vertical-align: middle;
-    margin-right: 12px; box-shadow: 0 0 0 4px rgba(184,151,90,0.20);
+    background: var(--gold); flex: 0 0 6px;
+    box-shadow: 0 0 0 4px rgba(184,151,90,0.20);
   }
   .cta h2 {
     font-family: var(--fd); font-weight: 300;
@@ -840,6 +884,8 @@
 
 <!-- SELECTED WORK -->
 <section class="projects" id="work">
+  <span class="crop-tl" aria-hidden="true"></span>
+  <span class="crop-tr" aria-hidden="true"></span>
   <div class="projects-head reveal">
     <div class="left">
       <span class="eyebrow">Our Work</span>
@@ -917,6 +963,42 @@
       <h2>From concept to completion. <em>In-house, end to end.</em></h2>
       <p>We work from your drawings or develop fresh ideas with the design team. Industry-specific CAD software, 3D renderings with texture, full mock-ups of every project — visit the shop and see your project in full function and real proportions before we commit.</p>
       <p>Journeymen and master joiners work in unison on the production floor. Thorough preparation for stain, lacquer, or paint, using the highest quality tooling and materials. Projects shipped and installed by in-house staff. Every quality check, every site visit, every punch list — closed by the team that built it.</p>
+      <div class="elevation-drawing" aria-hidden="true">
+        <svg viewBox="0 0 360 140" fill="none" stroke="currentColor" stroke-width="0.6" style="color: var(--stone-lt);">
+          <!-- Floor + ceiling reference lines -->
+          <line x1="6" y1="120" x2="354" y2="120" stroke-dasharray="0"/>
+          <line x1="6" y1="14" x2="354" y2="14" stroke-dasharray="2 3"/>
+          <!-- Cabinet wall elevation: 6 doors -->
+          <rect x="20" y="30" width="50" height="74"/>
+          <rect x="70" y="30" width="50" height="74"/>
+          <rect x="120" y="30" width="50" height="74"/>
+          <rect x="170" y="30" width="50" height="74"/>
+          <rect x="220" y="30" width="50" height="74"/>
+          <rect x="270" y="30" width="50" height="74"/>
+          <!-- Door pulls -->
+          <line x1="62" y1="58" x2="62" y2="78"/>
+          <line x1="112" y1="58" x2="112" y2="78"/>
+          <line x1="162" y1="58" x2="162" y2="78"/>
+          <line x1="212" y1="58" x2="212" y2="78"/>
+          <line x1="262" y1="58" x2="262" y2="78"/>
+          <line x1="312" y1="58" x2="312" y2="78"/>
+          <!-- Base reveal -->
+          <line x1="20" y1="108" x2="320" y2="108"/>
+          <line x1="20" y1="112" x2="320" y2="112"/>
+          <!-- Dimension line below -->
+          <line x1="20" y1="130" x2="320" y2="130"/>
+          <line x1="20" y1="127" x2="20" y2="133"/>
+          <line x1="320" y1="127" x2="320" y2="133"/>
+          <!-- Center crown / ceiling tick marks -->
+          <line x1="20" y1="22" x2="320" y2="22"/>
+          <line x1="20" y1="19" x2="20" y2="25"/>
+          <line x1="320" y1="19" x2="320" y2="25"/>
+        </svg>
+        <div class="elevation-label">
+          <span>Elevation · Cabinet Wall</span>
+          <span>Sheet 04 / 12</span>
+        </div>
+      </div>
       <a href="services/custom-millwork.html" class="label-link" style="margin-top: 28px; display: inline-block;">Our Process →</a>
     </div>
     <div class="approach-services reveal">
