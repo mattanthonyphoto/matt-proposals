@@ -136,22 +136,6 @@
     font-family: var(--f); font-weight: 300;
     font-size: 10px; letter-spacing: 0.4em;
     text-transform: uppercase; color: var(--stone);
-    display: inline-flex; align-items: center; gap: 14px;
-  }
-  /* Drafting dimension tick: horizontal hairline + vertical end-tick */
-  .eyebrow::before {
-    content: ''; display: inline-block;
-    width: 28px; height: 6px;
-    border-bottom: 1px solid var(--stone-lt);
-    border-right: 1px solid var(--stone-lt);
-    box-sizing: border-box;
-    position: relative; top: -2px;
-  }
-  /* Sections sitting on dark backgrounds (hero, quote, cta) — lighter ticks */
-  .hero .eyebrow::before,
-  .quote .eyebrow::before {
-    border-bottom-color: rgba(255,255,255,0.45);
-    border-right-color: rgba(255,255,255,0.45);
   }
   .label-link {
     font-family: var(--f); font-weight: 300;
@@ -264,17 +248,8 @@
     text-transform: uppercase;
     color: rgba(255,255,255,0.75);
     margin-bottom: 32px;
-    display: inline-flex; align-items: center; gap: 14px;
     opacity: 0; transform: translateY(16px);
     animation: fadeUp 1.2s var(--ease) 0.2s forwards;
-  }
-  .hero-eyebrow::before {
-    content: ''; display: inline-block;
-    width: 28px; height: 6px;
-    border-bottom: 1px solid rgba(255,255,255,0.55);
-    border-right: 1px solid rgba(255,255,255,0.55);
-    box-sizing: border-box;
-    position: relative; top: -2px;
   }
   .hero h1 {
     font-family: var(--fd); font-weight: 300;
@@ -363,12 +338,26 @@
     .proof-item::after { display: none !important; }
   }
 
+  /* ─── DRAFTING DRAWINGS — shared label style ─── */
+  .draft-drawing { color: var(--stone-lt); opacity: 0.7; }
+  .draft-drawing svg { width: 100%; height: auto; display: block; }
+  .draft-label {
+    margin-top: 8px;
+    font-family: var(--f); font-weight: 400;
+    font-size: 9px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--stone-lt);
+    display: flex; justify-content: space-between;
+  }
+
   /* ─── PHILOSOPHY ─── */
   .philosophy {
     position: relative;
     padding: clamp(110px, 14vw, 200px) clamp(28px, 8vw, 120px);
     max-width: 1040px; margin: 0 auto;
     text-align: left;
+  }
+  .philosophy .draft-drawing.section-detail {
+    max-width: 340px; margin: 56px 0 0;
   }
   /* Faint drafting-paper grid behind philosophy text */
   .philosophy::before {
@@ -422,11 +411,17 @@
     .projects::before, .projects::after, .projects .crop-tl, .projects .crop-tr { display: none; }
   }
   .projects-head {
-    display: flex; justify-content: space-between; align-items: flex-end;
+    display: grid; grid-template-columns: 1.4fr 1fr auto;
+    align-items: end; gap: 40px;
     margin-bottom: clamp(44px, 5.5vw, 72px);
-    flex-wrap: wrap; gap: 20px;
   }
   .projects-head .left { max-width: 720px; }
+  .projects-head-right { max-width: 220px; padding-bottom: 6px; }
+  .projects-head-right .draft-drawing { margin: 0; }
+  @media (max-width: 900px) {
+    .projects-head { grid-template-columns: 1fr; gap: 28px; }
+    .projects-head-right { display: none; }
+  }
   .projects-head .eyebrow { margin-bottom: 22px; display: block; }
   .projects-head h2 {
     font-weight: 200;
@@ -517,20 +512,7 @@
     position: relative;
     padding: clamp(80px, 10vw, 160px) clamp(28px, 8vw, 120px);
   }
-  /* Mock elevation drawing as decorative element */
-  .approach .elevation-drawing {
-    margin: 36px 0 0;
-    max-width: 360px;
-    opacity: 0.6;
-  }
-  .approach .elevation-drawing svg { width: 100%; height: auto; display: block; }
-  .approach .elevation-label {
-    margin-top: 8px;
-    font-size: 9px; letter-spacing: 0.32em;
-    text-transform: uppercase; color: var(--stone-lt);
-    font-weight: 400;
-    display: flex; justify-content: space-between;
-  }
+  .approach .draft-drawing { margin: 36px 0 0; max-width: 380px; }
   .approach-inner {
     max-width: 1240px; margin: 0 auto;
     display: grid; grid-template-columns: 1.05fr 1fr;
@@ -880,6 +862,51 @@
   <span class="eyebrow">Our Approach</span>
   <h2><em>Quality and sophistication</em> that is unsurpassed and continuously evolving.</h2>
   <p>The attention to detail we put into every project is uncommon, even in the exclusive luxury millwork marketplace. Every project runs a rigorous planning process before production begins — ensuring seamless integration with sub-trades, drawings, and site conditions. Traditional and contemporary joinery engineered into all fabrication. Custom mouldings, profiles, doors, casework. Furniture-grade finishes from antique country cottage to high-gloss contemporary, all through our in-house finishing department. Same shop, same bench, same Government Street address since the day we opened.</p>
+
+  <div class="draft-drawing section-detail" aria-hidden="true">
+    <svg viewBox="0 0 340 150" fill="none" stroke="currentColor" stroke-width="0.6">
+      <!-- Section through cabinet door + carcass + back -->
+      <!-- Vertical reference axis -->
+      <line x1="40" y1="20" x2="40" y2="138" stroke-dasharray="2 3"/>
+      <!-- Cabinet carcass outline (sectioned) -->
+      <rect x="40" y="30" width="180" height="100"/>
+      <!-- Shelf -->
+      <line x1="40" y1="76" x2="220" y2="76"/>
+      <line x1="40" y1="78" x2="220" y2="78"/>
+      <!-- Door profile right side -->
+      <line x1="226" y1="30" x2="226" y2="130"/>
+      <line x1="232" y1="30" x2="232" y2="130"/>
+      <line x1="226" y1="30" x2="232" y2="30"/>
+      <line x1="226" y1="130" x2="232" y2="130"/>
+      <!-- Hinge + tick marks -->
+      <line x1="220" y1="42" x2="232" y2="42"/>
+      <line x1="220" y1="118" x2="232" y2="118"/>
+      <!-- Pull -->
+      <line x1="226" y1="76" x2="226" y2="86"/>
+      <line x1="228" y1="76" x2="228" y2="86"/>
+      <!-- Wall reference -->
+      <line x1="36" y1="30" x2="36" y2="130"/>
+      <!-- Dimension below: cabinet width -->
+      <line x1="40" y1="146" x2="232" y2="146"/>
+      <line x1="40" y1="143" x2="40" y2="149"/>
+      <line x1="232" y1="143" x2="232" y2="149"/>
+      <!-- Dimension hatch (wall) -->
+      <line x1="26" y1="30" x2="36" y2="38"/>
+      <line x1="26" y1="50" x2="36" y2="58"/>
+      <line x1="26" y1="70" x2="36" y2="78"/>
+      <line x1="26" y1="90" x2="36" y2="98"/>
+      <line x1="26" y1="110" x2="36" y2="118"/>
+      <!-- Dado joint detail callout -->
+      <circle cx="290" cy="76" r="22"/>
+      <line x1="290" y1="64" x2="290" y2="88"/>
+      <line x1="278" y1="76" x2="302" y2="76"/>
+      <line x1="232" y1="77" x2="268" y2="76"/>
+    </svg>
+    <div class="draft-label">
+      <span>Section · Cabinet Detail</span>
+      <span>Dado &amp; Hinge</span>
+    </div>
+  </div>
 </section>
 
 <!-- SELECTED WORK -->
@@ -890,6 +917,47 @@
     <div class="left">
       <span class="eyebrow">Our Work</span>
       <h2>Custom millwork packages, <em>built for British Columbia's most exclusive estates.</em></h2>
+    </div>
+    <div class="projects-head-right">
+      <div class="draft-drawing floor-plan" aria-hidden="true">
+        <svg viewBox="0 0 240 120" fill="none" stroke="currentColor" stroke-width="0.6">
+          <!-- Floor plan: residence outline with island, dining, kitchen run -->
+          <rect x="10" y="10" width="220" height="100"/>
+          <!-- Interior partitions -->
+          <line x1="120" y1="10" x2="120" y2="64"/>
+          <line x1="80" y1="64" x2="170" y2="64"/>
+          <!-- Kitchen run (top right) -->
+          <line x1="130" y1="20" x2="220" y2="20"/>
+          <line x1="130" y1="24" x2="220" y2="24"/>
+          <!-- Island -->
+          <rect x="140" y="36" width="60" height="20"/>
+          <!-- Stool tick marks -->
+          <line x1="148" y1="60" x2="148" y2="58"/>
+          <line x1="160" y1="60" x2="160" y2="58"/>
+          <line x1="172" y1="60" x2="172" y2="58"/>
+          <line x1="184" y1="60" x2="184" y2="58"/>
+          <!-- Living area (left) -->
+          <line x1="20" y1="80" x2="80" y2="80"/>
+          <line x1="20" y1="100" x2="80" y2="100"/>
+          <line x1="20" y1="80" x2="20" y2="100"/>
+          <line x1="80" y1="80" x2="80" y2="100"/>
+          <!-- Dimension lines -->
+          <line x1="10" y1="3" x2="230" y2="3"/>
+          <line x1="10" y1="1" x2="10" y2="6"/>
+          <line x1="230" y1="1" x2="230" y2="6"/>
+          <!-- Door swing arcs -->
+          <path d="M 80 64 A 14 14 0 0 1 80 78"/>
+          <!-- North arrow -->
+          <circle cx="220" cy="100" r="6"/>
+          <line x1="220" y1="94" x2="220" y2="106"/>
+          <line x1="220" y1="94" x2="218" y2="98"/>
+          <line x1="220" y1="94" x2="222" y2="98"/>
+        </svg>
+        <div class="draft-label">
+          <span>Plan · Main Floor</span>
+          <span>N ↑</span>
+        </div>
+      </div>
     </div>
     <a href="work/" class="label-link">All Projects →</a>
   </div>
@@ -963,38 +1031,32 @@
       <h2>From concept to completion. <em>In-house, end to end.</em></h2>
       <p>We work from your drawings or develop fresh ideas with the design team. Industry-specific CAD software, 3D renderings with texture, full mock-ups of every project — visit the shop and see your project in full function and real proportions before we commit.</p>
       <p>Journeymen and master joiners work in unison on the production floor. Thorough preparation for stain, lacquer, or paint, using the highest quality tooling and materials. Projects shipped and installed by in-house staff. Every quality check, every site visit, every punch list — closed by the team that built it.</p>
-      <div class="elevation-drawing" aria-hidden="true">
-        <svg viewBox="0 0 360 140" fill="none" stroke="currentColor" stroke-width="0.6" style="color: var(--stone-lt);">
-          <!-- Floor + ceiling reference lines -->
-          <line x1="6" y1="120" x2="354" y2="120" stroke-dasharray="0"/>
+      <div class="draft-drawing" aria-hidden="true">
+        <svg viewBox="0 0 360 140" fill="none" stroke="currentColor" stroke-width="0.6">
+          <line x1="6" y1="120" x2="354" y2="120"/>
           <line x1="6" y1="14" x2="354" y2="14" stroke-dasharray="2 3"/>
-          <!-- Cabinet wall elevation: 6 doors -->
           <rect x="20" y="30" width="50" height="74"/>
           <rect x="70" y="30" width="50" height="74"/>
           <rect x="120" y="30" width="50" height="74"/>
           <rect x="170" y="30" width="50" height="74"/>
           <rect x="220" y="30" width="50" height="74"/>
           <rect x="270" y="30" width="50" height="74"/>
-          <!-- Door pulls -->
           <line x1="62" y1="58" x2="62" y2="78"/>
           <line x1="112" y1="58" x2="112" y2="78"/>
           <line x1="162" y1="58" x2="162" y2="78"/>
           <line x1="212" y1="58" x2="212" y2="78"/>
           <line x1="262" y1="58" x2="262" y2="78"/>
           <line x1="312" y1="58" x2="312" y2="78"/>
-          <!-- Base reveal -->
           <line x1="20" y1="108" x2="320" y2="108"/>
           <line x1="20" y1="112" x2="320" y2="112"/>
-          <!-- Dimension line below -->
           <line x1="20" y1="130" x2="320" y2="130"/>
           <line x1="20" y1="127" x2="20" y2="133"/>
           <line x1="320" y1="127" x2="320" y2="133"/>
-          <!-- Center crown / ceiling tick marks -->
           <line x1="20" y1="22" x2="320" y2="22"/>
           <line x1="20" y1="19" x2="20" y2="25"/>
           <line x1="320" y1="19" x2="320" y2="25"/>
         </svg>
-        <div class="elevation-label">
+        <div class="draft-label">
           <span>Elevation · Cabinet Wall</span>
           <span>Sheet 04 / 12</span>
         </div>
