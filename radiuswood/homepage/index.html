@@ -381,12 +381,6 @@
     grid-template-columns: repeat(3, 1fr);
     gap: clamp(20px, 2.4vw, 38px) clamp(16px, 2vw, 28px);
   }
-  .proj-feature { grid-column: span 2; }
-  .proj-feature .proj-img-wrap { aspect-ratio: 16/10; }
-  .proj-medium { grid-column: span 2; }
-  .proj-medium .proj-img-wrap { aspect-ratio: 16/10; }
-  .proj-wide { grid-column: span 3; }
-  .proj-wide .proj-img-wrap { aspect-ratio: 21/9; }
   .proj-item { display: block; }
   .proj-img-wrap {
     position: relative; overflow: hidden;
@@ -445,18 +439,8 @@
     text-transform: uppercase; color: var(--stone-lt);
     font-weight: 400;
   }
-  @media (max-width: 900px) {
-    .proj-stack { grid-template-columns: 1fr 1fr; }
-    .proj-feature, .proj-medium { grid-column: span 2; }
-    .proj-wide { grid-column: span 2; }
-    .proj-feature .proj-img-wrap, .proj-medium .proj-img-wrap { aspect-ratio: 16/9; }
-    .proj-wide .proj-img-wrap { aspect-ratio: 16/9; }
-  }
-  @media (max-width: 560px) {
-    .proj-stack { grid-template-columns: 1fr; }
-    .proj-feature, .proj-medium, .proj-wide { grid-column: span 1; }
-    .proj-feature .proj-img-wrap, .proj-medium .proj-img-wrap, .proj-wide .proj-img-wrap { aspect-ratio: 4/3; }
-  }
+  @media (max-width: 900px) { .proj-stack { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .proj-stack { grid-template-columns: 1fr; } }
 
   /* ─── APPROACH (narrative + service list) ─── */
   .approach {
@@ -824,7 +808,7 @@
 
   <div class="proj-stack reveal">
 
-    <a href="work/" class="proj-item proj-feature">
+    <a href="work/" class="proj-item">
       <div class="proj-img-wrap">
         <img loading="lazy" decoding="async" src="projects/indian-river-the-point.jpg" alt="Indian River — The Point. Dark rift-oak kitchen with black globe pendants and sage-green range">
         <div class="proj-overlay">View Project</div>
@@ -858,7 +842,7 @@
       </div>
     </a>
 
-    <a href="work/" class="proj-item proj-medium">
+    <a href="work/" class="proj-item">
       <div class="proj-img-wrap">
         <img loading="lazy" decoding="async" src="projects/vancouverhouse-penthouse.jpg" alt="Vancouverhouse Penthouse. Walnut slat ceiling, dark stone island, dark backsplash">
         <div class="proj-overlay">View Project</div>
@@ -869,7 +853,7 @@
       </div>
     </a>
 
-    <a href="work/" class="proj-item proj-wide">
+    <a href="work/" class="proj-item">
       <div class="proj-img-wrap">
         <img loading="lazy" decoding="async" src="projects/lakeside-a-frame.jpg" alt="Lakeside residence. A-frame gable framing lake view, custom Bocci pendants, walnut media wall">
         <div class="proj-overlay">View Project</div>
