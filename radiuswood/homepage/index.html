@@ -340,9 +340,40 @@
 
   /* ─── PHILOSOPHY ─── */
   .philosophy {
+    position: relative;
     padding: clamp(110px, 14vw, 200px) clamp(28px, 8vw, 120px);
     max-width: 1040px; margin: 0 auto;
     text-align: left;
+  }
+  /* Faint drafting-paper grid behind philosophy text */
+  .philosophy::before {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(58, 47, 30, 0.05) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(58, 47, 30, 0.05) 1px, transparent 1px);
+    background-size: 48px 48px;
+    background-position: center center;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse at center, black 60%, transparent 88%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 60%, transparent 88%);
+  }
+  .philosophy > * { position: relative; z-index: 1; }
+  /* Drafting dimension tick marks at the start of the philosophy eyebrow */
+  .philosophy .eyebrow::before {
+    content: ''; display: inline-block;
+    width: 32px; height: 1px;
+    background: var(--stone-lt);
+    vertical-align: middle;
+    margin-right: 14px;
+    position: relative; top: -1px;
+  }
+  .philosophy .eyebrow::after {
+    content: ''; display: inline-block;
+    width: 1px; height: 7px;
+    background: var(--stone-lt);
+    vertical-align: middle;
+    margin-left: -1px; margin-right: 14px;
+    position: relative; top: -2px;
   }
   .philosophy .eyebrow { margin-bottom: 30px; display: block; }
   .philosophy h2 {
@@ -764,7 +795,7 @@
 
 <!-- HERO -->
 <section class="hero">
-  <div class="hero-image" style="background-image: url('projects/lakeside-a-frame.jpg');"></div>
+  <div class="hero-image" style="background-image: url('projects/hero-vh.jpg');"></div>
   <div class="hero-content">
     <div class="hero-eyebrow">Burnaby · British Columbia · Est. 2002</div>
     <h1>Architectural millwork, <em>built at the bench.</em></h1>
@@ -775,7 +806,7 @@
       <a href="#contact" class="arrow-link on-dark">Start a Project</a>
     </div>
   </div>
-  <div class="hero-meta">First Frame <em>Indian Arm · Lakeside A-Frame</em></div>
+  <div class="hero-meta">First Frame <em>Vancouverhouse Penthouse</em></div>
 </section>
 
 <!-- PROOF BAND -->
