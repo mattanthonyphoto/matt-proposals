@@ -1,0 +1,2157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radius — Past-Projects Social Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500;600&family=Josefin+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1A1A18;
+  --paper: #F6F4F0;
+  --offwhite: #EEECE6;
+  --gold: #C9A96E;
+  --warm: #B8975A;
+  --stone: #8A8579;
+  --lightstone: #D9D5CD;
+  --rule: rgba(26, 26, 24, 0.12);
+  --soft: rgba(26, 26, 24, 0.04);
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* TOP NAV */
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+.topnav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 14px 32px;
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  flex-wrap: wrap;
+}
+.topnav-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-weight: 400;
+  font-size: 18px;
+  color: var(--ink);
+  letter-spacing: 0.5px;
+  white-space: nowrap;
+}
+.topnav-links {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10.5px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  font-weight: 400;
+}
+.topnav-links a {
+  color: var(--stone);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+.topnav-links a:hover { color: var(--gold); }
+.topnav-meta {
+  margin-left: auto;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+/* MAIN LAYOUT */
+.wrap {
+  max-width: 880px;
+  margin: 0 auto;
+  padding: 80px 32px 120px;
+}
+
+/* HERO */
+.hero { margin-bottom: 80px; }
+.hero-eyebrow {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 2.4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 24px;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 64px;
+  line-height: 1.05;
+  letter-spacing: -0.5px;
+  margin-bottom: 24px;
+}
+.hero h1 em {
+  font-style: italic;
+  font-weight: 400;
+  color: var(--gold);
+}
+.hero-deck {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 22px;
+  line-height: 1.5;
+  color: var(--stone);
+  max-width: 660px;
+  margin-bottom: 32px;
+}
+.hero-meta {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 18px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 24px;
+  font-size: 13px;
+}
+.hero-meta dt {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--stone);
+  margin-bottom: 4px;
+}
+.hero-meta dd { color: var(--ink); }
+
+/* SECTIONS */
+section {
+  margin-bottom: 72px;
+  scroll-margin-top: 80px;
+}
+.section-rule {
+  width: 60px;
+  height: 1px;
+  background: var(--gold);
+  margin-bottom: 16px;
+}
+.section-num {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+}
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400;
+  font-size: 38px;
+  line-height: 1.15;
+  letter-spacing: -0.3px;
+  margin-bottom: 28px;
+  color: var(--ink);
+}
+h2 em { font-style: italic; color: var(--gold); }
+h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.25;
+  margin: 40px 0 16px;
+  letter-spacing: -0.2px;
+}
+h4 {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 2.2px;
+  text-transform: uppercase;
+  color: var(--ink);
+  margin: 32px 0 12px;
+}
+h5 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 600;
+  font-size: 14px;
+  letter-spacing: 0.2px;
+  margin: 24px 0 8px;
+  color: var(--ink);
+}
+
+p { margin-bottom: 16px; }
+p + p { margin-top: 0; }
+strong { font-weight: 600; color: var(--ink); }
+em { font-style: italic; }
+
+a { color: var(--ink); text-decoration: underline; text-decoration-color: var(--gold); text-underline-offset: 3px; }
+a:hover { color: var(--gold); }
+
+ul, ol {
+  margin: 8px 0 20px 18px;
+  padding: 0;
+}
+li { margin-bottom: 6px; }
+
+/* TABLES */
+.table-wrap {
+  margin: 24px 0;
+  overflow-x: auto;
+  border: 1px solid var(--rule);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  background: white;
+}
+th, td {
+  text-align: left;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+th {
+  background: var(--offwhite);
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--ink);
+}
+tr:last-child td { border-bottom: none; }
+td code { background: var(--offwhite); padding: 1px 5px; font-size: 12px; }
+
+/* CAPTION BOX (drafted post) */
+.draft {
+  background: white;
+  border-left: 3px solid var(--gold);
+  padding: 18px 22px;
+  margin: 16px 0;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.65;
+}
+.draft p { margin-bottom: 12px; }
+.draft p:last-child { margin-bottom: 0; }
+.draft-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 10px;
+  display: block;
+}
+
+/* CALLOUTS */
+.callout {
+  background: var(--offwhite);
+  border-left: 3px solid var(--warm);
+  padding: 16px 20px;
+  margin: 16px 0;
+  font-size: 13.5px;
+  line-height: 1.6;
+}
+.callout-warn { border-left-color: #B85A4A; background: #FBF1EE; }
+.callout-warn .callout-label { color: #B85A4A; }
+.callout-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--warm);
+  margin-bottom: 8px;
+  display: block;
+  font-weight: 500;
+}
+
+/* CHIPS */
+.chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0 12px;
+}
+.chip {
+  font-size: 11px;
+  background: var(--offwhite);
+  padding: 4px 9px;
+  border-radius: 2px;
+  font-family: 'DM Sans', sans-serif;
+  color: var(--stone);
+}
+.chip-gold { background: var(--gold); color: var(--ink); }
+.chip-ink { background: var(--ink); color: var(--paper); }
+
+/* HASHTAGS */
+.tags {
+  font-size: 12px;
+  color: var(--stone);
+  background: var(--soft);
+  padding: 10px 14px;
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.7;
+  margin: 8px 0 16px;
+  word-spacing: 4px;
+}
+
+/* PROJECT BLOCK */
+.project {
+  border-top: 1px solid var(--rule);
+  padding: 40px 0;
+}
+.project:first-of-type { border-top: none; padding-top: 0; }
+.project-header { margin-bottom: 24px; }
+.project-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500;
+  font-size: 30px;
+  line-height: 1.2;
+  margin-bottom: 6px;
+}
+.project-name em { font-style: italic; color: var(--gold); }
+.project-meta {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+
+/* POST BLOCK */
+.post {
+  margin: 28px 0 36px;
+  padding: 20px;
+  background: white;
+  border: 1px solid var(--rule);
+}
+.post-header {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid var(--rule);
+}
+.post-id {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+.post-day {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 16px;
+  color: var(--ink);
+}
+.post-type {
+  font-size: 11px;
+  letter-spacing: 0.5px;
+  color: var(--stone);
+}
+
+/* CAROUSEL SLIDES */
+.slides {
+  list-style: none;
+  counter-reset: slide;
+  margin: 12px 0 16px;
+  padding: 0;
+}
+.slides li {
+  counter-increment: slide;
+  padding: 8px 0 8px 36px;
+  position: relative;
+  font-size: 13.5px;
+  border-bottom: 1px dashed var(--rule);
+}
+.slides li:last-child { border-bottom: none; }
+.slides li::before {
+  content: counter(slide);
+  position: absolute;
+  left: 0;
+  top: 8px;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 18px;
+  color: var(--gold);
+  width: 24px;
+}
+
+/* STORIES TABLE */
+.stories-table th:first-child { width: 38%; }
+
+/* CREDITS TABLE */
+.credits-table td { font-size: 12.5px; }
+.credits-table td code { font-size: 11.5px; padding: 2px 6px; background: var(--soft); }
+
+/* CHECKLIST */
+.checklist { list-style: none; margin-left: 0; }
+.checklist li {
+  padding: 6px 0 6px 28px;
+  position: relative;
+  font-size: 13.5px;
+}
+.checklist li::before {
+  content: '☐';
+  position: absolute;
+  left: 0;
+  top: 4px;
+  color: var(--gold);
+  font-size: 16px;
+}
+
+/* FOOTNOTE BLOCK */
+.endnotes {
+  border-top: 1px solid var(--rule);
+  padding-top: 40px;
+  font-size: 13px;
+  color: var(--stone);
+}
+.endnotes h3 { color: var(--ink); }
+.endnotes a { color: var(--stone); }
+
+/* SELECTS GRID — embedded images */
+.selects {
+  margin: 20px 0 28px;
+  padding: 18px;
+  background: white;
+  border: 1px solid var(--rule);
+}
+.selects-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 12px;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 8px;
+}
+.selects-count {
+  color: var(--stone);
+  font-weight: 400;
+}
+.selects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 8px;
+}
+.thumb {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: var(--offwhite);
+  border: 1px solid var(--rule);
+}
+.thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.4s ease;
+}
+.thumb:hover img { transform: scale(1.05); }
+.thumb-tag {
+  position: absolute;
+  top: 6px;
+  left: 6px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 9px;
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  background: var(--ink);
+  color: var(--paper);
+  padding: 3px 6px;
+  font-weight: 500;
+}
+.thumb-tag.hero { background: var(--gold); color: var(--ink); }
+.thumb-cap {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(26,26,24,0.92) 0%, rgba(26,26,24,0) 100%);
+  color: var(--paper);
+  font-size: 10px;
+  padding: 14px 8px 6px;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+  line-height: 1.3;
+}
+.thumb:hover .thumb-cap { opacity: 1; }
+
+/* HERO IMAGE at top */
+.hero-img {
+  margin: 32px 0 16px;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: var(--offwhite);
+}
+.hero-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.hero-img-cap {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 13px;
+  color: var(--stone);
+  margin-top: 8px;
+  text-align: right;
+}
+
+/* MOBILE */
+@media (max-width: 720px) {
+  .topnav-inner { padding: 12px 18px; }
+  .topnav-links { font-size: 10px; gap: 12px; }
+  .topnav-meta { display: none; }
+  .wrap { padding: 48px 20px 80px; }
+  .hero h1 { font-size: 40px; }
+  .hero-deck { font-size: 18px; }
+  h2 { font-size: 28px; }
+  h3 { font-size: 20px; }
+  .project-name { font-size: 22px; }
+  th, td { padding: 10px 8px; font-size: 12px; }
+  .draft, .callout { padding: 14px 16px; }
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <span class="topnav-brand"><em>Radius</em> · Past-Projects Plan</span>
+    <div class="topnav-links">
+      <a href="#strategy">Strategy</a>
+      <a href="#inventory">Inventory</a>
+      <a href="#calendar">Calendar</a>
+      <a href="#projects">Projects</a>
+      <a href="#linkedin">LinkedIn</a>
+      <a href="#stories">Stories</a>
+      <a href="#reels">Reels</a>
+      <a href="#specs">Specs</a>
+      <a href="#credits">Credits</a>
+      <a href="#next">Next</a>
+    </div>
+    <span class="topnav-meta">Drafted 2026-05-17</span>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="hero-eyebrow">Phase 1 · Archive Activation · May 25 → Jul 31</div>
+  <h1>Past-projects <em>social plan</em></h1>
+  <p class="hero-deck">Nine archive projects plugged into the Phase 1 calendar so the brand opens on the work that already exists, not just what we shoot from here. Updated with Matt's selects from <code>/Volumes/T9/Radius/Project Selects/</code>.</p>
+  <dl class="hero-meta">
+    <div><dt>Selects pool</dt><dd>~104 frames across 8 projects</dd></div>
+    <div><dt>Posts drafted</dt><dd>50 across 12 weeks</dd></div>
+    <div><dt>Carousels</dt><dd>12</dd></div>
+    <div><dt>Singles</dt><dd>26</dd></div>
+    <div><dt>LinkedIn long-form</dt><dd>12</dd></div>
+    <div><dt>Stories</dt><dd>~50</dd></div>
+    <div><dt>Reels</dt><dd>6 concepts</dd></div>
+    <div><dt>Status</dt><dd>Draft pending Rick credits</dd></div>
+  </dl>
+  <div class="hero-img">
+    <img loading="lazy" src="photos/vancouver-penthouse/vancouverhouse-bop-penthouse-living-dining-walnut-slat-ceiling-ocean-view.jpg" alt="Vancouverhouse Penthouse — walnut slat ceiling, ocean view">
+  </div>
+  <p class="hero-img-cap">Vancouverhouse Penthouse · walnut slat ceiling, ocean view · selects 2026-05-17</p>
+</header>
+
+<!-- 1. STRATEGY -->
+<section id="strategy">
+  <div class="section-rule"></div>
+  <div class="section-num">01 · Strategy</div>
+  <h2>Why archive content <em>now</em></h2>
+  <p>The 12-month roadmap is a brand-awareness play measured in <strong>architect-quality inbound, not follower volume</strong>. The 23 years of finished work Rick has on his hard drive <em>is</em> the proof-distribution problem the strategy is built to solve — nine genuine $500K+ architect-specified projects, sitting unseen behind a stale website.</p>
+  <p>The monthly shop shoot covers The Craft, The Shop, The Team, sometimes The Install. <strong>The Finished pillar has been starving</strong> — and The Finished is the one architects actually scroll for. The archive is how we fix it.</p>
+
+  <h4>Mix target — May → July (Phase 1)</h4>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Pillar</th><th>Source</th><th>Share</th></tr></thead>
+      <tbody>
+        <tr><td>The Finished</td><td>Past projects (this doc)</td><td><strong>40%</strong> ↑ from playbook 20%</td></tr>
+        <tr><td>The Craft</td><td>Past + shop shoots</td><td>25%</td></tr>
+        <tr><td>The Shop</td><td>Monthly shop shoots</td><td>15%</td></tr>
+        <tr><td>The Team</td><td>Founder-voice on LinkedIn</td><td>15%</td></tr>
+        <tr><td>The Install</td><td>Stories when site visits happen</td><td>5%</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p>The over-weight on Finished is deliberate for the first 60 days. We're proving the bench to architects who don't know Rick. After that we rebalance toward standing playbook ratios.</p>
+
+  <h4>Hard constraints (from the playbook)</h4>
+  <ul>
+    <li><strong>Material-first opening every time.</strong> Name the species + the cut + the joint, sentence one.</li>
+    <li><strong>No luxury / stunning / dream / elevated / bespoke / a cut above / eloquent.</strong></li>
+    <li><strong>No em or en dashes.</strong> Commas and periods only.</li>
+    <li><strong>No price.</strong> No "starting at." No "book a call" CTA.</li>
+    <li><strong>No engagement bait.</strong> No polls, no "comment your favourite wood."</li>
+    <li><strong>Credit line on every post.</strong> <code>Photography @mattanthonyphoto</code> (or <code>@latreillephoto</code> on Indian River).</li>
+    <li><strong>Tag architect / designer / builder.</strong> Every archive post is blocked behind a tag list. If Rick can't supply the handles, the post holds.</li>
+  </ul>
+
+  <div class="callout">
+    <span class="callout-label">Rick time on this plan</span>
+    One pass through the credits matrix (§09, ~30 min). Approval of post drafts in Notion (~10 min/week). One signoff on whether Indian River + the Anigre Penthouse can be posted with their original photographers' images.
+  </div>
+</section>
+
+<!-- 2. INVENTORY -->
+<section id="inventory">
+  <div class="section-rule"></div>
+  <div class="section-num">02 · Project Inventory</div>
+  <h2>What each <em>folder</em> contains</h2>
+  <p>Hero count = post-quality frames I'd pull. Pillar lean = which pillar each project carries best.</p>
+
+  <div class="table-wrap">
+    <table>
+      <thead>
+        <tr>
+          <th>#</th><th>Project</th><th>Loc</th><th>Selects</th><th>Species headline</th><th>Pillar lean</th><th>Carousel</th><th>LinkedIn</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td><strong>Contemporary Walnut Estate</strong></td><td>Vancouver area</td><td>12</td><td>Walnut throughout</td><td>Finished + Craft</td><td>✓ 2-part arc</td><td>✓</td></tr>
+        <tr><td>2</td><td><strong>Indian Arm Study</strong></td><td>Indian Arm</td><td>8</td><td>Cedar built-ins</td><td>Finished</td><td>✓ tight</td><td>—</td></tr>
+        <tr><td>3</td><td><strong>Indian River (The Point)</strong></td><td>North Van</td><td>9</td><td>Black wenge + white oak + rift oak</td><td>Finished + Craft</td><td>✓ multi-species</td><td>✓</td></tr>
+        <tr><td>4</td><td><strong>Lion's Bay Residence</strong></td><td>Lion's Bay</td><td>13</td><td>Painted millwork + glazed + arched</td><td>Finished</td><td>✓ kitchen + living arcs</td><td>✓</td></tr>
+        <tr><td>5</td><td><strong>Vancouverhouse Penthouse</strong> <span style="color:var(--gold)">NEW</span></td><td>Vancouver</td><td>13</td><td><strong>Walnut slat + marble + Bocci</strong></td><td>Finished + Craft</td><td>✓ modern arc</td><td>✓</td></tr>
+        <tr><td>6</td><td><strong>Waterfront Anigre Penthouse</strong></td><td>Vancouver waterfront</td><td>25</td><td><strong>Anigre (rare)</strong></td><td>Craft + Finished</td><td>✓ species deep-dive</td><td>✓</td></tr>
+        <tr><td>7</td><td><strong>West Vancouver Modern Luxury</strong></td><td>West Van</td><td>24</td><td>Cedar + saffron + antique wine doors</td><td>Finished + Craft</td><td>✓ 3-part arc</td><td>✓</td></tr>
+        <tr><td>8</td><td><strong>Whistler Slip-Matched Oak</strong></td><td>Whistler</td><td>pending select pass</td><td><strong>Slip-matched white oak</strong></td><td>The Craft anchor</td><td>✓ technique deep-dive</td><td>✓</td></tr>
+        <tr><td>9</td><td><strong>Whitby Estates (Maghsoud)</strong></td><td>British Properties</td><td>11</td><td>Coffered mahogany + cherry book-matched</td><td>Finished</td><td>✓ classical arc</td><td>—</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p><strong>Total archive runway:</strong> ~40 posts available (4–6 per project × 9 projects), enough to carry Weeks 3 May → end of July at the playbook cadence of 4 posts/week. Plus stories, reels, LinkedIn long-form.</p>
+
+  <h3>Project sequencing logic</h3>
+  <p>The order isn't random. We open the archive with the projects that most differentiate Radius from SOMA / Kategorie1 / Pacific Rim — the ones that show <strong>technical specificity no other shop can claim</strong>. We hold Lion's Bay (classical register) and Whitby (2008-era classical) for later in Phase 1 so the brand opens modern + craft-forward.</p>
+  <ol>
+    <li><strong>Whistler Slip-Matched Oak</strong> (Wk3 May) — opens with the literal voice line: slip-matched oak. The technique that no CNC shop replicates.</li>
+    <li><strong>Waterfront Anigre Penthouse</strong> (Wk4 May / Wk5 Jun) — rare-species hook. Anigre alone is a content arc.</li>
+    <li><strong>West Vancouver Modern Luxury — Wine Cellar arc</strong> (Wk5–6 Jun) — antique carved doors over spiral racks; photographically the strongest archive set.</li>
+    <li><strong>Lamoureux 2011 Anniversary push</strong> (Wk6 Jun) — 15-year AWMAC Gold anniversary, <em>if rights clear.</em> Fallback = <strong>Vancouverhouse Penthouse</strong>.</li>
+    <li><strong>Vancouverhouse Penthouse</strong> (Wk6–7 Jun) — modern walnut-slat + marble + Bocci penthouse. Fills the Lamoureux fallback slot or runs alongside.</li>
+    <li><strong>Contemporary Walnut Estate</strong> (Wk7–8 Jun) — two-part arc; dining + wine + media + master suite.</li>
+    <li><strong>Indian River (The Point)</strong> (Wk9 Jul) — black wenge + moss green island; conditional on Latreille rights signoff.</li>
+    <li><strong>Lion's Bay Residence</strong> (Wk10 Jul) — classical-traditional register; kitchen + living arcs (Matt's selects scoped to these rooms).</li>
+    <li><strong>Whitby Estates</strong> (Wk11 Jul) — coffered + mahogany + book-matched cherry; historical-register closer.</li>
+    <li><strong>Indian Arm Study</strong> (Wk11–12 Jul) — cedar; nature-scaled; closes Phase 1.</li>
+  </ol>
+</section>
+
+<!-- 3. CALENDAR -->
+<section id="calendar">
+  <div class="section-rule"></div>
+  <div class="section-num">03 · Calendar</div>
+  <h2>Phase 1 continuation · May 25 → <em>Jul 31, 2026</em></h2>
+  <p>Cadence holds at <strong>4 posts/week</strong>: Mon IG, Wed IG, Fri LinkedIn, Sat IG. Carousels typically Mon or Wed.</p>
+
+  <h3>Week 3 · May 25–31</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Day</th><th>Platform</th><th>Type</th><th>Pillar</th><th>Source</th><th>Topic</th></tr></thead>
+      <tbody>
+        <tr><td>Mon 25</td><td>IG</td><td>Carousel</td><td>The Craft</td><td>Whistler Slip-Matched Oak</td><td>"What slip-matching is" — technique explainer, 6 slides</td></tr>
+        <tr><td>Wed 27</td><td>IG</td><td>Single</td><td>The Finished</td><td>Whistler Slip-Matched Oak</td><td>Hero install — four-door run</td></tr>
+        <tr><td>Fri 29</td><td>LinkedIn</td><td>Long-form</td><td>The Craft</td><td>Whistler + Rick voice</td><td>"We milled the veneer ourselves"</td></tr>
+        <tr><td>Sat 30</td><td>IG</td><td>Single</td><td>The Craft</td><td>Waterfront Anigre</td><td>Diamond book-matched ceiling — single hero</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Week 4 · Jun 1–7</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Day</th><th>Platform</th><th>Type</th><th>Pillar</th><th>Source</th><th>Topic</th></tr></thead>
+      <tbody>
+        <tr><td>Mon 1</td><td>IG</td><td>Carousel</td><td>The Craft</td><td>Waterfront Anigre</td><td>"Anigre" species deep-dive, 6 slides</td></tr>
+        <tr><td>Wed 3</td><td>IG</td><td>Single</td><td>The Finished</td><td>Waterfront Anigre</td><td>Hidden pull-out liquor cabinet reveal</td></tr>
+        <tr><td>Fri 5</td><td>LinkedIn</td><td>Long-form</td><td>The Team</td><td>Rick voice</td><td>Origin Beat 2 — the twig basket</td></tr>
+        <tr><td>Sat 6</td><td>IG</td><td>Single</td><td>The Shop</td><td>Monthly Shoot 2</td><td><em>(Held for Shoot 2 fresh material)</em></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Week 5 · Jun 8–14 <em>(Anniversary push begins)</em></h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Day</th><th>Platform</th><th>Type</th><th>Pillar</th><th>Source</th><th>Topic</th></tr></thead>
+      <tbody>
+        <tr><td>Mon 8</td><td>IG</td><td>Carousel</td><td>The Finished</td><td>West Van Wine Cellar</td><td>Spiral racks + antique doors, 6 slides</td></tr>
+        <tr><td>Wed 10</td><td>IG</td><td>Single</td><td>The Craft</td><td>West Van Coffee Bar</td><td>Saffron uppers + cedar soffit detail</td></tr>
+        <tr><td>Fri 12</td><td>LinkedIn</td><td>Long-form</td><td>The Team</td><td>Rick voice</td><td>"Twenty-three people once. The work didn't get better."</td></tr>
+        <tr><td>Sat 13</td><td>IG</td><td>Single</td><td>The Finished</td><td>West Van Antique Doors</td><td>The carved wine-cellar door — the standalone wow</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Week 6 · Jun 15–21 <em>(Lamoureux anniversary · Vancouverhouse fold-in)</em></h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Day</th><th>Platform</th><th>Type</th><th>Pillar</th><th>Source</th><th>Topic</th></tr></thead>
+      <tbody>
+        <tr><td>Mon 15</td><td>IG</td><td>Carousel</td><td>The Craft / Awards</td><td>Lamoureux 2011 <em>(if rights)</em> · fallback Vancouverhouse</td><td>15-year AWMAC Gold OR walnut-slat penthouse arc</td></tr>
+        <tr><td>Wed 17</td><td>IG</td><td>Single</td><td>The Finished</td><td>Vancouverhouse Penthouse</td><td>Walnut slat ceiling + ocean view — living/dining hero</td></tr>
+        <tr><td>Fri 19</td><td>LinkedIn</td><td>Long-form</td><td>The Team</td><td>Rick voice</td><td>"Fifteen years of an AWMAC Gold. Laminated curves."</td></tr>
+        <tr><td>Sat 20</td><td>IG</td><td>Single</td><td>The Finished</td><td>West Van Spiral Racks</td><td>Corridor view — racks visible through antique doors</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout">
+    <span class="callout-label">Lamoureux fallback</span>
+    If rights don't clear: swap Mon 15 carousel for <strong>Vancouverhouse Penthouse — Walnut Slat Arc</strong> (full project brief in §4.5b below). Vancouverhouse is the cleaner modern-register fallback; Walnut Estate stays in Wk7–8 untouched.
+  </div>
+
+  <h3>Week 7 · Jun 22–28</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Day</th><th>Platform</th><th>Type</th><th>Pillar</th><th>Source</th><th>Topic</th></tr></thead>
+      <tbody>
+        <tr><td>Mon 22</td><td>IG</td><td>Carousel</td><td>The Finished</td><td>Walnut Estate Pt 1</td><td>Living + dining + fireplace — public rooms, 6 slides</td></tr>
+        <tr><td>Wed 24</td><td>IG</td><td>Single</td><td>The Craft</td><td>Walnut Estate Wine Cellar</td><td>Solid walnut racking corner detail</td></tr>
+        <tr><td>Fri 26</td><td>LinkedIn</td><td>Long-form</td><td>The Craft</td><td>Walnut Estate</td><td>"Why we don't use ebony. Pear, ebonised, every time."</td></tr>
+        <tr><td>Sat 27</td><td>IG</td><td>Single</td><td>The Finished</td><td>Walnut Estate Master</td><td>Headboard wall — full-room walnut grain run</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Week 8 · Jun 29 → Jul 5</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Day</th><th>Platform</th><th>Type</th><th>Pillar</th><th>Source</th><th>Topic</th></tr></thead>
+      <tbody>
+        <tr><td>Mon 29</td><td>IG</td><td>Carousel</td><td>The Finished</td><td>Walnut Estate Pt 2</td><td>Closets + media — private rooms, 6 slides</td></tr>
+        <tr><td>Wed 1 Jul</td><td>IG</td><td>Single</td><td>The Craft</td><td>Walnut Estate Closet</td><td>Shoe wall + drawer-front close-up</td></tr>
+        <tr><td>Fri 3</td><td>LinkedIn</td><td>Long-form</td><td>The Team</td><td>Rick voice</td><td>Origin Beat 6 — BCIT + Wilms apprenticeship</td></tr>
+        <tr><td>Sat 4</td><td>IG</td><td>Single</td><td>The Craft</td><td>Walnut Estate Office</td><td>Built-in desk vertical — flat-sawn continuity</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Week 9 · Jul 6–12</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Day</th><th>Platform</th><th>Type</th><th>Pillar</th><th>Source</th><th>Topic</th></tr></thead>
+      <tbody>
+        <tr><td>Mon 6</td><td>IG</td><td>Carousel</td><td>The Finished</td><td>Indian River (The Point)</td><td>Multi-species — wenge + white oak + rift oak + moss green, 6 slides</td></tr>
+        <tr><td>Wed 8</td><td>IG</td><td>Single</td><td>The Craft</td><td>Indian River</td><td>Black wenge dining cabinets + Bocci pendant trio</td></tr>
+        <tr><td>Fri 10</td><td>LinkedIn</td><td>Long-form</td><td>The Craft</td><td>Indian River</td><td>"Three woods in one house. None of them by accident."</td></tr>
+        <tr><td>Sat 11</td><td>IG</td><td>Single</td><td>The Finished</td><td>Indian River</td><td>White oak slat wall + river rock fireplace column</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Week 10 · Jul 13–19 <em>(Lion's Bay arc opens)</em></h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Day</th><th>Platform</th><th>Type</th><th>Pillar</th><th>Source</th><th>Topic</th></tr></thead>
+      <tbody>
+        <tr><td>Mon 13</td><td>IG</td><td>Carousel</td><td>The Finished</td><td>Lion's Bay Pt 1</td><td>Kitchen — arched, painted, glazed cabinetry, 6 slides</td></tr>
+        <tr><td>Wed 15</td><td>IG</td><td>Single</td><td>The Craft</td><td>Lion's Bay</td><td>Carved corbel + spice pull-out detail</td></tr>
+        <tr><td>Fri 17</td><td>LinkedIn</td><td>Long-form</td><td>The Craft</td><td>Lion's Bay</td><td>"Hand-carved corbels in a 2010s house. The 1973 spindle."</td></tr>
+        <tr><td>Sat 18</td><td>IG</td><td>Single</td><td>The Finished</td><td>Lion's Bay</td><td>Stone fireplace + painted bookcases, ocean view wide</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Week 11 · Jul 20–26</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Day</th><th>Platform</th><th>Type</th><th>Pillar</th><th>Source</th><th>Topic</th></tr></thead>
+      <tbody>
+        <tr><td>Mon 20</td><td>IG</td><td>Carousel</td><td>The Finished</td><td>Lion's Bay Pt 2</td><td>Master bath + closets + butler's pantry, 6 slides</td></tr>
+        <tr><td>Wed 22</td><td>IG</td><td>Single</td><td>The Craft</td><td>Lion's Bay</td><td>Curved iron railing + arched balcony detail</td></tr>
+        <tr><td>Fri 24</td><td>LinkedIn</td><td>Long-form</td><td>The Team</td><td>Rick voice</td><td>"Twenty-five years and a phone that won't stop ringing"</td></tr>
+        <tr><td>Sat 25</td><td>IG</td><td>Single</td><td>The Finished</td><td>Whitby Estates</td><td>Mahogany double-door entry — open perspective</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Week 12 · Jul 27–31 <em>(Phase 1 close)</em></h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Day</th><th>Platform</th><th>Type</th><th>Pillar</th><th>Source</th><th>Topic</th></tr></thead>
+      <tbody>
+        <tr><td>Mon 27</td><td>IG</td><td>Carousel</td><td>The Finished</td><td>Whitby Estates</td><td>Coffered media + cherry built-ins + curved marble stair, 6 slides</td></tr>
+        <tr><td>Wed 29</td><td>IG</td><td>Single</td><td>The Finished</td><td>Indian Arm Study</td><td>Cedar built-in + stone fireplace + ocean view</td></tr>
+        <tr><td>Fri 31</td><td>LinkedIn</td><td>Long-form</td><td>The Team</td><td>Rick voice</td><td>"Twelve weeks. Nine projects. What three months taught me."</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="callout">
+    <span class="callout-label">Calendar summary</span>
+    <strong>48 posts</strong> (12 weeks × 4) · <strong>11 carousels</strong> · <strong>25 singles</strong> · <strong>12 LinkedIn long-form</strong>. Pillar mix achieved: Finished ~40% / Craft ~25% / Team ~20% / Shop ~10% / Install ~5%. Architect tags required (Rick fill-in): 9 projects × ~6 handles = ~54.
+  </div>
+</section>
+
+<!-- 4. PROJECT BRIEFS -->
+<section id="projects">
+  <div class="section-rule"></div>
+  <div class="section-num">04 · Per-project briefs</div>
+  <h2>Eight projects · <em>full drafts</em></h2>
+  <p>Each brief: hero frames, carousel sequence, drafted singles, LinkedIn draft, stories, reel concept. Captions are drafts in the voice playbook register. Hashtag pulls are from the playbook's pillar A/B sets, alternated.</p>
+
+  <!-- 4.1 WHISTLER -->
+  <div class="project">
+    <header class="project-header">
+      <div class="project-name">4.1 · Whistler <em>Slip-Matched Oak</em></div>
+      <div class="project-meta">The Craft Anchor · Wk3 May opener · ~90 raw frames</div>
+    </header>
+    <p><strong>Why first:</strong> The technique that anchors the entire Radius differentiator. Slip-matching white oak is exactly what no CNC-driven shop can produce at Rick's level. Voice playbook quotes the technique by name. This is the post the play opens on.</p>
+    <div class="chips">
+      <span class="chip">Architect: <code>[@____]</code></span>
+      <span class="chip">Builder: <code>[@____]</code></span>
+      <span class="chip">Year: <code>2023?</code></span>
+      <span class="chip">Photographer: <code>@mattanthonyphoto?</code></span>
+    </div>
+    <p><strong>Hero frames:</strong> Need a 30-min select pass — folder has raw <code>23-XX.JPG</code> numbering (90+ files). Pick 12 finalists across: (a) four-door run flat-on, (b) slip-match grain close-up, (c) install hardware (touch-latch detail), (d) wider room context.</p>
+    <div class="selects">
+      <div class="selects-label">Selects · <span class="selects-count">Pending — no images in Project Selects yet</span></div>
+      <p style="font-size:13px;color:var(--stone);margin:0;">Action: Matt to run select pass on <code>/Volumes/T9/Radius/Past Projects/Whistler Slip Matched Oak/</code> (90+ raw frames) and copy finalists to <code>/Volumes/T9/Radius/Project Selects/Whistler Slip Matched Oak/</code>. Wk3 May posts blocked until this completes.</p>
+    </div>
+
+    <!-- POST W3.1 -->
+    <div class="post">
+      <header class="post-header">
+        <div>
+          <div class="post-id">W3.1</div>
+          <div class="post-day">Mon May 25</div>
+        </div>
+        <div class="post-type">IG Carousel · The Craft</div>
+      </header>
+      <h5>6 slides</h5>
+      <ol class="slides">
+        <li><strong>Hero detail.</strong> Tight on the slip-match seam — two panels, one continuous figure. Caption-naming slide.</li>
+        <li><strong>Context.</strong> Wider shot showing the run of four doors flat-on.</li>
+        <li><strong>Shop beat.</strong> Panel layout, rift white oak on the bench (May 5 shoot frame 7281 or 7332 substitute works).</li>
+        <li><strong>Material.</strong> Close-up on the rift figure. Caption names the cut.</li>
+        <li><strong>Second view.</strong> Different angle of the same room, or the touch-latch in motion.</li>
+        <li><strong>Closer.</strong> No hardware visible. Doors closed, the grain doing the work.</li>
+      </ol>
+      <div class="draft">
+        <span class="draft-label">Caption</span>
+        <p>Slip-matched rift white oak. Four doors, one log.</p>
+        <p>Rift means the saw approached the grain at 90 degrees, so the figure runs vertical and tight, no ray fleck, no cathedral. We milled the leaves ourselves on the re-saw so the grain runs continuously from the first door to the fourth. Touch-latch hardware, no pulls. The figure is the only thing on the face of the cabinet.</p>
+        <p>One Whistler residence.</p>
+        <p>Design <code>[@architect]</code> · Build <code>[@builder]</code> · Photography @mattanthonyphoto</p>
+      </div>
+      <div class="tags">#customcabinetry #millwork #finewoodworking #joinery #vancouvermillwork #bcmillwork #customwoodwork #architecturalmillwork #craftsmanship #slipmatched #riftwhiteoak #whistlerhomes #westcoastcraft #radiuswood #thecraft</div>
+    </div>
+
+    <!-- POST W3.2 -->
+    <div class="post">
+      <header class="post-header">
+        <div>
+          <div class="post-id">W3.2</div>
+          <div class="post-day">Wed May 27</div>
+        </div>
+        <div class="post-type">IG Single · The Finished</div>
+      </header>
+      <p><strong>Frame:</strong> Hero install — the four-door run flat-on with room context so doors read at scale.</p>
+      <div class="draft">
+        <span class="draft-label">Caption</span>
+        <p>The whole run is one log.</p>
+        <p>Slip-matched rift white oak across four tall doors. We laid the veneer ourselves, in the shop, off our own re-saw. Touch latch through the back of the panel. From across the room the doors read as one continuous grain field. From a foot away they read as four separate doors. That's the trick.</p>
+        <p>Design <code>[@architect]</code> · Build <code>[@builder]</code> · Photography @mattanthonyphoto</p>
+      </div>
+    </div>
+
+    <!-- POST W3.3 -->
+    <div class="post">
+      <header class="post-header">
+        <div>
+          <div class="post-id">W3.3</div>
+          <div class="post-day">Fri May 29</div>
+        </div>
+        <div class="post-type">LinkedIn Long-form · The Craft · Rick voice ~190w</div>
+      </header>
+      <div class="draft">
+        <span class="draft-label">Caption</span>
+        <p>Most shops would have ordered slip-matched veneer from a supplier.</p>
+        <p>We don't, because then you're letting somebody else decide which leaves of which log end up next to each other. On a four-door run in a single room, that's the entire piece. If the seventh leaf has a knot you can't use, the run is short. If the figure quiets in the middle of the log, the run is dull. There's no way to know until you cut.</p>
+        <p>So we mill the veneer ourselves on a 36-inch re-saw, off our own log, and we lay it up by hand in the shop. We pick which leaves go where. We can sequence forty leaves across one wall and pick the eight that hold their figure the longest. Slip-matched, book-matched, sequence-matched, whatever the drawings call for.</p>
+        <p>It takes longer. It's the part of the work the client sees only at install, because the difference doesn't show up on a sample chip.</p>
+        <p>Twenty-five years on this end of the trade. We're not a leech on the contractor's resources. Photography by @mattanthonyphoto.</p>
+      </div>
+    </div>
+
+    <h5>Stories (drip Wed–Sat)</h5>
+    <div class="table-wrap">
+      <table class="stories-table">
+        <thead><tr><th>Frame</th><th>Caption (15–22 words)</th></tr></thead>
+        <tbody>
+          <tr><td>Touch-latch detail</td><td>"Touch latch through the back of the panel. The face stays clean."</td></tr>
+          <tr><td>Re-saw bandsaw at work</td><td>"Thirty-six inch re-saw. The only way we make our own veneer."</td></tr>
+          <tr><td>Leaf layout on bench</td><td>"Forty leaves across one wall. We pick the eight that hold the figure."</td></tr>
+          <tr><td>Install scribe-fit edge</td><td>"Scribe-fit against an out-of-plumb wall. One sixteenth or it's coming back."</td></tr>
+          <tr><td>Closed-door wide</td><td>"Four doors. One log. From across the room you see one."</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <span class="callout-label">Reel concept · "From log to wall"</span>
+      30 sec. Sequence: log on the re-saw → veneer leaves stacked → laid out on bench → vacuum-bag pressed → finished door installed → tight on the seam. Shop ambient only. End card: <em>Slip-matched rift white oak. One log, four doors. @radiusmillwork</em>
+    </div>
+  </div>
+
+  <!-- 4.2 WATERFRONT ANIGRE -->
+  <div class="project">
+    <header class="project-header">
+      <div class="project-name">4.2 · Waterfront <em>Anigre Penthouse</em></div>
+      <div class="project-meta">Rare-species hook · Wk3–4 May · ~20 frames</div>
+    </header>
+    <p><strong>Why early:</strong> Anigre is a species 90% of architects in BC have never specified. Naming it correctly + showing the diamond book-match ceiling = instant credibility signal to the architect audience.</p>
+    <div class="chips">
+      <span class="chip">Architect: <code>[@____]</code></span>
+      <span class="chip">Designer: <code>[@____]</code></span>
+      <span class="chip">Year: <code>[____]</code></span>
+      <span class="chip">Photographer: <code>David Hempenstall?</code></span>
+    </div>
+
+    <div class="callout callout-warn">
+      <span class="callout-label">Photographer flag</span>
+      The "Hempenstall Large TIFF" subfolder suggests David Hempenstall may be the original photographer. Confirm with Rick before publishing. If yes, credit <code>@davidhempenstall</code> (or correct handle) instead of Matt.
+    </div>
+
+    <div class="selects">
+      <div class="selects-label">Selects · <span class="selects-count">25 frames</span></div>
+      <div class="selects-grid">
+        <div class="thumb"><span class="thumb-tag hero">Hero</span><img loading="lazy" src="photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-diamond-bookmatched-ceiling-up-view-fireplace-anigre-pantry.jpg" alt=""><span class="thumb-cap">Diamond book-matched ceiling — up view</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-dining-bocci-glass-table-sectional-harbor-view-diamond-ceiling.jpg" alt=""><span class="thumb-cap">Dining + Bocci + harbour view</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-dining-bocci-fireplace-anigre-cabinetry-wide.jpg" alt=""><span class="thumb-cap">Dining + fireplace + anigre wide</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-alcove-breakfast-room-bocci-diamond-ceiling-frosted-glass.jpg" alt=""><span class="thumb-cap">Breakfast alcove · frosted glass</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-dining-bocci-kitchen-glass-display-cabinet-perspective.jpg" alt=""><span class="thumb-cap">Glass display cabinet perspective</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-gallery-wall-inuit-display-cabinet-sailboat-leather-sofa.jpg" alt=""><span class="thumb-cap">Gallery wall · Inuit + sailboat</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-gallery-wine-bar-anigre-display-inuit-sculpture.jpg" alt=""><span class="thumb-cap">Gallery wine bar · anigre display</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-inuit-polar-bear-art-sailboat-model-credenza-niche.jpg" alt=""><span class="thumb-cap">Polar bear art · credenza niche</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-kitchen-bocci-pendants-granite-island-anigre-cabinetry.jpg" alt=""><span class="thumb-cap">Kitchen · Bocci + granite island</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-kitchen-bar-counter-leather-barstools-granite-detail.jpg" alt=""><span class="thumb-cap">Kitchen bar · leather barstools</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-kitchen-glass-display-cabinet-perspective-from-dining.jpg" alt=""><span class="thumb-cap">Display cabinet from dining</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-kitchen-island-travertine-counter-alt-exposure.jpg" alt=""><span class="thumb-cap">Island · travertine alt-exposure</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-living-bocci-tv-fireplace-sailboat-art-dining-wide.jpg" alt=""><span class="thumb-cap">Living · TV + fireplace wide</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-living-dining-diamond-ceiling-wide-fireplace-wine-bar-dusk.jpg" alt=""><span class="thumb-cap">Living/dining diamond ceiling · dusk</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-living-glass-dining-bocci-tv-niche-harbor-view.jpg" alt=""><span class="thumb-cap">Living + glass dining · harbour</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-living-inuit-gallery-dining-kitchen-wide-perspective.jpg" alt=""><span class="thumb-cap">Living wide · gallery to kitchen</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-living-rocker-ocean-view-ship-art-bar-wall-anigre.jpg" alt=""><span class="thumb-cap">Living rocker · ocean view</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-living-tv-bocci-dining-display-cabinet-right.jpg" alt=""><span class="thumb-cap">Living · TV + Bocci alt</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-living-tv-fireplace-bocci-bar-lounge-glass-display.jpg" alt=""><span class="thumb-cap">Living · fireplace + bar lounge</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-living-wide-tonal-grey-columns-rockers-harbor-view.jpg" alt=""><span class="thumb-cap">Living wide · tonal grey columns</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-lounge-anigre-pantry-art-display-fireplace.jpg" alt=""><span class="thumb-cap">Lounge · anigre pantry + fireplace</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-lounge-fireplace-tv-recess-diamond-ceiling-harbor-view.jpg" alt=""><span class="thumb-cap">Lounge · fireplace + TV recess</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-master-bedroom-anigre-wardrobe-wall-harbor-view-wide.jpg" alt=""><span class="thumb-cap">Master · anigre wardrobe wall</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-master-bedroom-etched-glass-shower-view-mirror-reflection.jpg" alt=""><span class="thumb-cap">Master · etched glass shower</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-master-bedroom-walnut-wardrobe-tv-niche-alt-angle.jpg" alt=""><span class="thumb-cap">Master · walnut wardrobe + TV niche</span></div>
+      </div>
+    </div>
+
+    <!-- POST W3.4 -->
+    <div class="post">
+      <header class="post-header">
+        <div>
+          <div class="post-id">W3.4</div>
+          <div class="post-day">Sat May 30</div>
+        </div>
+        <div class="post-type">IG Single · The Craft</div>
+      </header>
+      <p><strong>Frame:</strong> <code>waterfront-anigre-penthouse-diamond-bookmatched-ceiling-up-view-fireplace-anigre-pantry.jpg</code></p>
+      <div class="draft">
+        <span class="draft-label">Caption</span>
+        <p>Diamond book-matched anigre.</p>
+        <p>Anigre is an African hardwood, gold-amber when freshly milled, ambering to honey under finish. The ceiling is veneer-laid in a diamond pattern, every panel book-matched at the seam so the grain reflects across the diagonal. From the floor it reads as one continuous field of figure.</p>
+        <p>The ceiling has thirty-two panels. The grain match holds across every one.</p>
+        <p>Design <code>[@architect]</code> · Photography <code>[@photographer]</code></p>
+      </div>
+    </div>
+
+    <!-- POST W4.1 -->
+    <div class="post">
+      <header class="post-header">
+        <div>
+          <div class="post-id">W4.1</div>
+          <div class="post-day">Mon Jun 1</div>
+        </div>
+        <div class="post-type">IG Carousel · The Craft · species deep-dive</div>
+      </header>
+      <h5>6 slides</h5>
+      <ol class="slides">
+        <li><strong>Hero detail.</strong> Diamond book-match ceiling, tight crop showing the seam logic.</li>
+        <li><strong>Context.</strong> Wider room — dining + Bocci pendant cluster + anigre cabinetry, ceiling above.</li>
+        <li><strong>Material.</strong> Close-up on a single anigre panel face. The figure under finish.</li>
+        <li><strong>The hidden detail.</strong> Pull-out liquor cabinet revealed — bar swings open.</li>
+        <li><strong>Second view.</strong> The display cabinet — anigre + glass + Inuit sculpture.</li>
+        <li><strong>Closer.</strong> Bocci pendant cluster tight, anigre soft-focus behind.</li>
+      </ol>
+      <div class="draft">
+        <span class="draft-label">Caption</span>
+        <p>Anigre, throughout.</p>
+        <p>A gold-amber African hardwood. Milled green, it reads almost grey. Under finish, it ambers to honey. We veneer-laid the entire penthouse in anigre, diamond book-matched on the ceiling, slip-matched on the cabinet runs, sequence-matched across the gallery wall.</p>
+        <p>The pull-out liquor cabinet on slide 4 sits flush in the gallery wall when closed. The figure runs continuous across the panel, so the seam disappears. Press it, and a full bar swings open.</p>
+        <p>Design <code>[@architect]</code> · Designer <code>[@designer]</code> · Photography <code>[@photographer]</code></p>
+      </div>
+    </div>
+
+    <!-- POST W4.2 -->
+    <div class="post">
+      <header class="post-header">
+        <div>
+          <div class="post-id">W4.2</div>
+          <div class="post-day">Wed Jun 3</div>
+        </div>
+        <div class="post-type">IG Single · The Finished</div>
+      </header>
+      <p><strong>Frame:</strong> Pull-out liquor cabinet revealed.</p>
+      <div class="draft">
+        <span class="draft-label">Caption</span>
+        <p>The bar opens like a piece of furniture.</p>
+        <p>Anigre face, slip-matched across the panel. From closed, the cabinet reads as one continuous run of grain. Open, it's a full bar with brass-pull glassware racks and Inuit sculpture niches sitting alongside the gallery shelf.</p>
+        <p>The seam isn't hidden by hardware. It's hidden by the grain match.</p>
+        <p>Design <code>[@architect]</code> · Photography <code>[@photographer]</code></p>
+      </div>
+    </div>
+
+    <!-- POST W5.3 LinkedIn -->
+    <div class="post">
+      <header class="post-header">
+        <div>
+          <div class="post-id">W5.3</div>
+          <div class="post-day">Fri Jun 12</div>
+        </div>
+        <div class="post-type">LinkedIn Long-form · The Craft · Rick voice ~210w</div>
+      </header>
+      <div class="draft">
+        <span class="draft-label">Caption</span>
+        <p>Three weeks of layout on a penthouse ceiling, before a single piece left the shop.</p>
+        <p>The drawings called for diamond book-matched anigre across the entire main ceiling. Thirty-two panels. To make a diamond book-match work, every panel has to mirror the one next to it across both diagonals, and the figure has to hold. You can't do that out of the back of a flitch and hope.</p>
+        <p>So we laid the veneer down on the bench, full scale, eight feet by twelve feet of brown paper marked at every panel line. We cut leaves, taped them down dry, walked away, came back, looked again. Some leaves came off and went back into the flitch. Some ran a half inch shy of where they needed to be and we re-cut from the next leaf in. Three weeks on a piece of brown paper before the first vacuum press happened.</p>
+        <p>Once we knew it worked on paper, the shop drawings got updated to reflect the actual layout, and the panels came out in two days.</p>
+        <p>Anigre is not a forgiving veneer. The figure quiets fast outside the heart of the log. The patience is what makes it read as one field.</p>
+        <p>Photography by <code>[@photographer]</code>.</p>
+      </div>
+    </div>
+
+    <h5>Stories</h5>
+    <div class="table-wrap">
+      <table class="stories-table">
+        <thead><tr><th>Frame</th><th>Caption</th></tr></thead>
+        <tbody>
+          <tr><td>Foyer pantry detail</td><td>"Anigre pantry, anigre door, anigre cabinetry. Three rooms, one log family."</td></tr>
+          <tr><td>Bocci pendant cluster close</td><td>"Bocci pendants. The cabinetry behind them set the colour temperature for the room."</td></tr>
+          <tr><td>Display cabinet detail</td><td>"Inuit sculpture. Anigre display niche. The cabinetry frames the art."</td></tr>
+          <tr><td>Wine bar pullout closed</td><td>"Closed. The bar disappears into the wall."</td></tr>
+          <tr><td>Wine bar pullout open</td><td>"Open. Press latch. The whole face swings."</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <span class="callout-label">Reel concept · "What anigre is"</span>
+      25 sec. Silent + caption text. Sequence: anigre log → re-saw cutting leaves → leaf laid dry on bench → leaf wet with finish (the ambering effect visible) → finished ceiling diamond match → tight on a single panel seam. End card: <em>Anigre. From log to ceiling. @radiusmillwork</em>
+    </div>
+  </div>
+
+  <!-- 4.3 WEST VAN -->
+  <div class="project">
+    <header class="project-header">
+      <div class="project-name">4.3 · West Vancouver <em>Modern Luxury</em> — The wine cellar arc</div>
+      <div class="project-meta">Mid-Phase-1 · Wk5–6 Jun · 68 frames, deepest set</div>
+    </header>
+    <p><strong>Why mid-Phase-1:</strong> Photographically the most striking piece of work in the archive. We split this project across three carousels over Weeks 5–6 so we don't burn the asset in one week.</p>
+    <div class="chips">
+      <span class="chip">Architect: <code>[@____]</code></span>
+      <span class="chip">Builder: <code>[@____]</code></span>
+      <span class="chip">Year: <code>[____]</code></span>
+      <span class="chip">Photographer: <code>@mattanthonyphoto?</code></span>
+    </div>
+
+    <div class="selects">
+      <div class="selects-label">Selects · <span class="selects-count">24 frames</span></div>
+      <div class="selects-grid">
+        <div class="thumb"><span class="thumb-tag hero">Hero</span><img loading="lazy" src="photos/west-vancouver-modern-luxury/west-vancouver-modern-luxury-wine-cellar-antique-carved-doors-interior-view.jpg" alt=""><span class="thumb-cap">Wine cellar · antique carved doors interior</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/west-vancouver-modern-luxury/west-vancouver-modern-luxury-coffee-bar-saffron-uppers-grey-textured.jpg" alt=""><span class="thumb-cap">Coffee bar · saffron uppers</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/west-vancouver-modern-luxury/west-vancouver-modern-luxury-coffee-bar-ceiling-banded-lights-saffron-wide.jpg" alt=""><span class="thumb-cap">Coffee bar · banded ceiling lights</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/west-vancouver-modern-luxury/west-vancouver-modern-luxury-coffee-bar-ceiling-banded-lights-fireplace-wide.jpg" alt=""><span class="thumb-cap">Coffee bar wide · banded + fireplace</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/west-vancouver-modern-luxury/west-vancouver-modern-luxury-coffee-bar-cedar-soffit-slider-deck.jpg" alt=""><span class="thumb-cap">Coffee bar · cedar soffit slider</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/west-vancouver-modern-luxury/west-vancouver-modern-luxury-ceiling-banded-lights-cedar-detail.jpg" alt=""><span class="thumb-cap">Banded ceiling lights · cedar</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/west-vancouver-modern-luxury/west-vancouver-modern-luxury-kitchen-saffron-storage-wall-light-wood.jpg" alt=""><span class="thumb-cap">Kitchen · saffron storage wall</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/west-vancouver-modern-luxury/west-vancouver-modern-luxury-kitchen-ceiling-banded-lights-grey-cabinets.jpg" alt=""><span class="thumb-cap">Kitchen · banded ceiling + grey</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/west-vancouver-modern-luxury/west-vancouver-modern-luxury-mudroom-bench-grey-cabinetry-cedar-top.jpg" alt=""><span class="thumb-cap">Mudroom · grey cabinetry + cedar top</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/west-vancouver-modern-luxury/west-vancouver-modern-luxury-mudroom-bench-textured-cabinets-cedar-top.jpg" alt=""><span class="thumb-cap">Mudroom · textured cabinets</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/west-vancouver-modern-luxury/west-vancouver-modern-luxury-office-built-in-desk-concrete-bamboo-view.jpg" alt=""><span class="thumb-cap">Office · built-in + bamboo view</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/west-vancouver-modern-luxury/west-vancouver-modern-luxury-office-concrete-wall-oak-built-in-orange-pulls.jpg" alt=""><span class="thumb-cap">Office · concrete wall + orange pulls</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/west-vancouver-modern-luxury/west-vancouver-modern-luxury-curved-stair-concrete-wall-cherry-treads.jpg" alt=""><span class="thumb-cap">Curved stair · cherry treads</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/west-vancouver-modern-luxury/west-vancouver-modern-luxury-ensuite-shower-handheld-vanity-perspective.jpg" alt=""><span class="thumb-cap">Ensuite · vanity perspective</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/west-vancouver-modern-luxury/west-vancouver-modern-luxury-ensuite-shower-concrete-vanity-mirror.jpg" alt=""><span class="thumb-cap">Ensuite · concrete vanity</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/west-vancouver-modern-luxury/west-vancouver-modern-luxury-exterior-cedar-cantilever-glass-volume-rear-wide.jpg" alt=""><span class="thumb-cap">Exterior · cedar cantilever rear</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/west-vancouver-modern-luxury/west-vancouver-modern-luxury-exterior-cantilever-overhang-up-view-detail.jpg" alt=""><span class="thumb-cap">Exterior · cantilever up-view</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/west-vancouver-modern-luxury/west-vancouver-modern-luxury-exterior-roof-apex-detail-up-view.jpg" alt=""><span class="thumb-cap">Roof apex up-view</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/west-vancouver-modern-luxury/west-vancouver-modern-luxury-exterior-roof-overhang-dusk-pine-silhouette.jpg" alt=""><span class="thumb-cap">Roof overhang dusk</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/west-vancouver-modern-luxury/west-vancouver-modern-luxury-exterior-deck-pool-ocean-view-cedar-railing.jpg" alt=""><span class="thumb-cap">Deck · pool + ocean</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/west-vancouver-modern-luxury/west-vancouver-modern-luxury-exterior-deck-pool-view-cantilever-overhang.jpg" alt=""><span class="thumb-cap">Deck · pool + cantilever</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/west-vancouver-modern-luxury/west-vancouver-modern-luxury-exterior-glass-corner-city-view-deck.jpg" alt=""><span class="thumb-cap">Glass corner · city view deck</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/west-vancouver-modern-luxury/west-vancouver-modern-luxury-exterior-ipe-stair-tread-junction-detail.jpg" alt=""><span class="thumb-cap">Ipe stair · tread junction</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/west-vancouver-modern-luxury/west-vancouver-modern-luxury-exterior-ipe-stair-treads-bamboo-detail.jpg" alt=""><span class="thumb-cap">Ipe stair · bamboo detail</span></div>
+      </div>
+      <div class="callout" style="margin-top:14px;background:var(--soft);border-left-color:var(--stone);">
+        <span class="callout-label" style="color:var(--stone);">Selects note</span>
+        Matt's selects skip the spiral racks + closed antique-door exterior — the carousel hero is now the <strong>interior view of the antique carved doors</strong>. Update Wk5.1 slide 1 + Wk6.4 to use <code>wine-cellar-antique-carved-doors-interior-view.jpg</code> as the lead.
+      </div>
+    </div>
+
+    <!-- POST W5.1 -->
+    <div class="post">
+      <header class="post-header">
+        <div>
+          <div class="post-id">W5.1</div>
+          <div class="post-day">Mon Jun 8</div>
+        </div>
+        <div class="post-type">IG Carousel · The Finished · wine cellar</div>
+      </header>
+      <h5>6 slides</h5>
+      <ol class="slides">
+        <li><strong>Hero detail.</strong> The closed antique carved doors flat-on. The hero.</li>
+        <li><strong>Context.</strong> Corridor view — doors open, racks visible beyond.</li>
+        <li><strong>Through the threshold.</strong> Looking back through the open doors.</li>
+        <li><strong>The racks.</strong> Interior wide, racks at full height.</li>
+        <li><strong>Vertical.</strong> Door in portrait, scale evident.</li>
+        <li><strong>Closer.</strong> Tight on the carving — the door detail.</li>
+      </ol>
+      <div class="draft">
+        <span class="draft-label">Caption</span>
+        <p>Antique carved doors. Spiral racks behind.</p>
+        <p>The doors are reclaimed, hand-carved hardwood, sourced for this project and re-fit into a custom jamb. We built the cellar around them. Inside, spiral racks in solid stock hold the bottles vertical, every bottle reachable without a ladder. The lighting is set by the owner.</p>
+        <p>Wine cellars are templated. Every variable hold on dimensions matters, because the racks have to fit the doorway, and the doorway is older than the house.</p>
+        <p>Design <code>[@architect]</code> · Build <code>[@builder]</code> · Photography @mattanthonyphoto</p>
+      </div>
+    </div>
+
+    <!-- POST W5.2 -->
+    <div class="post">
+      <header class="post-header">
+        <div>
+          <div class="post-id">W5.2</div>
+          <div class="post-day">Wed Jun 10</div>
+        </div>
+        <div class="post-type">IG Single · The Craft</div>
+      </header>
+      <div class="draft">
+        <span class="draft-label">Caption</span>
+        <p>Saffron upper cabinets. Cedar soffit. Grey textured base.</p>
+        <p>Three finishes, three materials, one elevation. The saffron is a pigmented lacquer in 25-degree sheen, sprayed and rubbed between coats. The cedar is solid stock, eased edge, hand-finished oil. The base is a textured polymer, matte. Each one had a different finish schedule.</p>
+        <p>The colour is the architect's. The schedule is ours.</p>
+        <p>Design <code>[@architect]</code> · Photography @mattanthonyphoto</p>
+      </div>
+    </div>
+
+    <!-- POST W5.4 -->
+    <div class="post">
+      <header class="post-header">
+        <div>
+          <div class="post-id">W5.4</div>
+          <div class="post-day">Sat Jun 13</div>
+        </div>
+        <div class="post-type">IG Single · The Finished</div>
+      </header>
+      <div class="draft">
+        <span class="draft-label">Caption</span>
+        <p>Reclaimed hardwood. Hand-carved.</p>
+        <p>The architect sourced these. We built the cellar to fit them, not the other way around. Custom jamb in solid stock, every reveal off the original door dimensions. Two visits to template before the first piece came out of the shop.</p>
+        <p>Design <code>[@architect]</code> · Photography @mattanthonyphoto</p>
+      </div>
+    </div>
+
+    <!-- POST W6.3 LinkedIn -->
+    <div class="post">
+      <header class="post-header">
+        <div>
+          <div class="post-id">W6.3</div>
+          <div class="post-day">Fri Jun 19</div>
+        </div>
+        <div class="post-type">LinkedIn Long-form · The Team / Awards · Rick voice ~200w</div>
+      </header>
+      <div class="draft">
+        <span class="draft-label">Caption</span>
+        <p>Fifteen years ago this month, we received the AWMAC BC Gold Award for a private residence in Vancouver. Lamoureux Architects, Brad Lamoureux's office. Eighteen months on the bench, fifteen people, one and a half million in millwork scope. The piece that won was a coffered alder ceiling with laminated curves running through every transition.</p>
+        <p>We had so many laminated curves to deal with on that project that it took us a lot longer than I had estimated to figure it all out and make sure we got it right. Take spring-back. We did a lot of experimenting then. Now we have it down to a science. That will help us with future projects, but at the time, it was new.</p>
+        <p>Fifteen years of projects between then and the wine cellar in West Van you see here. Different architect, different problem, same shop, mostly the same bench. The carved doors on this one were reclaimed. We built the cellar around them. Two site visits, one templating session, four weeks on the bench.</p>
+        <p>You're only as good as your last job. The saying still holds.</p>
+        <p>Photography by @mattanthonyphoto.</p>
+      </div>
+    </div>
+
+    <h5>Stories</h5>
+    <div class="table-wrap">
+      <table class="stories-table">
+        <thead><tr><th>Frame</th><th>Caption</th></tr></thead>
+        <tbody>
+          <tr><td>Cedar cantilever exterior</td><td>"Cedar cantilever. Forty-eight feet to the next column. The shop scaled the beams."</td></tr>
+          <tr><td>Mechanical room</td><td>"The room nobody sees. The room the cabinetry depends on."</td></tr>
+          <tr><td>Curved cherry stair tread</td><td>"Cherry tread, eased edge, hand-rubbed oil. The riser is concrete."</td></tr>
+          <tr><td>Saffron upper close-up</td><td>"Saffron lacquer, 25 sheen, rubbed between coats. Three days of finishing."</td></tr>
+          <tr><td>Spiral rack inside</td><td>"Spiral racks, solid stock. Every bottle in reach."</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <span class="callout-label">Reel concept · "The doors"</span>
+      20 sec. Open silently. The doors closed, slowly. Doors opening (track in). Spiral racks revealed. Tight on the carving. End card: <em>Reclaimed carved doors. Custom cellar. Built around them. @radiusmillwork</em>
+    </div>
+  </div>
+
+  <!-- 4.3b VANCOUVERHOUSE PENTHOUSE — NEW -->
+  <div class="project" id="vancouverhouse">
+    <header class="project-header">
+      <div class="project-name">4.3b · Vancouverhouse <em>Penthouse</em> · <span style="color:var(--gold);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;font-family:'Josefin Sans',sans-serif;font-style:normal;">New</span></div>
+      <div class="project-meta">Modern walnut slat + marble · Wk6 Jun · 13 selects · Lamoureux fallback</div>
+    </header>
+    <p><strong>Why fold in now:</strong> The strongest modern-craft set in the archive after Anigre. Continuous walnut slat ceilings, marble island runs, Bocci stairwell, curved walnut slat master bath wall. Fits the brand's modern-register opener and gives us a clean Lamoureux fallback if 2011 photo rights don't return in time.</p>
+    <div class="chips">
+      <span class="chip">Project: <code>Vancouverhouse BOP Penthouse</code></span>
+      <span class="chip">Architect: <code>[@____]</code></span>
+      <span class="chip">Designer: <code>[@____]</code></span>
+      <span class="chip">Builder: <code>[@____]</code></span>
+      <span class="chip">Photographer: <code>[@____]</code></span>
+    </div>
+
+    <div class="callout">
+      <span class="callout-label">Filename note</span>
+      All selects use the prefix <code>vancouverhouse-bop-penthouse-</code>. "BOP" is likely the architect / interior designer initials or a project codename — confirm with Rick before captioning so we tag correctly.
+    </div>
+
+    <div class="selects">
+      <div class="selects-label">Selects · <span class="selects-count">13 frames</span></div>
+      <div class="selects-grid">
+        <div class="thumb"><span class="thumb-tag hero">Hero</span><img loading="lazy" src="photos/vancouver-penthouse/vancouverhouse-bop-penthouse-living-dining-walnut-slat-ceiling-ocean-view.jpg" alt=""><span class="thumb-cap">Living/dining · walnut slat ceiling · ocean</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/vancouver-penthouse/vancouverhouse-bop-penthouse-kitchen-marble-island-wide-walnut-slat-ceiling.jpg" alt=""><span class="thumb-cap">Kitchen wide · marble island + slat ceiling</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/vancouver-penthouse/vancouverhouse-bop-penthouse-kitchen-walnut-marble-backsplash-island.jpg" alt=""><span class="thumb-cap">Kitchen · walnut + marble backsplash</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/vancouver-penthouse/vancouverhouse-bop-penthouse-kitchen-marble-counter-sink-walnut-cabinet-detail.jpg" alt=""><span class="thumb-cap">Kitchen · marble counter + walnut cabinet</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/vancouver-penthouse/vancouverhouse-bop-penthouse-kitchen-walnut-hood-open-shelving-pantry.jpg" alt=""><span class="thumb-cap">Kitchen · walnut hood + open shelving</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/vancouver-penthouse/vancouverhouse-bop-penthouse-marble-island-corner-walnut-cabinet-city-view.jpg" alt=""><span class="thumb-cap">Marble island corner · city view</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/vancouver-penthouse/vancouverhouse-bop-penthouse-living-room-atrium-garden-walnut-slat-ceiling.jpg" alt=""><span class="thumb-cap">Living · atrium garden + slat ceiling</span></div>
+        <div class="thumb"><span class="thumb-tag hero">Hero alt</span><img loading="lazy" src="photos/vancouver-penthouse/vancouverhouse-bop-penthouse-master-bath-freestanding-tub-curved-walnut-slat-wall.jpg" alt=""><span class="thumb-cap">Master bath · curved walnut slat wall</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/vancouver-penthouse/vancouverhouse-bop-penthouse-powder-bath-trough-sink-mirror-wall.jpg" alt=""><span class="thumb-cap">Powder bath · trough sink + mirror wall</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/vancouver-penthouse/vancouverhouse-bop-penthouse-walnut-pantry-marble-shelf-detail.jpg" alt=""><span class="thumb-cap">Walnut pantry · marble shelf detail</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/vancouver-penthouse/vancouverhouse-bop-penthouse-walnut-slat-corridor-bocci-stair-view.jpg" alt=""><span class="thumb-cap">Walnut slat corridor · Bocci stair</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/vancouver-penthouse/vancouverhouse-bop-penthouse-walnut-slat-door-black-handle-detail.jpg" alt=""><span class="thumb-cap">Walnut slat door · black handle</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/vancouver-penthouse/vancouverhouse-bop-penthouse-bocci-stairwell-dusk-exterior-view.jpg" alt=""><span class="thumb-cap">Bocci stairwell · dusk exterior</span></div>
+      </div>
+    </div>
+
+    <!-- POST W6.1 CAROUSEL -->
+    <div class="post">
+      <header class="post-header">
+        <div>
+          <div class="post-id">W6.1</div>
+          <div class="post-day">Mon Jun 15 <em style="font-size:11px;color:var(--stone);">(Lamoureux fallback)</em></div>
+        </div>
+        <div class="post-type">IG Carousel · The Finished + The Craft · walnut slat arc</div>
+      </header>
+      <h5>6 slides</h5>
+      <ol class="slides">
+        <li><strong>Hero detail.</strong> Living/dining · walnut slat ceiling · ocean view. Full impression of how the slat ceiling holds across the open plan.</li>
+        <li><strong>Context.</strong> Kitchen wide · marble island + walnut slat ceiling continues from living room.</li>
+        <li><strong>Material.</strong> Kitchen · walnut + marble backsplash · the species/stone interface.</li>
+        <li><strong>Detail.</strong> Walnut slat door · black handle close-up · the slat module at hand-scale.</li>
+        <li><strong>Second view.</strong> Master bath · freestanding tub + curved walnut slat wall · the slat module bent on the radius.</li>
+        <li><strong>Closer.</strong> Bocci stairwell · dusk exterior · the building reading from outside, slats catching warm interior light.</li>
+      </ol>
+      <div class="draft">
+        <span class="draft-label">Caption</span>
+        <p>Walnut slat ceiling. Three rooms. One module.</p>
+        <p>The slat is a profile we milled in the shop, solid stock, eased on every edge. The module repeats across the kitchen, the dining room, and the living room without breaking at the doorway. Above the master tub the same slat is curved on a 4-foot radius, bent over a form in the shop and held until the lamination cured.</p>
+        <p>The marble is the architect's. The slat module is ours.</p>
+        <p>Design <code>[@architect]</code> · Designer <code>[@designer]</code> · Photography <code>[@photographer]</code></p>
+      </div>
+      <div class="tags">#walnut #slatceiling #customcabinetry #millwork #finewoodworking #architecturalmillwork #vancouvermillwork #penthouse #vancouverinteriors #moderninteriors #residentialarchitecture #materialstudy #thecraft #thefinished #radiuswood</div>
+    </div>
+
+    <!-- POST W6.2 SINGLE -->
+    <div class="post">
+      <header class="post-header">
+        <div>
+          <div class="post-id">W6.2</div>
+          <div class="post-day">Wed Jun 17</div>
+        </div>
+        <div class="post-type">IG Single · The Finished</div>
+      </header>
+      <p><strong>Frame:</strong> <code>living-dining-walnut-slat-ceiling-ocean-view</code> (hero crop, tighter than the carousel slide 1).</p>
+      <div class="draft">
+        <span class="draft-label">Caption</span>
+        <p>Walnut slat ceiling. Continuous across three rooms.</p>
+        <p>The slat module is solid walnut, milled on the shop's spindle moulder against a knife we ground for this profile. Every slat sits in a continuous reveal that runs the length of the open plan. The reveal is one half inch. It does not move at the doorway, the column, or the kitchen island.</p>
+        <p>One module. Three rooms. Held to one half inch across forty feet.</p>
+        <p>Design <code>[@architect]</code> · Photography <code>[@photographer]</code></p>
+      </div>
+    </div>
+
+    <!-- POST W6.X SINGLE — master bath curve standalone (optional Sat sub) -->
+    <div class="post">
+      <header class="post-header">
+        <div>
+          <div class="post-id">W6.X</div>
+          <div class="post-day">Optional swap</div>
+        </div>
+        <div class="post-type">IG Single · The Craft · master bath</div>
+      </header>
+      <p><strong>Frame:</strong> <code>master-bath-freestanding-tub-curved-walnut-slat-wall</code></p>
+      <div class="draft">
+        <span class="draft-label">Caption</span>
+        <p>Same walnut slat module. Curved on a four-foot radius.</p>
+        <p>Above the master tub, the slat ceiling from the kitchen turns and runs up the wall, then bends through a four-foot radius across the head of the tub. Each slat is laminated from three thinner layers, vacuum-bagged over a form in the shop, held until the glue cured. From the bath the curve reads as a single continuous piece. It's actually forty-eight individual slats, each one bent the same way.</p>
+        <p>Design <code>[@architect]</code> · Photography <code>[@photographer]</code></p>
+      </div>
+    </div>
+
+    <!-- LINKEDIN — optional add to library -->
+    <div class="post">
+      <header class="post-header">
+        <div>
+          <div class="post-id">Optional LinkedIn</div>
+          <div class="post-day">Reserve · Wk6 or Wk7</div>
+        </div>
+        <div class="post-type">LinkedIn Long-form · The Craft · Rick voice ~200w</div>
+      </header>
+      <div class="draft">
+        <span class="draft-label">Caption</span>
+        <p>The architect drew a slat ceiling running continuous across the kitchen, dining, and living room.</p>
+        <p>The kitchen had a Bocci cluster, the dining had a structural beam, the living room opened onto a glass wall. Three different obstacles between us and a continuous module. The reveal line had to hold at one half inch across forty feet, in three rooms, around three obstructions.</p>
+        <p>Above the master tub, the same slat curves on a four-foot radius. Forty-eight laminated slats, each one vacuum-bagged over a form in the shop, each one held overnight until the glue cured. Spring-back is the variable on a curve this tight. We ran four test slats before we knew how much over-bend to set into the form so the finished slat hit the radius the architect drew.</p>
+        <p>The slat is a profile we milled on a 1973 spindle moulder against a knife we ground for this job. No CNC. No off-the-shelf module. The shop drawings ran to fourteen pages on the slat alone.</p>
+        <p>One module. Three rooms. One curve. Photography by <code>[@photographer]</code>.</p>
+      </div>
+    </div>
+
+    <h5>Stories (5 frames)</h5>
+    <div class="table-wrap">
+      <table class="stories-table">
+        <thead><tr><th>Frame</th><th>Caption (15–22 words)</th></tr></thead>
+        <tbody>
+          <tr><td>Walnut slat corridor · Bocci stair</td><td>"Walnut slat corridor. Bocci stair at the end. The slat ceiling runs continuous through the hall."</td></tr>
+          <tr><td>Walnut slat door · black handle</td><td>"Same slat module. Now a door. Black handle, no other hardware."</td></tr>
+          <tr><td>Walnut pantry · marble shelf</td><td>"Walnut pantry, marble shelf insert. Two materials. One reveal line, held at one quarter."</td></tr>
+          <tr><td>Kitchen marble counter + walnut cabinet</td><td>"Marble counter, walnut cabinet face. The reveal between them is the joint."</td></tr>
+          <tr><td>Bocci stairwell exterior dusk</td><td>"From outside, dusk. The slat ceiling catches warm interior light at the glass wall."</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout">
+      <span class="callout-label">Reel concept · "The slat module"</span>
+      25 sec. Open on the walnut slat ceiling in the living room. Pan to the dining slat. Continue to the kitchen slat. Cut to the curved master bath slat wall. Tight close-up on the slat profile, reveal line visible. End card: <em>One module. Three rooms. One curve. @radiusmillwork</em>
+    </div>
+  </div>
+
+  <!-- 4.4 WALNUT ESTATE -->
+  <div class="project">
+    <header class="project-header">
+      <div class="project-name">4.4 · Contemporary <em>Walnut Estate</em></div>
+      <div class="project-meta">The walnut showcase · Wk7–8 Jun · 30 frames</div>
+    </header>
+    <p><strong>Why mid-Phase-1:</strong> Deepest single-species set (30 frames, walnut throughout). Covers wine cellar, his + her closets, master bedroom, media room, fireplace, office, powder bath, dining wine wall. Splits cleanly into two carousels plus standalone singles.</p>
+    <div class="chips">
+      <span class="chip">Designer: <code>Strebinger?</code></span>
+      <span class="chip">Architect: <code>[@____]</code></span>
+      <span class="chip">Builder: <code>[@____]</code></span>
+      <span class="chip">Year: <code>[____]</code></span>
+    </div>
+
+    <div class="callout">
+      <span class="callout-label">PR sheet in folder</span>
+      <code>Strebinger_radius_PR.pdf</code> is present. Likely a designer PR sheet — names team and may name photographer. Open before posting.
+    </div>
+
+    <div class="selects">
+      <div class="selects-label">Selects · <span class="selects-count">12 frames</span></div>
+      <div class="selects-grid">
+        <div class="thumb"><span class="thumb-tag hero">Hero</span><img loading="lazy" src="photos/contemporary-walnut-estate/contemporary-walnut-estate-dining-room-walnut-fireplace-wine-display.jpg" alt=""><span class="thumb-cap">Dining · walnut fireplace + wine display</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/contemporary-walnut-estate/contemporary-walnut-estate-dining-room-wide-fireplace-wine-wall.jpg" alt=""><span class="thumb-cap">Dining wide · fireplace + wine wall</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/contemporary-walnut-estate/contemporary-walnut-estate-walnut-fireplace-wall-detail.jpg" alt=""><span class="thumb-cap">Walnut fireplace wall detail</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/contemporary-walnut-estate/contemporary-walnut-estate-wine-cellar-walnut-rack-perspective.jpg" alt=""><span class="thumb-cap">Wine cellar · walnut rack perspective</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/contemporary-walnut-estate/contemporary-walnut-estate-wine-cellar-walnut-racks-detail.jpg" alt=""><span class="thumb-cap">Wine cellar · racks detail</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/contemporary-walnut-estate/contemporary-walnut-estate-media-room-walnut-cabinetry-screen.jpg" alt=""><span class="thumb-cap">Media · walnut cabinetry + screen</span></div>
+        <div class="thumb"><span class="thumb-tag hero">Pt 2 Hero</span><img loading="lazy" src="photos/contemporary-walnut-estate/contemporary-walnut-estate-master-bedroom-headboard-wall-wide.jpg" alt=""><span class="thumb-cap">Master · headboard wall wide</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/contemporary-walnut-estate/contemporary-walnut-estate-master-bedroom-headboard-wall-tight.jpg" alt=""><span class="thumb-cap">Master · headboard tight</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/contemporary-walnut-estate/contemporary-walnut-estate-master-bath-double-vanity-wide.jpg" alt=""><span class="thumb-cap">Master bath · double vanity wide</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/contemporary-walnut-estate/contemporary-walnut-estate-master-bath-double-vanity-pr.jpg" alt=""><span class="thumb-cap">Master bath · vanity PR</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/contemporary-walnut-estate/contemporary-walnut-estate-powder-bath-vanity-walnut-door.jpg" alt=""><span class="thumb-cap">Powder bath · walnut door</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/contemporary-walnut-estate/contemporary-walnut-estate-powder-bath-vanity-detail-shower.jpg" alt=""><span class="thumb-cap">Powder bath · vanity detail</span></div>
+      </div>
+      <div class="callout" style="margin-top:14px;background:var(--soft);border-left-color:var(--stone);">
+        <span class="callout-label" style="color:var(--stone);">Selects note</span>
+        Matt's selects scope this project to <strong>dining / wine cellar / media + master suite + powder</strong>. The his/her closets and office that the original Pt 2 carousel called for aren't in selects — Pt 2 has been rebuilt below as a master-suite carousel.
+      </div>
+    </div>
+
+    <!-- POST W7.1 -->
+    <div class="post">
+      <header class="post-header">
+        <div>
+          <div class="post-id">W7.1</div>
+          <div class="post-day">Mon Jun 22</div>
+        </div>
+        <div class="post-type">IG Carousel Pt 1 · The Finished · public rooms</div>
+      </header>
+      <h5>6 slides</h5>
+      <ol class="slides">
+        <li><strong>Hero detail.</strong> Dining wine wall + walnut fireplace, hero composition.</li>
+        <li><strong>Context.</strong> Wider dining room shot.</li>
+        <li><strong>Detail.</strong> Walnut + stone joint at the fireplace.</li>
+        <li><strong>Wine cellar.</strong> Adjacent room, walnut rack perspective.</li>
+        <li><strong>Media room.</strong> Second public room, walnut cabinetry around screen.</li>
+        <li><strong>Closer.</strong> Hallway transition, paneled doors run.</li>
+      </ol>
+      <div class="draft">
+        <span class="draft-label">Caption</span>
+        <p>Walnut. Flat sawn, solid stock and veneer-laid, throughout.</p>
+        <p>The dining wine wall, the fireplace, the wine cellar racks, the media room cabinetry, the hallway doors. Eight rooms of one species, milled and laid so the grain runs continuous wherever a panel meets a panel.</p>
+        <p>Walnut moves with humidity. We acclimated the stock in the shop for six weeks before the first cut. Joinery: mitre returns at every external corner, scribe-fit to plaster at every wall.</p>
+        <p>Design <code>[@architect]</code> · Designer <code>[@strebinger?]</code> · Build <code>[@builder]</code> · Photography @mattanthonyphoto</p>
+      </div>
+    </div>
+
+    <!-- POST W7.3 LinkedIn -->
+    <div class="post">
+      <header class="post-header">
+        <div>
+          <div class="post-id">W7.3</div>
+          <div class="post-day">Fri Jun 26</div>
+        </div>
+        <div class="post-type">LinkedIn Long-form · The Craft · Rick voice ~190w</div>
+      </header>
+      <div class="draft">
+        <span class="draft-label">Caption</span>
+        <p>A client called last year asking for ebony.</p>
+        <p>We don't use ebony. The trade harvest left the species commercially extinct in West Africa decades ago. Most of what gets sold today as "ebony" is a younger growth species, stained, or the figure-grade end of macassar at twelve times the price.</p>
+        <p>What we use, when the drawings call for that look, is ebonised pear wood. Pear has the same close grain density as ebony, takes a dye uniformly, finishes to the same matte-black as old ebony, and comes from sustainably harvested European orchards. The finish schedule is six layers: dye, sealer, dye, sealer, top coat, rub.</p>
+        <p>The client's first reaction was that the price was higher than they expected. Then we walked them through why, and through the species choice. They were specifying the right material once they understood the trade-off. They were specifying ebony because they wanted the look of old ebony, not because they cared about the species.</p>
+        <p>That's most of the conversation. The species choice is the architect's. The schedule is ours.</p>
+        <p>Photography by @mattanthonyphoto.</p>
+      </div>
+    </div>
+
+    <!-- POST W8.1 -->
+    <div class="post">
+      <header class="post-header">
+        <div>
+          <div class="post-id">W8.1</div>
+          <div class="post-day">Mon Jun 29</div>
+        </div>
+        <div class="post-type">IG Carousel Pt 2 · The Finished · master suite</div>
+      </header>
+      <h5>6 slides</h5>
+      <ol class="slides">
+        <li><strong>Hero detail.</strong> Master headboard wall, wide — full walnut grain run across.</li>
+        <li><strong>Context.</strong> Master headboard tight — sequence-match seam visible.</li>
+        <li><strong>Bath wide.</strong> Master bath · double vanity wide.</li>
+        <li><strong>Bath PR.</strong> Master bath · double vanity PR composition.</li>
+        <li><strong>Powder bath door.</strong> Walnut door front face.</li>
+        <li><strong>Closer.</strong> Powder bath · vanity detail toward shower.</li>
+      </ol>
+      <div class="draft">
+        <span class="draft-label">Caption</span>
+        <p>Master suite. One species, three rooms.</p>
+        <p>The headboard wall is sequence-matched walnut across fourteen panels, scribed to plaster at every wall. The master vanity is solid stock at the eased edges, veneer-laid through the field, with mitre returns at every external corner. The powder vanity is veneer-laid over a torsion box so the basin cut-out stays flat under seasonal movement.</p>
+        <p>One species. Three engineering problems. The continuity is the design intent. The variety is the work.</p>
+        <p>Design <code>[@architect]</code> · Designer <code>[@designer]</code> · Photography @mattanthonyphoto</p>
+      </div>
+    </div>
+
+    <!-- POST W8.3 -->
+    <div class="post">
+      <header class="post-header">
+        <div>
+          <div class="post-id">W8.3</div>
+          <div class="post-day">Fri Jul 3</div>
+        </div>
+        <div class="post-type">LinkedIn Long-form · The Team · Rick voice ~200w</div>
+      </header>
+      <div class="draft">
+        <span class="draft-label">Caption</span>
+        <p>I went to BCIT because I couldn't afford to live away from home.</p>
+        <p>Carpentry was full. They told me joinery was open. I asked what joinery was. The advisor said cabinet making. I said okay, I guess if I can't be a carpenter, I'll kill some time doing that.</p>
+        <p>Seven months of foundation. ELTT program. I got 98% across the curriculum and finished six weeks early. The teachers gave me projects to build for the shop floor in the time I had left.</p>
+        <p>A third-year apprentice from a shop in North Van came in looking for a hire. The teacher pointed at me. I went over and met Chris, then went to meet Jim, the owner. Jim was a Scandinavian master cabinetmaker, Stickley-style devotee, ran a three-person shop. Quartersawn oak, solid stock, more wood per cabinet than most shops do today. He drew, Chris broke out solid wood, I was the benchman doing assembly. Plus finishing. Plus install.</p>
+        <p>A whole education in a three-person shop, in three years, doing every piece of the work. The benchwork I do today still moves the same way Jim showed me thirty years ago.</p>
+        <p>Photography by @mattanthonyphoto.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4.5 INDIAN RIVER -->
+  <div class="project">
+    <header class="project-header">
+      <div class="project-name">4.5 · Indian River <em>(The Point)</em></div>
+      <div class="project-meta">Multi-species editorial · Wk9 Jul · 9 frames · Latreille rights</div>
+    </header>
+    <p><strong>Why later:</strong> The most editorial set in the archive. Black wenge + white oak + rift oak + moss-green island = a magazine cover.</p>
+    <div class="chips">
+      <span class="chip">Architect: <code>[@____]</code></span>
+      <span class="chip">Designer: <code>[@____]</code></span>
+      <span class="chip">Photographer: <code>Andrew Latreille · @latreillephoto</code></span>
+    </div>
+
+    <div class="callout callout-warn">
+      <span class="callout-label">Photo rights gating</span>
+      License PDFs in folder (<code>2025LAP0668_RAM-The Point_License.pdf</code>, <code>License CS.pdf</code>). Rick to confirm license covers Instagram + LinkedIn social use before publishing. If license is print-only or restricted, this whole arc holds until clearance is upgraded.
+    </div>
+
+    <div class="selects">
+      <div class="selects-label">Selects · <span class="selects-count">9 frames · folder = "Indian Arm The Point"</span></div>
+      <div class="selects-grid">
+        <div class="thumb"><span class="thumb-tag hero">Hero</span><img loading="lazy" src="photos/indian-arm-the-point/indian-river-the-point-dining-black-wenge-cabinets-pendant-trio-leather-chairs.jpg" alt=""><span class="thumb-cap">Dining · black wenge + Bocci trio</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/indian-arm-the-point/indian-river-the-point-kitchen-white-oak-pantry-open-moss-green-island.jpg" alt=""><span class="thumb-cap">Kitchen · pantry open + moss green</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/indian-arm-the-point/indian-river-the-point-kitchen-white-oak-pantry-closed-detail.jpg" alt=""><span class="thumb-cap">Kitchen · pantry closed detail</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/indian-arm-the-point/indian-river-the-point-kitchen-white-oak-slat-wall-river-rock-fireplace-column.jpg" alt=""><span class="thumb-cap">Kitchen · slat wall + river rock</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/indian-arm-the-point/indian-river-the-point-living-room-gable-end-harbor-view-bocci-pendants-media-wall.jpg" alt=""><span class="thumb-cap">Living · gable + harbour + Bocci</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/indian-arm-the-point/indian-river-the-point-master-bedroom-white-oak-wardrobe-wall.jpg" alt=""><span class="thumb-cap">Master · white oak wardrobe wall</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/indian-arm-the-point/indian-river-the-point-master-ensuite-rift-oak-vanity-freestanding-tub-green-tile.jpg" alt=""><span class="thumb-cap">Ensuite · rift oak vanity</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/indian-arm-the-point/indian-river-the-point-walk-in-closet-mirror-niche-recessed-oak-cabinetry.jpg" alt=""><span class="thumb-cap">Closet · mirror niche + recessed oak</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/indian-arm-the-point/indian-river-the-point-white-oak-stair-tongue-and-groove.jpg" alt=""><span class="thumb-cap">White oak stair · tongue & groove</span></div>
+      </div>
+    </div>
+
+    <!-- POST W9.1 -->
+    <div class="post">
+      <header class="post-header">
+        <div>
+          <div class="post-id">W9.1</div>
+          <div class="post-day">Mon Jul 6</div>
+        </div>
+        <div class="post-type">IG Carousel · The Finished · multi-species</div>
+      </header>
+      <h5>6 slides</h5>
+      <ol class="slides">
+        <li><strong>Hero detail.</strong> Black wenge dining cabinets + Bocci pendant trio + leather chairs.</li>
+        <li><strong>Context.</strong> Kitchen wide — white oak pantry open + moss green island.</li>
+        <li><strong>Detail.</strong> White oak pantry closed, panel match visible.</li>
+        <li><strong>Material.</strong> White oak slat wall + river rock fireplace column.</li>
+        <li><strong>Second view.</strong> Ensuite — rift oak vanity, switch in species.</li>
+        <li><strong>Closer.</strong> Closet mirror niche, recessed oak cabinetry.</li>
+      </ol>
+      <div class="draft">
+        <span class="draft-label">Caption</span>
+        <p>Three woods in one house.</p>
+        <p>Black wenge in the dining cabinetry, slip-matched across the run. White oak in the kitchen and through the slat wall. Rift white oak in the ensuite vanity, switched for the tighter grain near the tub. Each species has its own finish schedule, its own moisture-acclimation window, its own joinery logic.</p>
+        <p>None of them by accident.</p>
+        <p>Design <code>[@architect]</code> · Designer <code>[@designer]</code> · Photography @latreillephoto</p>
+      </div>
+    </div>
+
+    <!-- POST W9.3 LinkedIn -->
+    <div class="post">
+      <header class="post-header">
+        <div>
+          <div class="post-id">W9.3</div>
+          <div class="post-day">Fri Jul 10</div>
+        </div>
+        <div class="post-type">LinkedIn Long-form · The Craft · Rick voice ~200w</div>
+      </header>
+      <div class="draft">
+        <span class="draft-label">Caption</span>
+        <p>The architect drew three species into one house and asked if we could hold the through-line.</p>
+        <p>Through-line meaning: the eye doesn't notice the species change at the doorway. The species change is intentional, not accidental. So the figure direction has to be consistent, the reveal lines have to match across the threshold, and the finish schedule has to give the same hand-feel across woods that move differently under finish.</p>
+        <p>Wenge is dense and open-grained. White oak is medium-dense and ring-porous. Rift white oak is the same species, cut differently, so the grain reads vertical instead of cathedral. Three different acclimation periods. Three different grain-fill strategies. The wenge took an open-pore filler tinted to the wood. The white oak got a paste filler at the cathedral peaks. The rift took nothing, just sealer and finish, because the figure is already tight.</p>
+        <p>A finish schedule for the three woods totals six pages. The schedule for one wood, one house, is usually two.</p>
+        <p>If the architect is going to specify three species, the shop has to deliver them as one decision, not three.</p>
+        <p>Photography by @latreillephoto.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4.6 LION'S BAY -->
+  <div class="project">
+    <header class="project-header">
+      <div class="project-name">4.6 · Lion's Bay <em>Residence</em></div>
+      <div class="project-meta">Classical arc · Wk10–11 Jul · 36 frames, deepest set</div>
+    </header>
+    <p><strong>Why later in Phase 1:</strong> Different aesthetic register from the modern-craft register the brand has opened on. Painted millwork, antique-white kitchen, glazed cabinets, carved corbels, arched openings, ocean view. We open modern first, then bring in Lion's Bay as proof the shop reaches both registers.</p>
+    <div class="chips">
+      <span class="chip">Architect: <code>[@____]</code></span>
+      <span class="chip">Designer: <code>[@____]</code></span>
+      <span class="chip">Builder: <code>[@____]</code></span>
+    </div>
+
+    <div class="selects">
+      <div class="selects-label">Selects · <span class="selects-count">13 frames</span></div>
+      <div class="selects-grid">
+        <div class="thumb"><span class="thumb-tag hero">Hero</span><img loading="lazy" src="photos/lions-bay/lions-bay-residence-kitchen-wide-antique-white-island-viking-range.jpg" alt=""><span class="thumb-cap">Kitchen wide · antique-white island</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/lions-bay/lions-bay-residence-kitchen-arched-opening-living-room-wide.jpg" alt=""><span class="thumb-cap">Kitchen through arched opening</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/lions-bay/lions-bay-residence-kitchen-wide-island-arched-ceiling.jpg" alt=""><span class="thumb-cap">Kitchen wide · arched ceiling</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/lions-bay/lions-bay-residence-kitchen-island-viking-range-wide.jpg" alt=""><span class="thumb-cap">Kitchen island + Viking range</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/lions-bay/lions-bay-residence-kitchen-glass-china-cabinet-corbel-detail.jpg" alt=""><span class="thumb-cap">Glass china cabinet + corbel</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/lions-bay/lions-bay-residence-kitchen-paneled-fridge-wall-glass-cabinets.jpg" alt=""><span class="thumb-cap">Paneled fridge wall + glass uppers</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/lions-bay/lions-bay-residence-kitchen-viking-range-hood-tile-mural.jpg" alt=""><span class="thumb-cap">Viking range hood + tile mural</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/lions-bay/lions-bay-residence-kitchen-island-curved-end-detail.jpg" alt=""><span class="thumb-cap">Kitchen island · curved end</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/lions-bay/lions-bay-residence-painted-corbel-carved-detail.jpg" alt=""><span class="thumb-cap">Painted carved corbel detail</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/lions-bay/lions-bay-residence-arched-hallway-perspective-living-room.jpg" alt=""><span class="thumb-cap">Arched hallway perspective</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/lions-bay/lions-bay-residence-vaulted-ceiling-arched-opening-detail.jpg" alt=""><span class="thumb-cap">Vaulted ceiling · arched opening</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/lions-bay/lions-bay-residence-living-room-curved-dining-nook-ocean-view.jpg" alt=""><span class="thumb-cap">Living · curved dining nook · ocean</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/lions-bay/lions-bay-residence-glazed-walnut-bar-console-birch-art.jpg" alt=""><span class="thumb-cap">Glazed walnut bar console</span></div>
+      </div>
+      <div class="callout" style="margin-top:14px;background:var(--soft);border-left-color:var(--stone);">
+        <span class="callout-label" style="color:var(--stone);">Selects note</span>
+        Matt's selects scope this project to <strong>kitchen + living spaces + bar console</strong>. The master bath, dressing room, butler's pantry, and walk-in closets that the original Pt 2 carousel called for aren't in selects — Pt 2 (Wk11 Mon 20) has been rebuilt below as a <em>living spaces</em> carousel using the remaining selects.
+      </div>
+    </div>
+
+    <!-- POST W10.1 -->
+    <div class="post">
+      <header class="post-header">
+        <div>
+          <div class="post-id">W10.1</div>
+          <div class="post-day">Mon Jul 13</div>
+        </div>
+        <div class="post-type">IG Carousel Pt 1 · The Finished · kitchen</div>
+      </header>
+      <h5>6 slides</h5>
+      <ol class="slides">
+        <li><strong>Hero detail.</strong> Antique-white kitchen wide, island + Viking range.</li>
+        <li><strong>Context.</strong> Kitchen seen through the arched opening from the living room.</li>
+        <li><strong>Hardware detail.</strong> Carved corbel + glazed china cabinet.</li>
+        <li><strong>Material.</strong> Paneled fridge wall + glass uppers.</li>
+        <li><strong>Second view.</strong> Island + Viking range wide.</li>
+        <li><strong>Closer.</strong> Spice pull-out + carved corbel detail.</li>
+      </ol>
+      <div class="draft">
+        <span class="draft-label">Caption</span>
+        <p>Antique-white painted cabinetry. Carved corbels. Glazed glass uppers.</p>
+        <p>A classical kitchen in Lion's Bay. The corbels under the upper cabinets are hand-carved from solid stock, profile drawn from a 19th-century reference pattern, ground into shaper knives in the shop. The glazing on the glass uppers is leaded, set by a glazier we've used for fifteen years.</p>
+        <p>Six weeks of bench time on the corbels alone.</p>
+        <p>Design <code>[@architect]</code> · Designer <code>[@designer]</code> · Build <code>[@builder]</code> · Photography @mattanthonyphoto</p>
+      </div>
+    </div>
+
+    <!-- POST W10.3 LinkedIn -->
+    <div class="post">
+      <header class="post-header">
+        <div>
+          <div class="post-id">W10.3</div>
+          <div class="post-day">Fri Jul 17</div>
+        </div>
+        <div class="post-type">LinkedIn Long-form · The Craft · Rick voice ~200w</div>
+      </header>
+      <div class="draft">
+        <span class="draft-label">Caption</span>
+        <p>The corbel was the question.</p>
+        <p>The designer pulled a reference photo from a Lutyens-era English country house. The profile had three radii and a fluted base. The closest profile knife we could buy off the shelf had two radii and no flute. So we ground the knife ourselves from blank high-speed steel against the 1973 Wadkin spindle moulder we still run.</p>
+        <p>Three test profiles, ground over a Tuesday afternoon, before the production knife was right. Once the knife was right, we cut 24 corbels in three days. Hand-finished each one. Mounted them under the upper cabinets with hidden cleats so the front face stays clean.</p>
+        <p>Some details aren't on a CNC menu. Some haven't been on any menu in a hundred years. The CNC route would have cost less in production time. It would have cost more in setup and we'd be left with a digital file that doesn't exist anywhere else, that wouldn't get cut again for the same client, that doesn't teach the shop anything new.</p>
+        <p>The 1973 spindle and a Tuesday afternoon. That's how we do this kind of work.</p>
+        <p>Photography by @mattanthonyphoto.</p>
+      </div>
+    </div>
+
+    <!-- POST W11.1 -->
+    <div class="post">
+      <header class="post-header">
+        <div>
+          <div class="post-id">W11.1</div>
+          <div class="post-day">Mon Jul 20</div>
+        </div>
+        <div class="post-type">IG Carousel Pt 2 · The Finished · living spaces</div>
+      </header>
+      <h5>6 slides <em style="font-size:11px;color:var(--stone);">(rebuilt to match selects)</em></h5>
+      <ol class="slides">
+        <li><strong>Hero detail.</strong> Living room · curved dining nook · ocean view.</li>
+        <li><strong>Context.</strong> Arched hallway perspective into the living room.</li>
+        <li><strong>Detail.</strong> Vaulted ceiling · arched opening detail.</li>
+        <li><strong>Material.</strong> Glazed walnut bar console · birch art above.</li>
+        <li><strong>Craft.</strong> Painted carved corbel · close-up.</li>
+        <li><strong>Closer.</strong> Kitchen · Viking range hood + tile mural detail.</li>
+      </ol>
+      <div class="draft">
+        <span class="draft-label">Caption</span>
+        <p>Living spaces. One vocabulary.</p>
+        <p>Painted millwork through the front of the house, glazed walnut and birch in the back. The curved dining nook is mitre-joined at every external corner. The arched openings between rooms carry the same radius and reveal across the floor plan. The glazed walnut bar console is finished in three coats of conversion varnish, rubbed between, so the figure stays visible under the glaze.</p>
+        <p>One house. One voice across the public rooms.</p>
+        <p>Design <code>[@architect]</code> · Designer <code>[@designer]</code> · Photography @mattanthonyphoto</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4.7 WHITBY -->
+  <div class="project">
+    <header class="project-header">
+      <div class="project-name">4.7 · Whitby Estates <em>(Maghsoud)</em></div>
+      <div class="project-meta">2008-era classical · Wk11–12 Jul · 13 frames</div>
+    </header>
+    <p><strong>Why late in Phase 1:</strong> 2008-era project. Classical/historical register. Coffered ceilings, mahogany doors, book-matched cherry, hand-carved corbels, dentil crown. Useful as a Range Proof — the same shop did this 18 years ago.</p>
+    <div class="chips">
+      <span class="chip">Architect: <code>[@____]</code></span>
+      <span class="chip">Year: <code>2008</code></span>
+      <span class="chip">Photographer: <code>[period @____]</code></span>
+    </div>
+
+    <div class="selects">
+      <div class="selects-label">Selects · <span class="selects-count">11 frames</span></div>
+      <div class="selects-grid">
+        <div class="thumb"><span class="thumb-tag hero">Hero</span><img loading="lazy" src="photos/whitby-estates-walnut/whitby-estates-walnut-maghsoud-residence-media-room-wide-coffered-tv-fireplace-built-ins.jpg" alt=""><span class="thumb-cap">Media room wide · coffered + TV + built-ins</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/whitby-estates-walnut/whitby-estates-walnut-maghsoud-residence-media-room-coffered-tv-fireplace-front-elevation.jpg" alt=""><span class="thumb-cap">Media · coffered front elevation</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/whitby-estates-walnut/whitby-estates-walnut-maghsoud-residence-media-room-corner-wide-built-ins-double-doors.jpg" alt=""><span class="thumb-cap">Media corner wide · built-ins + doors</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/whitby-estates-walnut/whitby-estates-walnut-maghsoud-residence-media-room-built-in-corbel-detail-glass-cabinet.jpg" alt=""><span class="thumb-cap">Built-in corbel + glass cabinet</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/whitby-estates-walnut/whitby-estates-walnut-maghsoud-residence-mantel-carved-corbel-close-up.jpg" alt=""><span class="thumb-cap">Mantel · carved corbel close-up</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/whitby-estates-walnut/whitby-estates-walnut-maghsoud-residence-cherry-panel-wall-bookmatched-detail.jpg" alt=""><span class="thumb-cap">Cherry panel wall · book-matched</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/whitby-estates-walnut/whitby-estates-walnut-maghsoud-residence-dentil-crown-molding-corner-detail.jpg" alt=""><span class="thumb-cap">Dentil crown molding · corner</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/whitby-estates-walnut/whitby-estates-walnut-maghsoud-residence-mahogany-double-doors-open-entry-perspective.jpg" alt=""><span class="thumb-cap">Mahogany doors · open entry</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/whitby-estates-walnut/whitby-estates-walnut-maghsoud-residence-glass-mahogany-double-doors-closed.jpg" alt=""><span class="thumb-cap">Glass mahogany doors · closed</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/whitby-estates-walnut/whitby-estates-walnut-maghsoud-residence-secondary-media-travertine-fireplace-tv-mahogany-door.jpg" alt=""><span class="thumb-cap">Secondary media · travertine fireplace</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/whitby-estates-walnut/whitby-estates-walnut-maghsoud-residence-walnut-pantry-glass-cabinets-arched-niche.jpg" alt=""><span class="thumb-cap">Walnut pantry · glass + arched niche</span></div>
+      </div>
+      <div class="callout" style="margin-top:14px;background:var(--soft);border-left-color:var(--stone);">
+        <span class="callout-label" style="color:var(--stone);">Selects note</span>
+        Selects exclude the curved marble stair + grand foyer that the original carousel led with — replaced below with the <strong>media room coffered + built-ins</strong> as hero, and the cherry book-matched panel + dentil crown + carved corbel as detail slides.
+      </div>
+    </div>
+
+    <!-- POST W11.4 -->
+    <div class="post">
+      <header class="post-header">
+        <div>
+          <div class="post-id">W11.4</div>
+          <div class="post-day">Sat Jul 25</div>
+        </div>
+        <div class="post-type">IG Single · The Finished</div>
+      </header>
+      <div class="draft">
+        <span class="draft-label">Caption</span>
+        <p>Mahogany double-doors. British Properties, 2008.</p>
+        <p>Solid mahogany throughout, including the panels, with hand-cut raised-panel mouldings and a six-panel layout. The doors are matched as a pair, milled from the same flitch so the grain reads continuous when both are closed. Eight feet tall. Brass mortise hardware.</p>
+        <p>The shop has been doing this kind of work since 2003. Some of the doors that left here twenty years ago have been re-finished in the time since. None have been replaced.</p>
+        <p>Design <code>[@architect]</code> · Photography <code>[@photographer]</code></p>
+      </div>
+    </div>
+
+    <!-- POST W12.1 -->
+    <div class="post">
+      <header class="post-header">
+        <div>
+          <div class="post-id">W12.1</div>
+          <div class="post-day">Mon Jul 27</div>
+        </div>
+        <div class="post-type">IG Carousel · The Finished · Whitby</div>
+      </header>
+      <h5>6 slides <em style="font-size:11px;color:var(--stone);">(rebuilt to match selects)</em></h5>
+      <ol class="slides">
+        <li><strong>Hero detail.</strong> Media room wide · coffered ceiling + TV + built-ins.</li>
+        <li><strong>Context.</strong> Media room · coffered front elevation.</li>
+        <li><strong>Detail.</strong> Built-in corbel + glass cabinet · interior glow.</li>
+        <li><strong>Material.</strong> Cherry panel wall · book-matched detail.</li>
+        <li><strong>Craft.</strong> Mantel · carved corbel close-up.</li>
+        <li><strong>Closer.</strong> Dentil crown molding · corner detail.</li>
+      </ol>
+      <div class="draft">
+        <span class="draft-label">Caption</span>
+        <p>2008. British Properties. Cherry book-matched. Mahogany doors. Coffered ceilings.</p>
+        <p>The coffered ceiling in the media room is solid cherry, raised panels, every coffer joined with through-tenons at the corners and hung from a structural grid above. Five hundred and forty linear feet of crown moulding across the ceiling alone. Six weeks of crown stock acclimating in the shop before the first cut. The corbels under the mantel are hand-carved from solid stock.</p>
+        <p>An early flagship project for the shop. Eighteen years on, the work still holds.</p>
+        <p>Design <code>[@architect]</code> · Photography <code>[@photographer]</code></p>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4.8 INDIAN ARM -->
+  <div class="project">
+    <header class="project-header">
+      <div class="project-name">4.8 · Indian Arm Study <em>— Woodlands</em></div>
+      <div class="project-meta">Cedar close · Wk12 Jul · 8 frames</div>
+    </header>
+    <p><strong>Why last:</strong> Smaller set. Cedar species story. Closes Phase 1 with a quieter, nature-scaled project before the upgrade decision in July.</p>
+    <div class="chips">
+      <span class="chip">Architect: <code>[@____]</code></span>
+      <span class="chip">Photographer: <code>[@____]</code></span>
+    </div>
+
+    <div class="selects">
+      <div class="selects-label">Selects · <span class="selects-count">8 frames</span></div>
+      <div class="selects-grid">
+        <div class="thumb"><span class="thumb-tag hero">Hero</span><img loading="lazy" src="photos/indian-arm-study/indian-arm-woodlands-study-cedar-built-in-stone-fireplace-tight.jpg" alt=""><span class="thumb-cap">Cedar built-in + stone fireplace</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/indian-arm-study/indian-arm-woodlands-study-cedar-desk-curved-edge-ocean-view.jpg" alt=""><span class="thumb-cap">Cedar desk · curved edge · ocean</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/indian-arm-study/indian-arm-woodlands-study-cedar-bookcase-pink-chair-sailboat.jpg" alt=""><span class="thumb-cap">Cedar bookcase · pink chair</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/indian-arm-study/indian-arm-woodlands-study-living-room-cedar-fireplace-end.jpg" alt=""><span class="thumb-cap">Living · cedar fireplace end</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/indian-arm-study/indian-arm-woodlands-study-living-room-wide-cedar-ceiling.jpg" alt=""><span class="thumb-cap">Living wide · cedar ceiling</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/indian-arm-study/indian-arm-woodlands-study-living-room-wide-stone-wall.jpg" alt=""><span class="thumb-cap">Living wide · stone wall</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/indian-arm-study/indian-arm-woodlands-study-leather-chair-globe-pendants-vertical.jpg" alt=""><span class="thumb-cap">Leather chair · globe pendants</span></div>
+        <div class="thumb"><img loading="lazy" src="photos/indian-arm-study/indian-arm-woodlands-study-exterior-cedar-cabin-dusk-trees.jpg" alt=""><span class="thumb-cap">Exterior · cedar cabin dusk</span></div>
+      </div>
+    </div>
+
+    <div class="post">
+      <header class="post-header">
+        <div>
+          <div class="post-id">W12.2</div>
+          <div class="post-day">Wed Jul 29</div>
+        </div>
+        <div class="post-type">IG Single · The Finished</div>
+      </header>
+      <div class="draft">
+        <span class="draft-label">Caption</span>
+        <p>Western red cedar built-in. Local stone fireplace.</p>
+        <p>The cedar is solid stock through the visible face, veneer-laid on the carcass to keep the cabinetry from moving under the seasonal humidity swings on the inlet. Hand-finished oil, no topcoat, so the wood greys uniformly as the room ages.</p>
+        <p>A small study at the water. The cabinetry is part of the room, not the centre of it.</p>
+        <p>Design <code>[@architect]</code> · Photography @mattanthonyphoto</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 5. LINKEDIN -->
+<section id="linkedin">
+  <div class="section-rule"></div>
+  <div class="section-num">05 · LinkedIn long-form library</div>
+  <h2>Twelve <em>founder-voice</em> posts</h2>
+  <p>LinkedIn drip across May 29 → Jul 31. Founder voice, Rick first-person. Mix of craft-philosophy, origin beats, and project deep-dives. Each is 180–220 words. Photography credit at the bottom of every post. No hashtags in body — append in first comment.</p>
+
+  <h3>Drafted in calendar above</h3>
+  <ol>
+    <li><strong>W3 (May 29)</strong> — "We milled the veneer ourselves" — Whistler slip-matching (§4.1)</li>
+    <li><strong>W4 (Jun 5)</strong> — Origin Beat 2, the twig basket</li>
+    <li><strong>W5 (Jun 12)</strong> — "Twenty-three people once" — already deployed in May Wk1; re-deploy as follow-up arc</li>
+    <li><strong>W6 (Jun 19)</strong> — "Fifteen years of an AWMAC Gold" — laminated curves anniversary</li>
+    <li><strong>W7 (Jun 26)</strong> — "Why we don't use ebony"</li>
+    <li><strong>W8 (Jul 3)</strong> — Origin Beat 6, the BCIT joinery story</li>
+    <li><strong>W9 (Jul 10)</strong> — "Three woods in one house" — Indian River</li>
+    <li><strong>W10 (Jul 17)</strong> — "The corbel was the question" — Lion's Bay 1973 spindle</li>
+    <li><strong>W11 (Jul 24)</strong> — Month-3 close: "Twenty-five years and a phone that won't stop ringing"</li>
+    <li><strong>W12 (Jul 31)</strong> — Phase 1 close: "Twelve weeks. Nine projects. What three months taught me."</li>
+  </ol>
+
+  <h3>Spares in reserve</h3>
+  <div class="post">
+    <header class="post-header">
+      <div class="post-id">Spare A</div>
+      <div class="post-type">Origin Beat 8 — Mitchell Island</div>
+    </header>
+    <div class="draft">
+      <p>The first real shop was eleven hundred square feet on Mitchell Island. Spray booth, self-contained. I was alone. That's still one of my favourite times in my career. When you work by yourself, you put something down at the end of the day and it's where you left it in the morning. The work moves at the speed of the hand. Twenty-five years later, with twenty people on the floor and 5,000 square feet, the principle still holds: a piece moves through one set of hands at a time, and the person whose hands it's in is the one accountable for what comes out. Photography by @mattanthonyphoto.</p>
+    </div>
+  </div>
+
+  <div class="post">
+    <header class="post-header">
+      <div class="post-id">Spare B</div>
+      <div class="post-type">On contractor service</div>
+    </header>
+    <div class="draft">
+      <p>A lot of shops in town put out a quality product. Where I think we stand out is in service. The contractor we want to work for is the one who doesn't want a millwork shop that takes his time. He wants the one he can hand a complicated, high-profile package to and not think about it again until it's installed. Self-reliant. Problem-solving. On schedule. We're not a leech on his resources, and we only call when we really need to. Twenty-five years on this end of the trade, twenty people on the bench in Burnaby. The phone keeps ringing. Photography by @mattanthonyphoto.</p>
+    </div>
+  </div>
+</section>
+
+<!-- 6. STORIES -->
+<section id="stories">
+  <div class="section-rule"></div>
+  <div class="section-num">06 · Stories playbook</div>
+  <h2>The low-friction <em>tag engine</em></h2>
+  <p>Stories are the <strong>low-friction tag-engine</strong>. Every story tags the architect/designer/builder, the photographer, and 2–3 species/technique hashtags. Stories don't require Rick approval per the playbook's "stories: ad hoc" rule — but for archive content we hold to the same tag-clearance gate as feed posts.</p>
+  <p><strong>Cadence:</strong> 8–10 stories/week, drip across the 4-post cadence. ~120 stories across Phase 1.</p>
+
+  <h4>Story template (10–25 words)</h4>
+  <ul>
+    <li>Material-first opening. Same as feed.</li>
+    <li>One species term. One technique term.</li>
+    <li>Tag architect/designer/builder/photographer in the bottom-third of the story.</li>
+    <li>Hashtag layer in the bottom of the story or in the cover sticker.</li>
+  </ul>
+
+  <h4>Per-project story counts</h4>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Project</th><th>Stories drafted</th></tr></thead>
+      <tbody>
+        <tr><td>Whistler Slip-Matched Oak</td><td>5</td></tr>
+        <tr><td>Waterfront Anigre</td><td>5–6</td></tr>
+        <tr><td>West Vancouver Modern Luxury</td><td>5</td></tr>
+        <tr><td>Contemporary Walnut Estate</td><td>5</td></tr>
+        <tr><td>Indian River — The Point</td><td>5</td></tr>
+        <tr><td>Lion's Bay</td><td>5</td></tr>
+        <tr><td>Whitby Estates</td><td>3</td></tr>
+        <tr><td>Indian Arm Study</td><td>3</td></tr>
+        <tr><th>Archive total</th><th>~36</th></tr>
+        <tr><td>Plus monthly shop shoot stories</td><td>~15 (5 × 3 shoots)</td></tr>
+        <tr><th>Phase 1 total</th><th>~50</th></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- 7. REELS -->
+<section id="reels">
+  <div class="section-rule"></div>
+  <div class="section-num">07 · Reels</div>
+  <h2>Six archive-based <em>reel concepts</em></h2>
+  <p>Playbook target: 1–2 reels/month. May → July = 4–6 reels.</p>
+
+  <ol>
+    <li><strong>"From log to wall"</strong> — Whistler slip-matching (§4.1). Shop → install. 30 sec. May.</li>
+    <li><strong>"What anigre is"</strong> — Waterfront anigre species explainer (§4.2). 25 sec. Jun.</li>
+    <li><strong>"The doors"</strong> — West Van wine cellar reveal (§4.3). 20 sec. Jun.</li>
+    <li><strong>"Three woods in one house"</strong> — Indian River species walkthrough (§4.5). 25 sec. Jul.</li>
+    <li><strong>"The corbel"</strong> — Lion's Bay 1973 spindle moulder reel (§4.6). 25 sec. Jul. Needs shop B-roll from next shoot.</li>
+    <li><strong>"Eighteen years"</strong> — Whitby Estates 2008 → today, then-and-now. 25 sec. Jul. Optional — depends on whether Rick has 2008-era jobsite footage.</li>
+  </ol>
+
+  <h4>Reel rules (from playbook)</h4>
+  <ul>
+    <li>Silent or shop-ambient sound or Rick-voiced.</li>
+    <li>No trending audio.</li>
+    <li>Caption text overlay names the species and the technique.</li>
+    <li>End card: project name + handle.</li>
+  </ul>
+</section>
+
+<!-- 8. IG SPECS -->
+<section id="specs">
+  <div class="section-rule"></div>
+  <div class="section-num">08 · Instagram posting specs</div>
+  <h2>Format, cadence, <em>and what 2026 actually rewards</em></h2>
+  <p>Synthesised from Buffer, Later, Sprout Social, Carouselli, and HeyOrca 2026 data. The specs below lock the format for every post in this plan and govern Late MCP scheduling.</p>
+
+  <h3>8.1 · Carousels — slide count + format</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Spec</th><th>Value</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Slide count</strong></td><td><strong>5–6 slides</strong></td><td>Q1 2026 data: 5–7 slides generate 3.4× more saves than singles. Engagement drops after slide 3, climbs again at 8+. For Radius's process narrative (hero → context → material → detail → closer), 5–6 is the right length. Every post in this plan is 6.</td></tr>
+        <tr><td><strong>Aspect ratio</strong></td><td><strong>4:5 portrait · 1080 × 1350 px</strong></td><td>Takes 33% more vertical screen than square. First slide locks the ratio for every following slide — if slide 1 is 4:5 and slide 2 is 1:1, Instagram crops the square down. Lock to 4:5 on export.</td></tr>
+        <tr><td><strong>Profile grid crop</strong></td><td><strong>3:4 · centre 1012 × 1350 visible</strong></td><td>The profile grid crops the top + bottom of each 4:5 frame. Keep the subject (face, hardware, joint, signature detail) in the centre 75% so it survives both feed and grid views.</td></tr>
+        <tr><td><strong>Mixed media</strong></td><td>Image-only OR mixed image + video</td><td>2026 data: mixed-media carousels hit 2.33% engagement vs 1.80% for image-only. Consider adding 1 short B-roll clip as slide 6 on the reel-adjacent carousels (Whistler, Anigre, West Van).</td></tr>
+        <tr><td><strong>Slide order</strong></td><td>Hero · Context · Material · Detail · Second view · Closer</td><td>Already the framework in the playbook. The Closer is the save-trigger — not a big shot, a quiet one. Hardware, edge profile, the half-blind dovetail invisible from the front.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>8.2 · Captions — hook, length, structure</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Spec</th><th>Value</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><strong>First-line hook</strong></td><td><strong>5–10 words, material-first</strong></td><td>Instagram truncates captions after ~125 characters with a "...more" cutoff. Whatever is in the first line is what 90% of feed scrollers see. The Radius voice rule (material-first opening) already does this — "Slip-matched rift white oak. Four doors, one log." is exactly the hook the algorithm rewards.</td></tr>
+        <tr><td><strong>Ideal length</strong></td><td><strong>138–150 characters</strong> for singles · <strong>up to 400 chars</strong> for carousels</td><td>Carousel captions can run longer because the user has already committed (swiped past slide 1). Most singles in this plan sit at 200–280 chars — slightly above ideal but justified by the technical specificity. Trim if a single runs over 350.</td></tr>
+        <tr><td><strong>Line breaks</strong></td><td>Every 1–2 sentences</td><td>Walls of text get scrolled past. The drafted captions all use line breaks. Keep that.</td></tr>
+        <tr><td><strong>Credits line</strong></td><td>Last line, single line</td><td><code>Design @[architect] · Build @[builder] · Photography @[photographer]</code></td></tr>
+        <tr><td><strong>No CTAs</strong></td><td>Hold the line</td><td>"Save this for later" / "Tag someone who needs this" reads as engagement bait. The Radius rule (no engagement bait) stands. The work itself is the CTA.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>8.3 · Hashtags — 2026 update</h3>
+  <p>The algorithm shift in 2026: <strong>keyword-rich captions outperform hashtag-stuffed ones by ~30% in reach.</strong> Instagram now reads caption keywords as ranking signal, not just hashtags. Radius's voice (species + technique + region) is already keyword-dense — this is an unintentional advantage.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Spec</th><th>Value</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Hashtag count</strong></td><td><strong>8–12 per post</strong> (was 15 in earlier drafts)</td><td>Q2 2026 data: 3–5 highly relevant hashtags out-perform 15+ generic ones. The 18-hashtag cap from the playbook still holds as a max but the new floor is 8–12 for non-spammy reach.</td></tr>
+        <tr><td><strong>Distribution rule</strong></td><td><strong>30 / 50 / 20</strong></td><td>30% popular (#millwork, #joinery, #architecture) · 50% niche (#slipmatched, #anigre, #riftwhiteoak) · 20% brand + regional (#radiuswood, #burnabymade, #vancouvermillwork)</td></tr>
+        <tr><td><strong>Always include</strong></td><td><code>#radiuswood</code> + region + species</td><td>Brand-tag every post. Region tag every post (Whistler / West Van / Lion's Bay / Vancouver / Burnaby / British Properties). Species tag per project (#walnut #anigre #riftwhiteoak #wenge #cedar #mahogany #cherry).</td></tr>
+        <tr><td><strong>Placement</strong></td><td>End of caption OR first comment</td><td>Either works in 2026. The playbook says hashtags-field-only in Late (per <code>feedback_hashtag_single_source</code>) — Late puts them at the end of the caption. Stay with that.</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="callout">
+    <span class="callout-label">Action</span>
+    The example hashtag lists in §4 are all at 15. When staging to Notion, trim each to 10–12 by dropping the most generic tags (e.g., drop <code>#craftsmanship</code> + <code>#woodworking</code> if the niche tag set is strong). Keep <code>#radiuswood</code>, the species tag, and the region tag every time.
+  </div>
+
+  <h3>8.4 · Posting cadence + times</h3>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Spec</th><th>Value</th><th>Why</th></tr></thead>
+      <tbody>
+        <tr><td><strong>Weekly cadence</strong></td><td><strong>4 posts/week</strong> (current plan)</td><td>Top architecture accounts hit 4–5/week. Higher than 5 dilutes the brand signal; lower than 3 loses algorithm momentum.</td></tr>
+        <tr><td><strong>Best windows</strong></td><td><strong>Tue–Thu, 11 am–1 pm</strong> or <strong>7–9 pm PT</strong></td><td>Interior designers + architects scroll on lunch breaks (11–1) and evening wind-down (7–9). Buffer's 9.6M-post analysis: Wed 12pm + Thu 9am are the top global slots.</td></tr>
+        <tr><td><strong>Worst window</strong></td><td>Sat afternoon, Sun morning</td><td>The professional audience is offline. Move Sat IG to Sat morning (9–11am PT) for catch-up scroll, or shift to Sun evening (7–9pm) for week-prep scroll.</td></tr>
+        <tr><td><strong>LinkedIn timing</strong></td><td><strong>Tue/Wed/Thu 8–10 am PT</strong></td><td>B2B audience reads LinkedIn first thing. The existing Fri LinkedIn slot in the plan is sub-optimal — consider shifting to Wed 9am PT once Rick is comfortable with the LinkedIn voice.</td></tr>
+        <tr><td><strong>First-hour engagement</strong></td><td>Critical</td><td>The algorithm gates 24-hour reach on the first hour of engagement. Schedule when Matt's circle is on platform so initial likes + saves come fast.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>8.5 · The metric that matters for Radius</h3>
+  <p><strong>Saves, not likes.</strong> Architecture audiences save carousels at 2–3× the rate they save singles. A save is the architect putting your work into their reference folder for the next client conversation. That's the actual outcome the strategy is built for. Likes are vanity in this niche.</p>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Metric</th><th>Phase 1 target</th><th>Track via</th></tr></thead>
+      <tbody>
+        <tr><td>Saves per post (carousel)</td><td>15+ by Wk6, 30+ by Wk12</td><td>Instagram Insights · Saves</td></tr>
+        <tr><td>Saves per post (single)</td><td>5+ by Wk6, 15+ by Wk12</td><td>Insights</td></tr>
+        <tr><td>Profile visits per post</td><td>10+ on archive carousels</td><td>Insights</td></tr>
+        <tr><td>Architect / designer reshares</td><td>1 by end of Phase 1</td><td>Manual scan + mentions</td></tr>
+        <tr><td>Follows from architect handles</td><td>5+ across Phase 1</td><td>Manual scan of new follower list</td></tr>
+        <tr><td>DMs from architect handles</td><td>1+ across Phase 1</td><td>Inbox audit</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>8.6 · Late MCP technical rules</h3>
+  <p>Per memory <code>reference_late_retry_endpoint</code> and <code>reference_late_setup</code>:</p>
+  <ul>
+    <li><strong>HARD RULE — never call <code>/posts/&lt;id&gt;/retry</code> on IG carousels.</strong> The retry endpoint re-publishes as a Reel, killing the carousel format. If a publish fails, duplicate the post + reschedule — never retry.</li>
+    <li>Carousels go through Late's "Photo carousel" media type, not "Reel."</li>
+    <li>Hashtags in the Hashtags field, never in the Caption body (per <code>feedback_hashtag_single_source</code>).</li>
+    <li>Use Squarespace CDN URLs for images (per <code>feedback_image_hosting_use_website_cdn</code>) — freeimage.host fails ~100% of the time. If Radius doesn't have a Squarespace site yet (Creative Partner upgrade), use Matt's CDN.</li>
+    <li>Sync Late dates back to Notion after publish (per <code>feedback_sync_dates_to_notion</code>).</li>
+  </ul>
+
+  <h3>8.7 · Voice audit · Phase 1 captions</h3>
+  <div class="callout">
+    <span class="callout-label">Audit results 2026-05-17</span>
+    All drafted captions in §3, §4, and §5 were grep-audited against the playbook voice rules. <strong>Zero violations</strong> in caption bodies for the forbidden vocabulary list (luxury, stunning, dream, elevated, bespoke, a cut above, eloquent, breathtaking, cutting-edge, world-class, obsessed, passion, curated). The word "luxury" appears only in the proper project name <em>West Vancouver Modern Luxury</em>, which cannot be changed. Em-dashes (—) appear in internal narrative + section headers but not in any draft caption. The captions are publish-ready against the voice rules; only the credits brackets (<code>[@____]</code>) need filling.
+  </div>
+</section>
+
+<!-- 9. CREDITS -->
+<section id="credits">
+  <div class="section-rule"></div>
+  <div class="section-num">09 · Architect credits matrix</div>
+  <h2>The <em>single biggest</em> gating doc</h2>
+  <p>Without these handles, no archive post ships.</p>
+  <div class="callout">
+    <span class="callout-label">To Rick</span>
+    For each row below, return: architect handle (Instagram + LinkedIn), interior designer handle (if separate), builder/GC handle, year completed, original photographer + handle, and a yes/no on "photography rights cover Instagram + LinkedIn social use."
+  </div>
+
+  <div class="table-wrap">
+    <table class="credits-table">
+      <thead>
+        <tr>
+          <th>#</th><th>Project</th><th>Year</th><th>Architect</th><th>Designer</th><th>Builder</th><th>Photographer</th><th>Soc OK?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Whistler Slip-Matched Oak</td><td><code>____</code></td><td><code>@____</code></td><td><code>@____</code></td><td><code>@____</code></td><td><code>@____</code></td><td>Y / N</td></tr>
+        <tr><td>2</td><td>Waterfront Anigre Penthouse</td><td><code>____</code></td><td><code>@____</code></td><td><code>@____</code></td><td><code>@____</code></td><td>David Hempenstall? <code>@____</code></td><td>Y / N</td></tr>
+        <tr><td>3</td><td>West Vancouver Modern Luxury</td><td><code>____</code></td><td><code>@____</code></td><td><code>@____</code></td><td><code>@____</code></td><td><code>@____</code></td><td>Y / N</td></tr>
+        <tr><td>4</td><td>Contemporary Walnut Estate</td><td><code>____</code></td><td><code>@____</code></td><td>Strebinger? <code>@____</code></td><td><code>@____</code></td><td><code>@____</code></td><td>Y / N</td></tr>
+        <tr><td>5</td><td>Indian River (The Point)</td><td><code>____</code></td><td><code>@____</code></td><td><code>@____</code></td><td><code>@____</code></td><td>Latreille <code>@latreillephoto</code></td><td>Y / N · <em>license PDF in folder</em></td></tr>
+        <tr><td>6</td><td>Lion's Bay Residence</td><td><code>____</code></td><td><code>@____</code></td><td><code>@____</code></td><td><code>@____</code></td><td><code>@____</code></td><td>Y / N</td></tr>
+        <tr><td>7</td><td>Whitby Estates (Maghsoud)</td><td>2008</td><td><code>@____</code></td><td><code>@____</code></td><td><code>@____</code></td><td><code>@____</code></td><td>Y / N</td></tr>
+        <tr><td>8</td><td>Indian Arm Study — Woodlands</td><td><code>____</code></td><td><code>@____</code></td><td><code>@____</code></td><td><code>@____</code></td><td><code>@____</code></td><td>Y / N</td></tr>
+        <tr><td>9</td><td>Lamoureux 2011 (AWMAC Gold)</td><td>2011</td><td>Lamoureux <code>@____</code></td><td>n/a</td><td><code>@____</code></td><td><code>@____</code></td><td>Y / N</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>Once returned</h3>
+  <ul>
+    <li>Sub the brackets in every caption.</li>
+    <li>Update <code>tools/playbooks/radius-wood.json</code> → <code>projects[]</code>.</li>
+    <li>Push posts to the Notion Content Calendar DB (<code>34986897dca28194bb9fca05537b9adf</code>) with frames attached.</li>
+    <li>Schedule via Late MCP at the dates assigned in §3.</li>
+  </ul>
+
+  <h3>Photography credit special cases</h3>
+
+  <div class="callout callout-warn">
+    <span class="callout-label">Indian River (The Point) — Andrew Latreille</span>
+    Folder contains: contact sheet PDF, license PDFs (regular + CS), Latreille's .vcf contact card, file-delivery instructions. Latreille is one of BC's top architectural photographers; his license terms are usually specific about social use.<br><br>
+    <strong>Action before posting:</strong> Open the License PDFs and confirm — social media use included in license grant; required credit format ("Photo by Andrew Latreille" or <code>@latreillephoto</code>); any usage restrictions (print only, length of license, geographical limits). If unclear, Rick to email Andrew. Posts hold until confirmed.
+  </div>
+
+  <div class="callout callout-warn">
+    <span class="callout-label">Waterfront Anigre — David Hempenstall (possible)</span>
+    "Hempenstall Large TIFF" subfolder suggests Hempenstall delivered the original work. Confirm photographer + handle + rights with Rick.
+  </div>
+
+  <div class="callout">
+    <span class="callout-label">Contemporary Walnut Estate — Strebinger PR</span>
+    Folder contains <code>Strebinger_radius_PR.pdf</code>. Probably an interior designer PR sheet — names the team, may name the photographer. Open the PDF before posting; cross-reference against caption credits.
+  </div>
+
+  <p><strong>All other projects:</strong> SEO-renamed filenames in Matt's convention suggest Matt-shot or Matt-restored web scrapes. Confirm with Rick. If Matt-shot or Radius-owned, <code>@mattanthonyphoto</code> credit holds. If a different original photographer, swap credit accordingly.</p>
+</section>
+
+<!-- 10. UPGRADE PATH -->
+<section id="upgrade">
+  <div class="section-rule"></div>
+  <div class="section-num">10 · CP upgrade implications</div>
+  <h2>What changes if Rick <em>upgrades</em> in July</h2>
+  <p>If Rick selects Option B at the Month-3 gate (CP $3,500/mo), the archive plan shifts:</p>
+  <ul>
+    <li><strong>Pinterest activated.</strong> All 9 archive projects + monthly shoot material go in. ~10 pins per project × 9 = ~90 pins over August.</li>
+    <li><strong>Cadence bumps</strong> to 8–12 posts/week across IG + LinkedIn + Pinterest. Archive arcs that ran one carousel per project in Phase 1 expand to 2–3 carousels per project.</li>
+    <li><strong>Publication pitches</strong> start using these as primary outreach material. Canadian Woodworking pitch leans on Whistler slip-match + AWMAC Gold. Azure focus-on-fabricators leans on Lamoureux laminated curves. Canadian Architect leans on Lion's Bay carved corbels + Whitby coffered.</li>
+    <li><strong>Pinterest copy reuses captions</strong> from this doc with light edits.</li>
+  </ul>
+  <p>If Rick stays at Social & Content ($1,500), the plan above is what runs through August + September unchanged.</p>
+</section>
+
+<!-- 11. NEXT ACTIONS -->
+<section id="next">
+  <div class="section-rule"></div>
+  <div class="section-num">11 · Next actions</div>
+  <h2><em>This week</em></h2>
+
+  <h4>Rick</h4>
+  <ul class="checklist">
+    <li>Return the credits matrix (§09) — 9 projects, ~6 fields each, ~30 min.</li>
+    <li>Confirm Indian River license terms cover social use (or email Latreille).</li>
+  </ul>
+
+  <h4>Matt</h4>
+  <ul class="checklist">
+    <li>Select pass on Whistler Slip-Matched Oak — 90+ raw frames, pick 12 finalists for Wk3 May carousel + supporting singles.</li>
+    <li>Verify photographer credit on Waterfront Anigre (Hempenstall?) and Contemporary Walnut Estate (open Strebinger PR sheet PDF).</li>
+    <li>Confirm whether Vancouverhouse Penthouse frames exist elsewhere (Dropbox, archive drive) — folder scan returned empty.</li>
+    <li>Stage Wk3 (May 25–31) Whistler posts to Notion Content Calendar DB after credits matrix returns.</li>
+    <li>Update <code>tools/playbooks/radius-wood.json</code> → <code>projects[]</code> with returned architect + photographer fields.</li>
+  </ul>
+</section>
+
+<!-- ENDNOTES -->
+<section class="endnotes">
+  <h3>See also</h3>
+  <ul>
+    <li><code>clients/radius-wood/may2026-content-schedule.md</code> — Weeks 1–2 May, from May 5 shop shoot (Wk3 now extended with this doc's content)</li>
+    <li><code>clients/radius-wood/12-month-roadmap.md</code> — strategy + Phase 1–4 plan</li>
+    <li><code>clients/radius-wood/brand-voice-analysis.md</code> — Rick voice signature, origin beats</li>
+    <li><code>clients/radius-wood/brand-voice-v1.1-audit.md</code> — voice refinements + website audit</li>
+    <li><code>tools/playbooks/radius-wood.json</code> — playbook v1.0 (pillars, hashtags, hooks, vocabulary)</li>
+    <li>Notion Client Brain: <a href="https://www.notion.so/34986897dca28074abbcf8c91e760b25">notion.so/...e760b25</a></li>
+    <li>Notion Content Calendar: <code>34986897dca28194bb9fca05537b9adf</code></li>
+  </ul>
+</section>
+
+</div>
+
+</body>
+</html>
