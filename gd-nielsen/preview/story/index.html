@@ -8,9 +8,148 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="/matt-proposals/gd-nielsen/preview/_assets/images/gdn-mark.png">
-<style>body { margin: 0; }</style>
+<style>body { margin: 0; }
+
+/* ===== CANONICAL CHROME (nav + footer + mobile bar) — injected by deploy_preview.py ===== */
+.gdn-chrome-container { max-width: 1280px; margin: 0 auto; padding: 0 32px; box-sizing: border-box; }
+@media (max-width: 720px) { .gdn-chrome-container { padding: 0 20px; } }
+
+/* Nav */
+.gdn-chrome-nav { padding: 22px 0; border-bottom: 1px solid var(--gdn-rule, #DDDAD2);
+  position: sticky; top: 0; z-index: 50;
+  backdrop-filter: saturate(180%) blur(14px);
+  background: rgba(250, 250, 247, 0.88); }
+.gdn-chrome-nav-grid { display: flex; justify-content: space-between; align-items: center; }
+.gdn-chrome-nav-mark { display: inline-flex; align-items: center; gap: 14px; border: 0 !important;
+  text-decoration: none; transition: opacity 0.22s; }
+.gdn-chrome-nav-mark:hover { opacity: 0.7; }
+.gdn-chrome-nav-mark-icon { width: 32px; height: 32px;
+  transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1); display: inline-flex; }
+.gdn-chrome-nav-mark:hover .gdn-chrome-nav-mark-icon { transform: rotate(360deg); }
+.gdn-chrome-nav-mark-icon img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.gdn-chrome-nav-mark-text {
+  font-family: 'Poppins', 'Inter', sans-serif; font-weight: 500;
+  font-size: 13px; letter-spacing: 0.18em; color: var(--gdn-ink, #0F1413);
+}
+.gdn-chrome-nav-links { display: flex; gap: 36px; align-items: center; }
+.gdn-chrome-nav-link { font-family: 'Poppins', 'Inter', sans-serif; font-weight: 400;
+  font-size: 13px; letter-spacing: 0.04em; color: var(--gdn-ink, #0F1413) !important;
+  border: 0 !important; padding: 4px 0; position: relative; text-decoration: none; }
+.gdn-chrome-nav-link::after { content: ""; position: absolute; left: 0; bottom: 0;
+  width: 0; height: 1px; background: var(--gdn-gold, #B8975A); transition: width 0.24s ease; }
+.gdn-chrome-nav-link:hover::after { width: 100%; }
+.gdn-chrome-nav-cta { font-family: 'Poppins', 'Inter', sans-serif; font-weight: 500;
+  font-size: 13px; letter-spacing: 0.04em;
+  padding: 10px 22px; border: 1px solid var(--gdn-ink, #0F1413) !important;
+  color: var(--gdn-ink, #0F1413) !important; transition: all 0.22s; text-decoration: none; }
+.gdn-chrome-nav-cta:hover { background: var(--gdn-ink, #0F1413); color: var(--gdn-bone, #FAFAF7) !important; }
+@media (max-width: 880px) {
+  .gdn-chrome-nav-links { gap: 16px; }
+  .gdn-chrome-nav-links .gdn-chrome-nav-link:nth-child(n+4) { display: none; }
+  .gdn-chrome-nav-mark-text { display: none; }
+}
+
+/* Mobile sticky contact bar (<=720px) */
+.gdn-chrome-mobile-bar { display: none; }
+@media (max-width: 720px) {
+  .gdn-chrome-mobile-bar {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 60;
+    display: grid; grid-template-columns: auto 1fr;
+    background: var(--gdn-ink, #0F1413);
+    box-shadow: 0 -8px 32px rgba(15, 20, 19, 0.18);
+  }
+  .gdn-chrome-mobile-bar a {
+    color: var(--gdn-bone, #FAFAF7) !important;
+    border: 0 !important;
+    padding: 16px 20px;
+    font-family: 'Poppins', 'Inter', sans-serif;
+    font-weight: 500; font-size: 14px; letter-spacing: 0.04em;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.22s;
+  }
+  .gdn-chrome-mobile-bar .bar-call {
+    background: var(--gdn-tone, #2A3530);
+  }
+  .gdn-chrome-mobile-bar .bar-contact:hover { background: var(--gdn-gold, #B8975A); }
+  body { padding-bottom: 56px; }
+}
+
+/* Footer */
+.gdn-chrome-foot { padding: 80px 0 40px; border-top: 1px solid var(--gdn-rule, #DDDAD2);
+  background: var(--gdn-bone, #FAFAF7); color: var(--gdn-ink, #0F1413);
+  font-family: 'Poppins', 'Inter', sans-serif; }
+.gdn-chrome-foot-grid { display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 64px; margin-bottom: 48px; align-items: start; }
+.gdn-chrome-foot-eyebrow { font-family: 'Poppins', 'Inter', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gdn-mid, #6B6E6A); margin: 0 0 16px; }
+.gdn-chrome-foot-logo { max-width: 180px; margin: 0 0 24px; }
+.gdn-chrome-foot-logo img { width: 100%; height: auto; display: block; }
+.gdn-chrome-foot-nap { font-style: normal; font-family: 'Poppins', 'Inter', sans-serif;
+  font-size: 13px; line-height: 1.7; color: var(--gdn-mid, #6B6E6A); margin: 0 0 14px;
+  display: block; }
+.gdn-chrome-foot-contact { font-family: 'Poppins', 'Inter', sans-serif; font-size: 13px;
+  line-height: 1.7; color: var(--gdn-ink, #0F1413); margin: 0 0 20px; }
+.gdn-chrome-foot-contact a { color: var(--gdn-ink, #0F1413); text-decoration: none;
+  border-bottom: 1px solid var(--gdn-rule, #DDDAD2); transition: all 0.18s; }
+.gdn-chrome-foot-contact a:hover { color: var(--gdn-gold, #B8975A); border-bottom-color: var(--gdn-gold, #B8975A); }
+.gdn-chrome-foot-list { list-style: none; padding: 0; margin: 0;
+  font-size: 13px; line-height: 1.95; font-family: 'Poppins', 'Inter', sans-serif; }
+.gdn-chrome-foot-list a { color: var(--gdn-ink, #0F1413) !important; border: 0 !important;
+  text-decoration: none; transition: color 0.22s; }
+.gdn-chrome-foot-list a:hover { color: var(--gdn-gold, #B8975A) !important; }
+.gdn-chrome-foot-list strong { font-weight: 500; }
+.gdn-chrome-foot-social { list-style: none; padding: 0; margin: 0;
+  display: flex; flex-wrap: wrap; gap: 14px; font-size: 12px;
+  font-family: 'Poppins', 'Inter', sans-serif; }
+.gdn-chrome-foot-social a { color: var(--gdn-mid, #6B6E6A) !important; border: 0 !important;
+  text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500;
+  text-decoration: none; transition: color 0.22s; }
+.gdn-chrome-foot-social a:hover { color: var(--gdn-gold, #B8975A) !important; }
+.gdn-chrome-foot-meta { font-size: 12px; color: var(--gdn-mid, #6B6E6A); padding-top: 28px;
+  border-top: 1px solid var(--gdn-rule, #DDDAD2); display: flex; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px; font-family: 'Poppins', 'Inter', sans-serif; }
+.gdn-chrome-foot-meta a { color: var(--gdn-mid, #6B6E6A) !important; border: 0 !important;
+  text-decoration: none; }
+.gdn-chrome-foot-meta a:hover { color: var(--gdn-gold, #B8975A) !important; }
+.gdn-chrome-foot-meta [itemprop="name"] { font-weight: 500; color: var(--gdn-ink, #0F1413); }
+@media (max-width: 880px) {
+  .gdn-chrome-foot-grid { grid-template-columns: 1fr 1fr; gap: 40px 32px; }
+  .gdn-chrome-foot-col-brand { grid-column: 1 / -1; }
+}
+@media (max-width: 540px) {
+  .gdn-chrome-foot-grid { grid-template-columns: 1fr; }
+  .gdn-chrome-foot-col-brand { grid-column: auto; }
+}
+
+</style>
 </head>
 <body class="gdn-scope">
+<div class="gdn-chrome-mobile-bar" aria-label="Quick contact">
+  <a href="tel:+16049264211" class="bar-call">Call</a>
+  <a href="/matt-proposals/gd-nielsen/preview/contact" class="bar-contact">Discuss your build &rarr;</a>
+</div>
+<nav class="gdn-chrome-nav" aria-label="Primary">
+  <div class="gdn-chrome-container">
+    <div class="gdn-chrome-nav-grid">
+      <a href="/matt-proposals/gd-nielsen/preview/" class="gdn-chrome-nav-mark" aria-label="GD Nielsen Homes &mdash; Home">
+        <span class="gdn-chrome-nav-mark-icon"><img src="/matt-proposals/gd-nielsen/preview/_assets/images/gdn-mark.png" alt=""></span>
+        <span class="gdn-chrome-nav-mark-text">GD&nbsp;NIELSEN&nbsp;HOMES</span>
+      </a>
+      <div class="gdn-chrome-nav-links">
+        <a href="/matt-proposals/gd-nielsen/preview/story" class="gdn-chrome-nav-link">About</a>
+        <a href="/matt-proposals/gd-nielsen/preview/services" class="gdn-chrome-nav-link">Services</a>
+        <a href="/matt-proposals/gd-nielsen/preview/projects" class="gdn-chrome-nav-link">Work</a>
+        <a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-west-vancouver" class="gdn-chrome-nav-link">Locations</a>
+        <a href="/matt-proposals/gd-nielsen/preview/journal" class="gdn-chrome-nav-link">Journal</a>
+        <a href="tel:+16049264211" class="gdn-chrome-nav-link" style="font-variant-numeric: tabular-nums; color: var(--gdn-mid) !important;">604.926.4211</a>
+        <a href="/matt-proposals/gd-nielsen/preview/contact" class="gdn-chrome-nav-cta">Contact</a>
+      </div>
+    </div>
+  </div>
+</nav>
 <style>
 :root {
   --gdn-ink: #0F1413;
@@ -127,7 +266,7 @@
 .gdn-st-section-body p { font-size: 18px; line-height: 1.62; max-width: 720px; }
 .gdn-st-section-body p.lead { font-size: 22px; line-height: 1.45; font-weight: 300; }
 
-/* Hero meta strip (sits right under hero) */
+/* Meta strip (sits right under hero) */
 .gdn-st-meta { padding: 56px 0; border-bottom: 1px solid var(--gdn-rule); }
 .gdn-st-meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
   gap: 32px; }
@@ -138,22 +277,6 @@
 .gdn-st-meta-value { font-family: 'Cormorant Garamond', serif; font-weight: 400;
   font-size: 26px; line-height: 1.1; letter-spacing: -0.005em; color: var(--gdn-ink); }
 .gdn-st-meta-value em { font-style: italic; }
-
-/* Voice-memo placeholder (kept from prior page, restyled to register) */
-.gdn-st-placeholder {
-  background: var(--gdn-light); border-left: 3px solid var(--gdn-gold);
-  padding: 32px 36px; margin: 12px 0 24px; max-width: 720px;
-}
-.gdn-st-placeholder-label {
-  font-family: 'Poppins', sans-serif; font-weight: 500;
-  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--gdn-gold); margin: 0 0 10px;
-}
-.gdn-st-placeholder p {
-  font-family: 'Cormorant Garamond', serif; font-weight: 400;
-  font-size: 17px; line-height: 1.55; color: var(--gdn-mid); margin: 0;
-  font-style: italic;
-}
 
 /* Pull quote — dark slab */
 .gdn-st-pull { padding: var(--gdn-section) 0; background: var(--gdn-ink); color: var(--gdn-bone); }
@@ -173,7 +296,7 @@
 .gdn-st-team-list { display: flex; flex-direction: column; gap: 0; margin-top: 56px;
   border-top: 1px solid var(--gdn-rule); }
 .gdn-st-team-row {
-  display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 5fr) minmax(0, 3fr);
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
   gap: 32px; padding: 24px 0; border-bottom: 1px solid var(--gdn-rule);
   align-items: baseline;
 }
@@ -181,14 +304,27 @@
   font-size: 24px; letter-spacing: -0.005em; color: var(--gdn-ink); }
 .gdn-st-team-role { font-family: 'Poppins', sans-serif; font-weight: 400;
   font-size: 15px; color: var(--gdn-ink); }
-.gdn-st-team-tenure { font-family: 'Poppins', sans-serif; font-weight: 500;
-  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gdn-mid); }
+.gdn-st-team-note { margin-top: 36px; max-width: 720px; color: var(--gdn-mid);
+  font-size: 16px; font-style: italic; font-family: 'Cormorant Garamond', serif; }
+
+/* Awards (matches project.html register) */
+.gdn-st-awards { padding: var(--gdn-section) 0; border-bottom: 1px solid var(--gdn-rule); }
+.gdn-st-award-line { font-family: 'Cormorant Garamond', serif; font-weight: 400;
+  font-size: 22px; line-height: 1.35; letter-spacing: -0.005em; color: var(--gdn-ink);
+  padding-left: 28px; position: relative; margin: 0 0 16px; }
+.gdn-st-award-line::before { content: ""; position: absolute; left: 0; top: 15px;
+  width: 16px; height: 1px; background: var(--gdn-gold); }
+.gdn-st-award-line em { font-style: italic; color: var(--gdn-mid); font-size: 16px;
+  font-family: 'Cormorant Garamond', serif; display: block; margin-top: 2px; }
+.gdn-st-award-year { font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-weight: 400; color: var(--gdn-gold); margin-right: 12px; }
 
 /* CTA */
 .gdn-st-cta { padding: var(--gdn-section) 0; background: var(--gdn-bone); text-align: center; }
 .gdn-st-cta h2 { max-width: 820px; margin: 0 auto 20px; }
 .gdn-st-cta p { max-width: 600px; margin: 0 auto 36px; color: var(--gdn-mid); }
 .gdn-st-cta .gdn-eyebrow { display: inline-block; margin-bottom: 24px; }
+.gdn-st-cta-row { display: inline-flex; gap: 16px; flex-wrap: wrap; justify-content: center; }
 
 /* Footer (matches homepage / project page) */
 .gdn-tp-foot { background: var(--gdn-tone); color: var(--gdn-bone); padding: 100px 0 40px; }
@@ -204,7 +340,7 @@
   .gdn-tp-foot-grid { grid-template-columns: 1fr; gap: 40px; }
   .gdn-st-section-grid { grid-template-columns: 1fr; gap: 32px; }
   .gdn-st-section { padding: var(--gdn-section-tight) 0; }
-  .gdn-st-team-row { grid-template-columns: 1fr; gap: 8px; }
+  .gdn-st-team-row { grid-template-columns: 1fr; gap: 6px; }
 }
 </style>
 
@@ -212,18 +348,28 @@
   "@context": "https://schema.org",
   "@type": "Organization",
   "name": "GD Nielsen Homes",
-  "alternateName": "G.D. Nielsen Developments",
+  "alternateName": "G.D. Nielsen Developments Ltd.",
   "url": "https://gdnielsen.com",
   "logo": "https://gdnielsen.com/_assets/images/gdn-logo.png",
   "founder": {
     "@type": "Person",
     "name": "Greg Nielsen",
-    "jobTitle": "Owner & Founder",
+    "jobTitle": "Founder",
     "worksFor": { "@type": "Organization", "name": "GD Nielsen Homes" }
   },
   "foundingDate": "1986-03-14",
-  "foundingLocation": "West Vancouver, BC",
-  "areaServed": ["West Vancouver", "North Vancouver", "North Shore"],
+  "foundingLocation": {
+    "@type": "Place",
+    "name": "West Vancouver, BC",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "2405 Bellevue Avenue",
+      "addressLocality": "West Vancouver",
+      "addressRegion": "BC",
+      "addressCountry": "CA"
+    }
+  },
+  "areaServed": ["West Vancouver", "North Vancouver", "Vancouver", "Burnaby", "Richmond", "Langley", "White Rock", "South Surrey", "Tsawwassen"],
   "address": {
     "@type": "PostalAddress",
     "streetAddress": "129-1305 Welch Street",
@@ -233,40 +379,34 @@
     "addressCountry": "CA"
   },
   "telephone": "+1-604-926-4211",
-  "email": "info@gdnielsen.com"
+  "email": "info@gdnielsen.com",
+  "award": [
+    "Avid Customer Choice Award",
+    "CHBA Best Home Builder BC (2005)",
+    "Georgie Award — Best Single Family Kitchen over $100K (2012)",
+    "HAVAN Ovation Award — Best Outdoor Living (2019)",
+    "CHBA National Awards for Housing Excellence — Finalist (2018)",
+    "HAVAN Awards for Housing Excellence — Finalist, Best Kitchen Renovation (2024)"
+  ]
 }</script>
 
 <div class="gdn-scope">
 
 <!-- =========== NAV =========== -->
-<nav class="gdn-tp-nav">
-  <div class="gdn-tp-nav-inner">
-    <a href="/matt-proposals/gd-nielsen/preview/" class="gdn-tp-nav-mark">
-      <img src="/matt-proposals/gd-nielsen/preview/_assets/images/gdn-mark.png" alt="">
-      <span>GD Nielsen Homes</span>
-    </a>
-    <div class="gdn-tp-nav-links">
-      <a href="/matt-proposals/gd-nielsen/preview/story" class="gdn-tp-nav-link" aria-current="page">About</a>
-      <a href="/matt-proposals/gd-nielsen/preview/services" class="gdn-tp-nav-link">Services</a>
-      <a href="/matt-proposals/gd-nielsen/preview/projects" class="gdn-tp-nav-link">Work</a>
-      <a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-west-vancouver" class="gdn-tp-nav-link">Locations</a>
-      <a href="/matt-proposals/gd-nielsen/preview/contact" class="gdn-tp-nav-cta">Contact</a>
-    </div>
-  </div>
-</nav>
+
 
 <!-- =========== HERO — FULL-BLEED =========== -->
 <section class="gdn-st-hero">
   <img class="gdn-st-hero-img"
        src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/keith-4325/keith-4325-29-rear-facade-pool-fountains.jpg"
-       alt="Established West Vancouver estate &mdash; GD Nielsen Homes, building on the North Shore since 1986"
+       alt="West Vancouver custom home &mdash; GD Nielsen Homes, building on the North Shore since 1986"
        fetchpriority="high">
   <div class="gdn-st-hero-veil"></div>
   <div class="gdn-st-hero-content">
     <div class="gdn-container">
-      <p class="gdn-st-hero-eyebrow">About &middot; Since 1986</p>
+      <p class="gdn-st-hero-eyebrow">About</p>
       <h1>Forty years on the <em>North&nbsp;Shore</em>.</h1>
-      <p class="gdn-st-hero-lead">Greg Nielsen founded GD Nielsen Homes in West Vancouver, March 14, 1986. We&rsquo;ve built here ever since.</p>
+      <p class="gdn-st-hero-lead">Greg Nielsen founded GD Nielsen Homes in West Vancouver, March 1986. We have built here ever since.</p>
     </div>
   </div>
 </section>
@@ -277,93 +417,36 @@
     <div class="gdn-st-meta-grid">
       <div class="gdn-st-meta-cell">
         <p class="gdn-st-meta-label">Founded</p>
-        <p class="gdn-st-meta-value">1986 &middot; <em>West Vancouver</em></p>
+        <p class="gdn-st-meta-value"><em>1986</em></p>
       </div>
       <div class="gdn-st-meta-cell">
-        <p class="gdn-st-meta-label">Founder</p>
-        <p class="gdn-st-meta-value"><em>Greg Nielsen</em></p>
+        <p class="gdn-st-meta-label">Years building</p>
+        <p class="gdn-st-meta-value">40</p>
       </div>
       <div class="gdn-st-meta-cell">
-        <p class="gdn-st-meta-label">Built</p>
-        <p class="gdn-st-meta-value">40+ <span style="font-size:14px;color:var(--gdn-mid);">custom homes</span></p>
+        <p class="gdn-st-meta-label">Custom homes</p>
+        <p class="gdn-st-meta-value">26+ <span style="font-size:14px;color:var(--gdn-mid);">in portfolio</span></p>
       </div>
       <div class="gdn-st-meta-cell">
-        <p class="gdn-st-meta-label">Builds annually</p>
-        <p class="gdn-st-meta-value"><em>Selectively</em></p>
+        <p class="gdn-st-meta-label">Primary area</p>
+        <p class="gdn-st-meta-value"><em>West Vancouver</em></p>
       </div>
     </div>
   </div>
 </div>
 
-<!-- =========== OPENING =========== -->
+<!-- =========== WHAT WE BUILD =========== -->
 <section class="gdn-st-section">
   <div class="gdn-container">
     <div class="gdn-st-section-grid">
       <header>
-        <p class="gdn-st-section-label">Opening</p>
-        <h2>One company. One&nbsp;name. One way of <em>doing&nbsp;it</em>.</h2>
+        <p class="gdn-st-section-label">What We Build</p>
+        <h2>Custom homes, built to the <em>architect&rsquo;s drawings</em>.</h2>
       </header>
       <div class="gdn-st-section-body">
-        <p class="lead">GD Nielsen Homes builds custom homes for the families that hire us. Greg has been building on the North Shore since 1986. The work is the same. The standard hasn&rsquo;t moved.</p>
-        <p>The company has had two names. From 1986 through 2016 we traded as G.D. Nielsen Developments &mdash; &ldquo;DOPE Developments&rdquo; in shorthand. In 2016 we changed it. We don&rsquo;t do developments. We build one-of-one custom homes. We thought the name should say that.</p>
-        <p>Before the company there was framing. Greg framed houses for other people first. That&rsquo;s where the eye for detail starts &mdash; before the cabinets, before the millwork, before any of the things you can see when the house is finished. The framing has to be right.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =========== ORIGIN — VOICE MEMO PLACEHOLDER =========== -->
-<section class="gdn-st-section">
-  <div class="gdn-container">
-    <div class="gdn-st-section-grid">
-      <header>
-        <p class="gdn-st-section-label">Origin &middot; 1986</p>
-        <h2>The <em>first</em> build.</h2>
-      </header>
-      <div class="gdn-st-section-body">
-
-        <div class="gdn-st-placeholder">
-          <p class="gdn-st-placeholder-label">Greg &middot; Voice memo</p>
-          <p>The 1986 origin section gets written from Greg&rsquo;s own voice memo. Four things to answer: where was the first build, who was the client, what kind of house was it, and who shaped the way he thinks about the craft &mdash; the framer or the builder he learned from before he started his own company. This block becomes a 200&ndash;300 word section once that audio is in.</p>
-        </div>
-
-        <p>What we know already: the first GDN-built homes were custom single-family houses in West Vancouver. The neighbourhood &mdash; Altamont, the British Properties, Caulfeild &mdash; was the same one we&rsquo;d return to for the next four decades. The tradespeople Greg hired at the start are the ones he kept. Several of them are still here.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =========== THE DETAIL — QUEBEC DOOR =========== -->
-<section class="gdn-st-section">
-  <div class="gdn-container">
-    <div class="gdn-st-section-grid">
-      <header>
-        <p class="gdn-st-section-label">The Detail</p>
-        <h2>A <em>three-hundred-year-old</em> door.</h2>
-      </header>
-      <div class="gdn-st-section-body">
-        <p class="lead">There&rsquo;s a heritage cottage in West Vancouver where the front door is older than Canada.</p>
-        <p>The homeowners found it in Quebec &mdash; a three-hundred-year-old front door with hand-blown lead glass and the kind of patina that you don&rsquo;t fake. They bought it. They shipped it out. They handed it to us.</p>
-        <p>We took it to a refinisher. We mapped the arc of the door &mdash; the way the wood had curved over three centuries &mdash; to the slope of the ceiling we were building behind it. We re-glazed the panels to a modern thermal standard. We replaced the seal without replacing the lead. By the time it was hung, you couldn&rsquo;t tell where the old work ended and the new work began.</p>
-        <p>The door cost the family about $10,000 to acquire. We spent another $20,000 bringing it to a standard the rest of the house could live with. Most of the work is invisible. That&rsquo;s the work we like.</p>
-        <p>This is what we mean when we say &ldquo;detail.&rdquo; Not finishes. The thing behind the finish.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =========== ARCHITECT-CHANNEL — HOW WE WORK =========== -->
-<section class="gdn-st-section">
-  <div class="gdn-container">
-    <div class="gdn-st-section-grid">
-      <header>
-        <p class="gdn-st-section-label">How We Work</p>
-        <h2>We <em>follow</em> the design.</h2>
-      </header>
-      <div class="gdn-st-section-body">
-        <p class="lead">Every house we build starts with the architect&rsquo;s drawings. We follow them.</p>
-        <p>This is the part of the work that gets least understood. A custom build is a long conversation between a homeowner, an architect, an interior designer, a landscape designer, and the builder. The builder is the one who has to make the conversation true &mdash; to take what was drawn and make it stand up. Most of what we do is detail-oriented collaboration: closing the gap between an idea on paper and a finished room, without losing what the architect actually meant.</p>
-        <p>The architects and designers we work with most often &mdash; <a href="https://www.chevalierdesigns.com/" target="_blank" rel="noopener">Craig Chevalier</a>, <a href="http://kga.ca/" target="_blank" rel="noopener">Kallweit Graham</a>, <a href="http://jdmed.com/" target="_blank" rel="noopener">John Medland</a>, <a href="https://www.alexvoth.com/" target="_blank" rel="noopener">Alex Voth</a>, <a href="https://www.livingradius.com/" target="_blank" rel="noopener">Living Radius</a>, <a href="https://www.rommeldesign.com/" target="_blank" rel="noopener">Rommel Design</a> &mdash; have sent work our way for decades. Some of them tell us, before they hand off the drawings, &ldquo;don&rsquo;t change my design.&rdquo; That&rsquo;s the right note. We don&rsquo;t.</p>
+        <p class="lead">Ground-up custom homes, luxury renovations, additions, and outdoor living &mdash; built for the architects and clients who hire us. Budgets typically run from $1.5M to $10M and beyond.</p>
+        <p>We take on six to eight projects a year. Most are in West Vancouver; the rest sit between North Vancouver, Vancouver, and the wider Lower Mainland &mdash; Burnaby, Richmond, Langley, White Rock, South Surrey, and Tsawwassen. Twenty-two of the twenty-six homes in our current portfolio are West Vancouver builds.</p>
+        <p>The work is architect-driven. We follow the drawings. Greg is on every site &mdash; not as a visit, as a habit &mdash; and forty years of West Vancouver District knowledge shows up in the parts of the build that never make it into a photograph.</p>
       </div>
     </div>
   </div>
@@ -377,28 +460,7 @@
   </div>
 </section>
 
-<!-- =========== THE HARD ONES — VOICE MEMO PLACEHOLDER =========== -->
-<section class="gdn-st-section">
-  <div class="gdn-container">
-    <div class="gdn-st-section-grid">
-      <header>
-        <p class="gdn-st-section-label">The Hard Ones</p>
-        <h2>Forty years, a few <em>close calls</em>.</h2>
-      </header>
-      <div class="gdn-st-section-body">
-
-        <div class="gdn-st-placeholder">
-          <p class="gdn-st-placeholder-label">Greg &middot; Voice memo</p>
-          <p>This section sits empty until Greg records the hardest project in forty years &mdash; the one that almost didn&rsquo;t happen, or the one he&rsquo;s most proud of finishing. The audio from the kickoff workshop has him circling around this question without answering it directly. A focused voice memo on one or two specific projects is enough. We write from his words.</p>
-        </div>
-
-        <p>What we&rsquo;ve learned: the hardest builds aren&rsquo;t the biggest ones. They&rsquo;re the ones with a hidden constraint &mdash; a creek that wasn&rsquo;t on the survey, a view bylaw that changed mid-permit, a piece of millwork that had to be reworked because the wood arrived split. The clients we hear from most often years later are the ones whose project had one of those moments &mdash; and who watched us handle it without losing the project, the budget, or the relationship.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- =========== THE TEAM =========== -->
+<!-- =========== TEAM =========== -->
 <section class="gdn-st-team">
   <div class="gdn-container">
     <div class="gdn-st-section-grid">
@@ -407,58 +469,92 @@
         <h2>The people who&rsquo;ve been here <em>all along</em>.</h2>
       </header>
       <div class="gdn-st-section-body">
-        <p class="lead">Greg and Diane founded the company together in 1986. The people who&rsquo;ve joined since have mostly stayed.</p>
+        <p class="lead">A small core, kept small on purpose. Each role is held by one person who answers for it.</p>
       </div>
     </div>
 
     <div class="gdn-st-team-list">
       <div class="gdn-st-team-row">
         <span class="gdn-st-team-name">Greg Nielsen</span>
-        <span class="gdn-st-team-role">Owner &amp; Founder</span>
-        <span class="gdn-st-team-tenure">Since 1986</span>
-      </div>
-      <div class="gdn-st-team-row">
-        <span class="gdn-st-team-name">Diane Nielsen</span>
-        <span class="gdn-st-team-role">Co-Founder</span>
-        <span class="gdn-st-team-tenure">Since 1986</span>
+        <span class="gdn-st-team-role">Founder</span>
       </div>
       <div class="gdn-st-team-row">
         <span class="gdn-st-team-name">DK Cheng</span>
-        <span class="gdn-st-team-role">Operations &amp; Project Lead</span>
-        <span class="gdn-st-team-tenure">Since 2015</span>
+        <span class="gdn-st-team-role">Operations</span>
       </div>
       <div class="gdn-st-team-row">
         <span class="gdn-st-team-name">Derrick Cheung</span>
-        <span class="gdn-st-team-role">Project Coordinator</span>
-        <span class="gdn-st-team-tenure">Since 2012</span>
+        <span class="gdn-st-team-role">Project Management</span>
       </div>
       <div class="gdn-st-team-row">
-        <span class="gdn-st-team-name">Andy, Tom, Peter &amp; the rest of the crew</span>
-        <span class="gdn-st-team-role">On site</span>
-        <span class="gdn-st-team-tenure">15&ndash;20+ years each</span>
+        <span class="gdn-st-team-name">Wes</span>
+        <span class="gdn-st-team-role">Site Lead</span>
+      </div>
+      <div class="gdn-st-team-row">
+        <span class="gdn-st-team-name">Diane</span>
+        <span class="gdn-st-team-role">Team</span>
       </div>
     </div>
 
-    <p style="margin-top: 48px; max-width: 620px; color: var(--gdn-mid);"><a href="/matt-proposals/gd-nielsen/preview/team" class="gdn-link-arrow">Meet the team</a></p>
+    <p class="gdn-st-team-note">Plus fifteen to twenty trade partners with whom we&rsquo;ve worked for fifteen to twenty years apiece.</p>
   </div>
 </section>
 
-<!-- =========== FAMILY / FUTURE — VOICE MEMO PLACEHOLDER =========== -->
+<!-- =========== TRADE PARTNERS + ARCHITECTS =========== -->
 <section class="gdn-st-section">
   <div class="gdn-container">
     <div class="gdn-st-section-grid">
       <header>
-        <p class="gdn-st-section-label">What&rsquo;s Next</p>
-        <h2>The next <em>forty years</em>.</h2>
+        <p class="gdn-st-section-label">Trade Partners &amp; Architects</p>
+        <h2>The same names, <em>project after project</em>.</h2>
       </header>
       <div class="gdn-st-section-body">
+        <p class="lead">Architects we work with often: Kallweit Graham Architecture, John Medland Architect, Craig Chevalier Designs, Living Radius, Rommel Design, and Alex Voth Design.</p>
+        <p>Interior design varies by project. Recent collaborators include Alda Pereira Design on the 2024 Bellevue residence, among others selected for the work in front of them. Landscape partners include Sierra Landscaping (Cherbourg) and Hapa Collaborative.</p>
+        <p>Our trades are the same crew, year over year. Detail-oriented collaboration is the only way the drawings make it into the wall the way they were intended.</p>
+      </div>
+    </div>
+  </div>
+</section>
 
-        <div class="gdn-st-placeholder">
-          <p class="gdn-st-placeholder-label">Greg &middot; Voice memo</p>
-          <p>The succession and future section is the last block waiting on Greg&rsquo;s voice memo. Two questions: is there family in or around the business now, and what does Greg want this company to look like in ten years? The honest answer to those becomes the closing 200 words of /story.</p>
-        </div>
+<!-- =========== RECOGNITION =========== -->
+<section class="gdn-st-awards">
+  <div class="gdn-container">
+    <div class="gdn-st-section-grid">
+      <header>
+        <p class="gdn-st-section-label">Recognition</p>
+        <h2>Forty years of <em>independently judged</em> work.</h2>
+      </header>
+      <div>
+        <p class="gdn-st-award-line">
+          <span class="gdn-st-award-year">2024</span>HAVAN Awards for Housing Excellence &mdash; Finalist
+          <em>Best Kitchen Renovation &middot; Seaside Serenity</em>
+        </p>
+        <p class="gdn-st-award-line">
+          <span class="gdn-st-award-year">2019</span>HAVAN Ovation Award &mdash; Winner
+          <em>Best Outdoor Living &middot; Lions Gate Vista</em>
+        </p>
+        <p class="gdn-st-award-line">
+          <span class="gdn-st-award-year">2018</span>CHBA National Awards for Housing Excellence &mdash; Finalist
+          <em>Creekside Oasis</em>
+        </p>
+        <p class="gdn-st-award-line">
+          <span class="gdn-st-award-year">2012</span>Georgie Award &mdash; Winner
+          <em>Best Single Family Kitchen over $100K &middot; Forested Family Estate</em>
+        </p>
+        <p class="gdn-st-award-line">
+          <span class="gdn-st-award-year">2005</span>CHBA Best Home Builder BC
+        </p>
+        <p class="gdn-st-award-line">
+          <span class="gdn-st-award-year">Ongoing</span>Avid Customer Choice Award
+          <em>100% client recommendation</em>
+        </p>
+        <p class="gdn-st-award-line">
+          <span class="gdn-st-award-year">2005&ndash;2015</span>Multiple Georgie Award wins
+          <em>Kitchens, custom homes, outdoor living, customer choice</em>
+        </p>
 
-        <p>For now: we&rsquo;re building selectively, mostly with the architects we trust, mostly in West Vancouver, mostly for families who plan to stay. We expect that to be true for a long time.</p>
+        <p style="margin-top: 40px;"><a href="/matt-proposals/gd-nielsen/preview/awards" class="gdn-link-arrow">Full record at /awards</a></p>
       </div>
     </div>
   </div>
@@ -469,54 +565,80 @@
   <div class="gdn-container">
     <p class="gdn-eyebrow">Build with us</p>
     <h2>Tell us about your lot, your timeline, and what you want&nbsp;to&nbsp;build.</h2>
-    <p>We build selectively. Tell us about the project and we&rsquo;ll tell you honestly whether we&rsquo;re the right team for it.</p>
-    <a class="gdn-cta" href="/matt-proposals/gd-nielsen/preview/contact">Start a conversation</a>
+    <p>We take on six to eight projects a year. Tell us about yours and we&rsquo;ll tell you honestly whether we&rsquo;re the right team for it.</p>
+    <div class="gdn-st-cta-row">
+      <a class="gdn-cta" href="/matt-proposals/gd-nielsen/preview/contact">Discuss your project</a>
+      <a class="gdn-cta-ghost" href="/matt-proposals/gd-nielsen/preview/projects">View selected projects</a>
+    </div>
   </div>
 </section>
 
 <!-- =========== FOOTER =========== -->
-<footer class="gdn-tp-foot">
-  <div class="gdn-container">
-    <div class="gdn-tp-foot-grid">
-      <div>
-        <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; font-size: 26px; margin: 0 0 16px;">GD Nielsen Homes</p>
-        <address style="font-style: normal; font-size: 14px; line-height: 1.6; opacity: 0.8;">
-          129&ndash;1305 Welch Street<br>
-          North Vancouver, BC V7P 1B3<br>
-          <a href="tel:+16049264211">604.926.4211</a><br>
-          <a href="mailto:info@gdnielsen.com">info@gdnielsen.com</a>
+
+
+</div>
+
+<footer class="gdn-chrome-foot" itemscope itemtype="https://schema.org/GeneralContractor">
+  <div class="gdn-chrome-container">
+    <div class="gdn-chrome-foot-grid">
+      <div class="gdn-chrome-foot-col-brand">
+        <div class="gdn-chrome-foot-logo">
+          <img src="/matt-proposals/gd-nielsen/preview/_assets/images/gdn-logo.png" alt="GD Nielsen Homes &mdash; Custom Home Builder">
+        </div>
+        <address class="gdn-chrome-foot-nap" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+          <span itemprop="streetAddress">129&ndash;1305 Welch Street</span><br>
+          <span itemprop="addressLocality">North Vancouver</span>, <span itemprop="addressRegion">BC</span> <span itemprop="postalCode">V7P 1B3</span>
+          <span itemprop="addressCountry" content="CA"></span>
         </address>
+        <p class="gdn-chrome-foot-contact">
+          <a href="tel:+16049264211" itemprop="telephone">604.926.4211</a><br>
+          <a href="mailto:info@gdnielsen.com" itemprop="email">info@gdnielsen.com</a>
+        </p>
+        <ul class="gdn-chrome-foot-social">
+          <li><a href="https://www.instagram.com/gdnielsenhomes/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://ca.linkedin.com/company/gd-nielsen-homes-ld" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.houzz.com/professionals/general-contractors/gd-nielsen-homes-pfvwus-pf~1227814895" target="_blank" rel="noopener">Houzz</a></li>
+        </ul>
       </div>
       <div>
-        <p class="gdn-eyebrow" style="color: rgba(250,250,247,0.7); margin-bottom: 16px;">Services</p>
-        <ul class="gdn-tp-foot-list">
+        <p class="gdn-chrome-foot-eyebrow">Services</p>
+        <ul class="gdn-chrome-foot-list">
           <li><a href="/matt-proposals/gd-nielsen/preview/services/custom-home-construction">Custom Home Construction</a></li>
           <li><a href="/matt-proposals/gd-nielsen/preview/services/luxury-renovations">Luxury Renovations</a></li>
           <li><a href="/matt-proposals/gd-nielsen/preview/services/tear-down-rebuild">Tear-Down &amp; Rebuild</a></li>
           <li><a href="/matt-proposals/gd-nielsen/preview/services/additions-second-story">Additions &amp; Second Stories</a></li>
           <li><a href="/matt-proposals/gd-nielsen/preview/services/outdoor-living">Outdoor Living</a></li>
         </ul>
-      </div>
-      <div>
-        <p class="gdn-eyebrow" style="color: rgba(250,250,247,0.7); margin-bottom: 16px;">Company</p>
-        <ul class="gdn-tp-foot-list">
+        <p class="gdn-chrome-foot-eyebrow" style="margin-top: 32px;">Company</p>
+        <ul class="gdn-chrome-foot-list">
           <li><a href="/matt-proposals/gd-nielsen/preview/story">About</a></li>
-          <li><a href="/matt-proposals/gd-nielsen/preview/process">Process</a></li>
           <li><a href="/matt-proposals/gd-nielsen/preview/projects">Projects</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/process">Process</a></li>
           <li><a href="/matt-proposals/gd-nielsen/preview/awards">Awards</a></li>
-          <li><a href="/matt-proposals/gd-nielsen/preview/testimonials">Testimonials</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/journal">Journal</a></li>
           <li><a href="/matt-proposals/gd-nielsen/preview/contact">Contact</a></li>
         </ul>
       </div>
+      <div>
+        <p class="gdn-chrome-foot-eyebrow">Locations</p>
+        <ul class="gdn-chrome-foot-list">
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-west-vancouver"><strong>West Vancouver</strong></a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-north-vancouver">North Vancouver</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-vancouver">Vancouver</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-burnaby">Burnaby</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-richmond">Richmond</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-langley">Langley</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-white-rock">White Rock</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-south-surrey">South Surrey</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-tsawwassen">Tsawwassen</a></li>
+        </ul>
+      </div>
     </div>
-    <div class="gdn-tp-foot-bottom">
-      <p>&copy; 1986&ndash;2026 GD Nielsen Homes Ltd. Custom home builder, West Vancouver.</p>
-      <p>BC 2-5-10 Warranty. HAVAN &amp; CHBA Member.</p>
+    <div class="gdn-chrome-foot-meta">
+      <span>&copy; 1986&ndash;2026 <span itemprop="name">GD Nielsen Homes Ltd.</span></span>
+      <span><a href="/matt-proposals/gd-nielsen/preview/privacy">Privacy</a> &middot; <a href="/matt-proposals/gd-nielsen/preview/sitemap.xml">Sitemap</a></span>
     </div>
   </div>
 </footer>
-
-</div>
-
 </body>
 </html>

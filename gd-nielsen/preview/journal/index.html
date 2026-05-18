@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GD Nielsen Homes</title>
+<title>Journal · GD Nielsen Homes</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
@@ -150,7 +150,7 @@
     </div>
   </div>
 </nav>
-
+{# Journal index — list of cornerstone editorial posts. Matches homepage editorial register. #}
 <style>
 :root {
   --gdn-ink: #0F1413;
@@ -203,8 +203,6 @@
   background: var(--gdn-ink); color: var(--gdn-bone); border: 1px solid var(--gdn-ink);
   text-decoration: none; transition: all 0.2s; }
 .gdn-cta:hover { background: var(--gdn-gold); border-color: var(--gdn-gold); color: var(--gdn-bone); }
-.gdn-cta-light { background: var(--gdn-bone); color: var(--gdn-ink); border-color: var(--gdn-bone); }
-.gdn-cta-light:hover { background: var(--gdn-gold); border-color: var(--gdn-gold); }
 .gdn-cta-ghost { display: inline-block; padding: 16px 30px; font-family: 'Poppins', sans-serif;
   font-weight: 500; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
   background: transparent; color: var(--gdn-ink); border: 1px solid var(--gdn-ink);
@@ -216,7 +214,7 @@
 .gdn-link-arrow::after { content: " \2192"; }
 .gdn-link-arrow:hover { color: var(--gdn-gold); }
 
-/* Nav (matches homepage) */
+/* Nav */
 .gdn-tp-nav { position: sticky; top: 0; z-index: 100; background: rgba(250,250,247,0.92);
   backdrop-filter: blur(12px); border-bottom: 1px solid var(--gdn-rule); }
 .gdn-tp-nav-inner { display: flex; align-items: center; justify-content: space-between;
@@ -247,118 +245,70 @@
 .gdn-tp-bcrumb a { color: var(--gdn-mid); border: 0; }
 .gdn-tp-bcrumb a:hover { color: var(--gdn-ink); }
 
-/* Hero — full-bleed image with text overlay */
-.gdn-tp-hero { position: relative; height: clamp(560px, 88vh, 900px); overflow: hidden;
+/* Hero — full-bleed */
+.gdn-tp-hero { position: relative; height: clamp(520px, 78vh, 820px); overflow: hidden;
   margin: 0; background: var(--gdn-tone); }
 .gdn-tp-hero-img { position: absolute; inset: 0; width: 100%; height: 100%;
   object-fit: cover; object-position: center; }
 .gdn-tp-hero-veil { position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(180deg, rgba(15,20,19,0.05) 0%, rgba(15,20,19,0.05) 40%, rgba(15,20,19,0.65) 100%); }
+  background: linear-gradient(180deg, rgba(15,20,19,0.05) 0%, rgba(15,20,19,0.15) 45%, rgba(15,20,19,0.72) 100%); }
 .gdn-tp-hero-content { position: absolute; left: 0; right: 0; bottom: 0; padding: 48px;
   color: var(--gdn-bone); }
 .gdn-tp-hero-eyebrow { font-family: 'Poppins', sans-serif; font-weight: 500;
   font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--gdn-bone); opacity: 0.85; margin: 0 0 12px; }
-.gdn-tp-hero-loc { font-family: 'Cormorant Garamond', serif; font-style: italic;
-  font-weight: 400; font-size: clamp(20px, 2vw, 26px); color: var(--gdn-bone);
-  opacity: 0.85; margin: 8px 0 0; }
-.gdn-tp-hero-text { padding: 120px 0 80px; background: var(--gdn-bone); }
-.gdn-tp-hero-text h1 { color: var(--gdn-ink); }
+  color: var(--gdn-bone); opacity: 0.85; margin: 0 0 16px; }
+.gdn-tp-hero-lead { font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-weight: 400; font-size: clamp(20px, 1.9vw, 26px); line-height: 1.4;
+  color: var(--gdn-bone); opacity: 0.9; max-width: 720px; margin: 16px 0 0; }
 
-/* Meta strip */
-.gdn-tp-meta { padding: 56px 0; border-bottom: 1px solid var(--gdn-rule); }
-.gdn-tp-meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 32px; }
-.gdn-tp-meta-cell { text-align: left; }
-.gdn-tp-meta-label { font-family: 'Poppins', sans-serif; font-weight: 500;
-  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--gdn-mid); margin: 0 0 6px; }
-.gdn-tp-meta-value { font-family: 'Cormorant Garamond', serif; font-weight: 400;
-  font-size: 26px; line-height: 1.1; letter-spacing: -0.005em; color: var(--gdn-ink); }
-.gdn-tp-meta-value em { font-style: italic; }
-
-/* Narrative */
-.gdn-tp-narrative { padding: 100px 0; }
-.gdn-tp-narrative-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 7fr);
+/* Intro */
+.gdn-jr-intro { padding: 96px 0 56px; border-bottom: 1px solid var(--gdn-rule); }
+.gdn-jr-intro-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 7fr);
   gap: 80px; }
-.gdn-tp-narrative-label { font-family: 'Poppins', sans-serif; font-weight: 500;
+.gdn-jr-intro-label { font-family: 'Poppins', sans-serif; font-weight: 500;
   font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--gdn-mid); position: sticky; top: 110px; align-self: start; }
-.gdn-tp-narrative-body p { font-size: 20px; line-height: 1.5; font-weight: 300;
-  color: var(--gdn-ink); max-width: 720px; margin: 0 0 22px; }
-.gdn-tp-narrative-body p:last-child { margin-bottom: 0; }
+  color: var(--gdn-mid); }
+.gdn-jr-intro-body p { font-size: 20px; line-height: 1.5; font-weight: 300;
+  color: var(--gdn-ink); max-width: 720px; margin: 0 0 20px; }
 @media (max-width: 900px) {
-  .gdn-tp-narrative-grid { grid-template-columns: 1fr; gap: 24px; }
-  .gdn-tp-narrative-label { position: static; }
+  .gdn-jr-intro-grid { grid-template-columns: 1fr; gap: 24px; }
 }
 
-/* Photo essay — single column, photos speak for themselves */
-.gdn-tp-essay { padding: 40px 0 100px; }
-.gdn-tp-essay-section-label { font-family: 'Poppins', sans-serif; font-weight: 500;
-  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--gdn-mid); margin: 0 0 40px; text-align: center; }
-.gdn-tp-photo { margin: 0 0 32px; cursor: zoom-in; overflow: hidden; padding: 0; }
-.gdn-tp-photo img { width: 100%; height: auto; display: block;
-  transition: opacity 0.3s, transform 0.6s ease-out; }
-.gdn-tp-photo:hover img { opacity: 0.94; transform: scale(1.01); }
-.gdn-tp-photo-caption { font-family: 'Cormorant Garamond', serif; font-style: italic;
-  font-weight: 400; font-size: 14px; color: var(--gdn-mid); margin: 10px 0 0;
-  letter-spacing: 0.01em; }
-.gdn-tp-photo-bleed { width: 100vw; margin-left: calc(-50vw + 50%); padding: 0;
-  max-width: none; }
-.gdn-tp-photo-bleed .gdn-tp-photo-caption { max-width: 1320px; margin: 10px auto 0;
-  padding: 0 48px; }
-
-/* Credits */
-.gdn-tp-credits { padding: 100px 0; border-top: 1px solid var(--gdn-rule); }
-.gdn-tp-credits-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 7fr);
-  gap: 80px; }
-.gdn-tp-credit-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 32px; }
-.gdn-tp-credit-label { font-family: 'Poppins', sans-serif; font-weight: 500;
-  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--gdn-mid); margin: 0 0 6px; }
-.gdn-tp-credit-value { font-family: 'Cormorant Garamond', serif; font-weight: 400;
-  font-size: 22px; line-height: 1.2; letter-spacing: -0.005em; color: var(--gdn-ink); }
-.gdn-tp-credit-value em { font-style: italic; }
-
-/* Awards */
-.gdn-tp-awards { padding: 80px 0; border-top: 1px solid var(--gdn-rule); }
-.gdn-tp-awards-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 7fr);
-  gap: 80px; }
-.gdn-tp-award-line { font-family: 'Cormorant Garamond', serif; font-weight: 400;
-  font-size: 22px; line-height: 1.35; letter-spacing: -0.005em; color: var(--gdn-ink);
-  padding-left: 24px; position: relative; margin: 0 0 14px; }
-.gdn-tp-award-line::before { content: ""; position: absolute; left: 0; top: 15px;
-  width: 12px; height: 1px; background: var(--gdn-gold); }
-.gdn-tp-award-line em { font-style: italic; color: var(--gdn-mid); font-size: 16px;
-  display: block; margin-top: 2px; }
+/* Post grid */
+.gdn-jr-posts { padding: 100px 0 var(--gdn-section); }
+.gdn-jr-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 48px; }
+.gdn-jr-card { display: block; border: 0 !important; color: var(--gdn-ink) !important;
+  transition: transform 0.22s; }
+.gdn-jr-card:hover { transform: translateY(-3px); border: 0 !important; }
+.gdn-jr-card-image { aspect-ratio: 4/3; overflow: hidden; background: var(--gdn-light);
+  margin-bottom: 24px; }
+.gdn-jr-card-image img { width: 100%; height: 100%; object-fit: cover;
+  transition: transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+.gdn-jr-card:hover .gdn-jr-card-image img { transform: scale(1.04); }
+.gdn-jr-card-tag { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--gdn-mid); margin: 0 0 14px; }
+.gdn-jr-card-title { font-family: 'Poppins', sans-serif; font-weight: 300;
+  font-size: 26px; line-height: 1.18; letter-spacing: -0.018em;
+  color: var(--gdn-ink); margin: 0 0 14px; }
+.gdn-jr-card-title em { font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-weight: 400; letter-spacing: -0.005em; }
+.gdn-jr-card-excerpt { font-size: 15px; line-height: 1.6;
+  color: var(--gdn-mid); margin: 0 0 18px; }
+.gdn-jr-card-read { font-family: 'Poppins', sans-serif; font-weight: 400;
+  font-size: 12px; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--gdn-ink); }
+.gdn-jr-card:hover .gdn-jr-card-read { color: var(--gdn-gold); }
 @media (max-width: 900px) {
-  .gdn-tp-credits-grid, .gdn-tp-awards-grid { grid-template-columns: 1fr; gap: 24px; }
+  .gdn-jr-grid { grid-template-columns: 1fr; gap: 64px; }
 }
 
 /* CTA */
 .gdn-tp-cta-row { display: flex; gap: 16px; padding: 80px 0; flex-wrap: wrap;
   border-top: 1px solid var(--gdn-rule); }
 
-/* Related */
-.gdn-tp-related { padding: var(--gdn-section) 0; background: var(--gdn-light); }
-.gdn-tp-related-head { display: flex; justify-content: space-between; align-items: end;
-  margin-bottom: 56px; padding-bottom: 24px; border-bottom: 1px solid var(--gdn-rule); }
-.gdn-tp-related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 32px; }
-.gdn-tp-related-card { background: var(--gdn-bone); display: block; border: 0;
-  transition: transform 0.22s; text-decoration: none; }
-.gdn-tp-related-card:hover { transform: translateY(-4px); border: 0; }
-.gdn-tp-related-image { aspect-ratio: 4 / 3; background: var(--gdn-rule); overflow: hidden; }
-.gdn-tp-related-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
-.gdn-tp-related-card:hover .gdn-tp-related-image img { transform: scale(1.04); }
-.gdn-tp-related-meta { padding: 22px 26px 28px; }
-.gdn-tp-related-name { font-family: 'Poppins', sans-serif; font-weight: 400;
-  font-size: 20px; line-height: 1.25; letter-spacing: -0.015em; color: var(--gdn-ink);
-  margin: 6px 0 4px; }
-
-/* Footer (matches homepage) */
+/* Footer */
 .gdn-tp-foot { background: var(--gdn-tone); color: var(--gdn-bone); padding: 100px 0 40px; }
 .gdn-tp-foot a { color: var(--gdn-bone); border-bottom-color: rgba(250,250,247,0.3); }
 .gdn-tp-foot a:hover { color: var(--gdn-gold); border-bottom-color: var(--gdn-gold); }
@@ -371,214 +321,133 @@
 @media (max-width: 900px) {
   .gdn-tp-foot-grid { grid-template-columns: 1fr; gap: 40px; }
 }
-
-/* Lightbox */
-.gdn-tp-lb { position: fixed; inset: 0; background: rgba(15,20,19,0.96); z-index: 1000;
-  display: none; align-items: center; justify-content: center; padding: 60px 80px;
-  opacity: 0; transition: opacity 0.2s; }
-.gdn-tp-lb.is-open { display: flex; opacity: 1; }
-.gdn-tp-lb-img { max-width: 100%; max-height: calc(100vh - 160px); object-fit: contain;
-  display: block; }
-.gdn-tp-lb-cap { position: absolute; bottom: 24px; left: 0; right: 0;
-  text-align: center; font-family: 'Cormorant Garamond', serif; font-style: italic;
-  font-weight: 400; font-size: 16px; color: rgba(250,250,247,0.75); padding: 0 80px; }
-.gdn-tp-lb-close, .gdn-tp-lb-prev, .gdn-tp-lb-next {
-  position: absolute; background: transparent; color: var(--gdn-bone); border: 0;
-  font-family: 'Poppins', sans-serif; font-weight: 300; cursor: pointer;
-  transition: opacity 0.2s; opacity: 0.7;
-}
-.gdn-tp-lb-close:hover, .gdn-tp-lb-prev:hover, .gdn-tp-lb-next:hover { opacity: 1; }
-.gdn-tp-lb-close { top: 24px; right: 28px; font-size: 28px; line-height: 1; }
-.gdn-tp-lb-prev, .gdn-tp-lb-next { top: 50%; transform: translateY(-50%);
-  font-size: 36px; padding: 12px 18px; }
-.gdn-tp-lb-prev { left: 16px; }
-.gdn-tp-lb-next { right: 16px; }
-@media (max-width: 720px) {
-  .gdn-tp-lb { padding: 40px 12px; }
-  .gdn-tp-lb-prev, .gdn-tp-lb-next { font-size: 28px; }
-}
 </style>
 
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.gdnielsen.com/", "name": "Home", "position": 1}, {"@type": "ListItem", "item": "https://www.gdnielsen.com/projects", "name": "Projects", "position": 2}, {"@type": "ListItem", "item": "https://www.gdnielsen.com/projects/marine-2855", "name": "Custom Home in Altamont, 2008", "position": 3}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ResidentialBuilding", "constructor": {"@id": "https://www.gdnielsen.com/#studio", "@type": "Organization", "name": "GD Nielsen Homes"}, "containedInPlace": {"@type": "Place", "name": "Altamont, West Vancouver, Canada"}, "dateCreated": "2008", "description": "GDN-confirmed (named \u0027Greg Nielsen\u0027 in listing). Rommel Design.", "name": "Custom Home in Altamont, 2008", "url": "https://www.gdnielsen.com/projects/marine-2855"}</script>
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "CollectionPage",
+  "name": "Journal — GD Nielsen Homes",
+  "headline": "Notes from the work",
+  "description": "Editorial notes from forty years of West Vancouver custom home building. Real numbers, real permit math, real conversations with the architect.",
+  "url": "https://gdnielsen.com/journal",
+  "publisher": {
+    "@type": "Organization",
+    "name": "GD Nielsen Homes",
+    "url": "https://gdnielsen.com",
+    "logo": "https://gdnielsen.com/_assets/images/gdn-mark.png"
+  },
+  "hasPart": [
+    {
+      "@type": "BlogPosting",
+      "headline": "How much does it cost to build a custom home in West Vancouver?",
+      "url": "https://gdnielsen.com/journal/custom-home-cost-west-vancouver-2026",
+      "datePublished": "2026-01-15",
+      "author": { "@type": "Organization", "name": "GD Nielsen Homes" }
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "The West Vancouver permit process, explained.",
+      "url": "https://gdnielsen.com/journal/west-vancouver-permit-process",
+      "datePublished": "2026-02-10",
+      "author": { "@type": "Organization", "name": "GD Nielsen Homes" }
+    },
+    {
+      "@type": "BlogPosting",
+      "headline": "Following the architect's drawings — what it actually means.",
+      "url": "https://gdnielsen.com/journal/working-with-architects",
+      "datePublished": "2026-03-05",
+      "author": { "@type": "Organization", "name": "GD Nielsen Homes" }
+    }
+  ]
+}
+</script>
 
 <div class="gdn-scope">
 
 
 
-<div class="gdn-container">
-  <p class="gdn-tp-bcrumb">
-    <a href="/matt-proposals/gd-nielsen/preview/">Home</a> &middot; <a href="/matt-proposals/gd-nielsen/preview/projects">Projects</a> &middot; Custom Home in Altamont, 2008
-  </p>
-</div>
-
-
-
 <section class="gdn-tp-hero">
   <img class="gdn-tp-hero-img"
-       src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/bramwell-1458/bramwell-1458-001-exterior-front-day.jpg"
-       alt="Custom Home in Altamont, 2008 &mdash; Altamont"
+       src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/altamont-2965/altamont-2965-04-great-room-wide.jpg"
+       alt="Journal &mdash; notes from forty years of West Vancouver custom home building"
        fetchpriority="high">
   <div class="gdn-tp-hero-veil"></div>
   <div class="gdn-tp-hero-content">
     <div class="gdn-container">
-      <p class="gdn-tp-hero-eyebrow">
-        (TBD) &middot; 2008 &middot; Photography pending
-      </p>
-      <h1>Custom Home in Altamont, 2008</h1>
-      <p class="gdn-tp-hero-loc">Altamont, West Vancouver</p>
+      <p class="gdn-tp-hero-eyebrow">Journal &middot; From the work</p>
+      <h1>Notes from <em>the work</em>.</h1>
+      <p class="gdn-tp-hero-lead">Real numbers, real permit math, real conversations with the architect. From forty years of West Vancouver builds.</p>
     </div>
   </div>
 </section>
 
-<div class="gdn-tp-meta">
+<section class="gdn-jr-intro">
   <div class="gdn-container">
-    <div class="gdn-tp-meta-grid">
-      
-      <div class="gdn-tp-meta-cell">
-        <p class="gdn-tp-meta-label">Year</p>
-        <p class="gdn-tp-meta-value">2008</p>
-      </div>
-      
-      
-      <div class="gdn-tp-meta-cell">
-        <p class="gdn-tp-meta-label">Square Feet</p>
-        <p class="gdn-tp-meta-value">8,398</p>
-      </div>
-      
-      
-      <div class="gdn-tp-meta-cell">
-        <p class="gdn-tp-meta-label">Bedrooms</p>
-        <p class="gdn-tp-meta-value">5</p>
-      </div>
-      
-      
-      <div class="gdn-tp-meta-cell">
-        <p class="gdn-tp-meta-label">Bathrooms</p>
-        <p class="gdn-tp-meta-value">8</p>
-      </div>
-      
-      
-      <div class="gdn-tp-meta-cell">
-        <p class="gdn-tp-meta-label">Lot</p>
-        <p class="gdn-tp-meta-value">31,000 <span style="font-size:14px;color:var(--gdn-mid);">sq ft</span></p>
-      </div>
-      
-      
-      <div class="gdn-tp-meta-cell">
-        <p class="gdn-tp-meta-label">Neighbourhood</p>
-        <p class="gdn-tp-meta-value"><em>Altamont</em></p>
-      </div>
-      
-    </div>
-  </div>
-</div>
-
-<section class="gdn-tp-narrative">
-  <div class="gdn-container">
-    <div class="gdn-tp-narrative-grid">
-      <p class="gdn-tp-narrative-label">The Project</p>
-      <div class="gdn-tp-narrative-body">
-        
-        <p class="lead">GDN-confirmed (named &#39;Greg Nielsen&#39; in listing). Rommel Design.</p>
-        
+    <div class="gdn-jr-intro-grid">
+      <p class="gdn-jr-intro-label">Why this exists</p>
+      <div class="gdn-jr-intro-body">
+        <p>Most builder blogs are filler. Ours is here for the three or four questions every architect&rsquo;s client asks after the first design meeting &mdash; cost, permits, and what it means to build from a set of drawings without changing them.</p>
+        <p>These are the notes we&rsquo;d send a client mid-conversation. We&rsquo;ll add to them as new questions come up.</p>
       </div>
     </div>
   </div>
 </section>
 
-
-
-
-<section class="gdn-tp-credits">
+<section class="gdn-jr-posts">
   <div class="gdn-container">
-    <div class="gdn-tp-credits-grid">
-      <p class="gdn-tp-narrative-label">Credits</p>
-      <div class="gdn-tp-credit-list">
-        
-        
-        <div>
-          <p class="gdn-tp-credit-label">Interior Design</p>
-          <p class="gdn-tp-credit-value">Rommel Design Ltd.</p>
+    <div class="gdn-jr-grid">
+
+      <a class="gdn-jr-card" href="/matt-proposals/gd-nielsen/preview/journal/custom-home-cost-west-vancouver-2026">
+        <div class="gdn-jr-card-image">
+          <img src="/matt-proposals/gd-nielsen/preview/_assets/images/feature-bellevue-bath.jpg"
+               alt="Editorial &mdash; the true cost of a West Vancouver custom home in 2026"
+               loading="lazy">
         </div>
-        
-        
-        
-        <div>
-          <p class="gdn-tp-credit-label">Builder</p>
-          <p class="gdn-tp-credit-value"><em>GD Nielsen Homes</em></p>
+        <p class="gdn-jr-card-tag">Cost Guide &middot; 2026</p>
+        <h2 class="gdn-jr-card-title">How much does it cost to build a <em>custom home</em> in West Vancouver?</h2>
+        <p class="gdn-jr-card-excerpt">Real per-square-foot numbers from our 2026 jobs, with the soft-cost and contingency lines most quotes leave out.</p>
+        <span class="gdn-jr-card-read">Read post &rarr;</span>
+      </a>
+
+      <a class="gdn-jr-card" href="/matt-proposals/gd-nielsen/preview/journal/west-vancouver-permit-process">
+        <div class="gdn-jr-card-image">
+          <img src="/matt-proposals/gd-nielsen/preview/_assets/images/proj-camridge-exterior.jpg"
+               alt="Editorial &mdash; the District of West Vancouver permit process explained"
+               loading="lazy">
         </div>
-      </div>
+        <p class="gdn-jr-card-tag">Process &middot; 2026</p>
+        <h2 class="gdn-jr-card-title">The West Vancouver permit process, <em>explained</em>.</h2>
+        <p class="gdn-jr-card-excerpt">FAR, view bylaws, tree retention, geotech triggers, Step Code &mdash; how the District actually reviews a new build.</p>
+        <span class="gdn-jr-card-read">Read post &rarr;</span>
+      </a>
+
+      <a class="gdn-jr-card" href="/matt-proposals/gd-nielsen/preview/journal/working-with-architects">
+        <div class="gdn-jr-card-image">
+          <img src="/matt-proposals/gd-nielsen/preview/_assets/images/feature-bellevue-shelf.jpg"
+               alt="Editorial &mdash; what it means to build to the architect's drawings"
+               loading="lazy">
+        </div>
+        <p class="gdn-jr-card-tag">Perspective &middot; 2026</p>
+        <h2 class="gdn-jr-card-title">Following the architect&rsquo;s drawings, what it <em>actually means</em>.</h2>
+        <p class="gdn-jr-card-excerpt">The detail-and-craft conversation between architect and builder &mdash; and the line we don&rsquo;t cross on site.</p>
+        <span class="gdn-jr-card-read">Read post &rarr;</span>
+      </a>
+
     </div>
   </div>
 </section>
-
-
-
 
 <div class="gdn-container">
   <div class="gdn-tp-cta-row">
     <a class="gdn-cta" href="/matt-proposals/gd-nielsen/preview/contact">Discuss your project</a>
-    <a class="gdn-cta-ghost" href="/matt-proposals/gd-nielsen/preview/projects">All projects</a>
+    <a class="gdn-cta-ghost" href="/matt-proposals/gd-nielsen/preview/">Back to homepage</a>
   </div>
 </div>
 
 
-<section class="gdn-tp-related">
-  <div class="gdn-container">
-    <div class="gdn-tp-related-head">
-      <div>
-        <p class="gdn-eyebrow">More work</p>
-        <h2>Other projects in Altamont</h2>
-      </div>
-      <a class="gdn-link-arrow" href="/matt-proposals/gd-nielsen/preview/projects">View all</a>
-    </div>
-    <div class="gdn-tp-related-grid">
-      
-      <a class="gdn-tp-related-card" href="/matt-proposals/gd-nielsen/preview/projects/altamont-2965">
-        <div class="gdn-tp-related-image">
-          
-          <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/altamont-2965/altamont-2965-01-exterior-front-day.jpg"
-               alt="Modern in Altamont"
-               loading="lazy">
-          
-        </div>
-        <div class="gdn-tp-related-meta">
-          <p class="gdn-eyebrow" style="margin-bottom: 4px;">Altamont</p>
-          <p class="gdn-tp-related-name">Modern in Altamont</p>
-        </div>
-      </a>
-      
-      <a class="gdn-tp-related-card" href="/matt-proposals/gd-nielsen/preview/projects/rosebery-3040">
-        <div class="gdn-tp-related-image">
-          
-        </div>
-        <div class="gdn-tp-related-meta">
-          <p class="gdn-eyebrow" style="margin-bottom: 4px;">Altamont &middot; ~2010</p>
-          <p class="gdn-tp-related-name">Custom Home in Altamont, ~2010</p>
-        </div>
-      </a>
-      
-      <a class="gdn-tp-related-card" href="/matt-proposals/gd-nielsen/preview/projects/spencer-3090">
-        <div class="gdn-tp-related-image">
-          
-        </div>
-        <div class="gdn-tp-related-meta">
-          <p class="gdn-eyebrow" style="margin-bottom: 4px;">Altamont</p>
-          <p class="gdn-tp-related-name">Custom Home in Altamont</p>
-        </div>
-      </a>
-      
-    </div>
-  </div>
-</section>
-
-
-
 
 </div>
-
 
 <footer class="gdn-chrome-foot" itemscope itemtype="https://schema.org/GeneralContractor">
   <div class="gdn-chrome-container">

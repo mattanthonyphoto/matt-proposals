@@ -8,9 +8,148 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="/matt-proposals/gd-nielsen/preview/_assets/images/gdn-mark.png">
-<style>body { margin: 0; }</style>
+<style>body { margin: 0; }
+
+/* ===== CANONICAL CHROME (nav + footer + mobile bar) — injected by deploy_preview.py ===== */
+.gdn-chrome-container { max-width: 1280px; margin: 0 auto; padding: 0 32px; box-sizing: border-box; }
+@media (max-width: 720px) { .gdn-chrome-container { padding: 0 20px; } }
+
+/* Nav */
+.gdn-chrome-nav { padding: 22px 0; border-bottom: 1px solid var(--gdn-rule, #DDDAD2);
+  position: sticky; top: 0; z-index: 50;
+  backdrop-filter: saturate(180%) blur(14px);
+  background: rgba(250, 250, 247, 0.88); }
+.gdn-chrome-nav-grid { display: flex; justify-content: space-between; align-items: center; }
+.gdn-chrome-nav-mark { display: inline-flex; align-items: center; gap: 14px; border: 0 !important;
+  text-decoration: none; transition: opacity 0.22s; }
+.gdn-chrome-nav-mark:hover { opacity: 0.7; }
+.gdn-chrome-nav-mark-icon { width: 32px; height: 32px;
+  transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1); display: inline-flex; }
+.gdn-chrome-nav-mark:hover .gdn-chrome-nav-mark-icon { transform: rotate(360deg); }
+.gdn-chrome-nav-mark-icon img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.gdn-chrome-nav-mark-text {
+  font-family: 'Poppins', 'Inter', sans-serif; font-weight: 500;
+  font-size: 13px; letter-spacing: 0.18em; color: var(--gdn-ink, #0F1413);
+}
+.gdn-chrome-nav-links { display: flex; gap: 36px; align-items: center; }
+.gdn-chrome-nav-link { font-family: 'Poppins', 'Inter', sans-serif; font-weight: 400;
+  font-size: 13px; letter-spacing: 0.04em; color: var(--gdn-ink, #0F1413) !important;
+  border: 0 !important; padding: 4px 0; position: relative; text-decoration: none; }
+.gdn-chrome-nav-link::after { content: ""; position: absolute; left: 0; bottom: 0;
+  width: 0; height: 1px; background: var(--gdn-gold, #B8975A); transition: width 0.24s ease; }
+.gdn-chrome-nav-link:hover::after { width: 100%; }
+.gdn-chrome-nav-cta { font-family: 'Poppins', 'Inter', sans-serif; font-weight: 500;
+  font-size: 13px; letter-spacing: 0.04em;
+  padding: 10px 22px; border: 1px solid var(--gdn-ink, #0F1413) !important;
+  color: var(--gdn-ink, #0F1413) !important; transition: all 0.22s; text-decoration: none; }
+.gdn-chrome-nav-cta:hover { background: var(--gdn-ink, #0F1413); color: var(--gdn-bone, #FAFAF7) !important; }
+@media (max-width: 880px) {
+  .gdn-chrome-nav-links { gap: 16px; }
+  .gdn-chrome-nav-links .gdn-chrome-nav-link:nth-child(n+4) { display: none; }
+  .gdn-chrome-nav-mark-text { display: none; }
+}
+
+/* Mobile sticky contact bar (<=720px) */
+.gdn-chrome-mobile-bar { display: none; }
+@media (max-width: 720px) {
+  .gdn-chrome-mobile-bar {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 60;
+    display: grid; grid-template-columns: auto 1fr;
+    background: var(--gdn-ink, #0F1413);
+    box-shadow: 0 -8px 32px rgba(15, 20, 19, 0.18);
+  }
+  .gdn-chrome-mobile-bar a {
+    color: var(--gdn-bone, #FAFAF7) !important;
+    border: 0 !important;
+    padding: 16px 20px;
+    font-family: 'Poppins', 'Inter', sans-serif;
+    font-weight: 500; font-size: 14px; letter-spacing: 0.04em;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.22s;
+  }
+  .gdn-chrome-mobile-bar .bar-call {
+    background: var(--gdn-tone, #2A3530);
+  }
+  .gdn-chrome-mobile-bar .bar-contact:hover { background: var(--gdn-gold, #B8975A); }
+  body { padding-bottom: 56px; }
+}
+
+/* Footer */
+.gdn-chrome-foot { padding: 80px 0 40px; border-top: 1px solid var(--gdn-rule, #DDDAD2);
+  background: var(--gdn-bone, #FAFAF7); color: var(--gdn-ink, #0F1413);
+  font-family: 'Poppins', 'Inter', sans-serif; }
+.gdn-chrome-foot-grid { display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 64px; margin-bottom: 48px; align-items: start; }
+.gdn-chrome-foot-eyebrow { font-family: 'Poppins', 'Inter', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gdn-mid, #6B6E6A); margin: 0 0 16px; }
+.gdn-chrome-foot-logo { max-width: 180px; margin: 0 0 24px; }
+.gdn-chrome-foot-logo img { width: 100%; height: auto; display: block; }
+.gdn-chrome-foot-nap { font-style: normal; font-family: 'Poppins', 'Inter', sans-serif;
+  font-size: 13px; line-height: 1.7; color: var(--gdn-mid, #6B6E6A); margin: 0 0 14px;
+  display: block; }
+.gdn-chrome-foot-contact { font-family: 'Poppins', 'Inter', sans-serif; font-size: 13px;
+  line-height: 1.7; color: var(--gdn-ink, #0F1413); margin: 0 0 20px; }
+.gdn-chrome-foot-contact a { color: var(--gdn-ink, #0F1413); text-decoration: none;
+  border-bottom: 1px solid var(--gdn-rule, #DDDAD2); transition: all 0.18s; }
+.gdn-chrome-foot-contact a:hover { color: var(--gdn-gold, #B8975A); border-bottom-color: var(--gdn-gold, #B8975A); }
+.gdn-chrome-foot-list { list-style: none; padding: 0; margin: 0;
+  font-size: 13px; line-height: 1.95; font-family: 'Poppins', 'Inter', sans-serif; }
+.gdn-chrome-foot-list a { color: var(--gdn-ink, #0F1413) !important; border: 0 !important;
+  text-decoration: none; transition: color 0.22s; }
+.gdn-chrome-foot-list a:hover { color: var(--gdn-gold, #B8975A) !important; }
+.gdn-chrome-foot-list strong { font-weight: 500; }
+.gdn-chrome-foot-social { list-style: none; padding: 0; margin: 0;
+  display: flex; flex-wrap: wrap; gap: 14px; font-size: 12px;
+  font-family: 'Poppins', 'Inter', sans-serif; }
+.gdn-chrome-foot-social a { color: var(--gdn-mid, #6B6E6A) !important; border: 0 !important;
+  text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500;
+  text-decoration: none; transition: color 0.22s; }
+.gdn-chrome-foot-social a:hover { color: var(--gdn-gold, #B8975A) !important; }
+.gdn-chrome-foot-meta { font-size: 12px; color: var(--gdn-mid, #6B6E6A); padding-top: 28px;
+  border-top: 1px solid var(--gdn-rule, #DDDAD2); display: flex; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px; font-family: 'Poppins', 'Inter', sans-serif; }
+.gdn-chrome-foot-meta a { color: var(--gdn-mid, #6B6E6A) !important; border: 0 !important;
+  text-decoration: none; }
+.gdn-chrome-foot-meta a:hover { color: var(--gdn-gold, #B8975A) !important; }
+.gdn-chrome-foot-meta [itemprop="name"] { font-weight: 500; color: var(--gdn-ink, #0F1413); }
+@media (max-width: 880px) {
+  .gdn-chrome-foot-grid { grid-template-columns: 1fr 1fr; gap: 40px 32px; }
+  .gdn-chrome-foot-col-brand { grid-column: 1 / -1; }
+}
+@media (max-width: 540px) {
+  .gdn-chrome-foot-grid { grid-template-columns: 1fr; }
+  .gdn-chrome-foot-col-brand { grid-column: auto; }
+}
+
+</style>
 </head>
 <body class="gdn-scope">
+<div class="gdn-chrome-mobile-bar" aria-label="Quick contact">
+  <a href="tel:+16049264211" class="bar-call">Call</a>
+  <a href="/matt-proposals/gd-nielsen/preview/contact" class="bar-contact">Discuss your build &rarr;</a>
+</div>
+<nav class="gdn-chrome-nav" aria-label="Primary">
+  <div class="gdn-chrome-container">
+    <div class="gdn-chrome-nav-grid">
+      <a href="/matt-proposals/gd-nielsen/preview/" class="gdn-chrome-nav-mark" aria-label="GD Nielsen Homes &mdash; Home">
+        <span class="gdn-chrome-nav-mark-icon"><img src="/matt-proposals/gd-nielsen/preview/_assets/images/gdn-mark.png" alt=""></span>
+        <span class="gdn-chrome-nav-mark-text">GD&nbsp;NIELSEN&nbsp;HOMES</span>
+      </a>
+      <div class="gdn-chrome-nav-links">
+        <a href="/matt-proposals/gd-nielsen/preview/story" class="gdn-chrome-nav-link">About</a>
+        <a href="/matt-proposals/gd-nielsen/preview/services" class="gdn-chrome-nav-link">Services</a>
+        <a href="/matt-proposals/gd-nielsen/preview/projects" class="gdn-chrome-nav-link">Work</a>
+        <a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-west-vancouver" class="gdn-chrome-nav-link">Locations</a>
+        <a href="/matt-proposals/gd-nielsen/preview/journal" class="gdn-chrome-nav-link">Journal</a>
+        <a href="tel:+16049264211" class="gdn-chrome-nav-link" style="font-variant-numeric: tabular-nums; color: var(--gdn-mid) !important;">604.926.4211</a>
+        <a href="/matt-proposals/gd-nielsen/preview/contact" class="gdn-chrome-nav-cta">Contact</a>
+      </div>
+    </div>
+  </div>
+</nav>
 <style>
 :root {
   --gdn-ink: #0F1413;
@@ -192,27 +331,132 @@ html { scroll-behavior: smooth; }
 
 .gdn-ct-primary-ctas { display: flex; gap: 14px; flex-wrap: wrap; margin-top: 8px; }
 
-/* Before-you-write panel (right column) */
-.gdn-ct-brief { background: var(--gdn-bone); border: 1px solid var(--gdn-rule);
-  padding: clamp(40px, 4vw, 56px); }
-.gdn-ct-brief .gdn-eyebrow { margin-bottom: 24px; }
-.gdn-ct-brief h2 { margin-bottom: 20px;
+/* ============== CONTACT FORM (right column) ============== */
+.gdn-ct-form-wrap { background: var(--gdn-bone); border: 1px solid var(--gdn-rule);
+  padding: clamp(36px, 4vw, 56px); }
+.gdn-ct-form-wrap .gdn-eyebrow { margin-bottom: 24px; }
+.gdn-ct-form-wrap h2 { margin-bottom: 14px;
   font-size: clamp(22px, 2vw, 28px); line-height: 1.25; letter-spacing: -0.015em; }
-.gdn-ct-brief p { font-size: 15px; line-height: 1.65; color: var(--gdn-ink);
-  margin: 0 0 24px; max-width: none; }
-.gdn-ct-brief-list { list-style: none; padding: 0; margin: 0 0 32px;
-  border-top: 1px solid var(--gdn-rule); }
-.gdn-ct-brief-list li { padding: 18px 0; border-bottom: 1px solid var(--gdn-rule);
-  display: grid; grid-template-columns: 28px minmax(0, 1fr); gap: 16px; align-items: baseline;
-  font-size: 15px; line-height: 1.55; color: var(--gdn-ink); }
-.gdn-ct-brief-list li::before {
-  content: ""; display: inline-block;
-  width: 18px; height: 1px; background: var(--gdn-gold);
-  transform: translateY(-5px);
+.gdn-ct-form-intro { font-size: 14px; line-height: 1.6; color: var(--gdn-mid);
+  margin: 0 0 36px; max-width: none; }
+.gdn-ct-form-intro a { color: var(--gdn-ink); border-bottom-color: var(--gdn-rule);
+  font-variant-numeric: tabular-nums; }
+.gdn-ct-form-intro a:hover { color: var(--gdn-gold); border-bottom-color: var(--gdn-gold); }
+
+.gdn-ct-form { display: grid; grid-template-columns: 1fr; gap: 4px; margin: 0; }
+.gdn-ct-form-row { display: grid; grid-template-columns: 1fr; gap: 4px; }
+.gdn-ct-form-row-split { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+@media (max-width: 640px) {
+  .gdn-ct-form-row-split { grid-template-columns: 1fr; gap: 4px; }
 }
-.gdn-ct-brief-list li strong { font-weight: 500; color: var(--gdn-ink); }
-.gdn-ct-brief-foot { font-size: 13px; color: var(--gdn-mid); margin: 0;
-  padding-top: 24px; border-top: 1px solid var(--gdn-rule); }
+
+.gdn-ct-form-field { position: relative; padding-top: 14px; }
+.gdn-ct-form-label {
+  display: block;
+  font-family: 'Poppins', 'Inter', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gdn-mid); margin: 0 0 8px;
+}
+.gdn-ct-form-label .gdn-ct-form-req {
+  color: var(--gdn-gold); margin-left: 4px; font-weight: 400;
+  letter-spacing: 0; font-size: 13px;
+}
+.gdn-ct-form-label .gdn-ct-form-opt {
+  color: var(--gdn-mid); margin-left: 6px; font-weight: 400;
+  letter-spacing: 0.04em; font-size: 10px; text-transform: none;
+  font-style: italic;
+}
+
+.gdn-ct-form-input,
+.gdn-ct-form-select,
+.gdn-ct-form-textarea {
+  width: 100%;
+  font-family: 'Poppins', 'Inter', sans-serif; font-weight: 400;
+  font-size: 17px; line-height: 1.45; color: var(--gdn-ink);
+  background: transparent;
+  border: 0;
+  border-bottom: 1px solid var(--gdn-rule);
+  padding: 14px 0 16px;
+  margin: 0;
+  border-radius: 0;
+  -webkit-appearance: none; appearance: none;
+  transition: border-color 0.22s ease;
+}
+.gdn-ct-form-input::placeholder,
+.gdn-ct-form-textarea::placeholder {
+  color: var(--gdn-mid); opacity: 0.7;
+  font-weight: 300;
+}
+.gdn-ct-form-input:focus,
+.gdn-ct-form-select:focus,
+.gdn-ct-form-textarea:focus {
+  outline: none;
+  border-bottom-color: var(--gdn-gold);
+  border-bottom-width: 1px;
+}
+
+.gdn-ct-form-select {
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'><path d='M1 1l5 5 5-5' fill='none' stroke='%236B6E6A' stroke-width='1.2' stroke-linecap='round' stroke-linejoin='round'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 4px center;
+  padding-right: 28px;
+  cursor: pointer;
+}
+.gdn-ct-form-select:invalid { color: var(--gdn-mid); }
+.gdn-ct-form-select option { color: var(--gdn-ink); }
+
+.gdn-ct-form-textarea {
+  resize: vertical;
+  min-height: 140px;
+  padding-top: 16px;
+  line-height: 1.55;
+  font-family: 'Poppins', 'Inter', sans-serif;
+}
+
+.gdn-ct-form-submit {
+  display: inline-flex; align-items: center; gap: 12px;
+  padding: 18px 32px;
+  background: var(--gdn-ink); color: var(--gdn-bone);
+  font-family: 'Poppins', 'Inter', sans-serif; font-weight: 500;
+  font-size: 14px; letter-spacing: 0.04em;
+  border: 1px solid var(--gdn-ink);
+  cursor: pointer;
+  transition: all 0.22s ease;
+  border-radius: 0;
+  -webkit-appearance: none; appearance: none;
+}
+.gdn-ct-form-submit:hover {
+  background: var(--gdn-gold); border-color: var(--gdn-gold);
+  color: var(--gdn-ink);
+}
+.gdn-ct-form-submit:focus-visible {
+  outline: 2px solid var(--gdn-gold);
+  outline-offset: 4px;
+}
+
+.gdn-ct-form-actions {
+  margin-top: 32px;
+  padding-top: 32px;
+  border-top: 1px solid var(--gdn-rule);
+  display: flex; flex-direction: column; gap: 14px;
+}
+.gdn-ct-form-actions-row {
+  display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+}
+.gdn-ct-form-foot {
+  font-size: 13px; line-height: 1.55; color: var(--gdn-mid);
+  margin: 0; max-width: none;
+}
+
+.gdn-ct-form-status {
+  display: none;
+  font-family: 'Poppins', 'Inter', sans-serif; font-weight: 400;
+  font-size: 14px; line-height: 1.5; color: var(--gdn-ink);
+  background: var(--gdn-light);
+  border-left: 2px solid var(--gdn-gold);
+  padding: 16px 20px; margin: 0 0 24px;
+}
+.gdn-ct-form-status.is-visible { display: block; }
 
 @media (max-width: 980px) {
   .gdn-ct-primary-grid { grid-template-columns: 1fr; gap: 56px; }
@@ -449,31 +693,10 @@ html { scroll-behavior: smooth; }
 <a href="#contact-h" class="gdn-skip-link">Skip to content</a>
 
 <!-- Mobile sticky contact bar -->
-<div class="gdn-hp-mobile-bar" aria-label="Quick contact">
-  <a href="tel:+16049264211" class="bar-call">Call</a>
-  <a href="mailto:info@gdnielsen.com" class="bar-email">Email Greg &rarr;</a>
-</div>
+
 
 <!-- =========== NAV =========== -->
-<nav class="gdn-hp-nav" aria-label="Primary">
-  <div class="gdn-container">
-    <div class="gdn-hp-nav-grid">
-      <a href="/matt-proposals/gd-nielsen/preview/" class="gdn-hp-nav-mark" aria-label="GD Nielsen Homes &mdash; Home">
-        <span class="gdn-hp-nav-mark-icon"><img src="/matt-proposals/gd-nielsen/preview/_assets/images/gdn-mark.png" alt=""></span>
-        <span class="gdn-hp-nav-mark-text">GD&nbsp;NIELSEN&nbsp;HOMES</span>
-      </a>
-      <div class="gdn-hp-nav-links">
-        <a href="/matt-proposals/gd-nielsen/preview/story" class="gdn-hp-nav-link">About</a>
-        <a href="/matt-proposals/gd-nielsen/preview/services" class="gdn-hp-nav-link">Services</a>
-        <a href="/matt-proposals/gd-nielsen/preview/projects" class="gdn-hp-nav-link">Work</a>
-        <a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-west-vancouver" class="gdn-hp-nav-link">Locations</a>
-        <a href="/matt-proposals/gd-nielsen/preview/journal" class="gdn-hp-nav-link">Blog</a>
-        <a href="tel:+16049264211" class="gdn-hp-nav-link" style="font-variant-numeric: tabular-nums; color: var(--gdn-mid) !important;">604.926.4211</a>
-        <a href="/matt-proposals/gd-nielsen/preview/contact" class="gdn-hp-nav-cta is-active" aria-current="page">Contact</a>
-      </div>
-    </div>
-  </div>
-</nav>
+
 
 <!-- =========== HERO BANNER (full-bleed image) =========== -->
 <section class="gdn-ct-hero-banner">
@@ -551,21 +774,95 @@ html { scroll-behavior: smooth; }
         </div>
       </div>
 
-      <!-- Right: brief / before-you-write -->
-      <aside class="gdn-ct-brief gdn-reveal gdn-reveal-delay-1" aria-labelledby="brief-h">
-        <p class="gdn-eyebrow"><span class="gdn-hp-section-num">II</span> Before you write</p>
-        <h2 id="brief-h">A few details that help us reply&nbsp;well.</h2>
-        <p>We don&rsquo;t need a polished brief. A short note covering any of the below is plenty &mdash; whatever you have on hand. If it&rsquo;s early days and you&rsquo;re still thinking, that&rsquo;s fine too.</p>
+      <!-- Right: contact form -->
+      <aside class="gdn-ct-form-wrap gdn-reveal gdn-reveal-delay-1" aria-labelledby="form-h">
+        <p class="gdn-eyebrow"><span class="gdn-hp-section-num">II</span> Start the conversation</p>
+        <h2 id="form-h">Tell us about your&nbsp;project.</h2>
+        <p class="gdn-ct-form-intro">Or write us directly at <a href="mailto:info@gdnielsen.com">info@gdnielsen.com</a> or call <a href="tel:+16049264211">604.926.4211</a>.</p>
 
-        <ul class="gdn-ct-brief-list">
-          <li><span><strong>The lot or address.</strong> Whether it&rsquo;s a tear-down, a renovation, or a vacant build site.</span></li>
-          <li><span><strong>Architect and drawings.</strong> Who you&rsquo;re working with, or where you are in design.</span></li>
-          <li><span><strong>Budget range.</strong> A band is fine. Helps us flag fit before either of us spends time.</span></li>
-          <li><span><strong>Timeline.</strong> When you&rsquo;d like to break ground, or when you need to be in.</span></li>
-          <li><span><strong>What you&rsquo;ve already discussed.</strong> With your architect, designer, or another builder.</span></li>
-        </ul>
+        <div id="gdnFormStatus" class="gdn-ct-form-status" role="status" aria-live="polite"></div>
 
-        <p class="gdn-ct-brief-foot">Attach drawings or a site photo if it&rsquo;s easy. PDFs welcome. If your project is confidential, just say so &mdash; we treat every inquiry that way regardless.</p>
+        <form id="gdnContactForm" class="gdn-ct-form" novalidate>
+
+          <div class="gdn-ct-form-field">
+            <label class="gdn-ct-form-label" for="gdn-name">Your name <span class="gdn-ct-form-req" aria-hidden="true">*</span></label>
+            <input class="gdn-ct-form-input" type="text" id="gdn-name" name="Name" required autocomplete="name" placeholder="First and last">
+          </div>
+
+          <div class="gdn-ct-form-row-split">
+            <div class="gdn-ct-form-field">
+              <label class="gdn-ct-form-label" for="gdn-email">Email <span class="gdn-ct-form-req" aria-hidden="true">*</span></label>
+              <input class="gdn-ct-form-input" type="email" id="gdn-email" name="Email" required autocomplete="email" placeholder="you@example.com">
+            </div>
+            <div class="gdn-ct-form-field">
+              <label class="gdn-ct-form-label" for="gdn-phone">Phone <span class="gdn-ct-form-opt">optional</span></label>
+              <input class="gdn-ct-form-input" type="tel" id="gdn-phone" name="Phone" autocomplete="tel" placeholder="604.926.4211">
+            </div>
+          </div>
+
+          <div class="gdn-ct-form-field">
+            <label class="gdn-ct-form-label" for="gdn-project-type">Project type <span class="gdn-ct-form-req" aria-hidden="true">*</span></label>
+            <select class="gdn-ct-form-select" id="gdn-project-type" name="Project type" required>
+              <option value="" disabled selected>Select one</option>
+              <option>I'm not sure yet</option>
+              <option>New custom home</option>
+              <option>Whole-home renovation</option>
+              <option>Tear-down and rebuild</option>
+              <option>Addition / second-storey</option>
+              <option>Outdoor living (pool, terrace, pool house)</option>
+              <option>Other</option>
+            </select>
+          </div>
+
+          <div class="gdn-ct-form-row-split">
+            <div class="gdn-ct-form-field">
+              <label class="gdn-ct-form-label" for="gdn-budget">Budget band <span class="gdn-ct-form-req" aria-hidden="true">*</span></label>
+              <select class="gdn-ct-form-select" id="gdn-budget" name="Budget" required>
+                <option value="" disabled selected>Select one</option>
+                <option>Under $500K</option>
+                <option>$500K &ndash; $1.5M</option>
+                <option>$1.5M &ndash; $3M</option>
+                <option>$3M &ndash; $5M</option>
+                <option>$5M &ndash; $10M</option>
+                <option>$10M+</option>
+              </select>
+            </div>
+            <div class="gdn-ct-form-field">
+              <label class="gdn-ct-form-label" for="gdn-timeline">Timeline <span class="gdn-ct-form-req" aria-hidden="true">*</span></label>
+              <select class="gdn-ct-form-select" id="gdn-timeline" name="Timeline" required>
+                <option value="" disabled selected>Select one</option>
+                <option>Just exploring</option>
+                <option>6 months</option>
+                <option>12 months</option>
+                <option>12&ndash;24 months</option>
+                <option>2+ years</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="gdn-ct-form-field">
+            <label class="gdn-ct-form-label" for="gdn-location">Lot or project location <span class="gdn-ct-form-opt">optional</span></label>
+            <input class="gdn-ct-form-input" type="text" id="gdn-location" name="Location" placeholder="e.g., Caulfeild, West Vancouver">
+          </div>
+
+          <div class="gdn-ct-form-field">
+            <label class="gdn-ct-form-label" for="gdn-architect">Architect <span class="gdn-ct-form-opt">if you're already working with one</span></label>
+            <input class="gdn-ct-form-input" type="text" id="gdn-architect" name="Architect" placeholder="Firm or individual">
+          </div>
+
+          <div class="gdn-ct-form-field">
+            <label class="gdn-ct-form-label" for="gdn-message">Tell us about the project <span class="gdn-ct-form-req" aria-hidden="true">*</span></label>
+            <textarea class="gdn-ct-form-textarea" id="gdn-message" name="Message" required minlength="50" rows="5" placeholder="What you're trying to build, what's been figured out so far, what's still open..."></textarea>
+          </div>
+
+          <div class="gdn-ct-form-actions">
+            <div class="gdn-ct-form-actions-row">
+              <button type="submit" class="gdn-ct-form-submit">Send to GD Nielsen</button>
+            </div>
+            <p class="gdn-ct-form-foot">We respond within two business days. Site visits scheduled after an initial call.</p>
+          </div>
+
+        </form>
       </aside>
 
     </div>
@@ -651,74 +948,7 @@ html { scroll-behavior: smooth; }
 </section>
 
 <!-- =========== FOOTER =========== -->
-<footer class="gdn-hp-foot" itemscope itemtype="https://schema.org/GeneralContractor">
-  <div class="gdn-container">
 
-    <div class="gdn-hp-foot-grid">
-
-      <div class="gdn-hp-foot-col-brand">
-        <div class="gdn-hp-foot-logo">
-          <img src="/matt-proposals/gd-nielsen/preview/_assets/images/gdn-logo.png" alt="GD Nielsen Homes &mdash; Custom Home Builder">
-        </div>
-        <address class="gdn-hp-foot-nap" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
-          <span itemprop="streetAddress">129&ndash;1305 Welch Street</span><br>
-          <span itemprop="addressLocality">North Vancouver</span>, <span itemprop="addressRegion">BC</span> <span itemprop="postalCode">V7P 1B3</span>
-          <span itemprop="addressCountry" content="CA"></span>
-        </address>
-        <p class="gdn-hp-foot-contact">
-          <a href="tel:+16049264211" itemprop="telephone">604.926.4211</a><br>
-          <a href="mailto:info@gdnielsen.com" itemprop="email">info@gdnielsen.com</a>
-        </p>
-        <ul class="gdn-hp-foot-social">
-          <li><a href="https://www.instagram.com/gdnielsenhomes/" target="_blank" rel="noopener">Instagram</a></li>
-          <li><a href="https://ca.linkedin.com/company/gd-nielsen-homes-ld" target="_blank" rel="noopener">LinkedIn</a></li>
-          <li><a href="https://www.houzz.com/professionals/general-contractors/gd-nielsen-homes-pfvwus-pf~1227814895" target="_blank" rel="noopener">Houzz</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <p class="gdn-eyebrow">Services</p>
-        <ul class="gdn-hp-foot-list">
-          <li><a href="/matt-proposals/gd-nielsen/preview/services/custom-home-construction">Custom Home Construction</a></li>
-          <li><a href="/matt-proposals/gd-nielsen/preview/services/luxury-renovations">Luxury Renovations</a></li>
-          <li><a href="/matt-proposals/gd-nielsen/preview/services/tear-down-rebuild">Tear-Down &amp; Rebuild</a></li>
-          <li><a href="/matt-proposals/gd-nielsen/preview/services/additions-second-story">Additions &amp; Second Stories</a></li>
-          <li><a href="/matt-proposals/gd-nielsen/preview/services/outdoor-living">Outdoor Living</a></li>
-        </ul>
-        <p class="gdn-eyebrow" style="margin-top: 32px;">Company</p>
-        <ul class="gdn-hp-foot-list">
-          <li><a href="/matt-proposals/gd-nielsen/preview/story">About</a></li>
-          <li><a href="/matt-proposals/gd-nielsen/preview/projects">Projects</a></li>
-          <li><a href="/matt-proposals/gd-nielsen/preview/process">Process</a></li>
-          <li><a href="/matt-proposals/gd-nielsen/preview/awards">Awards</a></li>
-          <li><a href="/matt-proposals/gd-nielsen/preview/journal">Journal</a></li>
-          <li><a href="/matt-proposals/gd-nielsen/preview/contact"><strong>Contact</strong></a></li>
-        </ul>
-      </div>
-
-      <div>
-        <p class="gdn-eyebrow">Locations</p>
-        <ul class="gdn-hp-foot-list">
-          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-west-vancouver"><strong>West Vancouver</strong></a></li>
-          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-north-vancouver">North Vancouver</a></li>
-          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-vancouver">Vancouver</a></li>
-          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-burnaby">Burnaby</a></li>
-          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-richmond">Richmond</a></li>
-          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-langley">Langley</a></li>
-          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-white-rock">White Rock</a></li>
-          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-south-surrey">South Surrey</a></li>
-          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-tsawwassen">Tsawwassen</a></li>
-        </ul>
-      </div>
-
-    </div>
-
-    <div class="gdn-hp-foot-meta">
-      <span>&copy; 1986&ndash;2026 <span itemprop="name">GD Nielsen Homes Ltd.</span></span>
-      <span><a href="/matt-proposals/gd-nielsen/preview/privacy">Privacy</a> &middot; <a href="/matt-proposals/gd-nielsen/preview/sitemap.xml">Sitemap</a></span>
-    </div>
-  </div>
-</footer>
 
 </div>
 
@@ -742,7 +972,113 @@ html { scroll-behavior: smooth; }
     revealEls.forEach(function(el){ el.classList.add('gdn-visible'); });
   }
 })();
+
+/* ============== CONTACT FORM ============== */
+(function(){
+  var form = document.getElementById('gdnContactForm');
+  if (!form) return;
+  var status = document.getElementById('gdnFormStatus');
+
+  function showStatus(msg) {
+    if (!status) return;
+    status.textContent = msg;
+    status.classList.add('is-visible');
+  }
+
+  form.addEventListener('submit', function(e){
+    e.preventDefault();
+
+    // Basic validation
+    if (!form.checkValidity()) {
+      var firstInvalid = form.querySelector(':invalid');
+      if (firstInvalid) {
+        firstInvalid.focus();
+        showStatus('Please fill in the required fields before sending.');
+      }
+      return;
+    }
+
+    var data = new FormData(form);
+    var name = (data.get('Name') || '').toString().trim();
+    var lines = [];
+    data.forEach(function(value, key){
+      var v = (value || '').toString().trim();
+      lines.push(key + ': ' + (v || '(not provided)'));
+    });
+    var body = lines.join('\n\n');
+
+    var subject = 'Project inquiry from ' + (name || 'website');
+    var mailto = 'mailto:info@gdnielsen.com'
+      + '?subject=' + encodeURIComponent(subject)
+      + '&body=' + encodeURIComponent(body);
+
+    showStatus('Opening your email client to send the message to info@gdnielsen.com. If nothing opens, please email us directly.');
+    window.location.href = mailto;
+  });
+})();
 </script>
 
+<footer class="gdn-chrome-foot" itemscope itemtype="https://schema.org/GeneralContractor">
+  <div class="gdn-chrome-container">
+    <div class="gdn-chrome-foot-grid">
+      <div class="gdn-chrome-foot-col-brand">
+        <div class="gdn-chrome-foot-logo">
+          <img src="/matt-proposals/gd-nielsen/preview/_assets/images/gdn-logo.png" alt="GD Nielsen Homes &mdash; Custom Home Builder">
+        </div>
+        <address class="gdn-chrome-foot-nap" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+          <span itemprop="streetAddress">129&ndash;1305 Welch Street</span><br>
+          <span itemprop="addressLocality">North Vancouver</span>, <span itemprop="addressRegion">BC</span> <span itemprop="postalCode">V7P 1B3</span>
+          <span itemprop="addressCountry" content="CA"></span>
+        </address>
+        <p class="gdn-chrome-foot-contact">
+          <a href="tel:+16049264211" itemprop="telephone">604.926.4211</a><br>
+          <a href="mailto:info@gdnielsen.com" itemprop="email">info@gdnielsen.com</a>
+        </p>
+        <ul class="gdn-chrome-foot-social">
+          <li><a href="https://www.instagram.com/gdnielsenhomes/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://ca.linkedin.com/company/gd-nielsen-homes-ld" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.houzz.com/professionals/general-contractors/gd-nielsen-homes-pfvwus-pf~1227814895" target="_blank" rel="noopener">Houzz</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="gdn-chrome-foot-eyebrow">Services</p>
+        <ul class="gdn-chrome-foot-list">
+          <li><a href="/matt-proposals/gd-nielsen/preview/services/custom-home-construction">Custom Home Construction</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/services/luxury-renovations">Luxury Renovations</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/services/tear-down-rebuild">Tear-Down &amp; Rebuild</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/services/additions-second-story">Additions &amp; Second Stories</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/services/outdoor-living">Outdoor Living</a></li>
+        </ul>
+        <p class="gdn-chrome-foot-eyebrow" style="margin-top: 32px;">Company</p>
+        <ul class="gdn-chrome-foot-list">
+          <li><a href="/matt-proposals/gd-nielsen/preview/story">About</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/projects">Projects</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/process">Process</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/awards">Awards</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/journal">Journal</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="gdn-chrome-foot-eyebrow">Locations</p>
+        <ul class="gdn-chrome-foot-list">
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-west-vancouver"><strong>West Vancouver</strong></a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-north-vancouver">North Vancouver</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-vancouver">Vancouver</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-burnaby">Burnaby</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-richmond">Richmond</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-langley">Langley</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-white-rock">White Rock</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-south-surrey">South Surrey</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-tsawwassen">Tsawwassen</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="gdn-chrome-foot-meta">
+      <span>&copy; 1986&ndash;2026 <span itemprop="name">GD Nielsen Homes Ltd.</span></span>
+      <span><a href="/matt-proposals/gd-nielsen/preview/privacy">Privacy</a> &middot; <a href="/matt-proposals/gd-nielsen/preview/sitemap.xml">Sitemap</a></span>
+    </div>
+  </div>
+</footer>
 </body>
 </html>

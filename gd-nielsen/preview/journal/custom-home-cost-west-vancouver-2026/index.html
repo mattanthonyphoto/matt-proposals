@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GD Nielsen Homes</title>
+<title>Custom Home Cost West Vancouver 2026 · GD Nielsen Homes</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
@@ -150,7 +150,7 @@
     </div>
   </div>
 </nav>
-
+{# Journal post — custom home cost guide. Matches homepage editorial register. #}
 <style>
 :root {
   --gdn-ink: #0F1413;
@@ -162,7 +162,6 @@
   --gdn-tone: #2A3530;
   --gdn-section: 140px;
   --gdn-section-tight: 100px;
-  --gdn-gap: 80px;
 }
 .gdn-scope * { box-sizing: border-box; }
 .gdn-scope {
@@ -175,22 +174,19 @@
   text-decoration: none; transition: color 0.18s, border-color 0.18s; }
 :where(.gdn-scope) a:hover { color: var(--gdn-gold); border-bottom-color: var(--gdn-gold); }
 
-/* Typography */
 .gdn-scope h1 { font-family: 'Poppins', sans-serif; font-weight: 300;
-  font-size: clamp(44px, 6vw, 84px); line-height: 0.98; letter-spacing: -0.035em;
-  margin: 0 0 20px; color: var(--gdn-bone); }
+  font-size: clamp(40px, 5.4vw, 72px); line-height: 0.99; letter-spacing: -0.035em;
+  margin: 0 0 20px; color: var(--gdn-bone); max-width: 920px; }
 .gdn-scope h1 em { font-family: 'Cormorant Garamond', serif; font-style: italic;
   font-weight: 400; letter-spacing: -0.01em; }
 .gdn-scope h2 { font-family: 'Poppins', sans-serif; font-weight: 300;
-  font-size: clamp(28px, 3.4vw, 44px); line-height: 1.08; letter-spacing: -0.022em;
+  font-size: clamp(26px, 2.8vw, 36px); line-height: 1.12; letter-spacing: -0.022em;
   margin: 0 0 18px; color: var(--gdn-ink); }
 .gdn-scope h2 em { font-family: 'Cormorant Garamond', serif; font-style: italic;
   font-weight: 400; }
 .gdn-scope h3 { font-family: 'Poppins', sans-serif; font-weight: 500;
   font-size: 17px; line-height: 1.3; margin: 0 0 8px; color: var(--gdn-ink); }
 .gdn-scope p { margin: 0 0 18px; max-width: 640px; font-weight: 400; }
-.gdn-scope p.lead { font-size: 21px; line-height: 1.45; font-weight: 300;
-  letter-spacing: -0.005em; color: var(--gdn-ink); max-width: 720px; }
 .gdn-eyebrow { font-family: 'Poppins', sans-serif; font-weight: 500;
   font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--gdn-mid); margin: 0 0 16px; display: block; }
@@ -203,8 +199,6 @@
   background: var(--gdn-ink); color: var(--gdn-bone); border: 1px solid var(--gdn-ink);
   text-decoration: none; transition: all 0.2s; }
 .gdn-cta:hover { background: var(--gdn-gold); border-color: var(--gdn-gold); color: var(--gdn-bone); }
-.gdn-cta-light { background: var(--gdn-bone); color: var(--gdn-ink); border-color: var(--gdn-bone); }
-.gdn-cta-light:hover { background: var(--gdn-gold); border-color: var(--gdn-gold); }
 .gdn-cta-ghost { display: inline-block; padding: 16px 30px; font-family: 'Poppins', sans-serif;
   font-weight: 500; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
   background: transparent; color: var(--gdn-ink); border: 1px solid var(--gdn-ink);
@@ -216,7 +210,7 @@
 .gdn-link-arrow::after { content: " \2192"; }
 .gdn-link-arrow:hover { color: var(--gdn-gold); }
 
-/* Nav (matches homepage) */
+/* Nav */
 .gdn-tp-nav { position: sticky; top: 0; z-index: 100; background: rgba(250,250,247,0.92);
   backdrop-filter: blur(12px); border-bottom: 1px solid var(--gdn-rule); }
 .gdn-tp-nav-inner { display: flex; align-items: center; justify-content: space-between;
@@ -247,99 +241,69 @@
 .gdn-tp-bcrumb a { color: var(--gdn-mid); border: 0; }
 .gdn-tp-bcrumb a:hover { color: var(--gdn-ink); }
 
-/* Hero — full-bleed image with text overlay */
-.gdn-tp-hero { position: relative; height: clamp(560px, 88vh, 900px); overflow: hidden;
+/* Hero */
+.gdn-tp-hero { position: relative; height: clamp(520px, 78vh, 820px); overflow: hidden;
   margin: 0; background: var(--gdn-tone); }
 .gdn-tp-hero-img { position: absolute; inset: 0; width: 100%; height: 100%;
   object-fit: cover; object-position: center; }
 .gdn-tp-hero-veil { position: absolute; inset: 0; pointer-events: none;
-  background: linear-gradient(180deg, rgba(15,20,19,0.05) 0%, rgba(15,20,19,0.05) 40%, rgba(15,20,19,0.65) 100%); }
+  background: linear-gradient(180deg, rgba(15,20,19,0.05) 0%, rgba(15,20,19,0.18) 45%, rgba(15,20,19,0.75) 100%); }
 .gdn-tp-hero-content { position: absolute; left: 0; right: 0; bottom: 0; padding: 48px;
   color: var(--gdn-bone); }
 .gdn-tp-hero-eyebrow { font-family: 'Poppins', sans-serif; font-weight: 500;
   font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--gdn-bone); opacity: 0.85; margin: 0 0 12px; }
-.gdn-tp-hero-loc { font-family: 'Cormorant Garamond', serif; font-style: italic;
-  font-weight: 400; font-size: clamp(20px, 2vw, 26px); color: var(--gdn-bone);
-  opacity: 0.85; margin: 8px 0 0; }
-.gdn-tp-hero-text { padding: 120px 0 80px; background: var(--gdn-bone); }
-.gdn-tp-hero-text h1 { color: var(--gdn-ink); }
+  color: var(--gdn-bone); opacity: 0.85; margin: 0 0 16px; }
+.gdn-tp-hero-lead { font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-weight: 400; font-size: clamp(20px, 1.9vw, 26px); line-height: 1.4;
+  color: var(--gdn-bone); opacity: 0.9; max-width: 760px; margin: 16px 0 0; }
 
 /* Meta strip */
-.gdn-tp-meta { padding: 56px 0; border-bottom: 1px solid var(--gdn-rule); }
-.gdn-tp-meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 32px; }
-.gdn-tp-meta-cell { text-align: left; }
-.gdn-tp-meta-label { font-family: 'Poppins', sans-serif; font-weight: 500;
-  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--gdn-mid); margin: 0 0 6px; }
-.gdn-tp-meta-value { font-family: 'Cormorant Garamond', serif; font-weight: 400;
-  font-size: 26px; line-height: 1.1; letter-spacing: -0.005em; color: var(--gdn-ink); }
-.gdn-tp-meta-value em { font-style: italic; }
+.gdn-jp-meta { padding: 40px 0; border-bottom: 1px solid var(--gdn-rule); }
+.gdn-jp-meta-row { display: flex; flex-wrap: wrap; gap: 14px 32px;
+  font-family: 'Poppins', sans-serif; font-weight: 400; font-size: 13px;
+  letter-spacing: 0.04em; color: var(--gdn-mid); }
+.gdn-jp-meta-row strong { font-weight: 500; color: var(--gdn-ink); }
 
-/* Narrative */
-.gdn-tp-narrative { padding: 100px 0; }
-.gdn-tp-narrative-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 7fr);
-  gap: 80px; }
-.gdn-tp-narrative-label { font-family: 'Poppins', sans-serif; font-weight: 500;
-  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--gdn-mid); position: sticky; top: 110px; align-self: start; }
-.gdn-tp-narrative-body p { font-size: 20px; line-height: 1.5; font-weight: 300;
+/* Article body */
+.gdn-jp-article { padding: 80px 0 100px; }
+.gdn-jp-body { max-width: 720px; margin: 0 auto; }
+.gdn-jp-body > p:first-of-type::first-letter { font-family: 'Cormorant Garamond', serif;
+  font-weight: 400; font-size: 64px; line-height: 0.92; float: left;
+  margin: 6px 14px 0 -2px; color: var(--gdn-ink); }
+.gdn-jp-body p { font-size: 18px; line-height: 1.72; font-weight: 400;
   color: var(--gdn-ink); max-width: 720px; margin: 0 0 22px; }
-.gdn-tp-narrative-body p:last-child { margin-bottom: 0; }
-@media (max-width: 900px) {
-  .gdn-tp-narrative-grid { grid-template-columns: 1fr; gap: 24px; }
-  .gdn-tp-narrative-label { position: static; }
-}
-
-/* Photo essay — single column, photos speak for themselves */
-.gdn-tp-essay { padding: 40px 0 100px; }
-.gdn-tp-essay-section-label { font-family: 'Poppins', sans-serif; font-weight: 500;
-  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--gdn-mid); margin: 0 0 40px; text-align: center; }
-.gdn-tp-photo { margin: 0 0 32px; cursor: zoom-in; overflow: hidden; padding: 0; }
-.gdn-tp-photo img { width: 100%; height: auto; display: block;
-  transition: opacity 0.3s, transform 0.6s ease-out; }
-.gdn-tp-photo:hover img { opacity: 0.94; transform: scale(1.01); }
-.gdn-tp-photo-caption { font-family: 'Cormorant Garamond', serif; font-style: italic;
-  font-weight: 400; font-size: 14px; color: var(--gdn-mid); margin: 10px 0 0;
-  letter-spacing: 0.01em; }
-.gdn-tp-photo-bleed { width: 100vw; margin-left: calc(-50vw + 50%); padding: 0;
-  max-width: none; }
-.gdn-tp-photo-bleed .gdn-tp-photo-caption { max-width: 1320px; margin: 10px auto 0;
-  padding: 0 48px; }
-
-/* Credits */
-.gdn-tp-credits { padding: 100px 0; border-top: 1px solid var(--gdn-rule); }
-.gdn-tp-credits-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 7fr);
-  gap: 80px; }
-.gdn-tp-credit-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 32px; }
-.gdn-tp-credit-label { font-family: 'Poppins', sans-serif; font-weight: 500;
+.gdn-jp-body p em { font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-weight: 400; font-size: 1.06em; }
+.gdn-jp-body h2 { font-family: 'Poppins', sans-serif; font-weight: 300;
+  font-size: clamp(24px, 2.4vw, 30px); line-height: 1.18; letter-spacing: -0.018em;
+  color: var(--gdn-ink); margin: 56px 0 18px; }
+.gdn-jp-body h2 em { font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-weight: 400; }
+.gdn-jp-body h3 { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 15px; letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--gdn-mid); margin: 36px 0 14px; }
+.gdn-jp-body ul, .gdn-jp-body ol { margin: 0 0 22px; padding-left: 24px;
+  font-size: 18px; line-height: 1.7; color: var(--gdn-ink); max-width: 720px; }
+.gdn-jp-body li { margin: 0 0 8px; }
+.gdn-jp-body li::marker { color: var(--gdn-gold); }
+.gdn-jp-pull { font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-weight: 400; font-size: clamp(24px, 2.4vw, 32px); line-height: 1.35;
+  color: var(--gdn-ink); padding: 32px 0 36px 28px; margin: 36px 0;
+  border-left: 1px solid var(--gdn-gold); max-width: 720px; }
+.gdn-jp-numbers { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 32px; padding: 40px 0; margin: 32px 0; border-top: 1px solid var(--gdn-rule);
+  border-bottom: 1px solid var(--gdn-rule); max-width: 720px; }
+.gdn-jp-num-label { font-family: 'Poppins', sans-serif; font-weight: 500;
   font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
   color: var(--gdn-mid); margin: 0 0 6px; }
-.gdn-tp-credit-value { font-family: 'Cormorant Garamond', serif; font-weight: 400;
-  font-size: 22px; line-height: 1.2; letter-spacing: -0.005em; color: var(--gdn-ink); }
-.gdn-tp-credit-value em { font-style: italic; }
+.gdn-jp-num-value { font-family: 'Cormorant Garamond', serif; font-weight: 400;
+  font-size: 30px; line-height: 1.1; letter-spacing: -0.005em; color: var(--gdn-ink); }
+.gdn-jp-num-value em { font-style: italic; font-size: 16px; color: var(--gdn-mid);
+  display: block; margin-top: 4px; }
 
-/* Awards */
-.gdn-tp-awards { padding: 80px 0; border-top: 1px solid var(--gdn-rule); }
-.gdn-tp-awards-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 7fr);
-  gap: 80px; }
-.gdn-tp-award-line { font-family: 'Cormorant Garamond', serif; font-weight: 400;
-  font-size: 22px; line-height: 1.35; letter-spacing: -0.005em; color: var(--gdn-ink);
-  padding-left: 24px; position: relative; margin: 0 0 14px; }
-.gdn-tp-award-line::before { content: ""; position: absolute; left: 0; top: 15px;
-  width: 12px; height: 1px; background: var(--gdn-gold); }
-.gdn-tp-award-line em { font-style: italic; color: var(--gdn-mid); font-size: 16px;
-  display: block; margin-top: 2px; }
-@media (max-width: 900px) {
-  .gdn-tp-credits-grid, .gdn-tp-awards-grid { grid-template-columns: 1fr; gap: 24px; }
-}
-
-/* CTA */
-.gdn-tp-cta-row { display: flex; gap: 16px; padding: 80px 0; flex-wrap: wrap;
-  border-top: 1px solid var(--gdn-rule); }
+/* CTA row */
+.gdn-tp-cta-row { display: flex; gap: 16px; padding: 60px 0; flex-wrap: wrap;
+  border-top: 1px solid var(--gdn-rule); border-bottom: 1px solid var(--gdn-rule); }
 
 /* Related */
 .gdn-tp-related { padding: var(--gdn-section) 0; background: var(--gdn-light); }
@@ -357,8 +321,10 @@
 .gdn-tp-related-name { font-family: 'Poppins', sans-serif; font-weight: 400;
   font-size: 20px; line-height: 1.25; letter-spacing: -0.015em; color: var(--gdn-ink);
   margin: 6px 0 4px; }
+.gdn-tp-related-name em { font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-weight: 400; }
 
-/* Footer (matches homepage) */
+/* Footer */
 .gdn-tp-foot { background: var(--gdn-tone); color: var(--gdn-bone); padding: 100px 0 40px; }
 .gdn-tp-foot a { color: var(--gdn-bone); border-bottom-color: rgba(250,250,247,0.3); }
 .gdn-tp-foot a:hover { color: var(--gdn-gold); border-bottom-color: var(--gdn-gold); }
@@ -371,37 +337,40 @@
 @media (max-width: 900px) {
   .gdn-tp-foot-grid { grid-template-columns: 1fr; gap: 40px; }
 }
-
-/* Lightbox */
-.gdn-tp-lb { position: fixed; inset: 0; background: rgba(15,20,19,0.96); z-index: 1000;
-  display: none; align-items: center; justify-content: center; padding: 60px 80px;
-  opacity: 0; transition: opacity 0.2s; }
-.gdn-tp-lb.is-open { display: flex; opacity: 1; }
-.gdn-tp-lb-img { max-width: 100%; max-height: calc(100vh - 160px); object-fit: contain;
-  display: block; }
-.gdn-tp-lb-cap { position: absolute; bottom: 24px; left: 0; right: 0;
-  text-align: center; font-family: 'Cormorant Garamond', serif; font-style: italic;
-  font-weight: 400; font-size: 16px; color: rgba(250,250,247,0.75); padding: 0 80px; }
-.gdn-tp-lb-close, .gdn-tp-lb-prev, .gdn-tp-lb-next {
-  position: absolute; background: transparent; color: var(--gdn-bone); border: 0;
-  font-family: 'Poppins', sans-serif; font-weight: 300; cursor: pointer;
-  transition: opacity 0.2s; opacity: 0.7;
-}
-.gdn-tp-lb-close:hover, .gdn-tp-lb-prev:hover, .gdn-tp-lb-next:hover { opacity: 1; }
-.gdn-tp-lb-close { top: 24px; right: 28px; font-size: 28px; line-height: 1; }
-.gdn-tp-lb-prev, .gdn-tp-lb-next { top: 50%; transform: translateY(-50%);
-  font-size: 36px; padding: 12px 18px; }
-.gdn-tp-lb-prev { left: 16px; }
-.gdn-tp-lb-next { right: 16px; }
-@media (max-width: 720px) {
-  .gdn-tp-lb { padding: 40px 12px; }
-  .gdn-tp-lb-prev, .gdn-tp-lb-next { font-size: 28px; }
-}
 </style>
 
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.gdnielsen.com/", "name": "Home", "position": 1}, {"@type": "ListItem", "item": "https://www.gdnielsen.com/projects", "name": "Projects", "position": 2}, {"@type": "ListItem", "item": "https://www.gdnielsen.com/projects/clovelly-4638", "name": "Custom Home in Caulfeild", "position": 3}]}</script>
-<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ResidentialBuilding", "constructor": {"@id": "https://www.gdnielsen.com/#studio", "@type": "Organization", "name": "GD Nielsen Homes"}, "containedInPlace": {"@type": "Place", "name": "Caulfeild, West Vancouver, Canada"}, "description": "Adjacent: 4649 = 0.34 ac; 4672 (Clovelly Estate) = 36,000 sf.", "name": "Custom Home in Caulfeild", "url": "https://www.gdnielsen.com/projects/clovelly-4638"}</script>
-
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "How much does it cost to build a custom home in West Vancouver?",
+  "description": "Real 2026 per-square-foot numbers from forty years of West Vancouver custom home building. Construction costs, soft costs, contingency, and the cost drivers that actually matter on a luxury build.",
+  "image": "https://gdnielsen.com/_assets/images/feature-bellevue-bath.jpg",
+  "datePublished": "2026-01-15",
+  "dateModified": "2026-01-15",
+  "url": "https://gdnielsen.com/journal/custom-home-cost-west-vancouver-2026",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://gdnielsen.com/journal/custom-home-cost-west-vancouver-2026"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "GD Nielsen Homes",
+    "url": "https://gdnielsen.com"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "GD Nielsen Homes",
+    "url": "https://gdnielsen.com",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://gdnielsen.com/_assets/images/gdn-mark.png"
+    }
+  },
+  "articleSection": "Cost Guide",
+  "keywords": "custom home cost West Vancouver, West Vancouver builder cost per square foot, luxury home construction cost BC, West Vancouver custom build 2026"
+}
+</script>
 
 <div class="gdn-scope">
 
@@ -409,316 +378,168 @@
 
 <div class="gdn-container">
   <p class="gdn-tp-bcrumb">
-    <a href="/matt-proposals/gd-nielsen/preview/">Home</a> &middot; <a href="/matt-proposals/gd-nielsen/preview/projects">Projects</a> &middot; Custom Home in Caulfeild
+    <a href="/matt-proposals/gd-nielsen/preview/">Home</a> &middot; <a href="/matt-proposals/gd-nielsen/preview/journal">Journal</a> &middot; Cost Guide
   </p>
 </div>
 
-
-
 <section class="gdn-tp-hero">
   <img class="gdn-tp-hero-img"
-       src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/clovelly-4638/clovelly-4638-01-exterior-front-day.jpg"
-       alt="Custom Home in Caulfeild &mdash; Caulfeild"
+       src="/matt-proposals/gd-nielsen/preview/_assets/images/feature-bellevue-bath.jpg"
+       alt="West Vancouver custom home interior &mdash; cost guide editorial"
        fetchpriority="high">
   <div class="gdn-tp-hero-veil"></div>
   <div class="gdn-tp-hero-content">
     <div class="gdn-container">
-      <p class="gdn-tp-hero-eyebrow">
-        (TBD)
-      </p>
-      <h1>Custom Home in Caulfeild</h1>
-      <p class="gdn-tp-hero-loc">Caulfeild, West Vancouver</p>
+      <p class="gdn-tp-hero-eyebrow">Cost Guide &middot; January 2026</p>
+      <h1>How much does it cost to build a custom home in <em>West Vancouver</em>?</h1>
+      <p class="gdn-tp-hero-lead">Real per-square-foot numbers from our 2026 jobs &mdash; with the soft-cost and contingency lines most quotes leave out.</p>
     </div>
   </div>
 </section>
 
-<div class="gdn-tp-meta">
+<div class="gdn-jp-meta">
   <div class="gdn-container">
-    <div class="gdn-tp-meta-grid">
-      
-      
-      
-      
-      
-      
-      <div class="gdn-tp-meta-cell">
-        <p class="gdn-tp-meta-label">Neighbourhood</p>
-        <p class="gdn-tp-meta-value"><em>Caulfeild</em></p>
-      </div>
-      
-    </div>
+    <p class="gdn-jp-meta-row">
+      <span><strong>Author:</strong> GD Nielsen</span>
+      <span><strong>Published:</strong> January 2026</span>
+      <span><strong>Read time:</strong> ~7 min</span>
+      <span><strong>Filed under:</strong> Cost Guide</span>
+    </p>
   </div>
 </div>
 
-<section class="gdn-tp-narrative">
+<article class="gdn-jp-article">
   <div class="gdn-container">
-    <div class="gdn-tp-narrative-grid">
-      <p class="gdn-tp-narrative-label">The Project</p>
-      <div class="gdn-tp-narrative-body">
-        
-        <p class="lead">Adjacent: 4649 = 0.34 ac; 4672 (Clovelly Estate) = 36,000 sf.</p>
-        
+    <div class="gdn-jp-body">
+
+      <p>The honest answer is a range, and the range matters. In 2026, a custom home in West Vancouver costs between <strong>$600 and $900 per square foot</strong> to build, with most of our projects landing between <strong>$700 and $800</strong>. That&rsquo;s construction only &mdash; lot, architect, interior design, landscape, and furniture sit outside that number.</p>
+
+      <p>This guide is the math we walk clients through after the architect&rsquo;s first design meeting, when the question stops being &ldquo;what would we like&rdquo; and becomes &ldquo;what will this actually cost.&rdquo; We&rsquo;ve been building in this district since 1986, and the numbers below come from real 2026 jobs, not industry averages.</p>
+
+      <div class="gdn-jp-numbers">
+        <div>
+          <p class="gdn-jp-num-label">Construction</p>
+          <p class="gdn-jp-num-value">$700&ndash;$800<em>per sq ft, typical 2026</em></p>
+        </div>
+        <div>
+          <p class="gdn-jp-num-label">Soft costs</p>
+          <p class="gdn-jp-num-value">~12%<em>of construction</em></p>
+        </div>
+        <div>
+          <p class="gdn-jp-num-label">Contingency</p>
+          <p class="gdn-jp-num-value">12%<em>we recommend</em></p>
+        </div>
       </div>
+
+      <h2>What you get at <em>$700&ndash;$800</em> per square foot</h2>
+
+      <p>At that number, the home is fully custom &mdash; a one-off design from a registered architect, built to BC Step Code with quality envelope detailing, framed and finished to architectural drawings, with a finish level that puts it in the conversation with what gets published in Western Living or photographed for HAVAN Ovation submissions.</p>
+
+      <p>A 5,000 sq ft custom home at this range works out to <strong>$3.5M to $4M for construction alone.</strong> A 7,000 sq ft Altamont or British Properties home runs <strong>$4.9M to $5.6M.</strong> A 3,200 sq ft tear-down rebuild on a Caulfeild lot lands around <strong>$2.3M to $2.6M.</strong></p>
+
+      <p>These numbers assume a moderately complex site, a good but not extreme finish level, mechanical systems that are properly specified but not the most expensive on the market, and a project that runs to schedule. Push the finish level into the top tier &mdash; deep solid-wood millwork, integrated bronze hardware, slabs of book-matched stone &mdash; and you&rsquo;re into the $850&ndash;$900 number quickly.</p>
+
+      <h2>What&rsquo;s <em>not</em> in that number</h2>
+
+      <p>The construction figure is the line we control. Sitting outside of it &mdash; and often a surprise to a first-time custom build client &mdash; are five other lines:</p>
+
+      <ul>
+        <li><strong>Land.</strong> A buildable lot in West Vancouver in 2026 starts around $2.5M and runs well into eight figures depending on view, water frontage, and bylaws.</li>
+        <li><strong>Architect fees.</strong> Typically 8&ndash;12% of construction cost, paid directly to the architect across schematic, design development, and construction documents.</li>
+        <li><strong>Interior design.</strong> 5&ndash;10% of construction if you&rsquo;re engaging a designer for FF&amp;E, finishes, and specification work alongside the architect.</li>
+        <li><strong>Landscape design and install.</strong> A serious landscape program on a West Van lot &mdash; planting, hardscape, water feature, lighting &mdash; runs $250K to $1M+ depending on the lot.</li>
+        <li><strong>FF&amp;E.</strong> Furniture, fittings, equipment. Not in the build budget. Plan separately.</li>
+      </ul>
+
+      <p>Add it up and the all-in number for a serious 5,000 sq ft West Van project &mdash; build, soft costs, contingency, design fees, landscape, FF&amp;E &mdash; is rarely below $5M and frequently north of $6M. Land sits on top of that.</p>
+
+      <h2>Soft costs and contingency &mdash; the lines most quotes leave out</h2>
+
+      <p>Soft costs run roughly <strong>12% of construction</strong> and cover the things that aren&rsquo;t the building itself: building permit, development permit, geotechnical engineer, structural engineer, mechanical and electrical engineering, energy advisor, surveyor, arborist, legal, insurance during construction. On a $3.5M build, soft costs are around $400K. They&rsquo;re real money and we line-item them on the budget from day one.</p>
+
+      <p>Contingency is the second one that gets skipped. We recommend <strong>12%.</strong> Some clients ask for 8 or 10. Our experience is that 12 is the right number for a custom home in West Vancouver &mdash; sites have surprises (saturated soils, encountered rock, an unexpected setback), and the contingency is what keeps the project moving when they come up. The contingency we don&rsquo;t spend goes back to the client at close. The contingency we don&rsquo;t budget becomes a hard conversation halfway through framing.</p>
+
+      <p class="gdn-jp-pull">A contingency you don&rsquo;t budget becomes a hard conversation halfway through framing. We&rsquo;d rather have it and not need it.</p>
+
+      <h2>The four cost drivers that <em>actually</em> matter</h2>
+
+      <p>Per-square-foot is a useful starting point. What pushes a project from the $700 end to the $900 end is rarely square footage. It&rsquo;s these four:</p>
+
+      <h3>01 &middot; Site complexity</h3>
+
+      <p>A flat lot in lower Dundarave with city services at the property line is one number. A sloped Altamont lot with a 28% grade, rock excavation, a retaining wall program, geotechnical conditions that require pile foundations, and a 6-metre view corridor easement protecting the lot below is a very different number. The site can add 15&ndash;25% to construction cost on its own. The view-protection bylaws in particular are West Van&rsquo;s signature constraint &mdash; we&rsquo;ve seen them re-shape designs in DD when a neighbour&rsquo;s sightline triggers an angle of view review.</p>
+
+      <h3>02 &middot; Envelope and Step Code</h3>
+
+      <p>West Vancouver currently requires <strong>BC Energy Step Code 3</strong> for new construction, moving to Step 4 in line with the Province&rsquo;s 2027 schedule. That changes envelope assemblies meaningfully &mdash; thicker exterior walls, exterior insulation, high-performance windows (we&rsquo;re running a lot of Kolbe and Loewen these days), heat recovery ventilation, careful air sealing with blower-door testing. The envelope is one of the lines you don&rsquo;t want to value-engineer; it&rsquo;s the line you live with for thirty years.</p>
+
+      <h3>03 &middot; Finish level (cabinetry, hardware, stone)</h3>
+
+      <p>The single biggest swing line on a luxury build. A well-spec&rsquo;d kitchen &mdash; book-matched walnut millwork, integrated Sub-Zero and Wolf, Calacatta slab counters and full backsplash, hand-cast bronze hardware &mdash; runs $250K to $450K on its own. A primary bath with the same care can be $150K. Multiply that across the millwork program, the bar, the office built-ins, the closet system, and the finish level is where the build budget compounds.</p>
+
+      <h3>04 &middot; Mechanical systems</h3>
+
+      <p>Heating, cooling, ventilation, snowmelt, hydronics, lighting control, A/V, security, irrigation, pool and spa systems. The mechanical and low-voltage scope on a 6,000 sq ft custom home in 2026 is regularly $400&ndash;$600K. Solid systems specified by a real M&amp;E engineer cost real money. They&rsquo;re also the thing that, badly done, you&rsquo;ll spend the next decade fighting.</p>
+
+      <h2>How we present cost on a real project</h2>
+
+      <p>When we hand over a budget to a client and their architect, it&rsquo;s line-itemed by trade with allowances for the items that aren&rsquo;t yet specified at the time of pricing (typically tile, plumbing fixtures, lighting, appliances, hardware). We carry the soft-cost schedule alongside it, the contingency line is explicit and segregated, and the cash flow projection is built out by month. We&rsquo;d rather walk a client through a real budget early than win a job on a low number we can&rsquo;t honour.</p>
+
+      <p>If you&rsquo;re working with an architect on a West Van project and you want a realistic 2026 price on what they&rsquo;re drawing, <a href="/matt-proposals/gd-nielsen/preview/contact">get in touch</a> &mdash; we&rsquo;re happy to look at the drawings and tell you, honestly, what they&rsquo;ll cost.</p>
+
     </div>
   </div>
-</section>
-
-
-<section class="gdn-tp-essay">
-  <div class="gdn-container">
-    <p class="gdn-tp-essay-section-label">The Walkthrough &middot; 14 frames</p>
-    
-      
-      <figure class="gdn-tp-photo"
-              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/clovelly-4638/clovelly-4638-02-exterior-front-angle.jpg"
-              data-caption="02 exterior front angle">
-        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/clovelly-4638/clovelly-4638-02-exterior-front-angle.jpg"
-             alt="Custom Home in Caulfeild &mdash; 02 exterior front angle"
-             loading="eager"
-             decoding="async">
-        <figcaption class="gdn-tp-photo-caption">02 exterior front angle</figcaption>
-      </figure>
-    
-      
-      <figure class="gdn-tp-photo"
-              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/clovelly-4638/clovelly-4638-03-foyer-archway-great-room.jpg"
-              data-caption="03 foyer archway great room">
-        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/clovelly-4638/clovelly-4638-03-foyer-archway-great-room.jpg"
-             alt="Custom Home in Caulfeild &mdash; 03 foyer archway great room"
-             loading="eager"
-             decoding="async">
-        <figcaption class="gdn-tp-photo-caption">03 foyer archway great room</figcaption>
-      </figure>
-    
-      
-      <figure class="gdn-tp-photo"
-              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/clovelly-4638/clovelly-4638-04-great-room-fireplace.jpg"
-              data-caption="04 great room fireplace">
-        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/clovelly-4638/clovelly-4638-04-great-room-fireplace.jpg"
-             alt="Custom Home in Caulfeild &mdash; 04 great room fireplace"
-             loading="lazy"
-             decoding="async">
-        <figcaption class="gdn-tp-photo-caption">04 great room fireplace</figcaption>
-      </figure>
-    
-      
-      <figure class="gdn-tp-photo"
-              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/clovelly-4638/clovelly-4638-05-dining-room-ocean-view.jpg"
-              data-caption="05 dining room ocean view">
-        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/clovelly-4638/clovelly-4638-05-dining-room-ocean-view.jpg"
-             alt="Custom Home in Caulfeild &mdash; 05 dining room ocean view"
-             loading="lazy"
-             decoding="async">
-        <figcaption class="gdn-tp-photo-caption">05 dining room ocean view</figcaption>
-      </figure>
-    
-      
-      <figure class="gdn-tp-photo"
-              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/clovelly-4638/clovelly-4638-06-balcony-doors-ocean-view.jpg"
-              data-caption="06 balcony doors ocean view">
-        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/clovelly-4638/clovelly-4638-06-balcony-doors-ocean-view.jpg"
-             alt="Custom Home in Caulfeild &mdash; 06 balcony doors ocean view"
-             loading="lazy"
-             decoding="async">
-        <figcaption class="gdn-tp-photo-caption">06 balcony doors ocean view</figcaption>
-      </figure>
-    
-      
-      <figure class="gdn-tp-photo gdn-tp-photo-bleed"
-              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/clovelly-4638/clovelly-4638-07-exterior-rear-pool-day.jpg"
-              data-caption="07 exterior rear pool day">
-        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/clovelly-4638/clovelly-4638-07-exterior-rear-pool-day.jpg"
-             alt="Custom Home in Caulfeild &mdash; 07 exterior rear pool day"
-             loading="lazy"
-             decoding="async">
-        <figcaption class="gdn-tp-photo-caption">07 exterior rear pool day</figcaption>
-      </figure>
-    
-      
-      <figure class="gdn-tp-photo"
-              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/clovelly-4638/clovelly-4638-08-pool-elevated-ocean.jpg"
-              data-caption="08 pool elevated ocean">
-        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/clovelly-4638/clovelly-4638-08-pool-elevated-ocean.jpg"
-             alt="Custom Home in Caulfeild &mdash; 08 pool elevated ocean"
-             loading="lazy"
-             decoding="async">
-        <figcaption class="gdn-tp-photo-caption">08 pool elevated ocean</figcaption>
-      </figure>
-    
-      
-      <figure class="gdn-tp-photo"
-              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/clovelly-4638/clovelly-4638-09-pool-house-fountains.jpg"
-              data-caption="09 pool house fountains">
-        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/clovelly-4638/clovelly-4638-09-pool-house-fountains.jpg"
-             alt="Custom Home in Caulfeild &mdash; 09 pool house fountains"
-             loading="lazy"
-             decoding="async">
-        <figcaption class="gdn-tp-photo-caption">09 pool house fountains</figcaption>
-      </figure>
-    
-      
-      <figure class="gdn-tp-photo"
-              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/clovelly-4638/clovelly-4638-10-pool-hot-tub.jpg"
-              data-caption="10 pool hot tub">
-        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/clovelly-4638/clovelly-4638-10-pool-hot-tub.jpg"
-             alt="Custom Home in Caulfeild &mdash; 10 pool hot tub"
-             loading="lazy"
-             decoding="async">
-        <figcaption class="gdn-tp-photo-caption">10 pool hot tub</figcaption>
-      </figure>
-    
-      
-      <figure class="gdn-tp-photo"
-              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/clovelly-4638/clovelly-4638-11-pool-terrace.jpg"
-              data-caption="11 pool terrace">
-        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/clovelly-4638/clovelly-4638-11-pool-terrace.jpg"
-             alt="Custom Home in Caulfeild &mdash; 11 pool terrace"
-             loading="lazy"
-             decoding="async">
-        <figcaption class="gdn-tp-photo-caption">11 pool terrace</figcaption>
-      </figure>
-    
-      
-      <figure class="gdn-tp-photo gdn-tp-photo-bleed"
-              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/clovelly-4638/clovelly-4638-12-pool-ocean-detail.jpg"
-              data-caption="12 pool ocean detail">
-        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/clovelly-4638/clovelly-4638-12-pool-ocean-detail.jpg"
-             alt="Custom Home in Caulfeild &mdash; 12 pool ocean detail"
-             loading="lazy"
-             decoding="async">
-        <figcaption class="gdn-tp-photo-caption">12 pool ocean detail</figcaption>
-      </figure>
-    
-      
-      <figure class="gdn-tp-photo gdn-tp-photo-bleed"
-              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/clovelly-4638/clovelly-4638-13-primary-ensuite-wide.jpg"
-              data-caption="13 primary ensuite wide">
-        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/clovelly-4638/clovelly-4638-13-primary-ensuite-wide.jpg"
-             alt="Custom Home in Caulfeild &mdash; 13 primary ensuite wide"
-             loading="lazy"
-             decoding="async">
-        <figcaption class="gdn-tp-photo-caption">13 primary ensuite wide</figcaption>
-      </figure>
-    
-      
-      <figure class="gdn-tp-photo gdn-tp-photo-bleed"
-              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/clovelly-4638/clovelly-4638-14-primary-ensuite-soaker-tub.jpg"
-              data-caption="14 primary ensuite soaker tub">
-        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/clovelly-4638/clovelly-4638-14-primary-ensuite-soaker-tub.jpg"
-             alt="Custom Home in Caulfeild &mdash; 14 primary ensuite soaker tub"
-             loading="lazy"
-             decoding="async">
-        <figcaption class="gdn-tp-photo-caption">14 primary ensuite soaker tub</figcaption>
-      </figure>
-    
-  </div>
-</section>
-
-
-
-
-
+</article>
 
 <div class="gdn-container">
   <div class="gdn-tp-cta-row">
     <a class="gdn-cta" href="/matt-proposals/gd-nielsen/preview/contact">Discuss your project</a>
-    <a class="gdn-cta-ghost" href="/matt-proposals/gd-nielsen/preview/projects">All projects</a>
+    <a class="gdn-cta-ghost" href="/matt-proposals/gd-nielsen/preview/journal">All journal posts</a>
   </div>
 </div>
-
 
 <section class="gdn-tp-related">
   <div class="gdn-container">
     <div class="gdn-tp-related-head">
       <div>
-        <p class="gdn-eyebrow">More work</p>
-        <h2>Other projects in Caulfeild</h2>
+        <p class="gdn-eyebrow">Continue reading</p>
+        <h2>Related notes</h2>
       </div>
-      <a class="gdn-link-arrow" href="/matt-proposals/gd-nielsen/preview/projects">View all</a>
+      <a class="gdn-link-arrow" href="/matt-proposals/gd-nielsen/preview/journal">View all</a>
     </div>
     <div class="gdn-tp-related-grid">
-      
-      <a class="gdn-tp-related-card" href="/matt-proposals/gd-nielsen/preview/projects/cherbourg">
+
+      <a class="gdn-tp-related-card" href="/matt-proposals/gd-nielsen/preview/journal/west-vancouver-permit-process">
         <div class="gdn-tp-related-image">
-          
-          <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cherbourg/cherbourg-4635-01-exterior-front-driveway-gate.jpg"
-               alt="Custom Home in Caulfeild"
+          <img src="/matt-proposals/gd-nielsen/preview/_assets/images/proj-camridge-exterior.jpg"
+               alt="The West Vancouver permit process explained"
                loading="lazy">
-          
         </div>
         <div class="gdn-tp-related-meta">
-          <p class="gdn-eyebrow" style="margin-bottom: 4px;">Caulfeild</p>
-          <p class="gdn-tp-related-name">Custom Home in Caulfeild</p>
+          <p class="gdn-eyebrow" style="margin-bottom: 4px;">Process &middot; 2026</p>
+          <p class="gdn-tp-related-name">The West Vancouver permit process, <em>explained</em>.</p>
         </div>
       </a>
-      
-      <a class="gdn-tp-related-card" href="/matt-proposals/gd-nielsen/preview/projects/keith-4325">
+
+      <a class="gdn-tp-related-card" href="/matt-proposals/gd-nielsen/preview/journal/working-with-architects">
         <div class="gdn-tp-related-image">
-          
-          <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/keith-4325/keith-4325-01-rear-exterior-pool-hero.jpg"
-               alt="Custom Home in Caulfeild, 2016"
+          <img src="/matt-proposals/gd-nielsen/preview/_assets/images/feature-bellevue-shelf.jpg"
+               alt="What it means to follow the architect's drawings"
                loading="lazy">
-          
         </div>
         <div class="gdn-tp-related-meta">
-          <p class="gdn-eyebrow" style="margin-bottom: 4px;">Caulfeild &middot; 2016</p>
-          <p class="gdn-tp-related-name">Custom Home in Caulfeild, 2016</p>
+          <p class="gdn-eyebrow" style="margin-bottom: 4px;">Perspective &middot; 2026</p>
+          <p class="gdn-tp-related-name">Following the architect&rsquo;s drawings, what it <em>actually means</em>.</p>
         </div>
       </a>
-      
+
     </div>
   </div>
 </section>
 
 
 
-
 </div>
-
-
-<div class="gdn-tp-lb" id="gdnLightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
-  <button class="gdn-tp-lb-close" type="button" aria-label="Close">&times;</button>
-  <button class="gdn-tp-lb-prev" type="button" aria-label="Previous">&#8249;</button>
-  <button class="gdn-tp-lb-next" type="button" aria-label="Next">&#8250;</button>
-  <img class="gdn-tp-lb-img" alt="">
-  <p class="gdn-tp-lb-cap"></p>
-</div>
-<script>
-(function () {
-  var photos = Array.prototype.slice.call(document.querySelectorAll('.gdn-tp-photo'));
-  if (!photos.length) return;
-  var lb = document.getElementById('gdnLightbox');
-  var lbImg = lb.querySelector('.gdn-tp-lb-img');
-  var lbCap = lb.querySelector('.gdn-tp-lb-cap');
-  var idx = 0;
-  function open(i) {
-    idx = (i + photos.length) % photos.length;
-    var el = photos[idx];
-    lbImg.src = el.dataset.src;
-    lbCap.textContent = el.dataset.caption || '';
-    lb.classList.add('is-open');
-    document.body.style.overflow = 'hidden';
-  }
-  function close() {
-    lb.classList.remove('is-open');
-    document.body.style.overflow = '';
-    lbImg.src = '';
-  }
-  photos.forEach(function (el, i) {
-    el.addEventListener('click', function (e) { e.preventDefault(); open(i); });
-  });
-  lb.querySelector('.gdn-tp-lb-close').addEventListener('click', close);
-  lb.querySelector('.gdn-tp-lb-prev').addEventListener('click', function () { open(idx - 1); });
-  lb.querySelector('.gdn-tp-lb-next').addEventListener('click', function () { open(idx + 1); });
-  lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
-  document.addEventListener('keydown', function (e) {
-    if (!lb.classList.contains('is-open')) return;
-    if (e.key === 'Escape') close();
-    else if (e.key === 'ArrowLeft') open(idx - 1);
-    else if (e.key === 'ArrowRight') open(idx + 1);
-  });
-})();
-</script>
 
 <footer class="gdn-chrome-foot" itemscope itemtype="https://schema.org/GeneralContractor">
   <div class="gdn-chrome-container">
