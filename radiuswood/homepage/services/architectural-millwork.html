@@ -4,13 +4,94 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Architectural Millwork · Services · Radius Architectural Millwork</title>
-<meta name="description" content="Custom architectural millwork, cabinetry, panelling, wine cellars, bent-laminated curved work, and furniture. Slip-matched veneer, hand-cut joinery, in-house finishing.">
+<meta name="description" content="Custom architectural millwork and cabinetry for luxury estate homes. Kitchens, panelling, master suites, wine rooms, custom doors, furniture. Slip-matched veneer, hand-cut joinery, in-house finishing.">
 <link rel="canonical" href="https://radiuswood.com/services/architectural-millwork/">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500&family=Roboto:wght@300;400;500&family=Varta:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/site.css">
+<style>
+  .scope-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: clamp(18px, 2vw, 28px);
+    margin-top: clamp(36px, 4vw, 56px);
+  }
+  .scope-card {
+    padding: 28px 26px;
+    border: 1px solid var(--rule);
+    background: var(--cream);
+    min-height: 150px;
+  }
+  .scope-card .num {
+    font-family: var(--fs); font-style: italic;
+    font-size: 13px; color: var(--gold);
+    margin-bottom: 6px; display: block;
+  }
+  .scope-card h4 {
+    font-family: var(--fd); font-weight: 300;
+    font-size: 18px; line-height: 1.2; margin-bottom: 10px;
+  }
+  .scope-card h4 em { font-family: var(--fs); font-style: italic; font-weight: 400; color: var(--red); }
+  .scope-card p {
+    font-weight: 300; font-size: 12.5px; line-height: 1.7;
+    color: var(--body);
+  }
+
+  .phases {
+    display: grid; grid-template-columns: 100px 1fr;
+    gap: clamp(20px, 4vw, 60px);
+    border-top: 1px solid var(--rule);
+    align-items: start;
+  }
+  .phase-row {
+    display: contents;
+  }
+  .phase-row > * {
+    padding: 28px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .phase-num {
+    font-family: var(--fs); font-style: italic; font-weight: 400;
+    font-size: clamp(24px, 2.8vw, 34px); color: var(--gold); line-height: 1;
+  }
+  .phase-body h4 {
+    font-family: var(--fd); font-weight: 400;
+    font-size: clamp(17px, 1.6vw, 22px); margin-bottom: 8px;
+  }
+  .phase-body h4 em { font-family: var(--fs); font-style: italic; color: var(--red); }
+  .phase-body p {
+    font-weight: 300; font-size: 13.5px; line-height: 1.85;
+    color: var(--body); max-width: 760px;
+  }
+  .phase-body p strong { color: var(--ink); font-weight: 500; }
+  @media (max-width: 600px) {
+    .phases { grid-template-columns: 1fr; }
+    .phase-row > * { padding: 20px 0; }
+    .phase-num { padding-bottom: 6px; border-bottom: 0; }
+  }
+
+  .feature-photo {
+    max-width: 1240px; margin: 0 auto;
+    padding: clamp(60px, 7vw, 100px) clamp(28px, 6vw, 80px);
+  }
+  .feature-photo figure { overflow: hidden; aspect-ratio: 16/9; }
+  .feature-photo figure img { width: 100%; height: 100%; object-fit: cover; }
+  .feature-photo figcaption {
+    padding-top: 14px;
+    font-family: var(--f); font-weight: 400;
+    font-size: 10px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--stone);
+  }
+  .photo-pair {
+    max-width: 1640px; margin: 0 auto;
+    padding: 0 clamp(28px, 6vw, 80px) clamp(60px, 7vw, 100px);
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: clamp(16px, 2vw, 28px);
+  }
+  .photo-pair figure { overflow: hidden; aspect-ratio: 4/5; }
+  .photo-pair figure img { width: 100%; height: 100%; object-fit: cover; }
+  @media (max-width: 760px) { .photo-pair { grid-template-columns: 1fr; } }
+</style>
 </head>
 <body>
 
@@ -28,10 +109,10 @@
       </div>
     </div>
     <div class="nav-item">
-      <a href="../services/">Services <span class="caret">▾</span></a>
+      <a href="./">Services <span class="caret">▾</span></a>
       <div class="dropdown">
-        <a href="../services/architectural-millwork.html">Architectural Millwork</a>
-        <a href="../services/3d-renderings.html">3D Renderings</a>
+        <a href="architectural-millwork.html">Architectural Millwork</a>
+        <a href="3d-renderings.html">3D Renderings</a>
       </div>
     </div>
     <a href="../work/">Our Work</a>
@@ -42,13 +123,9 @@
 </nav>
 
 <section class="hero-banner">
-  <img src="../photos/vancouverhouse-bop-penthouse/vancouverhouse-bop-penthouse-kitchen-walnut-marble-backsplash-island.jpg" alt="Architectural Millwork · Services · Radius Architectural Millwork — hero">
+  <img src="../photos/vancouverhouse-bop-penthouse/vancouverhouse-bop-penthouse-kitchen-walnut-marble-backsplash-island.jpg" alt="Architectural Millwork — bookmatched walnut kitchen with black marble">
   <div class="breadcrumb">
-      <a href="../">Home</a>
-      <span class="sep">/</span>
-      <a href="./">Services</a>
-      <span class="sep">/</span>
-      <span>Architectural Millwork</span>
+    <a href="../">Home</a><span class="sep">/</span><a href="./">Services</a><span class="sep">/</span><span>Architectural Millwork</span>
   </div>
   <div class="overlay">
     <span class="eyebrow">Services · Architectural Millwork</span>
@@ -56,17 +133,112 @@
   </div>
 </section>
 
-<section class="page-copy">
-  <span class="eyebrow">Overview</span>
-  <h2>What architectural millwork <em>covers, in practice.</em></h2>
-  <p>Most of what we build falls under this category — <strong>kitchen cabinetry</strong>, <strong>wall panelling</strong>, <strong>master suites</strong>, <strong>wine rooms</strong>, <strong>media rooms</strong>, custom <strong>doors and hardware</strong>. The scope can be a single feature wall or the millwork package for a whole house. Five phases through the shop: concept + drawings (architect's set in, shop-side detailing); drafting + mock-up (3D renders, full-scale mock-ups before the final cut); the bench (slip-matched veneers, hand-cut dovetails, mortise-and-tenon); in-house finishing (conversion varnish to hard-wax oil, six coats, between-coat sanded); install + punch-list (shipped and installed by the team that built it).</p>
+<section class="section">
+  <div class="section-inner split-grid">
+    <div><span class="eyebrow">Overview</span></div>
+    <div>
+      <h2>For some of the most luxurious estate homes <em>in British Columbia &amp; abroad.</em></h2>
+      <p>Radius is proud to offer services in custom architectural millwork, cabinetry, and furniture to both the British Columbia market and abroad. We primarily complete <strong>millwork and cabinet packages for some of the most luxurious estate homes</strong> — and custom furniture built to suit any decor.</p>
+      <p>The scope can be a single feature wall or the millwork package for a whole house. Indian River, Vancouverhouse, Waterfront, and Lion's Bay were all full-house scopes. Whatever the project, the standard is the same: slip-matched veneer, hand-cut joinery, conversion-varnish finish, in-house install.</p>
+    </div>
+  </div>
+
+  <div class="section-inner">
+    <div class="scope-grid">
+      <div class="scope-card"><span class="num">01</span><h4>Kitchen <em>Cabinetry</em></h4><p>Islands, perimeters, pantries, integrated appliances. Bookmatched runs, integrated handles, concealed hoods.</p></div>
+      <div class="scope-card"><span class="num">02</span><h4>Wall <em>Panelling</em></h4><p>Slip-matched veneer through public rooms. Coffered ceilings, slat walls, full-height feature walls.</p></div>
+      <div class="scope-card"><span class="num">03</span><h4>Master <em>Suites</em></h4><p>Wardrobe walls, ensuites, walk-in closets. Curved slat walls, integrated lighting, custom vanities.</p></div>
+      <div class="scope-card"><span class="num">04</span><h4>Wine <em>Rooms</em></h4><p>Walnut, rift oak, bookmatched anigre. Display racks, pull-out cellars, integrated lighting.</p></div>
+      <div class="scope-card"><span class="num">05</span><h4>Bar <em>+ Pantry</em></h4><p>Gallery wine bars, butler's pantries, coffee stations. Lit display niches, stone counters, pull-out carriages.</p></div>
+      <div class="scope-card"><span class="num">06</span><h4>Stairs <em>+ Foyers</em></h4><p>Tongue-and-groove rift oak stairs, bent-laminated curved foyers, two-storey panelling.</p></div>
+      <div class="scope-card"><span class="num">07</span><h4>Media <em>Rooms</em></h4><p>Built-in media walls, coffered ceilings, integrated TVs, custom doors. Cherry, walnut, mahogany.</p></div>
+      <div class="scope-card"><span class="num">08</span><h4>Doors <em>+ Hardware</em></h4><p>Custom passage and entry doors. Bookmatched flitch faces, raised-panel mahogany, crotch-mahogany inlay.</p></div>
+    </div>
+  </div>
 </section>
 
-<section class="photo-stack">
-  <figure><img loading="lazy" src="../photos/vancouverhouse-bop-penthouse/vancouverhouse-bop-penthouse-living-room-atrium-garden-walnut-slat-ceiling.jpg" alt="Walnut slat ceiling · Vancouverhouse BOP"><figcaption>Walnut slat ceiling · Vancouverhouse BOP</figcaption></figure>
-  <figure><img loading="lazy" src="../photos/indian-river-the-point/indian-river-the-point-kitchen-white-oak-slat-wall-river-rock-fireplace-column.jpg" alt="Slip-matched rift oak · Indian River"><figcaption>Slip-matched rift oak · Indian River</figcaption></figure>
-  <figure><img loading="lazy" src="../photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-gallery-wine-bar-anigre-display-inuit-sculpture.jpg" alt="Gallery wine bar · Waterfront Anigre"><figcaption>Gallery wine bar · Waterfront Anigre</figcaption></figure>
-  <figure><img loading="lazy" src="../photos/whitby-estates-walnut/whitby-estates-walnut-maghsoud-residence-media-room-corner-wide-built-ins-double-doors.jpg" alt="Coffered media room · Maghsoud Residence"><figcaption>Coffered media room · Maghsoud Residence</figcaption></figure>
+<div class="photo-pair">
+  <figure>
+    <img loading="lazy" src="../photos/vancouverhouse-bop-penthouse/vancouverhouse-bop-penthouse-living-room-atrium-garden-walnut-slat-ceiling.jpg" alt="Vancouverhouse BOP Penthouse — walnut slat ceiling over atrium garden">
+  </figure>
+  <figure>
+    <img loading="lazy" src="../photos/indian-river-the-point/indian-river-the-point-kitchen-white-oak-slat-wall-river-rock-fireplace-column.jpg" alt="Indian River The Point — white oak slat wall and river-rock chimney column">
+  </figure>
+</div>
+
+<section class="section warm">
+  <div class="section-inner split-grid">
+    <div><span class="eyebrow">The Process</span></div>
+    <div>
+      <h2>Six phases, <em>one team.</em></h2>
+      <p>Every project moves through the same rigorous, integrated process from drawing review to install. Same hands from start to finish. We measure twice, we test the joint, we don't ship a piece until it's right.</p>
+    </div>
+  </div>
+
+  <div class="section-inner">
+    <div class="phases">
+      <div class="phase-row">
+        <div class="phase-num">01</div>
+        <div class="phase-body">
+          <h4>Design <em>+ Quotation</em></h4>
+          <p>We provide quotations from existing drawings or develop concepts ourselves. <strong>Industry-specific CAD software</strong> with 3D rendering and texture, plus specialized design consultation as the package takes shape.</p>
+        </div>
+      </div>
+      <div class="phase-row">
+        <div class="phase-num">02</div>
+        <div class="phase-body">
+          <h4>Planning <em>+ Engineering</em></h4>
+          <p>Once the design and budget are approved the project moves into engineering. Projects are engineered for building with <strong>CAD shop drawings</strong>, and site conditions are verified. Sub-trade coordination locked in early.</p>
+        </div>
+      </div>
+      <div class="phase-row">
+        <div class="phase-num">03</div>
+        <div class="phase-body">
+          <h4>Production</h4>
+          <p>Journeymen and master joiners work in unison on the production floor. Slip-matched veneers sequenced from the same flitch. Hand-cut dovetails, mortise-and-tenon, bent lamination over custom jigs — joinery engineered into every piece.</p>
+        </div>
+      </div>
+      <div class="phase-row">
+        <div class="phase-num">04</div>
+        <div class="phase-body">
+          <h4>Mock-Up</h4>
+          <p>Unique to the Radius process. A <strong>complete mock-up of the project is created in the shop</strong>, allowing clients to evaluate fit, finish, integration of appliances, and design before the project is finalized for shipping.</p>
+        </div>
+      </div>
+      <div class="phase-row">
+        <div class="phase-num">05</div>
+        <div class="phase-body">
+          <h4>Finishing</h4>
+          <p>Thorough preparation for stain, lacquer, or paint, using the highest-quality tooling and materials. Conversion varnish, six coats, between-coat sanded — all done under our own roof, never sub-contracted out.</p>
+        </div>
+      </div>
+      <div class="phase-row">
+        <div class="phase-num">06</div>
+        <div class="phase-body">
+          <h4>Installation</h4>
+          <p>Projects are shipped and installed by in-house staff. <strong>Quality verification checks are performed</strong> from drawing review through final punch list — every site visit and punch-list item closed by the team that built it.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="feature-photo">
+  <figure>
+    <img loading="lazy" src="../photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-gallery-wine-bar-anigre-display-inuit-sculpture.jpg" alt="Waterfront Anigre Penthouse — gallery wine bar with Inuit sculpture display">
+    <figcaption>Waterfront Anigre Penthouse · Gallery wine bar · Lit anigre display niches · Photography Hempenstall</figcaption>
+  </figure>
+</div>
+
+<section class="section">
+  <div class="section-inner split-grid">
+    <div><span class="eyebrow">See it built</span></div>
+    <div>
+      <h2>Selected work <em>across British Columbia.</em></h2>
+      <p>Eight selected residential estate projects — from a Bjarke Ingels penthouse to a traditional cherry-and-walnut Whitby Estates media room, from slip-matched rift oak on Indian Arm to diamond-bookmatched anigre on the harbor.</p>
+      <a href="../work/" class="cta-btn" style="margin-top: 18px;">View Our Work</a>
+    </div>
+  </div>
 </section>
 
 <section class="cta-band cta-image" style="--cta-bg: url('../projects/cta-vancouverhouse-living-dining.jpg');">
@@ -82,7 +254,7 @@
       <div class="footer-col footer-brand">
         <img src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/brand/radius-logo.png" alt="Radius Architectural Millwork">
         <p>A Master Joiner-led custom millwork shop in Burnaby, BC. Twenty-five years on the same bench.</p>
-        <div class="legal">Since 2002 · Burnaby BC<br>AWMAC Gold 2011 · 5× Best of Houzz<br>Licence BUS05-01768</div>
+        <div class="legal">Since 2000 · Burnaby BC<br>AWMAC Gold 2011 · 5× Best of Houzz<br>Licence BUS05-01768</div>
       </div>
       <div class="footer-col">
         <h4>About</h4>
@@ -95,8 +267,8 @@
       <div class="footer-col">
         <h4>Services</h4>
         <ul>
-          <li><a href="../services/architectural-millwork.html">Architectural Millwork</a></li>
-          <li><a href="../services/3d-renderings.html">3D Renderings</a></li>
+          <li><a href="architectural-millwork.html">Architectural Millwork</a></li>
+          <li><a href="3d-renderings.html">3D Renderings</a></li>
           <li><a href="../work/">Our Work</a></li>
           <li><a href="../blog/">Blog</a></li>
         </ul>
@@ -114,7 +286,7 @@
       <div class="footer-col footer-contact">
         <h4>Contact</h4>
         <div class="row"><span class="label">Phone</span><div class="val"><a href="tel:6044441175">604 444 1175</a></div></div>
-        <div class="row"><span class="label">Email</span><div class="val"><a href="mailto:rick@radiuswood.com">rick@radiuswood.com</a></div></div>
+        <div class="row"><span class="label">Email</span><div class="val"><a href="mailto:info@radiuswood.com">info@radiuswood.com</a></div></div>
         <div class="row"><span class="label">Shop</span><div class="val">Unit 106 – 8575<br>Government St, Burnaby</div></div>
       </div>
     </div>

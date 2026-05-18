@@ -4,13 +4,61 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About · Radius Architectural Millwork · Burnaby BC</title>
-<meta name="description" content="A Master Joiner-led custom millwork shop in Burnaby, BC. Same shop, same bench, same Government Street address since 2002. AWMAC Gold 2011.">
+<meta name="description" content="A dynamic team of cabinetmakers, finishers, and installers providing an elite level of craftsmanship to British Columbia's most exclusive estates. Family-owned. AWMAC BC Gold. Established 2000.">
 <link rel="canonical" href="https://radiuswood.com/about/">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500&family=Roboto:wght@300;400;500&family=Varta:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/site.css">
+<style>
+  .badges-strip {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: clamp(20px, 4vw, 60px);
+    padding: clamp(36px, 4vw, 56px) 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    text-align: center;
+  }
+  .badges-strip .badge .label-mono { display: block; margin-bottom: 8px; font-size: 9.5px; color: var(--stone-lt); }
+  .badges-strip .badge h3 {
+    font-family: var(--fd); font-weight: 300;
+    font-size: clamp(18px, 1.8vw, 22px); letter-spacing: -0.005em;
+  }
+  .badges-strip .badge h3 em { font-family: var(--fs); font-style: italic; font-weight: 400; color: var(--red); }
+  @media (max-width: 720px) {
+    .badges-strip { grid-template-columns: 1fr; gap: 24px; padding: 28px 0; }
+  }
+  .pull-quote {
+    margin: clamp(50px, 7vw, 100px) auto;
+    max-width: 920px;
+    text-align: center;
+    padding: 0 clamp(20px, 4vw, 60px);
+  }
+  .pull-quote blockquote {
+    font-family: var(--fs); font-style: italic; font-weight: 400;
+    font-size: clamp(22px, 3vw, 36px); line-height: 1.35;
+    color: var(--ink); letter-spacing: -0.012em;
+  }
+  .pull-quote cite {
+    display: block;
+    font-family: var(--f); font-style: normal; font-weight: 400;
+    font-size: 11px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--stone);
+    margin-top: 26px;
+  }
+  .feature-photo {
+    max-width: 1240px; margin: 0 auto;
+    padding: clamp(60px, 7vw, 100px) clamp(28px, 6vw, 80px);
+  }
+  .feature-photo figure { overflow: hidden; aspect-ratio: 16/9; }
+  .feature-photo figure img { width: 100%; height: 100%; object-fit: cover; }
+  .feature-photo figcaption {
+    padding-top: 14px;
+    font-family: var(--f); font-weight: 400;
+    font-size: 10px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--stone);
+  }
+</style>
 </head>
 <body>
 
@@ -20,11 +68,11 @@
   </a>
   <div class="links">
     <div class="nav-item">
-      <a href="../about/">About <span class="caret">▾</span></a>
+      <a href="./">About <span class="caret">▾</span></a>
       <div class="dropdown">
-        <a href="../about/company.html">Company</a>
-        <a href="../about/our-vision.html">Our Vision</a>
-        <a href="../about/partners.html">Partners</a>
+        <a href="company.html">Company</a>
+        <a href="our-vision.html">Our Vision</a>
+        <a href="partners.html">Partners</a>
       </div>
     </div>
     <div class="nav-item">
@@ -42,30 +90,85 @@
 </nav>
 
 <section class="hero-banner">
-  <img src="../photos/vancouverhouse-bop-penthouse/vancouverhouse-bop-penthouse-living-room-atrium-garden-walnut-slat-ceiling.jpg" alt="About · Radius Architectural Millwork · Burnaby BC — hero">
+  <img src="../photos/vancouverhouse-bop-penthouse/vancouverhouse-bop-penthouse-living-room-atrium-garden-walnut-slat-ceiling.jpg" alt="About Radius — interior with walnut slat ceiling and atrium garden">
   <div class="breadcrumb">
-      <a href="../">Home</a>
-      <span class="sep">/</span>
-      <span>About</span>
+    <a href="../">Home</a><span class="sep">/</span><span>About</span>
   </div>
   <div class="overlay">
     <span class="eyebrow">About</span>
-    <h1>Twenty-five years on the <em>same bench.</em></h1>
+    <h1>A dynamic team of cabinetmakers, <em>finishers, and installers.</em></h1>
   </div>
 </section>
 
-<section class="page-copy">
-  <span class="eyebrow">The Shop</span>
-  <h2>A Master Joiner-led custom millwork shop in Burnaby.</h2>
-  <p>Founded by <strong>Rick Wilson</strong> in 2002 — BCIT-trained Master Joiner with a decade at Wilms before he opened the bench on Government Street. Today the floor runs twenty craftspeople: cabinetmakers, finishers, installers, all employees, all in-house. AWMAC BC Gold in 2011 with Lamoureux Architects. Five consecutive years of Best of Houzz. Selected by Shift Interiors. Featured inside the Bjarke Ingels Vancouver House. <strong>Same shop, same bench, same address since the day we opened.</strong></p>
+<section class="section">
+  <div class="section-inner split-grid">
+    <div><span class="eyebrow">Who We Are</span></div>
+    <div>
+      <h2>An elite level of craftsmanship, <em>continuously evolving.</em></h2>
+      <p>Radius Architectural Millwork Ltd. is a dynamic team of cabinetmakers, finishers, and installers providing an elite level of craftsmanship and service to British Columbia's most exclusive estates. <strong>The attention to detail we put into every project is uncommon</strong> — even within the luxury millwork marketplace.</p>
+      <p>Every project goes through a rigorous planning process before production begins, ensuring seamless integration with sub-trades. Traditional and contemporary joinery is engineered into all fabrication — custom mouldings, profiles, doors, casework. A wide variety of furniture-grade finishes through our in-house finishing department, from antique country cottage to high-gloss contemporary.</p>
+      <p>With access to an exceptional supply chain of custom suppliers, we obtain the range of materials needed to accurately translate any design intent. <strong>We pride ourselves on creating unique finishes that distinguish our work from the competition.</strong></p>
+    </div>
+  </div>
+
+  <div class="section-inner badges-strip">
+    <div class="badge">
+      <span class="label-mono">Owner-Operated</span>
+      <h3>Family <em>Owned</em></h3>
+    </div>
+    <div class="badge">
+      <span class="label-mono">Industry Recognition</span>
+      <h3>AWMAC BC <em>Gold</em></h3>
+    </div>
+    <div class="badge">
+      <span class="label-mono">Established</span>
+      <h3>Since <em>2000</em></h3>
+    </div>
+  </div>
 </section>
 
-<section class="photo-stack">
-  <figure><img loading="lazy" src="../photos/indian-arm-study/indian-arm-woodlands-study-living-room-wide-stone-wall.jpg" alt="Indian Arm Study · cedar + stone"><figcaption>Indian Arm Study · cedar + stone</figcaption></figure>
-  <figure><img loading="lazy" src="../photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-diamond-bookmatched-ceiling-up-view-fireplace-anigre-pantry.jpg" alt="Waterfront Anigre · diamond bookmatched ceiling"><figcaption>Waterfront Anigre · diamond bookmatched ceiling</figcaption></figure>
-  <figure><img loading="lazy" src="../photos/indian-river-the-point/indian-river-the-point-living-room-gable-end-harbor-view-bocci-pendants-media-wall.jpg" alt="Indian River · The Point · gable-end living"><figcaption>Indian River · The Point · gable-end living</figcaption></figure>
-  <figure><img loading="lazy" src="../photos/contemporary-walnut-estate/contemporary-walnut-estate-wine-cellar-walnut-rack-perspective.jpg" alt="Contemporary Walnut Estate · wine cellar"><figcaption>Contemporary Walnut Estate · wine cellar</figcaption></figure>
+<div class="feature-photo">
+  <figure>
+    <img loading="lazy" src="../photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-living-dining-diamond-ceiling-wide-fireplace-wine-bar-dusk.jpg" alt="Waterfront Anigre Penthouse — living-dining at dusk with diamond-bookmatched ceiling">
+    <figcaption>Waterfront Anigre Penthouse · Diamond-bookmatched ceiling · Photography Hempenstall</figcaption>
+  </figure>
+</div>
+
+<section class="section warm">
+  <div class="section-inner split-grid">
+    <div><span class="eyebrow">Three Doors</span></div>
+    <div>
+      <h2>The story, the standards, <em>and the studios we build with.</em></h2>
+      <p>Below — three ways into the shop. The story behind the company, the values and standards we hold the work to, and the architects and designers we collaborate with.</p>
+    </div>
+  </div>
+
+  <div class="section-inner cards-grid">
+    <a href="company.html" class="card-link">
+      <div class="num">01</div>
+      <h3>The <em>Company</em></h3>
+      <p>How Radius started, who runs it today, and what we build. Rick Wilson's letter, established 2000 on Government Street, AWMAC Gold in 2011, twenty-five years on the same bench.</p>
+      <div class="arrow">Read more</div>
+    </a>
+    <a href="our-vision.html" class="card-link">
+      <div class="num">02</div>
+      <h3>Our <em>Vision</em></h3>
+      <p>To create an emotional experience and unique environments within the home — through physical form and texture in wood. Quality unsurpassed and continuously evolving.</p>
+      <div class="arrow">Read more</div>
+    </a>
+    <a href="partners.html" class="card-link">
+      <div class="num">03</div>
+      <h3>Our <em>Partners</em></h3>
+      <p>Selected architects, designers, and photographers we collaborate with. Plus our authorized Merit Kitchens dealership — value-based cabinetry alongside our luxury custom work.</p>
+      <div class="arrow">Read more</div>
+    </a>
+  </div>
 </section>
+
+<div class="pull-quote">
+  <blockquote>"To create an emotional experience and unique environments within the home — through physical form and texture in wood."</blockquote>
+  <cite>Rick Wilson · President &amp; Founder</cite>
+</div>
 
 <section class="cta-band cta-image" style="--cta-bg: url('../projects/cta-vancouverhouse-living-dining.jpg');">
   <span class="eyebrow">Get in touch</span>
@@ -80,14 +183,14 @@
       <div class="footer-col footer-brand">
         <img src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/brand/radius-logo.png" alt="Radius Architectural Millwork">
         <p>A Master Joiner-led custom millwork shop in Burnaby, BC. Twenty-five years on the same bench.</p>
-        <div class="legal">Since 2002 · Burnaby BC<br>AWMAC Gold 2011 · 5× Best of Houzz<br>Licence BUS05-01768</div>
+        <div class="legal">Since 2000 · Burnaby BC<br>AWMAC Gold 2011 · 5× Best of Houzz<br>Licence BUS05-01768</div>
       </div>
       <div class="footer-col">
         <h4>About</h4>
         <ul>
-          <li><a href="../about/company.html">Company</a></li>
-          <li><a href="../about/our-vision.html">Our Vision</a></li>
-          <li><a href="../about/partners.html">Partners</a></li>
+          <li><a href="company.html">Company</a></li>
+          <li><a href="our-vision.html">Our Vision</a></li>
+          <li><a href="partners.html">Partners</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -112,7 +215,7 @@
       <div class="footer-col footer-contact">
         <h4>Contact</h4>
         <div class="row"><span class="label">Phone</span><div class="val"><a href="tel:6044441175">604 444 1175</a></div></div>
-        <div class="row"><span class="label">Email</span><div class="val"><a href="mailto:rick@radiuswood.com">rick@radiuswood.com</a></div></div>
+        <div class="row"><span class="label">Email</span><div class="val"><a href="mailto:info@radiuswood.com">info@radiuswood.com</a></div></div>
         <div class="row"><span class="label">Shop</span><div class="val">Unit 106 – 8575<br>Government St, Burnaby</div></div>
       </div>
     </div>

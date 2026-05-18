@@ -4,13 +4,107 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Partners · About · Radius Architectural Millwork</title>
-<meta name="description" content="Selected architects, designers, and photographers we collaborate with. Lamoureux Architects, Shift Interiors, inside the Bjarke Ingels Vancouver House. Photography by Andrew Latreille, Kent Leckie, Hempenstall, Conrad Brown.">
+<meta name="description" content="Selected architects, designers, and photographers we work with. Authorized Merit Kitchens dealer. AWMAC BC Gold winner. Five-year Best of Houzz.">
 <link rel="canonical" href="https://radiuswood.com/about/partners/">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500&family=Roboto:wght@300;400;500&family=Varta:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/site.css">
+<style>
+  .partner-block { margin-top: clamp(40px, 5vw, 64px); }
+  .partner-block + .partner-block { margin-top: clamp(56px, 6vw, 90px); }
+  .partner-block .head {
+    display: grid; grid-template-columns: 220px 1fr;
+    gap: clamp(20px, 4vw, 60px);
+    align-items: baseline;
+    margin-bottom: 18px;
+  }
+  .partner-block h3 {
+    font-family: var(--fd); font-weight: 300;
+    font-size: clamp(22px, 2.4vw, 30px);
+    line-height: 1.1; letter-spacing: -0.012em;
+  }
+  .partner-block h3 em { font-family: var(--fs); font-style: italic; font-weight: 400; color: var(--red); }
+  .partner-list { list-style: none; padding: 0; border-top: 1px solid var(--rule); }
+  .partner-list li {
+    padding: 22px 0;
+    border-bottom: 1px solid var(--rule);
+    display: grid; grid-template-columns: 1fr 2fr;
+    gap: clamp(20px, 4vw, 60px);
+    align-items: baseline;
+  }
+  .partner-list li .name {
+    font-family: var(--fs); font-style: italic; font-weight: 400;
+    font-size: clamp(20px, 2vw, 26px); line-height: 1.25;
+    color: var(--ink);
+  }
+  .partner-list li .note {
+    font-weight: 300; font-size: 13.5px; line-height: 1.85;
+    color: var(--body);
+  }
+  .partner-list li .note strong { color: var(--ink); font-weight: 500; }
+  @media (max-width: 760px) {
+    .partner-block .head { grid-template-columns: 1fr; gap: 4px; }
+    .partner-list li { grid-template-columns: 1fr; gap: 6px; padding: 16px 0; }
+  }
+  .feature-photo {
+    max-width: 1240px; margin: 0 auto;
+    padding: clamp(60px, 7vw, 100px) clamp(28px, 6vw, 80px);
+  }
+  .feature-photo figure { overflow: hidden; aspect-ratio: 16/9; }
+  .feature-photo figure img { width: 100%; height: 100%; object-fit: cover; }
+  .feature-photo figcaption {
+    padding-top: 14px;
+    font-family: var(--f); font-weight: 400;
+    font-size: 10px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--stone);
+  }
+  .merit-callout {
+    background: var(--ink); color: var(--cream);
+    padding: clamp(80px, 10vw, 140px) clamp(28px, 6vw, 80px);
+    position: relative; overflow: hidden;
+  }
+  .merit-callout::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(246, 244, 240, 0.06) 1px, transparent 1.4px);
+    background-size: 28px 28px;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse at center, black 50%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 50%, transparent 100%);
+  }
+  .merit-inner {
+    max-width: 1100px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 6vw, 80px);
+    position: relative; z-index: 1;
+    align-items: center;
+  }
+  .merit-inner .eyebrow { color: var(--cream); display: block; margin-bottom: 18px; }
+  .merit-inner h2 {
+    font-weight: 200;
+    font-size: clamp(26px, 3.4vw, 40px);
+    line-height: 1.1; letter-spacing: -0.018em;
+    color: var(--cream);
+  }
+  .merit-inner h2 em { font-style: italic; font-weight: 200; color: var(--cream); }
+  .merit-inner p {
+    font-weight: 300; font-size: clamp(14px, 1.1vw, 15.5px);
+    line-height: 1.95; color: rgba(246, 244, 240, 0.78);
+    margin-bottom: 20px;
+  }
+  .merit-inner .ext-link {
+    font-family: var(--f); font-weight: 400;
+    font-size: 11px; letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: var(--cream);
+    border-bottom: 1px solid rgba(246, 244, 240, 0.35);
+    padding-bottom: 3px;
+  }
+  .merit-inner .ext-link:hover { border-color: var(--cream); }
+  @media (max-width: 760px) {
+    .merit-inner { grid-template-columns: 1fr; gap: 30px; }
+  }
+</style>
 </head>
 <body>
 
@@ -20,11 +114,11 @@
   </a>
   <div class="links">
     <div class="nav-item">
-      <a href="../about/">About <span class="caret">▾</span></a>
+      <a href="./">About <span class="caret">▾</span></a>
       <div class="dropdown">
-        <a href="../about/company.html">Company</a>
-        <a href="../about/our-vision.html">Our Vision</a>
-        <a href="../about/partners.html">Partners</a>
+        <a href="company.html">Company</a>
+        <a href="our-vision.html">Our Vision</a>
+        <a href="partners.html">Partners</a>
       </div>
     </div>
     <div class="nav-item">
@@ -42,31 +136,111 @@
 </nav>
 
 <section class="hero-banner">
-  <img src="../photos/indian-river-the-point/indian-river-the-point-living-room-gable-end-harbor-view-bocci-pendants-media-wall.jpg" alt="Partners · About · Radius Architectural Millwork — hero">
+  <img src="../photos/indian-river-the-point/indian-river-the-point-living-room-gable-end-harbor-view-bocci-pendants-media-wall.jpg" alt="Partners — Indian River The Point gable-end living room">
   <div class="breadcrumb">
-      <a href="../">Home</a>
-      <span class="sep">/</span>
-      <a href="./">About</a>
-      <span class="sep">/</span>
-      <span>Partners</span>
+    <a href="../">Home</a><span class="sep">/</span><a href="./">About</a><span class="sep">/</span><span>Partners</span>
   </div>
   <div class="overlay">
     <span class="eyebrow">About · Partners</span>
-    <h1>Architects, designers, <em>photographers.</em></h1>
+    <h1>Architects, designers, <em>photographers, dealers.</em></h1>
   </div>
 </section>
 
-<section class="page-copy">
-  <span class="eyebrow">How we work</span>
-  <h2>From the architect's drawing set <em>to the punch-list.</em></h2>
-  <p>Most projects come in through architects and interior designers we've worked with before. We slot in at the drawing-review stage — early enough to flag dimensional issues in the millwork run, late enough that the design intent is locked. Selected collaborations include <strong>Lamoureux Architects</strong> (AWMAC BC Gold 2011 — Rosebery Estate), <strong>Shift Interiors</strong> (Indian River — The Point), and a penthouse inside <strong>Bjarke Ingels Group's Vancouver House</strong>. Photography across the portfolio by <strong>Andrew Latreille</strong> (LAP), <strong>Kent Leckie</strong>, <strong>Hempenstall</strong>, and <strong>Conrad Brown</strong>.</p>
+<section class="section">
+  <div class="section-inner split-grid">
+    <div><span class="eyebrow">How We Collaborate</span></div>
+    <div>
+      <h2>From the drawing set <em>to the punch-list.</em></h2>
+      <p>Most projects come in through architects and designers we have worked with before. We slot in at the drawing-review stage — early enough to flag dimensional issues in the millwork run, late enough that the design intent is locked. From there we develop the shop drawings, mock the critical assemblies, and run the project from bench to install.</p>
+      <p>The list below is selected — not exhaustive. We name the firms whose work we are allowed to credit publicly, and the photographers whose images live across this site.</p>
+    </div>
+  </div>
+
+  <div class="section-inner">
+    <div class="partner-block">
+      <div class="head">
+        <h3>Architects <em>+ Designers</em></h3>
+        <div class="label-mono">Residential collaborations</div>
+      </div>
+      <ul class="partner-list">
+        <li>
+          <div class="name">Lamoureux Architects</div>
+          <div class="note"><strong>Rosebery Estate</strong> — Vancouver West. AWMAC BC Gold 2011 (Best in Quality + Best in Service). Bent-laminated alder rotunda, slip-matched panelling, walnut furniture. $1.5M millwork scope.</div>
+        </li>
+        <li>
+          <div class="name">Shift Interiors</div>
+          <div class="note"><strong>Indian River — The Point</strong> — Indian Arm, North Vancouver. Modernist gable-end residence with slip-matched rift white oak interior, black wenge dining wall, river-rock chimney column, tongue-and-groove stair.</div>
+        </li>
+        <li>
+          <div class="name">Inside Bjarke Ingels Group's Vancouver House</div>
+          <div class="note"><strong>Vancouverhouse BOP Penthouse</strong> — 1480 Howe Street. Full-house millwork inside BIG's twisting Vancouver House tower. Bookmatched walnut slat ceilings, three-storey Bocci pendant stairwell, curved walnut slat wall in the master ensuite.</div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="partner-block">
+      <div class="head">
+        <h3>Photographers <em>we work with</em></h3>
+        <div class="label-mono">Architectural + interior</div>
+      </div>
+      <ul class="partner-list">
+        <li>
+          <div class="name">Andrew Latreille</div>
+          <div class="note">Indian River — The Point. Latreille Architectural Photography (LAP), Vancouver.</div>
+        </li>
+        <li>
+          <div class="name">Kent Leckie</div>
+          <div class="note">Vancouverhouse BOP Penthouse — 2020 commission.</div>
+        </li>
+        <li>
+          <div class="name">Hempenstall</div>
+          <div class="note">Waterfront Anigre Penthouse — diamond-bookmatched anigre ceiling, gallery wine bar.</div>
+        </li>
+        <li>
+          <div class="name">Conrad Brown</div>
+          <div class="note">Selected residential editorial work.</div>
+        </li>
+      </ul>
+    </div>
+
+    <div class="partner-block">
+      <div class="head">
+        <h3>Recognition <em>+ Awards</em></h3>
+        <div class="label-mono">Independent recognition</div>
+      </div>
+      <ul class="partner-list">
+        <li>
+          <div class="name">AWMAC BC</div>
+          <div class="note"><strong>2011 Gold</strong> — Best in Quality + Best in Service. <strong>2027 submission</strong> in progress — Old Gravel Road, Whistler. Forty-three-sheet rift-and-smoked-oak package, currently on the bench.</div>
+        </li>
+        <li>
+          <div class="name">Best of Houzz</div>
+          <div class="note"><strong>Five consecutive years</strong>, 2013–2017. Design + Service categories. 10,000+ saves and influencer status across the platform.</div>
+        </li>
+      </ul>
+    </div>
+  </div>
 </section>
 
-<section class="photo-stack">
-  <figure><img loading="lazy" src="../photos/indian-river-the-point/indian-river-the-point-living-room-gable-end-harbor-view-bocci-pendants-media-wall.jpg" alt="Indian River — The Point · with Shift Interiors"><figcaption>Indian River — The Point · with Shift Interiors</figcaption></figure>
-  <figure><img loading="lazy" src="../photos/vancouverhouse-bop-penthouse/vancouverhouse-bop-penthouse-bocci-stairwell-dusk-exterior-view.jpg" alt="Vancouverhouse BOP · inside BIG's Vancouver House"><figcaption>Vancouverhouse BOP · inside BIG's Vancouver House</figcaption></figure>
-  <figure><img loading="lazy" src="../photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-living-dining-diamond-ceiling-wide-fireplace-wine-bar-dusk.jpg" alt="Waterfront Anigre · Hempenstall photography"><figcaption>Waterfront Anigre · Hempenstall photography</figcaption></figure>
-  <figure><img loading="lazy" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/archive/luxury-41.jpg" alt="Rosebery Estate · with Lamoureux Architects · AWMAC Gold 2011"><figcaption>Rosebery Estate · with Lamoureux Architects · AWMAC Gold 2011</figcaption></figure>
+<div class="feature-photo">
+  <figure>
+    <img loading="lazy" src="../photos/vancouverhouse-bop-penthouse/vancouverhouse-bop-penthouse-bocci-stairwell-dusk-exterior-view.jpg" alt="Vancouverhouse BOP Penthouse — Bocci pendant stairwell at dusk">
+    <figcaption>Vancouverhouse BOP Penthouse · Inside BIG's Vancouver House · Photography Kent Leckie</figcaption>
+  </figure>
+</div>
+
+<section class="merit-callout">
+  <div class="merit-inner">
+    <div>
+      <span class="eyebrow">Authorized Dealer</span>
+      <h2>Radius is your <em>Merit Kitchens</em> dealer.</h2>
+    </div>
+    <div>
+      <p>Radius has broadened the product mix by signing on with <strong>Merit Kitchens</strong> as their newest authorized dealer. Still passionate about the high-end millwork product and service Radius has supplied to the exclusive luxury market — we welcome the additional value that the Merit Kitchen line provides.</p>
+      <p>Whether you're opening room in the budget for the ultimate dream kitchen, or prefer a more value-based approach to your cabinetry needs, we're confident we can serve you completely.</p>
+      <a href="https://www.merit-kitchens.com/" target="_blank" rel="noopener" class="ext-link">Visit Merit Kitchens →</a>
+    </div>
+  </div>
 </section>
 
 <section class="cta-band cta-image" style="--cta-bg: url('../projects/cta-vancouverhouse-living-dining.jpg');">
@@ -82,14 +256,14 @@
       <div class="footer-col footer-brand">
         <img src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/brand/radius-logo.png" alt="Radius Architectural Millwork">
         <p>A Master Joiner-led custom millwork shop in Burnaby, BC. Twenty-five years on the same bench.</p>
-        <div class="legal">Since 2002 · Burnaby BC<br>AWMAC Gold 2011 · 5× Best of Houzz<br>Licence BUS05-01768</div>
+        <div class="legal">Since 2000 · Burnaby BC<br>AWMAC Gold 2011 · 5× Best of Houzz<br>Licence BUS05-01768</div>
       </div>
       <div class="footer-col">
         <h4>About</h4>
         <ul>
-          <li><a href="../about/company.html">Company</a></li>
-          <li><a href="../about/our-vision.html">Our Vision</a></li>
-          <li><a href="../about/partners.html">Partners</a></li>
+          <li><a href="company.html">Company</a></li>
+          <li><a href="our-vision.html">Our Vision</a></li>
+          <li><a href="partners.html">Partners</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -114,7 +288,7 @@
       <div class="footer-col footer-contact">
         <h4>Contact</h4>
         <div class="row"><span class="label">Phone</span><div class="val"><a href="tel:6044441175">604 444 1175</a></div></div>
-        <div class="row"><span class="label">Email</span><div class="val"><a href="mailto:rick@radiuswood.com">rick@radiuswood.com</a></div></div>
+        <div class="row"><span class="label">Email</span><div class="val"><a href="mailto:info@radiuswood.com">info@radiuswood.com</a></div></div>
         <div class="row"><span class="label">Shop</span><div class="val">Unit 106 – 8575<br>Government St, Burnaby</div></div>
       </div>
     </div>

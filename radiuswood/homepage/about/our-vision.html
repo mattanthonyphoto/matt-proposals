@@ -4,13 +4,89 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Vision · About · Radius Architectural Millwork</title>
-<meta name="description" content="Master Joiner-led. Zero CNC. Slip-matched veneer, hand-cut joinery, bent lamination — engineered into every piece. The principles we hold the work to.">
+<meta name="description" content="To create an emotional experience and unique environments within the home through physical form and texture in wood. Quality and sophistication that is unsurpassed and continuously evolving.">
 <link rel="canonical" href="https://radiuswood.com/about/our-vision/">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500&family=Roboto:wght@300;400;500&family=Varta:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/site.css">
+<style>
+  .vision-statement {
+    max-width: 940px; margin: 0 auto;
+    padding: clamp(60px, 9vw, 120px) clamp(28px, 6vw, 80px);
+    text-align: center;
+  }
+  .vision-statement .eyebrow { display: block; margin-bottom: 24px; }
+  .vision-statement blockquote {
+    font-family: var(--fs); font-style: italic; font-weight: 400;
+    font-size: clamp(26px, 3.6vw, 42px); line-height: 1.35;
+    color: var(--ink); letter-spacing: -0.012em;
+  }
+  .vision-statement blockquote em { color: var(--red); }
+  .principles { margin-top: clamp(40px, 5vw, 64px); }
+  .principle-row {
+    display: grid; grid-template-columns: 140px 1fr;
+    gap: clamp(20px, 4vw, 60px);
+    padding: 36px 0;
+    border-top: 1px solid var(--rule);
+    align-items: start;
+  }
+  .principle-row:last-child { border-bottom: 1px solid var(--rule); }
+  .principle-row .num {
+    font-family: var(--fs); font-style: italic; font-weight: 400;
+    font-size: clamp(28px, 3.2vw, 38px); color: var(--gold); line-height: 1;
+  }
+  .principle-row h3 {
+    font-family: var(--fd); font-weight: 300;
+    font-size: clamp(22px, 2.2vw, 28px); line-height: 1.15;
+    margin-bottom: 14px;
+  }
+  .principle-row h3 em { font-family: var(--fs); font-style: italic; font-weight: 400; color: var(--red); }
+  .principle-row p {
+    font-weight: 300; font-size: 14px; line-height: 1.9;
+    color: var(--body); max-width: 720px;
+  }
+  @media (max-width: 600px) {
+    .principle-row { grid-template-columns: 1fr; gap: 10px; padding: 24px 0; }
+  }
+  .feature-photo {
+    max-width: 1240px; margin: 0 auto;
+    padding: clamp(60px, 7vw, 100px) clamp(28px, 6vw, 80px);
+  }
+  .feature-photo figure { overflow: hidden; aspect-ratio: 16/9; }
+  .feature-photo figure img { width: 100%; height: 100%; object-fit: cover; }
+  .feature-photo figcaption {
+    padding-top: 14px;
+    font-family: var(--f); font-weight: 400;
+    font-size: 10px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--stone);
+  }
+  .pull-quote {
+    background: var(--ink); color: var(--cream);
+    padding: clamp(80px, 10vw, 140px) clamp(28px, 6vw, 80px);
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .pull-quote::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(246, 244, 240, 0.06) 1px, transparent 1.4px);
+    background-size: 28px 28px;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse at center, black 50%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 50%, transparent 100%);
+  }
+  .pull-quote-inner { max-width: 1000px; margin: 0 auto; position: relative; z-index: 1; }
+  .pull-quote blockquote {
+    font-family: var(--fs); font-style: italic; font-weight: 400;
+    font-size: clamp(22px, 3vw, 36px); line-height: 1.35;
+    color: var(--cream); margin-bottom: 28px;
+  }
+  .pull-quote cite {
+    font-family: var(--f); font-style: normal; font-weight: 400;
+    font-size: 11px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--cream);
+  }
+</style>
 </head>
 <body>
 
@@ -20,11 +96,11 @@
   </a>
   <div class="links">
     <div class="nav-item">
-      <a href="../about/">About <span class="caret">▾</span></a>
+      <a href="./">About <span class="caret">▾</span></a>
       <div class="dropdown">
-        <a href="../about/company.html">Company</a>
-        <a href="../about/our-vision.html">Our Vision</a>
-        <a href="../about/partners.html">Partners</a>
+        <a href="company.html">Company</a>
+        <a href="our-vision.html">Our Vision</a>
+        <a href="partners.html">Partners</a>
       </div>
     </div>
     <div class="nav-item">
@@ -42,36 +118,106 @@
 </nav>
 
 <section class="hero-banner">
-  <img src="../photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-diamond-bookmatched-ceiling-up-view-fireplace-anigre-pantry.jpg" alt="Our Vision · About · Radius Architectural Millwork — hero">
+  <img src="../photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-diamond-bookmatched-ceiling-up-view-fireplace-anigre-pantry.jpg" alt="Our Vision — diamond-bookmatched anigre ceiling">
   <div class="breadcrumb">
-      <a href="../">Home</a>
-      <span class="sep">/</span>
-      <a href="./">About</a>
-      <span class="sep">/</span>
-      <span>Our Vision</span>
+    <a href="../">Home</a><span class="sep">/</span><a href="./">About</a><span class="sep">/</span><span>Our Vision</span>
   </div>
   <div class="overlay">
     <span class="eyebrow">About · Our Vision</span>
-    <h1>Master Joiner-led. <em>Hand-cut. Slip-matched.</em></h1>
+    <h1>Form and texture <em>in wood.</em></h1>
   </div>
 </section>
 
-<section class="page-copy">
-  <span class="eyebrow">The Vision</span>
-  <h2>Quality and sophistication, <em>continuously evolving.</em></h2>
-  <p>To create an emotional experience and unique environments within the home — through physical form and texture in wood. <strong>Zero CNC, by choice.</strong> All cuts, all joinery, all assembly are bench work. The figure of the wood runs the room: veneer slip-matched and sequenced in the order it came off the log; every door, every panel from the same flitch. Joinery is engineered into the work where the eye won't see it but the hand will — pin-and-tail dovetails, mortise-and-tenon, bent lamination over custom jigs. The standard is the same for every project: <strong>built to last generations, not seasons.</strong></p>
+<div class="vision-statement">
+  <span class="eyebrow">Our Vision</span>
+  <blockquote>To create an emotional experience and unique environments within the home — through <em>physical form and texture in wood.</em> Quality and sophistication unsurpassed, continuously evolving.</blockquote>
+</div>
+
+<section class="section">
+  <div class="section-inner split-grid">
+    <div><span class="eyebrow">In Practice</span></div>
+    <div>
+      <h2>The standards we hold the work to — <em>and the work to itself.</em></h2>
+      <p>Every project starts at the flitch. We slip-match, book-match, and sequence veneer in the order it came off the log — so the figure of the wood runs the room. Bent lamination over custom jigs, pin-and-tail dovetails, mortise-and-tenon — engineered into the work where the eye won't see it but the hand will.</p>
+      <p>Behind every project is a rigorous planning process: dimensional verification, sub-trade coordination, full mock-ups of the critical assemblies before we cut final stock. <strong>We continually research and develop better ways</strong> to surpass our clients' expectations. The pursuit is perfection — always the best-quality hardwoods, sheet goods, hardware, and finishes; always finished by hand under our own roof.</p>
+      <p>The standard is the same for every project: <strong>built to last generations, not seasons.</strong></p>
+    </div>
+  </div>
 </section>
 
-<section class="photo-stack">
-  <figure><img loading="lazy" src="../photos/indian-river-the-point/indian-river-the-point-white-oak-stair-tongue-and-groove.jpg" alt="Tongue-and-groove rift oak stair · Indian River"><figcaption>Tongue-and-groove rift oak stair · Indian River</figcaption></figure>
-  <figure><img loading="lazy" src="../photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-diamond-bookmatched-ceiling-up-view-fireplace-anigre-pantry.jpg" alt="Diamond-bookmatched anigre · Waterfront"><figcaption>Diamond-bookmatched anigre · Waterfront</figcaption></figure>
-  <figure><img loading="lazy" src="../photos/vancouverhouse-bop-penthouse/vancouverhouse-bop-penthouse-master-bath-freestanding-tub-curved-walnut-slat-wall.jpg" alt="Curved walnut slat wall · Vancouverhouse"><figcaption>Curved walnut slat wall · Vancouverhouse</figcaption></figure>
-  <figure><img loading="lazy" src="../photos/whitby-estates-walnut/whitby-estates-walnut-maghsoud-residence-cherry-panel-wall-bookmatched-detail.jpg" alt="Bookmatched cherry detail · Whitby Estates"><figcaption>Bookmatched cherry detail · Whitby Estates</figcaption></figure>
+<div class="feature-photo">
+  <figure>
+    <img loading="lazy" src="../photos/indian-river-the-point/indian-river-the-point-white-oak-stair-tongue-and-groove.jpg" alt="Indian River — The Point — tongue-and-groove rift white oak stair">
+    <figcaption>Indian River — The Point · Tongue-and-groove rift white oak stair · Photography Andrew Latreille</figcaption>
+  </figure>
+</div>
+
+<section class="section warm">
+  <div class="section-inner split-grid">
+    <div><span class="eyebrow">Principles</span></div>
+    <div>
+      <h2>Five rules <em>the bench works by.</em></h2>
+      <div class="principles">
+        <div class="principle-row">
+          <div class="num">01</div>
+          <div>
+            <h3>The figure <em>runs the room.</em></h3>
+            <p>Veneer gets slip-matched and sequenced in the order it came off the log. Every door, every panel, every drawer face from the same flitch. You stop seeing cabinetry and start seeing the tree.</p>
+          </div>
+        </div>
+        <div class="principle-row">
+          <div class="num">02</div>
+          <div>
+            <h3>Joinery <em>engineered in.</em></h3>
+            <p>Pin-and-tail dovetails. Mortise-and-tenon. Bent lamination over custom jigs. The joinery is structural and invisible — built into the work where the eye won't see it, but the hand will.</p>
+          </div>
+        </div>
+        <div class="principle-row">
+          <div class="num">03</div>
+          <div>
+            <h3>Continuous <em>research.</em></h3>
+            <p>We test, measure, and log everything — spring-back coefficients per species and humidity, finish failure modes, hardware tolerances. Every project teaches the shop something the next project benefits from.</p>
+          </div>
+        </div>
+        <div class="principle-row">
+          <div class="num">04</div>
+          <div>
+            <h3>In-house, <em>concept to install.</em></h3>
+            <p>Drafting, mock-up, production, finishing, install, punch-list — all under one roof, all by the same team. No sub-contracted finishing. No sub-contracted install. The hands that build it are the hands that finish it.</p>
+          </div>
+        </div>
+        <div class="principle-row">
+          <div class="num">05</div>
+          <div>
+            <h3>A cut <em>above.</em></h3>
+            <p>Always the best-quality hardwoods, sheet goods, hardware, and finishes. Conversion varnish, six coats, between-coat sanded. We don't compete on price; we compete on the bench.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="pull-quote">
+  <div class="pull-quote-inner">
+    <blockquote>"The curve doesn't always hold the shape. We test, we measure, we log the spring-back per species and humidity. Eventually you have it down to a science."</blockquote>
+    <cite>Rick Wilson · President &amp; Founder</cite>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner split-grid">
+    <div><span class="eyebrow">Comfort</span></div>
+    <div>
+      <h2>What it means <em>to the client.</em></h2>
+      <p>Beyond the bench, the vision is about how a finished room makes a client feel. The fit of a drawer pulling out without resistance. The way a panel catches morning light. The hand on a hand-rail that's been turned and rubbed for hours, not run off a router. <strong>Our aim is to find new ways to provide our clients with a sense of pride and comfort within their home</strong> — and to keep finding them, project after project.</p>
+    </div>
+  </div>
 </section>
 
 <section class="cta-band cta-image" style="--cta-bg: url('../photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-living-dining-diamond-ceiling-wide-fireplace-wine-bar-dusk.jpg');">
   <span class="eyebrow">See the work</span>
-  <h2>The vocabulary in built form. <em>Selected projects.</em></h2>
+  <h2>The vocabulary <em>in built form.</em></h2>
   <p>Selected residential estate work from across British Columbia — slip-matched walnut, diamond-bookmatched anigre, bent-laminated alder, tongue-and-groove rift oak.</p>
   <a href="../work/" class="cta-btn">View Our Work</a>
 </section>
@@ -82,14 +228,14 @@
       <div class="footer-col footer-brand">
         <img src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/brand/radius-logo.png" alt="Radius Architectural Millwork">
         <p>A Master Joiner-led custom millwork shop in Burnaby, BC. Twenty-five years on the same bench.</p>
-        <div class="legal">Since 2002 · Burnaby BC<br>AWMAC Gold 2011 · 5× Best of Houzz<br>Licence BUS05-01768</div>
+        <div class="legal">Since 2000 · Burnaby BC<br>AWMAC Gold 2011 · 5× Best of Houzz<br>Licence BUS05-01768</div>
       </div>
       <div class="footer-col">
         <h4>About</h4>
         <ul>
-          <li><a href="../about/company.html">Company</a></li>
-          <li><a href="../about/our-vision.html">Our Vision</a></li>
-          <li><a href="../about/partners.html">Partners</a></li>
+          <li><a href="company.html">Company</a></li>
+          <li><a href="our-vision.html">Our Vision</a></li>
+          <li><a href="partners.html">Partners</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -114,7 +260,7 @@
       <div class="footer-col footer-contact">
         <h4>Contact</h4>
         <div class="row"><span class="label">Phone</span><div class="val"><a href="tel:6044441175">604 444 1175</a></div></div>
-        <div class="row"><span class="label">Email</span><div class="val"><a href="mailto:rick@radiuswood.com">rick@radiuswood.com</a></div></div>
+        <div class="row"><span class="label">Email</span><div class="val"><a href="mailto:info@radiuswood.com">info@radiuswood.com</a></div></div>
         <div class="row"><span class="label">Shop</span><div class="val">Unit 106 – 8575<br>Government St, Burnaby</div></div>
       </div>
     </div>

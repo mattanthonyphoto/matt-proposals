@@ -4,13 +4,124 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Blog · Radius Architectural Millwork</title>
-<meta name="description" content="Notes from the shop floor. Joinery techniques, material studies, project progress, and the occasional rant about CNC.">
+<meta name="description" content="Field notes from the shop floor. Joinery techniques, material studies, project progress, and the occasional rant about CNC. Launching Spring 2026.">
 <link rel="canonical" href="https://radiuswood.com/blog/">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500&family=Roboto:wght@300;400;500&family=Varta:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/site.css">
+<style>
+  .blog-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: clamp(24px, 3vw, 40px);
+    margin-top: clamp(40px, 5vw, 64px);
+  }
+  .blog-card {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    display: flex; flex-direction: column;
+    transition: border-color .35s var(--ease);
+  }
+  .blog-card:hover { border-color: var(--rule-strong); }
+  .blog-card .meta {
+    padding: 22px 26px 0;
+    font-family: var(--f); font-weight: 400;
+    font-size: 10px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--stone);
+    display: flex; gap: 14px; align-items: center;
+  }
+  .blog-card .meta .sep { opacity: 0.4; }
+  .blog-card .meta .topic { color: var(--red); }
+  .blog-card h3 {
+    padding: 16px 26px 14px;
+    font-family: var(--fd); font-weight: 300;
+    font-size: clamp(20px, 1.8vw, 24px);
+    line-height: 1.15;
+  }
+  .blog-card h3 em { font-family: var(--fs); font-style: italic; font-weight: 400; color: var(--red); }
+  .blog-card p {
+    padding: 0 26px 22px;
+    font-weight: 300; font-size: 13.5px; line-height: 1.75;
+    color: var(--body);
+  }
+  .blog-card .read-more {
+    padding: 18px 26px;
+    border-top: 1px solid var(--rule);
+    font-family: var(--f); font-weight: 400;
+    font-size: 10.5px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--red);
+    margin-top: auto;
+    display: inline-flex; align-items: center; gap: 12px;
+  }
+  .blog-card .read-more::before {
+    content: ''; display: inline-block;
+    width: 22px; height: 1px; background: var(--red);
+    transition: width .4s var(--ease);
+  }
+  .blog-card:hover .read-more::before { width: 36px; }
+
+  .featured-post {
+    display: grid; grid-template-columns: 1.2fr 1fr;
+    gap: clamp(28px, 4vw, 60px);
+    margin-top: clamp(40px, 5vw, 64px);
+    align-items: stretch;
+  }
+  .featured-post .img-wrap {
+    overflow: hidden; aspect-ratio: 16/10; background: var(--cream);
+  }
+  .featured-post .img-wrap img { width: 100%; height: 100%; object-fit: cover; }
+  .featured-post .info { display: flex; flex-direction: column; justify-content: center; }
+  .featured-post .info .meta {
+    font-family: var(--f); font-weight: 400;
+    font-size: 10px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--red);
+    margin-bottom: 14px;
+  }
+  .featured-post .info h2 {
+    font-weight: 200;
+    font-size: clamp(26px, 3.4vw, 42px); line-height: 1.1;
+    margin-bottom: 18px;
+  }
+  .featured-post .info h2 em { font-style: italic; font-weight: 200; }
+  .featured-post .info p {
+    font-weight: 300; font-size: clamp(13.5px, 1.05vw, 15.5px);
+    line-height: 1.9; color: var(--body); margin-bottom: 22px;
+  }
+  .featured-post .info .label-mono { color: var(--stone-lt); }
+  @media (max-width: 900px) { .featured-post { grid-template-columns: 1fr; } }
+
+  .placeholder {
+    margin-top: clamp(56px, 7vw, 100px);
+    padding: clamp(56px, 6vw, 90px);
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    text-align: center;
+    position: relative;
+  }
+  .placeholder::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent 0,
+      transparent 22px,
+      rgba(58, 47, 30, 0.04) 22px,
+      rgba(58, 47, 30, 0.04) 23px
+    );
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse at center, black 50%, transparent 95%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 50%, transparent 95%);
+  }
+  .placeholder > * { position: relative; z-index: 1; }
+  .placeholder h3 {
+    font-family: var(--fd); font-weight: 300;
+    font-size: clamp(22px, 2.4vw, 30px); margin-bottom: 14px;
+  }
+  .placeholder h3 em { font-family: var(--fs); font-style: italic; font-weight: 400; color: var(--red); }
+  .placeholder p {
+    font-weight: 300; font-size: 14px; line-height: 1.85;
+    color: var(--body); max-width: 540px; margin: 0 auto 24px;
+  }
+</style>
 </head>
 <body>
 
@@ -35,18 +146,16 @@
       </div>
     </div>
     <a href="../work/">Our Work</a>
-    <a href="../blog/">Blog</a>
+    <a href="./">Blog</a>
     <a href="../contact.html">Contact</a>
     <a href="../contact.html" class="cta">Get In Touch</a>
   </div>
 </nav>
 
 <section class="hero-banner">
-  <img src="../photos/indian-arm-study/indian-arm-woodlands-study-cedar-bookcase-pink-chair-sailboat.jpg" alt="Blog · Radius Architectural Millwork — hero">
+  <img src="../photos/indian-arm-study/indian-arm-woodlands-study-cedar-bookcase-pink-chair-sailboat.jpg" alt="Blog — cedar-lined writer's cabin with bookcase">
   <div class="breadcrumb">
-      <a href="../">Home</a>
-      <span class="sep">/</span>
-      <span>Blog</span>
+    <a href="../">Home</a><span class="sep">/</span><span>Blog</span>
   </div>
   <div class="overlay">
     <span class="eyebrow">Blog</span>
@@ -54,24 +163,93 @@
   </div>
 </section>
 
-<section class="page-copy">
-  <span class="eyebrow">What we write</span>
-  <h2>Joinery, material, process. <em>Notes from the bench.</em></h2>
-  <p>Field notes from the shop — written when we have something to say, not on a content calendar. Coming pieces include <strong>slip-matching at room scale</strong> (the logistics behind making a flitch run the room), <strong>the spring-back log book</strong> (twelve layers of veneer, custom jigs, and a humidity-keyed spreadsheet that took fifteen years to build), <strong>why anigre</strong> (a West African hardwood flitch-sourcing story), the <strong>AWMAC 2027 submission</strong> (Old Gravel Road, in progress on the bench), and <strong>why we still don't run a CNC</strong> (not nostalgia — a specific choice about details a machine can't make). Blog launches Spring 2026.</p>
+<section class="section">
+  <div class="section-inner split-grid">
+    <div><span class="eyebrow">What We Write</span></div>
+    <div>
+      <h2>Joinery, material, process. <em>Notes from the bench.</em></h2>
+      <p>Field notes from the shop — written when we have something to say, not on a content calendar. The plan is for one or two pieces a month: <strong>a joinery deep-dive, a material study, the AWMAC 2027 submission progress, or whatever else the bench is wrestling with that month.</strong> Less marketing, more shop talk.</p>
+      <p>Editorial direction: how the work gets made, why we make choices the way we do, and what we learn from the projects on the floor. Written for architects, designers, builders, and the homeowners who care about how a flitch gets sequenced.</p>
+    </div>
+  </div>
+
+  <div class="section-inner">
+    <div class="featured-post">
+      <div class="img-wrap">
+        <img loading="lazy" src="../photos/contemporary-walnut-estate/contemporary-walnut-estate-wine-cellar-walnut-rack-perspective.jpg" alt="Walnut wine cellar with vertical-rod racking">
+      </div>
+      <div class="info">
+        <div class="meta">Featured · Coming First</div>
+        <h2>Slip-matching <em>at room scale.</em></h2>
+        <p>The logistics problem behind making a flitch run the room. Why the figure has to land where the eye lands — at the door breaks, at the appliance returns, at the line where a wall plane turns into a ceiling soffit. How we sequence panels in shop order before the press, and how every modification request post-glue-up gets weighed against losing the run.</p>
+        <div class="label-mono">Joinery · ~12-min read · Launching with the blog</div>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="photo-stack">
-  <figure><img loading="lazy" src="../photos/whitby-estates-walnut/whitby-estates-walnut-maghsoud-residence-mantel-carved-corbel-close-up.jpg" alt="Hand-carved corbel · cherry"><figcaption>Hand-carved corbel · cherry</figcaption></figure>
-  <figure><img loading="lazy" src="../photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-stair-anigre-shelving-wall-led-step-lights-travertine-treads.jpg" alt="Anigre stair with LED-lit treads"><figcaption>Anigre stair with LED-lit treads</figcaption></figure>
-  <figure><img loading="lazy" src="../photos/contemporary-walnut-estate/contemporary-walnut-estate-wine-cellar-walnut-racks-detail.jpg" alt="Vertical-rod walnut wine racking detail"><figcaption>Vertical-rod walnut wine racking detail</figcaption></figure>
-  <figure><img loading="lazy" src="../photos/indian-river-the-point/indian-river-the-point-master-ensuite-rift-oak-vanity-freestanding-tub-green-tile.jpg" alt="Rift oak vanity · Indian River ensuite"><figcaption>Rift oak vanity · Indian River ensuite</figcaption></figure>
+<section class="section warm">
+  <div class="section-inner split-grid">
+    <div><span class="eyebrow">Coming Soon</span></div>
+    <div>
+      <h2>The first six pieces <em>on the bench.</em></h2>
+      <p>Six pieces we're researching, writing, and shooting now. Each one is grounded in a specific project we've shipped or a technique we use daily. The blog launches with these and adds new pieces as we have something worth saying.</p>
+    </div>
+  </div>
+
+  <div class="section-inner">
+    <div class="blog-grid">
+      <article class="blog-card">
+        <div class="meta"><span class="topic">Joinery</span><span class="sep">·</span><span>Coming first</span></div>
+        <h3>Slip-matching at <em>room scale.</em></h3>
+        <p>The logistics problem behind making a flitch run the room. Why the figure has to land at the door breaks, and how we sequence panels in shop order before the press.</p>
+        <div class="read-more">Read</div>
+      </article>
+      <article class="blog-card">
+        <div class="meta"><span class="topic">Bent Lamination</span><span class="sep">·</span><span>In progress</span></div>
+        <h3>The spring-back <em>log book.</em></h3>
+        <p>Twelve layers of veneer, custom jigs, and a humidity-keyed spreadsheet that took fifteen years to build. How we get bent radii to hold their shape.</p>
+        <div class="read-more">Read</div>
+      </article>
+      <article class="blog-card">
+        <div class="meta"><span class="topic">Material</span><span class="sep">·</span><span>Drafted</span></div>
+        <h3>Why <em>anigre.</em></h3>
+        <p>The West African hardwood behind the diamond ceiling. Open-grain, satin figure, holds raking light better than walnut at certain hours. A flitch-sourcing story.</p>
+        <div class="read-more">Read</div>
+      </article>
+      <article class="blog-card">
+        <div class="meta"><span class="topic">From the Bench</span><span class="sep">·</span><span>In progress</span></div>
+        <h3>AWMAC 2027 — <em>Old Gravel Road.</em></h3>
+        <p>Forty-three-sheet rift-and-smoked-oak package, currently on the bench. Notes as we work through the submission set — drawing review, mock-ups, finish samples.</p>
+        <div class="read-more">Read</div>
+      </article>
+      <article class="blog-card">
+        <div class="meta"><span class="topic">The Shop</span><span class="sep">·</span><span>Drafted</span></div>
+        <h3>Twenty-five years <em>on the same bench.</em></h3>
+        <p>Rick's BCIT-through-Wilms-through-Government-Street story. What stays the same when the shop floor evolves around you.</p>
+        <div class="read-more">Read</div>
+      </article>
+      <article class="blog-card">
+        <div class="meta"><span class="topic">Process</span><span class="sep">·</span><span>In progress</span></div>
+        <h3>Why we still <em>don't run a CNC.</em></h3>
+        <p>Not nostalgia. A specific choice about which details a machine can't make and still hold up under raking light. The case for bench-built joinery.</p>
+        <div class="read-more">Read</div>
+      </article>
+    </div>
+
+    <div class="placeholder">
+      <h3>Blog launches <em>Spring 2026.</em></h3>
+      <p>The above are the first six pieces we're working on. If you'd like a note when they go live, drop us a line.</p>
+      <a href="../contact.html" class="cta-btn">Notify Me</a>
+    </div>
+  </div>
 </section>
 
-<section class="cta-band cta-image" style="--cta-bg: url('../photos/indian-arm-study/indian-arm-woodlands-study-cedar-bookcase-pink-chair-sailboat.jpg');">
-  <span class="eyebrow">Notify me</span>
-  <h2>Want a note when the blog goes live? <em>Drop us a line.</em></h2>
-  <p>Blog launches Spring 2026. Send us an email and we'll put you on the list — joinery deep-dives, material studies, AWMAC submission notes as we go.</p>
-  <a href="../contact.html" class="cta-btn">Notify Me</a>
+<section class="cta-band cta-image" style="--cta-bg: url('../photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-living-dining-diamond-ceiling-wide-fireplace-wine-bar-dusk.jpg');">
+  <span class="eyebrow">In the meantime</span>
+  <h2>Want to see the work? <em>Visit our Selected Work.</em></h2>
+  <p>Eight residential estate projects from across British Columbia. The vocabulary in built form — slip-matched walnut, diamond-bookmatched anigre, bent-laminated alder.</p>
+  <a href="../work/" class="cta-btn">View Our Work</a>
 </section>
 
 <footer class="site">
@@ -80,7 +258,7 @@
       <div class="footer-col footer-brand">
         <img src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/brand/radius-logo.png" alt="Radius Architectural Millwork">
         <p>A Master Joiner-led custom millwork shop in Burnaby, BC. Twenty-five years on the same bench.</p>
-        <div class="legal">Since 2002 · Burnaby BC<br>AWMAC Gold 2011 · 5× Best of Houzz<br>Licence BUS05-01768</div>
+        <div class="legal">Since 2000 · Burnaby BC<br>AWMAC Gold 2011 · 5× Best of Houzz<br>Licence BUS05-01768</div>
       </div>
       <div class="footer-col">
         <h4>About</h4>
@@ -96,7 +274,7 @@
           <li><a href="../services/architectural-millwork.html">Architectural Millwork</a></li>
           <li><a href="../services/3d-renderings.html">3D Renderings</a></li>
           <li><a href="../work/">Our Work</a></li>
-          <li><a href="../blog/">Blog</a></li>
+          <li><a href="./">Blog</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -112,7 +290,7 @@
       <div class="footer-col footer-contact">
         <h4>Contact</h4>
         <div class="row"><span class="label">Phone</span><div class="val"><a href="tel:6044441175">604 444 1175</a></div></div>
-        <div class="row"><span class="label">Email</span><div class="val"><a href="mailto:rick@radiuswood.com">rick@radiuswood.com</a></div></div>
+        <div class="row"><span class="label">Email</span><div class="val"><a href="mailto:info@radiuswood.com">info@radiuswood.com</a></div></div>
         <div class="row"><span class="label">Shop</span><div class="val">Unit 106 – 8575<br>Government St, Burnaby</div></div>
       </div>
     </div>

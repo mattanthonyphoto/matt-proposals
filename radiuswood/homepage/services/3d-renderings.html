@@ -4,13 +4,86 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>3D Renderings · Services · Radius Architectural Millwork</title>
-<meta name="description" content="Industry-specific CAD renderings with texture. Full mock-ups of every project before we cut. See your project in real proportions and avoid costly errors on the floor.">
+<meta name="description" content="Industry-specific CAD renderings with texture for residential, commercial, interior, and exterior projects. Precisely scaled, real-life digital depictions — avoid delays and minimize costly errors before production.">
 <link rel="canonical" href="https://radiuswood.com/services/3d-renderings/">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500&family=Roboto:wght@300;400;500&family=Varta:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/site.css">
+<style>
+  .render-cats {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: clamp(18px, 2vw, 28px);
+    margin-top: clamp(40px, 5vw, 64px);
+  }
+  .render-card {
+    padding: 32px 28px;
+    border: 1px solid var(--rule);
+    background: var(--cream);
+  }
+  .render-card .num {
+    font-family: var(--fs); font-style: italic;
+    font-size: 14px; color: var(--gold);
+    margin-bottom: 8px; display: block;
+  }
+  .render-card h3 {
+    font-family: var(--fd); font-weight: 300;
+    font-size: clamp(20px, 2vw, 24px); line-height: 1.15;
+    margin-bottom: 12px;
+  }
+  .render-card h3 em { font-family: var(--fs); font-style: italic; font-weight: 400; color: var(--red); }
+  .render-card p {
+    font-weight: 300; font-size: 13px; line-height: 1.8;
+    color: var(--body);
+  }
+  .compare {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: clamp(28px, 5vw, 80px);
+    margin-top: clamp(40px, 5vw, 64px);
+  }
+  .compare-col {
+    padding: 32px 0;
+    border-top: 2px solid var(--rule);
+  }
+  .compare-col h4 {
+    font-family: var(--fd); font-weight: 300;
+    font-size: clamp(20px, 2vw, 26px); margin-bottom: 14px;
+  }
+  .compare-col h4 em { font-family: var(--fs); font-style: italic; color: var(--red); }
+  .compare-col p {
+    font-weight: 300; font-size: 14px; line-height: 1.9;
+    color: var(--body);
+  }
+  @media (max-width: 700px) { .compare { grid-template-columns: 1fr; gap: 28px; } }
+
+  .benefits-list { list-style: none; padding: 0; margin-top: 18px; }
+  .benefits-list li {
+    padding: 14px 0;
+    border-bottom: 1px solid var(--rule);
+    font-weight: 300; font-size: 14px; line-height: 1.7;
+    color: var(--body);
+    display: flex; align-items: baseline; gap: 16px;
+  }
+  .benefits-list li::before {
+    content: ''; display: inline-block;
+    width: 14px; height: 1px; background: var(--red);
+    flex-shrink: 0; margin-top: 9px;
+  }
+  .benefits-list li strong { color: var(--ink); font-weight: 500; }
+
+  .feature-photo {
+    max-width: 1240px; margin: 0 auto;
+    padding: clamp(60px, 7vw, 100px) clamp(28px, 6vw, 80px);
+  }
+  .feature-photo figure { overflow: hidden; aspect-ratio: 16/9; }
+  .feature-photo figure img { width: 100%; height: 100%; object-fit: cover; }
+  .feature-photo figcaption {
+    padding-top: 14px;
+    font-family: var(--f); font-weight: 400;
+    font-size: 10px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--stone);
+  }
+</style>
 </head>
 <body>
 
@@ -28,10 +101,10 @@
       </div>
     </div>
     <div class="nav-item">
-      <a href="../services/">Services <span class="caret">▾</span></a>
+      <a href="./">Services <span class="caret">▾</span></a>
       <div class="dropdown">
-        <a href="../services/architectural-millwork.html">Architectural Millwork</a>
-        <a href="../services/3d-renderings.html">3D Renderings</a>
+        <a href="architectural-millwork.html">Architectural Millwork</a>
+        <a href="3d-renderings.html">3D Renderings</a>
       </div>
     </div>
     <a href="../work/">Our Work</a>
@@ -42,13 +115,9 @@
 </nav>
 
 <section class="hero-banner">
-  <img src="../photos/west-vancouver-modern-luxury/west-vancouver-modern-luxury-curved-stair-concrete-wall-cherry-treads.jpg" alt="3D Renderings · Services · Radius Architectural Millwork — hero">
+  <img src="../photos/west-vancouver-modern-luxury/west-vancouver-modern-luxury-curved-stair-concrete-wall-cherry-treads.jpg" alt="3D Renderings — curved cherry-tread stair">
   <div class="breadcrumb">
-      <a href="../">Home</a>
-      <span class="sep">/</span>
-      <a href="./">Services</a>
-      <span class="sep">/</span>
-      <span>3D Renderings</span>
+    <a href="../">Home</a><span class="sep">/</span><a href="./">Services</a><span class="sep">/</span><span>3D Renderings</span>
   </div>
   <div class="overlay">
     <span class="eyebrow">Services · 3D Renderings</span>
@@ -56,16 +125,95 @@
   </div>
 </section>
 
-<section class="page-copy">
-  <span class="eyebrow">Why</span>
-  <h2>Catch the issue <em>on the screen, not on the wall.</em></h2>
-  <p>3D renderings de-risk a project. Every render incorporates precisely scaled measurements that result in an accurate, real-life digital depiction. <strong>We catch dimensional issues, slip-match transitions, and sub-trade collisions before we cut a single piece of stock.</strong> Created from photos, drawings, designs, or charts — for residential and commercial scopes, interior and exterior. Renders are step two of the build, between concept drawings and the bench. Visit the shop and walk through your project at scale before we commit to final stock.</p>
+<section class="section">
+  <div class="section-inner split-grid">
+    <div><span class="eyebrow">Why Render</span></div>
+    <div>
+      <h2>Precisely scaled measurements <em>in real-life digital form.</em></h2>
+      <p>Radius Architectural Millwork 3D renderings <strong>incorporate precisely scaled measurements that result in an accurate, real-life digital depiction</strong> of your project. They allow you to evaluate the design and make modifications before construction begins. For commercial projects they double as marketing assets; for residential projects they read as design inspiration before the bench picks up its tools.</p>
+      <ul class="benefits-list">
+        <li><strong>Models from photos, drawings, designs, or charts.</strong> Whatever source material exists, the rendering brings it to scale.</li>
+        <li><strong>Realistic example before construction starts.</strong> Planners view the project in full proportions — what works, what conflicts, what needs to move.</li>
+        <li><strong>Avoid delays and minimize costly errors.</strong> Issues caught on screen don't surface on site. The render saves time and money on the build.</li>
+      </ul>
+    </div>
+  </div>
 </section>
 
-<section class="photo-stack">
-  <figure><img loading="lazy" src="../photos/vancouverhouse-bop-penthouse/vancouverhouse-bop-penthouse-kitchen-marble-island-wide-walnut-slat-ceiling.jpg" alt="Vancouverhouse — kitchen mock-up matched to build"><figcaption>Vancouverhouse — kitchen mock-up matched to build</figcaption></figure>
-  <figure><img loading="lazy" src="../photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-diamond-bookmatched-ceiling-up-view-fireplace-anigre-pantry.jpg" alt="Waterfront — diamond ceiling matched to render"><figcaption>Waterfront — diamond ceiling matched to render</figcaption></figure>
-  <figure><img loading="lazy" src="../photos/indian-river-the-point/indian-river-the-point-kitchen-white-oak-pantry-open-moss-green-island.jpg" alt="Indian River — moss-green island, render to build"><figcaption>Indian River — moss-green island, render to build</figcaption></figure>
+<section class="section warm">
+  <div class="section-inner split-grid">
+    <div><span class="eyebrow">Four Categories</span></div>
+    <div>
+      <h2>Bring your project <em>to life.</em></h2>
+      <p>3D rendering services cover the full range of project types — from a single feature wall to a whole-building elevation. Each rendering type adapts to the source material and the questions you need answered before the work begins.</p>
+    </div>
+  </div>
+
+  <div class="section-inner">
+    <div class="render-cats">
+      <div class="render-card">
+        <span class="num">01</span>
+        <h3>Residential <em>Rendering</em></h3>
+        <p>Replicas for construction and renovation planning. Whole houses, individual rooms, custom millwork packages. The hero use case for residential design teams.</p>
+      </div>
+      <div class="render-card">
+        <span class="num">02</span>
+        <h3>Commercial <em>Rendering</em></h3>
+        <p>Realistic interior and exterior models for offices, apartments, malls, hotels, restaurants. Doubles as a marketing asset for the project before construction.</p>
+      </div>
+      <div class="render-card">
+        <span class="num">03</span>
+        <h3>Interior <em>Rendering</em></h3>
+        <p>Scaled models that let you evaluate lighting, colors, finishes, and furnishings beforehand. Catch material conflicts before they become real-world conflicts.</p>
+      </div>
+      <div class="render-card">
+        <span class="num">04</span>
+        <h3>Exterior <em>Rendering</em></h3>
+        <p>Photographs converted to scaled 3D renderings. Determine layout and structure locations before the design is finalized.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="feature-photo">
+  <figure>
+    <img loading="lazy" src="../photos/vancouverhouse-bop-penthouse/vancouverhouse-bop-penthouse-kitchen-marble-island-wide-walnut-slat-ceiling.jpg" alt="Vancouverhouse BOP Penthouse — kitchen island, marble counter, walnut slat ceiling">
+    <figcaption>Vancouverhouse BOP Penthouse · Render to build · Marble island · Walnut slat ceiling</figcaption>
+  </figure>
+</div>
+
+<section class="section">
+  <div class="section-inner split-grid">
+    <div><span class="eyebrow">Two Things, Not One</span></div>
+    <div>
+      <h2>3D rendering vs. 3D modeling — <em>not the same thing.</em></h2>
+      <p>Worth getting the terminology right because clients sometimes use the terms interchangeably. <strong>3D rendering is taking a photo; 3D modeling is creating a physical replica.</strong> Both are useful, but they answer different questions.</p>
+    </div>
+  </div>
+
+  <div class="section-inner">
+    <div class="compare">
+      <div class="compare-col">
+        <h4>3D <em>Rendering</em></h4>
+        <p>Digitalizes the model — produces photographs and visual analysis from a digital depiction. Use it when you need to see, compare, and decide. Ideal for design reviews, client presentations, finish selection, sub-trade coordination, and marketing assets.</p>
+      </div>
+      <div class="compare-col">
+        <h4>3D <em>Modeling</em></h4>
+        <p>Creates a physical replica — a tactile prototype that can be examined and handled. Use it when the question is whether the assembly works in three dimensions, not just on screen. We pair modeling with the bench mock-ups in Phase 04 of our process.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section warm">
+  <div class="section-inner split-grid">
+    <div><span class="eyebrow">Our Process</span></div>
+    <div>
+      <h2>Render is step two <em>of the build.</em></h2>
+      <p>Renders sit between concept drawings and the bench in our six-phase process. We work with existing plans using in-house professional designers experienced across all 3D rendering types. <strong>Send the source material — photos, drawings, designs, charts</strong> — and we'll come back with the scaled depiction plus a feasibility read on the millwork package itself.</p>
+      <p>Visit the shop and walk through your project at scale before we commit to final stock — the render plus the bench mock-up means you've seen the work twice before it's installed.</p>
+    </div>
+  </div>
 </section>
 
 <section class="cta-band cta-image" style="--cta-bg: url('../projects/cta-vancouverhouse-living-dining.jpg');">
@@ -81,7 +229,7 @@
       <div class="footer-col footer-brand">
         <img src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/brand/radius-logo.png" alt="Radius Architectural Millwork">
         <p>A Master Joiner-led custom millwork shop in Burnaby, BC. Twenty-five years on the same bench.</p>
-        <div class="legal">Since 2002 · Burnaby BC<br>AWMAC Gold 2011 · 5× Best of Houzz<br>Licence BUS05-01768</div>
+        <div class="legal">Since 2000 · Burnaby BC<br>AWMAC Gold 2011 · 5× Best of Houzz<br>Licence BUS05-01768</div>
       </div>
       <div class="footer-col">
         <h4>About</h4>
@@ -94,8 +242,8 @@
       <div class="footer-col">
         <h4>Services</h4>
         <ul>
-          <li><a href="../services/architectural-millwork.html">Architectural Millwork</a></li>
-          <li><a href="../services/3d-renderings.html">3D Renderings</a></li>
+          <li><a href="architectural-millwork.html">Architectural Millwork</a></li>
+          <li><a href="3d-renderings.html">3D Renderings</a></li>
           <li><a href="../work/">Our Work</a></li>
           <li><a href="../blog/">Blog</a></li>
         </ul>
@@ -113,7 +261,7 @@
       <div class="footer-col footer-contact">
         <h4>Contact</h4>
         <div class="row"><span class="label">Phone</span><div class="val"><a href="tel:6044441175">604 444 1175</a></div></div>
-        <div class="row"><span class="label">Email</span><div class="val"><a href="mailto:rick@radiuswood.com">rick@radiuswood.com</a></div></div>
+        <div class="row"><span class="label">Email</span><div class="val"><a href="mailto:info@radiuswood.com">info@radiuswood.com</a></div></div>
         <div class="row"><span class="label">Shop</span><div class="val">Unit 106 – 8575<br>Government St, Burnaby</div></div>
       </div>
     </div>

@@ -4,18 +4,169 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Contact · Radius Architectural Millwork · Burnaby BC</title>
-<meta name="description" content="604 444 1175 · rick@radiuswood.com · Unit 106 — 8575 Government Street, Burnaby BC. Shop visits by appointment. We respond within two business days.">
+<meta name="description" content="(604) 444-1175 · info@radiuswood.com · 8575 Government Street, Burnaby BC V3N 4V1. Hours: Monday – Friday 6:30am – 2:30pm. Shop visits by appointment. Available by appointment, mobile service.">
 <link rel="canonical" href="https://radiuswood.com/contact/">
-
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500&family=Roboto:wght@300;400;500&family=Varta:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="css/site.css">
+<style>
+  .contact-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: clamp(40px, 6vw, 100px);
+    align-items: start;
+    margin-top: clamp(40px, 5vw, 64px);
+  }
+  .contact-info { display: flex; flex-direction: column; }
+  .contact-row {
+    padding: 24px 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .contact-row:first-child { border-top: 1px solid var(--rule); }
+  .contact-row .label {
+    font-family: var(--f); font-weight: 400;
+    font-size: 10px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--stone);
+    display: block; margin-bottom: 10px;
+  }
+  .contact-row .val {
+    font-family: var(--fs); font-style: italic; font-weight: 400;
+    font-size: clamp(20px, 2.2vw, 28px); line-height: 1.4;
+    color: var(--ink);
+  }
+  .contact-row .val a {
+    color: var(--ink);
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 2px;
+    transition: border-color .3s, color .3s;
+  }
+  .contact-row .val a:hover {
+    color: var(--red); border-bottom-color: var(--red);
+  }
+  .contact-form {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    padding: clamp(32px, 3.6vw, 48px);
+    position: relative;
+  }
+  .contact-form h3 {
+    font-family: var(--fd); font-weight: 300;
+    font-size: clamp(22px, 2.2vw, 28px);
+    margin-bottom: 12px;
+  }
+  .contact-form h3 em { font-family: var(--fs); font-style: italic; font-weight: 400; color: var(--red); }
+  .contact-form .form-intro {
+    font-family: var(--f); font-weight: 300;
+    font-size: 13.5px; line-height: 1.7;
+    color: var(--body); margin-bottom: 28px;
+  }
+  .form-row { margin-bottom: 18px; }
+  .form-row label {
+    font-family: var(--f); font-weight: 400;
+    font-size: 10px; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--stone);
+    display: block; margin-bottom: 8px;
+  }
+  .form-row input, .form-row textarea, .form-row select {
+    width: 100%;
+    padding: 14px 16px;
+    background: white;
+    border: 1px solid var(--rule);
+    font-family: var(--f); font-weight: 300;
+    font-size: 14px; color: var(--ink);
+    transition: border-color .3s;
+  }
+  .form-row input:focus, .form-row textarea:focus, .form-row select:focus {
+    outline: none; border-color: var(--ink);
+  }
+  .form-row textarea { resize: vertical; min-height: 130px; line-height: 1.7; }
+  .form-row-pair {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 14px;
+  }
+  .form-submit {
+    margin-top: 4px;
+    background: var(--ink); color: var(--cream);
+    padding: 15px 32px;
+    font-family: var(--f); font-weight: 400;
+    font-size: 11px; letter-spacing: 0.32em;
+    text-transform: uppercase;
+    border: none; cursor: pointer;
+    transition: background .35s var(--ease);
+    width: 100%;
+  }
+  .form-submit:hover { background: var(--red); }
+  .form-note {
+    font-size: 11.5px; line-height: 1.7;
+    color: var(--stone); margin-top: 16px; text-align: center;
+  }
+  @media (max-width: 800px) {
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .form-row-pair { grid-template-columns: 1fr; }
+  }
+
+  .badges {
+    display: grid; grid-template-columns: repeat(3, 1fr);
+    gap: clamp(20px, 4vw, 50px);
+    padding: clamp(50px, 6vw, 90px) 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    margin-top: clamp(50px, 6vw, 80px);
+    text-align: center;
+  }
+  .badge .num {
+    font-family: var(--fs); font-style: italic; font-weight: 400;
+    font-size: clamp(26px, 3vw, 36px); color: var(--gold);
+    line-height: 1; margin-bottom: 12px;
+  }
+  .badge h4 {
+    font-family: var(--fd); font-weight: 400;
+    font-size: clamp(14px, 1.2vw, 16px); margin-bottom: 6px;
+  }
+  .badge h4 em { font-family: var(--fs); font-style: italic; color: var(--red); }
+  .badge p {
+    font-weight: 300; font-size: 12px; line-height: 1.65;
+    color: var(--body);
+  }
+  @media (max-width: 720px) {
+    .badges { grid-template-columns: 1fr; gap: 28px; padding: 32px 0; }
+  }
+
+  .map-band {
+    background: var(--ink); color: var(--cream);
+    padding: clamp(50px, 6vw, 80px) clamp(28px, 6vw, 80px);
+    text-align: center;
+    position: relative; overflow: hidden;
+  }
+  .map-band::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: radial-gradient(circle at 1px 1px, rgba(246, 244, 240, 0.06) 1px, transparent 1.4px);
+    background-size: 28px 28px;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse at center, black 50%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 50%, transparent 100%);
+  }
+  .map-band > * { position: relative; z-index: 1; }
+  .map-band .eyebrow { color: var(--cream); display: block; margin-bottom: 16px; }
+  .map-band h3 {
+    font-family: var(--fs); font-style: italic; font-weight: 400;
+    font-size: clamp(20px, 2.4vw, 28px);
+    color: var(--cream);
+    max-width: 880px; margin: 0 auto 18px;
+  }
+  .map-band a {
+    color: var(--cream);
+    border-bottom: 1px solid rgba(246,244,240,0.4);
+    padding-bottom: 2px;
+    transition: border-color .3s;
+  }
+  .map-band a:hover { border-bottom-color: var(--cream); }
+</style>
 </head>
 <body>
 
 <nav class="site" id="nav">
-  <a href="" class="brand-lockup" aria-label="Radius Architectural Millwork — Home">
+  <a href="./" class="brand-lockup" aria-label="Radius Architectural Millwork — Home">
     <img class="logo" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/brand/radius-logo.png" alt="Radius Architectural Millwork">
   </a>
   <div class="links">
@@ -42,35 +193,128 @@
 </nav>
 
 <section class="hero-banner">
-  <img src="projects/cta-vancouverhouse-living-dining.jpg" alt="Contact · Radius Architectural Millwork · Burnaby BC — hero">
+  <img src="projects/cta-vancouverhouse-living-dining.jpg" alt="Contact Radius — walnut slat ceiling penthouse interior">
   <div class="breadcrumb">
-      <a href="./">Home</a>
-      <span class="sep">/</span>
-      <span>Contact</span>
+    <a href="./">Home</a><span class="sep">/</span><span>Contact</span>
   </div>
   <div class="overlay">
     <span class="eyebrow">Contact</span>
-    <h1>Have a project? <em>Send us the set.</em></h1>
+    <h1>Get in touch <em>with us today.</em></h1>
   </div>
 </section>
 
-<section class="page-copy">
-  <span class="eyebrow">Reach Us</span>
-  <h2>Two business days, every time.</h2>
-  <p><strong>Phone</strong> · <a href="tel:6044441175">604 444 1175</a>. <strong>Email</strong> · <a href="mailto:rick@radiuswood.com">rick@radiuswood.com</a>. <strong>The shop</strong> · Unit 106 — 8575 Government Street, Burnaby BC, V3N 4V1. <strong>Hours</strong> · Monday to Friday, 6:30am to 2:30pm. <strong>Shop visits by appointment</strong> — Friday afternoons usually work best. Bring drawings, bring questions; we'll show you the bench, the press, and the project on it. We respond to every inquiry within two business days with a feasibility read and a tested quote.</p>
+<section class="section">
+  <div class="section-inner split-grid">
+    <div><span class="eyebrow">Reach Us</span></div>
+    <div>
+      <h2>Two business days, <em>every time.</em></h2>
+      <p>Send drawings, scope, timeline — or just start a conversation. Every inquiry gets a feasibility read and a tested quote from a member of the bench. We're a small enough shop that the person reading your email is the same person who'll walk the job and quote it.</p>
+      <p>For shop visits — Friday afternoons usually work best. Bring drawings, bring questions; we'll show you the bench, the press, and the project on it.</p>
+    </div>
+  </div>
+
+  <div class="section-inner contact-grid">
+    <div class="contact-info">
+      <div class="contact-row">
+        <span class="label">Phone</span>
+        <div class="val"><a href="tel:6044441175">(604) 444-1175</a></div>
+      </div>
+      <div class="contact-row">
+        <span class="label">Email</span>
+        <div class="val"><a href="mailto:info@radiuswood.com">info@radiuswood.com</a></div>
+      </div>
+      <div class="contact-row">
+        <span class="label">The Shop</span>
+        <div class="val">8575 Government Street<br>Burnaby BC · V3N 4V1</div>
+      </div>
+      <div class="contact-row">
+        <span class="label">Hours of Operation</span>
+        <div class="val">Monday – Friday<br>6:30am – 2:30pm</div>
+        <div style="font-family: var(--f); font-size: 12px; color: var(--stone); margin-top: 8px;">Saturday – Sunday closed</div>
+      </div>
+      <div class="contact-row">
+        <span class="label">Methods of Payment</span>
+        <div class="val">Major cards, e-transfer<br>Bank Draft also accepted</div>
+      </div>
+      <div class="contact-row">
+        <span class="label">Shop Visits</span>
+        <div class="val">By appointment · <a href="mailto:info@radiuswood.com?subject=Shop%20visit">Request</a></div>
+      </div>
+    </div>
+
+    <form class="contact-form" action="mailto:info@radiuswood.com" method="post" enctype="text/plain">
+      <h3>Tell us about <em>your project.</em></h3>
+      <p class="form-intro">Drawings, scope, timeline, or just a conversation. We respond within two business days.</p>
+      <div class="form-row-pair">
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div class="form-row">
+          <label for="company">Firm / Company</label>
+          <input type="text" id="company" name="company">
+        </div>
+      </div>
+      <div class="form-row-pair">
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+        <div class="form-row">
+          <label for="phone">Phone</label>
+          <input type="tel" id="phone" name="phone">
+        </div>
+      </div>
+      <div class="form-row">
+        <label for="role">I am a…</label>
+        <select id="role" name="role">
+          <option>Architect</option>
+          <option>Interior Designer</option>
+          <option>Builder / GC</option>
+          <option>Homeowner</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-row">
+        <label for="message">About the project</label>
+        <textarea id="message" name="message" placeholder="Scope, timeline, drawings if you have them, or just the conversation." required></textarea>
+      </div>
+      <button type="submit" class="form-submit">Submit Form</button>
+      <div class="form-note">Or email us directly at <a href="mailto:info@radiuswood.com" style="color:var(--red);">info@radiuswood.com</a></div>
+    </form>
+  </div>
+
+  <div class="section-inner">
+    <div class="badges">
+      <div class="badge">
+        <div class="num">01</div>
+        <h4>Available <em>by Appointment</em></h4>
+        <p>Site walks at the shop on Government Street. Bring drawings.</p>
+      </div>
+      <div class="badge">
+        <div class="num">02</div>
+        <h4>Mobile <em>Service</em></h4>
+        <p>Site visits across the Lower Mainland and Sea-to-Sky for measurement and review.</p>
+      </div>
+      <div class="badge">
+        <div class="num">03</div>
+        <h4>Budget <em>Friendly</em></h4>
+        <p>Authorized Merit Kitchens dealer for value-tier cabinetry alongside our custom work.</p>
+      </div>
+    </div>
+  </div>
 </section>
 
-<section class="photo-stack">
-  <figure><img loading="lazy" src="photos/indian-arm-study/indian-arm-woodlands-study-cedar-built-in-stone-fireplace-tight.jpg" alt="Cedar + stone · the bench's vocabulary"><figcaption>Cedar + stone · the bench's vocabulary</figcaption></figure>
-  <figure><img loading="lazy" src="photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-gallery-wine-bar-anigre-display-inuit-sculpture.jpg" alt="Gallery wine bar · anigre cabinetry"><figcaption>Gallery wine bar · anigre cabinetry</figcaption></figure>
-  <figure><img loading="lazy" src="photos/vancouverhouse-bop-penthouse/vancouverhouse-bop-penthouse-bocci-stairwell-dusk-exterior-view.jpg" alt="Bocci stairwell · Vancouver House"><figcaption>Bocci stairwell · Vancouver House</figcaption></figure>
+<section class="map-band">
+  <span class="eyebrow">Find the Shop</span>
+  <h3>8575 Government Street, Burnaby BC. <a href="https://maps.google.com/?q=8575+Government+Street+Burnaby+BC" target="_blank" rel="noopener">Get directions →</a></h3>
 </section>
 
 <section class="cta-band cta-image" style="--cta-bg: url('projects/cta-vancouverhouse-living-dining.jpg');">
-  <span class="eyebrow">Get in touch</span>
-  <h2>Or just call. <em>We'll pick up.</em></h2>
+  <span class="eyebrow">Or just call</span>
+  <h2>We'll pick up. <em>Monday through Friday.</em></h2>
   <p>The line goes to the office Monday through Friday during shop hours. After hours, leave a message — we'll call back the next morning.</p>
-  <a href="tel:6044441175" class="cta-btn">Call 604 444 1175</a>
+  <a href="tel:6044441175" class="cta-btn">Call (604) 444-1175</a>
 </section>
 
 <footer class="site">
@@ -79,7 +323,7 @@
       <div class="footer-col footer-brand">
         <img src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/brand/radius-logo.png" alt="Radius Architectural Millwork">
         <p>A Master Joiner-led custom millwork shop in Burnaby, BC. Twenty-five years on the same bench.</p>
-        <div class="legal">Since 2002 · Burnaby BC<br>AWMAC Gold 2011 · 5× Best of Houzz<br>Licence BUS05-01768</div>
+        <div class="legal">Since 2000 · Burnaby BC<br>AWMAC Gold 2011 · 5× Best of Houzz<br>Licence BUS05-01768</div>
       </div>
       <div class="footer-col">
         <h4>About</h4>
@@ -111,7 +355,7 @@
       <div class="footer-col footer-contact">
         <h4>Contact</h4>
         <div class="row"><span class="label">Phone</span><div class="val"><a href="tel:6044441175">604 444 1175</a></div></div>
-        <div class="row"><span class="label">Email</span><div class="val"><a href="mailto:rick@radiuswood.com">rick@radiuswood.com</a></div></div>
+        <div class="row"><span class="label">Email</span><div class="val"><a href="mailto:info@radiuswood.com">info@radiuswood.com</a></div></div>
         <div class="row"><span class="label">Shop</span><div class="val">Unit 106 – 8575<br>Government St, Burnaby</div></div>
       </div>
     </div>
