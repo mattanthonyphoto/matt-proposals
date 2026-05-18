@@ -1,0 +1,1383 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GD Nielsen Homes</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="/matt-proposals/gd-nielsen/preview/_assets/images/gdn-mark.png">
+<style>body { margin: 0; }
+
+/* ===== CANONICAL CHROME (nav + footer + mobile bar) — injected by deploy_preview.py ===== */
+.gdn-chrome-container { max-width: 1280px; margin: 0 auto; padding: 0 32px; box-sizing: border-box; }
+@media (max-width: 720px) { .gdn-chrome-container { padding: 0 20px; } }
+
+/* Nav */
+.gdn-chrome-nav { padding: 22px 0; border-bottom: 1px solid var(--gdn-rule, #DDDAD2);
+  position: sticky; top: 0; z-index: 50;
+  backdrop-filter: saturate(180%) blur(14px);
+  background: rgba(250, 250, 247, 0.88); }
+.gdn-chrome-nav-grid { display: flex; justify-content: space-between; align-items: center; }
+.gdn-chrome-nav-mark { display: inline-flex; align-items: center; gap: 14px; border: 0 !important;
+  text-decoration: none; transition: opacity 0.22s; }
+.gdn-chrome-nav-mark:hover { opacity: 0.7; }
+.gdn-chrome-nav-mark-icon { width: 32px; height: 32px;
+  transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1); display: inline-flex; }
+.gdn-chrome-nav-mark:hover .gdn-chrome-nav-mark-icon { transform: rotate(360deg); }
+.gdn-chrome-nav-mark-icon img { width: 100%; height: 100%; object-fit: contain; display: block; }
+.gdn-chrome-nav-mark-text {
+  font-family: 'Poppins', 'Inter', sans-serif; font-weight: 500;
+  font-size: 13px; letter-spacing: 0.18em; color: var(--gdn-ink, #0F1413);
+}
+.gdn-chrome-nav-links { display: flex; gap: 36px; align-items: center; }
+.gdn-chrome-nav-link { font-family: 'Poppins', 'Inter', sans-serif; font-weight: 400;
+  font-size: 13px; letter-spacing: 0.04em; color: var(--gdn-ink, #0F1413) !important;
+  border: 0 !important; padding: 4px 0; position: relative; text-decoration: none; }
+.gdn-chrome-nav-link::after { content: ""; position: absolute; left: 0; bottom: 0;
+  width: 0; height: 1px; background: var(--gdn-gold, #B8975A); transition: width 0.24s ease; }
+.gdn-chrome-nav-link:hover::after { width: 100%; }
+.gdn-chrome-nav-cta { font-family: 'Poppins', 'Inter', sans-serif; font-weight: 500;
+  font-size: 13px; letter-spacing: 0.04em;
+  padding: 10px 22px; border: 1px solid var(--gdn-ink, #0F1413) !important;
+  color: var(--gdn-ink, #0F1413) !important; transition: all 0.22s; text-decoration: none; }
+.gdn-chrome-nav-cta:hover { background: var(--gdn-ink, #0F1413); color: var(--gdn-bone, #FAFAF7) !important; }
+@media (max-width: 880px) {
+  .gdn-chrome-nav-links { gap: 16px; }
+  .gdn-chrome-nav-links .gdn-chrome-nav-link:nth-child(n+4) { display: none; }
+  .gdn-chrome-nav-mark-text { display: none; }
+}
+
+/* Mobile sticky contact bar (<=720px) */
+.gdn-chrome-mobile-bar { display: none; }
+@media (max-width: 720px) {
+  .gdn-chrome-mobile-bar {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 60;
+    display: grid; grid-template-columns: auto 1fr;
+    background: var(--gdn-ink, #0F1413);
+    box-shadow: 0 -8px 32px rgba(15, 20, 19, 0.18);
+  }
+  .gdn-chrome-mobile-bar a {
+    color: var(--gdn-bone, #FAFAF7) !important;
+    border: 0 !important;
+    padding: 16px 20px;
+    font-family: 'Poppins', 'Inter', sans-serif;
+    font-weight: 500; font-size: 14px; letter-spacing: 0.04em;
+    text-align: center;
+    text-decoration: none;
+    transition: background 0.22s;
+  }
+  .gdn-chrome-mobile-bar .bar-call {
+    background: var(--gdn-tone, #2A3530);
+  }
+  .gdn-chrome-mobile-bar .bar-contact:hover { background: var(--gdn-gold, #B8975A); }
+  body { padding-bottom: 56px; }
+}
+
+/* Footer */
+.gdn-chrome-foot { padding: 80px 0 40px; border-top: 1px solid var(--gdn-rule, #DDDAD2);
+  background: var(--gdn-bone, #FAFAF7); color: var(--gdn-ink, #0F1413);
+  font-family: 'Poppins', 'Inter', sans-serif; }
+.gdn-chrome-foot-grid { display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 64px; margin-bottom: 48px; align-items: start; }
+.gdn-chrome-foot-eyebrow { font-family: 'Poppins', 'Inter', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gdn-mid, #6B6E6A); margin: 0 0 16px; }
+.gdn-chrome-foot-logo { max-width: 180px; margin: 0 0 24px; }
+.gdn-chrome-foot-logo img { width: 100%; height: auto; display: block; }
+.gdn-chrome-foot-nap { font-style: normal; font-family: 'Poppins', 'Inter', sans-serif;
+  font-size: 13px; line-height: 1.7; color: var(--gdn-mid, #6B6E6A); margin: 0 0 14px;
+  display: block; }
+.gdn-chrome-foot-contact { font-family: 'Poppins', 'Inter', sans-serif; font-size: 13px;
+  line-height: 1.7; color: var(--gdn-ink, #0F1413); margin: 0 0 20px; }
+.gdn-chrome-foot-contact a { color: var(--gdn-ink, #0F1413); text-decoration: none;
+  border-bottom: 1px solid var(--gdn-rule, #DDDAD2); transition: all 0.18s; }
+.gdn-chrome-foot-contact a:hover { color: var(--gdn-gold, #B8975A); border-bottom-color: var(--gdn-gold, #B8975A); }
+.gdn-chrome-foot-list { list-style: none; padding: 0; margin: 0;
+  font-size: 13px; line-height: 1.95; font-family: 'Poppins', 'Inter', sans-serif; }
+.gdn-chrome-foot-list a { color: var(--gdn-ink, #0F1413) !important; border: 0 !important;
+  text-decoration: none; transition: color 0.22s; }
+.gdn-chrome-foot-list a:hover { color: var(--gdn-gold, #B8975A) !important; }
+.gdn-chrome-foot-list strong { font-weight: 500; }
+.gdn-chrome-foot-social { list-style: none; padding: 0; margin: 0;
+  display: flex; flex-wrap: wrap; gap: 14px; font-size: 12px;
+  font-family: 'Poppins', 'Inter', sans-serif; }
+.gdn-chrome-foot-social a { color: var(--gdn-mid, #6B6E6A) !important; border: 0 !important;
+  text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500;
+  text-decoration: none; transition: color 0.22s; }
+.gdn-chrome-foot-social a:hover { color: var(--gdn-gold, #B8975A) !important; }
+.gdn-chrome-foot-meta { font-size: 12px; color: var(--gdn-mid, #6B6E6A); padding-top: 28px;
+  border-top: 1px solid var(--gdn-rule, #DDDAD2); display: flex; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px; font-family: 'Poppins', 'Inter', sans-serif; }
+.gdn-chrome-foot-meta a { color: var(--gdn-mid, #6B6E6A) !important; border: 0 !important;
+  text-decoration: none; }
+.gdn-chrome-foot-meta a:hover { color: var(--gdn-gold, #B8975A) !important; }
+.gdn-chrome-foot-meta [itemprop="name"] { font-weight: 500; color: var(--gdn-ink, #0F1413); }
+@media (max-width: 880px) {
+  .gdn-chrome-foot-grid { grid-template-columns: 1fr 1fr; gap: 40px 32px; }
+  .gdn-chrome-foot-col-brand { grid-column: 1 / -1; }
+}
+@media (max-width: 540px) {
+  .gdn-chrome-foot-grid { grid-template-columns: 1fr; }
+  .gdn-chrome-foot-col-brand { grid-column: auto; }
+}
+
+</style>
+</head>
+<body class="gdn-scope">
+<div class="gdn-chrome-mobile-bar" aria-label="Quick contact">
+  <a href="tel:+16049264211" class="bar-call">Call</a>
+  <a href="/matt-proposals/gd-nielsen/preview/contact" class="bar-contact">Discuss your build &rarr;</a>
+</div>
+<nav class="gdn-chrome-nav" aria-label="Primary">
+  <div class="gdn-chrome-container">
+    <div class="gdn-chrome-nav-grid">
+      <a href="/matt-proposals/gd-nielsen/preview/" class="gdn-chrome-nav-mark" aria-label="GD Nielsen Homes &mdash; Home">
+        <span class="gdn-chrome-nav-mark-icon"><img src="/matt-proposals/gd-nielsen/preview/_assets/images/gdn-mark.png" alt=""></span>
+        <span class="gdn-chrome-nav-mark-text">GD&nbsp;NIELSEN&nbsp;HOMES</span>
+      </a>
+      <div class="gdn-chrome-nav-links">
+        <a href="/matt-proposals/gd-nielsen/preview/story" class="gdn-chrome-nav-link">About</a>
+        <a href="/matt-proposals/gd-nielsen/preview/services" class="gdn-chrome-nav-link">Services</a>
+        <a href="/matt-proposals/gd-nielsen/preview/projects" class="gdn-chrome-nav-link">Work</a>
+        <a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-west-vancouver" class="gdn-chrome-nav-link">Locations</a>
+        <a href="/matt-proposals/gd-nielsen/preview/journal" class="gdn-chrome-nav-link">Journal</a>
+        <a href="tel:+16049264211" class="gdn-chrome-nav-link" style="font-variant-numeric: tabular-nums; color: var(--gdn-mid) !important;">604.926.4211</a>
+        <a href="/matt-proposals/gd-nielsen/preview/contact" class="gdn-chrome-nav-cta">Contact</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<style>
+:root {
+  --gdn-ink: #0F1413;
+  --gdn-bone: #FAFAF7;
+  --gdn-mid: #6B6E6A;
+  --gdn-light: #E8E6E0;
+  --gdn-rule: #DDDAD2;
+  --gdn-gold: #B8975A;
+  --gdn-tone: #2A3530;
+  --gdn-section: 140px;
+  --gdn-section-tight: 100px;
+  --gdn-gap: 80px;
+}
+.gdn-scope * { box-sizing: border-box; }
+.gdn-scope {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 17px; line-height: 1.55; color: var(--gdn-ink); background: var(--gdn-bone);
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+.gdn-scope img { max-width: 100%; height: auto; display: block; }
+:where(.gdn-scope) a { color: var(--gdn-ink); border-bottom: 1px solid var(--gdn-ink);
+  text-decoration: none; transition: color 0.18s, border-color 0.18s; }
+:where(.gdn-scope) a:hover { color: var(--gdn-gold); border-bottom-color: var(--gdn-gold); }
+
+/* Typography */
+.gdn-scope h1 { font-family: 'Poppins', sans-serif; font-weight: 300;
+  font-size: clamp(44px, 6vw, 84px); line-height: 0.98; letter-spacing: -0.035em;
+  margin: 0 0 20px; color: var(--gdn-bone); }
+.gdn-scope h1 em { font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-weight: 400; letter-spacing: -0.01em; }
+.gdn-scope h2 { font-family: 'Poppins', sans-serif; font-weight: 300;
+  font-size: clamp(28px, 3.4vw, 44px); line-height: 1.08; letter-spacing: -0.022em;
+  margin: 0 0 18px; color: var(--gdn-ink); }
+.gdn-scope h2 em { font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-weight: 400; }
+.gdn-scope h3 { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 17px; line-height: 1.3; margin: 0 0 8px; color: var(--gdn-ink); }
+.gdn-scope p { margin: 0 0 18px; max-width: 640px; font-weight: 400; }
+.gdn-scope p.lead { font-size: 21px; line-height: 1.45; font-weight: 300;
+  letter-spacing: -0.005em; color: var(--gdn-ink); max-width: 720px; }
+.gdn-eyebrow { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gdn-mid); margin: 0 0 16px; display: block; }
+.gdn-container { max-width: 1320px; margin: 0 auto; padding: 0 48px; }
+@media (max-width: 720px) { .gdn-container { padding: 0 24px; } }
+
+/* Buttons */
+.gdn-cta { display: inline-block; padding: 16px 30px; font-family: 'Poppins', sans-serif;
+  font-weight: 500; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+  background: var(--gdn-ink); color: var(--gdn-bone); border: 1px solid var(--gdn-ink);
+  text-decoration: none; transition: all 0.2s; }
+.gdn-cta:hover { background: var(--gdn-gold); border-color: var(--gdn-gold); color: var(--gdn-bone); }
+.gdn-cta-light { background: var(--gdn-bone); color: var(--gdn-ink); border-color: var(--gdn-bone); }
+.gdn-cta-light:hover { background: var(--gdn-gold); border-color: var(--gdn-gold); }
+.gdn-cta-ghost { display: inline-block; padding: 16px 30px; font-family: 'Poppins', sans-serif;
+  font-weight: 500; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+  background: transparent; color: var(--gdn-ink); border: 1px solid var(--gdn-ink);
+  text-decoration: none; transition: all 0.2s; }
+.gdn-cta-ghost:hover { background: var(--gdn-ink); color: var(--gdn-bone); }
+.gdn-link-arrow { font-family: 'Poppins', sans-serif; font-weight: 400; font-size: 13px;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--gdn-mid);
+  text-decoration: none; border: 0; }
+.gdn-link-arrow::after { content: " \2192"; }
+.gdn-link-arrow:hover { color: var(--gdn-gold); }
+
+/* Nav (matches homepage) */
+.gdn-tp-nav { position: sticky; top: 0; z-index: 100; background: rgba(250,250,247,0.92);
+  backdrop-filter: blur(12px); border-bottom: 1px solid var(--gdn-rule); }
+.gdn-tp-nav-inner { display: flex; align-items: center; justify-content: space-between;
+  padding: 22px 48px; max-width: 1480px; margin: 0 auto; }
+.gdn-tp-nav-mark { display: flex; align-items: center; gap: 12px; border: 0;
+  font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400;
+  font-size: 22px; letter-spacing: -0.01em; color: var(--gdn-ink); }
+.gdn-tp-nav-mark img { height: 32px; width: auto; }
+.gdn-tp-nav-links { display: flex; align-items: center; gap: 28px; }
+.gdn-tp-nav-link { font-family: 'Poppins', sans-serif; font-weight: 400;
+  font-size: 14px; color: var(--gdn-ink); text-decoration: none; border: 0;
+  padding: 6px 0; transition: color 0.18s; }
+.gdn-tp-nav-link:hover { color: var(--gdn-gold); border: 0; }
+.gdn-tp-nav-cta { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase;
+  background: var(--gdn-ink); color: var(--gdn-bone); padding: 12px 22px;
+  border: 1px solid var(--gdn-ink); text-decoration: none; transition: all 0.2s; }
+.gdn-tp-nav-cta:hover { background: var(--gdn-gold); border-color: var(--gdn-gold); color: var(--gdn-bone); }
+@media (max-width: 900px) {
+  .gdn-tp-nav-links { display: none; }
+  .gdn-tp-nav-inner { padding: 16px 24px; }
+}
+
+/* Breadcrumb */
+.gdn-tp-bcrumb { font-family: 'Poppins', sans-serif; font-weight: 400; font-size: 12px;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--gdn-mid);
+  padding: 24px 0 16px; }
+.gdn-tp-bcrumb a { color: var(--gdn-mid); border: 0; }
+.gdn-tp-bcrumb a:hover { color: var(--gdn-ink); }
+
+/* Hero — full-bleed image with text overlay */
+.gdn-tp-hero { position: relative; height: clamp(560px, 88vh, 900px); overflow: hidden;
+  margin: 0; background: var(--gdn-tone); }
+.gdn-tp-hero-img { position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center; }
+.gdn-tp-hero-veil { position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(15,20,19,0.05) 0%, rgba(15,20,19,0.05) 40%, rgba(15,20,19,0.65) 100%); }
+.gdn-tp-hero-content { position: absolute; left: 0; right: 0; bottom: 0; padding: 48px;
+  color: var(--gdn-bone); }
+.gdn-tp-hero-eyebrow { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gdn-bone); opacity: 0.85; margin: 0 0 12px; }
+.gdn-tp-hero-loc { font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-weight: 400; font-size: clamp(20px, 2vw, 26px); color: var(--gdn-bone);
+  opacity: 0.85; margin: 8px 0 0; }
+.gdn-tp-hero-text { padding: 120px 0 80px; background: var(--gdn-bone); }
+.gdn-tp-hero-text h1 { color: var(--gdn-ink); }
+
+/* Meta strip */
+.gdn-tp-meta { padding: 56px 0; border-bottom: 1px solid var(--gdn-rule); }
+.gdn-tp-meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 32px; }
+.gdn-tp-meta-cell { text-align: left; }
+.gdn-tp-meta-label { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gdn-mid); margin: 0 0 6px; }
+.gdn-tp-meta-value { font-family: 'Cormorant Garamond', serif; font-weight: 400;
+  font-size: 26px; line-height: 1.1; letter-spacing: -0.005em; color: var(--gdn-ink); }
+.gdn-tp-meta-value em { font-style: italic; }
+
+/* Narrative */
+.gdn-tp-narrative { padding: 100px 0; }
+.gdn-tp-narrative-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 7fr);
+  gap: 80px; }
+.gdn-tp-narrative-label { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gdn-mid); position: sticky; top: 110px; align-self: start; }
+.gdn-tp-narrative-body p { font-size: 20px; line-height: 1.5; font-weight: 300;
+  color: var(--gdn-ink); max-width: 720px; margin: 0 0 22px; }
+.gdn-tp-narrative-body p:last-child { margin-bottom: 0; }
+@media (max-width: 900px) {
+  .gdn-tp-narrative-grid { grid-template-columns: 1fr; gap: 24px; }
+  .gdn-tp-narrative-label { position: static; }
+}
+
+/* Photo essay — single column, photos speak for themselves */
+.gdn-tp-essay { padding: 40px 0 100px; }
+.gdn-tp-essay-section-label { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gdn-mid); margin: 0 0 40px; text-align: center; }
+.gdn-tp-photo { margin: 0 0 32px; cursor: zoom-in; overflow: hidden; padding: 0; }
+.gdn-tp-photo img { width: 100%; height: auto; display: block;
+  transition: opacity 0.3s, transform 0.6s ease-out; }
+.gdn-tp-photo:hover img { opacity: 0.94; transform: scale(1.01); }
+.gdn-tp-photo-caption { font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-weight: 400; font-size: 14px; color: var(--gdn-mid); margin: 10px 0 0;
+  letter-spacing: 0.01em; }
+.gdn-tp-photo-bleed { width: 100vw; margin-left: calc(-50vw + 50%); padding: 0;
+  max-width: none; }
+.gdn-tp-photo-bleed .gdn-tp-photo-caption { max-width: 1320px; margin: 10px auto 0;
+  padding: 0 48px; }
+
+/* Credits */
+.gdn-tp-credits { padding: 100px 0; border-top: 1px solid var(--gdn-rule); }
+.gdn-tp-credits-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 7fr);
+  gap: 80px; }
+.gdn-tp-credit-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 32px; }
+.gdn-tp-credit-label { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gdn-mid); margin: 0 0 6px; }
+.gdn-tp-credit-value { font-family: 'Cormorant Garamond', serif; font-weight: 400;
+  font-size: 22px; line-height: 1.2; letter-spacing: -0.005em; color: var(--gdn-ink); }
+.gdn-tp-credit-value em { font-style: italic; }
+
+/* Awards */
+.gdn-tp-awards { padding: 80px 0; border-top: 1px solid var(--gdn-rule); }
+.gdn-tp-awards-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 7fr);
+  gap: 80px; }
+.gdn-tp-award-line { font-family: 'Cormorant Garamond', serif; font-weight: 400;
+  font-size: 22px; line-height: 1.35; letter-spacing: -0.005em; color: var(--gdn-ink);
+  padding-left: 24px; position: relative; margin: 0 0 14px; }
+.gdn-tp-award-line::before { content: ""; position: absolute; left: 0; top: 15px;
+  width: 12px; height: 1px; background: var(--gdn-gold); }
+.gdn-tp-award-line em { font-style: italic; color: var(--gdn-mid); font-size: 16px;
+  display: block; margin-top: 2px; }
+@media (max-width: 900px) {
+  .gdn-tp-credits-grid, .gdn-tp-awards-grid { grid-template-columns: 1fr; gap: 24px; }
+}
+
+/* CTA */
+.gdn-tp-cta-row { display: flex; gap: 16px; padding: 80px 0; flex-wrap: wrap;
+  border-top: 1px solid var(--gdn-rule); }
+
+/* Related */
+.gdn-tp-related { padding: var(--gdn-section) 0; background: var(--gdn-light); }
+.gdn-tp-related-head { display: flex; justify-content: space-between; align-items: end;
+  margin-bottom: 56px; padding-bottom: 24px; border-bottom: 1px solid var(--gdn-rule); }
+.gdn-tp-related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px; }
+.gdn-tp-related-card { background: var(--gdn-bone); display: block; border: 0;
+  transition: transform 0.22s; text-decoration: none; }
+.gdn-tp-related-card:hover { transform: translateY(-4px); border: 0; }
+.gdn-tp-related-image { aspect-ratio: 4 / 3; background: var(--gdn-rule); overflow: hidden; }
+.gdn-tp-related-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+.gdn-tp-related-card:hover .gdn-tp-related-image img { transform: scale(1.04); }
+.gdn-tp-related-meta { padding: 22px 26px 28px; }
+.gdn-tp-related-name { font-family: 'Poppins', sans-serif; font-weight: 400;
+  font-size: 20px; line-height: 1.25; letter-spacing: -0.015em; color: var(--gdn-ink);
+  margin: 6px 0 4px; }
+
+/* Footer (matches homepage) */
+.gdn-tp-foot { background: var(--gdn-tone); color: var(--gdn-bone); padding: 100px 0 40px; }
+.gdn-tp-foot a { color: var(--gdn-bone); border-bottom-color: rgba(250,250,247,0.3); }
+.gdn-tp-foot a:hover { color: var(--gdn-gold); border-bottom-color: var(--gdn-gold); }
+.gdn-tp-foot-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 80px; padding-bottom: 60px; border-bottom: 1px solid rgba(250,250,247,0.15); }
+.gdn-tp-foot-list { list-style: none; padding: 0; margin: 0 0 16px; }
+.gdn-tp-foot-list li { margin: 0 0 10px; font-size: 14px; }
+.gdn-tp-foot-bottom { padding-top: 32px; display: flex; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px; font-size: 12px; color: rgba(250,250,247,0.6); }
+@media (max-width: 900px) {
+  .gdn-tp-foot-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* Lightbox */
+.gdn-tp-lb { position: fixed; inset: 0; background: rgba(15,20,19,0.96); z-index: 1000;
+  display: none; align-items: center; justify-content: center; padding: 60px 80px;
+  opacity: 0; transition: opacity 0.2s; }
+.gdn-tp-lb.is-open { display: flex; opacity: 1; }
+.gdn-tp-lb-img { max-width: 100%; max-height: calc(100vh - 160px); object-fit: contain;
+  display: block; }
+.gdn-tp-lb-cap { position: absolute; bottom: 24px; left: 0; right: 0;
+  text-align: center; font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-weight: 400; font-size: 16px; color: rgba(250,250,247,0.75); padding: 0 80px; }
+.gdn-tp-lb-close, .gdn-tp-lb-prev, .gdn-tp-lb-next {
+  position: absolute; background: transparent; color: var(--gdn-bone); border: 0;
+  font-family: 'Poppins', sans-serif; font-weight: 300; cursor: pointer;
+  transition: opacity 0.2s; opacity: 0.7;
+}
+.gdn-tp-lb-close:hover, .gdn-tp-lb-prev:hover, .gdn-tp-lb-next:hover { opacity: 1; }
+.gdn-tp-lb-close { top: 24px; right: 28px; font-size: 28px; line-height: 1; }
+.gdn-tp-lb-prev, .gdn-tp-lb-next { top: 50%; transform: translateY(-50%);
+  font-size: 36px; padding: 12px 18px; }
+.gdn-tp-lb-prev { left: 16px; }
+.gdn-tp-lb-next { right: 16px; }
+@media (max-width: 720px) {
+  .gdn-tp-lb { padding: 40px 12px; }
+  .gdn-tp-lb-prev, .gdn-tp-lb-next { font-size: 28px; }
+}
+</style>
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.gdnielsen.com/", "name": "Home", "position": 1}, {"@type": "ListItem", "item": "https://www.gdnielsen.com/projects", "name": "Projects", "position": 2}, {"@type": "ListItem", "item": "https://www.gdnielsen.com/projects/cammeray-1352-2", "name": "RESOLVED \u2014 photographer-folder duplicate of cammeray-1352", "position": 3}]}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "ResidentialBuilding", "constructor": {"@id": "https://www.gdnielsen.com/#studio", "@type": "Organization", "name": "GD Nielsen Homes"}, "description": "RESOLVED May 11 audio: DK confirmed this is a photographer-folder artifact (two photographers, two folders) for the same house at Cammeray 1352, not a separate build. EXCLUDE from portfolio.", "name": "RESOLVED \u2014 photographer-folder duplicate of cammeray-1352", "url": "https://www.gdnielsen.com/projects/cammeray-1352-2"}</script>
+
+
+<div class="gdn-scope">
+
+
+
+<div class="gdn-container">
+  <p class="gdn-tp-bcrumb">
+    <a href="/matt-proposals/gd-nielsen/preview/">Home</a> &middot; <a href="/matt-proposals/gd-nielsen/preview/projects">Projects</a> &middot; RESOLVED — photographer-folder duplicate of cammeray-1352
+  </p>
+</div>
+
+
+
+<section class="gdn-tp-hero">
+  <img class="gdn-tp-hero-img"
+       src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-01-exterior-front-driveway-garage.jpg"
+       alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; West Vancouver"
+       fetchpriority="high">
+  <div class="gdn-tp-hero-veil"></div>
+  <div class="gdn-tp-hero-content">
+    <div class="gdn-container">
+      <p class="gdn-tp-hero-eyebrow">
+        Custom Home
+      </p>
+      <h1>RESOLVED — photographer-folder duplicate of cammeray-1352</h1>
+      
+    </div>
+  </div>
+</section>
+
+<div class="gdn-tp-meta">
+  <div class="gdn-container">
+    <div class="gdn-tp-meta-grid">
+      
+      
+      
+      
+      
+      
+    </div>
+  </div>
+</div>
+
+<section class="gdn-tp-narrative">
+  <div class="gdn-container">
+    <div class="gdn-tp-narrative-grid">
+      <p class="gdn-tp-narrative-label">The Project</p>
+      <div class="gdn-tp-narrative-body">
+        
+        <p class="lead">RESOLVED May 11 audio: DK confirmed this is a photographer-folder artifact (two photographers, two folders) for the same house at Cammeray 1352, not a separate build. EXCLUDE from portfolio.</p>
+        
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="gdn-tp-essay">
+  <div class="gdn-container">
+    <p class="gdn-tp-essay-section-label">The Walkthrough &middot; 70 frames</p>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-02-exterior-rear-aerial-view.jpg"
+              data-caption="2 02 exterior rear aerial view">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-02-exterior-rear-aerial-view.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 02 exterior rear aerial view"
+             loading="eager"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 02 exterior rear aerial view</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-03-exterior-rear-infinity-pool.jpg"
+              data-caption="2 03 exterior rear infinity pool">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-03-exterior-rear-infinity-pool.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 03 exterior rear infinity pool"
+             loading="eager"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 03 exterior rear infinity pool</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-04-exterior-rear-pool-deck-view.jpg"
+              data-caption="2 04 exterior rear pool deck view">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-04-exterior-rear-pool-deck-view.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 04 exterior rear pool deck view"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 04 exterior rear pool deck view</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-05-foyer-entry-stair.jpg"
+              data-caption="2 05 foyer entry stair">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-05-foyer-entry-stair.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 05 foyer entry stair"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 05 foyer entry stair</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-06-floating-stair-detail.jpg"
+              data-caption="2 06 floating stair detail">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-06-floating-stair-detail.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 06 floating stair detail"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 06 floating stair detail</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo gdn-tp-photo-bleed"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-07-upper-hall-glass-rail.jpg"
+              data-caption="2 07 upper hall glass rail">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-07-upper-hall-glass-rail.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 07 upper hall glass rail"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 07 upper hall glass rail</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-08-stair-landing-atrium.jpg"
+              data-caption="2 08 stair landing atrium">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-08-stair-landing-atrium.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 08 stair landing atrium"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 08 stair landing atrium</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-09-foyer-view-to-great-room.jpg"
+              data-caption="2 09 foyer view to great room">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-09-foyer-view-to-great-room.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 09 foyer view to great room"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 09 foyer view to great room</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-10-great-room-fireplace.jpg"
+              data-caption="2 10 great room fireplace">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-10-great-room-fireplace.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 10 great room fireplace"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 10 great room fireplace</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-11-great-room-toward-kitchen.jpg"
+              data-caption="2 11 great room toward kitchen">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-11-great-room-toward-kitchen.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 11 great room toward kitchen"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 11 great room toward kitchen</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-12-great-room-open-to-patio.jpg"
+              data-caption="2 12 great room open to patio">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-12-great-room-open-to-patio.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 12 great room open to patio"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 12 great room open to patio</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo gdn-tp-photo-bleed"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-13-dining-to-great-room.jpg"
+              data-caption="2 13 dining to great room">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-13-dining-to-great-room.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 13 dining to great room"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 13 dining to great room</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-14-butler-pantry-corridor.jpg"
+              data-caption="2 14 butler pantry corridor">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-14-butler-pantry-corridor.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 14 butler pantry corridor"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 14 butler pantry corridor</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-15-dining-open-to-patio.jpg"
+              data-caption="2 15 dining open to patio">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-15-dining-open-to-patio.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 15 dining open to patio"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 15 dining open to patio</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-16-dining-and-kitchen-island.jpg"
+              data-caption="2 16 dining and kitchen island">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-16-dining-and-kitchen-island.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 16 dining and kitchen island"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 16 dining and kitchen island</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-17-kitchen-island-wide.jpg"
+              data-caption="2 17 kitchen island wide">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-17-kitchen-island-wide.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 17 kitchen island wide"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 17 kitchen island wide</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-18-kitchen-range-view-to-balcony.jpg"
+              data-caption="2 18 kitchen range view to balcony">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-18-kitchen-range-view-to-balcony.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 18 kitchen range view to balcony"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 18 kitchen range view to balcony</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo gdn-tp-photo-bleed"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-19-kitchen-sink-view.jpg"
+              data-caption="2 19 kitchen sink view">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-19-kitchen-sink-view.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 19 kitchen sink view"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 19 kitchen sink view</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-20-kitchen-pantry-side.jpg"
+              data-caption="2 20 kitchen pantry side">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-20-kitchen-pantry-side.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 20 kitchen pantry side"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 20 kitchen pantry side</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-21-kitchen-sink-corner.jpg"
+              data-caption="2 21 kitchen sink corner">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-21-kitchen-sink-corner.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 21 kitchen sink corner"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 21 kitchen sink corner</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-22-kitchen-and-dining-wide.jpg"
+              data-caption="2 22 kitchen and dining wide">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-22-kitchen-and-dining-wide.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 22 kitchen and dining wide"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 22 kitchen and dining wide</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-23-wok-kitchen-wolf-range.jpg"
+              data-caption="2 23 wok kitchen wolf range">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-23-wok-kitchen-wolf-range.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 23 wok kitchen wolf range"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 23 wok kitchen wolf range</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-24-spice-kitchen-passage.jpg"
+              data-caption="2 24 spice kitchen passage">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-24-spice-kitchen-passage.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 24 spice kitchen passage"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 24 spice kitchen passage</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo gdn-tp-photo-bleed"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-25-spice-kitchen-island.jpg"
+              data-caption="2 25 spice kitchen island">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-25-spice-kitchen-island.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 25 spice kitchen island"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 25 spice kitchen island</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-26-main-floor-study.jpg"
+              data-caption="2 26 main floor study">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-26-main-floor-study.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 26 main floor study"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 26 main floor study</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-27-powder-room.jpg"
+              data-caption="2 27 powder room">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-27-powder-room.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 27 powder room"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 27 powder room</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-28-covered-patio-from-dining.jpg"
+              data-caption="2 28 covered patio from dining">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-28-covered-patio-from-dining.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 28 covered patio from dining"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 28 covered patio from dining</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-29-covered-patio-deck-wide.jpg"
+              data-caption="2 29 covered patio deck wide">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-29-covered-patio-deck-wide.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 29 covered patio deck wide"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 29 covered patio deck wide</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-30-pool-and-hot-tub.jpg"
+              data-caption="2 30 pool and hot tub">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-30-pool-and-hot-tub.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 30 pool and hot tub"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 30 pool and hot tub</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo gdn-tp-photo-bleed"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-31-outdoor-dining-pergola.jpg"
+              data-caption="2 31 outdoor dining pergola">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-31-outdoor-dining-pergola.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 31 outdoor dining pergola"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 31 outdoor dining pergola</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-32-outdoor-dining-alt.jpg"
+              data-caption="2 32 outdoor dining alt">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-32-outdoor-dining-alt.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 32 outdoor dining alt"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 32 outdoor dining alt</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-33-outdoor-kitchen-bbq-view.jpg"
+              data-caption="2 33 outdoor kitchen bbq view">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-33-outdoor-kitchen-bbq-view.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 33 outdoor kitchen bbq view"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 33 outdoor kitchen bbq view</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-34-outdoor-lounge-pool-view.jpg"
+              data-caption="2 34 outdoor lounge pool view">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-34-outdoor-lounge-pool-view.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 34 outdoor lounge pool view"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 34 outdoor lounge pool view</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-35-patio-looking-back-to-dining.jpg"
+              data-caption="2 35 patio looking back to dining">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-35-patio-looking-back-to-dining.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 35 patio looking back to dining"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 35 patio looking back to dining</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-36-pool-deck-sectional.jpg"
+              data-caption="2 36 pool deck sectional">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-36-pool-deck-sectional.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 36 pool deck sectional"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 36 pool deck sectional</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo gdn-tp-photo-bleed"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-37-upper-office.jpg"
+              data-caption="2 37 upper office">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-37-upper-office.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 37 upper office"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 37 upper office</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-38-primary-bedroom.jpg"
+              data-caption="2 38 primary bedroom">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-38-primary-bedroom.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 38 primary bedroom"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 38 primary bedroom</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-39-primary-balcony-city-view.jpg"
+              data-caption="2 39 primary balcony city view">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-39-primary-balcony-city-view.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 39 primary balcony city view"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 39 primary balcony city view</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-40-primary-ensuite-soaking-tub.jpg"
+              data-caption="2 40 primary ensuite soaking tub">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-40-primary-ensuite-soaking-tub.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 40 primary ensuite soaking tub"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 40 primary ensuite soaking tub</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-41-primary-ensuite-vanity.jpg"
+              data-caption="2 41 primary ensuite vanity">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-41-primary-ensuite-vanity.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 41 primary ensuite vanity"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 41 primary ensuite vanity</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-42-primary-vanity-detail.jpg"
+              data-caption="2 42 primary vanity detail">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-42-primary-vanity-detail.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 42 primary vanity detail"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 42 primary vanity detail</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo gdn-tp-photo-bleed"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-43-primary-ensuite-alt.jpg"
+              data-caption="2 43 primary ensuite alt">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-43-primary-ensuite-alt.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 43 primary ensuite alt"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 43 primary ensuite alt</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-44-walk-in-closet.jpg"
+              data-caption="2 44 walk in closet">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-44-walk-in-closet.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 44 walk in closet"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 44 walk in closet</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-45-secondary-ensuite-shower.jpg"
+              data-caption="2 45 secondary ensuite shower">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-45-secondary-ensuite-shower.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 45 secondary ensuite shower"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 45 secondary ensuite shower</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-46-upper-laundry.jpg"
+              data-caption="2 46 upper laundry">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-46-upper-laundry.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 46 upper laundry"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 46 upper laundry</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-47-secondary-primary-suite.jpg"
+              data-caption="2 47 secondary primary suite">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-47-secondary-primary-suite.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 47 secondary primary suite"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 47 secondary primary suite</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-48-guest-bedroom-sea-view.jpg"
+              data-caption="2 48 guest bedroom sea view">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-48-guest-bedroom-sea-view.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 48 guest bedroom sea view"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 48 guest bedroom sea view</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo gdn-tp-photo-bleed"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-49-guest-bath.jpg"
+              data-caption="2 49 guest bath">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-49-guest-bath.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 49 guest bath"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 49 guest bath</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-50-guest-bedroom-two.jpg"
+              data-caption="2 50 guest bedroom two">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-50-guest-bedroom-two.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 50 guest bedroom two"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 50 guest bedroom two</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-51-bedroom-sleeping.jpg"
+              data-caption="2 51 bedroom sleeping">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-51-bedroom-sleeping.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 51 bedroom sleeping"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 51 bedroom sleeping</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-52-hall-bath-vanity.jpg"
+              data-caption="2 52 hall bath vanity">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-52-hall-bath-vanity.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 52 hall bath vanity"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 52 hall bath vanity</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-53-jack-and-jill-bath.jpg"
+              data-caption="2 53 jack and jill bath">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-53-jack-and-jill-bath.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 53 jack and jill bath"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 53 jack and jill bath</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-54-lower-family-living.jpg"
+              data-caption="2 54 lower family living">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-54-lower-family-living.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 54 lower family living"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 54 lower family living</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo gdn-tp-photo-bleed"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-55-lower-bar-lounge.jpg"
+              data-caption="2 55 lower bar lounge">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-55-lower-bar-lounge.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 55 lower bar lounge"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 55 lower bar lounge</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-56-lower-rec-room-garden.jpg"
+              data-caption="2 56 lower rec room garden">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-56-lower-rec-room-garden.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 56 lower rec room garden"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 56 lower rec room garden</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-57-lower-lounge-bar.jpg"
+              data-caption="2 57 lower lounge bar">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-57-lower-lounge-bar.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 57 lower lounge bar"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 57 lower lounge bar</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-58-lower-covered-patio.jpg"
+              data-caption="2 58 lower covered patio">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-58-lower-covered-patio.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 58 lower covered patio"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 58 lower covered patio</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-59-lower-courtyard-walkout.jpg"
+              data-caption="2 59 lower courtyard walkout">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-59-lower-courtyard-walkout.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 59 lower courtyard walkout"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 59 lower courtyard walkout</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-60-infinity-pool-wide.jpg"
+              data-caption="2 60 infinity pool wide">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-60-infinity-pool-wide.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 60 infinity pool wide"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 60 infinity pool wide</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo gdn-tp-photo-bleed"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-61-rear-garden-steps.jpg"
+              data-caption="2 61 rear garden steps">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-61-rear-garden-steps.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 61 rear garden steps"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 61 rear garden steps</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-62-rear-lawn-planters.jpg"
+              data-caption="2 62 rear lawn planters">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-62-rear-lawn-planters.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 62 rear lawn planters"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 62 rear lawn planters</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-63-rear-patio-lower.jpg"
+              data-caption="2 63 rear patio lower">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-63-rear-patio-lower.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 63 rear patio lower"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 63 rear patio lower</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-64-home-theatre.jpg"
+              data-caption="2 64 home theatre">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-64-home-theatre.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 64 home theatre"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 64 home theatre</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-65-wine-cellar.jpg"
+              data-caption="2 65 wine cellar">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-65-wine-cellar.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 65 wine cellar"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 65 wine cellar</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-66-lower-guest-bedroom.jpg"
+              data-caption="2 66 lower guest bedroom">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-66-lower-guest-bedroom.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 66 lower guest bedroom"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 66 lower guest bedroom</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo gdn-tp-photo-bleed"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-67-lower-guest-bath.jpg"
+              data-caption="2 67 lower guest bath">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-67-lower-guest-bath.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 67 lower guest bath"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 67 lower guest bath</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo gdn-tp-photo-bleed"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-68-lower-laundry.jpg"
+              data-caption="2 68 lower laundry">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-68-lower-laundry.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 68 lower laundry"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 68 lower laundry</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo gdn-tp-photo-bleed"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-69-sauna.jpg"
+              data-caption="2 69 sauna">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-69-sauna.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 69 sauna"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 69 sauna</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo gdn-tp-photo-bleed"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-70-sauna-wet-room.jpg"
+              data-caption="2 70 sauna wet room">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cammeray-1352-2/cammeray-1352-2-70-sauna-wet-room.jpg"
+             alt="RESOLVED — photographer-folder duplicate of cammeray-1352 &mdash; 2 70 sauna wet room"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">2 70 sauna wet room</figcaption>
+      </figure>
+    
+  </div>
+</section>
+
+
+
+
+
+
+<div class="gdn-container">
+  <div class="gdn-tp-cta-row">
+    <a class="gdn-cta" href="/matt-proposals/gd-nielsen/preview/contact">Discuss your project</a>
+    <a class="gdn-cta-ghost" href="/matt-proposals/gd-nielsen/preview/projects">All projects</a>
+  </div>
+</div>
+
+
+<section class="gdn-tp-related">
+  <div class="gdn-container">
+    <div class="gdn-tp-related-head">
+      <div>
+        <p class="gdn-eyebrow">More work</p>
+        <h2>Other projects in the portfolio</h2>
+      </div>
+      <a class="gdn-link-arrow" href="/matt-proposals/gd-nielsen/preview/projects">View all</a>
+    </div>
+    <div class="gdn-tp-related-grid">
+      
+      <a class="gdn-tp-related-card" href="/matt-proposals/gd-nielsen/preview/projects/the-highway-4768">
+        <div class="gdn-tp-related-image">
+          
+          <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/the-highway-4768/the-highway-4768-01-exterior-front-driveway.jpg"
+               alt="ALIAS — resolves to gisby-2247"
+               loading="lazy">
+          
+        </div>
+        <div class="gdn-tp-related-meta">
+          <p class="gdn-eyebrow" style="margin-bottom: 4px;">None</p>
+          <p class="gdn-tp-related-name">ALIAS — resolves to gisby-2247</p>
+        </div>
+      </a>
+      
+    </div>
+  </div>
+</section>
+
+
+
+
+</div>
+
+
+<div class="gdn-tp-lb" id="gdnLightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="gdn-tp-lb-close" type="button" aria-label="Close">&times;</button>
+  <button class="gdn-tp-lb-prev" type="button" aria-label="Previous">&#8249;</button>
+  <button class="gdn-tp-lb-next" type="button" aria-label="Next">&#8250;</button>
+  <img class="gdn-tp-lb-img" alt="">
+  <p class="gdn-tp-lb-cap"></p>
+</div>
+<script>
+(function () {
+  var photos = Array.prototype.slice.call(document.querySelectorAll('.gdn-tp-photo'));
+  if (!photos.length) return;
+  var lb = document.getElementById('gdnLightbox');
+  var lbImg = lb.querySelector('.gdn-tp-lb-img');
+  var lbCap = lb.querySelector('.gdn-tp-lb-cap');
+  var idx = 0;
+  function open(i) {
+    idx = (i + photos.length) % photos.length;
+    var el = photos[idx];
+    lbImg.src = el.dataset.src;
+    lbCap.textContent = el.dataset.caption || '';
+    lb.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    lb.classList.remove('is-open');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+  photos.forEach(function (el, i) {
+    el.addEventListener('click', function (e) { e.preventDefault(); open(i); });
+  });
+  lb.querySelector('.gdn-tp-lb-close').addEventListener('click', close);
+  lb.querySelector('.gdn-tp-lb-prev').addEventListener('click', function () { open(idx - 1); });
+  lb.querySelector('.gdn-tp-lb-next').addEventListener('click', function () { open(idx + 1); });
+  lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('is-open')) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') open(idx - 1);
+    else if (e.key === 'ArrowRight') open(idx + 1);
+  });
+})();
+</script>
+
+<footer class="gdn-chrome-foot" itemscope itemtype="https://schema.org/GeneralContractor">
+  <div class="gdn-chrome-container">
+    <div class="gdn-chrome-foot-grid">
+      <div class="gdn-chrome-foot-col-brand">
+        <div class="gdn-chrome-foot-logo">
+          <img src="/matt-proposals/gd-nielsen/preview/_assets/images/gdn-logo.png" alt="GD Nielsen Homes &mdash; Custom Home Builder">
+        </div>
+        <address class="gdn-chrome-foot-nap" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+          <span itemprop="streetAddress">129&ndash;1305 Welch Street</span><br>
+          <span itemprop="addressLocality">North Vancouver</span>, <span itemprop="addressRegion">BC</span> <span itemprop="postalCode">V7P 1B3</span>
+          <span itemprop="addressCountry" content="CA"></span>
+        </address>
+        <p class="gdn-chrome-foot-contact">
+          <a href="tel:+16049264211" itemprop="telephone">604.926.4211</a><br>
+          <a href="mailto:info@gdnielsen.com" itemprop="email">info@gdnielsen.com</a>
+        </p>
+        <ul class="gdn-chrome-foot-social">
+          <li><a href="https://www.instagram.com/gdnielsenhomes/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://ca.linkedin.com/company/gd-nielsen-homes-ld" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.houzz.com/professionals/general-contractors/gd-nielsen-homes-pfvwus-pf~1227814895" target="_blank" rel="noopener">Houzz</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="gdn-chrome-foot-eyebrow">Services</p>
+        <ul class="gdn-chrome-foot-list">
+          <li><a href="/matt-proposals/gd-nielsen/preview/services/custom-home-construction">Custom Home Construction</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/services/luxury-renovations">Luxury Renovations</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/services/tear-down-rebuild">Tear-Down &amp; Rebuild</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/services/additions-second-story">Additions &amp; Second Stories</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/services/outdoor-living">Outdoor Living</a></li>
+        </ul>
+        <p class="gdn-chrome-foot-eyebrow" style="margin-top: 32px;">Company</p>
+        <ul class="gdn-chrome-foot-list">
+          <li><a href="/matt-proposals/gd-nielsen/preview/story">About</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/projects">Projects</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/process">Process</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/awards">Awards</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/journal">Journal</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/contact">Contact</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="gdn-chrome-foot-eyebrow">Locations</p>
+        <ul class="gdn-chrome-foot-list">
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-west-vancouver"><strong>West Vancouver</strong></a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-north-vancouver">North Vancouver</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-vancouver">Vancouver</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-burnaby">Burnaby</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-richmond">Richmond</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-langley">Langley</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-white-rock">White Rock</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-south-surrey">South Surrey</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-tsawwassen">Tsawwassen</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="gdn-chrome-foot-meta">
+      <span>&copy; 1986&ndash;2026 <span itemprop="name">GD Nielsen Homes Ltd.</span></span>
+      <span><a href="/matt-proposals/gd-nielsen/preview/privacy">Privacy</a> &middot; <a href="/matt-proposals/gd-nielsen/preview/sitemap.xml">Sitemap</a></span>
+    </div>
+  </div>
+</footer>
+</body>
+</html>
