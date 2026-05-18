@@ -3,377 +3,306 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Selected Work · Radius Architectural Millwork · Burnaby BC</title>
-<meta name="description" content="Twenty-five years of custom millwork. Residential, heritage, wine cellars, and AWMAC Gold curved-work for architects and designers across BC.">
-<link rel="canonical" href="https://radiuswood.com/work/">
+<title>Our Work · Radius Architectural Millwork · Burnaby BC</title>
+<meta name="description" content="Selected residential estate millwork. Eight projects across Vancouver, North Shore, Whistler, and the Sea-to-Sky — from a Bjarke Ingels penthouse to a slip-matched rift oak Indian River residence.">
+<link rel="canonical" href="https://radiuswood.com/our-work/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=Inter:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Cinzel:wght@500;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500&family=Roboto:wght@300;400;500&family=Varta:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css">
 <style>
-  :root {
-    --red: #A82838; --red-deep: #7E1E2A;
-    --paper: #FAFAF5; --paper-warm: #F2E9DC; --peach: #E7D9CD;
-    --ink: #1F1B17; --gray: #6E5F50; --line: #D9CDB8; --line-soft: rgba(31,27,23,0.08);
-  }
-  * { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; font-size: 16px; }
-  body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--paper); line-height: 1.6; font-weight: 400; -webkit-font-smoothing: antialiased; overflow-x: hidden; }
-  body::before { content: ''; position: fixed; inset: 0; background-image: linear-gradient(to right, rgba(31,27,23,0.018) 1px, transparent 1px), linear-gradient(to bottom, rgba(31,27,23,0.018) 1px, transparent 1px); background-size: 32px 32px; pointer-events: none; z-index: 0; }
-  body > * { position: relative; z-index: 1; }
-  .peach-band { position: fixed; top: 0; left: 0; right: 0; height: 14px; background: var(--peach); z-index: 100; }
-  a { color: inherit; text-decoration: none; }
-  img { display: block; max-width: 100%; }
-  h1, h2, h3 { font-family: 'Cormorant Garamond', serif; font-weight: 400; line-height: 1.05; letter-spacing: -0.005em; }
-  h1 em, h2 em, h3 em { font-style: italic; color: var(--red); }
-  .eyebrow { font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem; font-weight: 500; letter-spacing: 0.4em; text-transform: uppercase; color: var(--red); display: inline-flex; align-items: center; gap: 14px; }
-  .eyebrow::before { content: ''; display: inline-block; width: 28px; height: 1px; background: var(--red); }
-  .label-mono { font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: var(--gray); }
-
-  /* HEADER (shared) */
-  header.site { position: fixed; top: 14px; left: 0; right: 0; z-index: 50; background: rgba(250,250,245,0.85); backdrop-filter: blur(10px); border-bottom: 1px solid var(--line-soft); padding: 16px 56px; display: grid; grid-template-columns: auto 1fr auto; gap: 40px; align-items: center; }
-  .brand-lockup img { height: 28px; width: auto; }
-  nav.primary { display: flex; gap: 36px; align-items: center; justify-content: center; font-family: 'IBM Plex Mono', monospace; font-size: 0.66rem; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; }
-  nav.primary a { padding: 6px 0; border-bottom: 1px solid transparent; transition: border-color .15s; color: var(--ink); }
-  nav.primary a:hover, nav.primary a.active { border-bottom-color: var(--red); color: var(--red); }
-  .header-cta { display: flex; align-items: center; gap: 18px; }
-  .header-cta .label-mono { font-size: 0.55rem; }
-  .header-cta .number { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.15rem; color: var(--red); letter-spacing: 0.02em; }
-
-  /* PAGE HEAD */
-  .page-head {
-    padding: 180px 56px 70px;
-    border-bottom: 1px solid var(--line-soft);
-  }
-  .page-head-inner {
-    max-width: 1640px; margin: 0 auto;
-    display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: end;
-  }
-  .page-head h1 {
-    font-size: clamp(3.5rem, 7vw, 6rem);
-    line-height: 0.95; margin-top: 28px;
-  }
-  .page-head .lede { font-size: 1.1rem; line-height: 1.85; color: var(--gray); max-width: 560px; }
-
-  /* FILTER BAR */
-  .filter-bar {
-    padding: 36px 56px;
-    border-bottom: 1px solid var(--line-soft);
-    display: flex; justify-content: space-between; align-items: center; gap: 24px;
-    max-width: 1640px; margin: 0 auto;
-    width: 100%;
-  }
-  .filter-chips { display: flex; gap: 18px; flex-wrap: wrap; }
-  .chip {
-    font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; font-weight: 500;
-    letter-spacing: 0.22em; text-transform: uppercase;
-    padding: 9px 18px; border: 1px solid var(--line);
-    color: var(--gray); cursor: pointer; transition: all .15s;
-    background: var(--paper);
-  }
-  .chip:hover { color: var(--ink); border-color: var(--ink); }
-  .chip.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
-  .filter-count {
-    font-family: 'IBM Plex Mono', monospace; font-size: 0.62rem;
-    letter-spacing: 0.28em; text-transform: uppercase; color: var(--gray);
-  }
-  .filter-count em { font-family: 'Cormorant Garamond', serif; font-style: italic; color: var(--red); font-size: 0.95rem; padding: 0 4px; }
-
-  /* WORK GRID — bento layout */
   .work-grid {
-    padding: 60px 56px 100px;
-    max-width: 1640px; margin: 0 auto;
-    display: grid; grid-template-columns: repeat(12, 1fr); gap: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: clamp(20px, 2.4vw, 38px) clamp(14px, 1.6vw, 24px);
+    margin-top: clamp(40px, 5vw, 64px);
   }
-  .project {
+  .work-item { display: block; transition: opacity .3s; }
+  .work-img {
     position: relative; overflow: hidden;
-    background: var(--paper-warm);
-    aspect-ratio: 4/3;
+    aspect-ratio: 4/3; background: var(--ink);
   }
-  .project img { width: 100%; height: 100%; object-fit: cover; transition: transform .8s ease, filter .4s ease; }
-  .project::after {
-    content: ''; position: absolute; inset: 0;
-    background: linear-gradient(180deg, rgba(31,27,23,0.05) 0%, transparent 30%, transparent 55%, rgba(31,27,23,0.82) 100%);
+  .work-img img {
+    width: 100%; height: 100%; object-fit: cover;
+    transition: transform 1.4s var(--ease), filter .7s var(--ease);
+  }
+  .work-item:hover .work-img img {
+    transform: scale(1.04); filter: brightness(0.9);
+  }
+  .work-img::after {
+    content: ''; position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(180deg, rgba(0,0,0,0.04) 0%, transparent 30%, rgba(0,0,0,0.4) 100%);
+    opacity: 0; transition: opacity .6s var(--ease);
     pointer-events: none;
   }
-  .project:hover img { transform: scale(1.04); }
-  .project-meta {
-    position: absolute; bottom: 28px; left: 28px; right: 28px; z-index: 1; color: var(--paper);
+  .work-item:hover .work-img::after { opacity: 1; }
+  .work-overlay {
+    position: absolute;
+    bottom: clamp(20px, 2.5vw, 32px);
+    left: clamp(20px, 2.5vw, 32px);
+    z-index: 2;
+    opacity: 0; transform: translateY(8px);
+    transition: opacity .6s var(--ease) 0.05s, transform .6s var(--ease) 0.05s;
+    display: inline-flex; align-items: center; gap: 14px;
+    font-weight: 400; font-size: 10px;
+    letter-spacing: 0.32em; text-transform: uppercase;
+    color: #fff; text-shadow: 0 1px 14px rgba(0,0,0,0.5);
   }
-  .project-meta .num {
-    font-family: 'IBM Plex Mono', monospace; font-size: 0.55rem; font-weight: 500;
-    letter-spacing: 0.28em; color: var(--peach); margin-bottom: 10px;
+  .work-overlay::before {
+    content: ''; display: inline-block;
+    width: 24px; height: 1px; background: rgba(255,255,255,0.85);
+    transition: width .5s var(--ease);
   }
-  .project-meta h3 {
-    font-family: 'Cormorant Garamond', serif; font-size: 1.85rem; font-weight: 500;
-    color: var(--paper); margin-bottom: 6px;
+  .work-item:hover .work-overlay { opacity: 1; transform: translateY(0); }
+  .work-item:hover .work-overlay::before { width: 38px; }
+  .work-text {
+    padding-top: 18px;
   }
-  .project-meta h3 em { font-style: italic; color: var(--peach); }
-  .project-meta .specs {
-    font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem; font-weight: 400;
-    letter-spacing: 0.18em; text-transform: uppercase; color: rgba(231,217,205,0.85);
+  .work-name {
+    font-family: var(--fd); font-weight: 400;
+    font-size: clamp(15px, 1.2vw, 17px);
+    line-height: 1.25; color: var(--ink);
   }
-  .award-tag {
-    position: absolute; top: 24px; right: 24px; z-index: 1;
-    font-family: 'IBM Plex Mono', monospace; font-size: 0.52rem; font-weight: 500;
-    letter-spacing: 0.22em; text-transform: uppercase; color: var(--paper);
-    background: var(--red); padding: 6px 12px;
+  .work-name em { font-family: var(--fs); font-style: italic; font-weight: 400; color: var(--red); }
+  .work-loc {
+    font-family: var(--f); font-weight: 400;
+    font-size: 10px; letter-spacing: 0.22em;
+    text-transform: uppercase; color: var(--stone);
+    margin-top: 8px;
   }
-  /* Bento sizing — varied for architectural rhythm */
-  .project.lg { grid-column: span 7; aspect-ratio: 16/10; }
-  .project.md { grid-column: span 5; aspect-ratio: 4/3; }
-  .project.sm { grid-column: span 4; aspect-ratio: 4/3; }
-  .project.tall { grid-column: span 4; aspect-ratio: 4/5; }
-  .project.wide { grid-column: span 8; aspect-ratio: 16/9; }
-  .project.col6 { grid-column: span 6; aspect-ratio: 4/3; }
+  .work-credit {
+    font-family: var(--f); font-weight: 300;
+    font-size: 9.5px; letter-spacing: 0.28em;
+    text-transform: uppercase; color: var(--stone-lt);
+    margin-top: 6px;
+  }
+  @media (max-width: 1180px) { .work-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 900px) { .work-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .work-grid { grid-template-columns: 1fr; } }
 
-  /* CTA STRIP at bottom */
-  .cta-strip {
-    padding: 100px 56px;
-    background: var(--paper-warm); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line);
+  .stats-bar {
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: clamp(20px, 4vw, 50px);
+    padding: clamp(36px, 4vw, 60px) 0;
+    border-top: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    margin-top: clamp(40px, 6vw, 80px);
   }
-  .cta-strip-inner {
-    max-width: 1640px; margin: 0 auto;
-    display: grid; grid-template-columns: 1fr auto; gap: 60px; align-items: center;
+  .stats-bar .stat .num {
+    font-family: var(--fd); font-weight: 300;
+    font-size: clamp(28px, 3.4vw, 44px); line-height: 1;
+    color: var(--ink);
   }
-  .cta-strip h2 {
-    font-size: clamp(2rem, 3.6vw, 2.8rem);
+  .stats-bar .stat .num em { font-family: var(--fs); font-style: italic; font-weight: 400; }
+  .stats-bar .stat .label {
+    font-family: var(--f); font-weight: 400;
+    font-size: 10px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--stone);
+    margin-top: 10px;
   }
-  .cta-strip-btn {
-    font-family: 'IBM Plex Mono', monospace; font-size: 0.64rem; font-weight: 500;
-    letter-spacing: 0.28em; text-transform: uppercase;
-    padding: 16px 32px; background: var(--ink); color: var(--paper);
-    transition: all .15s; border: 1px solid var(--ink);
-  }
-  .cta-strip-btn:hover { background: var(--red); border-color: var(--red); }
-
-  /* FOOTER (shared) */
-  footer.site { background: var(--ink); color: rgba(231,217,205,0.78); padding: 90px 56px 0; position: relative; }
-  footer.site::before { content: ''; position: absolute; inset: 0; background-image: linear-gradient(to right, rgba(231,217,205,0.02) 1px, transparent 1px), linear-gradient(to bottom, rgba(231,217,205,0.02) 1px, transparent 1px); background-size: 32px 32px; pointer-events: none; }
-  .footer-inner { max-width: 1640px; margin: 0 auto; position: relative; z-index: 1; }
-  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr 1.4fr; gap: 60px; padding-bottom: 70px; border-bottom: 1px solid rgba(231,217,205,0.18); }
-  .footer-col h4 { font-family: 'IBM Plex Mono', monospace; font-size: 0.6rem; font-weight: 500; letter-spacing: 0.32em; text-transform: uppercase; color: var(--peach); margin-bottom: 22px; }
-  .footer-col ul { list-style: none; padding: 0; }
-  .footer-col li { padding: 8px 0; font-size: 0.92rem; }
-  .footer-col li a { color: rgba(231,217,205,0.78); transition: color .15s; border-bottom: 1px solid transparent; padding-bottom: 2px; }
-  .footer-col li a:hover { color: var(--peach); border-bottom-color: var(--peach); }
-  .footer-brand img { height: 32px; width: auto; filter: brightness(0) invert(1); opacity: 0.92; margin-bottom: 22px; }
-  .footer-brand p { color: rgba(231,217,205,0.7); font-size: 0.92rem; line-height: 1.75; max-width: 360px; margin-bottom: 22px; }
-  .footer-brand .scope { font-family: 'IBM Plex Mono', monospace; font-size: 0.55rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(231,217,205,0.5); line-height: 1.9; }
-  .footer-contact .row { padding: 8px 0; }
-  .footer-contact .label { font-family: 'IBM Plex Mono', monospace; font-size: 0.52rem; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase; color: rgba(231,217,205,0.5); margin-bottom: 4px; display: block; }
-  .footer-contact .value { font-family: 'Cormorant Garamond', serif; font-style: italic; font-size: 1.15rem; color: var(--peach); line-height: 1.4; }
-  .footer-bottom { padding: 30px 0; display: flex; justify-content: space-between; align-items: center; font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(231,217,205,0.45); }
-  .footer-bottom .socials { display: flex; gap: 24px; }
-  .footer-bottom .socials a { color: rgba(231,217,205,0.65); border-bottom: 1px solid rgba(231,217,205,0.2); padding-bottom: 2px; transition: color .15s, border-color .15s; }
-  .footer-bottom .socials a:hover { color: var(--peach); border-bottom-color: var(--peach); }
-
-  @media (max-width: 1100px) {
-    header.site { grid-template-columns: 1fr auto; padding: 14px 24px; }
-    nav.primary { display: none; }
-    .page-head, .filter-bar, .work-grid, .cta-strip, footer.site { padding-left: 24px !important; padding-right: 24px !important; }
-    .page-head-inner, .cta-strip-inner, .footer-grid { grid-template-columns: 1fr; gap: 40px; }
-    .work-grid { grid-template-columns: 1fr; }
-    .project { grid-column: span 12 !important; aspect-ratio: 4/3 !important; }
+  @media (max-width: 760px) {
+    .stats-bar { grid-template-columns: repeat(2, 1fr); gap: 28px; }
   }
 </style>
 </head>
 <body>
 
-<div class="peach-band"></div>
-
-<header class="site">
-  <a href="../" class="brand-lockup"><img src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/brand/radius-logo.png" alt="RADIUS"></a>
-  <nav class="primary">
-    <a href="../about/">About</a>
-    <a href="../services/">Services</a>
-    <a href="./" class="active">Our Work</a>
+<nav class="site" id="nav">
+  <a href="../" class="brand-lockup">
+    <img class="logo" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/brand/radius-logo.png" alt="Radius Architectural Millwork">
+  </a>
+  <div class="links">
+    <div class="nav-item">
+      <a href="../about/">About <span class="caret">▾</span></a>
+      <div class="dropdown">
+        <a href="../about/company.html">Company</a>
+        <a href="../about/our-vision.html">Our Vision</a>
+        <a href="../about/partners.html">Partners</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="../services/">Services <span class="caret">▾</span></a>
+      <div class="dropdown">
+        <a href="../services/architectural-millwork.html">Architectural Millwork</a>
+        <a href="../services/3d-renderings.html">3D Renderings</a>
+      </div>
+    </div>
+    <a href="./">Our Work</a>
     <a href="../blog/">Blog</a>
     <a href="../contact.html">Contact</a>
-  </nav>
-  <div class="header-cta">
-    <span class="label-mono">Burnaby</span>
-    <a href="tel:6044441175" class="number">604 444 1175</a>
+    <a href="../contact.html" class="cta">Get In Touch</a>
   </div>
-</header>
+</nav>
 
-<section class="page-head">
-  <div class="page-head-inner">
+<section class="sub-hero">
+  <div class="sub-hero-inner">
     <div>
-      <div class="eyebrow">Selected Work · 2002 → Today</div>
-      <h1>Twenty-five years <em>on the bench.</em></h1>
+      <span class="eyebrow">Our Work</span>
+      <h1>Selected residential <em>estate millwork.</em></h1>
+      <div class="breadcrumb">
+        <a href="../">Home</a><span class="sep">/</span><span>Our Work</span>
+      </div>
     </div>
-    <p class="lede">A sampling of residences across Vancouver, the North Shore, and Sea-to-Sky. Each one is a collaboration with an architect, a designer, and a homeowner who cared about the millwork enough to specify Radius. Full archive in person on request.</p>
+    <p class="lede">Eight projects across Vancouver, the North Shore, the Sea-to-Sky, and Whistler. From a Bjarke Ingels penthouse to a slip-matched rift oak gable-end residence on Indian Arm.</p>
   </div>
 </section>
 
-<div class="filter-bar">
-  <div class="filter-chips">
-    <button class="chip active">All Work</button>
-    <button class="chip">Residential</button>
-    <button class="chip">Wine Cellars</button>
-    <button class="chip">Heritage</button>
-    <button class="chip">Curved + Bent Lamination</button>
-    <button class="chip">Award-Winning</button>
+<section class="section">
+  <div class="section-inner split-grid">
+    <div><span class="eyebrow">Selected Work</span></div>
+    <div>
+      <h2>What we've been <em>building.</em></h2>
+      <p>Whole-house millwork packages, gallery wine bars, bent-laminated rotundas, diamond-bookmatched ceilings, slip-matched rift oak through public rooms. <strong>Every project is bespoke</strong> — the list below names eight from the last decade of work.</p>
+    </div>
   </div>
-  <div class="filter-count"><em>13</em> Projects</div>
-</div>
 
-<div class="work-grid">
+  <div class="section-inner">
+    <div class="work-grid">
 
-  <a href="rosebery-estate.html" class="project lg">
-    <span class="award-tag">AWMAC Gold 2011</span>
-    <img src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/archive/luxury-41.jpg?v=20260513-logo" alt="Rosebery Estate · curved alder rotunda · AWMAC Gold 2011">
-    <div class="project-meta">
-      <div class="num">01 · Vancouver West</div>
-      <h3>Rosebery <em>Estate</em></h3>
-      <div class="specs">Lamoureux Architects · Bent lamination · 18 months · $1.5M scope</div>
+      <a href="vancouverhouse-bop-penthouse.html" class="work-item">
+        <div class="work-img">
+          <img loading="lazy" src="../projects/vancouverhouse-bop-penthouse.jpg" alt="Vancouverhouse BOP Penthouse. Walnut slat ceiling above sectional facing interior atrium garden, inside Bjarke Ingels Group's Vancouver House tower.">
+          <div class="work-overlay">View Project</div>
+        </div>
+        <div class="work-text">
+          <div class="work-name">Vancouverhouse <em>BOP Penthouse</em></div>
+          <div class="work-loc">BIG · Vancouver House · 2020</div>
+          <div class="work-credit">Photo · Kent Leckie</div>
+        </div>
+      </a>
+
+      <a href="indian-arm-study.html" class="work-item">
+        <div class="work-img">
+          <img loading="lazy" src="../projects/indian-arm-study.jpg" alt="Indian Arm Study. Cedar-lined writer's cabin with stone wall, globe pendant cluster, leather chair, built-in desk and ocean view.">
+          <div class="work-overlay">View Project</div>
+        </div>
+        <div class="work-text">
+          <div class="work-name">Indian Arm <em>Study</em></div>
+          <div class="work-loc">Indian Arm · Woodlands</div>
+        </div>
+      </a>
+
+      <a href="indian-river-the-point.html" class="work-item">
+        <div class="work-img">
+          <img loading="lazy" src="../projects/indian-river-the-point.jpg" alt="Indian River — The Point. Gable-end living room with Bocci pendant cluster, harbor view, dark wenge media wall.">
+          <div class="work-overlay">View Project</div>
+        </div>
+        <div class="work-text">
+          <div class="work-name">Indian River <em>— The Point</em></div>
+          <div class="work-loc">Indian Arm · 2025</div>
+          <div class="work-credit">Photo · Andrew Latreille</div>
+        </div>
+      </a>
+
+      <a href="west-vancouver-modern-luxury.html" class="work-item">
+        <div class="work-img">
+          <img loading="lazy" src="../projects/west-vancouver-modern-luxury.jpg" alt="West Vancouver Modern Luxury. Coffee bar wide with banded cedar-slat ceiling lights, concrete column, glass sliders to deck, ocean view.">
+          <div class="work-overlay">View Project</div>
+        </div>
+        <div class="work-text">
+          <div class="work-name">West Vancouver <em>Modern Luxury</em></div>
+          <div class="work-loc">West Vancouver</div>
+        </div>
+      </a>
+
+      <a href="waterfront-anigre-penthouse.html" class="work-item">
+        <div class="work-img">
+          <img loading="lazy" src="../projects/waterfront-anigre-penthouse.jpg" alt="Waterfront Anigre Penthouse. Diamond-bookmatched anigre ceiling, stone fireplace, anigre gallery wall, harbor view at dusk.">
+          <div class="work-overlay">View Project</div>
+        </div>
+        <div class="work-text">
+          <div class="work-name">Waterfront <em>Anigre Penthouse</em></div>
+          <div class="work-loc">Vancouver Waterfront</div>
+          <div class="work-credit">Photo · Hempenstall</div>
+        </div>
+      </a>
+
+      <a href="lions-bay.html" class="work-item">
+        <div class="work-img">
+          <img loading="lazy" src="../projects/lions-bay.jpg" alt="Lion's Bay Residence. Curved dining nook with bay-window framing Howe Sound, built-in media wall and ocean-side living.">
+          <div class="work-overlay">View Project</div>
+        </div>
+        <div class="work-text">
+          <div class="work-name">Lion's Bay <em>Residence</em></div>
+          <div class="work-loc">Lion's Bay · Howe Sound</div>
+        </div>
+      </a>
+
+      <a href="contemporary-walnut-estate.html" class="work-item">
+        <div class="work-img">
+          <img loading="lazy" src="../projects/contemporary-walnut-estate.jpg" alt="Contemporary Walnut Estate. Dining room wide with walnut feature wall, lit fireplace, beach photograph at left and floor-to-ceiling wine display at right.">
+          <div class="work-overlay">View Project</div>
+        </div>
+        <div class="work-text">
+          <div class="work-name">Contemporary <em>Walnut Estate</em></div>
+          <div class="work-loc">Vancouver</div>
+        </div>
+      </a>
+
+      <a href="whitby-estates-walnut.html" class="work-item">
+        <div class="work-img">
+          <img loading="lazy" src="../projects/whitby-estates-walnut.jpg" alt="Whitby Estates Walnut — Maghsoud Residence. Cherry-walnut media room with coffered ceiling, mahogany double-door entry, travertine floor, full-height built-ins.">
+          <div class="work-overlay">View Project</div>
+        </div>
+        <div class="work-text">
+          <div class="work-name">Whitby <em>Estates Walnut</em></div>
+          <div class="work-loc">West Vancouver · Maghsoud Residence</div>
+        </div>
+      </a>
+
     </div>
-  </a>
 
-  <a href="#" class="project md">
-    <img src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/archive/luxury-22.jpg?v=20260513-logo" alt="Walnut Estate display case">
-    <div class="project-meta">
-      <div class="num">02 · Vancouver</div>
-      <h3>Walnut <em>Estate</em></h3>
-      <div class="specs">American walnut · Slip-matched · Cabinetry + display</div>
+    <div class="stats-bar">
+      <div class="stat">
+        <div class="num">8</div>
+        <div class="label">Selected projects</div>
+      </div>
+      <div class="stat">
+        <div class="num">25<em>+</em></div>
+        <div class="label">Years on the bench</div>
+      </div>
+      <div class="stat">
+        <div class="num">1<em>×</em></div>
+        <div class="label">AWMAC BC Gold 2011</div>
+      </div>
+      <div class="stat">
+        <div class="num">5<em>×</em></div>
+        <div class="label">Best of Houzz 2013–2017</div>
+      </div>
     </div>
-  </a>
-
-  <a href="#" class="project sm">
-    <img src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/archive/lion-3.jpg?v=20260513-logo" alt="Lion's Bay contemporary kitchen">
-    <div class="project-meta">
-      <div class="num">03 · Sea-to-Sky</div>
-      <h3>Lion's Bay <em>Contemporary</em></h3>
-      <div class="specs">Glaze-finished island · Raised-panel doors</div>
-    </div>
-  </a>
-
-  <a href="#" class="project tall">
-    <img src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/archive/luxury-1.jpg?v=20260513-logo" alt="Two-storey curved alder foyer">
-    <div class="project-meta">
-      <div class="num">04 · West Vancouver</div>
-      <h3>Curved <em>Foyer</em></h3>
-      <div class="specs">Two-storey curved alder · Panelled walls · Grand stair</div>
-    </div>
-  </a>
-
-  <a href="#" class="project sm">
-    <img src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/archive/walnut-3.jpg?v=20260513-logo" alt="Walnut wine room">
-    <div class="project-meta">
-      <div class="num">05 · Vancouver</div>
-      <h3>Walnut <em>Wine Room</em></h3>
-      <div class="specs">Bottle-rack inset · Stone column · Full room</div>
-    </div>
-  </a>
-
-  <a href="indian-river-the-point.html" class="project col6">
-    <img src="../photos/indian-river-the-point/indian-river-the-point-living-room-gable-end-harbor-view-bocci-pendants-media-wall.jpg" alt="Indian River The Point — gable-end living with Bocci pendants and harbor view">
-    <div class="project-meta">
-      <div class="num">06 · Indian Arm · 2025</div>
-      <h3>Indian River <em>— The Point</em></h3>
-      <div class="specs">Slip-matched rift white oak · River-rock chimney · Black wenge dining · Tongue-and-groove stair</div>
-    </div>
-  </a>
-
-  <a href="vancouverhouse-bop-penthouse.html" class="project col6">
-    <img src="../photos/vancouverhouse-bop-penthouse/vancouverhouse-bop-penthouse-kitchen-walnut-marble-backsplash-island.jpg" alt="Vancouverhouse BOP penthouse kitchen with bookmatched walnut and black marble">
-    <div class="project-meta">
-      <div class="num">07 · BIG · Vancouver House · 2020</div>
-      <h3>Vancouverhouse <em>BOP Penthouse</em></h3>
-      <div class="specs">Bookmatched American walnut · Black marble · Bocci stairwell · Curved slat tub wall</div>
-    </div>
-  </a>
-
-  <a href="waterfront-anigre-penthouse.html" class="project wide">
-    <img src="../photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-living-dining-diamond-ceiling-wide-fireplace-wine-bar-dusk.jpg" alt="Waterfront Anigre Penthouse diamond-bookmatched ceiling, fireplace, harbor view">
-    <div class="project-meta">
-      <div class="num">08 · Vancouver Waterfront</div>
-      <h3>Waterfront <em>Anigre Penthouse</em></h3>
-      <div class="specs">Diamond-bookmatched anigre ceiling · Bocci cluster · Gallery wine bar · Inuit collection</div>
-    </div>
-  </a>
-
-  <a href="#" class="project sm">
-    <img src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/archive/waterfront-3.jpg?v=20260513-logo" alt="Waterfront mahogany display wall">
-    <div class="project-meta">
-      <div class="num">09 · West Vancouver</div>
-      <h3>Mahogany <em>Display Wall</em></h3>
-      <div class="specs">Integrated staircase · Fibre-optic accents</div>
-    </div>
-  </a>
-
-  <a href="#" class="project tall">
-    <img src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/joinery/dovetail-pin-tail-maple-close.jpg?v=20260513-logo" alt="Pin-and-tail dovetail in Eastern maple">
-    <div class="project-meta">
-      <div class="num">10 · Whistler · In Progress</div>
-      <h3>Old Gravel <em>Road</em></h3>
-      <div class="specs">43-sheet set · Smoked oak + rift white oak · AWMAC 2027 submission</div>
-    </div>
-  </a>
-
-  <a href="#" class="project col6">
-    <img src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/process/reveal-panel-dry-fit-vertical.jpg?v=20260513-logo" alt="Cigar-room coffee table mock-up">
-    <div class="project-meta">
-      <div class="num">11 · Vancouver</div>
-      <h3>Cigar Room <em>Coffee Table</em></h3>
-      <div class="specs">Slip-matched maple · Ebonised pear inlay · Glass top</div>
-    </div>
-  </a>
-
-  <a href="#" class="project col6">
-    <img src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/material/teak-fluted-panel-3-4-view.jpg?v=20260513-logo" alt="Fluted teak panel">
-    <div class="project-meta">
-      <div class="num">12 · Whistler</div>
-      <h3>Fluted Teak <em>Panel Study</em></h3>
-      <div class="specs">Integrated handle pulls · Sequenced field · OGR</div>
-    </div>
-  </a>
-
-  <a href="#" class="project wide">
-    <img src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/material/fumed-oak-flute-field-tight.jpg?v=20260513-logo" alt="Fumed oak fluted field">
-    <div class="project-meta">
-      <div class="num">13 · Vancouver</div>
-      <h3>Fumed Oak <em>Heritage Build</em></h3>
-      <div class="specs">Quartersawn fumed oak · Ammonia-cured · Stickley arts-and-crafts canon</div>
-    </div>
-  </a>
-
-</div>
-
-<section class="cta-strip">
-  <div class="cta-strip-inner">
-    <h2>Spec'ing a project for an architect or designer? <em>Drop us a set.</em></h2>
-    <a href="../#contact" class="cta-strip-btn">Send Drawings →</a>
   </div>
+</section>
+
+<section class="cta-band">
+  <span class="eyebrow">Get in touch</span>
+  <h2>Working on a project? <em>Send us the set.</em></h2>
+  <p>Drawings, scope, timeline, or just a conversation. We respond within two business days with a feasibility read and a tested quote.</p>
+  <a href="../contact.html" class="cta-btn">Request a Quote</a>
 </section>
 
 <footer class="site">
   <div class="footer-inner">
     <div class="footer-grid">
       <div class="footer-col footer-brand">
-        <img src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/brand/radius-logo.png" alt="RADIUS">
-        <p>A Master Joiner-led custom millwork shop in Burnaby, BC. Twenty-five years on the same bench. Drawing, cuts, finishing, install support — all under one roof.</p>
-        <div class="scope">Est. 2002 · Burnaby BC<br>AWMAC Gold 2011 · 5× Best of Houzz<br>Licence BUS05-01768</div>
+        <img src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/brand/radius-logo.png" alt="Radius Architectural Millwork">
+        <p>A Master Joiner-led custom millwork shop in Burnaby, BC. Twenty-five years on the same bench.</p>
+        <div class="legal">Since 2002 · Burnaby BC<br>AWMAC Gold 2011 · 5× Best of Houzz<br>Licence BUS05-01768</div>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="../about/company.html">Company</a></li>
+          <li><a href="../about/our-vision.html">Our Vision</a></li>
+          <li><a href="../about/partners.html">Partners</a></li>
+        </ul>
       </div>
       <div class="footer-col">
         <h4>Services</h4>
         <ul>
-          <li><a href="../services/custom-millwork.html">Custom Millwork</a></li>
-          <li><a href="#">Custom Furniture</a></li>
-          <li><a href="#">Wine Cellars</a></li>
-          <li><a href="#">Bent Lamination</a></li>
-          <li><a href="#">Heritage</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>The Shop</h4>
-        <ul>
-          <li><a href="../#about">About Radius</a></li>
-          <li><a href="../#studio">The Studio</a></li>
-          <li><a href="../#process">Our Process</a></li>
-          <li><a href="../#recognition">Recognition</a></li>
-          <li><a href="#">The Bench</a></li>
-          <li><a href="#">Field Notes</a></li>
+          <li><a href="../services/architectural-millwork.html">Architectural Millwork</a></li>
+          <li><a href="../services/3d-renderings.html">3D Renderings</a></li>
+          <li><a href="./">Our Work</a></li>
+          <li><a href="../blog/">Blog</a></li>
         </ul>
       </div>
       <div class="footer-col">
@@ -388,22 +317,28 @@
       </div>
       <div class="footer-col footer-contact">
         <h4>Contact</h4>
-        <div class="row"><span class="label">Phone</span><div class="value"><a href="tel:6044441175">604 444 1175</a></div></div>
-        <div class="row"><span class="label">Email</span><div class="value"><a href="mailto:info@radiuswood.com">info@radiuswood.com</a></div></div>
-        <div class="row"><span class="label">Address</span><div class="value">Unit 106 – 8575 Government St<br>Burnaby BC · V3N 4V1</div></div>
+        <div class="row"><span class="label">Phone</span><div class="val"><a href="tel:6044441175">604 444 1175</a></div></div>
+        <div class="row"><span class="label">Email</span><div class="val"><a href="mailto:rick@radiuswood.com">rick@radiuswood.com</a></div></div>
+        <div class="row"><span class="label">Shop</span><div class="val">Unit 106 – 8575<br>Government St, Burnaby</div></div>
       </div>
     </div>
     <div class="footer-bottom">
       <div>© 2026 Radius Architectural Millwork Ltd.</div>
       <div class="socials">
-        <a href="https://instagram.com/radiusmillwork" target="_blank">Instagram</a>
-        <a href="https://linkedin.com/company/radius-architectural-millwork" target="_blank">LinkedIn</a>
-        <a href="#" target="_blank">Houzz</a>
-        <a href="#" target="_blank">Map</a>
+        <a href="https://instagram.com/radiusmillwork" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://linkedin.com/company/radius-architectural-millwork" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="#" target="_blank" rel="noopener">Houzz</a>
       </div>
     </div>
   </div>
 </footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  document.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 70);
+  }, { passive: true });
+</script>
 
 </body>
 </html>
