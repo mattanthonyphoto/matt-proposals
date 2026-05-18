@@ -62,10 +62,22 @@
   .placeholder {
     margin-top: clamp(40px, 6vw, 80px);
     padding: clamp(56px, 6vw, 90px);
-    background: var(--warm);
+    background: var(--cream);
     border: 1px solid var(--rule);
     text-align: center;
+    position: relative;
   }
+  .placeholder::before {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(to right, rgba(58, 47, 30, 0.045) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(58, 47, 30, 0.045) 1px, transparent 1px);
+    background-size: 48px 48px;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse at center, black 60%, transparent 92%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 60%, transparent 92%);
+  }
+  .placeholder > * { position: relative; z-index: 1; }
   .placeholder h3 {
     font-family: var(--fd); font-weight: 300;
     font-size: clamp(22px, 2.4vw, 30px);
