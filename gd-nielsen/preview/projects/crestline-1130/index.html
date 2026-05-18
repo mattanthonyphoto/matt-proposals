@@ -19,299 +19,738 @@
   --gdn-mid: #6B6E6A;
   --gdn-light: #E8E6E0;
   --gdn-rule: #DDDAD2;
-  --gdn-accent: #9B8259;
+  --gdn-gold: #B8975A;
   --gdn-tone: #2A3530;
+  --gdn-section: 140px;
+  --gdn-section-tight: 100px;
+  --gdn-gap: 80px;
 }
 .gdn-scope * { box-sizing: border-box; }
 .gdn-scope {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 17px;
-  line-height: 1.55;
-  color: var(--gdn-ink);
-  background: var(--gdn-bone);
-  font-feature-settings: "ss01", "cv11";
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 17px; line-height: 1.55; color: var(--gdn-ink); background: var(--gdn-bone);
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
 }
 .gdn-scope img { max-width: 100%; height: auto; display: block; }
-.gdn-scope a {
-  color: var(--gdn-ink);
-  border-bottom: 1px solid var(--gdn-ink);
-  text-decoration: none;
-  transition: color 0.18s, border-color 0.18s;
-}
-.gdn-scope a:hover { color: var(--gdn-accent); border-bottom-color: var(--gdn-accent); }
+:where(.gdn-scope) a { color: var(--gdn-ink); border-bottom: 1px solid var(--gdn-ink);
+  text-decoration: none; transition: color 0.18s, border-color 0.18s; }
+:where(.gdn-scope) a:hover { color: var(--gdn-gold); border-bottom-color: var(--gdn-gold); }
 
-/* Display type — large, light, tight */
-.gdn-scope h1 {
-  font-family: 'Inter', sans-serif;
-  font-weight: 300;
-  font-size: clamp(48px, 7vw, 96px);
-  line-height: 0.96;
-  letter-spacing: -0.035em;
-  margin: 0 0 24px;
-  color: var(--gdn-ink);
-}
-.gdn-scope h2 {
-  font-family: 'Inter', sans-serif;
-  font-weight: 300;
-  font-size: clamp(32px, 4vw, 56px);
-  line-height: 1.05;
-  letter-spacing: -0.025em;
-  margin: 0 0 20px;
-  color: var(--gdn-ink);
-}
-.gdn-scope h3 {
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 13px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  margin: 0 0 12px;
-  color: var(--gdn-mid);
-}
-.gdn-scope p {
-  margin: 0 0 20px;
-  max-width: 620px;
-  font-weight: 400;
-}
-.gdn-scope p.lead {
-  font-size: 22px;
-  line-height: 1.4;
-  font-weight: 300;
-  letter-spacing: -0.005em;
-  color: var(--gdn-ink);
-  max-width: 720px;
-}
+/* Typography */
+.gdn-scope h1 { font-family: 'Poppins', sans-serif; font-weight: 300;
+  font-size: clamp(44px, 6vw, 84px); line-height: 0.98; letter-spacing: -0.035em;
+  margin: 0 0 20px; color: var(--gdn-bone); }
+.gdn-scope h1 em { font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-weight: 400; letter-spacing: -0.01em; }
+.gdn-scope h2 { font-family: 'Poppins', sans-serif; font-weight: 300;
+  font-size: clamp(28px, 3.4vw, 44px); line-height: 1.08; letter-spacing: -0.022em;
+  margin: 0 0 18px; color: var(--gdn-ink); }
+.gdn-scope h2 em { font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-weight: 400; }
+.gdn-scope h3 { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 17px; line-height: 1.3; margin: 0 0 8px; color: var(--gdn-ink); }
+.gdn-scope p { margin: 0 0 18px; max-width: 640px; font-weight: 400; }
+.gdn-scope p.lead { font-size: 21px; line-height: 1.45; font-weight: 300;
+  letter-spacing: -0.005em; color: var(--gdn-ink); max-width: 720px; }
+.gdn-eyebrow { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gdn-mid); margin: 0 0 16px; display: block; }
+.gdn-container { max-width: 1320px; margin: 0 auto; padding: 0 48px; }
+@media (max-width: 720px) { .gdn-container { padding: 0 24px; } }
 
-/* Eyebrow — small, all-caps, tracked */
-.gdn-eyebrow {
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gdn-mid);
-  margin: 0 0 16px;
-}
-
-/* Numerals — for stats, years */
-.gdn-numeral {
-  font-family: 'Inter', sans-serif;
-  font-weight: 200;
-  font-feature-settings: "tnum";
-  letter-spacing: -0.04em;
-  line-height: 0.9;
-}
-
-/* Container — tighter for editorial feel */
-.gdn-container { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
-.gdn-container-narrow { max-width: 920px; margin: 0 auto; padding: 0 40px; }
-
-/* Section spacing — generous */
-.gdn-section { padding: 140px 0; }
-.gdn-section-tight { padding: 80px 0; }
-
-/* CTA — minimal, text-driven */
-.gdn-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 18px 32px;
-  background: var(--gdn-ink);
-  color: var(--gdn-bone);
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: 0.04em;
-  border: 1px solid var(--gdn-ink);
-  text-decoration: none;
-  transition: all 0.22s ease;
-  border-radius: 0;
-}
-.gdn-cta:hover {
-  background: transparent;
-  color: var(--gdn-ink);
-  border-color: var(--gdn-ink);
-}
-.gdn-cta-ghost {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 18px 32px;
-  background: transparent;
-  color: var(--gdn-ink);
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: 0.04em;
-  border: 1px solid var(--gdn-ink);
-  text-decoration: none;
-  transition: all 0.22s ease;
-}
+/* Buttons */
+.gdn-cta { display: inline-block; padding: 16px 30px; font-family: 'Poppins', sans-serif;
+  font-weight: 500; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+  background: var(--gdn-ink); color: var(--gdn-bone); border: 1px solid var(--gdn-ink);
+  text-decoration: none; transition: all 0.2s; }
+.gdn-cta:hover { background: var(--gdn-gold); border-color: var(--gdn-gold); color: var(--gdn-bone); }
+.gdn-cta-light { background: var(--gdn-bone); color: var(--gdn-ink); border-color: var(--gdn-bone); }
+.gdn-cta-light:hover { background: var(--gdn-gold); border-color: var(--gdn-gold); }
+.gdn-cta-ghost { display: inline-block; padding: 16px 30px; font-family: 'Poppins', sans-serif;
+  font-weight: 500; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+  background: transparent; color: var(--gdn-ink); border: 1px solid var(--gdn-ink);
+  text-decoration: none; transition: all 0.2s; }
 .gdn-cta-ghost:hover { background: var(--gdn-ink); color: var(--gdn-bone); }
+.gdn-link-arrow { font-family: 'Poppins', sans-serif; font-weight: 400; font-size: 13px;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--gdn-mid);
+  text-decoration: none; border: 0; }
+.gdn-link-arrow::after { content: " \2192"; }
+.gdn-link-arrow:hover { color: var(--gdn-gold); }
 
-.gdn-link-arrow {
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: 0.02em;
-  border: 0;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
+/* Nav (matches homepage) */
+.gdn-tp-nav { position: sticky; top: 0; z-index: 100; background: rgba(250,250,247,0.92);
+  backdrop-filter: blur(12px); border-bottom: 1px solid var(--gdn-rule); }
+.gdn-tp-nav-inner { display: flex; align-items: center; justify-content: space-between;
+  padding: 22px 48px; max-width: 1480px; margin: 0 auto; }
+.gdn-tp-nav-mark { display: flex; align-items: center; gap: 12px; border: 0;
+  font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400;
+  font-size: 22px; letter-spacing: -0.01em; color: var(--gdn-ink); }
+.gdn-tp-nav-mark img { height: 32px; width: auto; }
+.gdn-tp-nav-links { display: flex; align-items: center; gap: 28px; }
+.gdn-tp-nav-link { font-family: 'Poppins', sans-serif; font-weight: 400;
+  font-size: 14px; color: var(--gdn-ink); text-decoration: none; border: 0;
+  padding: 6px 0; transition: color 0.18s; }
+.gdn-tp-nav-link:hover { color: var(--gdn-gold); border: 0; }
+.gdn-tp-nav-cta { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase;
+  background: var(--gdn-ink); color: var(--gdn-bone); padding: 12px 22px;
+  border: 1px solid var(--gdn-ink); text-decoration: none; transition: all 0.2s; }
+.gdn-tp-nav-cta:hover { background: var(--gdn-gold); border-color: var(--gdn-gold); color: var(--gdn-bone); }
+@media (max-width: 900px) {
+  .gdn-tp-nav-links { display: none; }
+  .gdn-tp-nav-inner { padding: 16px 24px; }
 }
-.gdn-link-arrow::after { content: "→"; transition: transform 0.18s; }
-.gdn-link-arrow:hover::after { transform: translateX(4px); }
 
-/* Rule */
-.gdn-rule { border: 0; border-top: 1px solid var(--gdn-rule); margin: 0; }
-
-/* Mobile */
-@media (max-width: 720px) {
-  .gdn-scope { font-size: 16px; }
-  .gdn-scope p.lead { font-size: 19px; }
-  .gdn-section { padding: 80px 0; }
-  .gdn-container, .gdn-container-narrow { padding: 0 24px; }
-}
-
-
-.gdn-tp-bcrumb {
-  font-family: 'Inter', sans-serif; font-weight: 500;
-  font-size: 12px; letter-spacing: 0.12em; text-transform: uppercase;
-  color: var(--gdn-mid); padding: 32px 0 0;
-}
+/* Breadcrumb */
+.gdn-tp-bcrumb { font-family: 'Poppins', sans-serif; font-weight: 400; font-size: 12px;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--gdn-mid);
+  padding: 24px 0 16px; }
 .gdn-tp-bcrumb a { color: var(--gdn-mid); border: 0; }
 .gdn-tp-bcrumb a:hover { color: var(--gdn-ink); }
 
-.gdn-tp-hero { padding: 80px 0 32px; }
-.gdn-tp-hero-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: 80px; align-items: end; }
-.gdn-tp-image { aspect-ratio: 4 / 3; background: var(--gdn-light); }
-.gdn-tp-meta-line { font-family: 'Inter', sans-serif;
-  font-weight: 400; font-size: 14px; letter-spacing: 0.04em;
-  color: var(--gdn-mid); margin: 24px 0 0; }
+/* Hero — full-bleed image with text overlay */
+.gdn-tp-hero { position: relative; height: clamp(560px, 88vh, 900px); overflow: hidden;
+  margin: 0; background: var(--gdn-tone); }
+.gdn-tp-hero-img { position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center; }
+.gdn-tp-hero-veil { position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(15,20,19,0.05) 0%, rgba(15,20,19,0.05) 40%, rgba(15,20,19,0.65) 100%); }
+.gdn-tp-hero-content { position: absolute; left: 0; right: 0; bottom: 0; padding: 48px;
+  color: var(--gdn-bone); }
+.gdn-tp-hero-eyebrow { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gdn-bone); opacity: 0.85; margin: 0 0 12px; }
+.gdn-tp-hero-loc { font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-weight: 400; font-size: clamp(20px, 2vw, 26px); color: var(--gdn-bone);
+  opacity: 0.85; margin: 8px 0 0; }
+.gdn-tp-hero-text { padding: 120px 0 80px; background: var(--gdn-bone); }
+.gdn-tp-hero-text h1 { color: var(--gdn-ink); }
 
-.gdn-tp-fact-grid {
-  display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-  gap: 1px; margin: 80px 0; background: var(--gdn-rule);
-  border-top: 1px solid var(--gdn-rule); border-bottom: 1px solid var(--gdn-rule);
+/* Meta strip */
+.gdn-tp-meta { padding: 56px 0; border-bottom: 1px solid var(--gdn-rule); }
+.gdn-tp-meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 32px; }
+.gdn-tp-meta-cell { text-align: left; }
+.gdn-tp-meta-label { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gdn-mid); margin: 0 0 6px; }
+.gdn-tp-meta-value { font-family: 'Cormorant Garamond', serif; font-weight: 400;
+  font-size: 26px; line-height: 1.1; letter-spacing: -0.005em; color: var(--gdn-ink); }
+.gdn-tp-meta-value em { font-style: italic; }
+
+/* Narrative */
+.gdn-tp-narrative { padding: 100px 0; }
+.gdn-tp-narrative-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 7fr);
+  gap: 80px; }
+.gdn-tp-narrative-label { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gdn-mid); position: sticky; top: 110px; align-self: start; }
+.gdn-tp-narrative-body p { font-size: 20px; line-height: 1.5; font-weight: 300;
+  color: var(--gdn-ink); max-width: 720px; margin: 0 0 22px; }
+.gdn-tp-narrative-body p:last-child { margin-bottom: 0; }
+@media (max-width: 900px) {
+  .gdn-tp-narrative-grid { grid-template-columns: 1fr; gap: 24px; }
+  .gdn-tp-narrative-label { position: static; }
 }
-.gdn-tp-fact { padding: 32px 24px; background: var(--gdn-bone); }
-.gdn-tp-fact-label { font-family: 'Inter', sans-serif; font-weight: 500;
-  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--gdn-mid); margin-bottom: 8px; }
-.gdn-tp-fact-value { font-family: 'Inter', sans-serif; font-weight: 300;
-  font-size: 30px; line-height: 1; letter-spacing: -0.02em; color: var(--gdn-ink); }
 
-.gdn-tp-narrative-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 6fr); gap: 80px; padding: 40px 0; }
-.gdn-tp-section-label { font-family: 'Inter', sans-serif; font-weight: 500;
-  font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
-  color: var(--gdn-mid); position: sticky; top: 32px; align-self: start; }
-.gdn-tp-narrative-body { font-size: 19px; line-height: 1.55; font-weight: 400; color: var(--gdn-ink); }
-.gdn-tp-narrative-body p { max-width: 700px; margin: 0 0 24px; }
+/* Photo essay — single column, photos speak for themselves */
+.gdn-tp-essay { padding: 40px 0 100px; }
+.gdn-tp-essay-section-label { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gdn-mid); margin: 0 0 40px; text-align: center; }
+.gdn-tp-photo { margin: 0 0 32px; cursor: zoom-in; overflow: hidden; padding: 0; }
+.gdn-tp-photo img { width: 100%; height: auto; display: block;
+  transition: opacity 0.3s, transform 0.6s ease-out; }
+.gdn-tp-photo:hover img { opacity: 0.94; transform: scale(1.01); }
+.gdn-tp-photo-caption { font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-weight: 400; font-size: 14px; color: var(--gdn-mid); margin: 10px 0 0;
+  letter-spacing: 0.01em; }
+.gdn-tp-photo-bleed { width: 100vw; margin-left: calc(-50vw + 50%); padding: 0;
+  max-width: none; }
+.gdn-tp-photo-bleed .gdn-tp-photo-caption { max-width: 1320px; margin: 10px auto 0;
+  padding: 0 48px; }
 
-.gdn-tp-credits { padding: 80px 0; border-top: 1px solid var(--gdn-rule); }
-.gdn-tp-credits-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 6fr); gap: 80px; }
-.gdn-tp-credit-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 32px; }
-.gdn-tp-credit-label { font-family: 'Inter', sans-serif; font-weight: 500;
-  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--gdn-mid); margin-bottom: 8px; }
-.gdn-tp-credit-value { font-family: 'Inter', sans-serif; font-weight: 400;
-  font-size: 17px; color: var(--gdn-ink); }
+/* Credits */
+.gdn-tp-credits { padding: 100px 0; border-top: 1px solid var(--gdn-rule); }
+.gdn-tp-credits-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 7fr);
+  gap: 80px; }
+.gdn-tp-credit-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 32px; }
+.gdn-tp-credit-label { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gdn-mid); margin: 0 0 6px; }
+.gdn-tp-credit-value { font-family: 'Cormorant Garamond', serif; font-weight: 400;
+  font-size: 22px; line-height: 1.2; letter-spacing: -0.005em; color: var(--gdn-ink); }
+.gdn-tp-credit-value em { font-style: italic; }
 
+/* Awards */
 .gdn-tp-awards { padding: 80px 0; border-top: 1px solid var(--gdn-rule); }
-.gdn-tp-awards-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 6fr); gap: 80px; }
-.gdn-tp-award-line { font-family: 'Inter', sans-serif; font-weight: 300;
-  font-size: 22px; line-height: 1.4; letter-spacing: -0.005em;
-  margin: 0 0 12px; color: var(--gdn-ink);
-  padding-left: 24px; position: relative; }
-.gdn-tp-award-line::before {
-  content: ""; position: absolute; left: 0; top: 14px;
-  width: 12px; height: 1px; background: var(--gdn-accent);
+.gdn-tp-awards-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 7fr);
+  gap: 80px; }
+.gdn-tp-award-line { font-family: 'Cormorant Garamond', serif; font-weight: 400;
+  font-size: 22px; line-height: 1.35; letter-spacing: -0.005em; color: var(--gdn-ink);
+  padding-left: 24px; position: relative; margin: 0 0 14px; }
+.gdn-tp-award-line::before { content: ""; position: absolute; left: 0; top: 15px;
+  width: 12px; height: 1px; background: var(--gdn-gold); }
+.gdn-tp-award-line em { font-style: italic; color: var(--gdn-mid); font-size: 16px;
+  display: block; margin-top: 2px; }
+@media (max-width: 900px) {
+  .gdn-tp-credits-grid, .gdn-tp-awards-grid { grid-template-columns: 1fr; gap: 24px; }
 }
 
+/* CTA */
 .gdn-tp-cta-row { display: flex; gap: 16px; padding: 80px 0; flex-wrap: wrap;
   border-top: 1px solid var(--gdn-rule); }
 
-.gdn-tp-related { padding: 120px 0; background: var(--gdn-light); }
+/* Related */
+.gdn-tp-related { padding: var(--gdn-section) 0; background: var(--gdn-light); }
 .gdn-tp-related-head { display: flex; justify-content: space-between; align-items: end;
   margin-bottom: 56px; padding-bottom: 24px; border-bottom: 1px solid var(--gdn-rule); }
-.gdn-tp-related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 32px; }
-.gdn-tp-related-card { background: var(--gdn-bone); display: block; border: 0; transition: transform 0.22s; }
-.gdn-tp-related-card:hover { transform: translateY(-4px); }
-.gdn-tp-related-image { aspect-ratio: 4 / 3; background: var(--gdn-rule); }
-.gdn-tp-related-meta { padding: 24px 28px 32px; }
-.gdn-tp-related-name { font-family: 'Inter', sans-serif; font-weight: 400;
-  font-size: 22px; line-height: 1.2; letter-spacing: -0.015em; color: var(--gdn-ink);
-  margin: 8px 0 4px; }
+.gdn-tp-related-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 32px; }
+.gdn-tp-related-card { background: var(--gdn-bone); display: block; border: 0;
+  transition: transform 0.22s; text-decoration: none; }
+.gdn-tp-related-card:hover { transform: translateY(-4px); border: 0; }
+.gdn-tp-related-image { aspect-ratio: 4 / 3; background: var(--gdn-rule); overflow: hidden; }
+.gdn-tp-related-image img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s; }
+.gdn-tp-related-card:hover .gdn-tp-related-image img { transform: scale(1.04); }
+.gdn-tp-related-meta { padding: 22px 26px 28px; }
+.gdn-tp-related-name { font-family: 'Poppins', sans-serif; font-weight: 400;
+  font-size: 20px; line-height: 1.25; letter-spacing: -0.015em; color: var(--gdn-ink);
+  margin: 6px 0 4px; }
 
-@media (max-width: 980px) {
-  .gdn-tp-hero-grid, .gdn-tp-narrative-grid, .gdn-tp-credits-grid, .gdn-tp-awards-grid { grid-template-columns: 1fr; gap: 32px; }
-  .gdn-tp-section-label { position: static; }
+/* Footer (matches homepage) */
+.gdn-tp-foot { background: var(--gdn-tone); color: var(--gdn-bone); padding: 100px 0 40px; }
+.gdn-tp-foot a { color: var(--gdn-bone); border-bottom-color: rgba(250,250,247,0.3); }
+.gdn-tp-foot a:hover { color: var(--gdn-gold); border-bottom-color: var(--gdn-gold); }
+.gdn-tp-foot-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 80px; padding-bottom: 60px; border-bottom: 1px solid rgba(250,250,247,0.15); }
+.gdn-tp-foot-list { list-style: none; padding: 0; margin: 0 0 16px; }
+.gdn-tp-foot-list li { margin: 0 0 10px; font-size: 14px; }
+.gdn-tp-foot-bottom { padding-top: 32px; display: flex; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px; font-size: 12px; color: rgba(250,250,247,0.6); }
+@media (max-width: 900px) {
+  .gdn-tp-foot-grid { grid-template-columns: 1fr; gap: 40px; }
 }
 
+/* Lightbox */
+.gdn-tp-lb { position: fixed; inset: 0; background: rgba(15,20,19,0.96); z-index: 1000;
+  display: none; align-items: center; justify-content: center; padding: 60px 80px;
+  opacity: 0; transition: opacity 0.2s; }
+.gdn-tp-lb.is-open { display: flex; opacity: 1; }
+.gdn-tp-lb-img { max-width: 100%; max-height: calc(100vh - 160px); object-fit: contain;
+  display: block; }
+.gdn-tp-lb-cap { position: absolute; bottom: 24px; left: 0; right: 0;
+  text-align: center; font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-weight: 400; font-size: 16px; color: rgba(250,250,247,0.75); padding: 0 80px; }
+.gdn-tp-lb-close, .gdn-tp-lb-prev, .gdn-tp-lb-next {
+  position: absolute; background: transparent; color: var(--gdn-bone); border: 0;
+  font-family: 'Poppins', sans-serif; font-weight: 300; cursor: pointer;
+  transition: opacity 0.2s; opacity: 0.7;
+}
+.gdn-tp-lb-close:hover, .gdn-tp-lb-prev:hover, .gdn-tp-lb-next:hover { opacity: 1; }
+.gdn-tp-lb-close { top: 24px; right: 28px; font-size: 28px; line-height: 1; }
+.gdn-tp-lb-prev, .gdn-tp-lb-next { top: 50%; transform: translateY(-50%);
+  font-size: 36px; padding: 12px 18px; }
+.gdn-tp-lb-prev { left: 16px; }
+.gdn-tp-lb-next { right: 16px; }
+@media (max-width: 720px) {
+  .gdn-tp-lb { padding: 40px 12px; }
+  .gdn-tp-lb-prev, .gdn-tp-lb-next { font-size: 28px; }
+}
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "BreadcrumbList", "itemListElement": [{"@type": "ListItem", "item": "https://www.gdnielsen.com/", "name": "Home", "position": 1}, {"@type": "ListItem", "item": "https://www.gdnielsen.com/projects", "name": "Projects", "position": 2}, {"@type": "ListItem", "item": "https://www.gdnielsen.com/projects/crestline-1130", "name": "Custom Home in British Properties, 2015", "position": 3}]}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ResidentialBuilding", "constructor": {"@id": "https://www.gdnielsen.com/#studio", "@type": "Organization", "name": "GD Nielsen Homes"}, "containedInPlace": {"@type": "Place", "name": "British Properties, West Vancouver, Canada"}, "dateCreated": "2015", "description": "", "name": "Custom Home in British Properties, 2015", "url": "https://www.gdnielsen.com/projects/crestline-1130"}</script>
 
-<div class="gdn-scope gdn-tp">
+
+<div class="gdn-scope">
+
+<nav class="gdn-tp-nav">
+  <div class="gdn-tp-nav-inner">
+    <a href="/matt-proposals/gd-nielsen/preview/" class="gdn-tp-nav-mark">
+      <img src="/matt-proposals/gd-nielsen/preview/_assets/images/gdn-mark.png" alt="">
+      <span>GD Nielsen Homes</span>
+    </a>
+    <div class="gdn-tp-nav-links">
+      <a href="/matt-proposals/gd-nielsen/preview/story" class="gdn-tp-nav-link">About</a>
+      <a href="/matt-proposals/gd-nielsen/preview/services" class="gdn-tp-nav-link">Services</a>
+      <a href="/matt-proposals/gd-nielsen/preview/projects" class="gdn-tp-nav-link">Work</a>
+      <a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-west-vancouver" class="gdn-tp-nav-link">Locations</a>
+      <a href="/matt-proposals/gd-nielsen/preview/contact" class="gdn-tp-nav-cta">Contact</a>
+    </div>
+  </div>
+</nav>
 
 <div class="gdn-container">
-  <div class="gdn-tp-bcrumb">
-    <a href="/matt-proposals/gd-nielsen/preview/">Home</a> &nbsp;/&nbsp; <a href="/matt-proposals/gd-nielsen/preview/projects">Projects</a> &nbsp;/&nbsp; Custom Home in British Properties, 2015
-  </div>
+  <p class="gdn-tp-bcrumb">
+    <a href="/matt-proposals/gd-nielsen/preview/">Home</a> &middot; <a href="/matt-proposals/gd-nielsen/preview/projects">Projects</a> &middot; Custom Home in British Properties, 2015
+  </p>
 </div>
 
+
 <section class="gdn-tp-hero">
-  <div class="gdn-container">
-    <div class="gdn-tp-hero-grid">
-      <div>
-        <p class="gdn-eyebrow">(TBD) · 2015</p>
-        <h1>Custom Home in British Properties, 2015</h1>
-        <p class="gdn-tp-meta-line">British Properties, West Vancouver</p>
-      </div>
-      <div class="gdn-tp-image" role="img" aria-label="Custom Home in British Properties, 2015"></div>
+  <img class="gdn-tp-hero-img"
+       src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-01-exterior-front-day-hero.jpg"
+       alt="Custom Home in British Properties, 2015 &mdash; British Properties"
+       fetchpriority="high">
+  <div class="gdn-tp-hero-veil"></div>
+  <div class="gdn-tp-hero-content">
+    <div class="gdn-container">
+      <p class="gdn-tp-hero-eyebrow">
+        (TBD) &middot; 2015
+      </p>
+      <h1>Custom Home in British Properties, 2015</h1>
+      <p class="gdn-tp-hero-loc">British Properties, West Vancouver</p>
     </div>
   </div>
 </section>
 
-<div class="gdn-container">
-  <div class="gdn-tp-fact-grid">
-    <div class="gdn-tp-fact">
-      <div class="gdn-tp-fact-label">Year</div>
-      <div class="gdn-tp-fact-value">2015</div>
+
+<div class="gdn-tp-meta">
+  <div class="gdn-container">
+    <div class="gdn-tp-meta-grid">
+      
+      <div class="gdn-tp-meta-cell">
+        <p class="gdn-tp-meta-label">Year</p>
+        <p class="gdn-tp-meta-value">2015</p>
+      </div>
+      
+      
+      <div class="gdn-tp-meta-cell">
+        <p class="gdn-tp-meta-label">Square Feet</p>
+        <p class="gdn-tp-meta-value">8,719</p>
+      </div>
+      
+      
+      <div class="gdn-tp-meta-cell">
+        <p class="gdn-tp-meta-label">Bedrooms</p>
+        <p class="gdn-tp-meta-value">6</p>
+      </div>
+      
+      
+      <div class="gdn-tp-meta-cell">
+        <p class="gdn-tp-meta-label">Bathrooms</p>
+        <p class="gdn-tp-meta-value">7.5</p>
+      </div>
+      
+      
+      
+      <div class="gdn-tp-meta-cell">
+        <p class="gdn-tp-meta-label">Neighbourhood</p>
+        <p class="gdn-tp-meta-value"><em>British Properties</em></p>
+      </div>
+      
     </div>
-    <div class="gdn-tp-fact">
-      <div class="gdn-tp-fact-label">Sq. Ft.</div>
-      <div class="gdn-tp-fact-value">8,719</div>
-    </div>
-    <div class="gdn-tp-fact">
-      <div class="gdn-tp-fact-label">Bedrooms</div>
-      <div class="gdn-tp-fact-value">6</div>
-    </div>
-    <div class="gdn-tp-fact">
-      <div class="gdn-tp-fact-label">Bathrooms</div>
-      <div class="gdn-tp-fact-value">7.5</div>
-    </div>
-    
   </div>
 </div>
 
-<div class="gdn-container">
-  <div class="gdn-tp-narrative-grid">
-    <div class="gdn-tp-section-label">The Project</div>
-    <div class="gdn-tp-narrative-body">
-      
-      <p style="color: var(--gdn-mid);">Project narrative pending.</p>
-      
-      
+<section class="gdn-tp-narrative">
+  <div class="gdn-container">
+    <div class="gdn-tp-narrative-grid">
+      <p class="gdn-tp-narrative-label">The Project</p>
+      <div class="gdn-tp-narrative-body">
+        
+        <p class="lead">A GD Nielsen build in British Properties, completed 2015. Built from the architect&rsquo;s drawings with the same trade partners we&rsquo;ve worked with for decades.</p>
+        
+      </div>
     </div>
   </div>
-</div>
+</section>
+
+
+<section class="gdn-tp-essay">
+  <div class="gdn-container">
+    <p class="gdn-tp-essay-section-label">The Walkthrough &middot; 36 frames</p>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-02-front-gate-approach.jpg"
+              data-caption="02 front gate approach">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-02-front-gate-approach.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 02 front gate approach"
+             loading="eager"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">02 front gate approach</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-03-side-entry-water-feature.jpg"
+              data-caption="03 side entry water feature">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-03-side-entry-water-feature.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 03 side entry water feature"
+             loading="eager"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">03 side entry water feature</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-04-foyer-wide.jpg"
+              data-caption="04 foyer wide">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-04-foyer-wide.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 04 foyer wide"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">04 foyer wide</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-05-foyer-stair-chandelier.jpg"
+              data-caption="05 foyer stair chandelier">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-05-foyer-stair-chandelier.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 05 foyer stair chandelier"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">05 foyer stair chandelier</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-06-curved-stair-wide.jpg"
+              data-caption="06 curved stair wide">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-06-curved-stair-wide.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 06 curved stair wide"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">06 curved stair wide</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo gdn-tp-photo-bleed"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-07-stair-from-below.jpg"
+              data-caption="07 stair from below">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-07-stair-from-below.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 07 stair from below"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">07 stair from below</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-08-upper-landing-orb-chandelier.jpg"
+              data-caption="08 upper landing orb chandelier">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-08-upper-landing-orb-chandelier.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 08 upper landing orb chandelier"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">08 upper landing orb chandelier</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-09-marble-inlay-hallway.jpg"
+              data-caption="09 marble inlay hallway">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-09-marble-inlay-hallway.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 09 marble inlay hallway"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">09 marble inlay hallway</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-10-great-room-wide.jpg"
+              data-caption="10 great room wide">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-10-great-room-wide.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 10 great room wide"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">10 great room wide</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-11-great-room-fireplace-detail.jpg"
+              data-caption="11 great room fireplace detail">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-11-great-room-fireplace-detail.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 11 great room fireplace detail"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">11 great room fireplace detail</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-12-kitchen-wide.jpg"
+              data-caption="12 kitchen wide">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-12-kitchen-wide.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 12 kitchen wide"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">12 kitchen wide</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo gdn-tp-photo-bleed"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-13-kitchen-island-detail.jpg"
+              data-caption="13 kitchen island detail">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-13-kitchen-island-detail.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 13 kitchen island detail"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">13 kitchen island detail</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-14-dining-nook-view-windows.jpg"
+              data-caption="14 dining nook view windows">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-14-dining-nook-view-windows.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 14 dining nook view windows"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">14 dining nook view windows</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-15-powder-room-herringbone.jpg"
+              data-caption="15 powder room herringbone">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-15-powder-room-herringbone.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 15 powder room herringbone"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">15 powder room herringbone</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-16-secondary-bath-vanity.jpg"
+              data-caption="16 secondary bath vanity">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-16-secondary-bath-vanity.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 16 secondary bath vanity"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">16 secondary bath vanity</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-17-kitchen-to-family-room.jpg"
+              data-caption="17 kitchen to family room">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-17-kitchen-to-family-room.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 17 kitchen to family room"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">17 kitchen to family room</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-18-family-room-wide.jpg"
+              data-caption="18 family room wide">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-18-family-room-wide.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 18 family room wide"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">18 family room wide</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo gdn-tp-photo-bleed"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-19-family-room-fireplace.jpg"
+              data-caption="19 family room fireplace">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-19-family-room-fireplace.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 19 family room fireplace"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">19 family room fireplace</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-20-family-room-sectional.jpg"
+              data-caption="20 family room sectional">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-20-family-room-sectional.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 20 family room sectional"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">20 family room sectional</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-21-upper-landing-built-ins.jpg"
+              data-caption="21 upper landing built ins">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-21-upper-landing-built-ins.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 21 upper landing built ins"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">21 upper landing built ins</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-22-spa-bath-wide.jpg"
+              data-caption="22 spa bath wide">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-22-spa-bath-wide.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 22 spa bath wide"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">22 spa bath wide</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-23-spa-vanity-detail.jpg"
+              data-caption="23 spa vanity detail">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-23-spa-vanity-detail.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 23 spa vanity detail"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">23 spa vanity detail</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-24-sauna-steam-entry.jpg"
+              data-caption="24 sauna steam entry">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-24-sauna-steam-entry.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 24 sauna steam entry"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">24 sauna steam entry</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo gdn-tp-photo-bleed"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-25-cedar-sauna-interior.jpg"
+              data-caption="25 cedar sauna interior">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-25-cedar-sauna-interior.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 25 cedar sauna interior"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">25 cedar sauna interior</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-26-steam-shower-interior.jpg"
+              data-caption="26 steam shower interior">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-26-steam-shower-interior.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 26 steam shower interior"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">26 steam shower interior</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-27-spa-bench-stone.jpg"
+              data-caption="27 spa bench stone">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-27-spa-bench-stone.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 27 spa bench stone"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">27 spa bench stone</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-28-lower-level-bar.jpg"
+              data-caption="28 lower level bar">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-28-lower-level-bar.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 28 lower level bar"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">28 lower level bar</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-29-wine-cellar-doors.jpg"
+              data-caption="29 wine cellar doors">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-29-wine-cellar-doors.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 29 wine cellar doors"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">29 wine cellar doors</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-30-wine-cellar-interior.jpg"
+              data-caption="30 wine cellar interior">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-30-wine-cellar-interior.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 30 wine cellar interior"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">30 wine cellar interior</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo gdn-tp-photo-bleed"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-31-home-theater.jpg"
+              data-caption="31 home theater">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-31-home-theater.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 31 home theater"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">31 home theater</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-32-pergola-side-patio.jpg"
+              data-caption="32 pergola side patio">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-32-pergola-side-patio.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 32 pergola side patio"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">32 pergola side patio</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-33-pool-rear-exterior-day.jpg"
+              data-caption="33 pool rear exterior day">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-33-pool-rear-exterior-day.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 33 pool rear exterior day"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">33 pool rear exterior day</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo gdn-tp-photo-bleed"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-34-pool-sunrise.jpg"
+              data-caption="34 pool sunrise">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-34-pool-sunrise.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 34 pool sunrise"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">34 pool sunrise</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo gdn-tp-photo-bleed"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-35-pool-rear-twilight.jpg"
+              data-caption="35 pool rear twilight">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-35-pool-rear-twilight.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 35 pool rear twilight"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">35 pool rear twilight</figcaption>
+      </figure>
+    
+      
+      <figure class="gdn-tp-photo gdn-tp-photo-bleed"
+              data-src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-36-rooftop-deck-twilight.jpg"
+              data-caption="36 rooftop deck twilight">
+        <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/crestline-1130/crestline-1130-36-rooftop-deck-twilight.jpg"
+             alt="Custom Home in British Properties, 2015 &mdash; 36 rooftop deck twilight"
+             loading="lazy"
+             decoding="async">
+        <figcaption class="gdn-tp-photo-caption">36 rooftop deck twilight</figcaption>
+      </figure>
+    
+  </div>
+</section>
+
 
 
 
@@ -330,27 +769,33 @@
     <div class="gdn-tp-related-head">
       <div>
         <p class="gdn-eyebrow">More work</p>
-        <h2>Selected related projects</h2>
+        <h2>Other projects in British Properties</h2>
       </div>
       <a class="gdn-link-arrow" href="/matt-proposals/gd-nielsen/preview/projects">View all</a>
     </div>
     <div class="gdn-tp-related-grid">
       
       <a class="gdn-tp-related-card" href="/matt-proposals/gd-nielsen/preview/projects/millstream-1039">
-        <div class="gdn-tp-related-image"></div>
+        <div class="gdn-tp-related-image">
+          
+        </div>
         <div class="gdn-tp-related-meta">
-          <p class="gdn-eyebrow" style="margin-bottom: 4px;">British Properties · 2012</p>
+          <p class="gdn-eyebrow" style="margin-bottom: 4px;">British Properties &middot; 2012</p>
           <p class="gdn-tp-related-name">Custom Home in British Properties, 2012</p>
-          <p style="font-size: 13px; color: var(--gdn-mid); margin: 0;">9,403 sq. ft.</p>
         </div>
       </a>
       
       <a class="gdn-tp-related-card" href="/matt-proposals/gd-nielsen/preview/projects/rabbit-lane-361">
-        <div class="gdn-tp-related-image"></div>
+        <div class="gdn-tp-related-image">
+          
+          <img src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/rabbit-lane-361/rabbit-lane-361-01-front-exterior-hero.jpg"
+               alt="Custom Home in British Properties"
+               loading="lazy">
+          
+        </div>
         <div class="gdn-tp-related-meta">
           <p class="gdn-eyebrow" style="margin-bottom: 4px;">British Properties</p>
           <p class="gdn-tp-related-name">Custom Home in British Properties</p>
-          
         </div>
       </a>
       
@@ -359,6 +804,93 @@
 </section>
 
 
+<footer class="gdn-tp-foot">
+  <div class="gdn-container">
+    <div class="gdn-tp-foot-grid">
+      <div>
+        <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; font-size: 26px; margin: 0 0 16px;">GD Nielsen Homes</p>
+        <address style="font-style: normal; font-size: 14px; line-height: 1.6; opacity: 0.8;">
+          129&ndash;1305 Welch Street<br>
+          North Vancouver, BC V7P 1B3<br>
+          <a href="tel:+16049264211">604.926.4211</a><br>
+          <a href="mailto:info@gdnielsen.com">info@gdnielsen.com</a>
+        </address>
+      </div>
+      <div>
+        <p class="gdn-eyebrow" style="color: rgba(250,250,247,0.7); margin-bottom: 16px;">Services</p>
+        <ul class="gdn-tp-foot-list">
+          <li><a href="/matt-proposals/gd-nielsen/preview/services/custom-home-construction">Custom Home Construction</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/services/luxury-renovations">Luxury Renovations</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/services/tear-down-rebuild">Tear-Down &amp; Rebuild</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/services/additions-second-story">Additions &amp; Second Stories</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/services/outdoor-living">Outdoor Living</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="gdn-eyebrow" style="color: rgba(250,250,247,0.7); margin-bottom: 16px;">Company</p>
+        <ul class="gdn-tp-foot-list">
+          <li><a href="/matt-proposals/gd-nielsen/preview/story">About</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/process">Process</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/projects">Projects</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/awards">Awards</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/testimonials">Testimonials</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="gdn-tp-foot-bottom">
+      <p>&copy; 1986&ndash;2026 GD Nielsen Homes Ltd. Custom home builder, West Vancouver.</p>
+      <p>BC 2-5-10 Warranty. HAVAN &amp; CHBA Member.</p>
+    </div>
+  </div>
+</footer>
+
 </div>
+
+
+<div class="gdn-tp-lb" id="gdnLightbox" role="dialog" aria-modal="true" aria-label="Photo viewer">
+  <button class="gdn-tp-lb-close" type="button" aria-label="Close">&times;</button>
+  <button class="gdn-tp-lb-prev" type="button" aria-label="Previous">&#8249;</button>
+  <button class="gdn-tp-lb-next" type="button" aria-label="Next">&#8250;</button>
+  <img class="gdn-tp-lb-img" alt="">
+  <p class="gdn-tp-lb-cap"></p>
+</div>
+<script>
+(function () {
+  var photos = Array.prototype.slice.call(document.querySelectorAll('.gdn-tp-photo'));
+  if (!photos.length) return;
+  var lb = document.getElementById('gdnLightbox');
+  var lbImg = lb.querySelector('.gdn-tp-lb-img');
+  var lbCap = lb.querySelector('.gdn-tp-lb-cap');
+  var idx = 0;
+  function open(i) {
+    idx = (i + photos.length) % photos.length;
+    var el = photos[idx];
+    lbImg.src = el.dataset.src;
+    lbCap.textContent = el.dataset.caption || '';
+    lb.classList.add('is-open');
+    document.body.style.overflow = 'hidden';
+  }
+  function close() {
+    lb.classList.remove('is-open');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+  photos.forEach(function (el, i) {
+    el.addEventListener('click', function (e) { e.preventDefault(); open(i); });
+  });
+  lb.querySelector('.gdn-tp-lb-close').addEventListener('click', close);
+  lb.querySelector('.gdn-tp-lb-prev').addEventListener('click', function () { open(idx - 1); });
+  lb.querySelector('.gdn-tp-lb-next').addEventListener('click', function () { open(idx + 1); });
+  lb.addEventListener('click', function (e) { if (e.target === lb) close(); });
+  document.addEventListener('keydown', function (e) {
+    if (!lb.classList.contains('is-open')) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowLeft') open(idx - 1);
+    else if (e.key === 'ArrowRight') open(idx + 1);
+  });
+})();
+</script>
+
 </body>
 </html>
