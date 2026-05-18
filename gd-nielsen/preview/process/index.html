@@ -1,0 +1,1117 @@
+<style>
+:root {
+  --gdn-ink: #0F1413;
+  --gdn-bone: #FAFAF7;
+  --gdn-mid: #6B6E6A;
+  --gdn-light: #E8E6E0;
+  --gdn-rule: #DDDAD2;
+  --gdn-gold: #B8975A;
+  --gdn-tone: #2A3530;
+  --gdn-section: 140px;
+  --gdn-section-tight: 100px;
+  --gdn-gap: 80px;
+}
+.gdn-scope * { box-sizing: border-box; }
+.gdn-scope {
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 17px; line-height: 1.55; color: var(--gdn-ink); background: var(--gdn-bone);
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+  scroll-behavior: smooth;
+}
+html { scroll-behavior: smooth; }
+.gdn-scope img { max-width: 100%; height: auto; display: block; }
+
+:where(.gdn-scope) a { color: var(--gdn-ink); border-bottom: 1px solid var(--gdn-ink);
+  text-decoration: none; transition: color 0.18s, border-color 0.18s; }
+:where(.gdn-scope) a:hover { color: var(--gdn-gold); border-bottom-color: var(--gdn-gold); }
+
+.gdn-scope h1 { font-family: 'Poppins', 'Inter', sans-serif; font-weight: 300;
+  font-size: clamp(30px, 4vw, 56px); line-height: 1.12; letter-spacing: -0.025em;
+  margin: 0 0 28px; color: var(--gdn-ink); }
+.gdn-scope h2 { font-family: 'Poppins', 'Inter', sans-serif; font-weight: 400;
+  font-size: clamp(30px, 3.6vw, 48px); line-height: 1.12; letter-spacing: -0.022em;
+  margin: 0 0 24px; color: var(--gdn-ink); }
+.gdn-scope h3 { font-family: 'Poppins', 'Inter', sans-serif; font-weight: 500;
+  font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+  margin: 0 0 12px; color: var(--gdn-mid); }
+.gdn-scope p { margin: 0 0 20px; max-width: 620px; font-weight: 400; }
+.gdn-scope p.lead { font-size: clamp(18px, 1.4vw, 22px); line-height: 1.5; font-weight: 300;
+  letter-spacing: -0.005em; color: var(--gdn-ink); max-width: 720px; }
+
+.gdn-eyebrow {
+  font-family: 'Poppins', 'Inter', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gdn-mid); margin: 0 0 28px;
+  display: inline-flex; align-items: center; gap: 14px;
+}
+.gdn-eyebrow::before {
+  content: ""; display: inline-block;
+  width: 24px; height: 1px; background: var(--gdn-gold);
+}
+
+.gdn-link-arrow {
+  font-family: 'Poppins', 'Inter', sans-serif; font-weight: 500;
+  font-size: 13px; letter-spacing: 0.04em;
+  border: 0; padding-bottom: 2px; border-bottom: 1px solid var(--gdn-ink);
+  display: inline-flex; align-items: center; gap: 8px;
+  transition: all 0.22s;
+}
+.gdn-link-arrow::after { content: "→"; transition: transform 0.22s; }
+.gdn-link-arrow:hover { color: var(--gdn-gold); border-bottom-color: var(--gdn-gold); }
+.gdn-link-arrow:hover::after { transform: translateX(4px); }
+
+.gdn-container { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
+.gdn-container-wide { max-width: 1680px; margin: 0 auto; padding: 0 40px; }
+
+.gdn-cta { display: inline-flex; align-items: center; gap: 12px; padding: 18px 32px;
+  background: var(--gdn-ink); color: var(--gdn-bone) !important;
+  font-family: 'Poppins', 'Inter', sans-serif; font-weight: 500;
+  font-size: 14px; letter-spacing: 0.04em;
+  border: 1px solid var(--gdn-ink) !important;
+  text-decoration: none; transition: all 0.22s ease; }
+.gdn-cta:hover { background: var(--gdn-gold) !important; border-color: var(--gdn-gold) !important;
+  color: var(--gdn-ink) !important; }
+.gdn-cta-ghost { display: inline-flex; align-items: center; gap: 12px; padding: 18px 32px;
+  background: transparent; color: var(--gdn-ink) !important;
+  font-family: 'Poppins', 'Inter', sans-serif; font-weight: 500;
+  font-size: 14px; letter-spacing: 0.04em;
+  border: 1px solid var(--gdn-ink) !important;
+  text-decoration: none; transition: all 0.22s ease; }
+.gdn-cta-ghost:hover { background: var(--gdn-ink) !important; color: var(--gdn-bone) !important; }
+.gdn-cta-light { background: var(--gdn-bone) !important; color: var(--gdn-ink) !important;
+  border-color: var(--gdn-bone) !important; }
+.gdn-cta-light:hover { background: var(--gdn-gold) !important; border-color: var(--gdn-gold) !important;
+  color: var(--gdn-ink) !important; }
+.gdn-cta-ghost-light { background: transparent !important; color: var(--gdn-bone) !important;
+  border: 1px solid var(--gdn-bone) !important; }
+.gdn-cta-ghost-light:hover { background: var(--gdn-bone) !important; color: var(--gdn-ink) !important; }
+
+/* ============== NAV ============== */
+.gdn-hp-nav { padding: 22px 0; border-bottom: 1px solid var(--gdn-rule);
+  position: sticky; top: 0; z-index: 10;
+  backdrop-filter: saturate(180%) blur(14px);
+  background: rgba(250, 250, 247, 0.88); }
+.gdn-hp-nav-grid { display: flex; justify-content: space-between; align-items: center; }
+.gdn-hp-nav-mark { display: inline-flex; align-items: center; gap: 14px; border: 0 !important;
+  transition: opacity 0.22s; }
+.gdn-hp-nav-mark:hover { opacity: 0.7; }
+.gdn-hp-nav-mark-icon { width: 32px; height: 32px;
+  transition: transform 0.6s cubic-bezier(0.65, 0, 0.35, 1); }
+.gdn-hp-nav-mark:hover .gdn-hp-nav-mark-icon { transform: rotate(360deg); }
+.gdn-hp-nav-mark-icon img { width: 100%; height: 100%; object-fit: contain; }
+.gdn-hp-nav-mark-text {
+  font-family: 'Poppins', 'Inter', sans-serif; font-weight: 500;
+  font-size: 13px; letter-spacing: 0.18em; color: var(--gdn-ink);
+}
+.gdn-hp-nav-links { display: flex; gap: 36px; align-items: center; }
+.gdn-hp-nav-link { font-family: 'Poppins', 'Inter', sans-serif; font-weight: 400;
+  font-size: 13px; letter-spacing: 0.04em; color: var(--gdn-ink) !important;
+  border: 0 !important; padding: 4px 0; position: relative; }
+.gdn-hp-nav-link::after { content: ""; position: absolute; left: 0; bottom: 0;
+  width: 0; height: 1px; background: var(--gdn-gold); transition: width 0.24s ease; }
+.gdn-hp-nav-link:hover::after { width: 100%; }
+.gdn-hp-nav-link.is-active { color: var(--gdn-ink) !important; }
+.gdn-hp-nav-link.is-active::after { width: 100%; background: var(--gdn-gold); }
+.gdn-hp-nav-cta { font-family: 'Poppins', 'Inter', sans-serif; font-weight: 500;
+  font-size: 13px; letter-spacing: 0.04em;
+  padding: 10px 22px; border: 1px solid var(--gdn-ink) !important;
+  color: var(--gdn-ink) !important; transition: all 0.22s; }
+.gdn-hp-nav-cta:hover { background: var(--gdn-ink); color: var(--gdn-bone) !important; }
+
+/* ============== PROCESS HERO (editorial, no image) ============== */
+.gdn-pr-hero {
+  padding: clamp(100px, 12vw, 180px) 0 clamp(80px, 10vw, 140px);
+  border-bottom: 1px solid var(--gdn-rule);
+  background: var(--gdn-bone);
+  position: relative;
+}
+.gdn-pr-hero-grid {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
+  gap: clamp(40px, 6vw, 96px); align-items: end;
+}
+.gdn-pr-hero-meta { display: flex; flex-direction: column; gap: 24px; }
+.gdn-pr-hero-meta .gdn-eyebrow { margin: 0; }
+.gdn-pr-hero-meta-list { list-style: none; padding: 0; margin: 0;
+  display: flex; flex-direction: column; gap: 14px;
+  font-size: 13px; color: var(--gdn-mid); }
+.gdn-pr-hero-meta-list strong { color: var(--gdn-ink); font-weight: 500;
+  display: inline-block; min-width: 90px; letter-spacing: 0.04em; font-size: 11px;
+  text-transform: uppercase; }
+.gdn-pr-hero h1 { margin: 0 0 32px; }
+.gdn-pr-hero p.lead { margin: 0; max-width: 640px; }
+@media (max-width: 980px) {
+  .gdn-pr-hero { padding: 64px 0 56px; }
+  .gdn-pr-hero-grid { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* ============== PHASE OVERVIEW STRIP ============== */
+.gdn-pr-overview {
+  padding: clamp(60px, 7vw, 96px) 0;
+  background: var(--gdn-light);
+  border-bottom: 1px solid var(--gdn-rule);
+}
+.gdn-pr-overview-grid {
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--gdn-rule);
+  border-bottom: 1px solid var(--gdn-rule);
+}
+.gdn-pr-overview-item {
+  padding: 36px 28px 36px 0;
+  border-right: 1px solid var(--gdn-rule);
+  border: 0 !important;
+  color: var(--gdn-ink) !important;
+  display: block;
+  transition: background 0.22s;
+}
+.gdn-pr-overview-item:not(:first-child) { padding-left: 28px; }
+.gdn-pr-overview-item:last-child { padding-right: 0; }
+.gdn-pr-overview-item:hover { background: rgba(184, 151, 90, 0.06); }
+.gdn-pr-overview-num {
+  font-family: 'Poppins', 'Inter', sans-serif; font-weight: 200;
+  font-size: clamp(40px, 4vw, 56px); line-height: 0.95; letter-spacing: -0.04em;
+  color: var(--gdn-gold); margin: 0 0 18px;
+  font-variant-numeric: tabular-nums;
+}
+.gdn-pr-overview-name {
+  font-family: 'Poppins', 'Inter', sans-serif; font-weight: 500;
+  font-size: 16px; line-height: 1.25; letter-spacing: -0.005em;
+  color: var(--gdn-ink); margin: 0 0 6px; display: block;
+}
+.gdn-pr-overview-dur {
+  display: inline-block;
+  font-family: 'Poppins', 'Inter', sans-serif; font-weight: 400;
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gdn-mid);
+}
+@media (max-width: 980px) {
+  .gdn-pr-overview-grid { grid-template-columns: repeat(2, 1fr); }
+  .gdn-pr-overview-item:nth-child(2) { border-right: 0; }
+  .gdn-pr-overview-item:nth-child(3) { border-top: 1px solid var(--gdn-rule); padding-top: 36px; }
+  .gdn-pr-overview-item:nth-child(4) { border-top: 1px solid var(--gdn-rule); padding-top: 36px; }
+}
+@media (max-width: 600px) {
+  .gdn-pr-overview-grid { grid-template-columns: 1fr; }
+  .gdn-pr-overview-item { border-right: 0;
+    border-top: 1px solid var(--gdn-rule); padding: 32px 0; }
+  .gdn-pr-overview-item:first-child { border-top: 0; padding-top: 0; }
+}
+
+/* ============== PHASE BLOCKS ============== */
+.gdn-pr-phase {
+  padding: var(--gdn-section) 0;
+  border-bottom: 1px solid var(--gdn-rule);
+}
+.gdn-pr-phase:nth-of-type(even) { background: var(--gdn-bone); }
+.gdn-pr-phase:nth-of-type(odd) { background: var(--gdn-bone); }
+.gdn-pr-phase-grid {
+  display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: clamp(40px, 6vw, 96px); align-items: start;
+}
+.gdn-pr-phase-head {
+  position: sticky; top: 110px;
+  display: flex; flex-direction: column; gap: 16px;
+}
+.gdn-pr-phase-num {
+  font-family: 'Poppins', 'Inter', sans-serif; font-weight: 200;
+  font-size: clamp(72px, 10vw, 140px); line-height: 0.9; letter-spacing: -0.05em;
+  color: var(--gdn-ink); margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+.gdn-pr-phase-label {
+  font-family: 'Poppins', 'Inter', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gdn-gold); margin: 0;
+  display: inline-flex; align-items: center; gap: 14px;
+}
+.gdn-pr-phase-label::before {
+  content: ""; display: inline-block;
+  width: 24px; height: 1px; background: var(--gdn-gold);
+}
+.gdn-pr-phase-dur {
+  font-family: 'Poppins', 'Inter', sans-serif; font-weight: 400;
+  font-size: 13px; letter-spacing: 0.04em;
+  color: var(--gdn-mid); margin: 0;
+}
+.gdn-pr-phase-body h2 { margin-bottom: 28px;
+  font-size: clamp(26px, 2.8vw, 38px); line-height: 1.18; letter-spacing: -0.018em; }
+.gdn-pr-phase-body p.lead { margin: 0 0 40px; font-size: clamp(17px, 1.25vw, 19px);
+  line-height: 1.55; max-width: 700px; }
+
+.gdn-pr-detail-grid {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 40px 48px;
+  padding-top: 40px; border-top: 1px solid var(--gdn-rule);
+}
+.gdn-pr-detail-block h3 {
+  font-family: 'Poppins', 'Inter', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gdn-mid); margin: 0 0 16px;
+}
+.gdn-pr-detail-block ul {
+  list-style: none; padding: 0; margin: 0;
+  font-size: 15px; line-height: 1.6; color: var(--gdn-ink);
+}
+.gdn-pr-detail-block li {
+  padding: 10px 0 10px 22px; position: relative;
+  border-bottom: 1px solid var(--gdn-rule);
+}
+.gdn-pr-detail-block li:last-child { border-bottom: 0; }
+.gdn-pr-detail-block li::before {
+  content: ""; position: absolute; left: 0; top: 19px;
+  width: 12px; height: 1px; background: var(--gdn-gold);
+}
+.gdn-pr-detail-block p {
+  font-size: 14px; line-height: 1.65; color: var(--gdn-mid);
+  margin: 0; max-width: none;
+}
+
+.gdn-pr-note {
+  margin-top: 40px; padding: 22px 0 22px 24px;
+  border-left: 2px solid var(--gdn-gold);
+  max-width: 640px;
+}
+.gdn-pr-note-label {
+  font-family: 'Poppins', 'Inter', sans-serif; font-weight: 500;
+  font-size: 10px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gdn-gold); margin: 0 0 8px; display: block;
+}
+.gdn-pr-note-body {
+  font-size: 14.5px; line-height: 1.6; color: var(--gdn-ink);
+  margin: 0;
+}
+
+@media (max-width: 980px) {
+  .gdn-pr-phase { padding: 80px 0; }
+  .gdn-pr-phase-grid { grid-template-columns: 1fr; gap: 32px; }
+  .gdn-pr-phase-head { position: static; flex-direction: row; align-items: baseline; gap: 24px; flex-wrap: wrap; }
+  .gdn-pr-phase-num { font-size: clamp(56px, 14vw, 96px); }
+  .gdn-pr-detail-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* ============== BUILD SUB-PHASES (vertical stack within Phase 03) ============== */
+.gdn-pr-sub {
+  margin-top: 8px; padding-top: 40px;
+  border-top: 1px solid var(--gdn-rule);
+}
+.gdn-pr-sub-label {
+  font-family: 'Poppins', 'Inter', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gdn-mid); margin: 0 0 28px;
+}
+.gdn-pr-sub-list {
+  list-style: none; padding: 0; margin: 0;
+}
+.gdn-pr-sub-item {
+  display: grid; grid-template-columns: 120px 1fr;
+  gap: 32px; align-items: baseline;
+  padding: 22px 0; border-bottom: 1px solid var(--gdn-rule);
+  position: relative;
+}
+.gdn-pr-sub-item:first-child { border-top: 1px solid var(--gdn-rule); }
+.gdn-pr-sub-month {
+  font-family: 'Poppins', 'Inter', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gdn-gold); margin: 0;
+  font-variant-numeric: tabular-nums;
+}
+.gdn-pr-sub-name {
+  font-family: 'Poppins', 'Inter', sans-serif; font-weight: 400;
+  font-size: clamp(17px, 1.3vw, 20px); line-height: 1.35; letter-spacing: -0.01em;
+  color: var(--gdn-ink); margin: 0;
+}
+@media (max-width: 720px) {
+  .gdn-pr-sub-item { grid-template-columns: 1fr; gap: 4px; padding: 18px 0; }
+}
+
+/* ============== TEAM ============== */
+.gdn-pr-team {
+  padding: var(--gdn-section) 0; background: var(--gdn-light);
+  border-bottom: 1px solid var(--gdn-rule);
+}
+.gdn-pr-team-head { max-width: 720px; margin: 0 0 72px; }
+.gdn-pr-team-head h2 { margin-bottom: 24px; }
+.gdn-pr-team-head p { color: var(--gdn-mid); font-size: 15px; line-height: 1.65;
+  margin: 0; max-width: 580px; }
+.gdn-pr-team-grid {
+  display: grid; grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--gdn-rule);
+  border-bottom: 1px solid var(--gdn-rule);
+}
+.gdn-pr-team-card {
+  padding: 56px 40px 56px 0;
+  border-right: 1px solid var(--gdn-rule);
+}
+.gdn-pr-team-card:not(:first-child) { padding-left: 40px; }
+.gdn-pr-team-card:last-child { border-right: 0; padding-right: 0; }
+.gdn-pr-team-role {
+  font-family: 'Poppins', 'Inter', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gdn-gold); margin: 0 0 16px;
+}
+.gdn-pr-team-name {
+  font-family: 'Poppins', 'Inter', sans-serif; font-weight: 400;
+  font-size: clamp(22px, 2vw, 28px); line-height: 1.18; letter-spacing: -0.018em;
+  color: var(--gdn-ink); margin: 0 0 18px;
+}
+.gdn-pr-team-body {
+  font-size: 15px; line-height: 1.6; color: var(--gdn-mid);
+  margin: 0; max-width: none;
+}
+@media (max-width: 980px) {
+  .gdn-pr-team-grid { grid-template-columns: 1fr; }
+  .gdn-pr-team-card {
+    border-right: 0; border-bottom: 1px solid var(--gdn-rule);
+    padding: 40px 0;
+  }
+  .gdn-pr-team-card:first-child { padding-top: 0; }
+  .gdn-pr-team-card:last-child { border-bottom: 0; padding-bottom: 0; }
+}
+
+/* ============== WHAT WE DO DIFFERENTLY (reused why section) ============== */
+.gdn-pr-why { padding: var(--gdn-section) 0; border-bottom: 1px solid var(--gdn-rule); }
+.gdn-pr-why-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: 80px; align-items: start; }
+.gdn-pr-why-head h2 { margin-bottom: 0; }
+.gdn-pr-why-list { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 56px 48px; }
+@media (max-width: 1180px) and (min-width: 721px) {
+  .gdn-pr-why-list { gap: 40px 32px; }
+}
+.gdn-pr-why-num { font-family: 'Poppins', 'Inter', sans-serif; font-weight: 200;
+  font-size: 44px; line-height: 1; letter-spacing: -0.04em;
+  color: var(--gdn-gold); margin-bottom: 16px; }
+.gdn-pr-why-name { font-family: 'Poppins', 'Inter', sans-serif; font-weight: 500;
+  font-size: 22px; line-height: 1.25; letter-spacing: -0.01em;
+  color: var(--gdn-ink); margin: 0 0 14px; }
+.gdn-pr-why-body { font-size: 15px; line-height: 1.6; color: var(--gdn-ink);
+  margin: 0; max-width: 460px; }
+@media (max-width: 980px) {
+  .gdn-pr-why-grid { grid-template-columns: 1fr; gap: 32px; }
+  .gdn-pr-why-list { grid-template-columns: 1fr; gap: 40px; }
+}
+
+/* ============== FAQ ============== */
+.gdn-pr-faq { padding: var(--gdn-section) 0; border-bottom: 1px solid var(--gdn-rule); background: var(--gdn-bone); }
+.gdn-pr-faq-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: var(--gdn-gap); align-items: start; }
+.gdn-pr-faq-head h2 { margin-bottom: 32px; }
+.gdn-pr-faq-intro { max-width: 320px; font-size: 15px; line-height: 1.55;
+  color: var(--gdn-mid); margin: 0; }
+.gdn-pr-faq-list { list-style: none; padding: 0; margin: 0;
+  border-top: 1px solid var(--gdn-rule); }
+.gdn-pr-faq-item {
+  border-bottom: 1px solid var(--gdn-rule);
+  padding: 0;
+}
+.gdn-pr-faq-item summary {
+  display: grid; grid-template-columns: 1fr auto; gap: 32px; align-items: center;
+  padding: 28px 0; cursor: pointer;
+  list-style: none;
+  font-family: 'Poppins', 'Inter', sans-serif; font-weight: 400;
+  font-size: clamp(18px, 1.6vw, 22px); line-height: 1.3; letter-spacing: -0.015em;
+  color: var(--gdn-ink); margin: 0;
+  transition: color 0.22s;
+}
+.gdn-pr-faq-item summary::-webkit-details-marker { display: none; }
+.gdn-pr-faq-item summary::after {
+  content: "+"; font-family: 'Poppins', 'Inter', sans-serif; font-weight: 200;
+  font-size: 28px; line-height: 1; color: var(--gdn-mid);
+  transition: transform 0.32s, color 0.22s;
+}
+.gdn-pr-faq-item[open] summary::after {
+  transform: rotate(45deg); color: var(--gdn-gold);
+}
+.gdn-pr-faq-item:hover summary { color: var(--gdn-gold); }
+.gdn-pr-faq-item .gdn-pr-faq-a {
+  padding: 0 0 28px;
+  font-size: 16px; line-height: 1.65; color: var(--gdn-ink); margin: 0;
+  max-width: 720px;
+}
+.gdn-pr-faq-item .gdn-pr-faq-a a { font-weight: 500; }
+@media (max-width: 980px) {
+  .gdn-pr-faq-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+/* ============== CTA ============== */
+.gdn-pr-cta {
+  position: relative; min-height: 64vh; max-height: 720px;
+  overflow: hidden; background: var(--gdn-ink);
+  display: flex; align-items: center; justify-content: center;
+  text-align: center;
+}
+.gdn-pr-cta-img {
+  position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center;
+}
+.gdn-pr-cta::before {
+  content: ""; position: absolute; inset: 0;
+  background: linear-gradient(to bottom, rgba(15, 20, 19, 0.45) 0%, rgba(15, 20, 19, 0.78) 100%);
+  z-index: 1;
+}
+.gdn-pr-cta-content {
+  position: relative; z-index: 2;
+  padding: 96px 40px;
+  max-width: 920px; margin: 0 auto;
+}
+.gdn-pr-cta-content .gdn-eyebrow { color: rgba(250, 250, 247, 0.85); justify-content: center; }
+.gdn-pr-cta-content h2 { color: var(--gdn-bone); font-size: clamp(36px, 5vw, 56px);
+  margin: 0 auto 28px; max-width: 700px; }
+.gdn-pr-cta-content p { color: rgba(250, 250, 247, 0.85); margin: 0 auto 40px;
+  max-width: 560px; }
+
+/* ============== FOOTER ============== */
+.gdn-hp-foot { padding: 80px 0 40px; border-top: 1px solid var(--gdn-rule); background: var(--gdn-bone); }
+.gdn-hp-foot-grid { display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 64px; margin-bottom: 48px; align-items: start; }
+.gdn-hp-foot-logo { max-width: 180px; margin: 0 0 24px; }
+.gdn-hp-foot-logo img { width: 100%; height: auto; }
+.gdn-hp-foot-nap { font-style: normal; font-family: 'Poppins', 'Inter', sans-serif;
+  font-size: 13px; line-height: 1.7; color: var(--gdn-mid); margin: 0 0 14px;
+  display: block; }
+.gdn-hp-foot-contact { font-family: 'Poppins', 'Inter', sans-serif; font-size: 13px;
+  line-height: 1.7; color: var(--gdn-ink); margin: 0 0 20px; }
+.gdn-hp-foot-contact a { color: var(--gdn-ink); border-bottom-color: var(--gdn-rule); }
+.gdn-hp-foot-contact a:hover { color: var(--gdn-gold); border-bottom-color: var(--gdn-gold); }
+.gdn-hp-foot-list { list-style: none; padding: 0; margin: 0;
+  font-size: 13px; line-height: 1.95; }
+.gdn-hp-foot-list a { color: var(--gdn-ink) !important; border: 0 !important;
+  transition: color 0.22s; }
+.gdn-hp-foot-list a:hover { color: var(--gdn-gold) !important; }
+.gdn-hp-foot-list strong { font-weight: 500; }
+.gdn-hp-foot-social { list-style: none; padding: 0; margin: 0;
+  display: flex; flex-wrap: wrap; gap: 14px;
+  font-size: 12px; }
+.gdn-hp-foot-social a { color: var(--gdn-mid) !important; border: 0 !important;
+  text-transform: uppercase; letter-spacing: 0.1em; font-weight: 500;
+  transition: color 0.22s; }
+.gdn-hp-foot-social a:hover { color: var(--gdn-gold) !important; }
+.gdn-hp-foot-meta { font-size: 12px; color: var(--gdn-mid); padding-top: 28px;
+  border-top: 1px solid var(--gdn-rule); display: flex; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px; }
+.gdn-hp-foot-meta a { color: var(--gdn-mid) !important; border: 0 !important; }
+.gdn-hp-foot-meta a:hover { color: var(--gdn-gold) !important; }
+.gdn-hp-foot-meta [itemprop="name"] { font-weight: 500; color: var(--gdn-ink); }
+@media (max-width: 880px) {
+  .gdn-hp-foot-grid { grid-template-columns: 1fr 1fr; gap: 40px 32px; }
+  .gdn-hp-foot-col-brand { grid-column: 1 / -1; }
+}
+@media (max-width: 540px) {
+  .gdn-hp-foot-grid { grid-template-columns: 1fr; }
+  .gdn-hp-foot-col-brand { grid-column: auto; }
+}
+
+/* ============== MOBILE STICKY BAR ============== */
+.gdn-hp-mobile-bar { display: none; }
+@media (max-width: 720px) {
+  .gdn-hp-mobile-bar {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 50;
+    display: grid; grid-template-columns: auto 1fr;
+    background: var(--gdn-ink);
+    box-shadow: 0 -8px 32px rgba(15, 20, 19, 0.18);
+  }
+  .gdn-hp-mobile-bar a {
+    color: var(--gdn-bone) !important;
+    border: 0 !important;
+    padding: 16px 20px;
+    font-family: 'Poppins', 'Inter', sans-serif;
+    font-weight: 500; font-size: 14px;
+    letter-spacing: 0.04em;
+    text-align: center;
+    transition: background 0.22s;
+  }
+  .gdn-hp-mobile-bar .bar-call {
+    background: var(--gdn-tone);
+    display: inline-flex; align-items: center; gap: 8px;
+  }
+  .gdn-hp-mobile-bar .bar-contact { display: flex; align-items: center; justify-content: center; gap: 8px; }
+  .gdn-hp-mobile-bar .bar-contact:hover { background: var(--gdn-gold); color: var(--gdn-ink) !important; }
+  .gdn-pr { padding-bottom: 56px; }
+  .gdn-hp-nav-links, .gdn-hp-nav-cta { display: none; }
+}
+
+/* Skip-to-content (accessibility) */
+.gdn-skip-link {
+  position: absolute; left: -10000px; top: auto;
+  width: 1px; height: 1px; overflow: hidden;
+  background: var(--gdn-ink); color: var(--gdn-bone) !important;
+  font-family: 'Poppins', 'Inter', sans-serif; font-weight: 500;
+  font-size: 13px; padding: 12px 20px; border: 0 !important;
+}
+.gdn-skip-link:focus {
+  position: fixed; top: 16px; left: 16px; width: auto; height: auto;
+  z-index: 100;
+}
+
+/* Focus-visible (keyboard-only outlines) */
+.gdn-scope a:focus-visible,
+.gdn-scope button:focus-visible {
+  outline: 2px solid var(--gdn-gold);
+  outline-offset: 4px;
+  border-radius: 1px;
+}
+
+/* Scroll progress (top of viewport) */
+.gdn-hp-progress {
+  position: fixed; top: 0; left: 0; right: 0;
+  height: 2px; background: transparent; z-index: 100;
+  pointer-events: none;
+}
+.gdn-hp-progress-bar {
+  height: 100%; background: var(--gdn-gold);
+  width: 0; transform-origin: left;
+}
+@supports (animation-timeline: scroll()) {
+  .gdn-hp-progress-bar {
+    animation: gdn-progress linear;
+    animation-timeline: scroll(root);
+  }
+  @keyframes gdn-progress {
+    from { width: 0; }
+    to { width: 100%; }
+  }
+}
+
+/* Scroll-reveal */
+.gdn-reveal { opacity: 0; transform: translate3d(0, 16px, 0);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1); }
+.gdn-reveal.gdn-visible { opacity: 1; transform: translate3d(0, 0, 0); }
+.gdn-reveal.gdn-revealed { transform: none; }
+.gdn-reveal-delay-1 { transition-delay: 0.08s; }
+.gdn-reveal-delay-2 { transition-delay: 0.16s; }
+.gdn-reveal-delay-3 { transition-delay: 0.24s; }
+@media (prefers-reduced-motion: reduce) {
+  .gdn-reveal { opacity: 1 !important; transform: none !important; }
+}
+
+/* ============== RESPONSIVE ============== */
+@media (max-width: 980px) {
+  :root { --gdn-section: 96px; --gdn-section-tight: 72px; --gdn-gap: 48px; }
+}
+@media (max-width: 640px) {
+  .gdn-scope { font-size: 16px; }
+  .gdn-container, .gdn-container-wide { padding: 0 24px; }
+  .gdn-hp-nav-mark-text { display: none; }
+}
+</style>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","@id":"https://www.gdnielsen.com/process#webpage","url":"https://www.gdnielsen.com/process","name":"Our Process — GD Nielsen Homes","description":"The full four-phase, twenty-two-month process for a GD Nielsen custom home — discovery, design and permits, build, and handover. Greg, Derrick, and Wes are on the job through all four phases.","isPartOf":{"@id":"https://www.gdnielsen.com/#website"},"about":{"@id":"https://www.gdnielsen.com/#studio"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Home","item":"https://www.gdnielsen.com/"},{"@type":"ListItem","position":2,"name":"Process","item":"https://www.gdnielsen.com/process"}]},"speakable":{"@type":"SpeakableSpecification","cssSelector":[".gdn-pr-hero h1",".gdn-pr-hero p.lead",".gdn-pr-phase-body p.lead",".gdn-pr-faq-a"]}}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"HowTo","name":"How GD Nielsen Homes Builds a Custom Home","description":"The four-phase process for a typical GD Nielsen custom home — twenty-two months end to end, from first conversation to move-in day. The architect's drawings come through intact, without value-engineering.","totalTime":"P22M","step":[{"@type":"HowToStep","position":1,"name":"Discovery","text":"Site visit, brief alignment, initial budget framing, and fit check. The deliverable is a written project brief, a preliminary budget range, and a clear decision on whether to engage.","timeRequired":"P1M","url":"https://www.gdnielsen.com/process#phase-01"},{"@type":"HowToStep","position":2,"name":"Design and Permits","text":"Engagement with the architect, schematic design through construction documents, geotechnical and survey if needed, trade pricing, and a finalized budget. The deliverables are a full CD set, an issued building permit, and a signed contractor agreement. West Vancouver permit timelines run eight to sixteen weeks for complex applications.","timeRequired":"P5M","url":"https://www.gdnielsen.com/process#phase-02"},{"@type":"HowToStep","position":3,"name":"Build","text":"Foundation and framing, envelope and roof, mechanical/electrical/plumbing rough-in, insulation/drywall/finishes, cabinetry/millwork/tile/hardware, and final inspections. Client touchpoints include weekly site visits, monthly draws, and decision packages at every milestone.","timeRequired":"P15M","url":"https://www.gdnielsen.com/process#phase-03"},{"@type":"HowToStep","position":4,"name":"Handover","text":"Occupancy walkthrough, deficiency list, BC 2-5-10 warranty enrollment, and a one-year warranty walk. The client receives warranties, manuals, a finish-spec book, and a plant guide if landscape was included.","timeRequired":"P3M","url":"https://www.gdnielsen.com/process#phase-04"}]}
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"When should we engage you in the process?","acceptedAnswer":{"@type":"Answer","text":"Early. We do our best work when we're in conversation with the architect during design development, not handed a finished construction document set to price. The earlier we're at the table, the more constructability we can bake in before pricing locks."}},{"@type":"Question","name":"Do you provide architectural design?","acceptedAnswer":{"@type":"Answer","text":"No. We work from the architect's drawings. If you don't already have an architect, we can suggest a short list of practices we've built for and trust — but the architect's relationship is yours, not ours."}},{"@type":"Question","name":"What happens if costs exceed the budget mid-project?","acceptedAnswer":{"@type":"Answer","text":"We communicate early. Every project carries a contingency line — we recommend twelve percent. If a true scope change comes up, it goes through a written change order before any trade picks up a tool. We don't surprise clients with line items at closeout."}},{"@type":"Question","name":"Can we tour an active site?","acceptedAnswer":{"@type":"Answer","text":"Yes, with proper notice. Active sites are working environments — we need lead time to coordinate with the client we're currently building for, brief our trades, and make sure we can show you the work safely. Mention it on first call and we'll arrange it."}}]}
+</script>
+
+<div class="gdn-scope gdn-pr">
+
+<a href="#hero-h" class="gdn-skip-link">Skip to content</a>
+
+<!-- Scroll progress bar -->
+<div class="gdn-hp-progress" aria-hidden="true"><div class="gdn-hp-progress-bar"></div></div>
+
+<!-- Mobile sticky contact bar -->
+<div class="gdn-hp-mobile-bar" aria-label="Quick contact">
+  <a href="tel:+16049264211" class="bar-call">Call</a>
+  <a href="/matt-proposals/gd-nielsen/preview/contact" class="bar-contact">Discuss your build →</a>
+</div>
+
+<!-- =========== NAV =========== -->
+<nav class="gdn-hp-nav" aria-label="Primary">
+  <div class="gdn-container">
+    <div class="gdn-hp-nav-grid">
+      <a href="/matt-proposals/gd-nielsen/preview/" class="gdn-hp-nav-mark" aria-label="GD Nielsen Homes — Home">
+        <span class="gdn-hp-nav-mark-icon"><img src="/matt-proposals/gd-nielsen/preview/_assets/images/gdn-mark.png" alt=""></span>
+        <span class="gdn-hp-nav-mark-text">GD&nbsp;NIELSEN&nbsp;HOMES</span>
+      </a>
+      <div class="gdn-hp-nav-links">
+        <a href="/matt-proposals/gd-nielsen/preview/story" class="gdn-hp-nav-link">About</a>
+        <a href="/matt-proposals/gd-nielsen/preview/services" class="gdn-hp-nav-link">Services</a>
+        <a href="/matt-proposals/gd-nielsen/preview/projects" class="gdn-hp-nav-link">Work</a>
+        <a href="/matt-proposals/gd-nielsen/preview/process" class="gdn-hp-nav-link is-active" aria-current="page">Process</a>
+        <a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-west-vancouver" class="gdn-hp-nav-link">Locations</a>
+        <a href="/matt-proposals/gd-nielsen/preview/journal" class="gdn-hp-nav-link">Blog</a>
+        <a href="tel:+16049264211" class="gdn-hp-nav-link" style="font-variant-numeric: tabular-nums; color: var(--gdn-mid) !important;">604.926.4211</a>
+        <a href="/matt-proposals/gd-nielsen/preview/contact" class="gdn-hp-nav-cta">Contact</a>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- =========== HERO (editorial) =========== -->
+<section class="gdn-pr-hero" aria-labelledby="hero-h">
+  <div class="gdn-container">
+    <div class="gdn-pr-hero-grid">
+      <div class="gdn-pr-hero-content gdn-reveal">
+        <p class="gdn-eyebrow">Process</p>
+        <h1 id="hero-h">From first conversation to&nbsp;move&#8209;in&nbsp;day.</h1>
+        <p class="lead">Twenty-two months, four phases. The architect&rsquo;s drawings come through intact, without value-engineering.</p>
+      </div>
+      <aside class="gdn-pr-hero-meta gdn-reveal gdn-reveal-delay-1" aria-label="Project arc at a glance">
+        <p class="gdn-eyebrow">At a glance</p>
+        <ul class="gdn-pr-hero-meta-list">
+          <li><strong>Duration</strong> Approx. 22 months end to end</li>
+          <li><strong>Phases</strong> Discovery &middot; Design &amp; Permits &middot; Build &middot; Handover</li>
+          <li><strong>On site</strong> Greg, Derrick &amp; Wes &mdash; every phase</li>
+          <li><strong>Warranty</strong> BC 2-5-10 on every new-home build</li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<!-- =========== PHASE OVERVIEW STRIP =========== -->
+<section class="gdn-pr-overview" aria-label="Phase overview">
+  <div class="gdn-container">
+    <div class="gdn-pr-overview-grid">
+      <a class="gdn-pr-overview-item" href="#phase-01">
+        <div class="gdn-pr-overview-num">01</div>
+        <span class="gdn-pr-overview-name">Discovery</span>
+        <span class="gdn-pr-overview-dur">1 month</span>
+      </a>
+      <a class="gdn-pr-overview-item" href="#phase-02">
+        <div class="gdn-pr-overview-num">02</div>
+        <span class="gdn-pr-overview-name">Design &amp; Permits</span>
+        <span class="gdn-pr-overview-dur">5 months</span>
+      </a>
+      <a class="gdn-pr-overview-item" href="#phase-03">
+        <div class="gdn-pr-overview-num">03</div>
+        <span class="gdn-pr-overview-name">Build</span>
+        <span class="gdn-pr-overview-dur">12&ndash;18 months</span>
+      </a>
+      <a class="gdn-pr-overview-item" href="#phase-04">
+        <div class="gdn-pr-overview-num">04</div>
+        <span class="gdn-pr-overview-name">Handover</span>
+        <span class="gdn-pr-overview-dur">3 months</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- =========== PHASE 01 — DISCOVERY =========== -->
+<section class="gdn-pr-phase" id="phase-01" aria-labelledby="phase-01-h">
+  <div class="gdn-container">
+    <div class="gdn-pr-phase-grid">
+      <header class="gdn-pr-phase-head gdn-reveal">
+        <p class="gdn-pr-phase-num">01</p>
+        <p class="gdn-pr-phase-label">Phase 01</p>
+        <p class="gdn-pr-phase-dur">Approximately 1 month</p>
+      </header>
+      <div class="gdn-pr-phase-body gdn-reveal gdn-reveal-delay-1">
+        <h2 id="phase-01-h">Discovery.</h2>
+        <p class="lead">A site visit, an honest conversation about the brief, and a first pass at what the project is going to cost. We use the month to figure out whether we&rsquo;re the right team for the job &mdash; and whether the job is the right one for&nbsp;us.</p>
+
+        <div class="gdn-pr-detail-grid">
+          <div class="gdn-pr-detail-block">
+            <h3>What happens</h3>
+            <ul>
+              <li>Site walk with Greg, ideally on the lot</li>
+              <li>Brief alignment &mdash; program, scale, finish level</li>
+              <li>Initial budget framing in real West Vancouver numbers</li>
+              <li>Fit check on both sides &mdash; calendar, scope, working style</li>
+            </ul>
+          </div>
+          <div class="gdn-pr-detail-block">
+            <h3>Deliverables</h3>
+            <ul>
+              <li>Written project brief</li>
+              <li>Preliminary budget range</li>
+              <li>A clear decision on whether to engage</li>
+            </ul>
+          </div>
+          <div class="gdn-pr-detail-block">
+            <h3>What we ask you for</h3>
+            <ul>
+              <li>The lot or address</li>
+              <li>Your vision &mdash; in whatever form it lives right now</li>
+              <li>Any architect you&rsquo;re already working with</li>
+              <li>The budget band you&rsquo;re planning around</li>
+            </ul>
+          </div>
+          <div class="gdn-pr-detail-block">
+            <h3>What you get</h3>
+            <p>An honest, numbers-based read on the project before either side commits. If we&rsquo;re not the right fit &mdash; calendar, scope, location &mdash; we say so in this phase, not after a contract is signed.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== PHASE 02 — DESIGN & PERMITS =========== -->
+<section class="gdn-pr-phase" id="phase-02" aria-labelledby="phase-02-h">
+  <div class="gdn-container">
+    <div class="gdn-pr-phase-grid">
+      <header class="gdn-pr-phase-head gdn-reveal">
+        <p class="gdn-pr-phase-num">02</p>
+        <p class="gdn-pr-phase-label">Phase 02</p>
+        <p class="gdn-pr-phase-dur">Approximately 5 months</p>
+      </header>
+      <div class="gdn-pr-phase-body gdn-reveal gdn-reveal-delay-1">
+        <h2 id="phase-02-h">Design &amp; Permits.</h2>
+        <p class="lead">We work alongside the architect from schematic through construction documents, price the work with our long-standing trades, and shepherd the District of West Vancouver permit through review. The phase ends with a building permit, a signed contract, and a budget that holds.</p>
+
+        <div class="gdn-pr-detail-grid">
+          <div class="gdn-pr-detail-block">
+            <h3>What happens</h3>
+            <ul>
+              <li>Architect engagement &mdash; we work with the architect you&rsquo;ve chosen</li>
+              <li>Schematic design &rarr; design development &rarr; construction documents</li>
+              <li>Geotechnical investigation and survey, if the lot calls for them</li>
+              <li>Trade pricing against the CD set, with our long-standing partners</li>
+              <li>Permit application and District of West Vancouver review</li>
+              <li>Finalized budget reconciled against the issued permit</li>
+            </ul>
+          </div>
+          <div class="gdn-pr-detail-block">
+            <h3>Deliverables</h3>
+            <ul>
+              <li>Full construction document set</li>
+              <li>Issued building permit</li>
+              <li>Signed contractor agreement and finalized budget</li>
+            </ul>
+          </div>
+          <div class="gdn-pr-detail-block">
+            <h3>How we work with the architect</h3>
+            <p>From the architect&rsquo;s drawings, not against them. Where a detail needs a constructability conversation, it goes back to the architect before anything changes on site. We don&rsquo;t substitute spec mid-project to make a margin.</p>
+          </div>
+          <div class="gdn-pr-detail-block">
+            <h3>Why this phase pays back</h3>
+            <p>Decisions made on paper cost a fraction of decisions made on a framed wall. The five months we spend in this phase is the cheapest time you&rsquo;ll spend on the project.</p>
+          </div>
+        </div>
+
+        <div class="gdn-pr-note">
+          <span class="gdn-pr-note-label">Note &middot; West Vancouver permitting</span>
+          <p class="gdn-pr-note-body">District of West Vancouver permit review runs roughly 8 to 16 weeks for complex applications &mdash; view bylaws, FAR math, Step Code, and geotechnical triggers all factor in. Forty years working with the District means we know what each reviewer is looking for and we stage submissions accordingly.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== PHASE 03 — BUILD =========== -->
+<section class="gdn-pr-phase" id="phase-03" aria-labelledby="phase-03-h">
+  <div class="gdn-container">
+    <div class="gdn-pr-phase-grid">
+      <header class="gdn-pr-phase-head gdn-reveal">
+        <p class="gdn-pr-phase-num">03</p>
+        <p class="gdn-pr-phase-label">Phase 03</p>
+        <p class="gdn-pr-phase-dur">12 to 18 months</p>
+      </header>
+      <div class="gdn-pr-phase-body gdn-reveal gdn-reveal-delay-1">
+        <h2 id="phase-03-h">Build.</h2>
+        <p class="lead">Twelve to eighteen months on site, broken into six predictable sub-phases. Greg is on the site, Derrick runs the schedule, Wes runs the trades on the ground. You&rsquo;re kept current through weekly site visits, monthly draws, and decision packages at every&nbsp;milestone.</p>
+
+        <div class="gdn-pr-sub">
+          <p class="gdn-pr-sub-label">Sub-phases</p>
+          <ul class="gdn-pr-sub-list">
+            <li class="gdn-pr-sub-item">
+              <span class="gdn-pr-sub-month">Months 1&ndash;3</span>
+              <span class="gdn-pr-sub-name">Foundation &amp; framing</span>
+            </li>
+            <li class="gdn-pr-sub-item">
+              <span class="gdn-pr-sub-month">Months 3&ndash;6</span>
+              <span class="gdn-pr-sub-name">Envelope &amp; roof</span>
+            </li>
+            <li class="gdn-pr-sub-item">
+              <span class="gdn-pr-sub-month">Months 5&ndash;9</span>
+              <span class="gdn-pr-sub-name">Mechanical, electrical, plumbing rough-in</span>
+            </li>
+            <li class="gdn-pr-sub-item">
+              <span class="gdn-pr-sub-month">Months 8&ndash;14</span>
+              <span class="gdn-pr-sub-name">Insulation, drywall &amp; interior finishes</span>
+            </li>
+            <li class="gdn-pr-sub-item">
+              <span class="gdn-pr-sub-month">Months 12&ndash;18</span>
+              <span class="gdn-pr-sub-name">Cabinetry, millwork, tile &amp; hardware</span>
+            </li>
+            <li class="gdn-pr-sub-item">
+              <span class="gdn-pr-sub-month">Final stage</span>
+              <span class="gdn-pr-sub-name">Inspections &amp; deficiency walk</span>
+            </li>
+          </ul>
+        </div>
+
+        <div class="gdn-pr-detail-grid" style="margin-top: 56px;">
+          <div class="gdn-pr-detail-block">
+            <h3>Your touchpoints</h3>
+            <ul>
+              <li>Weekly site visits &mdash; with Greg, on the work</li>
+              <li>Monthly draws against scheduled progress</li>
+              <li>Decision packages at every milestone</li>
+              <li>Direct access to Greg, Derrick, and Wes throughout</li>
+            </ul>
+          </div>
+          <div class="gdn-pr-detail-block">
+            <h3>What stays constant</h3>
+            <p>The same trade partners from foundation through handover &mdash; Andy on framing, Tom on electrical, Peter on finishing &mdash; fifteen to twenty years apiece. Continuity at every stage is what lets the architect&rsquo;s detail survive.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== PHASE 04 — HANDOVER =========== -->
+<section class="gdn-pr-phase" id="phase-04" aria-labelledby="phase-04-h">
+  <div class="gdn-container">
+    <div class="gdn-pr-phase-grid">
+      <header class="gdn-pr-phase-head gdn-reveal">
+        <p class="gdn-pr-phase-num">04</p>
+        <p class="gdn-pr-phase-label">Phase 04</p>
+        <p class="gdn-pr-phase-dur">Approximately 3 months</p>
+      </header>
+      <div class="gdn-pr-phase-body gdn-reveal gdn-reveal-delay-1">
+        <h2 id="phase-04-h">Handover.</h2>
+        <p class="lead">The work doesn&rsquo;t end at occupancy. We walk the home with you, resolve the deficiency list, enrol the home in BC 2-5-10 warranty, and come back twelve months later for a warranty walk while the house has had a year to settle.</p>
+
+        <div class="gdn-pr-detail-grid">
+          <div class="gdn-pr-detail-block">
+            <h3>What happens</h3>
+            <ul>
+              <li>Pre-occupancy walkthrough with Greg &amp; the trade leads</li>
+              <li>Deficiency list captured, scheduled, and closed out</li>
+              <li>BC 2-5-10 New Home Warranty enrolment</li>
+              <li>Final occupancy and key handover</li>
+              <li>One-year warranty walk after the home has settled through a full season</li>
+            </ul>
+          </div>
+          <div class="gdn-pr-detail-block">
+            <h3>Deliverables</h3>
+            <ul>
+              <li>BC 2-5-10 warranty package</li>
+              <li>All appliance, mechanical and equipment manuals</li>
+              <li>A finish-spec book &mdash; every material on the home, on the record</li>
+              <li>Plant guide, if the project included landscape scope</li>
+            </ul>
+          </div>
+          <div class="gdn-pr-detail-block">
+            <h3>What you receive</h3>
+            <p>A buildable, warranted, documented home. The spec book and warranty paperwork live with you &mdash; the next time a tap, a trim profile, or a paint colour needs a touch, the answer is on the shelf.</p>
+          </div>
+          <div class="gdn-pr-detail-block">
+            <h3>What stays open</h3>
+            <p>The relationship. Most of our clients come back &mdash; for a second home, an addition, a landscape phase, or simply to call when something needs a hand. We&rsquo;re built to be a long-term builder, not a one-project transaction.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== TEAM ON EVERY PROJECT =========== -->
+<section class="gdn-pr-team" id="team" aria-labelledby="team-h">
+  <div class="gdn-container">
+    <header class="gdn-pr-team-head gdn-reveal">
+      <p class="gdn-eyebrow">The team on every project</p>
+      <h2 id="team-h">The same three people, on the job through all four&nbsp;phases.</h2>
+      <p>No general manager between you and the calls. No site lead who only knows the job from the foreman&rsquo;s notes. Greg, Derrick, and Wes carry your project from first walk to one-year warranty.</p>
+    </header>
+    <div class="gdn-pr-team-grid">
+      <article class="gdn-pr-team-card gdn-reveal">
+        <p class="gdn-pr-team-role">Founder</p>
+        <h3 class="gdn-pr-team-name">Greg Nielsen</h3>
+        <p class="gdn-pr-team-body">On every site, every week. Decades of West Vancouver knowledge &mdash; the District&rsquo;s reviewers, the inspectors, the bylaws, the way the land actually moves under a foundation. Greg is the relationship &mdash; and he&rsquo;s the one whose phone you&rsquo;ll have.</p>
+      </article>
+      <article class="gdn-pr-team-card gdn-reveal gdn-reveal-delay-1">
+        <p class="gdn-pr-team-role">Operations</p>
+        <h3 class="gdn-pr-team-name">Derrick Cheung</h3>
+        <p class="gdn-pr-team-body">Project management and trade coordination. Derrick keeps the schedule honest, sequences the trades in the right order, runs the monthly draws, and makes sure decision packages reach you with the lead time you need to choose well.</p>
+      </article>
+      <article class="gdn-pr-team-card gdn-reveal gdn-reveal-delay-2">
+        <p class="gdn-pr-team-role">Site lead</p>
+        <h3 class="gdn-pr-team-name">Wes</h3>
+        <p class="gdn-pr-team-body">On the ground, every day. Day-to-day execution &mdash; the trade brief in the morning, the inspection at noon, the deficiency caught before drywall closes a wall. Wes is the answer to &ldquo;who&rsquo;s actually building this house.&rdquo;</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =========== WHAT WE DO DIFFERENTLY =========== -->
+<section class="gdn-pr-why" id="why" aria-labelledby="why-h">
+  <div class="gdn-container">
+    <div class="gdn-pr-why-grid">
+      <header class="gdn-pr-why-head gdn-reveal">
+        <p class="gdn-eyebrow">What we do differently</p>
+        <h2 id="why-h">Four things that change the&nbsp;outcome.</h2>
+      </header>
+      <div class="gdn-pr-why-list">
+        <article class="gdn-pr-why-item gdn-reveal">
+          <div class="gdn-pr-why-num">01</div>
+          <h3 class="gdn-pr-why-name">Greg on every site.</h3>
+          <p class="gdn-pr-why-body">The founder is the builder. No general manager between you and the&nbsp;calls.</p>
+        </article>
+        <article class="gdn-pr-why-item gdn-reveal gdn-reveal-delay-1">
+          <div class="gdn-pr-why-num">02</div>
+          <h3 class="gdn-pr-why-name">The District knows us.</h3>
+          <p class="gdn-pr-why-body">View bylaws, FAR, Step Code &mdash; we&rsquo;ve handled them since the rules existed. That saves weeks on every&nbsp;job.</p>
+        </article>
+        <article class="gdn-pr-why-item gdn-reveal gdn-reveal-delay-2">
+          <div class="gdn-pr-why-num">03</div>
+          <h3 class="gdn-pr-why-name">A short calendar, by choice.</h3>
+          <p class="gdn-pr-why-body">Six to eight projects a year. The architect&rsquo;s drawings come through intact, without value&#8209;engineering.</p>
+        </article>
+        <article class="gdn-pr-why-item gdn-reveal gdn-reveal-delay-3">
+          <div class="gdn-pr-why-num">04</div>
+          <h3 class="gdn-pr-why-name">Trade partners in decades.</h3>
+          <p class="gdn-pr-why-body">Andy, Tom, Peter &mdash; fifteen to twenty years apiece. The same hands on every set of&nbsp;drawings.</p>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== FAQ =========== -->
+<section class="gdn-pr-faq" id="faq" aria-labelledby="faq-h">
+  <div class="gdn-container">
+    <div class="gdn-pr-faq-grid">
+      <header class="gdn-pr-faq-head gdn-reveal">
+        <p class="gdn-eyebrow">Process FAQ</p>
+        <h2 id="faq-h">Four things architects and clients ask&nbsp;about&nbsp;process.</h2>
+        <p class="gdn-pr-faq-intro">If your question isn&rsquo;t here, ask it on the first call &mdash; we&rsquo;d rather work through it in conversation than leave it for later.</p>
+      </header>
+      <ul class="gdn-pr-faq-list">
+        <li><details class="gdn-pr-faq-item">
+          <summary>When should we engage you in the process?</summary>
+          <p class="gdn-pr-faq-a">Early. We do our best work when we&rsquo;re in conversation with the architect during design development, not handed a finished construction document set to price. The earlier we&rsquo;re at the table, the more constructability we can bake in before pricing locks &mdash; and the fewer surprises everyone runs into in the field.</p>
+        </details></li>
+        <li><details class="gdn-pr-faq-item">
+          <summary>Do you provide architectural design?</summary>
+          <p class="gdn-pr-faq-a">No. We work from the architect&rsquo;s drawings. If you don&rsquo;t already have an architect, we can suggest a short list of practices we&rsquo;ve built for and trust &mdash; but the architect&rsquo;s relationship is yours, not ours.</p>
+        </details></li>
+        <li><details class="gdn-pr-faq-item">
+          <summary>What happens if costs exceed the budget mid-project?</summary>
+          <p class="gdn-pr-faq-a">We communicate early. Every project carries a contingency line &mdash; we recommend twelve percent. If a true scope change comes up, it goes through a written change order before any trade picks up a tool. We don&rsquo;t surprise clients with line items at closeout, and we don&rsquo;t hide a price drift behind &ldquo;allowances&rdquo; the way some builders do.</p>
+        </details></li>
+        <li><details class="gdn-pr-faq-item">
+          <summary>Can we tour an active site?</summary>
+          <p class="gdn-pr-faq-a">Yes, with proper notice. Active sites are working environments &mdash; we need lead time to coordinate with the client we&rsquo;re currently building for, brief our trades, and make sure we can show you the work safely. Mention it on the first call and we&rsquo;ll arrange it.</p>
+        </details></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- =========== CLOSING CTA =========== -->
+<section class="gdn-pr-cta" aria-labelledby="cta-h">
+  <img class="gdn-pr-cta-img"
+       src="/matt-proposals/gd-nielsen/preview/_assets/images/proj-camridge-exterior.jpg"
+       alt="1338 Camridge, Chartwell — dark contemporary multi-pitched roof exterior under construction"
+       loading="lazy">
+  <div class="gdn-pr-cta-content">
+    <p class="gdn-eyebrow">Build with us</p>
+    <h2 id="cta-h">Start a&nbsp;conversation.</h2>
+    <p>Bring us the architect&rsquo;s drawings, the lot, or simply the brief &mdash; we&rsquo;ll tell you honestly whether we&rsquo;re the right team for it, and what the next phase looks like.</p>
+    <div style="display: inline-flex; flex-wrap: wrap; gap: 16px; justify-content: center; align-items: center;">
+      <a class="gdn-cta gdn-cta-light" href="/matt-proposals/gd-nielsen/preview/contact">Start a conversation</a>
+      <a class="gdn-cta-ghost gdn-cta-ghost-light" href="/matt-proposals/gd-nielsen/preview/projects">View selected projects</a>
+    </div>
+  </div>
+</section>
+
+<!-- =========== FOOTER =========== -->
+<footer class="gdn-hp-foot" itemscope itemtype="https://schema.org/GeneralContractor">
+  <div class="gdn-container">
+
+    <!-- 3-column link grid -->
+    <div class="gdn-hp-foot-grid">
+
+      <!-- Brand + NAP -->
+      <div class="gdn-hp-foot-col-brand">
+        <div class="gdn-hp-foot-logo">
+          <img src="/matt-proposals/gd-nielsen/preview/_assets/images/gdn-logo.png" alt="GD Nielsen Homes &mdash; Custom Home Builder">
+        </div>
+        <address class="gdn-hp-foot-nap" itemprop="address" itemscope itemtype="https://schema.org/PostalAddress">
+          <span itemprop="streetAddress">129&ndash;1305 Welch Street</span><br>
+          <span itemprop="addressLocality">North Vancouver</span>, <span itemprop="addressRegion">BC</span> <span itemprop="postalCode">V7P 1B3</span>
+          <span itemprop="addressCountry" content="CA"></span>
+        </address>
+        <p class="gdn-hp-foot-contact">
+          <a href="tel:+16049264211" itemprop="telephone">604.926.4211</a><br>
+          <a href="mailto:info@gdnielsen.com" itemprop="email">info@gdnielsen.com</a>
+        </p>
+        <ul class="gdn-hp-foot-social">
+          <li><a href="https://www.instagram.com/gdnielsenhomes/" target="_blank" rel="noopener">Instagram</a></li>
+          <li><a href="https://ca.linkedin.com/company/gd-nielsen-homes-ld" target="_blank" rel="noopener">LinkedIn</a></li>
+          <li><a href="https://www.houzz.com/professionals/general-contractors/gd-nielsen-homes-pfvwus-pf~1227814895" target="_blank" rel="noopener">Houzz</a></li>
+        </ul>
+      </div>
+
+      <!-- Services + Company -->
+      <div>
+        <p class="gdn-eyebrow">Services</p>
+        <ul class="gdn-hp-foot-list">
+          <li><a href="/matt-proposals/gd-nielsen/preview/services/custom-home-construction">Custom Home Construction</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/services/luxury-renovations">Luxury Renovations</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/services/tear-down-rebuild">Tear-Down &amp; Rebuild</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/services/additions-second-story">Additions &amp; Second Stories</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/services/outdoor-living">Outdoor Living</a></li>
+        </ul>
+        <p class="gdn-eyebrow" style="margin-top: 32px;">Company</p>
+        <ul class="gdn-hp-foot-list">
+          <li><a href="/matt-proposals/gd-nielsen/preview/story">About</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/projects">Projects</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/process"><strong>Process</strong></a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/awards">Awards</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/journal">Journal</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/contact">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Locations -->
+      <div>
+        <p class="gdn-eyebrow">Locations</p>
+        <ul class="gdn-hp-foot-list">
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-west-vancouver"><strong>West Vancouver</strong></a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-north-vancouver">North Vancouver</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-vancouver">Vancouver</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-burnaby">Burnaby</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-richmond">Richmond</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-langley">Langley</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-white-rock">White Rock</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-south-surrey">South Surrey</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-tsawwassen">Tsawwassen</a></li>
+        </ul>
+      </div>
+
+    </div>
+
+    <div class="gdn-hp-foot-meta">
+      <span>&copy; 1986&ndash;2026 <span itemprop="name">GD Nielsen Homes Ltd.</span></span>
+      <span><a href="/matt-proposals/gd-nielsen/preview/privacy">Privacy</a> &middot; <a href="/matt-proposals/gd-nielsen/preview/sitemap.xml">Sitemap</a></span>
+    </div>
+  </div>
+</footer>
+
+</div>
+
+<script>
+(function(){
+  var revealEls = document.querySelectorAll('.gdn-reveal');
+  if (!revealEls.length) return;
+  if ('IntersectionObserver' in window) {
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        if (entry.isIntersecting) {
+          var el = entry.target;
+          el.classList.add('gdn-visible');
+          setTimeout(function(){ el.classList.add('gdn-revealed'); }, 800);
+          observer.unobserve(el);
+        }
+      });
+    }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+    revealEls.forEach(function(el){ observer.observe(el); });
+  } else {
+    revealEls.forEach(function(el){ el.classList.add('gdn-visible'); });
+  }
+})();
+</script>

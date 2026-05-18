@@ -1,0 +1,332 @@
+<style>
+:root {
+  --gdn-ink: #0F1413;
+  --gdn-bone: #FAFAF7;
+  --gdn-mid: #6B6E6A;
+  --gdn-light: #E8E6E0;
+  --gdn-rule: #DDDAD2;
+  --gdn-gold: #B8975A;
+  --gdn-tone: #2A3530;
+  --gdn-section: 140px;
+  --gdn-section-tight: 100px;
+}
+.gdn-scope * { box-sizing: border-box; }
+.gdn-scope {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 17px; line-height: 1.55; color: var(--gdn-ink); background: var(--gdn-bone);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
+}
+.gdn-scope img { max-width: 100%; height: auto; display: block; }
+:where(.gdn-scope) a { color: var(--gdn-ink); border-bottom: 1px solid var(--gdn-ink);
+  text-decoration: none; transition: color 0.18s, border-color 0.18s; }
+:where(.gdn-scope) a:hover { color: var(--gdn-gold); border-bottom-color: var(--gdn-gold); }
+
+.gdn-scope h1 { font-family: 'Inter', sans-serif; font-weight: 200;
+  font-size: clamp(56px, 8vw, 124px); line-height: 0.94; letter-spacing: -0.045em;
+  margin: 0 0 32px; color: var(--gdn-ink); }
+.gdn-scope h2 { font-family: 'Inter', sans-serif; font-weight: 300;
+  font-size: clamp(32px, 4vw, 52px); line-height: 1.06; letter-spacing: -0.028em;
+  margin: 0 0 24px; color: var(--gdn-ink); }
+.gdn-scope h3 { font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase;
+  margin: 0 0 12px; color: var(--gdn-mid); }
+.gdn-scope p { margin: 0 0 20px; max-width: 620px; font-weight: 400; }
+.gdn-scope p.lead { font-size: clamp(18px, 1.4vw, 22px); line-height: 1.45; font-weight: 300;
+  letter-spacing: -0.005em; color: var(--gdn-ink); max-width: 720px; }
+
+.gdn-eyebrow {
+  font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gdn-mid); margin: 0 0 28px;
+  display: inline-flex; align-items: center; gap: 14px;
+}
+.gdn-eyebrow::before {
+  content: ""; display: inline-block;
+  width: 24px; height: 1px; background: var(--gdn-gold);
+}
+
+.gdn-container { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
+.gdn-container-narrow { max-width: 820px; margin: 0 auto; padding: 0 40px; }
+.gdn-container-wide { max-width: 1680px; margin: 0 auto; padding: 0 40px; }
+
+/* ============ HERO ============ */
+.gdn-st-hero { padding: 180px 0 100px; border-bottom: 1px solid var(--gdn-rule); }
+.gdn-st-hero-grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
+  gap: 80px; align-items: end; }
+.gdn-st-hero-meta { font-family: 'Inter', sans-serif; font-weight: 300;
+  font-size: 14px; line-height: 1.65; color: var(--gdn-mid); }
+.gdn-st-hero-meta span { display: block; }
+.gdn-st-hero-meta strong { font-weight: 500; color: var(--gdn-ink); }
+
+/* ============ SECTION ============ */
+.gdn-st-section { padding: var(--gdn-section) 0; border-bottom: 1px solid var(--gdn-rule); }
+.gdn-st-section-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
+  gap: 80px; align-items: start; }
+.gdn-st-section-body p { font-size: 18px; line-height: 1.62; }
+.gdn-st-section-body p:first-of-type { font-size: 22px; line-height: 1.5; font-weight: 300; }
+
+/* ============ FULL-BLEED IMAGE ============ */
+.gdn-st-bleed { padding: 0; }
+.gdn-st-bleed img { width: 100%; height: auto; aspect-ratio: 16/8; object-fit: cover; }
+.gdn-st-bleed-cap { padding: 24px 40px 0; font-family: 'Inter', sans-serif;
+  font-size: 12px; letter-spacing: 0.04em; color: var(--gdn-mid); }
+
+/* ============ PLACEHOLDER BLOCK (Greg's voice memo gaps) ============ */
+.gdn-st-placeholder {
+  background: var(--gdn-light); border-left: 3px solid var(--gdn-gold);
+  padding: 36px 40px; margin: 16px 0 24px; max-width: 720px;
+}
+.gdn-st-placeholder-label {
+  font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--gdn-gold); margin: 0 0 8px;
+}
+.gdn-st-placeholder p {
+  font-family: 'Inter', sans-serif; font-weight: 400;
+  font-size: 15px; line-height: 1.55; color: var(--gdn-mid); margin: 0;
+  font-style: italic;
+}
+
+/* ============ PULL QUOTE ============ */
+.gdn-st-pull { padding: var(--gdn-section) 0; background: var(--gdn-ink); color: var(--gdn-bone); }
+.gdn-st-pull-inner { max-width: 1000px; margin: 0 auto; padding: 0 40px; text-align: center; }
+.gdn-st-pull-quote { font-family: 'Inter', sans-serif; font-weight: 200;
+  font-size: clamp(36px, 5vw, 64px); line-height: 1.1; letter-spacing: -0.025em;
+  color: var(--gdn-bone); margin: 0 0 32px; max-width: none; }
+.gdn-st-pull-attr {
+  font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(250, 250, 247, 0.6); margin: 0;
+}
+
+/* ============ TEAM STRIP ============ */
+.gdn-st-team { padding: var(--gdn-section) 0; border-bottom: 1px solid var(--gdn-rule); }
+.gdn-st-team-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 80px; margin-top: 64px; }
+.gdn-st-team-list { display: flex; flex-direction: column; gap: 28px; }
+.gdn-st-team-row {
+  display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 4fr) minmax(0, 4fr);
+  gap: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--gdn-rule);
+  align-items: baseline;
+}
+.gdn-st-team-name { font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: 18px; letter-spacing: -0.005em; color: var(--gdn-ink); }
+.gdn-st-team-role { font-family: 'Inter', sans-serif; font-weight: 400;
+  font-size: 14px; color: var(--gdn-ink); }
+.gdn-st-team-tenure { font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gdn-mid); }
+
+/* ============ CTA ============ */
+.gdn-st-cta { padding: var(--gdn-section) 0; background: var(--gdn-bone); text-align: center; }
+.gdn-st-cta h2 { max-width: 800px; margin: 0 auto 24px; }
+.gdn-st-cta p { max-width: 600px; margin: 0 auto 40px; color: var(--gdn-mid); }
+.gdn-cta { display: inline-flex; align-items: center; gap: 12px; padding: 18px 32px;
+  background: var(--gdn-ink); color: var(--gdn-bone) !important;
+  font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: 14px; letter-spacing: 0.04em;
+  border: 1px solid var(--gdn-ink) !important;
+  text-decoration: none; transition: all 0.22s ease; }
+.gdn-cta:hover { background: var(--gdn-gold) !important; border-color: var(--gdn-gold) !important;
+  color: var(--gdn-ink) !important; }
+
+/* ============ MOBILE ============ */
+@media (max-width: 980px) {
+  .gdn-st-hero-grid, .gdn-st-section-grid, .gdn-st-team-grid { grid-template-columns: 1fr; gap: 32px; }
+  .gdn-st-section { padding: var(--gdn-section-tight) 0; }
+  .gdn-st-team-row { grid-template-columns: 1fr; gap: 8px; }
+}
+</style>
+
+<div class="gdn-scope">
+
+<!-- =========== HERO =========== -->
+<section class="gdn-st-hero">
+  <div class="gdn-container">
+    <div class="gdn-st-hero-grid">
+      <div>
+        <p class="gdn-eyebrow">The Story</p>
+        <h1>Forty&nbsp;years on&nbsp;the North&nbsp;Shore.</h1>
+      </div>
+      <div class="gdn-st-hero-meta">
+        <span><strong>Founded</strong> &nbsp; 1986, West Vancouver</span>
+        <span><strong>Founder</strong> &nbsp; Greg Nielsen</span>
+        <span><strong>Built</strong> &nbsp; 40+ custom homes</span>
+        <span><strong>Builds annually</strong> &nbsp; selectively</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== OPENING =========== -->
+<section class="gdn-st-section">
+  <div class="gdn-container">
+    <div class="gdn-st-section-grid">
+      <header>
+        <p class="gdn-eyebrow">Opening</p>
+        <h2>One company. One&nbsp;name. One way of doing&nbsp;it.</h2>
+      </header>
+      <div class="gdn-st-section-body">
+        <p class="lead">GD Nielsen Homes builds custom homes for the families that hire us. Greg has been building on the North Shore since 1986. The work is the same. The standard hasn&rsquo;t moved.</p>
+        <p>The company has had two names. From 1986 through 2016 we traded as G.D. Nielsen Developments &mdash; &ldquo;DOPE Developments&rdquo; in shorthand. In 2016 we changed it. We don&rsquo;t do developments. We build one-of-one custom homes. We thought the name should say that.</p>
+        <p>Before the company there was framing. Greg framed houses for other people first. That&rsquo;s where the eye for detail starts &mdash; before the cabinets, before the millwork, before any of the things you can see when the house is finished. The framing has to be right.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== ORIGIN — VOICE MEMO PLACEHOLDER =========== -->
+<section class="gdn-st-section">
+  <div class="gdn-container">
+    <div class="gdn-st-section-grid">
+      <header>
+        <p class="gdn-eyebrow">Origin · 1986</p>
+        <h2>The first build.</h2>
+      </header>
+      <div class="gdn-st-section-body">
+
+        <div class="gdn-st-placeholder">
+          <p class="gdn-st-placeholder-label">Greg &middot; Voice memo</p>
+          <p>The 1986 origin section gets written from Greg&rsquo;s own voice memo. Four things to answer: where was the first build, who was the client, what kind of house was it, and who shaped the way he thinks about the craft &mdash; the framer or the builder he learned from before he started his own company. This block becomes a 200&ndash;300 word section once that audio is in.</p>
+        </div>
+
+        <p>What we know already: the first GDN-built homes were custom single-family houses in West Vancouver. The neighbourhood &mdash; Altamont, the British Properties, Caulfeild &mdash; was the same one we&rsquo;d return to for the next four decades. The tradespeople Greg hired at the start are the ones he kept. Several of them are still here.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== THE DETAIL — QUEBEC DOOR =========== -->
+<section class="gdn-st-section">
+  <div class="gdn-container">
+    <div class="gdn-st-section-grid">
+      <header>
+        <p class="gdn-eyebrow">The Detail</p>
+        <h2>A three&#8209;hundred&#8209;year&#8209;old door.</h2>
+      </header>
+      <div class="gdn-st-section-body">
+        <p class="lead">There&rsquo;s a heritage cottage in West Vancouver where the front door is older than Canada.</p>
+        <p>The homeowners found it in Quebec &mdash; a three-hundred-year-old front door with hand-blown lead glass and the kind of patina that you don&rsquo;t fake. They bought it. They shipped it out. They handed it to us.</p>
+        <p>We took it to a refinisher. We mapped the arc of the door &mdash; the way the wood had curved over three centuries &mdash; to the slope of the ceiling we were building behind it. We re-glazed the panels to a modern thermal standard. We replaced the seal without replacing the lead. By the time it was hung, you couldn&rsquo;t tell where the old work ended and the new work began.</p>
+        <p>The door cost the family about $10,000 to acquire. We spent another $20,000 bringing it to a standard the rest of the house could live with. Most of the work is invisible. That&rsquo;s the work we like.</p>
+        <p>This is what we mean when we say &ldquo;detail.&rdquo; Not finishes. The thing behind the finish.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== ARCHITECT-CHANNEL SHIFT =========== -->
+<section class="gdn-st-section">
+  <div class="gdn-container">
+    <div class="gdn-st-section-grid">
+      <header>
+        <p class="gdn-eyebrow">How We Work</p>
+        <h2>We follow the design.</h2>
+      </header>
+      <div class="gdn-st-section-body">
+        <p class="lead">Every house we build starts with the architect&rsquo;s drawings. We follow them.</p>
+        <p>This is the part of the work that gets least understood. A custom build is a long conversation between a homeowner, an architect, an interior designer, a landscape designer, and the builder. The builder is the one who has to make the conversation true &mdash; to take what was drawn and make it stand up. Most of what we do is detail-oriented collaboration: closing the gap between an idea on paper and a finished room, without losing what the architect actually meant.</p>
+        <p>The architects and designers we work with most often &mdash; <a href="https://www.chevalierdesigns.com/" target="_blank" rel="noopener">Craig Chevalier</a>, <a href="http://kga.ca/" target="_blank" rel="noopener">Kallweit Graham</a>, <a href="http://jdmed.com/" target="_blank" rel="noopener">John Medland</a>, <a href="https://www.alexvoth.com/" target="_blank" rel="noopener">Alex Voth</a>, <a href="https://www.livingradius.com/" target="_blank" rel="noopener">Living Radius</a>, <a href="https://www.rommeldesign.com/" target="_blank" rel="noopener">Rommel Design</a> &mdash; have sent work our way for decades. Some of them tell us, before they hand off the drawings, &ldquo;don&rsquo;t change my design.&rdquo; That&rsquo;s the right note. We don&rsquo;t.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== PULL QUOTE =========== -->
+<section class="gdn-st-pull">
+  <div class="gdn-st-pull-inner">
+    <p class="gdn-st-pull-quote">&ldquo;We build your home as if it is&nbsp;our&nbsp;own.&rdquo;</p>
+    <p class="gdn-st-pull-attr">Greg Nielsen &middot; Founder</p>
+  </div>
+</section>
+
+<!-- =========== THE HARD ONES — VOICE MEMO PLACEHOLDER =========== -->
+<section class="gdn-st-section">
+  <div class="gdn-container">
+    <div class="gdn-st-section-grid">
+      <header>
+        <p class="gdn-eyebrow">The Hard Ones</p>
+        <h2>Forty years, a few&nbsp;close&nbsp;calls.</h2>
+      </header>
+      <div class="gdn-st-section-body">
+
+        <div class="gdn-st-placeholder">
+          <p class="gdn-st-placeholder-label">Greg &middot; Voice memo</p>
+          <p>This section sits empty until Greg records the hardest project in forty years &mdash; the one that almost didn&rsquo;t happen, or the one he&rsquo;s most proud of finishing. The audio from the kickoff workshop has him circling around this question without answering it directly. A focused voice memo on one or two specific projects is enough. We write from his words.</p>
+        </div>
+
+        <p>What we&rsquo;ve learned: the hardest builds aren&rsquo;t the biggest ones. They&rsquo;re the ones with a hidden constraint &mdash; a creek that wasn&rsquo;t on the survey, a view bylaw that changed mid-permit, a piece of millwork that had to be reworked because the wood arrived split. The clients we hear from most often years later are the ones whose project had one of those moments &mdash; and who watched us handle it without losing the project, the budget, or the relationship.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== THE TEAM =========== -->
+<section class="gdn-st-team">
+  <div class="gdn-container">
+    <p class="gdn-eyebrow">The Team</p>
+    <h2>The people who&rsquo;ve been here all&nbsp;along.</h2>
+    <p class="lead" style="margin-top: 16px;">Greg and Diane founded the company together in 1986. The people who&rsquo;ve joined since have mostly stayed.</p>
+    <div class="gdn-st-team-list" style="margin-top: 64px;">
+      <div class="gdn-st-team-row">
+        <span class="gdn-st-team-name">Greg Nielsen</span>
+        <span class="gdn-st-team-role">Owner &amp; Founder</span>
+        <span class="gdn-st-team-tenure">Since 1986</span>
+      </div>
+      <div class="gdn-st-team-row">
+        <span class="gdn-st-team-name">Diane Nielsen</span>
+        <span class="gdn-st-team-role">Co&#8209;Founder</span>
+        <span class="gdn-st-team-tenure">Since 1986</span>
+      </div>
+      <div class="gdn-st-team-row">
+        <span class="gdn-st-team-name">DK Cheng</span>
+        <span class="gdn-st-team-role">Operations &amp; Project Lead</span>
+        <span class="gdn-st-team-tenure">Since 2015</span>
+      </div>
+      <div class="gdn-st-team-row">
+        <span class="gdn-st-team-name">Derrick Cheung</span>
+        <span class="gdn-st-team-role">Project Coordinator</span>
+        <span class="gdn-st-team-tenure">Since 2012</span>
+      </div>
+      <div class="gdn-st-team-row">
+        <span class="gdn-st-team-name">Andy, Tom, Peter &amp; the rest of the&nbsp;crew</span>
+        <span class="gdn-st-team-role">On site</span>
+        <span class="gdn-st-team-tenure">15&ndash;20+ years each</span>
+      </div>
+    </div>
+    <p style="margin-top: 48px; max-width: 620px; color: var(--gdn-mid);"><a href="/matt-proposals/gd-nielsen/preview/team">Meet the team &rarr;</a></p>
+  </div>
+</section>
+
+<!-- =========== FAMILY / FUTURE — VOICE MEMO PLACEHOLDER =========== -->
+<section class="gdn-st-section">
+  <div class="gdn-container">
+    <div class="gdn-st-section-grid">
+      <header>
+        <p class="gdn-eyebrow">What&rsquo;s Next</p>
+        <h2>The next forty&nbsp;years.</h2>
+      </header>
+      <div class="gdn-st-section-body">
+
+        <div class="gdn-st-placeholder">
+          <p class="gdn-st-placeholder-label">Greg &middot; Voice memo</p>
+          <p>The succession and future section is the last block waiting on Greg&rsquo;s voice memo. Two questions: is there family in or around the business now, and what does Greg want this company to look like in ten years? The honest answer to those becomes the closing 200 words of /story.</p>
+        </div>
+
+        <p>For now: we&rsquo;re building selectively, mostly with the architects we trust, mostly in West Vancouver, mostly for families who plan to stay. We expect that to be true for a long time.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========== CTA =========== -->
+<section class="gdn-st-cta">
+  <div class="gdn-container">
+    <p class="gdn-eyebrow">Build with us</p>
+    <h2>Tell us about your lot, your timeline, and what you want&nbsp;to&nbsp;build.</h2>
+    <p>We build selectively. Tell us about the project and we&rsquo;ll tell you honestly whether we&rsquo;re the right team for it.</p>
+    <a class="gdn-cta" href="/matt-proposals/gd-nielsen/preview/contact">Start a conversation</a>
+  </div>
+</section>
+
+</div>

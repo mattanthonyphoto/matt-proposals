@@ -1,0 +1,572 @@
+
+<style>
+:root {
+  --gdn-ink: #0F1413;
+  --gdn-bone: #FAFAF7;
+  --gdn-mid: #6B6E6A;
+  --gdn-light: #E8E6E0;
+  --gdn-rule: #DDDAD2;
+  --gdn-accent: #9B8259;
+  --gdn-tone: #2A3530;
+}
+.gdn-scope * { box-sizing: border-box; }
+.gdn-scope {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 17px;
+  line-height: 1.55;
+  color: var(--gdn-ink);
+  background: var(--gdn-bone);
+  font-feature-settings: "ss01", "cv11";
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+.gdn-scope img { max-width: 100%; height: auto; display: block; }
+.gdn-scope a {
+  color: var(--gdn-ink);
+  border-bottom: 1px solid var(--gdn-ink);
+  text-decoration: none;
+  transition: color 0.18s, border-color 0.18s;
+}
+.gdn-scope a:hover { color: var(--gdn-accent); border-bottom-color: var(--gdn-accent); }
+
+/* Display type — large, light, tight */
+.gdn-scope h1 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: clamp(48px, 7vw, 96px);
+  line-height: 0.96;
+  letter-spacing: -0.035em;
+  margin: 0 0 24px;
+  color: var(--gdn-ink);
+}
+.gdn-scope h2 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 300;
+  font-size: clamp(32px, 4vw, 56px);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  margin: 0 0 20px;
+  color: var(--gdn-ink);
+}
+.gdn-scope h3 {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 13px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  margin: 0 0 12px;
+  color: var(--gdn-mid);
+}
+.gdn-scope p {
+  margin: 0 0 20px;
+  max-width: 620px;
+  font-weight: 400;
+}
+.gdn-scope p.lead {
+  font-size: 22px;
+  line-height: 1.4;
+  font-weight: 300;
+  letter-spacing: -0.005em;
+  color: var(--gdn-ink);
+  max-width: 720px;
+}
+
+/* Eyebrow — small, all-caps, tracked */
+.gdn-eyebrow {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gdn-mid);
+  margin: 0 0 16px;
+}
+
+/* Numerals — for stats, years */
+.gdn-numeral {
+  font-family: 'Inter', sans-serif;
+  font-weight: 200;
+  font-feature-settings: "tnum";
+  letter-spacing: -0.04em;
+  line-height: 0.9;
+}
+
+/* Container — tighter for editorial feel */
+.gdn-container { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
+.gdn-container-narrow { max-width: 920px; margin: 0 auto; padding: 0 40px; }
+
+/* Section spacing — generous */
+.gdn-section { padding: 140px 0; }
+.gdn-section-tight { padding: 80px 0; }
+
+/* CTA — minimal, text-driven */
+.gdn-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 32px;
+  background: var(--gdn-ink);
+  color: var(--gdn-bone);
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  border: 1px solid var(--gdn-ink);
+  text-decoration: none;
+  transition: all 0.22s ease;
+  border-radius: 0;
+}
+.gdn-cta:hover {
+  background: transparent;
+  color: var(--gdn-ink);
+  border-color: var(--gdn-ink);
+}
+.gdn-cta-ghost {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 18px 32px;
+  background: transparent;
+  color: var(--gdn-ink);
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.04em;
+  border: 1px solid var(--gdn-ink);
+  text-decoration: none;
+  transition: all 0.22s ease;
+}
+.gdn-cta-ghost:hover { background: var(--gdn-ink); color: var(--gdn-bone); }
+
+.gdn-link-arrow {
+  font-family: 'Inter', sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  letter-spacing: 0.02em;
+  border: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.gdn-link-arrow::after { content: "→"; transition: transform 0.18s; }
+.gdn-link-arrow:hover::after { transform: translateX(4px); }
+
+/* Rule */
+.gdn-rule { border: 0; border-top: 1px solid var(--gdn-rule); margin: 0; }
+
+/* Mobile */
+@media (max-width: 720px) {
+  .gdn-scope { font-size: 16px; }
+  .gdn-scope p.lead { font-size: 19px; }
+  .gdn-section { padding: 80px 0; }
+  .gdn-container, .gdn-container-narrow { padding: 0 24px; }
+}
+
+
+.gdn-pi-hero { padding: 120px 0 80px; }
+.gdn-pi-hero-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 80px; align-items: end; }
+
+.gdn-pi-filter { padding: 32px 0; border-top: 1px solid var(--gdn-rule);
+  border-bottom: 1px solid var(--gdn-rule); margin-bottom: 80px; }
+.gdn-pi-filter-row { display: flex; align-items: baseline; gap: 32px; flex-wrap: wrap; }
+.gdn-pi-filter-label { font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--gdn-mid); white-space: nowrap; }
+.gdn-pi-filter-links { display: flex; flex-wrap: wrap; gap: 24px; }
+.gdn-pi-filter-link { font-family: 'Inter', sans-serif; font-weight: 400;
+  font-size: 15px; color: var(--gdn-ink); border: 0;
+  padding-bottom: 2px; border-bottom: 1px solid transparent; transition: all 0.18s; }
+.gdn-pi-filter-link:hover { border-bottom-color: var(--gdn-accent); color: var(--gdn-accent); }
+.gdn-pi-filter-count { color: var(--gdn-mid); font-size: 12px; margin-left: 4px; }
+
+.gdn-pi-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 0; padding-bottom: 120px;
+  border-top: 1px solid var(--gdn-rule); }
+.gdn-pi-card { display: block; border: 0; padding: 0;
+  border-right: 1px solid var(--gdn-rule); border-bottom: 1px solid var(--gdn-rule);
+  transition: background 0.22s; }
+.gdn-pi-card:hover { background: var(--gdn-light); }
+.gdn-pi-card-image { aspect-ratio: 4 / 3; background: var(--gdn-light); }
+.gdn-pi-card:hover .gdn-pi-card-image { background: var(--gdn-rule); }
+.gdn-pi-card-meta { padding: 28px 32px 36px; }
+.gdn-pi-card-eyebrow { font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
+  color: var(--gdn-mid); margin-bottom: 12px; }
+.gdn-pi-card-name { font-family: 'Inter', sans-serif; font-weight: 400;
+  font-size: 24px; line-height: 1.2; letter-spacing: -0.015em; color: var(--gdn-ink);
+  margin: 0 0 12px; }
+.gdn-pi-card-stats { font-size: 13px; color: var(--gdn-mid); }
+.gdn-pi-card-award { display: inline-block; margin-top: 16px; padding: 4px 10px;
+  background: var(--gdn-ink); color: var(--gdn-bone);
+  font-family: 'Inter', sans-serif; font-weight: 500;
+  font-size: 10px; letter-spacing: 0.16em; text-transform: uppercase; }
+
+@media (max-width: 980px) {
+  .gdn-pi-hero-grid { grid-template-columns: 1fr; gap: 32px; }
+}
+
+</style>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "CollectionPage", "mainEntity": {"@type": "ItemList", "itemListElement": [{"@type": "ListItem", "name": "Custom Home in Cammeray, 2011", "position": 1, "url": "https://www.gdnielsen.com/projects/whitby-1341"}, {"@type": "ListItem", "name": "Modern in Altamont", "position": 2, "url": "https://www.gdnielsen.com/projects/altamont-2965"}, {"@type": "ListItem", "name": "Custom Home in Cypress Park, 2006", "position": 3, "url": "https://www.gdnielsen.com/projects/bayridge-3998"}, {"@type": "ListItem", "name": "Custom Home in Bayridge, 2012", "position": 4, "url": "https://www.gdnielsen.com/projects/bayridge-ct-3950"}, {"@type": "ListItem", "name": "Waterfront in Dundarave", "position": 5, "url": "https://www.gdnielsen.com/projects/bellevue-2302"}, {"@type": "ListItem", "name": "Modern in Chartwell", "position": 6, "url": "https://www.gdnielsen.com/projects/bramwell-1458"}, {"@type": "ListItem", "name": "Modern in Chartwell/Cammeray", "position": 7, "url": "https://www.gdnielsen.com/projects/cammeray-1351"}, {"@type": "ListItem", "name": "Custom Home in Caulfeild", "position": 8, "url": "https://www.gdnielsen.com/projects/cherbourg"}, {"@type": "ListItem", "name": "Custom Home in Caulfeild", "position": 9, "url": "https://www.gdnielsen.com/projects/clovelly-4638"}, {"@type": "ListItem", "name": "Custom Home in British Properties, 2015", "position": 10, "url": "https://www.gdnielsen.com/projects/crestline-1130"}, {"@type": "ListItem", "name": "Custom Home in Caulfeild, 2016", "position": 11, "url": "https://www.gdnielsen.com/projects/keith-4325"}, {"@type": "ListItem", "name": "Transitional in Dundarave, 2016", "position": 12, "url": "https://www.gdnielsen.com/projects/lawson-2685"}, {"@type": "ListItem", "name": "Custom Home in Altamont, 2008", "position": 13, "url": "https://www.gdnielsen.com/projects/marine-2855"}, {"@type": "ListItem", "name": "Contemporary in Kerrisdale, 2022", "position": 14, "url": "https://www.gdnielsen.com/projects/mccleery-6450"}, {"@type": "ListItem", "name": "Custom Home in British Properties, 2012", "position": 15, "url": "https://www.gdnielsen.com/projects/millstream-1039"}, {"@type": "ListItem", "name": "Custom Home in Queens", "position": 16, "url": "https://www.gdnielsen.com/projects/palmerston-2451"}, {"@type": "ListItem", "name": "Waterfront in Altamont waterfront", "position": 17, "url": "https://www.gdnielsen.com/projects/park-lane-2976"}, {"@type": "ListItem", "name": "Custom Home in British Properties", "position": 18, "url": "https://www.gdnielsen.com/projects/rabbit-lane-361"}, {"@type": "ListItem", "name": "Custom Home in Altamont, ~2010", "position": 19, "url": "https://www.gdnielsen.com/projects/rosebery-3040"}, {"@type": "ListItem", "name": "Waterfront in Cypress / Lower Caulfeild, 2006", "position": 20, "url": "https://www.gdnielsen.com/projects/ross-4382"}, {"@type": "ListItem", "name": "Custom Home in Altamont", "position": 21, "url": "https://www.gdnielsen.com/projects/spencer-3090"}, {"@type": "ListItem", "name": "Custom Home in Deer Lake, 2019 or 2011 (conflicting)", "position": 22, "url": "https://www.gdnielsen.com/projects/whelen-7475"}, {"@type": "ListItem", "name": "Custom Home in Chartwell/Cammeray, in progress 2026", "position": 23, "url": "https://www.gdnielsen.com/projects/camridge-1338"}, {"@type": "ListItem", "name": "Custom Home in (TBD), in progress 2026", "position": 24, "url": "https://www.gdnielsen.com/projects/laurance-way-8925"}], "numberOfItems": 24}, "name": "Projects \u2014 GD Nielsen Homes", "url": "https://www.gdnielsen.com/projects"}</script>
+
+<div class="gdn-scope gdn-proj">
+
+<section class="gdn-pi-hero">
+  <div class="gdn-container">
+    <div class="gdn-pi-hero-grid">
+      <div>
+        <p class="gdn-eyebrow">Portfolio</p>
+        <h1>Forty years of custom homes.</h1>
+      </div>
+      <div>
+        <p class="lead">24 selected projects across West Vancouver, North Vancouver, Vancouver, and the Lower Mainland. Filter by neighbourhood. Some projects show full details, others remain private at the owner&rsquo;s request.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="gdn-container">
+  <div class="gdn-pi-filter">
+    <div class="gdn-pi-filter-row">
+      <span class="gdn-pi-filter-label">By neighbourhood</span>
+      <div class="gdn-pi-filter-links">
+        
+        <a class="gdn-pi-filter-link" href="/matt-proposals/gd-nielsen/preview/custom-home-builder-altamont-west-vancouver">Altamont<span class="gdn-pi-filter-count">(5)</span></a>
+        
+        <a class="gdn-pi-filter-link" href="/matt-proposals/gd-nielsen/preview/custom-home-builder-british-properties-west-vancouver">British Properties<span class="gdn-pi-filter-count">(3)</span></a>
+        
+        <a class="gdn-pi-filter-link" href="/matt-proposals/gd-nielsen/preview/custom-home-builder-caulfeild-west-vancouver">Caulfeild<span class="gdn-pi-filter-count">(4)</span></a>
+        
+        <a class="gdn-pi-filter-link" href="/matt-proposals/gd-nielsen/preview/custom-home-builder-chartwell-cammeray-west-vancouver">Chartwell / Cammeray<span class="gdn-pi-filter-count">(4)</span></a>
+        
+        <a class="gdn-pi-filter-link" href="/matt-proposals/gd-nielsen/preview/custom-home-builder-cypress-park-west-vancouver">Cypress Park<span class="gdn-pi-filter-count">(2)</span></a>
+        
+        <a class="gdn-pi-filter-link" href="/matt-proposals/gd-nielsen/preview/custom-home-builder-dundarave-west-vancouver">Dundarave<span class="gdn-pi-filter-count">(2)</span></a>
+        
+        <a class="gdn-pi-filter-link" href="/matt-proposals/gd-nielsen/preview/custom-home-builder-queens-west-vancouver">Queens<span class="gdn-pi-filter-count">(1)</span></a>
+        
+      </div>
+    </div>
+  </div>
+
+  <div class="gdn-pi-grid">
+    
+    <a class="gdn-pi-card" href="/matt-proposals/gd-nielsen/preview/projects/whitby-1341">
+      <div class="gdn-pi-card-image"></div>
+      <div class="gdn-pi-card-meta">
+        <p class="gdn-pi-card-eyebrow">Cammeray · 2011</p>
+        <h3 class="gdn-pi-card-name">Custom Home in Cammeray, 2011</h3>
+        <div class="gdn-pi-card-stats">
+          7,064–7,300 sq. ft.
+          
+        </div>
+        
+      </div>
+    </a>
+    
+    <a class="gdn-pi-card" href="/matt-proposals/gd-nielsen/preview/projects/altamont-2965">
+      <div class="gdn-pi-card-image"></div>
+      <div class="gdn-pi-card-meta">
+        <p class="gdn-pi-card-eyebrow">Altamont</p>
+        <h3 class="gdn-pi-card-name">Modern in Altamont</h3>
+        <div class="gdn-pi-card-stats">
+          
+          Modern
+        </div>
+        
+      </div>
+    </a>
+    
+    <a class="gdn-pi-card" href="/matt-proposals/gd-nielsen/preview/projects/bayridge-3998">
+      <div class="gdn-pi-card-image"></div>
+      <div class="gdn-pi-card-meta">
+        <p class="gdn-pi-card-eyebrow">Cypress Park · 2006</p>
+        <h3 class="gdn-pi-card-name">Custom Home in Cypress Park, 2006</h3>
+        <div class="gdn-pi-card-stats">
+          7,503–8,177 sq. ft.
+          
+        </div>
+        
+      </div>
+    </a>
+    
+    <a class="gdn-pi-card" href="/matt-proposals/gd-nielsen/preview/projects/bayridge-ct-3950">
+      <div class="gdn-pi-card-image"></div>
+      <div class="gdn-pi-card-meta">
+        <p class="gdn-pi-card-eyebrow">Bayridge · 2012</p>
+        <h3 class="gdn-pi-card-name">Custom Home in Bayridge, 2012</h3>
+        <div class="gdn-pi-card-stats">
+          6,092 sq. ft.
+          
+        </div>
+        
+      </div>
+    </a>
+    
+    <a class="gdn-pi-card" href="/matt-proposals/gd-nielsen/preview/projects/bellevue-2302">
+      <div class="gdn-pi-card-image"></div>
+      <div class="gdn-pi-card-meta">
+        <p class="gdn-pi-card-eyebrow">Dundarave</p>
+        <h3 class="gdn-pi-card-name">Waterfront in Dundarave</h3>
+        <div class="gdn-pi-card-stats">
+          3,057 sq. ft.
+           · Waterfront
+        </div>
+        
+      </div>
+    </a>
+    
+    <a class="gdn-pi-card" href="/matt-proposals/gd-nielsen/preview/projects/bramwell-1458">
+      <div class="gdn-pi-card-image"></div>
+      <div class="gdn-pi-card-meta">
+        <p class="gdn-pi-card-eyebrow">Chartwell</p>
+        <h3 class="gdn-pi-card-name">Modern in Chartwell</h3>
+        <div class="gdn-pi-card-stats">
+          6,156 sq. ft.
+           · Modern
+        </div>
+        
+      </div>
+    </a>
+    
+    <a class="gdn-pi-card" href="/matt-proposals/gd-nielsen/preview/projects/cammeray-1351">
+      <div class="gdn-pi-card-image"></div>
+      <div class="gdn-pi-card-meta">
+        <p class="gdn-pi-card-eyebrow">Chartwell/Cammeray</p>
+        <h3 class="gdn-pi-card-name">Modern in Chartwell/Cammeray</h3>
+        <div class="gdn-pi-card-stats">
+          6,188 sq. ft.
+           · Modern
+        </div>
+        
+      </div>
+    </a>
+    
+    <a class="gdn-pi-card" href="/matt-proposals/gd-nielsen/preview/projects/cherbourg">
+      <div class="gdn-pi-card-image"></div>
+      <div class="gdn-pi-card-meta">
+        <p class="gdn-pi-card-eyebrow">Caulfeild</p>
+        <h3 class="gdn-pi-card-name">Custom Home in Caulfeild</h3>
+        <div class="gdn-pi-card-stats">
+          7,086 sq. ft.
+          
+        </div>
+        
+      </div>
+    </a>
+    
+    <a class="gdn-pi-card" href="/matt-proposals/gd-nielsen/preview/projects/clovelly-4638">
+      <div class="gdn-pi-card-image"></div>
+      <div class="gdn-pi-card-meta">
+        <p class="gdn-pi-card-eyebrow">Caulfeild</p>
+        <h3 class="gdn-pi-card-name">Custom Home in Caulfeild</h3>
+        <div class="gdn-pi-card-stats">
+          
+          
+        </div>
+        
+      </div>
+    </a>
+    
+    <a class="gdn-pi-card" href="/matt-proposals/gd-nielsen/preview/projects/crestline-1130">
+      <div class="gdn-pi-card-image"></div>
+      <div class="gdn-pi-card-meta">
+        <p class="gdn-pi-card-eyebrow">British Properties · 2015</p>
+        <h3 class="gdn-pi-card-name">Custom Home in British Properties, 2015</h3>
+        <div class="gdn-pi-card-stats">
+          8,719 sq. ft.
+          
+        </div>
+        
+      </div>
+    </a>
+    
+    <a class="gdn-pi-card" href="/matt-proposals/gd-nielsen/preview/projects/keith-4325">
+      <div class="gdn-pi-card-image"></div>
+      <div class="gdn-pi-card-meta">
+        <p class="gdn-pi-card-eyebrow">Caulfeild · 2016</p>
+        <h3 class="gdn-pi-card-name">Custom Home in Caulfeild, 2016</h3>
+        <div class="gdn-pi-card-stats">
+          7,400+ sq. ft.
+          
+        </div>
+        
+      </div>
+    </a>
+    
+    <a class="gdn-pi-card" href="/matt-proposals/gd-nielsen/preview/projects/lawson-2685">
+      <div class="gdn-pi-card-image"></div>
+      <div class="gdn-pi-card-meta">
+        <p class="gdn-pi-card-eyebrow">Dundarave · 2016</p>
+        <h3 class="gdn-pi-card-name">Transitional in Dundarave, 2016</h3>
+        <div class="gdn-pi-card-stats">
+          4,100 + 1,600 covered sq. ft.
+           · Transitional
+        </div>
+        
+      </div>
+    </a>
+    
+    <a class="gdn-pi-card" href="/matt-proposals/gd-nielsen/preview/projects/marine-2855">
+      <div class="gdn-pi-card-image"></div>
+      <div class="gdn-pi-card-meta">
+        <p class="gdn-pi-card-eyebrow">Altamont · 2008</p>
+        <h3 class="gdn-pi-card-name">Custom Home in Altamont, 2008</h3>
+        <div class="gdn-pi-card-stats">
+          8,398 sq. ft.
+          
+        </div>
+        
+      </div>
+    </a>
+    
+    <a class="gdn-pi-card" href="/matt-proposals/gd-nielsen/preview/projects/mccleery-6450">
+      <div class="gdn-pi-card-image"></div>
+      <div class="gdn-pi-card-meta">
+        <p class="gdn-pi-card-eyebrow">Kerrisdale · 2022</p>
+        <h3 class="gdn-pi-card-name">Contemporary in Kerrisdale, 2022</h3>
+        <div class="gdn-pi-card-stats">
+          
+          Contemporary
+        </div>
+        
+      </div>
+    </a>
+    
+    <a class="gdn-pi-card" href="/matt-proposals/gd-nielsen/preview/projects/millstream-1039">
+      <div class="gdn-pi-card-image"></div>
+      <div class="gdn-pi-card-meta">
+        <p class="gdn-pi-card-eyebrow">British Properties · 2012</p>
+        <h3 class="gdn-pi-card-name">Custom Home in British Properties, 2012</h3>
+        <div class="gdn-pi-card-stats">
+          9,403 sq. ft.
+          
+        </div>
+        
+      </div>
+    </a>
+    
+    <a class="gdn-pi-card" href="/matt-proposals/gd-nielsen/preview/projects/palmerston-2451">
+      <div class="gdn-pi-card-image"></div>
+      <div class="gdn-pi-card-meta">
+        <p class="gdn-pi-card-eyebrow">Queens</p>
+        <h3 class="gdn-pi-card-name">Custom Home in Queens</h3>
+        <div class="gdn-pi-card-stats">
+          
+          
+        </div>
+        
+      </div>
+    </a>
+    
+    <a class="gdn-pi-card" href="/matt-proposals/gd-nielsen/preview/projects/park-lane-2976">
+      <div class="gdn-pi-card-image"></div>
+      <div class="gdn-pi-card-meta">
+        <p class="gdn-pi-card-eyebrow">Altamont waterfront</p>
+        <h3 class="gdn-pi-card-name">Waterfront in Altamont waterfront</h3>
+        <div class="gdn-pi-card-stats">
+          4,495 sq. ft.
+           · Waterfront
+        </div>
+        
+      </div>
+    </a>
+    
+    <a class="gdn-pi-card" href="/matt-proposals/gd-nielsen/preview/projects/rabbit-lane-361">
+      <div class="gdn-pi-card-image"></div>
+      <div class="gdn-pi-card-meta">
+        <p class="gdn-pi-card-eyebrow">British Properties</p>
+        <h3 class="gdn-pi-card-name">Custom Home in British Properties</h3>
+        <div class="gdn-pi-card-stats">
+          
+          
+        </div>
+        
+      </div>
+    </a>
+    
+    <a class="gdn-pi-card" href="/matt-proposals/gd-nielsen/preview/projects/rosebery-3040">
+      <div class="gdn-pi-card-image"></div>
+      <div class="gdn-pi-card-meta">
+        <p class="gdn-pi-card-eyebrow">Altamont · ~2010</p>
+        <h3 class="gdn-pi-card-name">Custom Home in Altamont, ~2010</h3>
+        <div class="gdn-pi-card-stats">
+          10,595 sq. ft.
+          
+        </div>
+        
+      </div>
+    </a>
+    
+    <a class="gdn-pi-card" href="/matt-proposals/gd-nielsen/preview/projects/ross-4382">
+      <div class="gdn-pi-card-image"></div>
+      <div class="gdn-pi-card-meta">
+        <p class="gdn-pi-card-eyebrow">Cypress / Lower Caulfeild · 2006</p>
+        <h3 class="gdn-pi-card-name">Waterfront in Cypress / Lower Caulfeild, 2006</h3>
+        <div class="gdn-pi-card-stats">
+          5,956 sq. ft.
+           · Waterfront
+        </div>
+        
+      </div>
+    </a>
+    
+    <a class="gdn-pi-card" href="/matt-proposals/gd-nielsen/preview/projects/spencer-3090">
+      <div class="gdn-pi-card-image"></div>
+      <div class="gdn-pi-card-meta">
+        <p class="gdn-pi-card-eyebrow">Altamont</p>
+        <h3 class="gdn-pi-card-name">Custom Home in Altamont</h3>
+        <div class="gdn-pi-card-stats">
+          
+          
+        </div>
+        
+      </div>
+    </a>
+    
+    <a class="gdn-pi-card" href="/matt-proposals/gd-nielsen/preview/projects/whelen-7475">
+      <div class="gdn-pi-card-image"></div>
+      <div class="gdn-pi-card-meta">
+        <p class="gdn-pi-card-eyebrow">Deer Lake · 2019 or 2011 (conflicting)</p>
+        <h3 class="gdn-pi-card-name">Custom Home in Deer Lake, 2019 or 2011 (conflicting)</h3>
+        <div class="gdn-pi-card-stats">
+          6,032 sq. ft.
+          
+        </div>
+        
+      </div>
+    </a>
+    
+    <a class="gdn-pi-card" href="/matt-proposals/gd-nielsen/preview/projects/camridge-1338">
+      <div class="gdn-pi-card-image"></div>
+      <div class="gdn-pi-card-meta">
+        <p class="gdn-pi-card-eyebrow">Chartwell/Cammeray · in progress 2026</p>
+        <h3 class="gdn-pi-card-name">Custom Home in Chartwell/Cammeray, in progress 2026</h3>
+        <div class="gdn-pi-card-stats">
+          
+          
+        </div>
+        
+      </div>
+    </a>
+    
+    <a class="gdn-pi-card" href="/matt-proposals/gd-nielsen/preview/projects/laurance-way-8925">
+      <div class="gdn-pi-card-image"></div>
+      <div class="gdn-pi-card-meta">
+        <p class="gdn-pi-card-eyebrow">(TBD) · in progress 2026</p>
+        <h3 class="gdn-pi-card-name">Custom Home in (TBD), in progress 2026</h3>
+        <div class="gdn-pi-card-stats">
+          
+          
+        </div>
+        
+      </div>
+    </a>
+    
+  </div>
+</div>
+
+</div>
