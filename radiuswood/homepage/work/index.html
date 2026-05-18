@@ -4,111 +4,18 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Our Work · Radius Architectural Millwork · Burnaby BC</title>
-<meta name="description" content="Selected residential estate millwork. Eight projects across Vancouver, North Shore, Whistler, and the Sea-to-Sky — from a Bjarke Ingels penthouse to a slip-matched rift oak Indian River residence.">
+<meta name="description" content="Selected residential estate millwork across Vancouver, the North Shore, and the Sea-to-Sky. From a Bjarke Ingels penthouse to slip-matched rift oak on Indian Arm.">
 <link rel="canonical" href="https://radiuswood.com/our-work/">
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500&family=Roboto:wght@300;400;500&family=Varta:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="../css/site.css">
-<style>
-  .work-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: clamp(20px, 2.4vw, 38px) clamp(14px, 1.6vw, 24px);
-    margin-top: clamp(40px, 5vw, 64px);
-  }
-  .work-item { display: block; transition: opacity .3s; }
-  .work-img {
-    position: relative; overflow: hidden;
-    aspect-ratio: 4/3; background: var(--ink);
-  }
-  .work-img img {
-    width: 100%; height: 100%; object-fit: cover;
-    transition: transform 1.4s var(--ease), filter .7s var(--ease);
-  }
-  .work-item:hover .work-img img {
-    transform: scale(1.04); filter: brightness(0.9);
-  }
-  .work-img::after {
-    content: ''; position: absolute; inset: 0; z-index: 1;
-    background: linear-gradient(180deg, rgba(0,0,0,0.04) 0%, transparent 30%, rgba(0,0,0,0.4) 100%);
-    opacity: 0; transition: opacity .6s var(--ease);
-    pointer-events: none;
-  }
-  .work-item:hover .work-img::after { opacity: 1; }
-  .work-overlay {
-    position: absolute;
-    bottom: clamp(20px, 2.5vw, 32px);
-    left: clamp(20px, 2.5vw, 32px);
-    z-index: 2;
-    opacity: 0; transform: translateY(8px);
-    transition: opacity .6s var(--ease) 0.05s, transform .6s var(--ease) 0.05s;
-    display: inline-flex; align-items: center; gap: 14px;
-    font-weight: 400; font-size: 10px;
-    letter-spacing: 0.32em; text-transform: uppercase;
-    color: #fff; text-shadow: 0 1px 14px rgba(0,0,0,0.5);
-  }
-  .work-overlay::before {
-    content: ''; display: inline-block;
-    width: 24px; height: 1px; background: rgba(255,255,255,0.85);
-    transition: width .5s var(--ease);
-  }
-  .work-item:hover .work-overlay { opacity: 1; transform: translateY(0); }
-  .work-item:hover .work-overlay::before { width: 38px; }
-  .work-text {
-    padding-top: 18px;
-  }
-  .work-name {
-    font-family: var(--fd); font-weight: 400;
-    font-size: clamp(15px, 1.2vw, 17px);
-    line-height: 1.25; color: var(--ink);
-  }
-  .work-name em { font-family: var(--fs); font-style: italic; font-weight: 400; color: var(--red); }
-  .work-loc {
-    font-family: var(--f); font-weight: 400;
-    font-size: 10px; letter-spacing: 0.22em;
-    text-transform: uppercase; color: var(--stone);
-    margin-top: 8px;
-  }
-  .work-credit {
-    font-family: var(--f); font-weight: 300;
-    font-size: 9.5px; letter-spacing: 0.28em;
-    text-transform: uppercase; color: var(--stone-lt);
-    margin-top: 6px;
-  }
-  @media (max-width: 1180px) { .work-grid { grid-template-columns: repeat(3, 1fr); } }
-  @media (max-width: 900px) { .work-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 560px) { .work-grid { grid-template-columns: 1fr; } }
-
-  .stats-bar {
-    display: grid; grid-template-columns: repeat(4, 1fr);
-    gap: clamp(20px, 4vw, 50px);
-    padding: clamp(36px, 4vw, 60px) 0;
-    border-top: 1px solid var(--rule);
-    border-bottom: 1px solid var(--rule);
-    margin-top: clamp(40px, 6vw, 80px);
-  }
-  .stats-bar .stat .num {
-    font-family: var(--fd); font-weight: 300;
-    font-size: clamp(28px, 3.4vw, 44px); line-height: 1;
-    color: var(--ink);
-  }
-  .stats-bar .stat .num em { font-family: var(--fs); font-style: italic; font-weight: 400; }
-  .stats-bar .stat .label {
-    font-family: var(--f); font-weight: 400;
-    font-size: 10px; letter-spacing: 0.32em;
-    text-transform: uppercase; color: var(--stone);
-    margin-top: 10px;
-  }
-  @media (max-width: 760px) {
-    .stats-bar { grid-template-columns: repeat(2, 1fr); gap: 28px; }
-  }
-</style>
 </head>
 <body>
 
 <nav class="site" id="nav">
-  <a href="../" class="brand-lockup">
+  <a href="../" class="brand-lockup" aria-label="Radius Architectural Millwork — Home">
     <img class="logo" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/brand/radius-logo.png" alt="Radius Architectural Millwork">
   </a>
   <div class="links">
@@ -127,171 +34,45 @@
         <a href="../services/3d-renderings.html">3D Renderings</a>
       </div>
     </div>
-    <a href="./">Our Work</a>
+    <a href="../work/">Our Work</a>
     <a href="../blog/">Blog</a>
     <a href="../contact.html">Contact</a>
     <a href="../contact.html" class="cta">Get In Touch</a>
   </div>
 </nav>
 
-<section class="sub-hero">
-  <div class="sub-hero-inner">
-    <div>
-      <span class="eyebrow">Our Work</span>
-      <h1>Selected residential <em>estate millwork.</em></h1>
-      <div class="breadcrumb">
-        <a href="../">Home</a><span class="sep">/</span><span>Our Work</span>
-      </div>
-    </div>
-    <p class="lede">Eight projects across Vancouver, the North Shore, the Sea-to-Sky, and Whistler. From a Bjarke Ingels penthouse to a slip-matched rift oak gable-end residence on Indian Arm.</p>
+<section class="hero-banner">
+  <img src="../projects/indian-river-the-point.jpg" alt="Our Work · Radius Architectural Millwork · Burnaby BC — hero">
+  <div class="breadcrumb">
+      <a href="../">Home</a>
+      <span class="sep">/</span>
+      <span>Our Work</span>
+  </div>
+  <div class="overlay">
+    <span class="eyebrow">Our Work</span>
+    <h1>Selected residential <em>estate millwork.</em></h1>
   </div>
 </section>
 
-<section class="section">
-  <div class="section-inner split-grid">
-    <div><span class="eyebrow">Selected Work</span></div>
-    <div>
-      <h2>What we've been <em>building.</em></h2>
-      <p>Whole-house millwork packages, gallery wine bars, bent-laminated rotundas, diamond-bookmatched ceilings, slip-matched rift oak through public rooms. <strong>Every project is bespoke</strong> — the list below names eight from the last decade of work.</p>
-    </div>
-  </div>
-
-  <div class="section-inner">
-    <a href="rosebery-estate.html" style="display: block;">
-      <div class="featured-project">
-        <div class="img-wrap">
-          <span class="award-overlay">AWMAC Gold 2011</span>
-          <img loading="lazy" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/archive/luxury-41.jpg" alt="Rosebery Estate — curved alder rotunda with bent-laminated balustrade and coffered detailing">
-        </div>
-        <div class="info">
-          <span class="eyebrow">Featured · Award Winner</span>
-          <h2>Rosebery <em>Estate</em></h2>
-          <p>A private Vancouver residence with Lamoureux Architects. Bent-laminated curved alder rotunda, slip-matched panelling through the public rooms, ammonia-cured oak detailing. <strong>AWMAC BC Gold for Best Quality and Best Service, 2011.</strong></p>
-          <div class="meta-line">
-            <span>Vancouver West</span><span>$1.5M scope</span><span>18 months · 15 craftspeople</span>
-          </div>
-          <div class="view-link">View Project</div>
-        </div>
-      </div>
-    </a>
-
-    <div class="work-grid">
-
-      <a href="vancouverhouse-bop-penthouse.html" class="work-item">
-        <div class="work-img">
-          <img loading="lazy" src="../projects/vancouverhouse-bop-penthouse.jpg" alt="Vancouverhouse BOP Penthouse. Walnut slat ceiling above sectional facing interior atrium garden, inside Bjarke Ingels Group's Vancouver House tower.">
-          <div class="work-overlay">View Project</div>
-        </div>
-        <div class="work-text">
-          <div class="work-name">Vancouverhouse <em>BOP Penthouse</em></div>
-          <div class="work-loc">BIG · Vancouver House · 2020</div>
-          <div class="work-credit">Photo · Kent Leckie</div>
-        </div>
-      </a>
-
-      <a href="indian-arm-study.html" class="work-item">
-        <div class="work-img">
-          <img loading="lazy" src="../projects/indian-arm-study.jpg" alt="Indian Arm Study. Cedar-lined writer's cabin with stone wall, globe pendant cluster, leather chair, built-in desk and ocean view.">
-          <div class="work-overlay">View Project</div>
-        </div>
-        <div class="work-text">
-          <div class="work-name">Indian Arm <em>Study</em></div>
-          <div class="work-loc">Indian Arm · Woodlands</div>
-        </div>
-      </a>
-
-      <a href="indian-river-the-point.html" class="work-item">
-        <div class="work-img">
-          <img loading="lazy" src="../projects/indian-river-the-point.jpg" alt="Indian River — The Point. Gable-end living room with Bocci pendant cluster, harbor view, dark wenge media wall.">
-          <div class="work-overlay">View Project</div>
-        </div>
-        <div class="work-text">
-          <div class="work-name">Indian River <em>— The Point</em></div>
-          <div class="work-loc">Indian Arm · 2025</div>
-          <div class="work-credit">Photo · Andrew Latreille</div>
-        </div>
-      </a>
-
-      <a href="west-vancouver-modern-luxury.html" class="work-item">
-        <div class="work-img">
-          <img loading="lazy" src="../projects/west-vancouver-modern-luxury.jpg" alt="West Vancouver Modern Luxury. Coffee bar wide with banded cedar-slat ceiling lights, concrete column, glass sliders to deck, ocean view.">
-          <div class="work-overlay">View Project</div>
-        </div>
-        <div class="work-text">
-          <div class="work-name">West Vancouver <em>Modern Luxury</em></div>
-          <div class="work-loc">West Vancouver</div>
-        </div>
-      </a>
-
-      <a href="waterfront-anigre-penthouse.html" class="work-item">
-        <div class="work-img">
-          <img loading="lazy" src="../projects/waterfront-anigre-penthouse.jpg" alt="Waterfront Anigre Penthouse. Diamond-bookmatched anigre ceiling, stone fireplace, anigre gallery wall, harbor view at dusk.">
-          <div class="work-overlay">View Project</div>
-        </div>
-        <div class="work-text">
-          <div class="work-name">Waterfront <em>Anigre Penthouse</em></div>
-          <div class="work-loc">Vancouver Waterfront</div>
-          <div class="work-credit">Photo · Hempenstall</div>
-        </div>
-      </a>
-
-      <a href="lions-bay.html" class="work-item">
-        <div class="work-img">
-          <img loading="lazy" src="../projects/lions-bay.jpg" alt="Lion's Bay Residence. Curved dining nook with bay-window framing Howe Sound, built-in media wall and ocean-side living.">
-          <div class="work-overlay">View Project</div>
-        </div>
-        <div class="work-text">
-          <div class="work-name">Lion's Bay <em>Residence</em></div>
-          <div class="work-loc">Lion's Bay · Howe Sound</div>
-        </div>
-      </a>
-
-      <a href="contemporary-walnut-estate.html" class="work-item">
-        <div class="work-img">
-          <img loading="lazy" src="../projects/contemporary-walnut-estate.jpg" alt="Contemporary Walnut Estate. Dining room wide with walnut feature wall, lit fireplace, beach photograph at left and floor-to-ceiling wine display at right.">
-          <div class="work-overlay">View Project</div>
-        </div>
-        <div class="work-text">
-          <div class="work-name">Contemporary <em>Walnut Estate</em></div>
-          <div class="work-loc">Vancouver</div>
-        </div>
-      </a>
-
-      <a href="whitby-estates-walnut.html" class="work-item">
-        <div class="work-img">
-          <img loading="lazy" src="../projects/whitby-estates-walnut.jpg" alt="Whitby Estates Walnut — Maghsoud Residence. Cherry-walnut media room with coffered ceiling, mahogany double-door entry, travertine floor, full-height built-ins.">
-          <div class="work-overlay">View Project</div>
-        </div>
-        <div class="work-text">
-          <div class="work-name">Whitby <em>Estates Walnut</em></div>
-          <div class="work-loc">West Vancouver · Maghsoud Residence</div>
-        </div>
-      </a>
-
-    </div>
-
-    <div class="stats-bar">
-      <div class="stat">
-        <div class="num">8</div>
-        <div class="label">Selected projects</div>
-      </div>
-      <div class="stat">
-        <div class="num">25<em>+</em></div>
-        <div class="label">Years on the bench</div>
-      </div>
-      <div class="stat">
-        <div class="num">1<em>×</em></div>
-        <div class="label">AWMAC BC Gold 2011</div>
-      </div>
-      <div class="stat">
-        <div class="num">5<em>×</em></div>
-        <div class="label">Best of Houzz 2013–2017</div>
-      </div>
-    </div>
-  </div>
+<section class="page-copy">
+  <span class="eyebrow">Selected Work</span>
+  <h2>Eight projects from <em>the last decade on the bench.</em></h2>
+  <p>Selected residential estate work across Vancouver, the North Shore, the Sea-to-Sky, and Whistler. Whole-house millwork packages, gallery wine bars, bent-laminated rotundas, diamond-bookmatched ceilings, slip-matched rift oak through public rooms. Featured projects below: <strong>Vancouverhouse BOP Penthouse</strong> (inside BIG's Vancouver House), <strong>Indian Arm Study</strong> (cedar-lined waterfront cabin), <strong>Indian River — The Point</strong> (slip-matched rift oak gable-end residence), <strong>West Vancouver Modern Luxury</strong> (banded cedar-slat ceiling), <strong>Waterfront Anigre Penthouse</strong> (diamond-bookmatched ceiling), <strong>Lion's Bay Residence</strong> (oceanfront painted millwork), <strong>Contemporary Walnut Estate</strong>, and <strong>Whitby Estates Walnut</strong>. AWMAC BC Gold winner <strong>Rosebery Estate</strong> also viewable.</p>
 </section>
 
-<section class="cta-band">
+<section class="photo-stack">
+  <a href="vancouverhouse-bop-penthouse.html"><figure><img loading="lazy" src="../projects/vancouverhouse-bop-penthouse.jpg" alt="Vancouverhouse BOP Penthouse · Vancouver House · Downtown Vancouver"><figcaption>Vancouverhouse BOP Penthouse · Vancouver House · Downtown Vancouver</figcaption></figure></a>
+  <a href="indian-arm-study.html"><figure><img loading="lazy" src="../projects/indian-arm-study.jpg" alt="Indian Arm Study · Indian Arm · Woodlands"><figcaption>Indian Arm Study · Indian Arm · Woodlands</figcaption></figure></a>
+  <a href="indian-river-the-point.html"><figure><img loading="lazy" src="../projects/indian-river-the-point.jpg" alt="Indian River — The Point · Indian Arm · The Point"><figcaption>Indian River — The Point · Indian Arm · The Point</figcaption></figure></a>
+  <a href="west-vancouver-modern-luxury.html"><figure><img loading="lazy" src="../projects/west-vancouver-modern-luxury.jpg" alt="West Vancouver Modern Luxury · West Vancouver · Coastal"><figcaption>West Vancouver Modern Luxury · West Vancouver · Coastal</figcaption></figure></a>
+  <a href="waterfront-anigre-penthouse.html"><figure><img loading="lazy" src="../projects/waterfront-anigre-penthouse.jpg" alt="Waterfront Anigre Penthouse · Vancouver · Harbor"><figcaption>Waterfront Anigre Penthouse · Vancouver · Harbor</figcaption></figure></a>
+  <a href="lions-bay.html"><figure><img loading="lazy" src="../projects/lions-bay.jpg" alt="Lion's Bay Residence · Lion's Bay · Howe Sound"><figcaption>Lion's Bay Residence · Lion's Bay · Howe Sound</figcaption></figure></a>
+  <a href="contemporary-walnut-estate.html"><figure><img loading="lazy" src="../projects/contemporary-walnut-estate.jpg" alt="Contemporary Walnut Estate · Vancouver"><figcaption>Contemporary Walnut Estate · Vancouver</figcaption></figure></a>
+  <a href="whitby-estates-walnut.html"><figure><img loading="lazy" src="../projects/whitby-estates-walnut.jpg" alt="Whitby Estates Walnut · West Vancouver · Maghsoud Residence"><figcaption>Whitby Estates Walnut · West Vancouver · Maghsoud Residence</figcaption></figure></a>
+  <a href="rosebery-estate.html"><figure><img loading="lazy" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/archive/luxury-41.jpg" alt="Rosebery Estate · Vancouver West · AWMAC Gold 2011"><figcaption>Rosebery Estate · Vancouver West · AWMAC Gold 2011</figcaption></figure></a>
+</section>
+
+<section class="cta-band cta-image" style="--cta-bg: url('../projects/cta-vancouverhouse-living-dining.jpg');">
   <span class="eyebrow">Get in touch</span>
   <h2>Working on a project? <em>Send us the set.</em></h2>
   <p>Drawings, scope, timeline, or just a conversation. We respond within two business days with a feasibility read and a tested quote.</p>
@@ -319,7 +100,7 @@
         <ul>
           <li><a href="../services/architectural-millwork.html">Architectural Millwork</a></li>
           <li><a href="../services/3d-renderings.html">3D Renderings</a></li>
-          <li><a href="./">Our Work</a></li>
+          <li><a href="../work/">Our Work</a></li>
           <li><a href="../blog/">Blog</a></li>
         </ul>
       </div>
@@ -353,9 +134,11 @@
 
 <script>
   const nav = document.getElementById('nav');
-  document.addEventListener('scroll', () => {
-    nav.classList.toggle('scrolled', window.scrollY > 70);
-  }, { passive: true });
+  if (nav) {
+    document.addEventListener('scroll', () => {
+      nav.classList.toggle('scrolled', window.scrollY > 70);
+    }, { passive: true });
+  }
 </script>
 
 </body>
