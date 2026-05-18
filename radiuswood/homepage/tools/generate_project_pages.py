@@ -59,7 +59,7 @@ PROJECTS = [
             ("../photos/vancouverhouse-bop-penthouse/vancouverhouse-bop-penthouse-kitchen-walnut-hood-open-shelving-pantry.jpg", "Kitchen with walnut concealed hood, open shelving, pantry"),
         ),
         "quote": "One-inch walnut slats on five-inch centres, run continuously across the ceiling and around the curve of the tub wall. The bookmatch holds across every break. The figure travels.",
-        "related": ["indian-river-the-point", "waterfront-anigre-penthouse", "indian-arm-study"],
+        "related": ["indian-river-the-point", "waterfront-anigre-penthouse", "rosebery-estate"],
     },
     {
         "slug": "indian-arm-study",
@@ -382,7 +382,61 @@ PROJECTS = [
             ("../photos/contemporary-walnut-estate/contemporary-walnut-estate-media-room-walnut-cabinetry-screen.jpg", "Media room with walnut credenza and projection screen"),
         ),
         "quote": "Slip-matched American walnut, run through every public and private room. The dining wall, the wine cellar, the bedroom — same flitch, one continuous figure.",
-        "related": ["whitby-estates-walnut", "waterfront-anigre-penthouse", "vancouverhouse-bop-penthouse"],
+        "related": ["whitby-estates-walnut", "rosebery-estate", "vancouverhouse-bop-penthouse"],
+    },
+    {
+        "slug": "rosebery-estate",
+        "title_html": "Rosebery <em>Estate</em>",
+        "title_text": "Rosebery Estate",
+        "breadcrumb": "Rosebery Estate",
+        "award_strip": "AWMAC BC Gold 2011 · Best Quality + Best Service",
+        "meta_desc": "The Rosebery Estate — Vancouver West, with Lamoureux Architects. $1.5M millwork scope, 18 months on the bench, 15 craftspeople full-time. Bent-laminated curved alder. AWMAC BC Gold for Best Quality and Best Service, 2011.",
+        "hero_img": "https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/archive/luxury-41.jpg",
+        "schema_image": "https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/archive/luxury-41.jpg",
+        "hero_caption": "Rotunda · Bent-laminated alder · Coffered detailing · Photography by the project architect",
+        "schema_locality": "Vancouver",
+        "schema_street": "",
+        "schema_year": "2011",
+        "schema_desc": "Private Vancouver residence with Lamoureux Architects. $1.5M millwork scope. Eighteen months on the bench, fifteen craftspeople full-time. Bent-lamination of structural alder radii, slip-matched panelling, walnut furniture, ammonia-cured oak detailing.",
+        "meta_cells": [
+            ("Location", "Vancouver West,<br>BC"),
+            ("Year", "2011"),
+            ("Architect", "Lamoureux<br>Architects"),
+            ("Scope", "$1.5M millwork"),
+            ("Duration", "18 months<br>on the bench"),
+            ("Bench", "15 craftspeople,<br>full-time"),
+        ],
+        "brief": [
+            "A private Vancouver residence with <strong>Lamoureux Architects</strong>. The brief was simple in concept, hard in execution: bent-laminated structural radii throughout the public rooms, slip-matched alder panelling room-to-room, walnut furniture detailing, and the kind of coffered ceiling work that asks a millwork shop to be both engineer and craftsman.",
+            "Eighteen months on the bench. Fifteen craftspeople full-time. $1.5M millwork scope on a project where the architect's drawing set was clean enough that we could let the bench have its discretion — and the discretion landed us Gold for both quality and service in the same year.",
+        ],
+        "work": [
+            "The technical challenge was laminated curves. <strong>Bent-lamination of structural millwork radii</strong> — a process where layers of veneer get glued over a curved form, then released. The curve doesn't always hold the shape. We tested. We measured. We logged the spring-back coefficient per species and humidity. Eventually we had it down to a science.",
+            "Twelve layers of alder veneer per radius. Custom jigs cut for every radius in the project. Every curve test-fitted dry before glue-up; if it sprang beyond tolerance, we paired curves to cancel the spring before bonding the final field.",
+            "Beyond the curves, the project was a full vocabulary play: <strong>slip-matched alder</strong> through the public rooms, <strong>solid-stock walnut furniture</strong> for the case goods, <strong>ammonia-cured oak</strong> detailing in the back-of-house, and a coffered ceiling on dimension-flat tolerances over twenty feet of run.",
+        ],
+        "gallery_1": (
+            ("https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/archive/luxury-41.jpg", "Curved alder rotunda with balustrade and metal infill"),
+            ("https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/archive/luxury-1.jpg", "Two-storey curved alder foyer with grand stair"),
+            ("https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/archive/luxury-22.jpg", "Walnut display case with raised-panel base"),
+        ),
+        "spec": [
+            ("Primary Species", "Alder · structural, bent-laminated"),
+            ("Public-Room Cladding", "Slip-matched alder veneer"),
+            ("Furniture", "Solid-stock American walnut"),
+            ("Ceiling", "Coffered, slip-matched alder, twenty-foot run"),
+            ("Detail", "Ammonia-cured oak (back-of-house)"),
+            ("Joinery", "Pin-and-tail dovetail · mortise-and-tenon · bent lamination"),
+            ("Finish", "Conversion varnish · six coats · between-coat sanded"),
+            ("Hardware", "Blumotion soft-close · Movento drawer slides"),
+        ],
+        "gallery_2": (
+            ("https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/joinery/dovetail-pin-tail-maple-close.jpg", "Pin-and-tail dovetail joinery detail"),
+            ("https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/joinery/ebonised-reveal-line-corner.jpg", "Ebonised inlay carrying around a corner"),
+            ("https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/photos/material/sequence-matched-rift-oak-doors.jpg", "Sequence-matched rift oak doors"),
+        ),
+        "quote": "The curve doesn't always hold the shape. We test, we measure, we log the spring-back per species and humidity. Eventually you have it down to a science.",
+        "related": ["contemporary-walnut-estate", "vancouverhouse-bop-penthouse", "indian-river-the-point"],
     },
     {
         "slug": "whitby-estates-walnut",
@@ -462,7 +516,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   "name": "{title_text}",
   "creator": {{"@type": "Organization", "name": "Radius Architectural Millwork Ltd"}},
   "locationCreated": {{"@type": "Place", "address": {{"@type": "PostalAddress", "addressLocality": "{schema_locality}", "addressRegion": "BC", "addressCountry": "CA"{street_field}}}}},{date_field}
-  "image": "https://radiuswood.com/our-work/{hero_img_rel}",
+  "image": "{schema_image}",
   "description": "{schema_desc}"
 }}
 </script>
@@ -714,14 +768,23 @@ def render_project(project):
     g1_main, g1_stack1, g1_stack2 = project["gallery_1"]
     g2_1, g2_2, g2_3 = project["gallery_2"]
 
+    hero_img = project["hero_img"]
+    # Schema image: use explicit override, else build from relative hero_img
+    if "schema_image" in project:
+        schema_image = project["schema_image"]
+    elif hero_img.startswith("http"):
+        schema_image = hero_img
+    else:
+        schema_image = f"https://radiuswood.com/our-work/{hero_img.replace('../', '')}"
+
     return PAGE_TEMPLATE.format(
         slug=project["slug"],
         title_html=project["title_html"],
         title_text=project["title_text"],
         breadcrumb=project["breadcrumb"],
         meta_desc=project["meta_desc"],
-        hero_img=project["hero_img"],
-        hero_img_rel=project["hero_img"].replace("../", ""),
+        hero_img=hero_img,
+        schema_image=schema_image,
         hero_caption=project["hero_caption"],
         schema_locality=project["schema_locality"],
         schema_desc=project["schema_desc"],
