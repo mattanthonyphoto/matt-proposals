@@ -19,496 +19,545 @@
   --gdn-mid: #6B6E6A;
   --gdn-light: #E8E6E0;
   --gdn-rule: #DDDAD2;
-  --gdn-accent: #9B8259;
+  --gdn-gold: #B8975A;
   --gdn-tone: #2A3530;
+  --gdn-section: 140px;
+  --gdn-section-tight: 100px;
+  --gdn-gap: 80px;
 }
 .gdn-scope * { box-sizing: border-box; }
 .gdn-scope {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
-  font-size: 17px;
-  line-height: 1.55;
-  color: var(--gdn-ink);
-  background: var(--gdn-bone);
-  font-feature-settings: "ss01", "cv11";
-  -webkit-font-smoothing: antialiased;
-  text-rendering: optimizeLegibility;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-size: 17px; line-height: 1.55; color: var(--gdn-ink); background: var(--gdn-bone);
+  -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
 }
 .gdn-scope img { max-width: 100%; height: auto; display: block; }
-.gdn-scope a {
-  color: var(--gdn-ink);
-  border-bottom: 1px solid var(--gdn-ink);
-  text-decoration: none;
-  transition: color 0.18s, border-color 0.18s;
-}
-.gdn-scope a:hover { color: var(--gdn-accent); border-bottom-color: var(--gdn-accent); }
+:where(.gdn-scope) a { color: var(--gdn-ink); border-bottom: 1px solid var(--gdn-ink);
+  text-decoration: none; transition: color 0.18s, border-color 0.18s; }
+:where(.gdn-scope) a:hover { color: var(--gdn-gold); border-bottom-color: var(--gdn-gold); }
 
-/* Display type — large, light, tight */
-.gdn-scope h1 {
-  font-family: 'Inter', sans-serif;
-  font-weight: 300;
-  font-size: clamp(48px, 7vw, 96px);
-  line-height: 0.96;
-  letter-spacing: -0.035em;
-  margin: 0 0 24px;
-  color: var(--gdn-ink);
-}
-.gdn-scope h2 {
-  font-family: 'Inter', sans-serif;
-  font-weight: 300;
-  font-size: clamp(32px, 4vw, 56px);
-  line-height: 1.05;
-  letter-spacing: -0.025em;
-  margin: 0 0 20px;
-  color: var(--gdn-ink);
-}
-.gdn-scope h3 {
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 13px;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  margin: 0 0 12px;
-  color: var(--gdn-mid);
-}
-.gdn-scope p {
-  margin: 0 0 20px;
-  max-width: 620px;
-  font-weight: 400;
-}
-.gdn-scope p.lead {
-  font-size: 22px;
-  line-height: 1.4;
-  font-weight: 300;
-  letter-spacing: -0.005em;
-  color: var(--gdn-ink);
-  max-width: 720px;
-}
+/* Typography */
+.gdn-scope h1 { font-family: 'Poppins', sans-serif; font-weight: 300;
+  font-size: clamp(44px, 6vw, 84px); line-height: 0.98; letter-spacing: -0.035em;
+  margin: 0 0 20px; color: var(--gdn-bone); }
+.gdn-scope h1 em { font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-weight: 400; letter-spacing: -0.01em; }
+.gdn-scope h2 { font-family: 'Poppins', sans-serif; font-weight: 300;
+  font-size: clamp(28px, 3.4vw, 44px); line-height: 1.08; letter-spacing: -0.022em;
+  margin: 0 0 18px; color: var(--gdn-ink); }
+.gdn-scope h2 em { font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-weight: 400; }
+.gdn-scope h3 { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 17px; line-height: 1.3; margin: 0 0 8px; color: var(--gdn-ink); }
+.gdn-scope p { margin: 0 0 18px; max-width: 640px; font-weight: 400; }
+.gdn-scope p.lead { font-size: 21px; line-height: 1.45; font-weight: 300;
+  letter-spacing: -0.005em; color: var(--gdn-ink); max-width: 720px; }
+.gdn-eyebrow { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gdn-mid); margin: 0 0 16px; display: block; }
+.gdn-container { max-width: 1320px; margin: 0 auto; padding: 0 48px; }
+@media (max-width: 720px) { .gdn-container { padding: 0 24px; } }
 
-/* Eyebrow — small, all-caps, tracked */
-.gdn-eyebrow {
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 12px;
-  letter-spacing: 0.18em;
-  text-transform: uppercase;
-  color: var(--gdn-mid);
-  margin: 0 0 16px;
-}
-
-/* Numerals — for stats, years */
-.gdn-numeral {
-  font-family: 'Inter', sans-serif;
-  font-weight: 200;
-  font-feature-settings: "tnum";
-  letter-spacing: -0.04em;
-  line-height: 0.9;
-}
-
-/* Container — tighter for editorial feel */
-.gdn-container { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
-.gdn-container-narrow { max-width: 920px; margin: 0 auto; padding: 0 40px; }
-
-/* Section spacing — generous */
-.gdn-section { padding: 140px 0; }
-.gdn-section-tight { padding: 80px 0; }
-
-/* CTA — minimal, text-driven */
-.gdn-cta {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 18px 32px;
-  background: var(--gdn-ink);
-  color: var(--gdn-bone);
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: 0.04em;
-  border: 1px solid var(--gdn-ink);
-  text-decoration: none;
-  transition: all 0.22s ease;
-  border-radius: 0;
-}
-.gdn-cta:hover {
-  background: transparent;
-  color: var(--gdn-ink);
-  border-color: var(--gdn-ink);
-}
-.gdn-cta-ghost {
-  display: inline-flex;
-  align-items: center;
-  gap: 12px;
-  padding: 18px 32px;
-  background: transparent;
-  color: var(--gdn-ink);
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: 0.04em;
-  border: 1px solid var(--gdn-ink);
-  text-decoration: none;
-  transition: all 0.22s ease;
-}
+/* Buttons */
+.gdn-cta { display: inline-block; padding: 16px 30px; font-family: 'Poppins', sans-serif;
+  font-weight: 500; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+  background: var(--gdn-ink); color: var(--gdn-bone); border: 1px solid var(--gdn-ink);
+  text-decoration: none; transition: all 0.2s; }
+.gdn-cta:hover { background: var(--gdn-gold); border-color: var(--gdn-gold); color: var(--gdn-bone); }
+.gdn-cta-ghost { display: inline-block; padding: 16px 30px; font-family: 'Poppins', sans-serif;
+  font-weight: 500; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+  background: transparent; color: var(--gdn-ink); border: 1px solid var(--gdn-ink);
+  text-decoration: none; transition: all 0.2s; }
 .gdn-cta-ghost:hover { background: var(--gdn-ink); color: var(--gdn-bone); }
+.gdn-link-arrow { font-family: 'Poppins', sans-serif; font-weight: 400; font-size: 13px;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--gdn-mid);
+  text-decoration: none; border: 0; }
+.gdn-link-arrow::after { content: " \2192"; }
+.gdn-link-arrow:hover { color: var(--gdn-gold); }
 
-.gdn-link-arrow {
-  font-family: 'Inter', sans-serif;
-  font-weight: 500;
-  font-size: 14px;
-  letter-spacing: 0.02em;
-  border: 0;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-}
-.gdn-link-arrow::after { content: "→"; transition: transform 0.18s; }
-.gdn-link-arrow:hover::after { transform: translateX(4px); }
-
-/* Rule */
-.gdn-rule { border: 0; border-top: 1px solid var(--gdn-rule); margin: 0; }
-
-/* Mobile */
-@media (max-width: 720px) {
-  .gdn-scope { font-size: 16px; }
-  .gdn-scope p.lead { font-size: 19px; }
-  .gdn-section { padding: 80px 0; }
-  .gdn-container, .gdn-container-narrow { padding: 0 24px; }
-}
-
-
-.gdn-aw-hero { padding: 120px 0 80px; }
-.gdn-aw-hero-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 80px; align-items: end; }
-.gdn-aw-stat { font-family: 'Inter', sans-serif; font-weight: 200;
-  font-size: clamp(80px, 12vw, 160px); line-height: 0.85; letter-spacing: -0.05em;
-  color: var(--gdn-ink); }
-.gdn-aw-stat-meta { font-family: 'Inter', sans-serif; font-weight: 500;
-  font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--gdn-mid); margin-top: 16px; }
-
-.gdn-aw-headlines { padding: 100px 0; border-top: 1px solid var(--gdn-rule); }
-.gdn-aw-headlines-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 0; border-top: 1px solid var(--gdn-rule); }
-.gdn-aw-headline-cell { padding: 40px 32px; border-right: 1px solid var(--gdn-rule);
-  border-bottom: 1px solid var(--gdn-rule); background: var(--gdn-bone); }
-.gdn-aw-headline-cell:last-child { border-right: 0; }
-.gdn-aw-headline-year { font-family: 'Inter', sans-serif; font-weight: 200;
-  font-size: 48px; line-height: 1; letter-spacing: -0.04em; color: var(--gdn-ink); margin-bottom: 16px; }
-.gdn-aw-headline-title { font-family: 'Inter', sans-serif; font-weight: 400;
-  font-size: 16px; line-height: 1.35; color: var(--gdn-ink); }
-.gdn-aw-headline-body { font-family: 'Inter', sans-serif; font-weight: 500;
-  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--gdn-mid); margin-bottom: 8px; }
-
-.gdn-aw-record { padding: 120px 0; border-top: 1px solid var(--gdn-rule); }
-.gdn-aw-record-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 6fr); gap: 80px; padding: 56px 0; border-top: 1px solid var(--gdn-rule); }
-.gdn-aw-record-grid:last-child { border-bottom: 1px solid var(--gdn-rule); }
-.gdn-aw-record-year { font-family: 'Inter', sans-serif; font-weight: 200;
-  font-size: 64px; line-height: 1; letter-spacing: -0.04em; color: var(--gdn-ink); }
-.gdn-aw-record-list { display: flex; flex-direction: column; gap: 16px; }
-.gdn-aw-record-item { display: grid; grid-template-columns: 80px 1fr; gap: 24px; align-items: baseline;
-  padding: 16px 0; border-bottom: 1px solid var(--gdn-light); }
-.gdn-aw-record-item:last-child { border-bottom: 0; }
-.gdn-aw-record-status { font-family: 'Inter', sans-serif; font-weight: 500;
-  font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--gdn-accent); }
-.gdn-aw-record-status-finalist { color: var(--gdn-mid); }
-.gdn-aw-record-text { font-family: 'Inter', sans-serif; font-weight: 400;
-  font-size: 18px; line-height: 1.4; color: var(--gdn-ink); }
-.gdn-aw-record-text strong { font-weight: 500; }
-.gdn-aw-record-project { color: var(--gdn-mid); font-style: normal; font-weight: 400; }
-
-.gdn-aw-builder { padding: 120px 0; border-top: 1px solid var(--gdn-rule); background: var(--gdn-light); }
-.gdn-aw-builder-grid { display: grid; grid-template-columns: minmax(0, 2fr) minmax(0, 6fr); gap: 80px; }
-.gdn-aw-builder-list { display: grid; gap: 24px; }
-.gdn-aw-builder-card { padding: 32px 0; border-top: 1px solid var(--gdn-rule); }
-.gdn-aw-builder-title { font-family: 'Inter', sans-serif; font-weight: 400;
-  font-size: 22px; line-height: 1.3; letter-spacing: -0.01em; margin: 0 0 8px; color: var(--gdn-ink); }
-
-.gdn-aw-cta { padding: 140px 0; background: var(--gdn-ink); color: var(--gdn-bone); text-align: center; }
-.gdn-aw-cta h2 { color: var(--gdn-bone); max-width: 720px; margin: 0 auto 32px; }
-.gdn-aw-cta p { color: var(--gdn-light); max-width: 540px; margin: 0 auto 40px; }
-
-@media (max-width: 980px) {
-  .gdn-aw-hero-grid, .gdn-aw-record-grid, .gdn-aw-builder-grid { grid-template-columns: 1fr; gap: 32px; }
-  .gdn-aw-record-item { grid-template-columns: 1fr; gap: 4px; }
+/* Nav */
+.gdn-aw-nav { position: sticky; top: 0; z-index: 100; background: rgba(250,250,247,0.92);
+  backdrop-filter: blur(12px); border-bottom: 1px solid var(--gdn-rule); }
+.gdn-aw-nav-inner { display: flex; align-items: center; justify-content: space-between;
+  padding: 22px 48px; max-width: 1480px; margin: 0 auto; }
+.gdn-aw-nav-mark { display: flex; align-items: center; gap: 12px; border: 0;
+  font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400;
+  font-size: 22px; letter-spacing: -0.01em; color: var(--gdn-ink); }
+.gdn-aw-nav-mark img { height: 32px; width: auto; }
+.gdn-aw-nav-links { display: flex; align-items: center; gap: 28px; }
+.gdn-aw-nav-link { font-family: 'Poppins', sans-serif; font-weight: 400;
+  font-size: 14px; color: var(--gdn-ink); text-decoration: none; border: 0;
+  padding: 6px 0; transition: color 0.18s; }
+.gdn-aw-nav-link:hover { color: var(--gdn-gold); border: 0; }
+.gdn-aw-nav-cta { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase;
+  background: var(--gdn-ink); color: var(--gdn-bone); padding: 12px 22px;
+  border: 1px solid var(--gdn-ink); text-decoration: none; transition: all 0.2s; }
+.gdn-aw-nav-cta:hover { background: var(--gdn-gold); border-color: var(--gdn-gold); color: var(--gdn-bone); }
+@media (max-width: 900px) {
+  .gdn-aw-nav-links { display: none; }
+  .gdn-aw-nav-inner { padding: 16px 24px; }
 }
 
+/* Hero — full-bleed image with text overlay */
+.gdn-aw-hero { position: relative; height: clamp(560px, 88vh, 900px); overflow: hidden;
+  margin: 0; background: var(--gdn-tone); }
+.gdn-aw-hero-img { position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center; }
+.gdn-aw-hero-veil { position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(15,20,19,0.05) 0%, rgba(15,20,19,0.05) 40%, rgba(15,20,19,0.65) 100%); }
+.gdn-aw-hero-content { position: absolute; left: 0; right: 0; bottom: 0; padding: 48px;
+  color: var(--gdn-bone); }
+.gdn-aw-hero-eyebrow { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gdn-bone); opacity: 0.85; margin: 0 0 12px; }
+.gdn-aw-hero-loc { font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-weight: 400; font-size: clamp(20px, 2vw, 26px); color: var(--gdn-bone);
+  opacity: 0.85; margin: 8px 0 0; max-width: 720px; }
+
+/* Builder-level recognition */
+.gdn-aw-builder { padding: 100px 0; border-bottom: 1px solid var(--gdn-rule); }
+.gdn-aw-builder-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 7fr);
+  gap: 80px; }
+.gdn-aw-builder-label { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gdn-mid); position: sticky; top: 110px; align-self: start; }
+.gdn-aw-builder-cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px; }
+.gdn-aw-builder-card { padding: 28px 26px; border: 1px solid var(--gdn-rule);
+  background: var(--gdn-bone); }
+.gdn-aw-builder-card-body { font-family: 'Cormorant Garamond', serif; font-weight: 400;
+  font-size: 22px; line-height: 1.25; letter-spacing: -0.005em; color: var(--gdn-ink);
+  margin: 0 0 8px; }
+.gdn-aw-builder-card-body em { font-style: italic; color: var(--gdn-mid); font-size: 16px;
+  display: block; margin-top: 6px; }
+.gdn-aw-builder-card-note { font-family: 'Poppins', sans-serif; font-weight: 400;
+  font-size: 13px; line-height: 1.5; color: var(--gdn-mid); margin: 0; }
+
+/* Year-by-year record */
+.gdn-aw-record { padding: 100px 0; }
+.gdn-aw-record-head { margin-bottom: 56px; padding-bottom: 24px; border-bottom: 1px solid var(--gdn-rule); }
+.gdn-aw-year-group { padding: 56px 0; border-bottom: 1px solid var(--gdn-rule); }
+.gdn-aw-year-group:last-child { border-bottom: 0; }
+.gdn-aw-year-grid { display: grid; grid-template-columns: minmax(0, 3fr) minmax(0, 7fr); gap: 80px; }
+.gdn-aw-year-label { font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-weight: 400; font-size: 56px; line-height: 1; letter-spacing: -0.01em;
+  color: var(--gdn-ink); position: sticky; top: 110px; align-self: start; }
+.gdn-aw-line { font-family: 'Cormorant Garamond', serif; font-weight: 400;
+  font-size: 22px; line-height: 1.35; letter-spacing: -0.005em; color: var(--gdn-ink);
+  padding-left: 24px; position: relative; margin: 0 0 16px; }
+.gdn-aw-line:last-child { margin-bottom: 0; }
+.gdn-aw-line::before { content: ""; position: absolute; left: 0; top: 15px;
+  width: 12px; height: 1px; background: var(--gdn-gold); }
+.gdn-aw-line strong { font-weight: 400; }
+.gdn-aw-line em { font-style: italic; color: var(--gdn-mid); font-size: 15px;
+  display: block; margin-top: 4px; }
+.gdn-aw-line-status { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gdn-gold); margin-right: 10px; }
+.gdn-aw-line-status-finalist { color: var(--gdn-mid); }
+.gdn-aw-line-project { color: var(--gdn-mid); font-style: italic; }
+@media (max-width: 900px) {
+  .gdn-aw-builder-grid, .gdn-aw-year-grid { grid-template-columns: 1fr; gap: 24px; }
+  .gdn-aw-year-label { position: static; font-size: 44px; }
+  .gdn-aw-builder-label { position: static; }
+}
+
+/* CTA row */
+.gdn-aw-cta-row { display: flex; gap: 16px; padding: 80px 0; flex-wrap: wrap;
+  border-top: 1px solid var(--gdn-rule); }
+
+/* Related */
+.gdn-aw-related { padding: var(--gdn-section) 0; background: var(--gdn-light); }
+.gdn-aw-related-head { display: flex; justify-content: space-between; align-items: end;
+  margin-bottom: 40px; padding-bottom: 24px; border-bottom: 1px solid var(--gdn-rule); gap: 32px; }
+.gdn-aw-related-body { max-width: 720px; }
+
+/* Footer (matches homepage) */
+.gdn-aw-foot { background: var(--gdn-tone); color: var(--gdn-bone); padding: 100px 0 40px; }
+.gdn-aw-foot a { color: var(--gdn-bone); border-bottom-color: rgba(250,250,247,0.3); }
+.gdn-aw-foot a:hover { color: var(--gdn-gold); border-bottom-color: var(--gdn-gold); }
+.gdn-aw-foot-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 80px; padding-bottom: 60px; border-bottom: 1px solid rgba(250,250,247,0.15); }
+.gdn-aw-foot-list { list-style: none; padding: 0; margin: 0 0 16px; }
+.gdn-aw-foot-list li { margin: 0 0 10px; font-size: 14px; }
+.gdn-aw-foot-bottom { padding-top: 32px; display: flex; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px; font-size: 12px; color: rgba(250,250,247,0.6); }
+@media (max-width: 900px) {
+  .gdn-aw-foot-grid { grid-template-columns: 1fr; gap: 40px; }
+}
 </style>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
 
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "ItemList", "itemListElement": [{"@type": "ListItem", "item": {"@type": "Award", "datePublished": "2012", "name": "Georgie \u2014 Customer Choice \u2014 Custom Builder"}, "position": 2}, {"@type": "ListItem", "item": {"@type": "Award", "datePublished": "2011", "name": "Georgie \u2014 Customer Choice \u2014 Custom Builder"}, "position": 3}, {"@type": "ListItem", "item": {"@type": "Award", "datePublished": "2008", "name": "Georgie \u2014 Customer Choice \u2014 Custom Builder"}, "position": 4}, {"@type": "ListItem", "item": {"@type": "Award", "datePublished": "2005", "name": "CHBA National \u2014 Best Home Builder in BC"}, "position": 5}, {"@type": "ListItem", "item": {"@type": "Award", "datePublished": "2005", "name": "Georgie \u2014 Small Volume Single Family Builder of the Year"}, "position": 6}, {"@type": "ListItem", "item": {"@type": "Award", "datePublished": "2005", "name": "Georgie \u2014 Best Single Family Detached Home"}, "position": 7}, {"@type": "ListItem", "item": {"@type": "Award", "datePublished": "2005", "name": "Georgie \u2014 Best Kitchen"}, "position": 8}, {"@type": "ListItem", "item": {"@type": "Award", "datePublished": "2005", "name": "Georgie \u2014 Best Master Suite"}, "position": 9}, {"@type": "ListItem", "item": {"@type": "Award", "datePublished": "2005", "name": "Georgie \u2014 Best Single Family Landscape"}, "position": 10}, {"@type": "ListItem", "item": {"@type": "Award", "datePublished": "2008", "name": "Georgie \u2014 Best Kitchen"}, "position": 11}, {"@type": "ListItem", "item": {"@type": "Award", "datePublished": "2010", "name": "Georgie \u2014 Best Outdoor Living Space"}, "position": 12}, {"@type": "ListItem", "item": {"@type": "Award", "datePublished": "2011", "name": "Georgie \u2014 Best House over $2M"}, "position": 13}, {"@type": "ListItem", "item": {"@type": "Award", "datePublished": "2011", "name": "Georgie \u2014 Best Outdoor Living Space"}, "position": 14}, {"@type": "ListItem", "item": {"@type": "Award", "datePublished": "2012", "name": "Georgie \u2014 Best Single Family Kitchen \u003e$100K"}, "position": 15}, {"@type": "ListItem", "item": {"@type": "Award", "datePublished": "2012", "name": "Georgie \u2014 Best Custom Home $1.5\u20133M (FINALIST)"}, "position": 16}, {"@type": "ListItem", "item": {"@type": "Award", "datePublished": "2015", "name": "Ovation (HAVAN) \u2014 Best Custom Home $1.5\u20133M"}, "position": 17}, {"@type": "ListItem", "item": {"@type": "Award", "datePublished": "2016", "name": "Ovation (HAVAN) \u2014 Best Outdoor Living Space"}, "position": 18}, {"@type": "ListItem", "item": {"@type": "Award", "datePublished": "2016", "name": "Ovation (HAVAN) \u2014 Best Custom Home $1.5\u20133M"}, "position": 19}, {"@type": "ListItem", "item": {"@type": "Award", "datePublished": "2016", "name": "Georgie \u2014 Best Custom Home $1.5\u20133M + Best Outdoor Living (FINALIST)"}, "position": 20}, {"@type": "ListItem", "item": {"@type": "Award", "datePublished": "2018", "name": "CHBA National \u2014 Detached Homes Custom 3,501\u20135,000 sqft (FINALIST)"}, "position": 21}, {"@type": "ListItem", "item": {"@type": "Award", "datePublished": "2019", "name": "Ovation (HAVAN) \u2014 Best Outdoor Living Space, Custom or Renovated"}, "position": 22}, {"@type": "ListItem", "item": {"@type": "Award", "datePublished": "2024", "name": "HAVAN Awards for Housing Excellence \u2014 Best Kitchen Renovation $175K+ (FINALIST)"}, "position": 23}], "name": "GD Nielsen Homes \u2014 Awards"}</script>
 
-<div class="gdn-scope gdn-tr-awards">
+
+<div class="gdn-scope">
+
+<nav class="gdn-aw-nav">
+  <div class="gdn-aw-nav-inner">
+    <a href="/matt-proposals/gd-nielsen/preview/" class="gdn-aw-nav-mark">
+      <img src="/matt-proposals/gd-nielsen/preview/_assets/images/gdn-mark.png" alt="">
+      <span>GD Nielsen Homes</span>
+    </a>
+    <div class="gdn-aw-nav-links">
+      <a href="/matt-proposals/gd-nielsen/preview/story" class="gdn-aw-nav-link">About</a>
+      <a href="/matt-proposals/gd-nielsen/preview/services" class="gdn-aw-nav-link">Services</a>
+      <a href="/matt-proposals/gd-nielsen/preview/projects" class="gdn-aw-nav-link">Work</a>
+      <a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-west-vancouver" class="gdn-aw-nav-link">Locations</a>
+      <a href="/matt-proposals/gd-nielsen/preview/contact" class="gdn-aw-nav-cta">Contact</a>
+    </div>
+  </div>
+</nav>
 
 <section class="gdn-aw-hero">
-  <div class="gdn-container">
-    <div class="gdn-aw-hero-grid">
-      <div>
-        <p class="gdn-eyebrow">Recognition</p>
-        <h1>Forty years.<br>Twenty wins.</h1>
-        <p class="lead">A year-by-year record of awards earned by GD Nielsen Homes since 2005, with project attribution where it applies.</p>
-      </div>
-      <div>
-        <div class="gdn-aw-stat">24</div>
-        <div class="gdn-aw-stat-meta">Awards across 2005&ndash;2024</div>
-      </div>
+  <img class="gdn-aw-hero-img"
+       src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/keith-4325/keith-4325-32-pool-fountains-twilight.jpg"
+       alt="GD Nielsen Homes &mdash; awards record since 1986"
+       fetchpriority="high">
+  <div class="gdn-aw-hero-veil"></div>
+  <div class="gdn-aw-hero-content">
+    <div class="gdn-container">
+      <p class="gdn-aw-hero-eyebrow">Recognition &middot; Since 1986</p>
+      <h1>Detailed work, on <em>the record</em>.</h1>
+      <p class="gdn-aw-hero-loc">Forty years of awards across kitchens, custom homes, and outdoor living.</p>
     </div>
   </div>
 </section>
 
-<section class="gdn-aw-headlines">
-  <div class="gdn-container">
-    <p class="gdn-eyebrow">The Headlines</p>
-    <h2 style="margin-bottom: 16px;">Five wins to know us by</h2>
-    <p style="max-width: 640px; color: var(--gdn-mid); margin: 0 0 56px;">The Avid Customer Choice Award comes from our clients, not our industry. It&rsquo;s the one we&rsquo;re proudest of.</p>
-    <div class="gdn-aw-headlines-grid">
-      <div class="gdn-aw-headline-cell">
-        <div class="gdn-aw-headline-year">100%</div>
-        <div class="gdn-aw-headline-body">Avid Customer Choice</div>
-        <div class="gdn-aw-headline-title">Best Customer Experience &mdash; Custom Builders in Canada</div>
-      </div>
-      <div class="gdn-aw-headline-cell">
-        <div class="gdn-aw-headline-year">2012</div>
-        <div class="gdn-aw-headline-body">Georgie</div>
-        <div class="gdn-aw-headline-title">Best Single Family Kitchen &gt;$100K</div>
-      </div>
-      <div class="gdn-aw-headline-cell">
-        <div class="gdn-aw-headline-year">2018</div>
-        <div class="gdn-aw-headline-body">CHBA National</div>
-        <div class="gdn-aw-headline-title">Finalist · Custom 3,500&ndash;5,000 sf</div>
-      </div>
-      <div class="gdn-aw-headline-cell">
-        <div class="gdn-aw-headline-year">2019</div>
-        <div class="gdn-aw-headline-body">HAVAN Ovation</div>
-        <div class="gdn-aw-headline-title">Best Outdoor Living Space</div>
-      </div>
-      <div class="gdn-aw-headline-cell">
-        <div class="gdn-aw-headline-year">2024</div>
-        <div class="gdn-aw-headline-body">HAVAN</div>
-        <div class="gdn-aw-headline-title">Finalist · Best Kitchen Renovation $175K+</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="gdn-aw-record">
-  <div class="gdn-container">
-    <p class="gdn-eyebrow">By Year</p>
-    <h2 style="margin-bottom: 56px;">The full record</h2>
-
-    
-    <div class="gdn-aw-record-grid">
-      <div class="gdn-aw-record-year">2024</div>
-      <div class="gdn-aw-record-list">
-        
-        <div class="gdn-aw-record-item">
-          <div class="gdn-aw-record-status gdn-aw-record-status-finalist">FINALIST</div>
-          <div class="gdn-aw-record-text"><strong>HAVAN Awards for Housing Excellence</strong> &mdash; Best Kitchen Renovation $175K+ (FINALIST) <span class="gdn-aw-record-project">(Seaside Serenity)</span></div>
-        </div>
-        
-      </div>
-    </div>
-    
-    <div class="gdn-aw-record-grid">
-      <div class="gdn-aw-record-year">2019</div>
-      <div class="gdn-aw-record-list">
-        
-        <div class="gdn-aw-record-item">
-          <div class="gdn-aw-record-status ">WINNER</div>
-          <div class="gdn-aw-record-text"><strong>Ovation (HAVAN)</strong> &mdash; Best Outdoor Living Space, Custom or Renovated <span class="gdn-aw-record-project">(Lions Gate Vista (legacy name))</span></div>
-        </div>
-        
-      </div>
-    </div>
-    
-    <div class="gdn-aw-record-grid">
-      <div class="gdn-aw-record-year">2018</div>
-      <div class="gdn-aw-record-list">
-        
-        <div class="gdn-aw-record-item">
-          <div class="gdn-aw-record-status gdn-aw-record-status-finalist">FINALIST</div>
-          <div class="gdn-aw-record-text"><strong>CHBA National</strong> &mdash; Detached Homes Custom 3,501–5,000 sqft (FINALIST) <span class="gdn-aw-record-project">(Creekside Oasis (legacy name))</span></div>
-        </div>
-        
-      </div>
-    </div>
-    
-    <div class="gdn-aw-record-grid">
-      <div class="gdn-aw-record-year">2016</div>
-      <div class="gdn-aw-record-list">
-        
-        <div class="gdn-aw-record-item">
-          <div class="gdn-aw-record-status ">WINNER</div>
-          <div class="gdn-aw-record-text"><strong>Ovation (HAVAN)</strong> &mdash; Best Outdoor Living Space</div>
-        </div>
-        
-        <div class="gdn-aw-record-item">
-          <div class="gdn-aw-record-status ">WINNER</div>
-          <div class="gdn-aw-record-text"><strong>Ovation (HAVAN)</strong> &mdash; Best Custom Home $1.5–3M <span class="gdn-aw-record-project">(Cammeray Heights (legacy name))</span></div>
-        </div>
-        
-        <div class="gdn-aw-record-item">
-          <div class="gdn-aw-record-status gdn-aw-record-status-finalist">FINALIST</div>
-          <div class="gdn-aw-record-text"><strong>Georgie</strong> &mdash; Best Custom Home $1.5–3M + Best Outdoor Living (FINALIST) <span class="gdn-aw-record-project">(Cammeray Heights (legacy name))</span></div>
-        </div>
-        
-      </div>
-    </div>
-    
-    <div class="gdn-aw-record-grid">
-      <div class="gdn-aw-record-year">2015</div>
-      <div class="gdn-aw-record-list">
-        
-        <div class="gdn-aw-record-item">
-          <div class="gdn-aw-record-status ">WINNER</div>
-          <div class="gdn-aw-record-text"><strong>Ovation (HAVAN)</strong> &mdash; Best Custom Home $1.5–3M <span class="gdn-aw-record-project">(Kerrisdale Zen (legacy name))</span></div>
-        </div>
-        
-      </div>
-    </div>
-    
-    <div class="gdn-aw-record-grid">
-      <div class="gdn-aw-record-year">2012</div>
-      <div class="gdn-aw-record-list">
-        
-        <div class="gdn-aw-record-item">
-          <div class="gdn-aw-record-status ">WINNER</div>
-          <div class="gdn-aw-record-text"><strong>Georgie</strong> &mdash; Customer Choice — Custom Builder</div>
-        </div>
-        
-        <div class="gdn-aw-record-item">
-          <div class="gdn-aw-record-status ">WINNER</div>
-          <div class="gdn-aw-record-text"><strong>Georgie</strong> &mdash; Best Single Family Kitchen &gt;$100K <span class="gdn-aw-record-project">(Forested Family Estate)</span></div>
-        </div>
-        
-        <div class="gdn-aw-record-item">
-          <div class="gdn-aw-record-status gdn-aw-record-status-finalist">FINALIST</div>
-          <div class="gdn-aw-record-text"><strong>Georgie</strong> &mdash; Best Custom Home $1.5–3M (FINALIST) <span class="gdn-aw-record-project">(Vista Estate (legacy name))</span></div>
-        </div>
-        
-      </div>
-    </div>
-    
-    <div class="gdn-aw-record-grid">
-      <div class="gdn-aw-record-year">2011</div>
-      <div class="gdn-aw-record-list">
-        
-        <div class="gdn-aw-record-item">
-          <div class="gdn-aw-record-status ">WINNER</div>
-          <div class="gdn-aw-record-text"><strong>Georgie</strong> &mdash; Customer Choice — Custom Builder</div>
-        </div>
-        
-        <div class="gdn-aw-record-item">
-          <div class="gdn-aw-record-status ">WINNER</div>
-          <div class="gdn-aw-record-text"><strong>Georgie</strong> &mdash; Best House over $2M</div>
-        </div>
-        
-        <div class="gdn-aw-record-item">
-          <div class="gdn-aw-record-status ">WINNER</div>
-          <div class="gdn-aw-record-text"><strong>Georgie</strong> &mdash; Best Outdoor Living Space</div>
-        </div>
-        
-      </div>
-    </div>
-    
-    <div class="gdn-aw-record-grid">
-      <div class="gdn-aw-record-year">2010</div>
-      <div class="gdn-aw-record-list">
-        
-        <div class="gdn-aw-record-item">
-          <div class="gdn-aw-record-status ">WINNER</div>
-          <div class="gdn-aw-record-text"><strong>Georgie</strong> &mdash; Best Outdoor Living Space</div>
-        </div>
-        
-      </div>
-    </div>
-    
-    <div class="gdn-aw-record-grid">
-      <div class="gdn-aw-record-year">2008</div>
-      <div class="gdn-aw-record-list">
-        
-        <div class="gdn-aw-record-item">
-          <div class="gdn-aw-record-status ">WINNER</div>
-          <div class="gdn-aw-record-text"><strong>Georgie</strong> &mdash; Customer Choice — Custom Builder</div>
-        </div>
-        
-        <div class="gdn-aw-record-item">
-          <div class="gdn-aw-record-status ">WINNER</div>
-          <div class="gdn-aw-record-text"><strong>Georgie</strong> &mdash; Best Kitchen</div>
-        </div>
-        
-      </div>
-    </div>
-    
-    <div class="gdn-aw-record-grid">
-      <div class="gdn-aw-record-year">2005</div>
-      <div class="gdn-aw-record-list">
-        
-        <div class="gdn-aw-record-item">
-          <div class="gdn-aw-record-status ">WINNER</div>
-          <div class="gdn-aw-record-text"><strong>CHBA National</strong> &mdash; Best Home Builder in BC</div>
-        </div>
-        
-        <div class="gdn-aw-record-item">
-          <div class="gdn-aw-record-status ">WINNER</div>
-          <div class="gdn-aw-record-text"><strong>Georgie</strong> &mdash; Small Volume Single Family Builder of the Year</div>
-        </div>
-        
-        <div class="gdn-aw-record-item">
-          <div class="gdn-aw-record-status ">WINNER</div>
-          <div class="gdn-aw-record-text"><strong>Georgie</strong> &mdash; Best Single Family Detached Home</div>
-        </div>
-        
-        <div class="gdn-aw-record-item">
-          <div class="gdn-aw-record-status ">WINNER</div>
-          <div class="gdn-aw-record-text"><strong>Georgie</strong> &mdash; Best Kitchen</div>
-        </div>
-        
-        <div class="gdn-aw-record-item">
-          <div class="gdn-aw-record-status ">WINNER</div>
-          <div class="gdn-aw-record-text"><strong>Georgie</strong> &mdash; Best Master Suite</div>
-        </div>
-        
-        <div class="gdn-aw-record-item">
-          <div class="gdn-aw-record-status ">WINNER</div>
-          <div class="gdn-aw-record-text"><strong>Georgie</strong> &mdash; Best Single Family Landscape</div>
-        </div>
-        
-      </div>
-    </div>
-    
-  </div>
-</section>
 
 <section class="gdn-aw-builder">
   <div class="gdn-container">
     <div class="gdn-aw-builder-grid">
+      <p class="gdn-aw-builder-label">Builder Recognition</p>
       <div>
-        <p class="gdn-eyebrow">Always-on</p>
-        <h2>Builder-level recognition</h2>
-      </div>
-      <div class="gdn-aw-builder-list">
-        
-        <div class="gdn-aw-builder-card">
-          <h3 class="gdn-aw-builder-title">Avid Ratings &mdash; Customer Choice Award — Best Customer Experience Among Custom Builders in Canada (100% recommend)</h3>
-          <p style="color: var(--gdn-mid); font-size: 14px; margin: 0;">Greg&#39;s favorite — features first on /awards. &#39;That&#39;s the goal of the work, for customer choice.&#39; Always-on recognition based on Avid Ratings client-satisfaction surveys.</p>
+        <h2 style="margin-bottom: 14px;">Earned by the firm, not a project.</h2>
+        <p style="color: var(--gdn-mid); margin: 0 0 40px;">Customer-experience and credential-based recognition that travels with the company, year over year.</p>
+        <div class="gdn-aw-builder-cards">
+          
+          <div class="gdn-aw-builder-card">
+            <p class="gdn-aw-builder-card-body">
+              Avid Ratings <em>Customer Choice Award — Best Customer Experience Among Custom Builders in Canada (100% recommend)</em>
+            </p>
+            <p class="gdn-aw-builder-card-note">Greg&#39;s favorite — features first on /awards. &#39;That&#39;s the goal of the work, for customer choice.&#39; Always-on recognition based on Avid Ratings client-satisfaction surveys.</p>
+          </div>
+          
         </div>
-        
       </div>
     </div>
   </div>
 </section>
 
-<section class="gdn-aw-cta">
+
+<section class="gdn-aw-record">
   <div class="gdn-container">
-    <p class="gdn-eyebrow" style="color: var(--gdn-light);">Discuss your project</p>
-    <h2>Build with a team that has been recognized for forty years.</h2>
-    <p>Tell us about your lot, your timeline, and what you want to build. We&rsquo;ll tell you whether we can help.</p>
-    <a class="gdn-cta" style="background: var(--gdn-bone); color: var(--gdn-ink); border-color: var(--gdn-bone);" href="/matt-proposals/gd-nielsen/preview/contact">Start a conversation →</a>
+    <div class="gdn-aw-record-head">
+      <p class="gdn-eyebrow">By Year</p>
+      <h2>The full <em>record</em>.</h2>
+      <p style="color: var(--gdn-mid); max-width: 640px; margin-top: 16px;">Project-attributed awards from Georgie, HAVAN Ovation, CHBA National, and others. Project name shown where the entry belongs to a specific build.</p>
+    </div>
+
+    
+    <div class="gdn-aw-year-group">
+      <div class="gdn-aw-year-grid">
+        <div class="gdn-aw-year-label">2024</div>
+        <div>
+          
+          <p class="gdn-aw-line">
+            <span class="gdn-aw-line-status gdn-aw-line-status-finalist">finalist</span>
+            <strong>HAVAN Awards for Housing Excellence</strong> &mdash; Best Kitchen Renovation $175K+ (FINALIST)
+            
+              <em><span class="gdn-aw-line-project">Seaside Serenity</span></em>
+            
+          </p>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="gdn-aw-year-group">
+      <div class="gdn-aw-year-grid">
+        <div class="gdn-aw-year-label">2019</div>
+        <div>
+          
+          <p class="gdn-aw-line">
+            <span class="gdn-aw-line-status ">winner</span>
+            <strong>Ovation (HAVAN)</strong> &mdash; Best Outdoor Living Space, Custom or Renovated
+            
+              <em><span class="gdn-aw-line-project">Lions Gate Vista (legacy name)</span></em>
+            
+          </p>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="gdn-aw-year-group">
+      <div class="gdn-aw-year-grid">
+        <div class="gdn-aw-year-label">2018</div>
+        <div>
+          
+          <p class="gdn-aw-line">
+            <span class="gdn-aw-line-status gdn-aw-line-status-finalist">finalist</span>
+            <strong>CHBA National</strong> &mdash; Detached Homes Custom 3,501–5,000 sqft (FINALIST)
+            
+              <em><span class="gdn-aw-line-project">Creekside Oasis (legacy name)</span></em>
+            
+          </p>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="gdn-aw-year-group">
+      <div class="gdn-aw-year-grid">
+        <div class="gdn-aw-year-label">2016</div>
+        <div>
+          
+          <p class="gdn-aw-line">
+            <span class="gdn-aw-line-status ">winner</span>
+            <strong>Ovation (HAVAN)</strong> &mdash; Best Outdoor Living Space
+            
+          </p>
+          
+          <p class="gdn-aw-line">
+            <span class="gdn-aw-line-status ">winner</span>
+            <strong>Ovation (HAVAN)</strong> &mdash; Best Custom Home $1.5–3M
+            
+              <em><span class="gdn-aw-line-project">Cammeray Heights (legacy name)</span></em>
+            
+          </p>
+          
+          <p class="gdn-aw-line">
+            <span class="gdn-aw-line-status gdn-aw-line-status-finalist">finalist</span>
+            <strong>Georgie</strong> &mdash; Best Custom Home $1.5–3M + Best Outdoor Living (FINALIST)
+            
+              <em><span class="gdn-aw-line-project">Cammeray Heights (legacy name)</span></em>
+            
+          </p>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="gdn-aw-year-group">
+      <div class="gdn-aw-year-grid">
+        <div class="gdn-aw-year-label">2015</div>
+        <div>
+          
+          <p class="gdn-aw-line">
+            <span class="gdn-aw-line-status ">winner</span>
+            <strong>Ovation (HAVAN)</strong> &mdash; Best Custom Home $1.5–3M
+            
+              <em><span class="gdn-aw-line-project">Kerrisdale Zen (legacy name)</span></em>
+            
+          </p>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="gdn-aw-year-group">
+      <div class="gdn-aw-year-grid">
+        <div class="gdn-aw-year-label">2012</div>
+        <div>
+          
+          <p class="gdn-aw-line">
+            <span class="gdn-aw-line-status ">winner</span>
+            <strong>Georgie</strong> &mdash; Customer Choice — Custom Builder
+            
+          </p>
+          
+          <p class="gdn-aw-line">
+            <span class="gdn-aw-line-status ">winner</span>
+            <strong>Georgie</strong> &mdash; Best Single Family Kitchen &gt;$100K
+            
+              <em><span class="gdn-aw-line-project">Forested Family Estate</span></em>
+            
+          </p>
+          
+          <p class="gdn-aw-line">
+            <span class="gdn-aw-line-status gdn-aw-line-status-finalist">finalist</span>
+            <strong>Georgie</strong> &mdash; Best Custom Home $1.5–3M (FINALIST)
+            
+              <em><span class="gdn-aw-line-project">Vista Estate (legacy name)</span></em>
+            
+          </p>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="gdn-aw-year-group">
+      <div class="gdn-aw-year-grid">
+        <div class="gdn-aw-year-label">2011</div>
+        <div>
+          
+          <p class="gdn-aw-line">
+            <span class="gdn-aw-line-status ">winner</span>
+            <strong>Georgie</strong> &mdash; Customer Choice — Custom Builder
+            
+          </p>
+          
+          <p class="gdn-aw-line">
+            <span class="gdn-aw-line-status ">winner</span>
+            <strong>Georgie</strong> &mdash; Best House over $2M
+            
+          </p>
+          
+          <p class="gdn-aw-line">
+            <span class="gdn-aw-line-status ">winner</span>
+            <strong>Georgie</strong> &mdash; Best Outdoor Living Space
+            
+          </p>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="gdn-aw-year-group">
+      <div class="gdn-aw-year-grid">
+        <div class="gdn-aw-year-label">2010</div>
+        <div>
+          
+          <p class="gdn-aw-line">
+            <span class="gdn-aw-line-status ">winner</span>
+            <strong>Georgie</strong> &mdash; Best Outdoor Living Space
+            
+          </p>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="gdn-aw-year-group">
+      <div class="gdn-aw-year-grid">
+        <div class="gdn-aw-year-label">2008</div>
+        <div>
+          
+          <p class="gdn-aw-line">
+            <span class="gdn-aw-line-status ">winner</span>
+            <strong>Georgie</strong> &mdash; Customer Choice — Custom Builder
+            
+          </p>
+          
+          <p class="gdn-aw-line">
+            <span class="gdn-aw-line-status ">winner</span>
+            <strong>Georgie</strong> &mdash; Best Kitchen
+            
+          </p>
+          
+        </div>
+      </div>
+    </div>
+    
+    <div class="gdn-aw-year-group">
+      <div class="gdn-aw-year-grid">
+        <div class="gdn-aw-year-label">2005</div>
+        <div>
+          
+          <p class="gdn-aw-line">
+            <span class="gdn-aw-line-status ">winner</span>
+            <strong>CHBA National</strong> &mdash; Best Home Builder in BC
+            
+          </p>
+          
+          <p class="gdn-aw-line">
+            <span class="gdn-aw-line-status ">winner</span>
+            <strong>Georgie</strong> &mdash; Small Volume Single Family Builder of the Year
+            
+          </p>
+          
+          <p class="gdn-aw-line">
+            <span class="gdn-aw-line-status ">winner</span>
+            <strong>Georgie</strong> &mdash; Best Single Family Detached Home
+            
+          </p>
+          
+          <p class="gdn-aw-line">
+            <span class="gdn-aw-line-status ">winner</span>
+            <strong>Georgie</strong> &mdash; Best Kitchen
+            
+          </p>
+          
+          <p class="gdn-aw-line">
+            <span class="gdn-aw-line-status ">winner</span>
+            <strong>Georgie</strong> &mdash; Best Master Suite
+            
+          </p>
+          
+          <p class="gdn-aw-line">
+            <span class="gdn-aw-line-status ">winner</span>
+            <strong>Georgie</strong> &mdash; Best Single Family Landscape
+            
+          </p>
+          
+        </div>
+      </div>
+    </div>
+    
   </div>
 </section>
+
+<div class="gdn-container">
+  <div class="gdn-aw-cta-row">
+    <a class="gdn-cta" href="/matt-proposals/gd-nielsen/preview/process">Read about our process</a>
+    <a class="gdn-cta-ghost" href="/matt-proposals/gd-nielsen/preview/projects">View selected projects</a>
+  </div>
+</div>
+
+<section class="gdn-aw-related">
+  <div class="gdn-container">
+    <div class="gdn-aw-related-head">
+      <div class="gdn-aw-related-body">
+        <p class="gdn-eyebrow">The work itself</p>
+        <h2>Awards point at buildings. <em>Walk through them.</em></h2>
+        <p style="color: var(--gdn-mid); margin-top: 20px;">Each award above traces back to a specific project. Photo essays, narratives, and credits live with the work.</p>
+      </div>
+      <a class="gdn-link-arrow" href="/matt-proposals/gd-nielsen/preview/projects">View selected projects</a>
+    </div>
+  </div>
+</section>
+
+<footer class="gdn-aw-foot">
+  <div class="gdn-container">
+    <div class="gdn-aw-foot-grid">
+      <div>
+        <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; font-size: 26px; margin: 0 0 16px;">GD Nielsen Homes</p>
+        <address style="font-style: normal; font-size: 14px; line-height: 1.6; opacity: 0.8;">
+          129&ndash;1305 Welch Street<br>
+          North Vancouver, BC V7P 1B3<br>
+          <a href="tel:+16049264211">604.926.4211</a><br>
+          <a href="mailto:info@gdnielsen.com">info@gdnielsen.com</a>
+        </address>
+      </div>
+      <div>
+        <p class="gdn-eyebrow" style="color: rgba(250,250,247,0.7); margin-bottom: 16px;">Services</p>
+        <ul class="gdn-aw-foot-list">
+          <li><a href="/matt-proposals/gd-nielsen/preview/services/custom-home-construction">Custom Home Construction</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/services/luxury-renovations">Luxury Renovations</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/services/tear-down-rebuild">Tear-Down &amp; Rebuild</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/services/additions-second-story">Additions &amp; Second Stories</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/services/outdoor-living">Outdoor Living</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="gdn-eyebrow" style="color: rgba(250,250,247,0.7); margin-bottom: 16px;">Company</p>
+        <ul class="gdn-aw-foot-list">
+          <li><a href="/matt-proposals/gd-nielsen/preview/story">About</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/process">Process</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/projects">Projects</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/awards">Awards</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/testimonials">Testimonials</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="gdn-aw-foot-bottom">
+      <p>&copy; 1986&ndash;2026 GD Nielsen Homes Ltd. Custom home builder, West Vancouver.</p>
+      <p>BC 2-5-10 Warranty. HAVAN &amp; CHBA Member.</p>
+    </div>
+  </div>
+</footer>
 
 </div>
 </body>

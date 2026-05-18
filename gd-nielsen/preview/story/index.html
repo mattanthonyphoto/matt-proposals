@@ -22,12 +22,12 @@
   --gdn-tone: #2A3530;
   --gdn-section: 140px;
   --gdn-section-tight: 100px;
+  --gdn-gap: 80px;
 }
 .gdn-scope * { box-sizing: border-box; }
 .gdn-scope {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
   font-size: 17px; line-height: 1.55; color: var(--gdn-ink); background: var(--gdn-bone);
-  font-feature-settings: "ss01", "cv11";
   -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility;
 }
 .gdn-scope img { max-width: 100%; height: auto; display: block; }
@@ -35,149 +35,273 @@
   text-decoration: none; transition: color 0.18s, border-color 0.18s; }
 :where(.gdn-scope) a:hover { color: var(--gdn-gold); border-bottom-color: var(--gdn-gold); }
 
-.gdn-scope h1 { font-family: 'Inter', sans-serif; font-weight: 200;
-  font-size: clamp(56px, 8vw, 124px); line-height: 0.94; letter-spacing: -0.045em;
-  margin: 0 0 32px; color: var(--gdn-ink); }
-.gdn-scope h2 { font-family: 'Inter', sans-serif; font-weight: 300;
-  font-size: clamp(32px, 4vw, 52px); line-height: 1.06; letter-spacing: -0.028em;
-  margin: 0 0 24px; color: var(--gdn-ink); }
-.gdn-scope h3 { font-family: 'Inter', sans-serif; font-weight: 500;
-  font-size: 13px; letter-spacing: 0.16em; text-transform: uppercase;
-  margin: 0 0 12px; color: var(--gdn-mid); }
-.gdn-scope p { margin: 0 0 20px; max-width: 620px; font-weight: 400; }
-.gdn-scope p.lead { font-size: clamp(18px, 1.4vw, 22px); line-height: 1.45; font-weight: 300;
+/* Typography */
+.gdn-scope h1 { font-family: 'Poppins', sans-serif; font-weight: 300;
+  font-size: clamp(44px, 6vw, 84px); line-height: 0.98; letter-spacing: -0.035em;
+  margin: 0 0 20px; color: var(--gdn-bone); }
+.gdn-scope h1 em { font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-weight: 400; letter-spacing: -0.01em; }
+.gdn-scope h2 { font-family: 'Poppins', sans-serif; font-weight: 300;
+  font-size: clamp(28px, 3.4vw, 44px); line-height: 1.08; letter-spacing: -0.022em;
+  margin: 0 0 18px; color: var(--gdn-ink); }
+.gdn-scope h2 em { font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-weight: 400; }
+.gdn-scope h3 { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 17px; line-height: 1.3; margin: 0 0 8px; color: var(--gdn-ink); }
+.gdn-scope p { margin: 0 0 18px; max-width: 640px; font-weight: 400; }
+.gdn-scope p.lead { font-size: 21px; line-height: 1.45; font-weight: 300;
   letter-spacing: -0.005em; color: var(--gdn-ink); max-width: 720px; }
+.gdn-eyebrow { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gdn-mid); margin: 0 0 16px; display: block; }
+.gdn-container { max-width: 1320px; margin: 0 auto; padding: 0 48px; }
+@media (max-width: 720px) { .gdn-container { padding: 0 24px; } }
 
-.gdn-eyebrow {
-  font-family: 'Inter', sans-serif; font-weight: 500;
+/* Buttons */
+.gdn-cta { display: inline-block; padding: 16px 30px; font-family: 'Poppins', sans-serif;
+  font-weight: 500; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+  background: var(--gdn-ink); color: var(--gdn-bone); border: 1px solid var(--gdn-ink);
+  text-decoration: none; transition: all 0.2s; }
+.gdn-cta:hover { background: var(--gdn-gold); border-color: var(--gdn-gold); color: var(--gdn-bone); }
+.gdn-cta-light { background: var(--gdn-bone); color: var(--gdn-ink); border-color: var(--gdn-bone); }
+.gdn-cta-light:hover { background: var(--gdn-gold); border-color: var(--gdn-gold); }
+.gdn-cta-ghost { display: inline-block; padding: 16px 30px; font-family: 'Poppins', sans-serif;
+  font-weight: 500; font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase;
+  background: transparent; color: var(--gdn-ink); border: 1px solid var(--gdn-ink);
+  text-decoration: none; transition: all 0.2s; }
+.gdn-cta-ghost:hover { background: var(--gdn-ink); color: var(--gdn-bone); }
+.gdn-link-arrow { font-family: 'Poppins', sans-serif; font-weight: 400; font-size: 13px;
+  letter-spacing: 0.08em; text-transform: uppercase; color: var(--gdn-mid);
+  text-decoration: none; border: 0; }
+.gdn-link-arrow::after { content: " \2192"; }
+.gdn-link-arrow:hover { color: var(--gdn-gold); }
+
+/* Nav (matches homepage / project page) */
+.gdn-tp-nav { position: sticky; top: 0; z-index: 100; background: rgba(250,250,247,0.92);
+  backdrop-filter: blur(12px); border-bottom: 1px solid var(--gdn-rule); }
+.gdn-tp-nav-inner { display: flex; align-items: center; justify-content: space-between;
+  padding: 22px 48px; max-width: 1480px; margin: 0 auto; }
+.gdn-tp-nav-mark { display: flex; align-items: center; gap: 12px; border: 0;
+  font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400;
+  font-size: 22px; letter-spacing: -0.01em; color: var(--gdn-ink); }
+.gdn-tp-nav-mark img { height: 32px; width: auto; }
+.gdn-tp-nav-links { display: flex; align-items: center; gap: 28px; }
+.gdn-tp-nav-link { font-family: 'Poppins', sans-serif; font-weight: 400;
+  font-size: 14px; color: var(--gdn-ink); text-decoration: none; border: 0;
+  padding: 6px 0; transition: color 0.18s; }
+.gdn-tp-nav-link:hover { color: var(--gdn-gold); border: 0; }
+.gdn-tp-nav-link[aria-current="page"] { color: var(--gdn-gold); border-bottom: 1px solid var(--gdn-gold); padding-bottom: 5px; }
+.gdn-tp-nav-cta { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase;
+  background: var(--gdn-ink); color: var(--gdn-bone); padding: 12px 22px;
+  border: 1px solid var(--gdn-ink); text-decoration: none; transition: all 0.2s; }
+.gdn-tp-nav-cta:hover { background: var(--gdn-gold); border-color: var(--gdn-gold); color: var(--gdn-bone); }
+@media (max-width: 900px) {
+  .gdn-tp-nav-links { display: none; }
+  .gdn-tp-nav-inner { padding: 16px 24px; }
+}
+
+/* Hero — full-bleed image with text overlay */
+.gdn-st-hero { position: relative; height: clamp(560px, 88vh, 900px); overflow: hidden;
+  margin: 0; background: var(--gdn-tone); }
+.gdn-st-hero-img { position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center; }
+.gdn-st-hero-veil { position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(15,20,19,0.10) 0%, rgba(15,20,19,0.15) 40%, rgba(15,20,19,0.72) 100%); }
+.gdn-st-hero-content { position: absolute; left: 0; right: 0; bottom: 0; padding: 56px 0 64px;
+  color: var(--gdn-bone); }
+.gdn-st-hero-eyebrow { font-family: 'Poppins', sans-serif; font-weight: 500;
   font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
-  color: var(--gdn-mid); margin: 0 0 28px;
-  display: inline-flex; align-items: center; gap: 14px;
-}
-.gdn-eyebrow::before {
-  content: ""; display: inline-block;
-  width: 24px; height: 1px; background: var(--gdn-gold);
-}
+  color: var(--gdn-bone); opacity: 0.85; margin: 0 0 16px; }
+.gdn-st-hero-lead { font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-weight: 400; font-size: clamp(20px, 2vw, 26px); color: var(--gdn-bone);
+  opacity: 0.9; margin: 20px 0 0; max-width: 720px; line-height: 1.35; }
 
-.gdn-container { max-width: 1320px; margin: 0 auto; padding: 0 40px; }
-.gdn-container-narrow { max-width: 820px; margin: 0 auto; padding: 0 40px; }
-.gdn-container-wide { max-width: 1680px; margin: 0 auto; padding: 0 40px; }
-
-/* ============ HERO ============ */
-.gdn-st-hero { padding: 180px 0 100px; border-bottom: 1px solid var(--gdn-rule); }
-.gdn-st-hero-grid { display: grid; grid-template-columns: minmax(0, 6fr) minmax(0, 6fr);
-  gap: 80px; align-items: end; }
-.gdn-st-hero-meta { font-family: 'Inter', sans-serif; font-weight: 300;
-  font-size: 14px; line-height: 1.65; color: var(--gdn-mid); }
-.gdn-st-hero-meta span { display: block; }
-.gdn-st-hero-meta strong { font-weight: 500; color: var(--gdn-ink); }
-
-/* ============ SECTION ============ */
+/* Sections */
 .gdn-st-section { padding: var(--gdn-section) 0; border-bottom: 1px solid var(--gdn-rule); }
 .gdn-st-section-grid { display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 8fr);
   gap: 80px; align-items: start; }
-.gdn-st-section-body p { font-size: 18px; line-height: 1.62; }
-.gdn-st-section-body p:first-of-type { font-size: 22px; line-height: 1.5; font-weight: 300; }
+.gdn-st-section-label { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gdn-mid); margin: 0 0 16px; }
+.gdn-st-section-body p { font-size: 18px; line-height: 1.62; max-width: 720px; }
+.gdn-st-section-body p.lead { font-size: 22px; line-height: 1.45; font-weight: 300; }
 
-/* ============ FULL-BLEED IMAGE ============ */
-.gdn-st-bleed { padding: 0; }
-.gdn-st-bleed img { width: 100%; height: auto; aspect-ratio: 16/8; object-fit: cover; }
-.gdn-st-bleed-cap { padding: 24px 40px 0; font-family: 'Inter', sans-serif;
-  font-size: 12px; letter-spacing: 0.04em; color: var(--gdn-mid); }
+/* Hero meta strip (sits right under hero) */
+.gdn-st-meta { padding: 56px 0; border-bottom: 1px solid var(--gdn-rule); }
+.gdn-st-meta-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 32px; }
+.gdn-st-meta-cell { text-align: left; }
+.gdn-st-meta-label { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 10px; letter-spacing: 0.18em; text-transform: uppercase;
+  color: var(--gdn-mid); margin: 0 0 6px; }
+.gdn-st-meta-value { font-family: 'Cormorant Garamond', serif; font-weight: 400;
+  font-size: 26px; line-height: 1.1; letter-spacing: -0.005em; color: var(--gdn-ink); }
+.gdn-st-meta-value em { font-style: italic; }
 
-/* ============ PLACEHOLDER BLOCK (Greg's voice memo gaps) ============ */
+/* Voice-memo placeholder (kept from prior page, restyled to register) */
 .gdn-st-placeholder {
   background: var(--gdn-light); border-left: 3px solid var(--gdn-gold);
-  padding: 36px 40px; margin: 16px 0 24px; max-width: 720px;
+  padding: 32px 36px; margin: 12px 0 24px; max-width: 720px;
 }
 .gdn-st-placeholder-label {
-  font-family: 'Inter', sans-serif; font-weight: 500;
+  font-family: 'Poppins', sans-serif; font-weight: 500;
   font-size: 11px; letter-spacing: 0.16em; text-transform: uppercase;
-  color: var(--gdn-gold); margin: 0 0 8px;
+  color: var(--gdn-gold); margin: 0 0 10px;
 }
 .gdn-st-placeholder p {
-  font-family: 'Inter', sans-serif; font-weight: 400;
-  font-size: 15px; line-height: 1.55; color: var(--gdn-mid); margin: 0;
+  font-family: 'Cormorant Garamond', serif; font-weight: 400;
+  font-size: 17px; line-height: 1.55; color: var(--gdn-mid); margin: 0;
   font-style: italic;
 }
 
-/* ============ PULL QUOTE ============ */
+/* Pull quote — dark slab */
 .gdn-st-pull { padding: var(--gdn-section) 0; background: var(--gdn-ink); color: var(--gdn-bone); }
-.gdn-st-pull-inner { max-width: 1000px; margin: 0 auto; padding: 0 40px; text-align: center; }
-.gdn-st-pull-quote { font-family: 'Inter', sans-serif; font-weight: 200;
-  font-size: clamp(36px, 5vw, 64px); line-height: 1.1; letter-spacing: -0.025em;
+.gdn-st-pull-inner { max-width: 1000px; margin: 0 auto; padding: 0 48px; text-align: center; }
+.gdn-st-pull-quote { font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400;
+  font-size: clamp(34px, 4.6vw, 60px); line-height: 1.15; letter-spacing: -0.01em;
   color: var(--gdn-bone); margin: 0 0 32px; max-width: none; }
 .gdn-st-pull-attr {
-  font-family: 'Inter', sans-serif; font-weight: 500;
+  font-family: 'Poppins', sans-serif; font-weight: 500;
   font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
   color: rgba(250, 250, 247, 0.6); margin: 0;
 }
 
-/* ============ TEAM STRIP ============ */
+/* Team strip */
 .gdn-st-team { padding: var(--gdn-section) 0; border-bottom: 1px solid var(--gdn-rule); }
-.gdn-st-team-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-  gap: 80px; margin-top: 64px; }
-.gdn-st-team-list { display: flex; flex-direction: column; gap: 28px; }
+.gdn-st-team h2 { max-width: 720px; }
+.gdn-st-team-list { display: flex; flex-direction: column; gap: 0; margin-top: 56px;
+  border-top: 1px solid var(--gdn-rule); }
 .gdn-st-team-row {
-  display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 4fr) minmax(0, 4fr);
-  gap: 32px; padding-bottom: 24px; border-bottom: 1px solid var(--gdn-rule);
+  display: grid; grid-template-columns: minmax(0, 4fr) minmax(0, 5fr) minmax(0, 3fr);
+  gap: 32px; padding: 24px 0; border-bottom: 1px solid var(--gdn-rule);
   align-items: baseline;
 }
-.gdn-st-team-name { font-family: 'Inter', sans-serif; font-weight: 500;
-  font-size: 18px; letter-spacing: -0.005em; color: var(--gdn-ink); }
-.gdn-st-team-role { font-family: 'Inter', sans-serif; font-weight: 400;
-  font-size: 14px; color: var(--gdn-ink); }
-.gdn-st-team-tenure { font-family: 'Inter', sans-serif; font-weight: 500;
-  font-size: 11px; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gdn-mid); }
+.gdn-st-team-name { font-family: 'Cormorant Garamond', serif; font-weight: 400; font-style: italic;
+  font-size: 24px; letter-spacing: -0.005em; color: var(--gdn-ink); }
+.gdn-st-team-role { font-family: 'Poppins', sans-serif; font-weight: 400;
+  font-size: 15px; color: var(--gdn-ink); }
+.gdn-st-team-tenure { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gdn-mid); }
 
-/* ============ CTA ============ */
+/* CTA */
 .gdn-st-cta { padding: var(--gdn-section) 0; background: var(--gdn-bone); text-align: center; }
-.gdn-st-cta h2 { max-width: 800px; margin: 0 auto 24px; }
-.gdn-st-cta p { max-width: 600px; margin: 0 auto 40px; color: var(--gdn-mid); }
-.gdn-cta { display: inline-flex; align-items: center; gap: 12px; padding: 18px 32px;
-  background: var(--gdn-ink); color: var(--gdn-bone) !important;
-  font-family: 'Inter', sans-serif; font-weight: 500;
-  font-size: 14px; letter-spacing: 0.04em;
-  border: 1px solid var(--gdn-ink) !important;
-  text-decoration: none; transition: all 0.22s ease; }
-.gdn-cta:hover { background: var(--gdn-gold) !important; border-color: var(--gdn-gold) !important;
-  color: var(--gdn-ink) !important; }
+.gdn-st-cta h2 { max-width: 820px; margin: 0 auto 20px; }
+.gdn-st-cta p { max-width: 600px; margin: 0 auto 36px; color: var(--gdn-mid); }
+.gdn-st-cta .gdn-eyebrow { display: inline-block; margin-bottom: 24px; }
 
-/* ============ MOBILE ============ */
-@media (max-width: 980px) {
-  .gdn-st-hero-grid, .gdn-st-section-grid, .gdn-st-team-grid { grid-template-columns: 1fr; gap: 32px; }
+/* Footer (matches homepage / project page) */
+.gdn-tp-foot { background: var(--gdn-tone); color: var(--gdn-bone); padding: 100px 0 40px; }
+.gdn-tp-foot a { color: var(--gdn-bone); border-bottom-color: rgba(250,250,247,0.3); }
+.gdn-tp-foot a:hover { color: var(--gdn-gold); border-bottom-color: var(--gdn-gold); }
+.gdn-tp-foot-grid { display: grid; grid-template-columns: minmax(0, 1.5fr) minmax(0, 1fr) minmax(0, 1fr);
+  gap: 80px; padding-bottom: 60px; border-bottom: 1px solid rgba(250,250,247,0.15); }
+.gdn-tp-foot-list { list-style: none; padding: 0; margin: 0 0 16px; }
+.gdn-tp-foot-list li { margin: 0 0 10px; font-size: 14px; }
+.gdn-tp-foot-bottom { padding-top: 32px; display: flex; justify-content: space-between;
+  flex-wrap: wrap; gap: 16px; font-size: 12px; color: rgba(250,250,247,0.6); }
+@media (max-width: 900px) {
+  .gdn-tp-foot-grid { grid-template-columns: 1fr; gap: 40px; }
+  .gdn-st-section-grid { grid-template-columns: 1fr; gap: 32px; }
   .gdn-st-section { padding: var(--gdn-section-tight) 0; }
   .gdn-st-team-row { grid-template-columns: 1fr; gap: 8px; }
 }
 </style>
 
+<script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "GD Nielsen Homes",
+  "alternateName": "G.D. Nielsen Developments",
+  "url": "https://gdnielsen.com",
+  "logo": "https://gdnielsen.com/_assets/images/gdn-logo.png",
+  "founder": {
+    "@type": "Person",
+    "name": "Greg Nielsen",
+    "jobTitle": "Owner & Founder",
+    "worksFor": { "@type": "Organization", "name": "GD Nielsen Homes" }
+  },
+  "foundingDate": "1986-03-14",
+  "foundingLocation": "West Vancouver, BC",
+  "areaServed": ["West Vancouver", "North Vancouver", "North Shore"],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "129-1305 Welch Street",
+    "addressLocality": "North Vancouver",
+    "addressRegion": "BC",
+    "postalCode": "V7P 1B3",
+    "addressCountry": "CA"
+  },
+  "telephone": "+1-604-926-4211",
+  "email": "info@gdnielsen.com"
+}</script>
+
 <div class="gdn-scope">
 
-<!-- =========== HERO =========== -->
+<!-- =========== NAV =========== -->
+<nav class="gdn-tp-nav">
+  <div class="gdn-tp-nav-inner">
+    <a href="/matt-proposals/gd-nielsen/preview/" class="gdn-tp-nav-mark">
+      <img src="/matt-proposals/gd-nielsen/preview/_assets/images/gdn-mark.png" alt="">
+      <span>GD Nielsen Homes</span>
+    </a>
+    <div class="gdn-tp-nav-links">
+      <a href="/matt-proposals/gd-nielsen/preview/story" class="gdn-tp-nav-link" aria-current="page">About</a>
+      <a href="/matt-proposals/gd-nielsen/preview/services" class="gdn-tp-nav-link">Services</a>
+      <a href="/matt-proposals/gd-nielsen/preview/projects" class="gdn-tp-nav-link">Work</a>
+      <a href="/matt-proposals/gd-nielsen/preview/custom-home-builder-west-vancouver" class="gdn-tp-nav-link">Locations</a>
+      <a href="/matt-proposals/gd-nielsen/preview/contact" class="gdn-tp-nav-cta">Contact</a>
+    </div>
+  </div>
+</nav>
+
+<!-- =========== HERO — FULL-BLEED =========== -->
 <section class="gdn-st-hero">
-  <div class="gdn-container">
-    <div class="gdn-st-hero-grid">
-      <div>
-        <p class="gdn-eyebrow">The Story</p>
-        <h1>Forty&nbsp;years on&nbsp;the North&nbsp;Shore.</h1>
-      </div>
-      <div class="gdn-st-hero-meta">
-        <span><strong>Founded</strong> &nbsp; 1986, West Vancouver</span>
-        <span><strong>Founder</strong> &nbsp; Greg Nielsen</span>
-        <span><strong>Built</strong> &nbsp; 40+ custom homes</span>
-        <span><strong>Builds annually</strong> &nbsp; selectively</span>
-      </div>
+  <img class="gdn-st-hero-img"
+       src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/keith-4325/keith-4325-29-rear-facade-pool-fountains.jpg"
+       alt="Established West Vancouver estate &mdash; GD Nielsen Homes, building on the North Shore since 1986"
+       fetchpriority="high">
+  <div class="gdn-st-hero-veil"></div>
+  <div class="gdn-st-hero-content">
+    <div class="gdn-container">
+      <p class="gdn-st-hero-eyebrow">About &middot; Since 1986</p>
+      <h1>Forty years on the <em>North&nbsp;Shore</em>.</h1>
+      <p class="gdn-st-hero-lead">Greg Nielsen founded GD Nielsen Homes in West Vancouver, March 14, 1986. We&rsquo;ve built here ever since.</p>
     </div>
   </div>
 </section>
+
+<!-- =========== META STRIP =========== -->
+<div class="gdn-st-meta">
+  <div class="gdn-container">
+    <div class="gdn-st-meta-grid">
+      <div class="gdn-st-meta-cell">
+        <p class="gdn-st-meta-label">Founded</p>
+        <p class="gdn-st-meta-value">1986 &middot; <em>West Vancouver</em></p>
+      </div>
+      <div class="gdn-st-meta-cell">
+        <p class="gdn-st-meta-label">Founder</p>
+        <p class="gdn-st-meta-value"><em>Greg Nielsen</em></p>
+      </div>
+      <div class="gdn-st-meta-cell">
+        <p class="gdn-st-meta-label">Built</p>
+        <p class="gdn-st-meta-value">40+ <span style="font-size:14px;color:var(--gdn-mid);">custom homes</span></p>
+      </div>
+      <div class="gdn-st-meta-cell">
+        <p class="gdn-st-meta-label">Builds annually</p>
+        <p class="gdn-st-meta-value"><em>Selectively</em></p>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- =========== OPENING =========== -->
 <section class="gdn-st-section">
   <div class="gdn-container">
     <div class="gdn-st-section-grid">
       <header>
-        <p class="gdn-eyebrow">Opening</p>
-        <h2>One company. One&nbsp;name. One way of doing&nbsp;it.</h2>
+        <p class="gdn-st-section-label">Opening</p>
+        <h2>One company. One&nbsp;name. One way of <em>doing&nbsp;it</em>.</h2>
       </header>
       <div class="gdn-st-section-body">
         <p class="lead">GD Nielsen Homes builds custom homes for the families that hire us. Greg has been building on the North Shore since 1986. The work is the same. The standard hasn&rsquo;t moved.</p>
@@ -193,8 +317,8 @@
   <div class="gdn-container">
     <div class="gdn-st-section-grid">
       <header>
-        <p class="gdn-eyebrow">Origin · 1986</p>
-        <h2>The first build.</h2>
+        <p class="gdn-st-section-label">Origin &middot; 1986</p>
+        <h2>The <em>first</em> build.</h2>
       </header>
       <div class="gdn-st-section-body">
 
@@ -214,8 +338,8 @@
   <div class="gdn-container">
     <div class="gdn-st-section-grid">
       <header>
-        <p class="gdn-eyebrow">The Detail</p>
-        <h2>A three&#8209;hundred&#8209;year&#8209;old door.</h2>
+        <p class="gdn-st-section-label">The Detail</p>
+        <h2>A <em>three-hundred-year-old</em> door.</h2>
       </header>
       <div class="gdn-st-section-body">
         <p class="lead">There&rsquo;s a heritage cottage in West Vancouver where the front door is older than Canada.</p>
@@ -228,13 +352,13 @@
   </div>
 </section>
 
-<!-- =========== ARCHITECT-CHANNEL SHIFT =========== -->
+<!-- =========== ARCHITECT-CHANNEL — HOW WE WORK =========== -->
 <section class="gdn-st-section">
   <div class="gdn-container">
     <div class="gdn-st-section-grid">
       <header>
-        <p class="gdn-eyebrow">How We Work</p>
-        <h2>We follow the design.</h2>
+        <p class="gdn-st-section-label">How We Work</p>
+        <h2>We <em>follow</em> the design.</h2>
       </header>
       <div class="gdn-st-section-body">
         <p class="lead">Every house we build starts with the architect&rsquo;s drawings. We follow them.</p>
@@ -258,8 +382,8 @@
   <div class="gdn-container">
     <div class="gdn-st-section-grid">
       <header>
-        <p class="gdn-eyebrow">The Hard Ones</p>
-        <h2>Forty years, a few&nbsp;close&nbsp;calls.</h2>
+        <p class="gdn-st-section-label">The Hard Ones</p>
+        <h2>Forty years, a few <em>close calls</em>.</h2>
       </header>
       <div class="gdn-st-section-body">
 
@@ -277,10 +401,17 @@
 <!-- =========== THE TEAM =========== -->
 <section class="gdn-st-team">
   <div class="gdn-container">
-    <p class="gdn-eyebrow">The Team</p>
-    <h2>The people who&rsquo;ve been here all&nbsp;along.</h2>
-    <p class="lead" style="margin-top: 16px;">Greg and Diane founded the company together in 1986. The people who&rsquo;ve joined since have mostly stayed.</p>
-    <div class="gdn-st-team-list" style="margin-top: 64px;">
+    <div class="gdn-st-section-grid">
+      <header>
+        <p class="gdn-st-section-label">The Team</p>
+        <h2>The people who&rsquo;ve been here <em>all along</em>.</h2>
+      </header>
+      <div class="gdn-st-section-body">
+        <p class="lead">Greg and Diane founded the company together in 1986. The people who&rsquo;ve joined since have mostly stayed.</p>
+      </div>
+    </div>
+
+    <div class="gdn-st-team-list">
       <div class="gdn-st-team-row">
         <span class="gdn-st-team-name">Greg Nielsen</span>
         <span class="gdn-st-team-role">Owner &amp; Founder</span>
@@ -288,7 +419,7 @@
       </div>
       <div class="gdn-st-team-row">
         <span class="gdn-st-team-name">Diane Nielsen</span>
-        <span class="gdn-st-team-role">Co&#8209;Founder</span>
+        <span class="gdn-st-team-role">Co-Founder</span>
         <span class="gdn-st-team-tenure">Since 1986</span>
       </div>
       <div class="gdn-st-team-row">
@@ -302,12 +433,13 @@
         <span class="gdn-st-team-tenure">Since 2012</span>
       </div>
       <div class="gdn-st-team-row">
-        <span class="gdn-st-team-name">Andy, Tom, Peter &amp; the rest of the&nbsp;crew</span>
+        <span class="gdn-st-team-name">Andy, Tom, Peter &amp; the rest of the crew</span>
         <span class="gdn-st-team-role">On site</span>
         <span class="gdn-st-team-tenure">15&ndash;20+ years each</span>
       </div>
     </div>
-    <p style="margin-top: 48px; max-width: 620px; color: var(--gdn-mid);"><a href="/matt-proposals/gd-nielsen/preview/team">Meet the team &rarr;</a></p>
+
+    <p style="margin-top: 48px; max-width: 620px; color: var(--gdn-mid);"><a href="/matt-proposals/gd-nielsen/preview/team" class="gdn-link-arrow">Meet the team</a></p>
   </div>
 </section>
 
@@ -316,8 +448,8 @@
   <div class="gdn-container">
     <div class="gdn-st-section-grid">
       <header>
-        <p class="gdn-eyebrow">What&rsquo;s Next</p>
-        <h2>The next forty&nbsp;years.</h2>
+        <p class="gdn-st-section-label">What&rsquo;s Next</p>
+        <h2>The next <em>forty years</em>.</h2>
       </header>
       <div class="gdn-st-section-body">
 
@@ -341,6 +473,48 @@
     <a class="gdn-cta" href="/matt-proposals/gd-nielsen/preview/contact">Start a conversation</a>
   </div>
 </section>
+
+<!-- =========== FOOTER =========== -->
+<footer class="gdn-tp-foot">
+  <div class="gdn-container">
+    <div class="gdn-tp-foot-grid">
+      <div>
+        <p style="font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 400; font-size: 26px; margin: 0 0 16px;">GD Nielsen Homes</p>
+        <address style="font-style: normal; font-size: 14px; line-height: 1.6; opacity: 0.8;">
+          129&ndash;1305 Welch Street<br>
+          North Vancouver, BC V7P 1B3<br>
+          <a href="tel:+16049264211">604.926.4211</a><br>
+          <a href="mailto:info@gdnielsen.com">info@gdnielsen.com</a>
+        </address>
+      </div>
+      <div>
+        <p class="gdn-eyebrow" style="color: rgba(250,250,247,0.7); margin-bottom: 16px;">Services</p>
+        <ul class="gdn-tp-foot-list">
+          <li><a href="/matt-proposals/gd-nielsen/preview/services/custom-home-construction">Custom Home Construction</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/services/luxury-renovations">Luxury Renovations</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/services/tear-down-rebuild">Tear-Down &amp; Rebuild</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/services/additions-second-story">Additions &amp; Second Stories</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/services/outdoor-living">Outdoor Living</a></li>
+        </ul>
+      </div>
+      <div>
+        <p class="gdn-eyebrow" style="color: rgba(250,250,247,0.7); margin-bottom: 16px;">Company</p>
+        <ul class="gdn-tp-foot-list">
+          <li><a href="/matt-proposals/gd-nielsen/preview/story">About</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/process">Process</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/projects">Projects</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/awards">Awards</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/testimonials">Testimonials</a></li>
+          <li><a href="/matt-proposals/gd-nielsen/preview/contact">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="gdn-tp-foot-bottom">
+      <p>&copy; 1986&ndash;2026 GD Nielsen Homes Ltd. Custom home builder, West Vancouver.</p>
+      <p>BC 2-5-10 Warranty. HAVAN &amp; CHBA Member.</p>
+    </div>
+  </div>
+</footer>
 
 </div>
 

@@ -74,15 +74,32 @@
   .gdn-pi-nav-inner { padding: 16px 24px; }
 }
 
-/* Hero */
-.gdn-pi-hero { padding: 120px 0 80px; }
-.gdn-pi-hero-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+/* Hero banner (full-bleed image) */
+.gdn-pi-hero-banner { position: relative; height: clamp(480px, 70vh, 720px);
+  overflow: hidden; margin: 0; background: var(--gdn-tone); }
+.gdn-pi-hero-banner-img { position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center; }
+.gdn-pi-hero-banner-veil { position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(15,20,19,0.15) 0%, rgba(15,20,19,0.55) 100%); }
+.gdn-pi-hero-banner-content { position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 56px 0; color: var(--gdn-bone); }
+.gdn-pi-hero-banner-content h1 { color: var(--gdn-bone); }
+.gdn-pi-hero-banner-eyebrow { font-family: 'Poppins', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gdn-bone); opacity: 0.85; margin: 0 0 16px; }
+.gdn-pi-hero-banner-lead { font-family: 'Cormorant Garamond', serif; font-style: italic;
+  font-weight: 400; font-size: clamp(20px, 2vw, 26px); color: var(--gdn-bone);
+  opacity: 0.85; margin: 12px 0 0; max-width: 720px; }
+
+/* Secondary intro band (lives under banner) */
+.gdn-pi-intro { padding: 80px 0 40px; }
+.gdn-pi-intro-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
   gap: 80px; align-items: end; }
-.gdn-pi-hero-stat { font-family: 'Cormorant Garamond', serif; font-style: italic;
+.gdn-pi-intro-stat { font-family: 'Cormorant Garamond', serif; font-style: italic;
   font-weight: 400; font-size: clamp(20px, 1.8vw, 24px); color: var(--gdn-mid);
   margin-top: 12px; }
 @media (max-width: 980px) {
-  .gdn-pi-hero-grid { grid-template-columns: 1fr; gap: 32px; }
+  .gdn-pi-intro-grid { grid-template-columns: 1fr; gap: 32px; }
 }
 
 /* Filter band */
@@ -175,16 +192,30 @@
   </div>
 </nav>
 
-<section class="gdn-pi-hero">
+<section class="gdn-pi-hero-banner">
+  <img class="gdn-pi-hero-banner-img"
+       src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/rabbit-lane-361/rabbit-lane-361-01-front-exterior-hero.jpg"
+       alt="GD Nielsen Homes &mdash; forty years of custom homes on the North Shore"
+       fetchpriority="high">
+  <div class="gdn-pi-hero-banner-veil"></div>
+  <div class="gdn-pi-hero-banner-content">
+    <div class="gdn-container">
+      <p class="gdn-pi-hero-banner-eyebrow">Portfolio &middot; Since 1986</p>
+      <h1>Forty years of custom <em>homes</em>.</h1>
+      <p class="gdn-pi-hero-banner-lead">24 selected projects across West Vancouver, North Vancouver, Vancouver, and the Lower Mainland.</p>
+    </div>
+  </div>
+</section>
+
+<section class="gdn-pi-intro">
   <div class="gdn-container">
-    <div class="gdn-pi-hero-grid">
+    <div class="gdn-pi-intro-grid">
       <div>
-        <p class="gdn-eyebrow">Portfolio &middot; Since 1986</p>
-        <h1>Forty years of custom <em>homes</em>.</h1>
+        <p class="gdn-eyebrow">Filter by neighbourhood</p>
+        <p class="gdn-pi-intro-stat">22 of 26 portfolio projects are West Vancouver builds.</p>
       </div>
       <div>
-        <p class="lead">24 selected projects across West Vancouver, North Vancouver, Vancouver, and the Lower Mainland. Filter by neighbourhood. Some projects show full walkthroughs; others remain private at the owner&rsquo;s request.</p>
-        <p class="gdn-pi-hero-stat">22 of 26 portfolio projects are West Vancouver builds.</p>
+        <p class="lead">Some projects show full walkthroughs; others remain private at the owner&rsquo;s request. Camridge and Laurance Way are in progress, photography pending completion.</p>
       </div>
     </div>
   </div>

@@ -128,6 +128,25 @@ html { scroll-behavior: smooth; }
   color: var(--gdn-ink) !important; transition: all 0.22s; }
 .gdn-hp-nav-cta:hover { background: var(--gdn-ink); color: var(--gdn-bone) !important; }
 
+/* ============ HERO BANNER (full-bleed image) ============ */
+.gdn-sv-hero-banner { position: relative; height: clamp(480px, 75vh, 760px);
+  overflow: hidden; margin: 0; background: var(--gdn-tone); }
+.gdn-sv-hero-banner-img { position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center; }
+.gdn-sv-hero-banner-veil { position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(15,20,19,0.15) 0%, rgba(15,20,19,0.55) 100%); }
+.gdn-sv-hero-banner-content { position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 56px 0; color: var(--gdn-bone); }
+.gdn-sv-hero-banner-content h1 { color: var(--gdn-bone); margin: 0; max-width: 760px; }
+.gdn-sv-hero-banner-content h1 em { font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-style: italic; font-weight: 300; letter-spacing: -0.01em; }
+.gdn-sv-hero-banner-eyebrow { font-family: 'Poppins', 'Inter', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gdn-bone); opacity: 0.85; margin: 0 0 16px; }
+.gdn-sv-hero-banner-lead { font-family: 'Cormorant Garamond', 'Georgia', serif; font-style: italic;
+  font-weight: 400; font-size: clamp(20px, 2vw, 26px); color: var(--gdn-bone);
+  opacity: 0.85; margin: 12px 0 0; max-width: 640px; }
+
 /* ============ HERO ============ */
 .gdn-sd-hero { padding: clamp(96px, 14vw, 180px) 0 clamp(72px, 10vw, 120px);
   border-bottom: 1px solid var(--gdn-rule); background: var(--gdn-bone); }
@@ -493,6 +512,22 @@ html { scroll-behavior: smooth; }
     </div>
   </div>
 </nav>
+
+<!-- =========== HERO BANNER (full-bleed image) =========== -->
+<section class="gdn-sv-hero-banner">
+  <img class="gdn-sv-hero-banner-img"
+       src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/bramwell-1458/bramwell-1458-001-exterior-front-day.jpg"
+       alt="GD Nielsen Homes &mdash; Bramwell 1458 custom home, front exterior"
+       fetchpriority="high">
+  <div class="gdn-sv-hero-banner-veil"></div>
+  <div class="gdn-sv-hero-banner-content">
+    <div class="gdn-container">
+      <p class="gdn-sv-hero-banner-eyebrow">Service &middot; No.&nbsp;01</p>
+      <h1>Custom Home <em>Construction.</em></h1>
+      <p class="gdn-sv-hero-banner-lead">From the architect&rsquo;s drawings, ground up. Four to eight thousand square feet, for families who plan to&nbsp;stay.</p>
+    </div>
+  </div>
+</section>
 
 <!-- =========== HERO =========== -->
 <section class="gdn-sd-hero" aria-labelledby="hero-h">

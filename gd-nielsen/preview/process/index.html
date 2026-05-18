@@ -131,6 +131,25 @@ html { scroll-behavior: smooth; }
   color: var(--gdn-ink) !important; transition: all 0.22s; }
 .gdn-hp-nav-cta:hover { background: var(--gdn-ink); color: var(--gdn-bone) !important; }
 
+/* ============== PROCESS HERO BANNER (full-bleed image) ============== */
+.gdn-pr-hero-banner { position: relative; height: clamp(480px, 75vh, 760px);
+  overflow: hidden; margin: 0; background: var(--gdn-tone); }
+.gdn-pr-hero-banner-img { position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center; }
+.gdn-pr-hero-banner-veil { position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(15,20,19,0.15) 0%, rgba(15,20,19,0.55) 100%); }
+.gdn-pr-hero-banner-content { position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 56px 0; color: var(--gdn-bone); }
+.gdn-pr-hero-banner-content h1 { color: var(--gdn-bone); margin: 0; max-width: 760px; }
+.gdn-pr-hero-banner-content h1 em { font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-style: italic; font-weight: 300; letter-spacing: -0.01em; }
+.gdn-pr-hero-banner-eyebrow { font-family: 'Poppins', 'Inter', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gdn-bone); opacity: 0.85; margin: 0 0 16px; }
+.gdn-pr-hero-banner-lead { font-family: 'Cormorant Garamond', 'Georgia', serif; font-style: italic;
+  font-weight: 400; font-size: clamp(20px, 2vw, 26px); color: var(--gdn-bone);
+  opacity: 0.85; margin: 12px 0 0; max-width: 640px; }
+
 /* ============== PROCESS HERO (editorial, no image) ============== */
 .gdn-pr-hero {
   padding: clamp(100px, 12vw, 180px) 0 clamp(80px, 10vw, 140px);
@@ -658,6 +677,22 @@ html { scroll-behavior: smooth; }
     </div>
   </div>
 </nav>
+
+<!-- =========== HERO BANNER (full-bleed image) =========== -->
+<section class="gdn-pr-hero-banner">
+  <img class="gdn-pr-hero-banner-img"
+       src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/lawson-2685/lawson-2685-02-exterior-rear-twilight-hero.jpg"
+       alt="GD Nielsen Homes &mdash; Lawson 2685 residence, rear exterior at twilight"
+       fetchpriority="high">
+  <div class="gdn-pr-hero-banner-veil"></div>
+  <div class="gdn-pr-hero-banner-content">
+    <div class="gdn-container">
+      <p class="gdn-pr-hero-banner-eyebrow">Process</p>
+      <h1>From first conversation to&nbsp;move&#8209;in&nbsp;<em>day.</em></h1>
+      <p class="gdn-pr-hero-banner-lead">Twenty-two months, four phases. The architect&rsquo;s drawings come through intact.</p>
+    </div>
+  </div>
+</section>
 
 <!-- =========== HERO (editorial) =========== -->
 <section class="gdn-pr-hero" aria-labelledby="hero-h">

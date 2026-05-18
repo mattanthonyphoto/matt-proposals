@@ -132,6 +132,25 @@ html { scroll-behavior: smooth; }
 .gdn-hp-nav-cta:hover { background: var(--gdn-ink); color: var(--gdn-bone) !important; }
 .gdn-hp-nav-cta.is-active { background: var(--gdn-ink); color: var(--gdn-bone) !important; }
 
+/* ============== CONTACT HERO BANNER (full-bleed image) ============== */
+.gdn-ct-hero-banner { position: relative; height: clamp(480px, 75vh, 760px);
+  overflow: hidden; margin: 0; background: var(--gdn-tone); }
+.gdn-ct-hero-banner-img { position: absolute; inset: 0; width: 100%; height: 100%;
+  object-fit: cover; object-position: center; }
+.gdn-ct-hero-banner-veil { position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(180deg, rgba(15,20,19,0.15) 0%, rgba(15,20,19,0.55) 100%); }
+.gdn-ct-hero-banner-content { position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 56px 0; color: var(--gdn-bone); }
+.gdn-ct-hero-banner-content h1 { color: var(--gdn-bone); margin: 0; max-width: 760px; }
+.gdn-ct-hero-banner-content h1 em { font-family: 'Cormorant Garamond', 'Georgia', serif;
+  font-style: italic; font-weight: 300; letter-spacing: -0.01em; }
+.gdn-ct-hero-banner-eyebrow { font-family: 'Poppins', 'Inter', sans-serif; font-weight: 500;
+  font-size: 11px; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--gdn-bone); opacity: 0.85; margin: 0 0 16px; }
+.gdn-ct-hero-banner-lead { font-family: 'Cormorant Garamond', 'Georgia', serif; font-style: italic;
+  font-weight: 400; font-size: clamp(20px, 2vw, 26px); color: var(--gdn-bone);
+  opacity: 0.85; margin: 12px 0 0; max-width: 640px; }
+
 /* ============== CONTACT HERO ============== */
 .gdn-ct-hero { padding: 120px 0 var(--gdn-section); border-bottom: 1px solid var(--gdn-rule); }
 .gdn-ct-hero-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr);
@@ -455,6 +474,22 @@ html { scroll-behavior: smooth; }
     </div>
   </div>
 </nav>
+
+<!-- =========== HERO BANNER (full-bleed image) =========== -->
+<section class="gdn-ct-hero-banner">
+  <img class="gdn-ct-hero-banner-img"
+       src="/matt-proposals/gd-nielsen/preview/_assets/images/projects/cherbourg/cherbourg-4635-31-rear-patio-twilight.jpg"
+       alt="GD Nielsen Homes &mdash; Cherbourg residence, rear patio at twilight"
+       fetchpriority="high">
+  <div class="gdn-ct-hero-banner-veil"></div>
+  <div class="gdn-ct-hero-banner-content">
+    <div class="gdn-container">
+      <p class="gdn-ct-hero-banner-eyebrow">Contact</p>
+      <h1>Tell us about the <em>project.</em></h1>
+      <p class="gdn-ct-hero-banner-lead">A note about a lot, a renovation, or a build you&rsquo;re thinking through &mdash; we read every one.</p>
+    </div>
+  </div>
+</section>
 
 <!-- =========== HERO =========== -->
 <section class="gdn-ct-hero" aria-labelledby="contact-h">
