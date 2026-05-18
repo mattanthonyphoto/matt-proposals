@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Blog · Radius Architectural Millwork · Burnaby BC</title>
+<meta name="description" content="Notes from the shop floor. Joinery techniques, material studies, project progress, and the occasional rant about CNC.">
+<link rel="canonical" href="https://radiuswood.com/blog/">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@1,300;1,400;1,500&family=Roboto:wght@300;400;500&family=Varta:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../css/site.css">
+<style>
+  .blog-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: clamp(24px, 3vw, 40px);
+    margin-top: clamp(40px, 5vw, 64px);
+  }
+  .blog-card {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    display: flex; flex-direction: column;
+    transition: border-color .35s var(--ease);
+  }
+  .blog-card:hover { border-color: var(--rule-strong); }
+  .blog-card .meta {
+    padding: 22px 26px 0;
+    font-family: var(--f); font-weight: 400;
+    font-size: 10px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--stone);
+    display: flex; gap: 14px; align-items: center;
+  }
+  .blog-card .meta .sep { opacity: 0.4; }
+  .blog-card .meta .topic { color: var(--red); }
+  .blog-card h3 {
+    padding: 16px 26px 14px;
+    font-family: var(--fd); font-weight: 300;
+    font-size: clamp(20px, 1.8vw, 24px);
+    line-height: 1.15;
+  }
+  .blog-card h3 em { font-family: var(--fs); font-style: italic; font-weight: 400; color: var(--red); }
+  .blog-card p {
+    padding: 0 26px 22px;
+    font-weight: 300; font-size: 13.5px; line-height: 1.75;
+    color: var(--body);
+  }
+  .blog-card .read-more {
+    padding: 18px 26px;
+    border-top: 1px solid var(--rule);
+    font-family: var(--f); font-weight: 400;
+    font-size: 10.5px; letter-spacing: 0.32em;
+    text-transform: uppercase; color: var(--red);
+    margin-top: auto;
+    display: inline-flex; align-items: center; gap: 12px;
+  }
+  .blog-card .read-more::before {
+    content: ''; display: inline-block;
+    width: 22px; height: 1px; background: var(--red);
+    transition: width .4s var(--ease);
+  }
+  .blog-card:hover .read-more::before { width: 36px; }
+  .placeholder {
+    margin-top: clamp(40px, 6vw, 80px);
+    padding: clamp(56px, 6vw, 90px);
+    background: var(--warm);
+    border: 1px solid var(--rule);
+    text-align: center;
+  }
+  .placeholder h3 {
+    font-family: var(--fd); font-weight: 300;
+    font-size: clamp(22px, 2.4vw, 30px);
+    margin-bottom: 14px;
+  }
+  .placeholder h3 em { font-family: var(--fs); font-style: italic; font-weight: 400; color: var(--red); }
+  .placeholder p {
+    font-weight: 300; font-size: 14px; line-height: 1.85;
+    color: var(--body);
+    max-width: 540px; margin: 0 auto 24px;
+  }
+</style>
+</head>
+<body>
+
+<nav class="site" id="nav">
+  <a href="../" class="brand-lockup">
+    <img class="logo" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/brand/radius-logo.png" alt="Radius Architectural Millwork">
+  </a>
+  <div class="links">
+    <div class="nav-item">
+      <a href="../about/">About <span class="caret">▾</span></a>
+      <div class="dropdown">
+        <a href="../about/company.html">Company</a>
+        <a href="../about/our-vision.html">Our Vision</a>
+        <a href="../about/partners.html">Partners</a>
+      </div>
+    </div>
+    <div class="nav-item">
+      <a href="../services/">Services <span class="caret">▾</span></a>
+      <div class="dropdown">
+        <a href="../services/architectural-millwork.html">Architectural Millwork</a>
+        <a href="../services/3d-renderings.html">3D Renderings</a>
+      </div>
+    </div>
+    <a href="../work/">Our Work</a>
+    <a href="./">Blog</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../contact.html" class="cta">Get In Touch</a>
+  </div>
+</nav>
+
+<section class="sub-hero">
+  <div class="sub-hero-inner">
+    <div>
+      <span class="eyebrow">Blog</span>
+      <h1>Field notes <em>from the shop floor.</em></h1>
+      <div class="breadcrumb">
+        <a href="../">Home</a><span class="sep">/</span><span>Blog</span>
+      </div>
+    </div>
+    <p class="lede">Joinery techniques, material studies, project progress, and the occasional rant about why we still don't run a CNC.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="section-inner split-grid">
+    <div><span class="eyebrow">Recent</span></div>
+    <div>
+      <h2>What we're <em>writing about.</em></h2>
+      <p>Field notes from the bench — written when we have something to say, not on a content calendar. Joinery deep-dives, material studies, the AWMAC submission as it progresses, and the occasional shop-floor story.</p>
+    </div>
+  </div>
+
+  <div class="section-inner">
+    <div class="blog-grid">
+      <article class="blog-card">
+        <div class="meta"><span class="topic">Joinery</span><span class="sep">·</span><span>Coming soon</span></div>
+        <h3>Slip-matching at <em>room scale.</em></h3>
+        <p>The logistics problem behind making a flitch run the room. Why the figure has to land at the door breaks, and how we sequence panels in shop order before the press.</p>
+        <div class="read-more">Read</div>
+      </article>
+      <article class="blog-card">
+        <div class="meta"><span class="topic">Bent Lamination</span><span class="sep">·</span><span>Coming soon</span></div>
+        <h3>The spring-back <em>log book.</em></h3>
+        <p>Twelve layers of veneer, custom jigs, and a humidity-keyed spreadsheet that took fifteen years to build. How we get bent radii to hold their shape.</p>
+        <div class="read-more">Read</div>
+      </article>
+      <article class="blog-card">
+        <div class="meta"><span class="topic">Material</span><span class="sep">·</span><span>Coming soon</span></div>
+        <h3>Why <em>anigre.</em></h3>
+        <p>The West African hardwood behind the diamond ceiling. Open-grain, satin figure, holds raking light better than walnut at certain hours. A flitch-sourcing story.</p>
+        <div class="read-more">Read</div>
+      </article>
+      <article class="blog-card">
+        <div class="meta"><span class="topic">From the Bench</span><span class="sep">·</span><span>Coming soon</span></div>
+        <h3>AWMAC 2027 — <em>Old Gravel Road.</em></h3>
+        <p>Forty-three-sheet rift-and-smoked-oak package, currently on the bench. Notes as we work through the submission set — drawing review, mock-ups, finish samples.</p>
+        <div class="read-more">Read</div>
+      </article>
+      <article class="blog-card">
+        <div class="meta"><span class="topic">The Shop</span><span class="sep">·</span><span>Coming soon</span></div>
+        <h3>Twenty-five years <em>on the same bench.</em></h3>
+        <p>Rick's BCIT-through-Wilms-through-Government-Street story. What stays the same when the shop floor evolves around you.</p>
+        <div class="read-more">Read</div>
+      </article>
+      <article class="blog-card">
+        <div class="meta"><span class="topic">Process</span><span class="sep">·</span><span>Coming soon</span></div>
+        <h3>Why we still <em>don't run a CNC.</em></h3>
+        <p>Not nostalgia. A specific choice about which details a machine can't make and still hold up under raking light. The case for bench-built joinery.</p>
+        <div class="read-more">Read</div>
+      </article>
+    </div>
+
+    <div class="placeholder">
+      <h3>Blog launches <em>Spring 2026.</em></h3>
+      <p>The above are the first six pieces we're working on. If you'd like to be notified when the blog goes live, drop us a line.</p>
+      <a href="../contact.html" class="cta-btn">Notify Me</a>
+    </div>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-col footer-brand">
+        <img src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/posts/brand/radius-logo.png" alt="Radius Architectural Millwork">
+        <p>A Master Joiner-led custom millwork shop in Burnaby, BC. Twenty-five years on the same bench.</p>
+        <div class="legal">Since 2002 · Burnaby BC<br>AWMAC Gold 2011 · 5× Best of Houzz<br>Licence BUS05-01768</div>
+      </div>
+      <div class="footer-col">
+        <h4>About</h4>
+        <ul>
+          <li><a href="../about/company.html">Company</a></li>
+          <li><a href="../about/our-vision.html">Our Vision</a></li>
+          <li><a href="../about/partners.html">Partners</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li><a href="../services/architectural-millwork.html">Architectural Millwork</a></li>
+          <li><a href="../services/3d-renderings.html">3D Renderings</a></li>
+          <li><a href="../work/">Our Work</a></li>
+          <li><a href="./">Blog</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Service Area</h4>
+        <ul>
+          <li>Vancouver</li>
+          <li>Burnaby</li>
+          <li>West Vancouver</li>
+          <li>North Vancouver</li>
+          <li>Whistler · Squamish</li>
+        </ul>
+      </div>
+      <div class="footer-col footer-contact">
+        <h4>Contact</h4>
+        <div class="row"><span class="label">Phone</span><div class="val"><a href="tel:6044441175">604 444 1175</a></div></div>
+        <div class="row"><span class="label">Email</span><div class="val"><a href="mailto:rick@radiuswood.com">rick@radiuswood.com</a></div></div>
+        <div class="row"><span class="label">Shop</span><div class="val">Unit 106 – 8575<br>Government St, Burnaby</div></div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Radius Architectural Millwork Ltd.</div>
+      <div class="socials">
+        <a href="https://instagram.com/radiusmillwork" target="_blank" rel="noopener">Instagram</a>
+        <a href="https://linkedin.com/company/radius-architectural-millwork" target="_blank" rel="noopener">LinkedIn</a>
+        <a href="#" target="_blank" rel="noopener">Houzz</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const nav = document.getElementById('nav');
+  document.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 70);
+  }, { passive: true });
+</script>
+
+</body>
+</html>
