@@ -595,7 +595,7 @@ PAGE_TEMPLATE = """<!DOCTYPE html>
   </div>
 </section>
 
-<section class="project-section">
+<section class="project-section warm">
   <div class="project-section-inner split-grid">
     <div><span class="eyebrow">The Work</span></div>
     <div>

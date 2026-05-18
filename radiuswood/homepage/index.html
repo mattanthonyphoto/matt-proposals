@@ -357,7 +357,18 @@
     background: var(--cream);
     padding: clamp(32px, 4.5vw, 52px) clamp(28px, 6vw, 80px);
     border-bottom: 1px solid var(--rule);
+    position: relative;
   }
+  /* DRAFTING OVERLAY: horizontal plan-section lines */
+  .proof::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: linear-gradient(to bottom, rgba(58, 47, 30, 0.05) 1px, transparent 1px);
+    background-size: 100% 24px;
+    pointer-events: none;
+    mask-image: linear-gradient(to right, transparent 0, black 10%, black 90%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0, black 10%, black 90%, transparent 100%);
+  }
+  .proof > * { position: relative; z-index: 1; }
   .proof-inner {
     max-width: 1180px; margin: 0 auto;
     display: grid; grid-template-columns: repeat(4, 1fr);
@@ -410,17 +421,14 @@
     max-width: 1040px; margin: 0 auto;
     text-align: left;
   }
-  /* Faint drafting-paper grid behind philosophy text */
+  /* DRAFTING OVERLAY: dot grid — philosophy section */
   .philosophy::before {
     content: ''; position: absolute; inset: 0;
-    background-image:
-      linear-gradient(to right, rgba(58, 47, 30, 0.05) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(58, 47, 30, 0.05) 1px, transparent 1px);
-    background-size: 48px 48px;
-    background-position: center center;
+    background-image: radial-gradient(circle at 1px 1px, rgba(58, 47, 30, 0.12) 1px, transparent 1.6px);
+    background-size: 28px 28px;
     pointer-events: none;
-    mask-image: radial-gradient(ellipse at center, black 60%, transparent 88%);
-    -webkit-mask-image: radial-gradient(ellipse at center, black 60%, transparent 88%);
+    mask-image: radial-gradient(ellipse at center, black 55%, transparent 92%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 55%, transparent 92%);
   }
   .philosophy > * { position: relative; z-index: 1; }
   /* Philosophy eyebrow uses the shared drafting tick from .eyebrow::before */
@@ -559,7 +567,20 @@
     padding: clamp(80px, 11vw, 150px) clamp(28px, 6vw, 80px);
     background: var(--cream);
     border-bottom: 1px solid var(--rule);
+    position: relative;
   }
+  /* DRAFTING OVERLAY: diamond grid — process section */
+  .process::before {
+    content: ''; position: absolute; inset: 0;
+    background-image:
+      linear-gradient(45deg, rgba(58, 47, 30, 0.05) 1px, transparent 1px),
+      linear-gradient(-45deg, rgba(58, 47, 30, 0.05) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse at center, black 50%, transparent 95%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 50%, transparent 95%);
+  }
+  .process > * { position: relative; z-index: 1; }
   .process-inner { max-width: 1640px; margin: 0 auto; }
   .process-head { margin-bottom: clamp(50px, 6vw, 80px); display: grid; grid-template-columns: 1fr 1fr; gap: clamp(40px, 6vw, 100px); align-items: end; }
   .process-head .eyebrow { display: block; margin-bottom: 22px; }
@@ -627,7 +648,23 @@
   .approach {
     position: relative;
     padding: clamp(80px, 10vw, 160px) clamp(28px, 8vw, 120px);
+    border-top: 1px solid var(--rule);
   }
+  /* DRAFTING OVERLAY: diagonal hatching */
+  .approach::before {
+    content: ''; position: absolute; inset: 0;
+    background-image: repeating-linear-gradient(
+      45deg,
+      transparent 0,
+      transparent 22px,
+      rgba(58, 47, 30, 0.04) 22px,
+      rgba(58, 47, 30, 0.04) 23px
+    );
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse at center, black 50%, transparent 95%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 50%, transparent 95%);
+  }
+  .approach > * { position: relative; z-index: 1; }
   .approach .draft-drawing { margin: 36px 0 0; max-width: 380px; }
 
   /* ─── RENDERINGS ─── */
@@ -906,10 +943,11 @@
   }
   footer.site::before {
     content: ''; position: absolute; inset: 0;
-    background-image:
-      linear-gradient(to right, rgba(246, 244, 240, 0.02) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(246, 244, 240, 0.02) 1px, transparent 1px);
-    background-size: 32px 32px; pointer-events: none;
+    background-image: radial-gradient(circle at 1px 1px, rgba(246, 244, 240, 0.06) 1px, transparent 1.4px);
+    background-size: 28px 28px;
+    pointer-events: none;
+    mask-image: radial-gradient(ellipse at center, black 50%, transparent 100%);
+    -webkit-mask-image: radial-gradient(ellipse at center, black 50%, transparent 100%);
   }
   .footer-inner { max-width: 1640px; margin: 0 auto; position: relative; z-index: 1; }
   .footer-grid {

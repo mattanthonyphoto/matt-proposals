@@ -236,6 +236,7 @@ nav.site.over-hero .cta { border-color: rgba(255,255,255,0.42); color: #fff !imp
 .section.dark h2, .section.dark h3 { color: var(--cream); }
 .section.dark h2 em, .section.dark h3 em { color: var(--cream); }
 .section.dark .eyebrow { color: var(--cream); }
+/* DRAFTING OVERLAY: dot grid — used on .section.warm (about/services bands) */
 .section.warm {
   background: var(--cream);
   position: relative;
@@ -244,13 +245,11 @@ nav.site.over-hero .cta { border-color: rgba(255,255,255,0.42); color: #fff !imp
 }
 .section.warm::before {
   content: ''; position: absolute; inset: 0;
-  background-image:
-    linear-gradient(to right, rgba(58, 47, 30, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(58, 47, 30, 0.045) 1px, transparent 1px);
-  background-size: 48px 48px;
+  background-image: radial-gradient(circle at 1px 1px, rgba(58, 47, 30, 0.12) 1px, transparent 1.6px);
+  background-size: 28px 28px;
   pointer-events: none;
-  mask-image: radial-gradient(ellipse at center, black 60%, transparent 92%);
-  -webkit-mask-image: radial-gradient(ellipse at center, black 60%, transparent 92%);
+  mask-image: radial-gradient(ellipse at center, black 55%, transparent 95%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 55%, transparent 95%);
 }
 .section.warm > * { position: relative; z-index: 1; }
 
@@ -331,15 +330,19 @@ nav.site.over-hero .cta { border-color: rgba(255,255,255,0.42); color: #fff !imp
   border-bottom: 1px solid var(--rule);
   position: relative;
 }
+/* DRAFTING OVERLAY: diagonal hatching — used on .cta-band */
 .cta-band::before {
   content: ''; position: absolute; inset: 0;
-  background-image:
-    linear-gradient(to right, rgba(58, 47, 30, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(58, 47, 30, 0.045) 1px, transparent 1px);
-  background-size: 48px 48px;
+  background-image: repeating-linear-gradient(
+    45deg,
+    transparent 0,
+    transparent 22px,
+    rgba(58, 47, 30, 0.05) 22px,
+    rgba(58, 47, 30, 0.05) 23px
+  );
   pointer-events: none;
-  mask-image: radial-gradient(ellipse at center, black 60%, transparent 92%);
-  -webkit-mask-image: radial-gradient(ellipse at center, black 60%, transparent 92%);
+  mask-image: radial-gradient(ellipse at center, black 50%, transparent 95%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 50%, transparent 95%);
 }
 .cta-band > * { position: relative; z-index: 1; }
 .cta-band .eyebrow { display: block; margin-bottom: 22px; }
@@ -373,10 +376,11 @@ footer.site {
 }
 footer.site::before {
   content: ''; position: absolute; inset: 0;
-  background-image:
-    linear-gradient(to right, rgba(246, 244, 240, 0.02) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(246, 244, 240, 0.02) 1px, transparent 1px);
-  background-size: 32px 32px; pointer-events: none;
+  background-image: radial-gradient(circle at 1px 1px, rgba(246, 244, 240, 0.06) 1px, transparent 1.4px);
+  background-size: 28px 28px;
+  pointer-events: none;
+  mask-image: radial-gradient(ellipse at center, black 50%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 50%, transparent 100%);
 }
 .footer-inner { max-width: 1640px; margin: 0 auto; position: relative; z-index: 1; }
 .footer-grid {
@@ -551,15 +555,14 @@ footer.site::before {
   position: relative;
   border-top: 1px solid var(--rule);
 }
+/* DRAFTING OVERLAY: horizontal plan-section lines — .project-section.warm */
 .project-section.warm::before {
   content: ''; position: absolute; inset: 0;
-  background-image:
-    linear-gradient(to right, rgba(58, 47, 30, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(58, 47, 30, 0.045) 1px, transparent 1px);
-  background-size: 48px 48px;
+  background-image: linear-gradient(to bottom, rgba(58, 47, 30, 0.06) 1px, transparent 1px);
+  background-size: 100% 36px;
   pointer-events: none;
-  mask-image: radial-gradient(ellipse at center, black 60%, transparent 92%);
-  -webkit-mask-image: radial-gradient(ellipse at center, black 60%, transparent 92%);
+  mask-image: linear-gradient(to right, transparent 0, black 12%, black 88%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0, black 12%, black 88%, transparent 100%);
 }
 .project-section.warm > * { position: relative; z-index: 1; }
 .project-section-inner { max-width: 1640px; margin: 0 auto; }
@@ -587,15 +590,16 @@ footer.site::before {
   border-bottom: 1px solid var(--rule);
   position: relative;
 }
+/* DRAFTING OVERLAY: diamond/rotated grid — .spec-block */
 .spec-block::before {
   content: ''; position: absolute; inset: 0;
   background-image:
-    linear-gradient(to right, rgba(58, 47, 30, 0.045) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(58, 47, 30, 0.045) 1px, transparent 1px);
-  background-size: 48px 48px;
+    linear-gradient(45deg, rgba(58, 47, 30, 0.05) 1px, transparent 1px),
+    linear-gradient(-45deg, rgba(58, 47, 30, 0.05) 1px, transparent 1px);
+  background-size: 40px 40px;
   pointer-events: none;
-  mask-image: radial-gradient(ellipse at center, black 60%, transparent 92%);
-  -webkit-mask-image: radial-gradient(ellipse at center, black 60%, transparent 92%);
+  mask-image: radial-gradient(ellipse at center, black 55%, transparent 95%);
+  -webkit-mask-image: radial-gradient(ellipse at center, black 55%, transparent 95%);
 }
 .spec-block > * { position: relative; z-index: 1; }
 .spec-inner {
