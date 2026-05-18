@@ -1,0 +1,829 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Radius — Instagram Plan · May 18 → Jun 14</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&family=DM+Sans:wght@300;400;500;600&family=Josefin+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ink: #1A1A18;
+  --paper: #F6F4F0;
+  --offwhite: #EEECE6;
+  --gold: #C9A96E;
+  --warm: #B8975A;
+  --stone: #8A8579;
+  --lightstone: #D9D5CD;
+  --rule: rgba(26, 26, 24, 0.12);
+  --soft: rgba(26, 26, 24, 0.04);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+body {
+  font-family: 'DM Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 1.65;
+  color: var(--ink);
+  background: var(--paper);
+  -webkit-font-smoothing: antialiased;
+}
+
+.topnav {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--paper);
+  border-bottom: 1px solid var(--rule);
+  backdrop-filter: blur(8px);
+}
+.topnav-inner {
+  max-width: 1100px; margin: 0 auto;
+  padding: 14px 32px;
+  display: flex; align-items: center; gap: 24px; flex-wrap: wrap;
+}
+.topnav-brand {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: 18px;
+  letter-spacing: 0.5px;
+}
+.topnav-links {
+  display: flex; gap: 18px; flex-wrap: wrap;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10.5px; letter-spacing: 1.4px;
+  text-transform: uppercase;
+}
+.topnav-links a { color: var(--stone); text-decoration: none; transition: color 0.2s; }
+.topnav-links a:hover { color: var(--gold); }
+.topnav-meta {
+  margin-left: auto;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; letter-spacing: 1.4px;
+  text-transform: uppercase; color: var(--stone);
+}
+
+.wrap { max-width: 1100px; margin: 0 auto; padding: 60px 32px 100px; }
+
+/* HERO */
+.hero { margin-bottom: 56px; }
+.hero-eyebrow {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px; letter-spacing: 2.4px;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400; font-size: 56px;
+  line-height: 1.05; letter-spacing: -0.5px;
+  margin-bottom: 18px;
+}
+.hero h1 em { font-style: italic; color: var(--gold); }
+.hero-deck {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: 20px;
+  line-height: 1.5; color: var(--stone);
+  max-width: 720px; margin-bottom: 28px;
+}
+.hero-meta {
+  border-top: 1px solid var(--rule);
+  border-bottom: 1px solid var(--rule);
+  padding: 18px 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 20px;
+  font-size: 13px;
+}
+.hero-meta dt {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; letter-spacing: 1.8px;
+  text-transform: uppercase; color: var(--stone);
+  margin-bottom: 4px;
+}
+
+/* APPROVAL INSTRUCTIONS */
+.approval-box {
+  background: white;
+  border-left: 3px solid var(--gold);
+  padding: 22px 26px;
+  margin-bottom: 56px;
+}
+.approval-box h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 500; font-size: 22px;
+  margin-bottom: 10px;
+}
+.approval-box p { margin-bottom: 8px; font-size: 14px; }
+.approval-box p:last-child { margin-bottom: 0; }
+
+/* WEEK SECTION */
+section.week { margin-bottom: 68px; }
+.week-header {
+  display: flex; align-items: baseline; gap: 16px;
+  margin-bottom: 28px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid var(--rule);
+}
+.week-num {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 11px; letter-spacing: 2.2px;
+  text-transform: uppercase; color: var(--gold);
+}
+.week-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400; font-size: 34px;
+  letter-spacing: -0.2px;
+}
+.week-title em { font-style: italic; color: var(--gold); }
+.week-dates {
+  font-family: 'DM Sans', sans-serif;
+  font-size: 13px; color: var(--stone);
+  margin-left: auto;
+}
+
+/* POST CARD */
+.post {
+  background: white;
+  border: 1px solid var(--rule);
+  margin-bottom: 32px;
+  overflow: hidden;
+}
+.post-header {
+  display: flex; align-items: center; gap: 14px;
+  padding: 16px 22px;
+  border-bottom: 1px solid var(--rule);
+  background: var(--soft);
+  flex-wrap: wrap;
+}
+.post-date {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: 18px;
+}
+.post-type {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; letter-spacing: 1.6px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  background: var(--ink); color: var(--paper);
+}
+.post-type.carousel { background: var(--gold); color: var(--ink); }
+.post-pillar {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: var(--stone);
+}
+.post-status {
+  margin-left: auto;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; letter-spacing: 1.6px;
+  text-transform: uppercase;
+  padding: 4px 10px;
+  border: 1px solid var(--warm);
+  color: var(--warm);
+}
+
+.post-body { padding: 22px; }
+
+/* SINGLE IMAGE */
+.post-image-single {
+  width: 100%;
+  aspect-ratio: 4 / 5;
+  overflow: hidden;
+  background: var(--offwhite);
+  margin-bottom: 18px;
+}
+.post-image-single img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+
+/* CAROUSEL STRIP */
+.carousel-strip {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 6px;
+  margin-bottom: 8px;
+}
+.carousel-slide {
+  position: relative;
+  aspect-ratio: 4 / 5;
+  background: var(--offwhite);
+  overflow: hidden;
+}
+.carousel-slide img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.slide-num {
+  position: absolute; top: 6px; left: 6px;
+  background: var(--ink); color: var(--paper);
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 9px; letter-spacing: 1.2px;
+  padding: 2px 6px;
+}
+.carousel-note {
+  font-size: 11px; color: var(--stone);
+  margin-bottom: 18px;
+  font-style: italic;
+}
+
+/* CAPTION */
+.caption {
+  background: var(--offwhite);
+  padding: 16px 20px;
+  font-size: 14px;
+  line-height: 1.6;
+  margin-bottom: 14px;
+  border-left: 2px solid var(--gold);
+}
+.caption p { margin-bottom: 10px; }
+.caption p:last-child { margin-bottom: 0; }
+.caption-label {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 10px; letter-spacing: 1.6px;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 10px; display: block;
+}
+
+/* HASHTAGS */
+.hashtags {
+  font-size: 12px; color: var(--stone);
+  font-family: 'DM Sans', sans-serif;
+  line-height: 1.6;
+  padding: 10px 14px;
+  background: var(--soft);
+  word-spacing: 4px;
+}
+
+/* STORIES GRID */
+.stories-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 16px;
+  margin-top: 20px;
+}
+.story-card {
+  background: white;
+  border: 1px solid var(--rule);
+  overflow: hidden;
+}
+.story-image {
+  aspect-ratio: 9 / 16;
+  background: var(--offwhite);
+  overflow: hidden;
+}
+.story-image img {
+  width: 100%; height: 100%; object-fit: cover; display: block;
+}
+.story-meta {
+  padding: 12px 14px;
+  font-size: 12px;
+}
+.story-day {
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 9px; letter-spacing: 1.4px;
+  text-transform: uppercase; color: var(--gold);
+  margin-bottom: 6px;
+}
+.story-caption {
+  font-style: italic;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 13px; line-height: 1.4;
+  color: var(--ink);
+}
+
+/* TYPOGRAPHY */
+h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-weight: 400; font-size: 38px;
+  line-height: 1.15; margin-bottom: 24px;
+}
+h2 em { font-style: italic; color: var(--gold); }
+
+p { margin-bottom: 12px; }
+strong { font-weight: 600; }
+code {
+  background: var(--offwhite);
+  padding: 1px 5px;
+  font-size: 12px;
+  font-family: 'DM Sans', monospace;
+}
+
+/* CALENDAR OVERVIEW */
+.cal-overview {
+  margin: 36px 0;
+  background: white;
+  border: 1px solid var(--rule);
+  overflow-x: auto;
+}
+.cal-overview table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12.5px;
+}
+.cal-overview th, .cal-overview td {
+  padding: 11px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--rule);
+  vertical-align: top;
+}
+.cal-overview th {
+  background: var(--offwhite);
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 500; font-size: 10.5px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+.cal-overview tr:last-child td { border-bottom: none; }
+.cal-pill {
+  display: inline-block;
+  padding: 2px 8px;
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 9.5px; letter-spacing: 1.3px;
+  text-transform: uppercase;
+}
+.cal-pill.shop { background: var(--ink); color: var(--paper); }
+.cal-pill.past { background: var(--gold); color: var(--ink); }
+.cal-pill.story { background: var(--offwhite); color: var(--stone); border: 1px solid var(--rule); }
+
+@media (max-width: 720px) {
+  .topnav-inner { padding: 12px 18px; }
+  .topnav-meta { display: none; }
+  .wrap { padding: 36px 18px 80px; }
+  .hero h1 { font-size: 38px; }
+  .hero-deck { font-size: 17px; }
+  h2 { font-size: 26px; }
+  .week-title { font-size: 24px; }
+  .carousel-strip { grid-template-columns: repeat(3, 1fr); }
+  .post-image-single { aspect-ratio: 1 / 1; }
+}
+</style>
+</head>
+<body>
+
+<nav class="topnav">
+  <div class="topnav-inner">
+    <span class="topnav-brand"><em>Radius</em> · Instagram Plan</span>
+    <div class="topnav-links">
+      <a href="#approval">How to approve</a>
+      <a href="#overview">Calendar</a>
+      <a href="#week1">Week 1</a>
+      <a href="#week2">Week 2</a>
+      <a href="#week3">Week 3</a>
+      <a href="#week4">Week 4</a>
+      <a href="#stories">Stories</a>
+    </div>
+    <span class="topnav-meta">Rick · For your review</span>
+  </div>
+</nav>
+
+<div class="wrap">
+
+<header class="hero">
+  <div class="hero-eyebrow">Phase 1 · Month 1 · May 18 → Jun 14</div>
+  <h1>Instagram <em>plan</em></h1>
+  <p class="hero-deck">Twelve posts and eight stories across four weeks. A mix of shop work from our May 5 shoot and finished projects from your archive. For your review and approval before anything goes live.</p>
+  <dl class="hero-meta">
+    <div><dt>Posts</dt><dd>12 total (3/wk)</dd></div>
+    <div><dt>Carousels</dt><dd>4</dd></div>
+    <div><dt>Singles</dt><dd>8</dd></div>
+    <div><dt>Stories</dt><dd>8 (2/wk)</dd></div>
+    <div><dt>Shop content</dt><dd>6 posts + 4 stories</dd></div>
+    <div><dt>Past projects</dt><dd>6 posts + 4 stories</dd></div>
+    <div><dt>Platform</dt><dd>Instagram only</dd></div>
+    <div><dt>Status</dt><dd>Awaiting Rick approval</dd></div>
+  </dl>
+</header>
+
+<!-- APPROVAL INSTRUCTIONS -->
+<section id="approval" class="approval-box">
+  <h3>How to approve</h3>
+  <p>Read through every post below. Each post shows the image(s), the caption, and the hashtags exactly as it will appear on Instagram.</p>
+  <p><strong>If you're good with everything:</strong> reply "approved" to the email I sent with this link, and I'll schedule the month into Late so they auto-publish on the dates shown.</p>
+  <p><strong>If you want changes:</strong> reply with the post date and what to change. For example, "May 20 carousel — swap the Sydney photo for the JC one" or "May 25 caption — soften the AWMAC line." I'll redraft and resend within a day.</p>
+  <p><strong>If you don't reply by Friday May 22:</strong> I'll proceed with what's drafted, since Monday May 18 is the first post and we need lead time on scheduling.</p>
+  <p style="margin-top:14px;color:var(--stone);font-size:13px;font-style:italic;">A few credits are bracketed as <code>[@____]</code> waiting for the architect / designer / builder handles. If you can fill those in alongside your approval, every post is publish-ready.</p>
+</section>
+
+<!-- CALENDAR OVERVIEW -->
+<section id="overview">
+  <h2>The <em>full month</em> at a glance</h2>
+  <div class="cal-overview">
+    <table>
+      <thead>
+        <tr><th>Date</th><th>Day</th><th>Type</th><th>Source</th><th>Subject</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>May 18</td><td>Mon</td><td><span class="cal-pill shop">Shop · Single</span></td><td>May 5 shoot</td><td>Solo dovetail joint, Eastern maple</td></tr>
+        <tr><td>May 20</td><td>Wed</td><td><span class="cal-pill shop">Shop · Carousel</span></td><td>May 5 shoot</td><td>On the bench right now — production state walkthrough</td></tr>
+        <tr><td>May 23</td><td>Sat</td><td><span class="cal-pill past">Past · Single</span></td><td>Waterfront Anigre Penthouse</td><td>Diamond book-matched anigre ceiling</td></tr>
+        <tr><td>May 25</td><td>Mon</td><td><span class="cal-pill past">Past · Carousel</span></td><td>Waterfront Anigre Penthouse</td><td>Anigre, throughout — species deep-dive</td></tr>
+        <tr><td>May 27</td><td>Wed</td><td><span class="cal-pill past">Past · Single</span></td><td>Waterfront Anigre Penthouse</td><td>The hidden pull-out liquor cabinet</td></tr>
+        <tr><td>May 30</td><td>Sat</td><td><span class="cal-pill shop">Shop · Single</span></td><td>May 5 shoot</td><td>Cigar lounge corner — slip-matched maple + ebonised reveal</td></tr>
+        <tr><td>Jun 1</td><td>Mon</td><td><span class="cal-pill past">Past · Carousel</span></td><td>Vancouverhouse Penthouse</td><td>Walnut slat ceiling — three rooms, one module</td></tr>
+        <tr><td>Jun 3</td><td>Wed</td><td><span class="cal-pill past">Past · Single</span></td><td>Vancouverhouse Penthouse</td><td>Master bath — curved walnut slat wall</td></tr>
+        <tr><td>Jun 6</td><td>Sat</td><td><span class="cal-pill shop">Shop · Single</span></td><td>May 5 shoot</td><td>Smoked oak slat with finger-pocket detail</td></tr>
+        <tr><td>Jun 8</td><td>Mon</td><td><span class="cal-pill past">Past · Single</span></td><td>Vancouverhouse Penthouse</td><td>Walnut slat door — black handle detail</td></tr>
+        <tr><td>Jun 10</td><td>Wed</td><td><span class="cal-pill shop">Shop · Carousel</span></td><td>May 5 shoot</td><td>The finishing room — JC, spray booth, drying rack</td></tr>
+        <tr><td>Jun 13</td><td>Sat</td><td><span class="cal-pill shop">Shop · Single</span></td><td>May 5 shoot</td><td>Sydney at the router</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- WEEK 1 -->
+<section id="week1" class="week">
+  <header class="week-header">
+    <span class="week-num">Week 01</span>
+    <h2 class="week-title">Shop <em>opener</em></h2>
+    <span class="week-dates">May 18 — May 24</span>
+  </header>
+
+  <!-- W1.1 MON -->
+  <article class="post">
+    <header class="post-header">
+      <span class="post-date">Mon · May 18</span>
+      <span class="post-type">IG Single</span>
+      <span class="post-pillar">The Craft · Shop</span>
+      <span class="post-status">Pending</span>
+    </header>
+    <div class="post-body">
+      <div class="post-image-single"><img loading="lazy" src="photos/shop/_DSC7400.jpg" alt="Dovetail joint, Eastern maple"></div>
+      <div class="caption">
+        <span class="caption-label">Caption</span>
+        <p>Dovetail drawer.</p>
+        <p>No fasteners. No screws. No brackets. The geometry of the joint is what holds it together. Once it's clamped and glued, those pins would have to crush for the drawer to come apart, and that's solid Eastern maple.</p>
+        <p>Sixty of these going into one Whistler residence.</p>
+        <p>Photography @mattanthonyphoto</p>
+      </div>
+      <div class="hashtags">#joinery #dovetail #customcabinetry #handmade #vancouvermillwork #architecturalmillwork #finewoodworking #cabinetmaking #burnabymade #radiuswood</div>
+    </div>
+  </article>
+
+  <!-- W1.2 WED -->
+  <article class="post">
+    <header class="post-header">
+      <span class="post-date">Wed · May 20</span>
+      <span class="post-type carousel">IG Carousel</span>
+      <span class="post-pillar">The Shop</span>
+      <span class="post-status">Pending</span>
+    </header>
+    <div class="post-body">
+      <div class="carousel-strip">
+        <div class="carousel-slide"><span class="slide-num">1</span><img loading="lazy" src="photos/shop/_DSC7422.jpg" alt="Shop wide overview"></div>
+        <div class="carousel-slide"><span class="slide-num">2</span><img loading="lazy" src="photos/shop/_DSC7271.jpg" alt="Cabinet runs with markings"></div>
+        <div class="carousel-slide"><span class="slide-num">3</span><img loading="lazy" src="photos/shop/_DSC7281.jpg" alt="Rift oak panel B1 marking"></div>
+        <div class="carousel-slide"><span class="slide-num">4</span><img loading="lazy" src="photos/shop/_DSC7355.jpg" alt="Stack of dovetailed maple panels"></div>
+        <div class="carousel-slide"><span class="slide-num">5</span><img loading="lazy" src="photos/shop/_DSC7344.jpg" alt="Clamp rack and edge bander"></div>
+        <div class="carousel-slide"><span class="slide-num">6</span><img loading="lazy" src="photos/shop/_DSC7448.jpg" alt="Reveal slot detail"></div>
+      </div>
+      <p class="carousel-note">6-slide walk-through · swipe to see each cabinet area in production</p>
+      <div class="caption">
+        <span class="caption-label">Caption</span>
+        <p>A walk through the Burnaby shop, mid-week.</p>
+        <p>Five thousand square feet, twenty people on the bench, traditional joinery throughout. Table saws, jointers, shapers, a wide-belt sander, a re-saw, an edge bander out of Germany. The trade has been built this way for two centuries. The only thing that has changed is the dust collection.</p>
+        <p>What's on the floor right now: rift white oak cabinet runs for a Whistler residence, sixty dovetailed maple drawer boxes, a reveal-slot detail being routed for an ebonised inlay.</p>
+        <p>Photography @mattanthonyphoto</p>
+      </div>
+      <div class="hashtags">#millworkshop #craftsmanship #vancouvermillwork #burnabymade #behindthebench #customcabinetry #shoptour #traditionaljoinery #radiuswood #thecraft</div>
+    </div>
+  </article>
+
+  <!-- W1.3 SAT -->
+  <article class="post">
+    <header class="post-header">
+      <span class="post-date">Sat · May 23</span>
+      <span class="post-type">IG Single</span>
+      <span class="post-pillar">The Craft · Past Project</span>
+      <span class="post-status">Pending</span>
+    </header>
+    <div class="post-body">
+      <div class="post-image-single"><img loading="lazy" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/social-plan/photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-diamond-bookmatched-ceiling-up-view-fireplace-anigre-pantry.jpg" alt="Diamond book-matched anigre ceiling"></div>
+      <div class="caption">
+        <span class="caption-label">Caption</span>
+        <p>Diamond book-matched anigre.</p>
+        <p>Anigre is an African hardwood, gold-amber when freshly milled, ambering to honey under finish. The ceiling is veneer-laid in a diamond pattern, every panel book-matched at the seam so the grain reflects across the diagonal. From the floor it reads as one continuous field of figure.</p>
+        <p>The ceiling has thirty-two panels. The grain match holds across every one.</p>
+        <p>Design <code>[@architect]</code> · Photography <code>[@photographer]</code></p>
+      </div>
+      <div class="hashtags">#anigre #bookmatched #customceiling #millwork #finewoodworking #vancouvermillwork #architecturalmillwork #materialstudy #penthouse #radiuswood #thecraft</div>
+    </div>
+  </article>
+</section>
+
+<!-- WEEK 2 -->
+<section id="week2" class="week">
+  <header class="week-header">
+    <span class="week-num">Week 02</span>
+    <h2 class="week-title">Anigre <em>deep dive</em></h2>
+    <span class="week-dates">May 25 — May 31</span>
+  </header>
+
+  <!-- W2.1 MON -->
+  <article class="post">
+    <header class="post-header">
+      <span class="post-date">Mon · May 25</span>
+      <span class="post-type carousel">IG Carousel</span>
+      <span class="post-pillar">The Craft · Past Project</span>
+      <span class="post-status">Pending</span>
+    </header>
+    <div class="post-body">
+      <div class="carousel-strip">
+        <div class="carousel-slide"><span class="slide-num">1</span><img loading="lazy" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/social-plan/photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-diamond-bookmatched-ceiling-up-view-fireplace-anigre-pantry.jpg" alt="Diamond book-matched ceiling"></div>
+        <div class="carousel-slide"><span class="slide-num">2</span><img loading="lazy" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/social-plan/photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-dining-bocci-glass-table-sectional-harbor-view-diamond-ceiling.jpg" alt="Dining wide"></div>
+        <div class="carousel-slide"><span class="slide-num">3</span><img loading="lazy" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/social-plan/photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-dining-bocci-fireplace-anigre-cabinetry-wide.jpg" alt="Fireplace + anigre cabinetry"></div>
+        <div class="carousel-slide"><span class="slide-num">4</span><img loading="lazy" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/social-plan/photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-gallery-wine-bar-anigre-display-inuit-sculpture.jpg" alt="Wine bar with Inuit sculpture"></div>
+        <div class="carousel-slide"><span class="slide-num">5</span><img loading="lazy" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/social-plan/photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-kitchen-bocci-pendants-granite-island-anigre-cabinetry.jpg" alt="Kitchen with Bocci pendants"></div>
+        <div class="carousel-slide"><span class="slide-num">6</span><img loading="lazy" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/social-plan/photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-lounge-fireplace-tv-recess-diamond-ceiling-harbor-view.jpg" alt="Lounge fireplace"></div>
+      </div>
+      <p class="carousel-note">6-slide species deep-dive · the same wood, six rooms</p>
+      <div class="caption">
+        <span class="caption-label">Caption</span>
+        <p>Anigre, throughout.</p>
+        <p>A gold-amber African hardwood. Milled green, it reads almost grey. Under finish, it ambers to honey. We veneer-laid the entire penthouse in anigre, diamond book-matched on the ceiling, slip-matched on the cabinet runs, sequence-matched across the gallery wall.</p>
+        <p>The ceiling alone is thirty-two panels. Three weeks of layout on brown paper, full scale, before the first vacuum press happened. The figure quiets fast outside the heart of the log. The patience is what makes it read as one field.</p>
+        <p>Design <code>[@architect]</code> · Designer <code>[@designer]</code> · Photography <code>[@photographer]</code></p>
+      </div>
+      <div class="hashtags">#anigre #africanhardwood #veneerlaid #customcabinetry #materialstudy #vancouverdesign #penthousedesign #bocci #vancouvermillwork #radiuswood #thecraft</div>
+    </div>
+  </article>
+
+  <!-- W2.2 WED -->
+  <article class="post">
+    <header class="post-header">
+      <span class="post-date">Wed · May 27</span>
+      <span class="post-type">IG Single</span>
+      <span class="post-pillar">The Finished · Past Project</span>
+      <span class="post-status">Pending</span>
+    </header>
+    <div class="post-body">
+      <div class="post-image-single"><img loading="lazy" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/social-plan/photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-gallery-wine-bar-anigre-display-inuit-sculpture.jpg" alt="Hidden anigre liquor cabinet"></div>
+      <div class="caption">
+        <span class="caption-label">Caption</span>
+        <p>The bar opens like a piece of furniture.</p>
+        <p>Anigre face, slip-matched across the panel. From closed, the cabinet reads as one continuous run of grain. Open, it's a full bar with brass-pull glassware racks and Inuit sculpture niches sitting alongside the gallery shelf.</p>
+        <p>The seam isn't hidden by hardware. It's hidden by the grain match.</p>
+        <p>Design <code>[@architect]</code> · Photography <code>[@photographer]</code></p>
+      </div>
+      <div class="hashtags">#anigre #hiddencabinet #customjoinery #millwork #vancouvermillwork #finewoodworking #penthouse #archmillwork #radiuswood #thecraft #vancouverdesign</div>
+    </div>
+  </article>
+
+  <!-- W2.3 SAT -->
+  <article class="post">
+    <header class="post-header">
+      <span class="post-date">Sat · May 30</span>
+      <span class="post-type">IG Single</span>
+      <span class="post-pillar">The Craft · Shop</span>
+      <span class="post-status">Pending</span>
+    </header>
+    <div class="post-body">
+      <div class="post-image-single"><img loading="lazy" src="photos/shop/_DSC7470.jpg" alt="Cigar lounge corner — slip-matched maple"></div>
+      <div class="caption">
+        <span class="caption-label">Caption</span>
+        <p>The reveal.</p>
+        <p>A millimeter off and your eye picks it up from forty feet. You can't say what's wrong. Something just doesn't fit. Right, and you don't notice it at all. You notice the room.</p>
+        <p>Slip-matched Eastern maple. Ebonised pear-wood inlay running through the panel face. Pear, not ebony. Real ebony comes from Africa and we don't use it.</p>
+        <p>Photography @mattanthonyphoto</p>
+      </div>
+      <div class="hashtags">#detailmatters #joinery #customcabinetry #ebonised #slipmatched #millworkshop #craftsmanship #vancouverdesign #radiuswood #thecraft</div>
+    </div>
+  </article>
+</section>
+
+<!-- WEEK 3 -->
+<section id="week3" class="week">
+  <header class="week-header">
+    <span class="week-num">Week 03</span>
+    <h2 class="week-title">Vancouverhouse <em>arc</em></h2>
+    <span class="week-dates">Jun 1 — Jun 7</span>
+  </header>
+
+  <!-- W3.1 MON -->
+  <article class="post">
+    <header class="post-header">
+      <span class="post-date">Mon · Jun 1</span>
+      <span class="post-type carousel">IG Carousel</span>
+      <span class="post-pillar">The Finished · Past Project</span>
+      <span class="post-status">Pending</span>
+    </header>
+    <div class="post-body">
+      <div class="carousel-strip">
+        <div class="carousel-slide"><span class="slide-num">1</span><img loading="lazy" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/social-plan/photos/vancouver-penthouse/vancouverhouse-bop-penthouse-living-dining-walnut-slat-ceiling-ocean-view.jpg" alt="Living/dining walnut slat + ocean"></div>
+        <div class="carousel-slide"><span class="slide-num">2</span><img loading="lazy" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/social-plan/photos/vancouver-penthouse/vancouverhouse-bop-penthouse-kitchen-marble-island-wide-walnut-slat-ceiling.jpg" alt="Kitchen marble island"></div>
+        <div class="carousel-slide"><span class="slide-num">3</span><img loading="lazy" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/social-plan/photos/vancouver-penthouse/vancouverhouse-bop-penthouse-kitchen-walnut-marble-backsplash-island.jpg" alt="Walnut + marble backsplash"></div>
+        <div class="carousel-slide"><span class="slide-num">4</span><img loading="lazy" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/social-plan/photos/vancouver-penthouse/vancouverhouse-bop-penthouse-walnut-slat-door-black-handle-detail.jpg" alt="Walnut slat door black handle"></div>
+        <div class="carousel-slide"><span class="slide-num">5</span><img loading="lazy" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/social-plan/photos/vancouver-penthouse/vancouverhouse-bop-penthouse-master-bath-freestanding-tub-curved-walnut-slat-wall.jpg" alt="Master bath curved slat"></div>
+        <div class="carousel-slide"><span class="slide-num">6</span><img loading="lazy" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/social-plan/photos/vancouver-penthouse/vancouverhouse-bop-penthouse-bocci-stairwell-dusk-exterior-view.jpg" alt="Bocci stairwell dusk exterior"></div>
+      </div>
+      <p class="carousel-note">6-slide arc · slat module across three rooms + one curve</p>
+      <div class="caption">
+        <span class="caption-label">Caption</span>
+        <p>Walnut slat ceiling. Three rooms. One module.</p>
+        <p>The slat is a profile we milled in the shop, solid stock, eased on every edge. The module repeats across the kitchen, the dining room, and the living room without breaking at the doorway. Above the master tub the same slat is curved on a four-foot radius, bent over a form in the shop and held until the lamination cured.</p>
+        <p>The marble is the architect's. The slat module is ours.</p>
+        <p>Design <code>[@architect]</code> · Designer <code>[@designer]</code> · Photography <code>[@photographer]</code></p>
+      </div>
+      <div class="hashtags">#walnut #slatceiling #customcabinetry #millwork #finewoodworking #architecturalmillwork #vancouvermillwork #penthouse #vancouverinteriors #moderninteriors #radiuswood #thecraft</div>
+    </div>
+  </article>
+
+  <!-- W3.2 WED -->
+  <article class="post">
+    <header class="post-header">
+      <span class="post-date">Wed · Jun 3</span>
+      <span class="post-type">IG Single</span>
+      <span class="post-pillar">The Craft · Past Project</span>
+      <span class="post-status">Pending</span>
+    </header>
+    <div class="post-body">
+      <div class="post-image-single"><img loading="lazy" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/social-plan/photos/vancouver-penthouse/vancouverhouse-bop-penthouse-master-bath-freestanding-tub-curved-walnut-slat-wall.jpg" alt="Master bath curved slat wall"></div>
+      <div class="caption">
+        <span class="caption-label">Caption</span>
+        <p>Same walnut slat module. Curved on a four-foot radius.</p>
+        <p>Above the master tub, the slat ceiling from the kitchen turns and runs up the wall, then bends through a four-foot radius across the head of the tub. Each slat is laminated from three thinner layers, vacuum-bagged over a form in the shop, held until the glue cured. From the bath the curve reads as a single continuous piece. It's actually forty-eight individual slats, each one bent the same way.</p>
+        <p>Design <code>[@architect]</code> · Photography <code>[@photographer]</code></p>
+      </div>
+      <div class="hashtags">#walnut #laminatedcurves #springback #customjoinery #millwork #finewoodworking #materialstudy #vancouvermillwork #penthouse #radiuswood #thecraft</div>
+    </div>
+  </article>
+
+  <!-- W3.3 SAT -->
+  <article class="post">
+    <header class="post-header">
+      <span class="post-date">Sat · Jun 6</span>
+      <span class="post-type">IG Single</span>
+      <span class="post-pillar">The Craft · Shop</span>
+      <span class="post-status">Pending</span>
+    </header>
+    <div class="post-body">
+      <div class="post-image-single"><img loading="lazy" src="photos/shop/_DSC7542.jpg" alt="Smoked oak slat with finger pocket"></div>
+      <div class="caption">
+        <span class="caption-label">Caption</span>
+        <p>Smoked Arabica oak. The colour isn't a stain. It's a chemical reaction.</p>
+        <p>The wood goes into an environment high in ammonia gas. The gas reacts with the tannins in the oak. Boards with more tannins go darker. So you get tonal variation slot to slot, even within a single piece. Pigment stains give you uniformity. This gives you character.</p>
+        <p>No handle on this slat door. The pull is a back-cut on the slat with a rabbet underneath. You hook a finger and pull. Roller catch closes it.</p>
+        <p>About three thousand slats in this house.</p>
+        <p>Photography @mattanthonyphoto</p>
+      </div>
+      <div class="hashtags">#smokedoak #europeanoak #ammoniaprocess #customjoinery #millworkshop #archmillwork #vancouvermillwork #burnabymade #radiuswood #thecraft</div>
+    </div>
+  </article>
+</section>
+
+<!-- WEEK 4 -->
+<section id="week4" class="week">
+  <header class="week-header">
+    <span class="week-num">Week 04</span>
+    <h2 class="week-title">Shop <em>wrap</em></h2>
+    <span class="week-dates">Jun 8 — Jun 14</span>
+  </header>
+
+  <!-- W4.1 MON -->
+  <article class="post">
+    <header class="post-header">
+      <span class="post-date">Mon · Jun 8</span>
+      <span class="post-type">IG Single</span>
+      <span class="post-pillar">The Craft · Past Project</span>
+      <span class="post-status">Pending</span>
+    </header>
+    <div class="post-body">
+      <div class="post-image-single"><img loading="lazy" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/social-plan/photos/vancouver-penthouse/vancouverhouse-bop-penthouse-walnut-slat-door-black-handle-detail.jpg" alt="Walnut slat door with black handle"></div>
+      <div class="caption">
+        <span class="caption-label">Caption</span>
+        <p>Same slat module. Now a door.</p>
+        <p>The walnut slat profile from the ceiling continues onto the corridor door. Solid stock, eased on every edge, the same continuous reveal between slats. One black hardware pull, mortised flush. Nothing else on the face.</p>
+        <p>One module. Ceiling, then wall, then door. The grain stays continuous.</p>
+        <p>Design <code>[@architect]</code> · Photography <code>[@photographer]</code></p>
+      </div>
+      <div class="hashtags">#walnut #slatdoor #customjoinery #millwork #finewoodworking #materialstudy #vancouvermillwork #penthouse #moderninteriors #radiuswood #thecraft</div>
+    </div>
+  </article>
+
+  <!-- W4.2 WED -->
+  <article class="post">
+    <header class="post-header">
+      <span class="post-date">Wed · Jun 10</span>
+      <span class="post-type carousel">IG Carousel</span>
+      <span class="post-pillar">The Shop · Finishing</span>
+      <span class="post-status">Pending</span>
+    </header>
+    <div class="post-body">
+      <div class="carousel-strip">
+        <div class="carousel-slide"><span class="slide-num">1</span><img loading="lazy" src="photos/shop/_DSC7665.jpg" alt="JC spraying in finishing room"></div>
+        <div class="carousel-slide"><span class="slide-num">2</span><img loading="lazy" src="photos/shop/_DSC7679.jpg" alt="JC spraying coffee table top"></div>
+        <div class="carousel-slide"><span class="slide-num">3</span><img loading="lazy" src="photos/shop/_DSC7741.jpg" alt="Drying rack with RADIUS feet"></div>
+        <div class="carousel-slide"><span class="slide-num">4</span><img loading="lazy" src="photos/shop/_DSC7405.jpg" alt="Dovetail joint top close-up"></div>
+        <div class="carousel-slide"><span class="slide-num">5</span><img loading="lazy" src="photos/shop/_DSC7494.jpg" alt="Worker routing a panel"></div>
+        <div class="carousel-slide"><span class="slide-num">6</span><img loading="lazy" src="photos/shop/_DSC7480.jpg" alt="Hand on pipe clamp and cabinet"></div>
+      </div>
+      <p class="carousel-note">6-slide finishing-room arc · the part of the shop most clients never see</p>
+      <div class="caption">
+        <span class="caption-label">Caption</span>
+        <p>The finishing room. The part of the shop most clients never see.</p>
+        <p>Top coats are sold in degrees of sheen. Zero, ten, twenty-five, thirty-five, ninety. The higher the sheen, the more it shows every flaw. Above ninety, you can't gun-finish, you cut polish. A piece of dust that landed four coats ago will still show through.</p>
+        <p>JC has been doing this longer than most people have been doing anything. Three days, four coats, sanded with 400 between. Then the piece moves to the drying rack and waits.</p>
+        <p>Photography @mattanthonyphoto</p>
+      </div>
+      <div class="hashtags">#finishingroom #conversionvarnish #handfinished #millworkshop #thecraft #customcabinetry #vancouvermillwork #burnabymade #radiuswood #thefinishingroom</div>
+    </div>
+  </article>
+
+  <!-- W4.3 SAT -->
+  <article class="post">
+    <header class="post-header">
+      <span class="post-date">Sat · Jun 13</span>
+      <span class="post-type">IG Single</span>
+      <span class="post-pillar">The Team · Shop</span>
+      <span class="post-status">Pending</span>
+    </header>
+    <div class="post-body">
+      <div class="post-image-single"><img loading="lazy" src="photos/shop/_DSC7491.jpg" alt="Sydney at the router"></div>
+      <div class="caption">
+        <span class="caption-label">Caption</span>
+        <p>Sydney at the router.</p>
+        <p>Routing the inlay slot for the cigar-lounge corner you saw two weeks ago. Two-flute carbide bit, climb cut on the first pass, conventional on the second to clean the wall. The slot has to come out at exactly two and three-eighths wide, full depth, no chatter, no tearout. The ebonised pear inlay will fit it with a quarter-thousandth of slip.</p>
+        <p>Eighteen years on this bench between the four of us who do this kind of work. Sydney is the newest at three.</p>
+        <p>Photography @mattanthonyphoto</p>
+      </div>
+      <div class="hashtags">#thecrew #journeyman #benchlife #routing #customjoinery #millworkshop #vancouvermillwork #burnabymade #radiuswood #thecraft</div>
+    </div>
+  </article>
+</section>
+
+<!-- STORIES -->
+<section id="stories">
+  <h2>Stories · <em>eight frames</em></h2>
+  <p style="margin-bottom:20px;color:var(--stone);font-size:14px;">Two stories per week, drip-posted Tuesday and Friday. Each is 9:16 vertical, 10–25 words of caption text, drops in the late morning.</p>
+
+  <div class="stories-grid">
+    <div class="story-card">
+      <div class="story-image"><img loading="lazy" src="photos/shop/_DSC7263.jpg" alt="Old Gravel Road plan drawing"></div>
+      <div class="story-meta">
+        <div class="story-day">Tue May 19 · Wk1</div>
+        <div class="story-caption">"Old Gravel Road. Drawings on the bench. Day starts here."</div>
+      </div>
+    </div>
+    <div class="story-card">
+      <div class="story-image"><img loading="lazy" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/social-plan/photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-kitchen-bocci-pendants-granite-island-anigre-cabinetry.jpg" alt="Bocci pendants over anigre kitchen"></div>
+      <div class="story-meta">
+        <div class="story-day">Fri May 22 · Wk1</div>
+        <div class="story-caption">"Bocci pendants. The anigre behind them set the colour temperature for the room."</div>
+      </div>
+    </div>
+    <div class="story-card">
+      <div class="story-image"><img loading="lazy" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/social-plan/photos/waterfront-anigre-penthouse/waterfront-anigre-penthouse-inuit-polar-bear-art-sailboat-model-credenza-niche.jpg" alt="Anigre niche with Inuit art"></div>
+      <div class="story-meta">
+        <div class="story-day">Tue May 26 · Wk2</div>
+        <div class="story-caption">"Inuit sculpture. Anigre display niche. The cabinetry frames the art."</div>
+      </div>
+    </div>
+    <div class="story-card">
+      <div class="story-image"><img loading="lazy" src="photos/shop/_DSC7344.jpg" alt="Clamp wall and edge bander"></div>
+      <div class="story-meta">
+        <div class="story-day">Fri May 29 · Wk2</div>
+        <div class="story-caption">"The clamp wall. Where boxes get glued. Boring step. Decides everything."</div>
+      </div>
+    </div>
+    <div class="story-card">
+      <div class="story-image"><img loading="lazy" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/social-plan/photos/vancouver-penthouse/vancouverhouse-bop-penthouse-walnut-slat-corridor-bocci-stair-view.jpg" alt="Walnut slat corridor Bocci stair"></div>
+      <div class="story-meta">
+        <div class="story-day">Tue Jun 2 · Wk3</div>
+        <div class="story-caption">"Walnut slat corridor. Bocci stair at the end. The slat ceiling runs continuous through the hall."</div>
+      </div>
+    </div>
+    <div class="story-card">
+      <div class="story-image"><img loading="lazy" src="photos/shop/_DSC7820.jpg" alt="Old Gravel Road bedroom elevation"></div>
+      <div class="story-meta">
+        <div class="story-day">Fri Jun 5 · Wk3</div>
+        <div class="story-caption">"Old Gravel Road, Bedroom 2, elevation, sheet 3 of 9."</div>
+      </div>
+    </div>
+    <div class="story-card">
+      <div class="story-image"><img loading="lazy" src="https://mattanthonyphoto.github.io/matt-proposals/radiuswood/social-plan/photos/vancouver-penthouse/vancouverhouse-bop-penthouse-walnut-pantry-marble-shelf-detail.jpg" alt="Walnut pantry marble shelf"></div>
+      <div class="story-meta">
+        <div class="story-day">Tue Jun 9 · Wk4</div>
+        <div class="story-caption">"Walnut pantry, marble shelf insert. Two materials. One reveal line, held at one quarter."</div>
+      </div>
+    </div>
+    <div class="story-card">
+      <div class="story-image"><img loading="lazy" src="photos/shop/_DSC7679.jpg" alt="JC spraying coffee table"></div>
+      <div class="story-meta">
+        <div class="story-day">Fri Jun 12 · Wk4</div>
+        <div class="story-caption">"JC, the coffee-table top, the spray booth. The quiet part."</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<section style="margin-top:60px;padding-top:40px;border-top:1px solid var(--rule);font-size:13px;color:var(--stone);">
+  <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:18px;color:var(--ink);margin-bottom:14px;">Once you approve, I schedule.</p>
+  <p>Late MCP picks up the captions, hashtags, and photo files in the order shown above and auto-publishes on each date around the late-morning posting window (Tue–Thu 11 am–1 pm PT for the strongest engagement window per 2026 Instagram data).</p>
+  <p>The bracketed credits <code>[@architect]</code>, <code>[@designer]</code>, <code>[@photographer]</code> need your fill-in before the past-project posts go live. The shop posts are publish-ready as drafted.</p>
+  <p style="margin-top:20px;font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--ink);">— Matt</p>
+</section>
+
+</div>
+
+</body>
+</html>
