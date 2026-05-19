@@ -1,0 +1,940 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cortes Island Residence, Photography Proposal for Fitchett Construction</title>
+<meta name="description" content="A two-day architectural photography shoot on Cortes Island. Prepared by Matt Anthony Photography for Fitchett Construction Ltd.">
+<link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1A1A18;
+    --paper: #F6F4F0;
+    --gold: #C9A96E;
+    --gold-dim: rgba(201,169,110,0.12);
+    --gold-border: rgba(201,169,110,0.25);
+    --gold-glow: rgba(201,169,110,0.06);
+    --stone: #8A8579;
+    --white: #FFFFFF;
+    --light: #FAFAF8;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { font-size:16px; -webkit-print-color-adjust:exact; print-color-adjust:exact; scroll-behavior:smooth; }
+  body { background:var(--white); color:var(--ink); font-family:'DM Sans',sans-serif; font-weight:300; line-height:1.75; overflow-x:hidden; }
+  ::selection { background:var(--gold); color:var(--ink); }
+
+  /* PROGRESS BAR */
+  .progress {
+    position:fixed; top:0; left:0; height:2px; width:0;
+    background:var(--gold); z-index:200; transition:width 0.1s linear;
+  }
+
+  /* COVER */
+  .cover {
+    min-height:100vh; background:var(--ink); color:var(--paper);
+    display:flex; flex-direction:column; justify-content:flex-end;
+    position:relative; page-break-after:always; overflow:hidden;
+  }
+  .cover-image {
+    position:absolute; top:0; left:0; width:100%; height:100%;
+    background-image:url("https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/8a674d33-4176-43dd-89c1-a565c1c3df48/5322-backhouse-web-24.jpg");
+    background-size:cover; background-position:center 50%;
+    will-change:transform; transition:transform 0.1s linear;
+  }
+  .cover-image::after {
+    content:''; position:absolute; top:0; left:0; width:100%; height:100%;
+    background:linear-gradient(to bottom, rgba(26,26,24,0.4) 0%, rgba(26,26,24,0.2) 30%, rgba(26,26,24,0.5) 60%, rgba(26,26,24,0.94) 85%, rgba(26,26,24,0.99) 100%);
+  }
+  .cover-top {
+    position:absolute; top:0; left:0; right:0; z-index:3;
+    padding:40px 60px; display:flex; justify-content:space-between; align-items:center;
+  }
+  .cover-logo {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.35em; text-transform:uppercase; color:rgba(246,244,240,0.7);
+  }
+  .cover-date {
+    font-family:'Josefin Sans',sans-serif; font-size:0.65rem;
+    letter-spacing:0.2em; color:rgba(246,244,240,0.45);
+  }
+  .cover-content {
+    position:relative; z-index:2; padding:0 60px 80px;
+    max-width:760px;
+  }
+  .cover-eyebrow {
+    font-family:'Josefin Sans',sans-serif; font-weight:300; font-size:0.65rem;
+    letter-spacing:0.4em; text-transform:uppercase; color:var(--gold);
+    margin-bottom:22px; display:flex; align-items:center; gap:16px;
+  }
+  .cover-eyebrow::before {
+    content:''; width:32px; height:1px; background:var(--gold);
+  }
+  .cover h1 {
+    font-family:'Cormorant Garamond',serif; font-weight:400;
+    font-size:clamp(2.6rem,5.5vw,4.6rem); line-height:1.08; margin-bottom:24px;
+    letter-spacing:-0.01em;
+  }
+  .cover h1 em {
+    font-style:italic; font-weight:500; color:var(--gold);
+  }
+  .cover-sub {
+    font-size:1rem; color:rgba(246,244,240,0.78); max-width:520px;
+    line-height:1.85; margin-bottom:56px;
+  }
+  .cover-meta-bar {
+    display:flex; gap:48px; padding-top:32px; flex-wrap:wrap;
+    border-top:1px solid rgba(201,169,110,0.18);
+  }
+  .cover-meta-item {
+    font-size:0.75rem; color:rgba(246,244,240,0.45); line-height:1.8;
+  }
+  .cover-meta-item strong {
+    display:block; color:rgba(246,244,240,0.78); font-weight:400;
+    font-family:'Josefin Sans',sans-serif; font-size:0.6rem;
+    letter-spacing:0.18em; text-transform:uppercase; margin-bottom:4px;
+  }
+
+  /* SECTIONS */
+  .section { padding:120px 60px; max-width:1000px; margin:0 auto; }
+
+  h2 {
+    font-family:'Cormorant Garamond',serif; font-weight:400;
+    font-size:2.6rem; line-height:1.14; margin-bottom:32px;
+    letter-spacing:-0.01em;
+  }
+  h2 em { font-style:italic; font-weight:500; color:var(--gold); }
+
+  p { margin-bottom:20px; font-size:0.95rem; }
+  .lead { font-size:1.05rem; line-height:1.9; color:var(--stone); max-width:680px; }
+
+  /* INVESTMENT TABLE */
+  .invest-table {
+    margin:0 0 32px; border-top:1px solid var(--ink);
+  }
+  .invest-row {
+    display:grid; grid-template-columns:1fr auto;
+    padding:24px 0; border-bottom:1px solid rgba(26,26,24,0.08);
+    align-items:baseline; gap:24px;
+  }
+  .invest-label { font-size:0.95rem; color:var(--ink); }
+  .invest-label small {
+    display:block; color:rgba(26,26,24,0.55); font-size:0.78rem;
+    margin-top:4px; line-height:1.55; font-weight:300;
+  }
+  .invest-amount {
+    font-family:'Cormorant Garamond',serif; font-style:italic;
+    font-size:1.3rem; font-weight:400; color:var(--ink);
+    white-space:nowrap; letter-spacing:-0.005em;
+  }
+  .invest-row.subtotal {
+    border-top:1px solid rgba(26,26,24,0.15); margin-top:12px;
+    padding-top:24px;
+  }
+  .invest-row.subtotal .invest-label {
+    font-family:'Josefin Sans',sans-serif; font-weight:500;
+    font-size:0.62rem; letter-spacing:0.22em;
+    text-transform:uppercase; color:rgba(26,26,24,0.55);
+  }
+  .invest-row.subtotal .invest-amount {
+    font-size:1.4rem;
+  }
+  .invest-row.total {
+    border-top:1px solid var(--ink) !important;
+    border-bottom:none !important;
+    padding:36px 0 !important; margin-top:24px;
+  }
+  .invest-row.total .invest-label {
+    font-family:'Cormorant Garamond',serif; font-weight:400;
+    font-size:1.4rem; color:var(--ink); font-style:italic;
+  }
+  .invest-row.total .invest-amount {
+    font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400;
+    font-size:2.6rem; color:var(--ink); letter-spacing:-0.015em;
+  }
+
+  /* FOOTER */
+  .footer {
+    background:var(--ink); color:rgba(246,244,240,0.5);
+    padding:56px 60px; text-align:center;
+    font-family:'Josefin Sans',sans-serif; font-size:0.6rem;
+    letter-spacing:0.25em; text-transform:uppercase;
+  }
+  .footer span { color:var(--gold); }
+  .footer .gst { display:block; margin-top:10px; font-size:0.55rem; letter-spacing:0.2em; color:rgba(246,244,240,0.3); }
+
+  /* EDITORIAL SYSTEM */
+  .ed-spread {
+    display:grid; grid-template-columns:80px 1fr; gap:32px;
+  }
+  .ed-num {
+    font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400;
+    font-size:1.6rem; color:rgba(26,26,24,0.3); padding-top:6px;
+  }
+  .ed-eyebrow {
+    font-family:'Josefin Sans',sans-serif; font-weight:500;
+    font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase;
+    color:rgba(26,26,24,0.5); margin-bottom:14px;
+  }
+  .ed-eyebrow.gold { color:var(--gold); }
+  .ed-title {
+    font-family:'Cormorant Garamond',serif; font-weight:400;
+    font-size:clamp(2.2rem,3.6vw,3rem);
+    line-height:1.1; letter-spacing:-0.02em;
+    margin-bottom:0;
+  }
+  .ed-title em { font-style:italic; color:var(--ink); }
+  .ed-lede {
+    font-family:'Cormorant Garamond',serif; font-weight:300;
+    font-size:1.2rem; line-height:1.6;
+    color:rgba(26,26,24,0.78); font-style:italic;
+    max-width:680px; margin-bottom:0;
+  }
+  .ed-body {
+    max-width:720px;
+  }
+  .ed-body p {
+    font-size:0.95rem; line-height:1.8;
+    color:rgba(26,26,24,0.85); margin-bottom:18px;
+  }
+  .ed-body p:last-child { margin-bottom:0; }
+  .ed-body p.lead {
+    font-family:'Cormorant Garamond',serif; font-weight:300;
+    font-size:1.2rem; line-height:1.6; font-style:italic;
+    color:rgba(26,26,24,0.78);
+  }
+  .ed-list {
+    list-style:none; padding:0; margin:0;
+  }
+  .ed-list li {
+    font-size:0.95rem; line-height:1.75;
+    padding:16px 0 16px 24px; position:relative;
+    border-bottom:1px solid rgba(26,26,24,0.08);
+    color:rgba(26,26,24,0.78);
+  }
+  .ed-list li:last-child { border-bottom:none; }
+  .ed-list li::before {
+    content:''; position:absolute; left:0; top:23px;
+    width:12px; height:1px; background:rgba(26,26,24,0.3);
+  }
+  .ed-list li strong {
+    color:var(--ink); font-weight:500;
+  }
+  .ed-rule { border-top:1px solid var(--ink); }
+  .ed-rule-thin { border-top:1px solid rgba(26,26,24,0.15); }
+  .ed-section {
+    background:var(--white);
+    padding:140px 60px 120px;
+    max-width:none;
+  }
+  .ed-section.alt { background:#FAFAF8; }
+  .ed-inner {
+    max-width:1100px; margin:0 auto;
+  }
+  .ed-block { padding:48px 0; }
+  .ed-block-tight { padding:32px 0; }
+
+  /* RESPONSIVE */
+  @media (max-width:768px) {
+    .cover-top, .cover-content { padding-left:30px; padding-right:30px; }
+    .cover-meta-bar { gap:24px; }
+    .section { padding:80px 30px; }
+    .invest-row { grid-template-columns:1fr; }
+    .invest-amount { padding-top:6px; }
+    [style*="grid-template-columns:80px 1fr"], .ed-spread {
+      grid-template-columns:1fr !important;
+      gap:14px !important;
+    }
+    [style*="grid-template-columns:1fr auto 1fr auto 1fr"] {
+      grid-template-columns:1fr !important;
+      gap:24px !important;
+      text-align:center !important;
+    }
+    .ed-section { padding:80px 30px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="progress" id="progress"></div>
+
+<!-- COVER -->
+<section class="cover">
+  <div class="cover-image"></div>
+  <div class="cover-top">
+    <div class="cover-logo">Matt Anthony Photography</div>
+    <div class="cover-date">May 2026</div>
+  </div>
+  <div class="cover-content">
+    <div class="cover-eyebrow">Photography Proposal</div>
+    <h1>A residence on <em>Cortes Island</em>, photographed when the build is wrapped.</h1>
+    <p class="cover-sub">Prepared for Brad and Erin Fitchett at Fitchett Construction Ltd. Scope, deliverables, and fees for the Cortes shoot.</p>
+    <div class="cover-meta-bar">
+      <div class="cover-meta-item">
+        <strong>Prepared For</strong>
+        Fitchett Construction Ltd
+      </div>
+      <div class="cover-meta-item">
+        <strong>Project</strong>
+        Cortes Island residence
+      </div>
+      <div class="cover-meta-item">
+        <strong>Target Window</strong>
+        On completion, summer or early fall 2026
+      </div>
+      <div class="cover-meta-item">
+        <strong>Valid Through</strong>
+        July 31, 2026
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="ed-section">
+  <div class="ed-inner">
+
+    <div class="ed-spread ed-rule" style="padding-top:24px; margin-bottom:48px;">
+      <div class="ed-num">01</div>
+      <div>
+        <div class="ed-eyebrow gold">Overview</div>
+        <h2 class="ed-title">A long build, properly <em>documented at the end</em>.</h2>
+      </div>
+    </div>
+
+    <div class="ed-spread" style="margin-bottom:48px;">
+      <div></div>
+      <div class="ed-body">
+        <p class="lead">Erin, thanks for the note back in the spring. The Cortes project sounded like a serious build then, and from the gallery on your site it clearly is. This is how I'd approach it once you're ready to put a camera in front of it.</p>
+        <p>The shape I'm proposing is a two-day shoot on Cortes, with a half-day of travel on each end. Two ferries each way to get there, so by the time we're set up on site, the marginal cost of a second day is small and the coverage doubles. Two days lets us work the building through a full cycle of light, hold a weather buffer, and still come home with a complete set of images for the website, magazines, awards, and your own marketing for years.</p>
+        <p>What follows is how the days run, what arrives at the end, and how the cost breaks down. Prepared for Fitchett Construction directly. Single client, clean pricing, no third-party splits.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PROCESS / HOW I WORK -->
+<section class="ed-section alt">
+  <div class="ed-inner">
+
+    <div class="ed-spread ed-rule" style="padding-top:24px; margin-bottom:48px;">
+      <div class="ed-num">02</div>
+      <div>
+        <div class="ed-eyebrow gold">How I Work</div>
+        <h2 class="ed-title">Pre-production, on-site, and post, <em>treated as one piece</em>.</h2>
+      </div>
+    </div>
+
+    <div class="ed-spread" style="margin-bottom:64px;">
+      <div></div>
+      <div class="ed-body">
+        <p class="lead">Architectural photography lives or dies in preparation. By the time we step onto the ferry, we already know what we're shooting and why. The days themselves are execution against a plan we've built together.</p>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin ed-block">
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:rgba(26,26,24,0.3); margin-bottom:10px;">i</div>
+        <div class="ed-eyebrow" style="margin-bottom:0;">Before the Day</div>
+      </div>
+      <div class="ed-body">
+        <ul class="ed-list">
+          <li><strong>Onboarding questionnaire.</strong> The primary tool. It captures the project's narrative, what matters in each space, why specific moves were made, and which moments should read in the imagery. Built so it can be filled in on your timeline without a call.</li>
+          <li><strong>Drawings and reference material.</strong> Plans, elevations, sections, renderings, mood images. Anything you can share so I know what the building is before I see it.</li>
+          <li><strong>Sun-path study</strong> against the site orientation, so we know which elevation gets which light at which hour across both days.</li>
+          <li><strong>Optional alignment call.</strong> Welcome but not required. The questionnaire usually does the work. A call is for projects with unusual constraints or tight timing.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin ed-block">
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:rgba(26,26,24,0.3); margin-bottom:10px;">ii</div>
+        <div class="ed-eyebrow" style="margin-bottom:0;">On the Day</div>
+      </div>
+      <div class="ed-body">
+        <ul class="ed-list">
+          <li><strong>Tilt-shift workflow</strong> for vertical perspective control. Lines stay true at the camera, not in post. The building's geometry is preserved.</li>
+          <li><strong>Tethered capture</strong> for color-critical interior work. What you see on the laptop is what arrives in the final file.</li>
+          <li><strong>Off-camera light shaping</strong> where interior conditions need filling, applied so the image still reads as natural light.</li>
+          <li><strong>Drone work</strong> for site context and roof plane. Transport Canada Advanced certified, regulations and weather permitting. Cortes is mostly clear airspace, which helps.</li>
+          <li><strong>Quiet on site.</strong> Trades, owners, or anyone present accommodated, not directed.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin ed-block">
+      <div>
+        <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:rgba(26,26,24,0.3); margin-bottom:10px;">iii</div>
+        <div class="ed-eyebrow" style="margin-bottom:0;">After the Day</div>
+      </div>
+      <div class="ed-body">
+        <ul class="ed-list">
+          <li><strong>Each frame processed individually.</strong> Color, tone, and contrast set per image, not against a global preset.</li>
+          <li><strong>Verticals, horizons, and cropping</strong> checked frame-by-frame.</li>
+          <li><strong>Custom crops</strong> prepared on request for any platform or use case with specific aspect requirements.</li>
+          <li><strong>Final delivery</strong> in 10 to 15 business days. Selects available within 72 hours if a deadline is in play.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:32px; margin-top:32px;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">Tools</div>
+      <div class="ed-body" style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:1rem; color:rgba(26,26,24,0.7); line-height:1.8;">
+        Tilt-shift lenses, tethered capture, studio strobes, Transport Canada Advanced drone certification, calibrated end-to-end colour workflow.
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- THROUGH THE DAYS -->
+<section class="ed-section">
+  <div class="ed-inner">
+
+    <div class="ed-spread ed-rule" style="padding-top:24px; margin-bottom:48px;">
+      <div class="ed-num">03</div>
+      <div>
+        <div class="ed-eyebrow gold">Across Two Days</div>
+        <h2 class="ed-title">How the shoot <em>actually unfolds</em>.</h2>
+      </div>
+    </div>
+
+    <div class="ed-spread" style="margin-bottom:48px;">
+      <div></div>
+      <div class="ed-body">
+        <p class="lead">Summer and early fall give roughly fifteen to sixteen hours of usable light on the BC coast. Days are paired so that anything missed on Day One because of weather, light, or trade activity has a clear second pass. The order below is approximate and locks during the pre-shoot questionnaire.</p>
+      </div>
+    </div>
+
+    <!-- DAY ONE -->
+    <div class="ed-spread ed-rule" style="padding-top:32px; margin-bottom:32px;">
+      <div class="ed-eyebrow gold" style="margin-bottom:0;">Day One</div>
+      <div>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.8rem; color:var(--ink); line-height:1.2; margin-bottom:0;">Establish the building.</h3>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:24px; padding-bottom:24px; align-items:baseline;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">05:30 to 07:00</div>
+      <div class="ed-body">
+        <h4 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:var(--ink); line-height:1.3; margin-bottom:8px;">First light, walk-through, east elevations.</h4>
+        <p style="font-size:0.93rem; color:rgba(26,26,24,0.75); margin-bottom:0; line-height:1.7;">Gear set, walk the residence with you or your foreman to confirm the day's order. East and south-east facing elevations as the sun comes up across the Strait. The building's quietest face, often its strongest.</p>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:24px; padding-bottom:24px; align-items:baseline;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">07:00 to 10:00</div>
+      <div class="ed-body">
+        <h4 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:var(--ink); line-height:1.3; margin-bottom:8px;">Morning interiors with east exposure.</h4>
+        <p style="font-size:0.93rem; color:rgba(26,26,24,0.75); margin-bottom:0; line-height:1.7;">Interior spaces that take morning light directly. The softest natural-light window of the day. Tethered capture so we can read color and tone live.</p>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:24px; padding-bottom:24px; align-items:baseline;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">10:00 to 14:00</div>
+      <div class="ed-body">
+        <h4 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:var(--ink); line-height:1.3; margin-bottom:8px;">Detail, material, and aerials.</h4>
+        <p style="font-size:0.93rem; color:rgba(26,26,24,0.75); margin-bottom:0; line-height:1.7;">Interior detail studies and material moments. Joinery, transitions, hardware, surface. Drone work mid-window when sun height gives a clean read on roof planes and site context, conditions allowing.</p>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:24px; padding-bottom:24px; align-items:baseline;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">14:00 to 17:30</div>
+      <div class="ed-body">
+        <h4 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:var(--ink); line-height:1.3; margin-bottom:8px;">West elevations and second-pass interiors.</h4>
+        <p style="font-size:0.93rem; color:rgba(26,26,24,0.75); margin-bottom:0; line-height:1.7;">West-facing elevations as light begins to direct. Second pass on key interior spaces with afternoon light, often a different read than the morning frame of the same room.</p>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:24px; padding-bottom:24px; align-items:baseline; border-top:1px solid var(--gold); border-bottom:1px solid var(--gold);">
+      <div class="ed-eyebrow" style="margin-bottom:0; color:var(--gold);">17:30 to 21:30</div>
+      <div class="ed-body">
+        <h4 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.5rem; color:var(--ink); line-height:1.3; margin-bottom:8px;">Golden hour, hero exteriors, twilight.</h4>
+        <p style="font-size:0.93rem; color:rgba(26,26,24,0.78); margin-bottom:0; line-height:1.7;">Long-shadow elevations, approach and threshold frames, and the four to eight minute twilight window when interior brightness balances against deep blue sky. The frame the building reads in like no other hour.</p>
+      </div>
+    </div>
+
+    <!-- DAY TWO -->
+    <div class="ed-spread ed-rule" style="padding-top:48px; margin-top:32px; margin-bottom:32px;">
+      <div class="ed-eyebrow gold" style="margin-bottom:0;">Day Two</div>
+      <div>
+        <h3 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.8rem; color:var(--ink); line-height:1.2; margin-bottom:0;">Fill in, refine, hold a weather buffer.</h3>
+      </div>
+    </div>
+
+    <div class="ed-spread" style="margin-bottom:32px;">
+      <div></div>
+      <div class="ed-body">
+        <p style="font-size:0.95rem; color:rgba(26,26,24,0.78); margin-bottom:0; line-height:1.8;">Day Two opens with the night's review still fresh. We work the gaps, hit the spaces that didn't get the right light yesterday, capture a second twilight if weather looked uncertain on Day One, and pick up any moments that emerged once I'd walked the building once already. On a remote site, the second day is what turns a complete shoot into a thorough one.</p>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:24px; padding-bottom:24px; align-items:baseline;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">Morning</div>
+      <div class="ed-body">
+        <h4 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:var(--ink); line-height:1.3; margin-bottom:8px;">Targeted re-shoots and missed spaces.</h4>
+        <p style="font-size:0.93rem; color:rgba(26,26,24,0.75); margin-bottom:0; line-height:1.7;">Any room that didn't get its best light yesterday, any detail that needed an angle we couldn't get the first time, and any exterior face that the weather worked against.</p>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:24px; padding-bottom:24px; align-items:baseline;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">Midday</div>
+      <div class="ed-body">
+        <h4 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:var(--ink); line-height:1.3; margin-bottom:8px;">Lifestyle, owner-optional moments, build details.</h4>
+        <p style="font-size:0.93rem; color:rgba(26,26,24,0.75); margin-bottom:0; line-height:1.7;">If the owners or your team want a few human-presence frames, they fit here. Also a window for the kind of construction-craft details that lift a build's story above just product photography.</p>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:24px; padding-bottom:24px; align-items:baseline; border-top:1px solid var(--gold); border-bottom:1px solid var(--gold);">
+      <div class="ed-eyebrow" style="margin-bottom:0; color:var(--gold);">Late afternoon to twilight</div>
+      <div class="ed-body">
+        <h4 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.5rem; color:var(--ink); line-height:1.3; margin-bottom:8px;">Second twilight, weather permitting.</h4>
+        <p style="font-size:0.93rem; color:rgba(26,26,24,0.78); margin-bottom:0; line-height:1.7;">A second crack at the twilight frame. On Cortes, holding two evenings doubles the odds of getting the one image that sits at the top of the project page.</p>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:48px; margin-top:32px;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">Note</div>
+      <div class="ed-body">
+        <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:1.1rem; color:rgba(26,26,24,0.78); line-height:1.7; margin-bottom:0;">Two ferries each way is real travel. The second day is what makes the trip worth taking properly. Once we're set up on Cortes, the marginal cost of staying another night is small and the coverage is meaningfully more complete.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- DELIVERABLES -->
+<section class="ed-section alt">
+  <div class="ed-inner">
+
+    <div class="ed-spread ed-rule" style="padding-top:24px; margin-bottom:48px;">
+      <div class="ed-num">04</div>
+      <div>
+        <div class="ed-eyebrow gold">Deliverables</div>
+        <h2 class="ed-title">What <em>arrives at the end</em>.</h2>
+      </div>
+    </div>
+
+    <div class="ed-spread" style="margin-bottom:48px;">
+      <div></div>
+      <div class="ed-body">
+        <p class="lead">Final selects are processed one at a time, frame by frame. Below is what gets delivered for the two-day scope.</p>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:32px;">
+      <div></div>
+      <div class="ed-body">
+        <ul class="ed-list">
+          <li><strong>Final image count.</strong> 50 to 70 finished images, fully retouched and color-balanced. Coverage spans exteriors at multiple times of day, interiors, material detail, site context, and twilight.</li>
+          <li><strong>File formats.</strong> High-resolution print files (uncompressed JPEG) and web-optimized files for digital use, delivered side by side.</li>
+          <li><strong>Custom crops.</strong> Specific aspect ratios prepared on request for any platform or use case where you need them.</li>
+          <li><strong>Drone captures.</strong> Site context aerials and roof plane reads where regulations and weather allow. Delivered as part of the final set, no separate fee.</li>
+          <li><strong>Delivery.</strong> Dropbox folder, organized for direct hand-off to your team. Available indefinitely.</li>
+          <li><strong>Turnaround.</strong> 10 to 15 business days from shoot date. Selects within 72 hours if a deadline requires it.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- INVESTMENT -->
+<section class="ed-section">
+  <div class="ed-inner">
+
+    <div class="ed-spread ed-rule" style="padding-top:24px; margin-bottom:48px;">
+      <div class="ed-num">05</div>
+      <div>
+        <div class="ed-eyebrow gold">Investment</div>
+        <h2 class="ed-title">The cost, <em>line by line</em>.</h2>
+      </div>
+    </div>
+
+    <div class="ed-spread" style="margin-bottom:48px;">
+      <div></div>
+      <div class="ed-body">
+        <p class="lead">Everything below is itemized so there are no surprises. Travel costs are estimated and billed at actuals against receipts. Accommodation is coordinated and paid directly by your team, since you know the island better than I do.</p>
+      </div>
+    </div>
+
+    <div class="ed-spread" style="margin-bottom:0;">
+      <div></div>
+      <div class="ed-body" style="max-width:820px;">
+
+    <!-- PRIMARY: TWO-DAY -->
+    <div style="font-family:'Josefin Sans',sans-serif; font-weight:500; font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase; color:var(--gold); margin-bottom:18px;">Recommended scope, two-day shoot</div>
+
+    <div class="invest-table">
+      <div class="invest-row">
+        <div class="invest-label">
+          Photography, Day One on Cortes
+          <small>Full shoot day, varying light from first light through twilight. Drone, exteriors, interiors, detail, site context.</small>
+        </div>
+        <div class="invest-amount">$2,000</div>
+      </div>
+      <div class="invest-row">
+        <div class="invest-label">
+          Photography, Day Two on Cortes
+          <small>Targeted re-shoots, second twilight pass, build-craft details, lifestyle if wanted. Sold as a paired day with Day One.</small>
+        </div>
+        <div class="invest-amount">$1,500</div>
+      </div>
+      <div class="invest-row">
+        <div class="invest-label">
+          Travel day, Squamish to Cortes
+          <small>Full-day travel, outbound. Horseshoe Bay to Nanaimo ferry, drive to Campbell River, ferry to Quadra, ferry to Cortes.</small>
+        </div>
+        <div class="invest-amount">$750</div>
+      </div>
+      <div class="invest-row">
+        <div class="invest-label">
+          Travel day, Cortes to Squamish
+          <small>Full-day travel, return.</small>
+        </div>
+        <div class="invest-amount">$750</div>
+      </div>
+      <div class="invest-row subtotal">
+        <div class="invest-label">Photography subtotal</div>
+        <div class="invest-amount">$5,000</div>
+      </div>
+
+      <div class="invest-row" style="margin-top:24px;">
+        <div class="invest-label">
+          Travel costs (estimated, billed at actuals)
+          <small>BC Ferries vehicle round-trips on three routes, fuel, and per diem for four to five days on the road. Final amount tracked against receipts and invoiced as actuals.</small>
+        </div>
+        <div class="invest-amount">~$800</div>
+      </div>
+      <div class="invest-row" style="border-bottom:none;">
+        <div class="invest-label">
+          Accommodation, three nights
+          <small>Coordinated and paid directly by your team. Reviewed together before booking.</small>
+        </div>
+        <div class="invest-amount" style="color:rgba(26,26,24,0.45); font-size:0.95rem;">By client</div>
+      </div>
+
+      <div class="invest-row" style="border-top:1px solid rgba(26,26,24,0.15); margin-top:12px; padding-top:24px; border-bottom:1px solid rgba(26,26,24,0.08);">
+        <div class="invest-label" style="font-family:'Josefin Sans',sans-serif; font-weight:500; font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(26,26,24,0.55);">Subtotal, before GST</div>
+        <div class="invest-amount" style="font-size:1.4rem;">$5,800</div>
+      </div>
+
+      <div class="invest-row" style="padding:18px 0; border-bottom:1px solid rgba(26,26,24,0.08);">
+        <div class="invest-label" style="color:rgba(26,26,24,0.65);">GST (5%)</div>
+        <div class="invest-amount" style="font-size:1.15rem; color:rgba(26,26,24,0.7);">$290</div>
+      </div>
+
+      <div class="invest-row total">
+        <div class="invest-label">Grand total</div>
+        <div class="invest-amount" style="color:var(--gold);">$6,090</div>
+      </div>
+    </div>
+
+    <p style="margin-top:24px; font-size:0.78rem; color:rgba(26,26,24,0.5); line-height:1.7; max-width:560px;">Travel costs are estimated at $800 and billed at actuals against receipts. The grand total adjusts to actual travel spend. GST# 79115 0261 RT0001.</p>
+
+    <!-- ALTERNATE: ONE-DAY -->
+    <div style="margin-top:80px; padding-top:48px; border-top:1px solid rgba(26,26,24,0.15);">
+      <div style="font-family:'Josefin Sans',sans-serif; font-weight:500; font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(26,26,24,0.5); margin-bottom:18px;">Alternate scope, one-day shoot</div>
+
+      <p style="font-size:0.95rem; line-height:1.8; color:rgba(26,26,24,0.78); margin-bottom:32px; max-width:680px;">If a one-day shoot is the right shape for this build, the structure is identical. Same pre-production, same crew, same delivery. The only thing that changes is the depth of coverage and the weather buffer. 25 to 35 finished images instead of 50 to 70.</p>
+
+      <div class="invest-table">
+        <div class="invest-row">
+          <div class="invest-label">
+            Photography, single day on Cortes
+            <small>Full shoot day, first light through twilight.</small>
+          </div>
+          <div class="invest-amount">$2,000</div>
+        </div>
+        <div class="invest-row">
+          <div class="invest-label">Travel days, both directions</div>
+          <div class="invest-amount">$1,500</div>
+        </div>
+        <div class="invest-row subtotal">
+          <div class="invest-label">Photography subtotal</div>
+          <div class="invest-amount">$3,500</div>
+        </div>
+        <div class="invest-row" style="border-bottom:none;">
+          <div class="invest-label">Travel costs (est., billed at actuals)</div>
+          <div class="invest-amount">~$800</div>
+        </div>
+        <div class="invest-row" style="border-top:1px solid var(--ink) !important; border-bottom:none !important; padding:28px 0 !important; margin-top:16px;">
+          <div class="invest-label" style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.2rem; color:var(--ink);">Grand total, GST included</div>
+          <div class="invest-amount" style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:2rem; color:var(--ink);">$4,515</div>
+        </div>
+      </div>
+
+      <p style="margin-top:20px; font-size:0.78rem; color:rgba(26,26,24,0.5); line-height:1.7; max-width:560px;">Two nights of accommodation by client. The math: two days of travel plus one shoot day means two nights on the road.</p>
+    </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OPTIONAL VIDEO -->
+<section class="ed-section alt">
+  <div class="ed-inner">
+
+    <div class="ed-spread ed-rule" style="padding-top:24px; margin-bottom:48px;">
+      <div class="ed-num">06</div>
+      <div>
+        <div class="ed-eyebrow gold">Optional Add-ons</div>
+        <h2 class="ed-title">If you want <em>motion</em> alongside the stills.</h2>
+      </div>
+    </div>
+
+    <div class="ed-spread" style="margin-bottom:48px;">
+      <div></div>
+      <div class="ed-body">
+        <p class="lead">Video can be captured during the same shoot, no second trip required. Optional and only added if you want them. Pricing is on top of the photography fee.</p>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:32px;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">Reel</div>
+      <div class="ed-body" style="display:grid; grid-template-columns:1fr auto; gap:32px; align-items:baseline;">
+        <div>
+          <h4 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:var(--ink); margin-bottom:8px; line-height:1.3;">60-second walkthrough reel.</h4>
+          <p style="font-size:0.92rem; color:rgba(26,26,24,0.72); margin-bottom:0; line-height:1.7;">Vertical or horizontal, single sequence, clean cuts and ambient sound. Best for Instagram, LinkedIn, and the homepage of your site.</p>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.6rem; color:var(--ink); white-space:nowrap;">$1,000</div>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:32px; padding-bottom:32px;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">Cinematic Short</div>
+      <div class="ed-body" style="display:grid; grid-template-columns:1fr auto; gap:32px; align-items:baseline;">
+        <div>
+          <h4 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:var(--ink); margin-bottom:8px; line-height:1.3;">2 to 3 minute cinematic short.</h4>
+          <p style="font-size:0.92rem; color:rgba(26,26,24,0.72); margin-bottom:0; line-height:1.7;">Layered edit with drone, exterior motion, and interior detail. Music licensed. Delivered in 4K.</p>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.6rem; color:var(--ink); white-space:nowrap;">$2,500</div>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:32px; padding-bottom:32px;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">Documentary</div>
+      <div class="ed-body" style="display:grid; grid-template-columns:1fr auto; gap:32px; align-items:baseline;">
+        <div>
+          <h4 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:var(--ink); margin-bottom:8px; line-height:1.3;">Documentary film with builder interview.</h4>
+          <p style="font-size:0.92rem; color:rgba(26,26,24,0.72); margin-bottom:0; line-height:1.7;">Sit-down interview with Brad or Erin capturing build intent and the story of a remote Cortes project. Cuts to 2 to 5 minutes for any pitch or marketing use. Drone, exteriors, interiors, and narrative.</p>
+        </div>
+        <div style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:var(--ink); white-space:nowrap;">$3,000 to $4,500</div>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:48px;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">Note</div>
+      <div class="ed-body">
+        <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:1.1rem; color:rgba(26,26,24,0.78); line-height:1.7; margin-bottom:14px;">The cleanest path is to commit to video at the same time as photography. Capturing both in the same trip means the unit cost on travel doesn't get duplicated by a second visit, and the light gets planned for both at once.</p>
+        <p style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:300; font-size:1.1rem; color:rgba(26,26,24,0.78); line-height:1.7; margin-bottom:0;">If video isn't right for this project, that's fine. The photography stands on its own.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- A WORD ON OTHER PROJECTS -->
+<section class="ed-section">
+  <div class="ed-inner">
+
+    <div class="ed-spread ed-rule" style="padding-top:24px; margin-bottom:48px;">
+      <div class="ed-num">07</div>
+      <div>
+        <div class="ed-eyebrow gold">Worth Mentioning</div>
+        <h2 class="ed-title">A note on <em>your other builds</em>.</h2>
+      </div>
+    </div>
+
+    <div class="ed-spread" style="margin-bottom:48px;">
+      <div></div>
+      <div class="ed-body">
+        <p class="lead">You mentioned there are finished homes that never got photographed. If you want to pair one or more of them with the Cortes trip, or run a separate Vancouver Island sweep at some point, the math gets more efficient quickly.</p>
+        <p>The way I usually structure a multi-project trip is one consolidated travel charge for the region, then a per-project rate that drops a little for each additional residence (typically $1,500 to $1,800 per finished home, depending on scope). Cortes is its own trip because of the ferry math, but anything between Sooke and Victoria, or up the east coast, can be batched. Happy to scope something specific once we know which projects are in play.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- RIGHTS & TERMS -->
+<section class="ed-section alt">
+  <div class="ed-inner">
+
+    <div class="ed-spread ed-rule" style="padding-top:24px; margin-bottom:64px;">
+      <div class="ed-num">08</div>
+      <div>
+        <div class="ed-eyebrow gold">Rights &amp; Terms</div>
+        <h2 class="ed-title">How the imagery <em>gets used</em>.</h2>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:32px; padding-bottom:32px;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">Image Rights</div>
+      <div class="ed-body">
+        <p style="font-size:0.95rem; color:rgba(26,26,24,0.85); line-height:1.8; margin-bottom:0;">Rights are extended for agreed purposes: your firm's website, marketing, social, awards, and any submissions or pitches you control directly. Third-party use by other vendors or collaborators routes through me for approval and licensing on a per-use basis. I retain copyright on the underlying work.</p>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:32px; padding-bottom:32px;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">Booking &amp; Payment</div>
+      <div class="ed-body">
+        <p style="font-size:0.95rem; color:rgba(26,26,24,0.85); line-height:1.8; margin-bottom:0;">50% deposit on signing to hold the date. Balance plus travel actuals invoiced on delivery, net 15. Payment via e-transfer or direct deposit to Matt Anthony Photography.</p>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:32px; padding-bottom:32px;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">Weather &amp; Reschedule</div>
+      <div class="ed-body">
+        <p style="font-size:0.95rem; color:rgba(26,26,24,0.85); line-height:1.8; margin-bottom:0;">Coastal BC weather in summer is generally workable, but conditions shift. We confirm go/no-go 48 hours out. If we reschedule for weather, the deposit rolls to the new date with no penalty. Two-day scope is part of what de-risks this on a remote island.</p>
+      </div>
+    </div>
+
+    <div class="ed-spread ed-rule-thin" style="padding-top:32px; padding-bottom:32px;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">Coordination Window</div>
+      <div class="ed-body">
+        <p style="font-size:0.95rem; color:rgba(26,26,24,0.85); line-height:1.8; margin-bottom:0;">Once the date is locked, I block the surrounding days for travel and weather buffer. I ask for at least four weeks of lead time on confirmed Cortes shoot dates so the schedule and ferries align.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- NEXT STEPS / APPROVAL -->
+<section class="ed-section">
+  <div class="ed-inner">
+
+    <div class="ed-spread ed-rule" style="padding-top:24px; margin-bottom:48px;">
+      <div class="ed-num">09</div>
+      <div>
+        <div class="ed-eyebrow gold">Next Steps</div>
+        <h2 class="ed-title">Lock in <em>the trip</em>.</h2>
+      </div>
+    </div>
+
+    <div class="ed-spread" style="margin-bottom:64px;">
+      <div></div>
+      <div class="ed-body">
+        <p class="lead">If the scope reads right, approve below and I'll send the contract and deposit invoice the same day. The call is open whenever, happy to walk through anything before you sign.</p>
+      </div>
+    </div>
+
+    <!-- APPROVAL FORM -->
+    <div class="ed-spread ed-rule-thin" style="padding-top:48px;">
+      <div class="ed-eyebrow" style="margin-bottom:0;">Approve</div>
+      <div class="ed-body" style="max-width:760px;">
+
+        <div id="approvalForm">
+
+          <p style="font-size:0.95rem; color:rgba(26,26,24,0.85); margin-bottom:36px; line-height:1.8;">Photography scope as outlined: <strong style="color:var(--ink); font-weight:500;">$6,090 grand total, GST included</strong> for the recommended two-day shoot. <strong style="color:var(--ink); font-weight:500;">$4,515 grand total, GST included</strong> for the alternate one-day scope. Travel costs billed at actuals against receipts. Accommodation booked directly by your team. Add video below if you want motion alongside the stills.</p>
+
+          <!-- Scope selector -->
+          <div style="margin-bottom:36px;">
+            <div style="font-family:'Josefin Sans',sans-serif; font-weight:500; font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(26,26,24,0.55); margin-bottom:16px;">Choose Scope</div>
+
+            <label style="display:flex; align-items:center; gap:20px; padding:22px 4px; border-top:1px solid rgba(26,26,24,0.15); cursor:pointer;">
+              <input type="radio" name="scope" value="two-day" checked style="width:16px; height:16px; accent-color:var(--gold); cursor:pointer; flex-shrink:0;">
+              <div style="flex:1;">
+                <h4 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.25rem; color:var(--ink); margin-bottom:4px; line-height:1.3;">Two-day shoot, recommended.</h4>
+                <div style="font-size:0.85rem; color:rgba(26,26,24,0.65); line-height:1.55;">50 to 70 final images. Weather buffer, second twilight, full coverage.</div>
+              </div>
+              <strong style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:var(--ink); white-space:nowrap;">$6,090</strong>
+            </label>
+
+            <label style="display:flex; align-items:center; gap:20px; padding:22px 4px; border-top:1px solid rgba(26,26,24,0.15); border-bottom:1px solid rgba(26,26,24,0.15); cursor:pointer;">
+              <input type="radio" name="scope" value="one-day" style="width:16px; height:16px; accent-color:var(--gold); cursor:pointer; flex-shrink:0;">
+              <div style="flex:1;">
+                <h4 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.25rem; color:var(--ink); margin-bottom:4px; line-height:1.3;">One-day shoot.</h4>
+                <div style="font-size:0.85rem; color:rgba(26,26,24,0.65); line-height:1.55;">25 to 35 final images. Lighter coverage, weather risk on a single window.</div>
+              </div>
+              <strong style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:var(--ink); white-space:nowrap;">$4,515</strong>
+            </label>
+          </div>
+
+          <!-- Optional video add-ons -->
+          <div style="margin-bottom:36px;">
+            <div style="font-family:'Josefin Sans',sans-serif; font-weight:500; font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(26,26,24,0.55); margin-bottom:16px;">Optional Video (select if interested)</div>
+
+            <label style="display:flex; align-items:center; gap:20px; padding:22px 4px; border-top:1px solid rgba(26,26,24,0.15); cursor:pointer;">
+              <input type="checkbox" style="width:16px; height:16px; accent-color:var(--gold); cursor:pointer; flex-shrink:0;">
+              <div style="flex:1;">
+                <h4 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.25rem; color:var(--ink); margin-bottom:4px; line-height:1.3;">60-second walkthrough reel.</h4>
+                <div style="font-size:0.85rem; color:rgba(26,26,24,0.65); line-height:1.55;">Single sequence, ambient sound, vertical or horizontal.</div>
+              </div>
+              <strong style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:var(--ink); white-space:nowrap;">+$1,000</strong>
+            </label>
+
+            <label style="display:flex; align-items:center; gap:20px; padding:22px 4px; border-top:1px solid rgba(26,26,24,0.15); cursor:pointer;">
+              <input type="checkbox" style="width:16px; height:16px; accent-color:var(--gold); cursor:pointer; flex-shrink:0;">
+              <div style="flex:1;">
+                <h4 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.25rem; color:var(--ink); margin-bottom:4px; line-height:1.3;">Cinematic short, 2 to 3 min.</h4>
+                <div style="font-size:0.85rem; color:rgba(26,26,24,0.65); line-height:1.55;">Layered edit with drone, exterior motion, interior detail. 4K, music licensed.</div>
+              </div>
+              <strong style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.4rem; color:var(--ink); white-space:nowrap;">+$2,500</strong>
+            </label>
+
+            <label style="display:flex; align-items:center; gap:20px; padding:22px 4px; border-top:1px solid rgba(26,26,24,0.15); border-bottom:1px solid rgba(26,26,24,0.15); cursor:pointer;">
+              <input type="checkbox" style="width:16px; height:16px; accent-color:var(--gold); cursor:pointer; flex-shrink:0;">
+              <div style="flex:1;">
+                <h4 style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.25rem; color:var(--ink); margin-bottom:4px; line-height:1.3;">Documentary film with builder interview.</h4>
+                <div style="font-size:0.85rem; color:rgba(26,26,24,0.65); line-height:1.55;">Sit-down interview, narrative cut, drone, exteriors, interiors. Final scope and price confirmed before contract.</div>
+              </div>
+              <strong style="font-family:'Cormorant Garamond',serif; font-style:italic; font-weight:400; font-size:1.3rem; color:var(--ink); white-space:nowrap;">+$3,000 to $4,500</strong>
+            </label>
+          </div>
+
+          <!-- Notes -->
+          <div style="margin-bottom:32px;">
+            <div style="font-family:'Josefin Sans',sans-serif; font-weight:500; font-size:0.62rem; letter-spacing:0.22em; text-transform:uppercase; color:rgba(26,26,24,0.55); margin-bottom:12px;">Notes or Questions (optional)</div>
+            <textarea rows="3" placeholder="Anything you'd like to flag before the contract goes out..." style="width:100%; padding:14px 18px; border:1px solid rgba(26,26,24,0.15); background:rgba(255,255,255,0.6); font-family:'DM Sans',sans-serif; font-size:0.9rem; color:var(--ink); resize:vertical; line-height:1.7; outline:none;"></textarea>
+          </div>
+
+          <a href="mailto:info@mattanthonyphoto.com?subject=Cortes%20proposal%20approved%20%E2%80%94%20Fitchett%20Construction&body=Hi%20Matt%2C%0A%0AApproving%20the%20Cortes%20Island%20proposal.%20Please%20send%20the%20contract%20and%20deposit%20invoice.%0A%0A%E2%80%94%20Erin%20%2F%20Brad" style="display:inline-flex; align-items:center; gap:14px; padding:18px 44px; background:var(--ink); color:var(--paper); text-decoration:none; font-family:'Josefin Sans',sans-serif; font-weight:400; font-size:0.72rem; letter-spacing:0.25em; text-transform:uppercase; transition:all 0.4s cubic-bezier(0.16,1,0.3,1);" onmouseover="this.style.background='var(--gold)'; this.style.color='var(--ink)'" onmouseout="this.style.background='var(--ink)'; this.style.color='var(--paper)'">
+            <span>Approve &amp; Send to Matt</span>
+            <span style="font-size:1.1rem;">&rarr;</span>
+          </a>
+
+          <p style="margin-top:18px; font-size:0.78rem; color:rgba(26,26,24,0.55); line-height:1.6;">Opens your email client with your approval pre-filled to info@mattanthonyphoto.com. Nothing is binding until the contract is signed.</p>
+        </div>
+
+      </div>
+    </div>
+
+    <p style="margin-top:48px; font-size:0.85rem; color:rgba(26,26,24,0.6); text-align:center;">Or reply to this email directly. <a href="mailto:info@mattanthonyphoto.com" style="color:var(--gold); text-decoration:none;">info@mattanthonyphoto.com</a> &nbsp;|&nbsp; 604.765.9270</p>
+  </div>
+</section>
+
+<!-- CLOSING IMAGE -->
+<div style="position:relative; height:70vh; min-height:480px; max-height:720px; overflow:hidden; background:var(--ink);">
+  <img src="https://images.squarespace-cdn.com/content/v1/6824fd48afd1dd40cd73e146/9d699cdf-a6ac-442f-b234-97b0aba24035/5322-backhouse-web-5.jpg" alt="Architectural photography by Matt Anthony" style="width:100%; height:100%; object-fit:cover; filter:brightness(0.32);">
+  <div style="position:absolute; top:0; left:0; right:0; bottom:0; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:40px;">
+    <p style="font-family:'Cormorant Garamond',serif; font-size:clamp(1.7rem,3.6vw,2.6rem); font-weight:400; font-style:italic; color:var(--paper); max-width:600px; line-height:1.35; margin-bottom:36px;">A residence on Cortes,<br>read across two days of light.</p>
+    <div style="font-family:'Josefin Sans',sans-serif; font-size:0.7rem; letter-spacing:0.4em; text-transform:uppercase; color:var(--paper); margin-bottom:22px;">Matt Anthony Photography</div>
+    <div style="font-size:0.82rem; color:rgba(246,244,240,0.55); line-height:2.2;">
+      <a href="https://mattanthonyphoto.com" style="color:var(--gold); text-decoration:none;">mattanthonyphoto.com</a><br>
+      <a href="mailto:info@mattanthonyphoto.com" style="color:var(--gold); text-decoration:none;">info@mattanthonyphoto.com</a> &nbsp;&middot;&nbsp; 604.765.9270<br>
+      Squamish, BC
+    </div>
+    <div style="margin-top:36px; font-family:'Josefin Sans',sans-serif; font-size:0.5rem; letter-spacing:0.18em; text-transform:uppercase; color:rgba(246,244,240,0.18);">This proposal is confidential and prepared for Fitchett Construction Ltd.</div>
+  </div>
+</div>
+
+<footer class="footer">
+  Matt Anthony Photography &nbsp;<span>&middot;</span>&nbsp; Squamish, BC
+  <span class="gst">GST# 79115 0261 RT0001</span>
+</footer>
+
+<script>
+  window.addEventListener('scroll', function() {
+    var h = document.documentElement;
+    var b = document.body;
+    var st = 'scrollTop';
+    var sh = 'scrollHeight';
+    var progress = (h[st] || b[st]) / ((h[sh] || b[sh]) - h.clientHeight) * 100;
+    document.getElementById('progress').style.width = progress + '%';
+  });
+</script>
+</body>
+</html>
